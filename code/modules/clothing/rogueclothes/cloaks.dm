@@ -1694,3 +1694,31 @@
 	name = "snow cloak"
 	desc = "A cloak meant to keep one's body warm in the cold of the mountains as well as the dampness of Azuria."
 	icon_state = "snowcloak"
+
+/obj/item/clothing/cloak/cotehardie
+	name = "cotehardie"
+	desc = "A long-sleeved tunic often worn by peasants. It's used by men and women, in both summer and winter."
+	color = null
+	icon_state = "cotehardie"
+	item_state = "cotehardie"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	alternate_worn_layer = TABARD_LAYER
+	body_parts_covered = CHEST|GROIN|ARMS
+	boobed = TRUE
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	flags_inv = HIDECROTCH|HIDEBOOB
+	var/overarmor = TRUE
+
+/obj/item/clothing/cloak/cotehardie/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
+/obj/item/clothing/cloak/cotehardie/dropped(mob/living/carbon/human/user)
+	..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		var/list/things = STR.contents()
+		for(var/obj/item/I in things)
+			STR.remove_from_storage(I, get_turf(src))
+
+/obj/item/clothing/cloak/cotehardie/noble
