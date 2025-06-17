@@ -49,6 +49,9 @@
 	armor = ARMOR_PADDED_GOOD
 	sellprice = 25
 	color = "#976E6B"
+	sewrepair = TRUE
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
 	var/shiftable = TRUE
 	var/shifted = FALSE
 
