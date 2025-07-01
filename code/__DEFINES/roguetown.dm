@@ -441,6 +441,8 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_GUILDSMASTER 	"CAT_GUILDSMASTER"	// Guildsmaster class - Handles Guildsmaster class selector 
 #define CTAG_GUILDSMEN 		"CAT_GUILDSMEN"		// Guildsmen class - Handles Guildsmen class selector
 #define CTAG_NIGHTMAIDEN	"CAT_NIGHTMAIDEN"	// Bathhouse Attendant's aesthetic choices.
+#define CTAG_PRISONER "CAT_PRISONER"
+
 /*
 	Defines for the triumph buy datum categories
 */
