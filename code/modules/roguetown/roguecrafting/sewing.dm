@@ -1149,6 +1149,18 @@
 	name = "free man's shroud (3 cloth)"
 	result = list(/obj/item/clothing/head/roguetown/menacing/bandit)
 	reqs = list(/obj/item/natural/cloth = 3)
+	
+/datum/crafting_recipe/roguetown/sewing/surgicalbag
+	name = "surgeon's bag (3 fibers, 1 cloth)"
+	result = list(/obj/item/storage/belt/rogue/surgery_bag/empty)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 4
+
+/datum/crafting_recipe/roguetown/sewing/surgcollar
+	name = "surgeon's collar (1 fibers, 1 cloth)"
+	result = list(/obj/item/clothing/neck/roguetown/collar/surgcollar)
+	reqs = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1)
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/sewing/battleskirt
