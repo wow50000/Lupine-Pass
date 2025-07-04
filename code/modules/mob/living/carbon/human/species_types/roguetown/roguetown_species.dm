@@ -37,6 +37,8 @@
 			return strings("feline_replacement.json", type)
 		if("Slopes accent")
 			return strings("welsh_replacement.json", type)
+		if("Saut al-Atash accent")
+			return
 		if("Valley accent")
 			return strings("valley_replacement.json", type)
 
