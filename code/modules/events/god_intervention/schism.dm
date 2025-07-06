@@ -132,15 +132,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 		// Promote the selected priest if we found one
 		if(selected_priest)
-			var/male
-			if(selected_priest.gender == FEMALE)
-				selected_priest.job = "Vice Priestess"
-				selected_priest.advjob = "Vice Priestess"
-				male = FALSE
-			else
-				selected_priest.job = "Vice Priest"
-				selected_priest.advjob = "Vice Priest"
-				male = TRUE
+			selected_priest.job = "Vice Bishop"
+			selected_priest.advjob = "Vice Bishop"
 			selected_priest.migrant_type = null
 			if(!was_clergy)
 				selected_priest.verbs |= /mob/living/carbon/human/proc/devotionreport
@@ -150,11 +143,11 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			selected_priest.verbs |= /mob/living/carbon/human/proc/churchannouncement
 
 			if(was_supporter)
-				to_chat(selected_priest, span_green("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a [male ? "Vice Priest" : "Vice Priestess"]!"))
+				to_chat(selected_priest, span_green("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a Bishop"))
 			else
-				to_chat(selected_priest, span_green("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a [male ? "Vice Priest" : "Vice Priestess"]!"))
+				to_chat(selected_priest, span_green("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a Bishop"))
 
-			priority_announce("[challenger.name] has selected [selected_priest.real_name] as a [male ? "Vice Priest" : "Vice Priestess"]! Power sharing begins!", "[male ? "Vice Priest" : "Vice Priestess"] rises")
+			priority_announce("[challenger.name] has selected [selected_priest.real_name] as a Bishop! Power sharing begins!", "Vice Bishop rises")
 
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
