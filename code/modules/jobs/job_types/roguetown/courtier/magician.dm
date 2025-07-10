@@ -38,14 +38,17 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	beltr = /obj/item/storage/keyring/mage
-	beltl = /obj/item/book/spellbook
+	beltl = /obj/item/storage/magebag
 	id = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/rogueweapon/woodstaff/riddle_of_steel/magos
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
-	/obj/item/reagent_containers/glass/bottle/rogue/poison, 
-	/obj/item/reagent_containers/glass/bottle/rogue/healthpot,
-	/obj/item/recipe_book/alchemy
+		/obj/item/reagent_containers/glass/bottle/rogue/poison, 
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot,
+		/obj/item/recipe_book/alchemy,
+		/obj/item/recipe_book/magic,
+		/obj/item/book/spellbook,
+		/obj/item/rogueweapon/huntingknife/idagger/silver/arcyne
 	)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, "[type]")
 	ADD_TRAIT(H, TRAIT_INTELLECTUAL, TRAIT_GENERIC)
@@ -83,6 +86,9 @@
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 			H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
 	switch(H.patron?.type)
-		if(/datum/patron/inhumen/zizo)
+		if(/datum/patron/inhumen/zizo,
+	  		/datum/patron/inhumen/matthios,
+	   		/datum/patron/inhumen/graggar,
+	   		/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
-			backpack_contents += list(/obj/item/roguekey/inhumen = 1)
+			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)

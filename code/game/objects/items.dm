@@ -226,6 +226,8 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	/// This is what we get when we either tear up or salvage a piece of clothing
 	var/obj/item/salvage_result = null
 
+	var/craft_blocked = FALSE //blocks the item from being used in crafts, such as conjured items
+
 	/// The amount of salvage we get out of salvaging with scissors
 	var/salvage_amount = 0 //This will be more accurate when sewing recipes get sorted
 
@@ -234,7 +236,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 	/// Number of torn sleves, important for salvaging calculations and examine text
 	var/torn_sleeve_number = 0
-	
+
 	/// Angle of the icon, these are used for attack animations.
 	var/icon_angle = 50 // most of our icons are angled
 
@@ -678,6 +680,9 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		owner.visible_message(span_danger("[owner] blocks [attack_text] with [src]!"))
 		return 1
 	return 0
+
+/obj/item/proc/hit_response(mob/living/carbon/human/owner, mob/living/carbon/human/attacker)
+	SEND_SIGNAL(src, COMSIG_ITEM_HIT_RESPONSE, owner, attacker)		//sends signal for Magic_items. Used to call enchantments effects for worn items
 
 /obj/item/proc/talk_into(mob/M, input, channel, spans, datum/language/language)
 	return ITALICS | REDUCE_RANGE

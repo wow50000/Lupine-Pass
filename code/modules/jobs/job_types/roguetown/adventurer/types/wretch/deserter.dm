@@ -6,7 +6,7 @@
 	outfit = /datum/outfit/job/roguetown/wretch/deserter
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
 	category_tags = list(CTAG_WRETCH)
-	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW)
+	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_HERESIARCH)
 	
 	cmode_music = 'sound/music/combat_bandit.ogg'
 	classes = list("Disgraced" = "You were once a venerated and revered knight - now, a traitor who abandoned your liege. You lyve the lyfe of an outlaw, shunned and looked down upon by society.", 
@@ -116,7 +116,11 @@
 			belt = /obj/item/storage/belt/rogue/leather/steel
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backl = /obj/item/storage/backpack/rogue/satchel //gwstraps landing on backr asyncs with backpack_contents
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1, /obj/item/rope/chain = 1)
+			backpack_contents = list(
+				/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
+				/obj/item/flashlight/flare/torch/lantern/prelit = 1,
+				/obj/item/rope/chain = 1,
+				)
 
 
 			wretch_select_bounty(H)
