@@ -5,27 +5,27 @@
 	i_type = "Valuables"
 
 /datum/anvil_recipe/valuables/gold
-	name = "Statue"
+	name = "Statue, Gold"
 	req_bar = /obj/item/ingot/gold
 	created_item = /obj/item/roguestatue/gold
 
 /datum/anvil_recipe/valuables/silver
-	name = "Statue"
+	name = "Statue, Silver"
 	req_bar = /obj/item/ingot/silver
 	created_item = /obj/item/roguestatue/silver
 
 /datum/anvil_recipe/valuables/iron
-	name = "Statue"
+	name = "Statue, Iron"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/roguestatue/iron
 
 /datum/anvil_recipe/valuables/aalloy
-	name = "Decrepit Statue"
+	name = "Statue, Decrepit" // decrepit
 	req_bar = /obj/item/ingot/aalloy
 	created_item = /obj/item/roguestatue/aalloy
 
 /datum/anvil_recipe/valuables/steel
-	name = "Statue"
+	name = "Statue, Steel"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/roguestatue/steel
 
