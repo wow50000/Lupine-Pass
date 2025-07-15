@@ -103,7 +103,7 @@
 	craftdiff = 1
 
 /datum/anvil_recipe/armor/paalloy/gorget
-	name = "Gorget, Purified"
+	name = "Gorget, Ancient"
 	req_bar = /obj/item/ingot/purifiedaalloy
 	created_item = /obj/item/clothing/neck/roguetown/gorget/paalloy
 	craftdiff = 3

@@ -666,28 +666,28 @@
 
 //GOLD
 /datum/anvil_recipe/weapons/decsword
-	name = "Decorated Sword (+1 Steel Sword)"
+	name = "Sword, Decorated (+1 Steel Sword)"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/rogueweapon/sword)
 	created_item = /obj/item/rogueweapon/sword/decorated
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/decsaber
-	name = "Decorated Sabre (+1 Steel Sabre)"
+	name = "Sabre, Decorated (+1 Steel Sabre)"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/rogueweapon/sword/sabre)
 	created_item = /obj/item/rogueweapon/sword/sabre/dec
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/decrapier
-	name = "Decorated Rapier (+1 Steel Rapier)"
+	name = "Rapier, Decorated (+1 Steel Rapier)"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/rogueweapon/sword/rapier)
 	created_item = /obj/item/rogueweapon/sword/rapier/dec
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/declongsword
-	name = "Decorated Longsword (+1 Longsword)"
+	name = "Longsword, Decorated (+1 Steel Longsword)"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/rogueweapon/sword/long)
 	created_item = /obj/item/rogueweapon/sword/long/dec
@@ -695,14 +695,14 @@
 
 // SILVER
 /datum/anvil_recipe/weapons/silver/elfsaber
-	name = "Elvish Saber (+1 Silver)"
+	name = "Sabre, Elvish (+1 Silver)"
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/ingot/silver)
 	created_item = /obj/item/rogueweapon/sword/sabre/elf
 	craftdiff = 3
 
 /datum/anvil_recipe/weapons/silver/elfdagger
-	name = "Elvish Dagger"
+	name = "Dagger, Elvish"
 	req_bar = /obj/item/ingot/silver
 	created_item = /obj/item/rogueweapon/huntingknife/idagger/silver/elvish
 	craftdiff = 3
