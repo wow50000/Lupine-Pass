@@ -13,7 +13,7 @@
 	craftdiff = 1
 
 /datum/anvil_recipe/engineering/flint
-	name = "Flint x3 (+1 stone)"
+	name = "Flint (x3) (+1 stone)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/natural/stone)
 	created_item = /obj/item/flint
@@ -110,7 +110,7 @@
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/smokebomb
-	name = "Smoke Bomb 3x (+Cog, +Ash)"
+	name = "Smoke Bomb (x3) (+Cog, +Ash)"
 	req_bar = /obj/item/ingot/bronze
 	created_item = /obj/item/smokebomb
 	additional_items = list(/obj/item/roguegear, /obj/item/ash)
@@ -134,28 +134,28 @@
 // ------------ PROSTHETICS ----------------
 
 /datum/anvil_recipe/engineering/bronze/prosthetic/bronzeleftarm
-	name = "Bronze Left Arm (+2 Cogs)"
+	name = "Left Arm, Bronze (+2 Cogs)"
 	req_bar = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/bodypart/l_arm/prosthetic/bronzeleft
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/prosthetic/bronzerightarm
-	name = "Bronze Right Arm (+2 Cogs)"
+	name = "Right Arm, Bronze (+2 Cogs)"
 	req_bar = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/bodypart/r_arm/prosthetic/bronzeright
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/prosthetic/bronzeleftleg
-	name = "Bronze Left Leg (+2 Cogs)"
+	name = "Left Leg, Bronze (+2 Cogs)"
 	req_bar = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/bodypart/l_leg/prosthetic/bronzeleft
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/prosthetic/bronzerightleg
-	name = "Bronze Right Leg (+2 Cogs)"
+	name = "Right Leg, Bronze (+2 Cogs)"
 	req_bar = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/bodypart/r_leg/prosthetic/bronzeright
