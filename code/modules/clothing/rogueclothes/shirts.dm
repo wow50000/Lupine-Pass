@@ -18,7 +18,7 @@
 	salvage_amount = 2
 
 	grid_width = 64
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt
 	name = "shirt"
