@@ -234,6 +234,7 @@
 /datum/anvil_recipe/armor/iron/hauberk
 	name = "Hauberk, Iron (+1 Iron)"
 	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
 	created_item = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
 
 /datum/anvil_recipe/armor/iron/chaincoif
@@ -283,10 +284,9 @@
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/iron/chainglove
-	name = "Chain Gauntlets, Iron (x2)"
+	name = "Chain Gauntlets, Iron"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/gloves/roguetown/chain/iron
-	createditem_num = 2
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/plategauntlets
@@ -354,10 +354,9 @@
 	craftdiff = 0
 	
 /datum/anvil_recipe/armor/iron/jackchain
-	name = "Jack Chain, Iron (x2)"
+	name = "Jack Chain, Iron"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/wrists/roguetown/bracers/jackchain
-	createditem_num = 2
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/boot
@@ -546,10 +545,9 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/chainglove
-	name = "Chain Gauntlets, Steel (x2)"
+	name = "Chain Gauntlets, Steel"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/gloves/roguetown/chain
-	createditem_num = 2
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/plateglove
