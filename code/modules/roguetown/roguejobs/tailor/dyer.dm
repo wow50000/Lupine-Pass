@@ -92,15 +92,15 @@ var/global/list/pridelist = list(
 	user.visible_message(span_notice("[user] inserts [I] into [src]'s receptable."))
 
 	inserted = I
-	ui_interact(user)
+	interact(user)
 
 /obj/machinery/gear_painter/AllowDrop()
 	return FALSE
 
 /obj/machinery/gear_painter/attack_hand(mob/living/user)
-	ui_interact(user)
+	interact(user)
 
-/obj/machinery/gear_painter/ui_interact(mob/user)
+/obj/machinery/gear_painter/interact(mob/user)
 	if(!is_operational())
 		return ..()
 	user.set_machine(src)
@@ -108,7 +108,7 @@ var/global/list/pridelist = list(
 	var/list/dat = list("<TITLE>Dye Bin</TITLE><BR>")
 	if(!inserted)
 		dat += "No item inserted."
-		menu.set_content(dat.Join(""))
+		menu.set_content("<html>[dat.Join("")]</html>")
 		menu.open()
 		return
 
@@ -133,11 +133,12 @@ var/global/list/pridelist = list(
 		dat += "<A href='?src=\ref[src];clear_altdetail=1'>Remove paintjob</A><BR><BR>"
 
 	dat += "<A href='?src=\ref[src];eject=1'>Eject item.</A><BR><BR>"
-	menu.set_content(dat.Join(""))
+	menu.set_content("<html>[dat.Join("")]</html>")
 	menu.open()
 
 /obj/machinery/gear_painter/Topic(href, href_list)
-	if(!(. = ..()))
+	. = ..()
+	if(.)
 		return
 
 	add_fingerprint(usr)
