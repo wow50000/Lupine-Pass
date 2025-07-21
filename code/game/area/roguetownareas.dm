@@ -61,24 +61,11 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	plane = INDOOR_PLANE
 	converted_type = /area/rogue/outdoors
 
-
-
 /area/rogue/indoors/banditcamp
 	name = "bandit camp indoors"
 	droning_sound = 'sound/music/area/banditcamp.ogg'
 	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
 	droning_sound_night = 'sound/music/area/banditcamp.ogg'
-
-/area/rogue/indoors/cave
-	name = "latejoin cave"
-	icon_state = "cave"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	soundenv = 8
-
-/area/rogue/indoors/cave/late/can_craft_here()
-	return FALSE
-
 
 ///// OUTDOORS AREAS //////
 
@@ -255,63 +242,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 
-/area/rogue/under/cavewet
-	name = "cavewet"
-	icon_state = "cavewet"
-	warden_area = TRUE
-	first_time_text = "The Undersea"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
-	droning_sound = 'sound/music/area/caves.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/carbon/human/species/skeleton/npc = 10,
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
-				/mob/living/carbon/human/species/goblin/npc/sea = 20,
-				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 15)
-	converted_type = /area/rogue/outdoors/caves
-
-/area/rogue/under/underdark
-	name = "The Underdark"
-	icon_state = "cavewet"
-	warden_area = FALSE
-	first_time_text = "The Underdark"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
-	droning_sound = 'sound/music/area/underdark.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated = 20,
-				/mob/living/carbon/human/species/elf/dark/drowraider/ambush = 10,
-				/mob/living/simple_animal/hostile/retaliate/rogue/minotaur = 25,
-				/mob/living/carbon/human/species/goblin/npc/ambush/moon = 30,
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 15)
-	converted_type = /area/rogue/outdoors/caves
-
-/area/rogue/under/cavewet/bogcaves
-	first_time_text = "The Undergrove"
-
-/area/rogue/under/cavewet/bogcaves/sunkencity
-	first_time_text = "MELTED UNDERCITY"
-	spookysounds = SPOOKY_MYSTICAL
-	spookynight = SPOOKY_MYSTICAL
-	droning_sound = 'sound/music/area/underdark.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
 /area/rogue/under/cave/spider
 	icon_state = "spider"
 	first_time_text = "ARAIGNÉE"
@@ -321,6 +251,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/spidercave
+
 /area/rogue/outdoors/spidercave
 	icon_state = "spidercave"
 	droning_sound = 'sound/music/area/spidercave.ogg'
@@ -336,6 +267,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/spidercave
+
 /area/rogue/outdoors/spidercave
 	icon_state = "spidercave"
 	droning_sound = 'sound/music/area/spidercave.ogg'
@@ -678,24 +610,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "incinerator"
 	icon_state = "fire_chamber"
 
-/area/rogue/indoors/town/fire_chamber/can_craft_here()
-	return FALSE
-
 /area/rogue/indoors/town/warehouse
 	name = "dock warehouse import"
 	icon_state = "warehouse"
-
-/area/rogue/indoors/town/warehouse/can_craft_here()
-	return FALSE
 
 /area/rogue/indoors/town/vault
 	name = "vault"
 	icon_state = "vault"
 	keep_area = TRUE
-
-/area/rogue/indoors/town/vault/can_craft_here()
-	return FALSE
-
 /area/rogue/indoors/town/entrance
 	first_time_text = "Roguetown"
 	icon_state = "entrance"
