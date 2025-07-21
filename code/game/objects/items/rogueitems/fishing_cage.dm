@@ -48,6 +48,8 @@
 				STOP_PROCESSING(SSobj, src)
 				icon_state = "fishingcage_deployed"
 				add_sleep_experience(user, /datum/skill/labor/fishing, 20)
+				record_featured_stat(FEATURED_STATS_FISHERS, user)
+				GLOB.azure_round_stats[STATS_FISH_CAUGHT]++
 				new caught(user.loc)
 				caught = null
 				desc = initial(desc)
