@@ -325,6 +325,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
 
 /area/rogue/under/cave/dragonden
 	name = "dragonnest"
@@ -334,6 +335,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
 
 /area/rogue/under/cave/goblinfort
 	name = "goblinfort"
@@ -343,6 +345,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
 
 /area/rogue/under/cave/scarymaze
 	name = "hauntedlabyrinth"
@@ -352,6 +355,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/underworlddrone.ogg'
 	droning_sound_night = 'sound/music/area/underworlddrone.ogg'
 	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
 
 /area/rogue/under/cave/undeadmanor
 	name = "skelemansion"
@@ -361,6 +365,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
 
 /area/rogue/outdoors/dungeon1
 	name = "smalldungeonoutdoors"
@@ -368,6 +373,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/dungeon.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	ceiling_protected = TRUE
 
 /area/rogue/under/cave/mazedungeon
 	name = "mazedungeon"
