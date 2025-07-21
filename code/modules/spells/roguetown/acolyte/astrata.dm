@@ -228,3 +228,183 @@
 		H.viewcone_override = FALSE
 		H.hide_cone()
 		H.update_cone_show()
+
+// =====================
+// Immolation Component
+// =====================
+/datum/component/immolation
+	var/mob/living/carbon/caster
+	var/mob/living/carbon/partner
+	var/duration = 360 SECONDS
+	var/max_distance = 6
+	var/self_damage
+	var/base_damage
+	var/damage_amplifier
+	var/target_bonus = 0.5
+	var/ispartner = FALSE
+	var/immolate = FALSE
+	can_transfer = TRUE
+
+/datum/component/immolation/partner
+	ispartner = TRUE
+	immolate = TRUE
+
+/datum/component/immolation/Initialize(mob/living/partner_mob, mob/living/carbon/caster_mob, var/holy_skill, var/is_astrata)
+	if(!isliving(parent) || !iscarbon(partner_mob))
+		return COMPONENT_INCOMPATIBLE
+
+	// Prevent duplicate immolation
+	if(parent.GetComponent(/datum/component/immolation))
+		return COMPONENT_INCOMPATIBLE
+
+	caster = caster_mob
+	partner = partner_mob
+
+	// Configure damage based on patron and skill
+	base_damage = 5
+	self_damage = 0.95
+	damage_amplifier = 0.95
+
+	if(holy_skill >= 3)
+		self_damage -= 0.1 // 85%
+		damage_amplifier += 0.15 // 110%
+	if(is_astrata)
+		self_damage -= 0.1 // 75%
+		damage_amplifier += 0.15 // 125%
+
+	// Set up processing and expiration
+	START_PROCESSING(SSprocessing, src)
+	RegisterSignal(parent, COMSIG_LIVING_MIRACLE_HEAL_APPLY, PROC_REF(on_heal))
+	RegisterSignal(parent, COMSIG_PARENT_QDELETING, PROC_REF(on_deletion))
+	addtimer(CALLBACK(src, .proc/remove_immolation), duration)
+
+	// Apply visual effect
+	var/mob/living/L = parent
+	if(parent == caster)
+		L.apply_status_effect(/datum/status_effect/immolation, FALSE)
+	else
+		L.apply_status_effect(/datum/status_effect/immolation, TRUE)
+	return ..()
+
+/datum/component/immolation/proc/on_deletion()
+	remove_immolation()
+
+/datum/component/immolation/proc/on_heal()
+	// Healing is removed.
+	partner.remove_status_effect(/datum/status_effect/buff/healing)
+
+/datum/component/immolation/process()
+	if(!istype(partner) || !istype(caster) || partner.stat == DEAD || caster.stat != CONSCIOUS || get_dist(partner, caster) > max_distance)
+		remove_immolation()
+
+/datum/component/immolation/proc/remove_immolation()
+	var/mob/living/L = parent
+	if(L)
+		L.remove_status_effect(/datum/status_effect/immolation)
+		UnregisterSignal(L, list(
+			COMSIG_LIVING_MIRACLE_HEAL_APPLY,
+			COMSIG_PARENT_QDELETING
+		))
+	
+	if(partner)
+		partner.remove_status_effect(/datum/status_effect/immolation)
+		var/datum/component/immolation/other = partner.GetComponent(/datum/component/immolation)
+		if(other)
+			other.partner = null
+			qdel(other)
+
+	partner = null
+	STOP_PROCESSING(SSprocessing, src)
+	qdel(src)
+
+// =====================
+// Immolation Spell
+// =====================
+/obj/effect/proc_holder/spell/invoked/immolation
+	name = "Immolation"
+	desc = "Ignite a target in holy flames, burning those that surround them. Fire burns brighter within devout Astratans."
+	overlay_state = "immolate"
+	range = 2
+	chargetime = 0.5 SECONDS
+	invocation = "By sacred fire, be cleansed!"
+	sound = 'sound/magic/fireball.ogg'
+	recharge_time = 600 SECONDS
+	miracle = TRUE
+	devotion_cost = 60
+	associated_skill = /datum/skill/magic/holy
+
+/obj/effect/proc_holder/spell/invoked/immolation/cast(list/targets, mob/living/user)
+	var/mob/living/carbon/target = targets[1]
+
+	var/datum/component/immolation/existing = user.GetComponent(/datum/component/immolation)
+	if(existing)
+		to_chat(user, span_warning("You are already channeling someone"))
+		revert_cast()
+		return FALSE
+
+	if(!istype(target, /mob/living/carbon) || target == user)
+		revert_cast()
+		return FALSE
+
+	// Channeling requirement
+	if(!do_after(user, 8 SECONDS, target = target))
+		to_chat(user, span_warning("Astratan might requires unwavering focus to channel!"))
+		revert_cast()
+		return FALSE
+
+	// Get caster properties
+	var/holy_skill = target.get_skill_level(associated_skill)
+	var/is_astrata = (istype(target.patron, /datum/patron/divine/astrata))
+
+	// Apply component
+	user.AddComponent(/datum/component/immolation, target, user, holy_skill, is_astrata)
+	target.AddComponent(/datum/component/immolation/partner, target, user, holy_skill, is_astrata)
+
+	// Visual feedback
+	user.visible_message(
+		span_notice("Holy flames erupt from [user]'s hands and engulf [target]!"),
+		span_danger("[target] lights ablaze with sacred fire. Fire cutting like a blade in a small area around them.")
+	)
+	return TRUE
+
+// =====================
+// Immolation Status Effect
+// =====================
+#define IMMOLATION_FILTER "immolation_glow"
+
+/datum/status_effect/immolation
+	id = "immolation"
+	duration = -1
+	alert_type = /atom/movable/screen/alert/status_effect/immolation
+	var/outline_colour = "#FF4500"
+	var/flaming_hot = FALSE
+
+/atom/movable/screen/alert/status_effect/immolation
+	name = "Immolated"
+	desc = "Holy flames consume you! Anyone but those that follow Astrata will be cut down for stepping near."
+
+/datum/status_effect/immolation/on_creation(mob/living/new_owner, light_ablaze)
+	flaming_hot = light_ablaze
+	return ..()
+
+/datum/status_effect/immolation/on_apply()
+	if(!owner.get_filter(IMMOLATION_FILTER))
+		owner.add_filter(IMMOLATION_FILTER, 2, list(
+			"type" = "outline",
+			"color" = outline_colour,
+			"alpha" = 60,
+			"size" = 2,
+		))
+	if(flaming_hot)
+		new/obj/effect/dummy/lighting_obj/moblight/fire(owner)
+	return TRUE
+
+/datum/status_effect/immolation/on_remove()
+	owner.remove_filter(IMMOLATION_FILTER)
+	if(flaming_hot)
+		for(var/obj/effect/dummy/lighting_obj/moblight/fire/F in owner)
+			qdel(F)
+		if(owner.on_fire)
+			owner.ExtinguishMob()
+
+#undef IMMOLATION_FILTER
