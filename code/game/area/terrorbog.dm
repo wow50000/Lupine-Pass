@@ -36,7 +36,7 @@
 	droning_sound_night = null
 
 /area/rogue/outdoors/bog/north
-	name = "The Terrorbog - North"
+	name = "Northern Terrorbog"
 
 /area/rogue/outdoors/bog/south
-	name = "The Terrorbog - South"
+	name = "Southern Terrorbog"

@@ -28,10 +28,3 @@
 /area/rogue/indoors/cave/southern
 	name = "Southern Undercoast"
 	first_time_text = "Southern Undercoast"
-
-/area/rogue/indoors/cave
-	name = "latejoin cave"
-	icon_state = "cave"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	soundenv = 8
