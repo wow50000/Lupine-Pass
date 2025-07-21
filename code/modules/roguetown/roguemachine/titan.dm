@@ -35,11 +35,12 @@ GLOBAL_VAR_INIT(last_crown_announcement_time, -1000)
 /obj/structure/roguemachine/titan/Destroy()
 	lose_hearing_sensitivity()
 	set_light(0)
-	..()
+	return ..()
 
 /obj/structure/roguemachine/titan/Initialize()
 	. = ..()
 	icon_state = null
+	become_hearing_sensitive()
 //	var/mutable_appearance/eye_lights = mutable_appearance(icon, "titan-eyes")
 //	eye_lights.plane = ABOVE_LIGHTING_PLANE //glowy eyes
 //	eye_lights.layer = ABOVE_LIGHTING_LAYER
