@@ -1,7 +1,8 @@
 /datum/antagonist/chosen
-	name = "Chosen"
-	roundend_category = "chosen"
-	antagpanel_category = "Storyteller" // special role that basically just exists to give
+	name = "Chosen" // special role that basically just exists to give
+	antag_memory = "<b>I have been CHOSEN for tasks by an external entity, or the TUMOR within my mind...</b>"
+	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_name = "storyteller"
 	job_rank = ROLE_CHOSEN // storytellers the ability to add objectives to whoever. this is probably
 	show_in_roundend = FALSE // terrible because i dont know what the fuck i'm doing beyond  guessing and reading code.
 	increase_votepwr = FALSE // like this, what does this do?
@@ -18,7 +19,6 @@
 	return ..()
 
 /datum/antagonist/chosen/greet()
-	to_chat(owner.current, span_userdanger("I have been CHOSEN for tasks by an external entity, or the TUMOR within my mind..."))
 	owner.announce_objectives()
 	return ..()
 
