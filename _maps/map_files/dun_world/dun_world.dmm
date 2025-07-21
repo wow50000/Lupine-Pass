@@ -51242,12 +51242,6 @@
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/garrison)
-"pUh" = (
-/obj/structure/fluff/littlebanners/bluewhite{
-	pixel_y = -6
-	},
-/turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/town)
 "pUm" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/rogue/naturalstone,
@@ -55928,6 +55922,12 @@
 	pixel_y = 12
 	},
 /turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
+"rqB" = (
+/obj/structure/fluff/littlebanners/bluewhite{
+	pixel_y = -6
+	},
+/turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town)
 "rqC" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
@@ -60822,6 +60822,9 @@
 "sOD" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
+	},
+/obj/structure/fluff/littlebanners/bluewhite{
+	pixel_y = -6
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town)
@@ -71559,12 +71562,6 @@
 /obj/item/rogueweapon/shovel,
 /obj/structure/closet/dirthole/grave,
 /obj/item/alch/rosa,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
-"vXh" = (
-/obj/structure/fluff/littlebanners/bluewhite{
-	pixel_y = -6
-	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "vXn" = (
@@ -265048,7 +265045,7 @@ qyR
 tFL
 qyR
 fpx
-vXh
+fpx
 fpx
 aFv
 lRK
@@ -265500,11 +265497,11 @@ qyR
 qyR
 qyR
 tFL
-pUh
+qyR
 qyR
 fpx
 fpx
-aFv
+rqB
 aFv
 aFv
 fpx
@@ -265952,11 +265949,11 @@ pWT
 pWT
 qyR
 qyR
-pUh
+qyR
 qyR
 qyR
 xrk
-aFv
+rqB
 aFv
 fpx
 fpx
