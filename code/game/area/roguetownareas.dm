@@ -629,13 +629,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "entrance"
 
 /area/rogue/indoors/town/dwarfin
-	name = "dwarven quarter"
+	name = "The Guild of Craft"
 	icon_state = "dwarfin"
 	droning_sound = 'sound/music/area/dwarf.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "The Dwarven Quarter"
+	first_time_text = "AZUREAN GUILD OF CRAFT"
 	converted_type = /area/rogue/outdoors/exposed/dwarf
+
 /area/rogue/outdoors/exposed/dwarf
 	icon_state = "dwarf"
 	droning_sound = 'sound/music/area/dwarf.ogg'
