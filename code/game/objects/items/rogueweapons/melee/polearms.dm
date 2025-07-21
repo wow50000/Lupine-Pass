@@ -447,18 +447,29 @@
 		/obj/item/reagent_containers/food/snacks/fish/eel = 150,
 		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 20,
 	)
-	seafishloot = list(
+	coastalseafishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/cod = 200,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 200,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 220,
 		/obj/item/reagent_containers/food/snacks/fish/sole = 305,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 150,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 300,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 45,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 120,
 		/obj/item/reagent_containers/food/snacks/fish/bass = 200,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 100,
-		/obj/item/reagent_containers/food/snacks/fish/clownfish = 50,
-		/mob/living/carbon/human/species/goblin/npc/sea = 25,
-		/mob/living/simple_animal/hostile/rogue/deepone = 30,
-		/mob/living/simple_animal/hostile/rogue/deepone/spit = 30,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 30,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 15,
+		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,
+	)
+	deepseafishloot = list(
+		/obj/item/reagent_containers/food/snacks/fish/cod = 100,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 100,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 91,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 210,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 390,
+		/obj/item/reagent_containers/food/snacks/fish/bass = 120,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 200,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 100,
+		/mob/living/carbon/human/species/goblin/npc/sea = 45,
+		/mob/living/simple_animal/hostile/rogue/deepone = 50,
+		/mob/living/simple_animal/hostile/rogue/deepone/spit = 50,
 	)
 	mudfishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/mudskipper = 200,
@@ -469,7 +480,8 @@
 	var/ft = 160 //Time to get a catch, in ticks
 	var/fpp =  130 - (40 + (sl * 15)) // Fishing power penalty based on fishing skill level
 	var/frwt = list(/turf/open/water/river, /turf/open/water/cleanshallow, /turf/open/water/pond)
-	var/salwt = list(/turf/open/water/ocean, /turf/open/water/ocean/deep)
+	var/salwt_coast = list(/turf/open/water/ocean)
+	var/salwt_deep = list(/turf/open/water/ocean/deep)
 	var/mud = list(/turf/open/water/swamp, /turf/open/water/swamp/deep)
 	if(istype(target, /turf/open/water))
 		if(user.used_intent.type == SPEAR_CAST && !user.doing)
@@ -491,8 +503,10 @@
 						var/A
 						if(target.type in frwt)
 							A = pickweight(freshfishloot)
-						else if(target.type in salwt)
-							A = pickweight(seafishloot)
+						else if(target.type in salwt_coast)
+							A = pickweight(coastalseafishloot)
+						else if(target.type in salwt_deep)
+							A = pickweight(deepseafishloot)
 						else if(target.type in mud)
 							A = pickweight(mudfishloot)
 						if(A)
