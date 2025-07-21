@@ -21,31 +21,49 @@
 		/obj/item/reagent_containers/glass/bottle/rogue = 1,		
 		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 20,		
 	)
-	seafishloot = list(
+	coastalseafishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/cod = 230,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 180,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 198,
 		/obj/item/reagent_containers/food/snacks/fish/sole = 250,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 170,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 180,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 51,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 72,
 		/obj/item/reagent_containers/food/snacks/fish/bass = 230,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 50,
-		/obj/item/reagent_containers/food/snacks/fish/clownfish = 40,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 15,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 12,
 		/obj/item/grown/log/tree/stick = 3,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/natural/cloth = 1,
 		/obj/item/ammo_casing/caseless/rogue/arrow = 1,
 		/obj/item/clothing/ring/gold = 1,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //That's not a fish...?
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //That's not a coastal fish...?
 		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1,
-		/obj/item/reagent_containers/glass/bottle/rogue = 1,	
-		/mob/living/carbon/human/species/goblin/npc/sea = 25,
-		/mob/living/simple_animal/hostile/rogue/deepone = 30,
-		/mob/living/simple_animal/hostile/rogue/deepone/spit = 30,			
+		/obj/item/reagent_containers/glass/bottle/rogue = 1,
+		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,
+	)
+	deepseafishloot = list(
+		/obj/item/reagent_containers/food/snacks/fish/cod = 115,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 90,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 75,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 238,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 234,
+		/obj/item/reagent_containers/food/snacks/fish/bass = 138,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 100,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 80,
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 10,
+		/obj/item/storage/belt/rogue/pouch/coins/mid = 5,
+		/obj/item/storage/belt/rogue/pouch/coins/mid = 1,
+		/obj/item/clothing/ring/gold = 5,
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //That's not a deepfish...?
+		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1,
+		/mob/living/carbon/human/species/goblin/npc/sea = 45,
+		/mob/living/simple_animal/hostile/rogue/deepone = 50,
+		/mob/living/simple_animal/hostile/rogue/deepone/spit = 50,
 	)
 	mudfishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/mudskipper = 200,
 		/obj/item/natural/worms/leech = 50,
 		/obj/item/clothing/ring/gold = 1,	
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //Thats one dirty... not a fish...?
 		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,			
 	)
 	// This is super trimmed down from the ratwood list to focus entirely on shellfishes

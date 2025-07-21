@@ -1028,7 +1028,23 @@
 		/obj/item/clothing/ring/gold = 15,
 		/obj/item/reagent_containers/glass/bottle/rogue/wine = 15,	
 	)
-	seafishloot = list(
+	// magic bait is magic so coastal and deep sea weights are the same, split made just for the compatibility reasons
+	coastalseafishloot = list(
+		/obj/item/reagent_containers/food/snacks/fish/cod = 50,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 75,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 50,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 100,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 50,
+		/obj/item/reagent_containers/food/snacks/fish/bass = 50,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 50,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 200,
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 75,
+		/obj/item/storage/belt/rogue/pouch/coins/mid = 25,
+		/obj/item/storage/belt/rogue/pouch/coins/rich = 10,
+		/obj/item/clothing/ring/gold = 25,
+		/obj/item/reagent_containers/glass/bottle/rogue/wine = 25,		
+	)
+	deepseafishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/cod = 50,
 		/obj/item/reagent_containers/food/snacks/fish/plaice = 75,
 		/obj/item/reagent_containers/food/snacks/fish/sole = 50,
