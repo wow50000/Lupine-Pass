@@ -34,19 +34,17 @@ GLOBAL_LIST_INIT(laws_of_the_land, initialize_laws_of_the_land())
 	return
 
 /obj/structure/roguemachine/titan/Destroy()
-	lose_hearing_sensitivity()
 	set_light(0)
-	return ..()
+	..()
 
 /obj/structure/roguemachine/titan/Initialize()
 	. = ..()
 	icon_state = null
-	become_hearing_sensitive()
-	set_light(5)
 //	var/mutable_appearance/eye_lights = mutable_appearance(icon, "titan-eyes")
 //	eye_lights.plane = ABOVE_LIGHTING_PLANE //glowy eyes
 //	eye_lights.layer = ABOVE_LIGHTING_LAYER
 //	add_overlay(eye_lights)
+	set_light(5)
 
 /obj/structure/roguemachine/titan/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, message)
 //	. = ..()
