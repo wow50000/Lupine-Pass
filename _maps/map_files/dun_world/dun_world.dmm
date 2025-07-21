@@ -54778,6 +54778,10 @@
 /obj/structure/flora/roguegrass/water,
 /turf/open/water/swamp/deep,
 /area/rogue/under/cave/dungeon1/gethsmane)
+"qXB" = (
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/hay,
+/area/rogue/indoors/town)
 "qXH" = (
 /obj/machinery/light/rogue/lanternpost,
 /turf/open/floor/rogue/dirt/road,
@@ -63001,6 +63005,10 @@
 	},
 /turf/closed/mineral/random/rogue,
 /area/rogue/under/cavewet/bogcaves)
+"twu" = (
+/obj/machinery/light/rogue/lanternpost,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/rtfield)
 "twE" = (
 /obj/structure/meathook,
 /obj/structure/chair/stool/rogue,
@@ -250587,7 +250595,7 @@ rZO
 rZO
 rZO
 rZO
-sNZ
+twu
 seL
 seL
 pSg
@@ -251031,7 +251039,7 @@ iMd
 quW
 yjq
 sNZ
-sNZ
+twu
 rZO
 rZO
 rZO
@@ -253292,9 +253300,9 @@ dAx
 dAx
 cDX
 sVK
-sVK
+qXB
 cDX
-sVK
+qXB
 sVK
 cDX
 vPH
