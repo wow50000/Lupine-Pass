@@ -268,36 +268,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 		/mob/living/simple_animal/hostile/rogue/deepone/spit = 30
 	)
 	first_time_text = "ABYSSOR'S GRASP"
-/area/rogue/outdoors/woods
-	name = "wilderness"
-	icon_state = "woods"
-	ambientsounds = AMB_FORESTDAY
-	ambientnight = AMB_FORESTNIGHT
-	spookysounds = SPOOKY_CROWS
-	spookynight = SPOOKY_FOREST
-	droning_sound = 'sound/music/area/forest.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/forestnight.ogg'
-	soundenv = 15
-	warden_area = TRUE
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
-				/turf/open/floor/rogue/grass)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
-				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
-				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
-	first_time_text = "THE AZURE GROVE"
-	converted_type = /area/rogue/indoors/shelter/woods
-
-/area/rogue/indoors/shelter/woods
-	icon_state = "woods"
-	droning_sound = 'sound/music/area/forest.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/forestnight.ogg'
-
 
 /area/rogue/outdoors/river
 	name = "river"
@@ -311,46 +281,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
 	converted_type = /area/rogue/indoors/shelter/woods
-
-/area/rogue/outdoors/bog
-	name = "bog"
-	icon_state = "bog"
-	warden_area = TRUE
-	ambientsounds = AMB_BOGDAY
-	ambientnight = AMB_BOGNIGHT
-	spookysounds = SPOOKY_FROG
-	spookynight = SPOOKY_GEN
-	droning_sound = 'sound/music/area/bog.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
-				/turf/open/floor/rogue/grass,
-				/turf/open/water)
-	//Minotaurs too strong for the lazy amount of places this area covers
-	ambush_mobs = list(
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 40,
-				/mob/living/carbon/human/species/skeleton/npc/bogguard = 20,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30,
-				new /datum/ambush_config/mirespiders_ambush = 110,
-				new /datum/ambush_config/mirespiders_crawlers = 25,
-				new /datum/ambush_config/mirespiders_aragn = 10,
-				new /datum/ambush_config/mirespiders_unfair = 5)
-	first_time_text = "THE TERRORBOG"
-	converted_type = /area/rogue/indoors/shelter/bog
-
-/area/rogue/indoors/shelter/bog
-	icon_state = "bog"
-	droning_sound = 'sound/music/area/bog.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/outdoors/bog/dense
-	name = "dense bog"
 
 /area/rogue/outdoors/beach
 	name = "coast"
