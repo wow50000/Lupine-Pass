@@ -136,81 +136,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "deception"
 	first_time_text = "THE CANYON OF DECEPTION"
 
-/area/rogue/outdoors/mountains/decap
-	name = "mt decapitation"
-	icon_state = "decap"
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
-				/turf/open/floor/rogue/dirt/road,
-				/turf/open/floor/rogue/snow,
-				/turf/open/floor/rogue/grasscold,
-				/turf/open/floor/rogue/grass,
-				)
-	ambush_mobs = list(
-				new /datum/ambush_config/pair_of_direbear = 10,
-				new /datum/ambush_config/trio_of_highwaymen = 10,
-				new /datum/ambush_config/singular_minotaur = 10,
-				new /datum/ambush_config/duo_minotaur = 5,
-				new /datum/ambush_config/solo_treasure_hunter = 10,
-				new /datum/ambush_config/duo_treasure_hunter = 1
-				)
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "MOUNT DECAPITATION"
-	ambush_times = list("night","dawn","dusk","day")
-	converted_type = /area/rogue/indoors/shelter/mountains/decap
-
-/area/rogue/indoors/shelter/mountains/decap
-	icon_state = "decap"
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
 
 
-/area/rogue/outdoors/mountains/decap/stepbelow
-	name = "mt decapitation inner"
-	icon_state = "decap"
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
-				/turf/open/floor/rogue/dirt/road,
-				/turf/open/floor/rogue/snow,
-				/turf/open/floor/rogue/grasscold,
-				/turf/open/floor/rogue/grass,
-				)
-	ambush_mobs = list(
-				new /datum/ambush_config/pair_of_direbear = 10,
-				new /datum/ambush_config/trio_of_highwaymen = 10,
-				new /datum/ambush_config/singular_minotaur = 10,
-				new /datum/ambush_config/duo_minotaur = 5,
-				new /datum/ambush_config/solo_treasure_hunter = 5,
-				new /datum/ambush_config/duo_treasure_hunter = 1
-				)
-	droning_sound = 'sound/music/area/decap_deeper.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "TARICHEA, VALLEY OF LOSS"
-	ambush_times = list("night","dawn","dusk","day")
-	converted_type = /area/rogue/indoors/shelter/mountains/decap
-
-/area/rogue/outdoors/mountains/decap/gunduzirak
-	name = "mt decapitation gundu-zirak"
-	icon_state = "decap"
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
-				/turf/open/floor/rogue/cobble,
-				)
-	ambush_mobs = list(
-				new /datum/ambush_config/treasure_hunter_posse = 1,
-				/mob/living/carbon/human/species/dwarfskeleton/ambush = 30,
-				)
-	droning_sound = 'sound/music/area/prospector.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "Ruins of Gundu-Zirak"
-	ambush_times = list("night","dawn","dusk","day")
-	converted_type = /area/rogue/indoors/shelter/mountains/decap
-	ceiling_protected = TRUE
 
 /area/rogue/outdoors/rtfield
 	name = "azure basin"
@@ -435,6 +362,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/decap
+	
 /area/rogue/outdoors/exposed/decap
 	icon_state = "decap"
 	droning_sound = 'sound/music/area/decap.ogg'
