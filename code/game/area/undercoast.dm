@@ -4,6 +4,7 @@
 	ambientsounds = AMB_GENCAVE
 	ambientnight = AMB_GENCAVE
 	soundenv = 8
+	deathsight_message = "a dark cave where Abyssor's dream echoes"
 
 /area/rogue/indoors/cave/underhamlet
 	name = "The Underhamlet"

@@ -25,6 +25,7 @@
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 40)
 	first_time_text = "THE AZURE COAST"
 	converted_type = /area/rogue/indoors/shelter/woods
+	deathsight_message = "somewhere betwixt Abyssor's realm and Dendor's bounty"
 
 /area/rogue/outdoors/beach/forest/hamlet
 	name = "The Azure Coast - Hamlet"

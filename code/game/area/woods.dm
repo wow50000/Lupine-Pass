@@ -23,6 +23,7 @@
 				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
 	first_time_text = "THE AZURE GROVE"
 	converted_type = /area/rogue/indoors/shelter/woods
+	deathsight_message = "somewhere in the wilds"
 
 /area/rogue/indoors/shelter/woods
 	name = "Azure Grove"

@@ -23,6 +23,7 @@
 	first_time_text = "MOUNT DECAPITATION"
 	ambush_times = list("night","dawn","dusk","day")
 	converted_type = /area/rogue/indoors/shelter/mountains/decap
+	deathsight_message = "a twisted tangle of soaring peaks"
 
 /area/rogue/indoors/shelter/mountains/decap
 	icon_state = "decap"
