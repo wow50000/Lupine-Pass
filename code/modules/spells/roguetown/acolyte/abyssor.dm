@@ -126,7 +126,8 @@
 	devotion_cost = 10
 	//Horrendous carry-over from fishing code
 	var/frwt = list(/turf/open/water/river, /turf/open/water/cleanshallow, /turf/open/water/pond)
-	var/salwt = list(/turf/open/water/ocean, /turf/open/water/ocean/deep)
+	var/salwt_coast = list(/turf/open/water/ocean)
+	var/salwt_deep = list(/turf/open/water/ocean/deep)
 	var/mud = list(/turf/open/water/swamp, /turf/open/water/swamp/deep)
 	var/list/freshfishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/carp = 225,
@@ -136,24 +137,36 @@
 		/obj/item/reagent_containers/food/snacks/smallrat = 1, //funny
 		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 20,			
 	)
-	var/list/seafishloot = list(
+	var/list/coastalseafishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/cod = 190,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 210,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 231,
 		/obj/item/reagent_containers/food/snacks/fish/sole = 340,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 140,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 150,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 42,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 60,
 		/obj/item/reagent_containers/food/snacks/fish/bass = 210,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 40,
-		/obj/item/reagent_containers/food/snacks/fish/clownfish = 20,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //still funny
-		/mob/living/carbon/human/species/goblin/npc/sea = 10,
-		/mob/living/simple_animal/hostile/rogue/deepone = 3,
-		/mob/living/simple_animal/hostile/rogue/deepone/spit = 3,			
+		/obj/item/reagent_containers/food/snacks/fish/clam = 12,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 6,
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //still funny, but shallow
+		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,
+	)
+	var/list/deepseafishloot = list(
+		/obj/item/reagent_containers/food/snacks/fish/cod = 95,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 105,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 102,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 196,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 195,
+		/obj/item/reagent_containers/food/snacks/fish/bass = 126,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 80,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 40,
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //still funny, and this one is deep
+		/mob/living/carbon/human/species/goblin/npc/sea = 18,
+		/mob/living/simple_animal/hostile/rogue/deepone = 5,
+		/mob/living/simple_animal/hostile/rogue/deepone/spit = 5,			
 	)
 	var/list/mudfishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/mudskipper = 200,
 		/obj/item/natural/worms/leech = 50,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //even funnier the third time
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //even funnier the fourth time
 		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,				
 	)	
 
@@ -164,8 +177,10 @@
 		var/A
 		if(T.type in frwt)
 			A = pickweight(freshfishloot)
-		else if(T.type in salwt)
-			A = pickweight(seafishloot)
+		else if(T.type in salwt_coast)
+			A = pickweight(coastalseafishloot)
+		else if(T.type in salwt_deep)
+			A = pickweight(deepseafishloot)
 		else if(T.type in mud)
 			A = pickweight(mudfishloot)
 		if(A)
