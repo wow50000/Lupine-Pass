@@ -422,7 +422,7 @@
 
 	// Channeling requirement
 	user.visible_message(span_danger("[user] begins lighting [target] ablaze with strange, divine fire!"))
-	if(!do_after(user, 8 SECONDS, target = target))
+	if(!do_after(user, 4 SECONDS, target = target))
 		to_chat(user, span_warning("Astratan might requires unwavering focus to channel!"))
 		revert_cast()
 		return FALSE
