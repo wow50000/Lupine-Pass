@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt
 	name = "Bolt of Lightning"
-	desc = "Emit a bolt of lightning that burns a target, preventing them from attacking and slowing them down for a short time. \n\
+	desc = "Emit a bolt of lightning that burns a target, preventing them from attacking and slowing them down for 6 seconds. \n\
 	Damage is increased by 100% versus simple-minded creechurs."
 	clothes_req = FALSE
 	overlay_state = "lightning"
@@ -10,7 +10,7 @@
 	releasedrain = 30
 	chargedrain = 1
 	chargetime = 15
-	recharge_time = 20 SECONDS
+	recharge_time = 15 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
@@ -58,5 +58,4 @@
 			L.apply_status_effect(/datum/status_effect/debuff/clickcd, 6 SECONDS)
 			L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
 			L.apply_status_effect(/datum/status_effect/buff/lightningstruck, 6 SECONDS)
-
 	qdel(src)
