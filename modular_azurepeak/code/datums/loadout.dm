@@ -536,6 +536,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/cotehardie
 	name = "Fitted Coat"
 	path = /obj/item/clothing/cloak/cotehardie
+	
+/datum/loadout_item/zcross_iron
+	name = "Zizo Cross"
+	path = /obj/item/clothing/neck/roguetown/zcross/iron
 
 //Donator Section
 //All these items are stored in the donator_fluff.dm in the azure modular folder for simplicity.
