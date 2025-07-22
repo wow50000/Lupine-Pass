@@ -1,4 +1,5 @@
 /datum/asset/simple/roguefonts
+	keep_local_name = TRUE
 	assets = list(
 		"pterra.ttf" = 'interface/fonts/pterra.ttf',
 		"chiseld.ttf" = 'interface/fonts/chiseld.ttf',

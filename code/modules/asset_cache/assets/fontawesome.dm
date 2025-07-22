@@ -1,4 +1,5 @@
 /datum/asset/simple/namespaced/fontawesome
+	keep_local_name = TRUE
 	assets = list(
 		"fa-regular-400.ttf" = 'html/font-awesome/webfonts/fa-regular-400.ttf',
 		"fa-solid-900.ttf" = 'html/font-awesome/webfonts/fa-solid-900.ttf',
