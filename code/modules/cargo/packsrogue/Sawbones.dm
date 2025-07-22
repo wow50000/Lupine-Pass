@@ -215,6 +215,11 @@
 	cost = 100
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/poison)
 
+/datum/supply_pack/rogue/Sawbones/emberwine
+	name = "Emberwine"
+	cost = 10
+	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/emberwine)
+
 /////////////////
 // PROSTHETICS //
 /////////////////
