@@ -28066,6 +28066,10 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/snow,
 /area/rogue/outdoors/mountains/decap)
+"iFN" = (
+/obj/structure/roguemachine/scomm/r,
+/turf/open/floor/carpet/red,
+/area/rogue/indoors/town)
 "iFQ" = (
 /obj/structure/stairs/stone/d{
 	dir = 4
@@ -42800,7 +42804,6 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/orcdungeon)
 "nmq" = (
-/obj/structure/roguemachine/scomm/r,
 /obj/effect/landmark/start/mercenary{
 	dir = 8
 	},
@@ -259187,7 +259190,7 @@ dES
 xNN
 wrd
 lRv
-xWk
+iFN
 xVt
 myg
 guo
