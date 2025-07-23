@@ -236,7 +236,7 @@
 	var/mob/living/carbon/caster
 	var/mob/living/carbon/partner
 	var/duration = 360 SECONDS
-	var/max_distance = 6
+	var/max_distance = 7
 	var/self_damage
 	var/base_damage
 	var/damage_amplifier
