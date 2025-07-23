@@ -1,5 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt/sacred_flame_rogue
 	name = "Sacred Flame"
+	desc = "Deals damage and ignites target, Deals extra damage to undead."
 	overlay_state = "sacredflame"
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	invocation = null
@@ -74,6 +75,7 @@
 
 /obj/effect/proc_holder/spell/invoked/revive
 	name = "Anastasis"
+	desc = "Focus Astratas energy though a stationary psycross, reviving the target from death."
 	overlay_state = "revive"
 	releasedrain = 90
 	chargedrain = 0
@@ -170,6 +172,7 @@
 //T0. Removes cone vision for a dynamic duration.
 /obj/effect/proc_holder/spell/self/astrata_gaze
 	name = "Astratan Gaze"
+	desc = "Removes the limit on your vision, letting you see behind you for a time, lasts longer during the dae and gives a perception bonus to those skilled and holy arts."
 	overlay_state = "astrata_gaze"
 	releasedrain = 10
 	chargedrain = 0

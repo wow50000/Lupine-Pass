@@ -3,6 +3,7 @@
 //Divine Strike - Enhance your held weapon to have the next strike do extra damage and slow the target. Undead debuffed more.
 /obj/effect/proc_holder/spell/self/divine_strike
 	name = "Divine Strike"
+	desc = "Bless your next strike to do extra damage and slow the target."
 	overlay = "createlight"
 	recharge_time = 1 MINUTES
 	movement_interrupt = FALSE
@@ -107,6 +108,7 @@
 //Persistence - Harms the shit out of an undead mob/player while causing bleeding/pain wounds to clot at higher rate for living ones. Basically a 'shittier' yet still good greater heal effect.
 /obj/effect/proc_holder/spell/invoked/persistence
 	name = "Persistence"
+	desc = "Harms Undead and encourages the livings wounds to close faster."
 	overlay_state = "astrata"
 	releasedrain = 30
 	chargedrain = 0
@@ -170,6 +172,7 @@
 
 /obj/effect/proc_holder/spell/invoked/tug_of_war
 	name = "Tug of War"
+	desc = "Casts out a chain that tries to pull the target closer."
 	overlay_state = "ravox_tug"
 	recharge_time = 1 MINUTES
 	movement_interrupt = TRUE
