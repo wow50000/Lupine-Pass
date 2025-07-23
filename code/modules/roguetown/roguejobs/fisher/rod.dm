@@ -101,13 +101,13 @@
 						if(prob(fishchance)) // Finally, roll the dice to see if we fish.
 							var/A
 							if(target.type in frwt)
-								A = pickweight(baited.freshfishloot)
+								A = pickweightAllowZero(createFreshWaterFishWeightListBaited(baited.baitMods))
 							else if(target.type in salwt_coast)
-								A = pickweight(baited.coastalseafishloot)
+								A = pickweightAllowZero(createCoastalSeaFishWeightListBaited(baited.baitMods))
 							else if(target.type in salwt_deep)
-								A = pickweight(baited.deepseafishloot)
+								A = pickweightAllowZero(createDeepSeaFishWeightListBaited(baited.baitMods))
 							else if(target.type in mud)
-								A = pickweight(baited.mudfishloot)
+								A = pickweightAllowZero(createMudFishWeightListBaited(baited.baitMods))
 							if(A)
 								var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
 								to_chat(user, "<span class='notice'>Something tugs the line!</span>")

@@ -129,46 +129,14 @@
 	var/salwt_coast = list(/turf/open/water/ocean)
 	var/salwt_deep = list(/turf/open/water/ocean/deep)
 	var/mud = list(/turf/open/water/swamp, /turf/open/water/swamp/deep)
-	var/list/freshfishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/carp = 225,
-		/obj/item/reagent_containers/food/snacks/fish/sunny = 325,
-		/obj/item/reagent_containers/food/snacks/fish/salmon = 190,
-		/obj/item/reagent_containers/food/snacks/fish/eel = 140,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //funny
-		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 20,			
+	var/list/baitMods = list(
+		"commonFishingMod" = 1,
+		"rareFishingMod" = 1,
+		"treasureFishingMod" = 0,
+		"trashFishingMod" = 0,
+		"dangerFishingMod" = 0.1,
+		"ceruleanFishingMod" = 0 // 1 on cerulean aril, 0 on everything else
 	)
-	var/list/coastalseafishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/cod = 190,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 231,
-		/obj/item/reagent_containers/food/snacks/fish/sole = 340,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 42,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 60,
-		/obj/item/reagent_containers/food/snacks/fish/bass = 210,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 12,
-		/obj/item/reagent_containers/food/snacks/fish/clownfish = 6,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //still funny, but shallow
-		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,
-	)
-	var/list/deepseafishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/cod = 95,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 105,
-		/obj/item/reagent_containers/food/snacks/fish/sole = 102,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 196,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 195,
-		/obj/item/reagent_containers/food/snacks/fish/bass = 126,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 80,
-		/obj/item/reagent_containers/food/snacks/fish/clownfish = 40,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //still funny, and this one is deep
-		/mob/living/carbon/human/species/goblin/npc/sea = 18,
-		/mob/living/simple_animal/hostile/rogue/deepone = 5,
-		/mob/living/simple_animal/hostile/rogue/deepone/spit = 5,			
-	)
-	var/list/mudfishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/mudskipper = 200,
-		/obj/item/natural/worms/leech = 50,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //even funnier the fourth time
-		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,				
-	)	
 
 /obj/effect/proc_holder/spell/invoked/aquatic_compulsion/cast(list/targets, mob/user = usr)
 	. = ..()
@@ -176,13 +144,13 @@
 		var/turf/T = targets[1]
 		var/A
 		if(T.type in frwt)
-			A = pickweight(freshfishloot)
+			A = pickweightAllowZero(createFreshWaterFishWeightListBaited(baitMods))
 		else if(T.type in salwt_coast)
-			A = pickweight(coastalseafishloot)
+			A = pickweightAllowZero(createCoastalSeaFishWeightListBaited(baitMods))
 		else if(T.type in salwt_deep)
-			A = pickweight(deepseafishloot)
+			A = pickweightAllowZero(createDeepSeaFishWeightListBaited(baitMods))
 		else if(T.type in mud)
-			A = pickweight(mudfishloot)
+			A = pickweightAllowZero(createMudFishWeightListBaited(baitMods))
 		if(A)
 			var/atom/movable/AF = new A(T)
 			AF.throw_at(get_turf(user), 5, 1, null)
