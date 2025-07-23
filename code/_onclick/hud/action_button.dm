@@ -44,7 +44,7 @@
 		return
 
 	var/list/modifiers = params2list(params)
-	if(modifiers["shift"])
+	if(modifiers["alt"])
 		if(locked)
 			to_chat(usr, span_warning("Action button \"[name]\" is locked, unlock it first."))
 			return TRUE
@@ -57,11 +57,8 @@
 		if(id && usr.client) //try to (un)remember position
 			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = locked ? moved : null
 		return TRUE
-	if(modifiers["alt"])
-		var/desc = linked_action.desc
-		var/name = linked_action.name
-		to_chat(usr, span_notice("[name]"))
-		to_chat(usr, span_info("[desc]"))
+	if(modifiers["shift"])
+		examine_ui(usr)
 		return TRUE
 	if(usr.next_click > world.time)
 		return
