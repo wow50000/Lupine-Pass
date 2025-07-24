@@ -83,6 +83,7 @@
 		/datum/body_marking_set/bellysocks,
 		/datum/body_marking_set/tiger,
 		/datum/body_marking_set/tiger_dark,
+		/datum/body_marking_set/gradient,
 	)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
@@ -126,7 +127,9 @@
 		"Vodyanev" = SKIN_COLOR_ABYSS,
 		"Calvus" = SKIN_COLOR_CALVUS,
 		"Voibion" = SKIN_COLOR_VOIBION,
-		"Chyerno" = SKIN_COLOR_CHYERNO
+		"Chyerno" = SKIN_COLOR_CHYERNO,
+		"Drema"	= SKIN_COLOR_DREMA,
+		"Chir"	= SKIN_COLOR_CHIR
 	)
 
 /datum/species/tieberian/get_hairc_list()

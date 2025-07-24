@@ -13,8 +13,8 @@
 	name = "Rum"
 	description = "Where has the rum gone?"
 	color = "#5f3b23" // rgb: 102, 67, 0
-	boozepwr = 25
-	taste_description = "rum"
+	boozepwr = 40
+	taste_description = "sweetness with hint of caramel and vanilla"
 
 /datum/reagent/consumable/ethanol/cider
 	name = "Apple Cider"
@@ -120,7 +120,7 @@
 	name = "Ale"
 	description = "A dark alcoholic beverage made with malted barley and yeast."
 	color = "#664300" // rgb: 102, 67, 0
-	boozepwr = 65
+	boozepwr = 25
 	taste_description = "hearty barley ale"
 	glass_icon_state = "aleglass"
 	glass_name = "glass of ale"
@@ -140,8 +140,8 @@
 
 /datum/reagent/consumable/ethanol/gin
 	name = "Gin"
-	boozepwr = 12
-	taste_description = "fruity"
+	boozepwr = 65
+	taste_description = "strong, piney flavor"
 	color = "#809978"
 	quality = DRINK_NICE
 
@@ -167,7 +167,7 @@
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/onion
-	name = "Royal Onion Cognac"
+	name = "Onion Cognac"
 	boozepwr = 10
 	taste_description = "spicy sweet malty overtones"
 	color = "#683e00"
@@ -205,12 +205,19 @@
 	color = "#5D8A8A"
 	quality = DRINK_GOOD
 
-/datum/reagent/consumable/ethanol/voddena // Not vodka. Trust me.
+/datum/reagent/consumable/ethanol/voddena // Definitely Actually Just Vodka Now. 
 	name = "Voddena"
-	boozepwr = 55  // holy shit
-	taste_description = "burning starchy wet dirt"
+	boozepwr = 40  // now it's just vodka
+	taste_description = "clean liquor"
 	color = "#a1a1a1"
 	quality = DRINK_NICE
+
+/datum/reagent/consumable/ethanol/sazdistal // Definitely Not Vodka. 
+	name = "Saz Distal"
+	boozepwr = 55  // holy shit
+	taste_description = "spicy chilis, ginger, and dirt"
+	color = "#2D1D1D"
+	quality = DRINK_GOOD	
 
 /datum/reagent/consumable/ethanol/limoncello
 	name = "Limoncello"
@@ -219,7 +226,21 @@
 	color = "#d2da63"
 	quality = DRINK_GOOD
 
-// WINE - Fancy.. And yes: all drinks are beer, technically. Cope. Seethe. I didnt code it like this.
+// Generic Rice
+/datum/reagent/consumable/ethanol/ricewine
+	name = "Rice Wine"
+	taste_description = "floral sweetness with a subtle umami taste."
+	color = "#F5E6C4" // rgb: 210, 218, 99
+	boozepwr = 30
+
+/datum/reagent/consumable/ethanol/ricespirit
+	name = "Rice Spirit"
+	taste_description = "clean heat and dry finish."
+	color = "#F8FDFC" // rgb: 210, 218, 99
+	boozepwr = 55
+	quality = DRINK_NICE
+
+// WINE - Fancy.
 
 // Humen Production - Grape Based
 
@@ -288,21 +309,21 @@
 /datum/reagent/consumable/ethanol/tangerine
 	name = "Tangerine Wine"
 	boozepwr = 15
-	taste_description = "bitter sweet young wine"
+	taste_description = "bittersweet, citrusy young wine"
 	color = "#e7aa59"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/tangerine/aged
 	name = "Aged Tangerine Wine"
 	boozepwr = 30
-	taste_description = "bitter sweet aged wine"
+	taste_description = "bittersweet, citrusy aged wine"
 	color = "#d68d2d"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/tangerine/delectable
 	name = "Delectable Tangerine Wine"
 	boozepwr = 30
-	taste_description = "bitter sweet delectably aged wine"
+	taste_description = "bittersweet, citrusy delectably aged wine"
 	color = "#eb9321"
 	quality = DRINK_VERYGOOD
 
@@ -435,15 +456,51 @@
 	boozepwr = 50
 	taste_description = "dry sweetness"
 	color = "#ccd7e0"
-	quality = DRINK_GOOD
+	quality = DRINK_VERYGOOD
+
+/datum/reagent/consumable/ethanol/kgunshochu
+	name = "Shochu"
+	boozepwr = 60
+	taste_description = "dry, clean finish"
+	color = "#F8FDFC"
+	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/kgunplum
 	name = "Umeshu"
 	boozepwr = 30
 	taste_description = "a mix of sweet and sour"
 	color = "#ddb99b"
+	quality = DRINK_GOOD
+
+// Zhongese
+/datum/reagent/consumable/ethanol/huangjiu
+	name = "Huangjiu"
+	boozepwr = 30
+	taste_description = "a mix of sweet and sour"
+	color = "#d8b84c"
+
+/datum/reagent/consumable/ethanol/baijiu
+	name = "Baijiu"
+	boozepwr = 60
+	taste_description = "fiery and pungent alcohol with a hint of sweetness"
+	color = "#f8fdfc"
+	quality = DRINK_GOOD
+
+/datum/reagent/consumable/ethanol/yaojiu
+	name = "Yaojiu"
+	boozepwr = 50
+	taste_description = "bittersweet alcohol with deep herbal notes"
+	color = "#8C4B1F"
 	quality = DRINK_VERYGOOD
 
+/datum/reagent/consumable/ethanol/shejiu
+	name = "Shejiu"
+	boozepwr = 50
+	taste_description = "musky and strong alcohol with a hint of gameiness"
+	color = "#C49A6C"
+	quality = DRINK_VERYGOOD
+
+// Mead 
 /datum/reagent/consumable/ethanol/mead
 	name = "Mead"
 	description = "A warriors drink, though a cheap one."
@@ -459,15 +516,16 @@
 /datum/reagent/consumable/ethanol/mead/spider
 	color = "#660061"
 
+// Special Drugs
 /datum/reagent/consumable/ethanol/murkwine // not Toilet wine
-	name = "mürkwine"
+	name = "Mürkwine"
 	boozepwr = 50  // bubba's best
 	taste_description = "hints of questionable choices--a bouqet of murkwater and pure ethanol"
 	color = "#4b1e00"
 
 /datum/reagent/consumable/ethanol/murkwine/on_mob_life(mob/living/carbon/M)
 	M.apply_status_effect(/datum/status_effect/buff/murkwine)
-	M.rogfat_add(0.1)
+	M.stamina_add(0.1)
 	..()
 	. = 1
 
@@ -475,7 +533,7 @@
 	M.remove_status_effect(/datum/status_effect/buff/murkwine)
 
 /datum/reagent/consumable/ethanol/nocshine // wait, no, NOCSHINE
-	name = "noc's shine"
+	name = "Noc's Shine"
 	boozepwr = 70  // YEEEEEHAAAWWWWWW
 	taste_description = "what might be my throat melting and nose hair burning"
 	color = "#d8fbfd63"
@@ -493,3 +551,31 @@
 
 /datum/reagent/consumable/ethanol/nocshine/on_mob_end_metabolize(mob/living/M)
 	M.remove_status_effect(/datum/status_effect/buff/nocshine)
+
+/datum/reagent/consumable/ethanol/luxwine // oh no.
+	name = "Luxintenebre" // lux left w/ sugar in a darkened place for quite some time... U could say... Light in Darkness.....
+	description = "A fermented form of vitae, highly alcoholic, and with a particularly grim taste. Often sought out by the daring, foolhardy, and heretical..."
+	boozepwr = 80 // THE END OF THE FUCKING WORLD.  
+	taste_description = "a green numbness, then a burning vigor in the heart" // heartburn (healing)
+	color = "#86cca3"
+	quality = DRINK_VERYGOOD // good stuff!
+
+/datum/reagent/consumable/ethanol/luxwine/on_mob_life(mob/living/carbon/M) // stolen healthpot code. i am shameless.
+	if(volume > 0.99) // i have no clue if this works.
+		M.adjustBruteLoss(-1*REM, 0)
+		M.adjustFireLoss(-1*REM, 0)
+	..()
+
+/datum/reagent/consumable/ethanol/whipwine // dont ask
+	name = "Magickal Whip Wine" 
+	description = "A recipe recently floated into the Peaks. Magickal Whip Wine is said to increase one's potence and stamina sevenfold."
+	boozepwr = 10 // it's a whip. it's an actual whip.
+	taste_description = "leather, bitter herbs, and regret" // what did you expect
+	color = "#3a1d18"
+
+/datum/reagent/consumable/ethanol/komuchisake // if you put this outside the lich dungeon i'll kill you
+	name = "Divine Snake Wine" 
+	description = "The True Form of the Whipwine. The Magickal Snake Wine was an exclusively produced medicinal wine from over three centures ago in the Kazengun Shogunate..."
+	boozepwr = 60 // ancient lichebrau...
+	taste_description = "bitterness, pain, iron, and ancient mistakes" // what did you expect [2]
+	color = "#553837"

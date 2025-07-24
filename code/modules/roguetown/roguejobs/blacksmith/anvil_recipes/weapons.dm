@@ -426,6 +426,12 @@
 	created_item = /obj/item/rogueweapon/knuckles
 	craftdiff = 2
 
+/datum/anvil_recipe/weapons/steel/hurlbat
+	name = "Hurlbat"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/rogueweapon/stoneaxe/hurlbat
+	craftdiff = 4
+
 /datum/anvil_recipe/weapons/steel/rapier
 	name = "Rapier"
 	req_bar = /obj/item/ingot/steel
@@ -590,6 +596,13 @@
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel, /obj/item/grown/log/tree/small)
 	created_item = /obj/item/rogueweapon/spear/partizan
+	craftdiff = 4
+
+/datum/anvil_recipe/weapons/steel/naginata
+	name = "Naginata (+1 Big Log)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/grown/log/tree/) //looong spear
+	created_item = /obj/item/rogueweapon/spear/naginata
 	craftdiff = 4
 
 /datum/anvil_recipe/weapons/steel/boarspear
@@ -788,6 +801,13 @@
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/rogueweapon/shield/buckler
+	craftdiff = 2
+
+/datum/anvil_recipe/weapons/iron/roundshield
+	name = "Iron Shield (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/rogueweapon/shield/iron
 	craftdiff = 2
 
 /// CROSSBOWS

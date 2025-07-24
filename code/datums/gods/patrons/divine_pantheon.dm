@@ -10,7 +10,8 @@
 	mob_traits = list(TRAIT_APRICITY)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/ignition				= CLERIC_T0,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/self/astrata_gaze				= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/projectile/lightningbolt/sacred_flame_rogue	= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heal					= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/revive				= CLERIC_T3,
@@ -27,18 +28,22 @@
 	domain = "Twinned God of the Moon, Night, and Knowledge"
 	desc = "The he-form of the Twinned Gods, the combined amalgam of single-bodied Noc and Astrata that opens his eyes during pondorous Night. He gifted man knowledge of divinity and magicks. A single form begets two Gods that shift at Dusk and Dawn but always endures, even at dae."
 	worshippers = "Wizards and Scholars"
-	mob_traits = list(TRAIT_NIGHT_OWL, TRAIT_NOCSIGHT)
+	mob_traits = list(TRAIT_NIGHT_OWL)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/noc_sight				= CLERIC_T0,
+					/obj/effect/proc_holder/spell/targeted/touch/darkvision/miracle	= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/invisibility/miracle	= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/blindness				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/self/noc_spell_bundle			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/resurrect/noc			= CLERIC_T4,
 	)
 	confess_lines = list(
 		"NOC IS NIGHT!",
 		"NOC SEES ALL!",
 		"I SEEK THE MYSTERIES OF THE MOON!",
 	)
+	traits_tier = list(TRAIT_DARKVISION = CLERIC_T1)
 	storyteller = /datum/storyteller/noc
 
 /datum/patron/divine/dendor
@@ -48,12 +53,13 @@
 	worshippers = "Druids, Beasts, Madmen"
 	mob_traits = list(TRAIT_KNEESTINGER_IMMUNITY, TRAIT_LEECHIMMUNE)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/spiderspeak 			= CLERIC_T0,
-					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/targeted/wildshape			= CLERIC_T2,
 					/obj/effect/proc_holder/spell/targeted/conjure_glowshroom	= CLERIC_T3,
 					/obj/effect/proc_holder/spell/self/howl/call_of_the_moon	= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/resurrect/dendor		= CLERIC_T4,
 	)
 	confess_lines = list(
 		"DENDOR PROVIDES!",
@@ -64,17 +70,21 @@
 
 /datum/patron/divine/abyssor
 	name = "Abyssor"
-	domain = "God of the Ocean, Storms and the Tide"
+	domain = "The great dreamer, primordial father of the tides. The ancient one, the most warped and potent of the ten."
 	desc = "The strongest of the Ten; when awakened, the world flooded for a thousand daes and a thousand nights before he was put to slumber. Resting fitfully did Dendor split from his skull like a gaping wound. Communes rarely with his followers, only offering glimpses in dreams. Gifted primordial Man water. "
 	worshippers = "Men of the Sea, Primitive Aquatics"
 	mob_traits = list(TRAIT_ABYSSOR_SWIM, TRAIT_SEA_DRINKER)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/aquatic_compulsion	= CLERIC_T0,
+					/obj/effect/proc_holder/spell/self/abyssor_wind				= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssor_bends			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/abyssor_undertow		= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/abyssheal				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/call_mossback			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/call_dreamfiend		= CLERIC_T4,
-					/obj/effect/proc_holder/spell/invoked/abyssal_infusion		= CLERIC_T4
+					/obj/effect/proc_holder/spell/invoked/abyssal_infusion		= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/resurrect/abyssor		= CLERIC_T4,
 	)
 	confess_lines = list(
 		"ABYSSOR COMMANDS THE WAVES!",
@@ -91,10 +101,12 @@
 	worshippers = "Warriors, Sellswords & those who seek Justice"
 	mob_traits = list(TRAIT_SHARPER_BLADES, TRAIT_JUSTICARSIGHT)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/tug_of_war			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/divine_strike			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/call_to_arms				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/persistence			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/resurrect/ravox		= CLERIC_T4,
 	)
 	confess_lines = list(
 		"RAVOX IS JUSTICE!",
@@ -110,7 +122,8 @@
 	worshippers = "The Dead, Mourners, Gravekeepers"
 	mob_traits = list(TRAIT_SOUL_EXAMINE, TRAIT_NOSTINK)	//No stink is generic but they deal with dead bodies so.. makes sense, I suppose?
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/necras_sight			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/avert					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/deaths_door			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/targeted/abrogation			= CLERIC_T2,
@@ -129,9 +142,12 @@
 	worshippers = "Gamblers, Bards, Artists, and the Silver-Tongued"
 	mob_traits = list(TRAIT_XYLIX)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/self/xylixslip				= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/wheel					= CLERIC_T1,
-					/obj/effect/proc_holder/spell/invoked/mockery				= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/mockery				= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/mastersillusion		= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/resurrect/xylix		= CLERIC_T4,
 	)
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
@@ -144,6 +160,11 @@
 		"PESTRA SOOTHES ALL ILLS!",
 		"MALUM IS MY MUSE!",
 		"EORA BRINGS US TOGETHER!",
+		"LONG LIVE ZIZO!",
+		"GRAGGAR IS THE BEAST I WORSHIP!",
+		"MATTHIOS IS MY LORD!",
+		"BAOTHA IS MY JOY!",
+		"REBUKE THE HERETICAL- PSYDON ENDURES!",
 	)
 	storyteller = /datum/storyteller/xylix
 
@@ -155,11 +176,13 @@
 	mob_traits = list(TRAIT_EMPATH, TRAIT_ROT_EATER)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/diagnose				= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/pestra_leech			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heal					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/infestation			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/attach_bodypart		= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/cure_rot				= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/resurrect/pestra		= CLERIC_T4,
 	)
 	confess_lines = list(
 		"PESTRA SOOTHES ALL ILLS!",
@@ -175,12 +198,14 @@
 	worshippers = "Smiths, Miners, Engineers"
 	mob_traits = list(TRAIT_FORGEBLESSED, TRAIT_BETTER_SLEEP)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/malum_flame_rogue 	= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/conjure_tool			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/vigorousexchange		= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heatmetal				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/hammerfall			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/craftercovenant		= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/resurrect/malum		= CLERIC_T4,
 	)
 	confess_lines = list(
 		"MALUM IS MY MUSE!",
@@ -198,19 +223,21 @@
 	worshippers = "Lovers, the romantically inclined, and Doting Grandparents"
 	mob_traits = list(TRAIT_EMPATH, TRAIT_EXTEROCEPTION)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/eora_blessing			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/bless_food            = CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/bud					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heartweave			= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/eoracurse				= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/pomegranate			= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/resurrect/eora		= CLERIC_T4,
 	)
 	confess_lines = list(
 		"EORA BRINGS US TOGETHER!",
 		"HER BEAUTY IS EVEN IN THIS TORMENT!",
 		"I LOVE YOU, EVEN AS YOU TRESPASS AGAINST ME!",
 	)
-
+	traits_tier = list(TRAIT_EORAN_CALM = CLERIC_T0, TRAIT_EORAN_SERENE = CLERIC_T2)
 	storyteller = /datum/storyteller/eora
 
 /////////////////////////////////

@@ -19,6 +19,9 @@
 	// Remove rot component
 	remove_rot_component(target)
 
+	// Remove Infected var
+	target.infected = FALSE
+
 	// Clean body parts
 	clean_body_parts(target)
 
@@ -65,6 +68,7 @@
 	var/datum/component/rot/rot = target.GetComponent(/datum/component/rot)
 	if (rot)
 		rot.amount = 0
+		rot.soundloop.stop()
 
 ///Cure bodyparts
 /proc/clean_body_parts(mob/living/carbon/target)

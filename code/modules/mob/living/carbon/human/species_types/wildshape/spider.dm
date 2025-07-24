@@ -9,16 +9,16 @@
 /mob/living/carbon/human/species/wildshape/spider/gain_inherent_skills()
 	. = ..()
 	if(src.mind)
-		src.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE) //For the bog mainly
-		src.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
+		src.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		src.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE) //For the bog mainly
+		src.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
 
 		src.STASTR = 12
 		src.STACON = 6
-		src.STAEND = 6
+		src.STAEND = 7
 		src.STAPER = 12
 		src.STASPD = 14
 
@@ -169,13 +169,14 @@
 	l = user.get_active_held_item()
 	r = user.get_inactive_held_item()
 	if(extended)
-		if(istype(user.get_active_held_item(), /obj/item/rogueweapon/spider_fang))
+		if(istype(l, /obj/item/rogueweapon/spider_fang))
 			user.dropItemToGround(l, TRUE)
-			user.dropItemToGround(r, TRUE)
 			qdel(l)
+		if(istype(r, /obj/item/rogueweapon/spider_fang))
+			user.dropItemToGround(r, TRUE)
 			qdel(r)
-			//user.visible_message("Your claws retract.", "You feel your claws retracting.", "You hear a sound of claws retracting.")
-			extended = FALSE
+		//user.visible_message("Your claws retract.", "You feel your claws retracting.", "You hear a sound of claws retracting.")
+		extended = FALSE
 	else
 		l = new(user,1)
 		r = new(user,2)

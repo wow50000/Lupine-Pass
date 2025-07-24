@@ -84,6 +84,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	set_nutrition(rand(NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_START_MAX))
 	set_hydration(rand(HYDRATION_LEVEL_START_MIN, HYDRATION_LEVEL_START_MAX))
 	. = ..()
+	become_hearing_sensitive()
 	update_config_movespeed()
 	update_movespeed(TRUE)
 
@@ -339,7 +340,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  * Initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
  */
 /mob/proc/equip_to_slot_if_possible(obj/item/W, slot, qdel_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, bypass_equip_delay_self = FALSE, initial)
-	if(!istype(W))
+	if(!istype(W) || QDELETED(W)) //This qdeleted is to prevent stupid behavior with things that qdel during init, like say stacks
 		return FALSE
 	if(!W.mob_can_equip(src, null, slot, disable_warning, bypass_equip_delay_self))
 		if(qdel_on_fail)

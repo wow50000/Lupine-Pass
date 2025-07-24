@@ -88,7 +88,7 @@
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/sewing/doublefabricbedsheet
-	name = "bedsheet, double fabric (2 fibers, 4 cloth), 2 silk"
+	name = "bedsheet, double fabric (2 fibers, 4 cloth, 2 silk)"
 	result = list(/obj/item/bedsheet/rogue/fabric_double)
 	reqs = list(/obj/item/natural/cloth = 4,
 				/obj/item/natural/fibers = 2,
@@ -225,6 +225,14 @@
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
+
+/datum/crafting_recipe/roguetown/sewing/paddedcoif
+	name = "padded coif(1 fibers, 2 cloth)"
+	result = list(/obj/item/clothing/neck/roguetown/coif/padded)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 1
+
 
 /* craftdif of 2+ */
 
@@ -401,6 +409,29 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 3
 
+/datum/crafting_recipe/roguetown/sewing/jesterchest
+	name = "jester's tunick (1 fibers, 3 cloth)"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/jester)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/sewing/jesterhead
+	name = "jester's hat (1 fibers, 2 cloth, 1 set of jingle bells)"
+	result = list(/obj/item/clothing/head/roguetown/jester)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/jingle_bells = 1)
+	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/sewing/jestershoes
+	name = "jester's shoes (1 fibers, 2 cloth, 1 set of jingle bells)"
+	result = list(/obj/item/clothing/shoes/roguetown/jester)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/jingle_bells = 1)
+	craftdiff = 3
+
 /datum/crafting_recipe/roguetown/sewing/bardress
 	name = "bar dress (1 fibers, 3 cloth)"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/dress)
@@ -514,6 +545,13 @@
     reqs = list(/obj/item/natural/cloth = 6,
                 /obj/item/natural/fibers = 4)
     craftdiff = 3
+
+/datum/crafting_recipe/roguetown/sewing/heavypadded
+	name = "heavy padded coif(2 fibers, 3 cloth)"
+	result = list(/obj/item/clothing/neck/roguetown/coif/heavypadding)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 2)
+	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/sewing/hgambeson/fencer
 	name = "fencing shirt (6 cloth, 2 cured leather)"

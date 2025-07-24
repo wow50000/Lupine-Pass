@@ -92,5 +92,18 @@
 	base_icon_state = "book2"
 
 	types = list(
-		/datum/brewing_recipe
+		/datum/brewing_recipe,
+		/datum/book_entry/brewing
 	)
+
+/obj/item/recipe_book/magic
+	name = "The Magister's Grimoire"
+	icon_state = "book4_0"
+	base_icon_state = "book4"
+
+	types = list(
+		/datum/book_entry/magic1,
+		/datum/crafting_recipe/roguetown/arcana,
+		/datum/crafting_recipe/gemstaff,
+		/datum/runeritual,
+		)

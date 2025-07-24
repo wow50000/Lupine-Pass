@@ -42,6 +42,8 @@
 	var/last_special = 0 //Used by the resist verb, likely used to prevent players from bypassing next_move by logging in/out.
 	var/timeofdeath = 0
 
+	var/infected = FALSE //Used to tell if the mob is in progress of turning into deadite
+
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
 	var/incorporeal_move = FALSE //FALSE is off, INCORPOREAL_MOVE_BASIC is normal, INCORPOREAL_MOVE_SHADOW is for ninjas
 								 //and INCORPOREAL_MOVE_JAUNT is blocked by holy water/salt
@@ -125,10 +127,10 @@
 	var/list/ownedSoullinks //soullinks we are the owner of
 	var/list/sharedSoullinks //soullinks we are a/the sharer of
 
-	var/maxrogstam = 1000
-	var/maxrogfat = 100
-	var/rogstam = 1000
-	var/rogfat = 0
+	var/max_energy = 1000
+	var/max_stamina = 100
+	var/energy = 1000
+	var/stamina = 0 // Stamina. In reality this is stamina damage and the higher it is the worse it is.
 
 	var/last_fatigued = 0
 	var/last_ps = 0
@@ -136,6 +138,7 @@
 	var/ambushable = 0
 
 	var/surrendering = 0
+	var/compliance = 0 // whether we are choosing to auto-resist grabs and stuff
 
 	var/defprob = 50 //base chance to defend against this mob's attacks, for simple mob combat
 	var/encumbrance = 0

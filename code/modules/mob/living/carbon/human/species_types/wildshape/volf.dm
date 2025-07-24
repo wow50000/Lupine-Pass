@@ -9,12 +9,12 @@
 /mob/living/carbon/human/species/wildshape/volf/gain_inherent_skills()
 	. = ..()
 	if(src.mind)
-		src.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE) //'Tracker' transformation
-		src.mind.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE) //Stalking
+		src.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		src.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE) //'Tracker' transformation
+		src.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE) //Stalking
 
 		src.STASTR = 7
 		src.STACON = 7
@@ -170,13 +170,14 @@
 	l = user.get_active_held_item()
 	r = user.get_inactive_held_item()
 	if(extended)
-		if(istype(user.get_active_held_item(), /obj/item/rogueweapon/wolf_claw))
+		if(istype(l, /obj/item/rogueweapon/wolf_claw))
 			user.dropItemToGround(l, TRUE)
-			user.dropItemToGround(r, TRUE)
 			qdel(l)
+		if(istype(r, /obj/item/rogueweapon/wolf_claw))
+			user.dropItemToGround(r, TRUE)
 			qdel(r)
-			//user.visible_message("Your claws retract.", "You feel your claws retracting.", "You hear a sound of claws retracting.")
-			extended = FALSE
+		//user.visible_message("Your claws retract.", "You feel your claws retracting.", "You hear a sound of claws retracting.")
+		extended = FALSE
 	else
 		l = new(user,1)
 		r = new(user,2)

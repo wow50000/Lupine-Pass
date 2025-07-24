@@ -209,3 +209,18 @@
 	name = "Bottle Kit"
 	cost = 50
 	contains = list(/obj/item/bottle_kit)
+
+/datum/supply_pack/rogue/tools/spade
+	name = "Wooden Spade"
+	cost = 5
+	contains = list(/obj/item/rogueweapon/shovel/small)
+
+/datum/supply_pack/rogue/tools/shovel
+	name = "Shovel"
+	cost = 20
+	contains = list(/obj/item/rogueweapon/shovel)
+
+/datum/supply_pack/rogue/tools/surgeonsbag
+	name = "Surgeon's bag, Full"
+	cost = 80
+	contains = list(/obj/item/storage/belt/rogue/surgery_bag)

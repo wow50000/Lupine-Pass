@@ -125,7 +125,20 @@
 
 		if(name in GLOB.excommunicated_players)
 			. += span_userdanger("HERETIC! SHAME!")
-
+		
+		if(HAS_TRAIT(src, TRAIT_EXCOMMUNICATED))
+			. += span_userdanger("EXCOMMUNICATED! SHAME!")//Temporary, probably going to get rid of the trait since it doesn't fit for us.
+/*
+		if(name in GLOB.excommunicated_players)
+			var/mob/living/carbon/human/H = src
+			switch (H.patron)
+				if (istype(H.patron, /datum/patron/divine))
+					. += span_userdanger("EXCOMMUNICATED! SHAME!")
+				if (istype(H.patron, /datum/patron/inhumen))
+					. += span_userdanger("HERETIC! SHAME!")
+				if (istype(H.patron, /datum/patron/old_god))
+					. += span_userdanger("HEATHEN! SHAME!")
+*/
 		if(name in GLOB.outlawed_players)
 			. += span_userdanger("OUTLAW!")
 
@@ -198,7 +211,7 @@
 				if (THEY_THEM, THEY_THEM_F, IT_ITS)
 					. += span_redtext("[m1] repulsive!")
 	
-	if (HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS))
+	if (HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS) && (!HAS_TRAIT(src, TRAIT_VAMP_DREAMS)))
 		if(isliving(user))
 			var/mob/living/L = user
 			if(L.STAINT > 9 && L.STAPER > 9)
@@ -215,11 +228,11 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 
-		if(HAS_TRAIT(H, TRAIT_INTELLECTUAL) || H.mind?.get_skill_level(H, /datum/skill/craft/blacksmithing) >= SKILL_EXP_EXPERT)
+		if(HAS_TRAIT(H, TRAIT_INTELLECTUAL) || H.get_skill_level(H, /datum/skill/craft/blacksmithing) >= SKILL_EXP_EXPERT)
 			is_smart = TRUE	//Most of this is determining integrity of objects + seeing multiple layers. 
-		if(((H?.STAINT - 10) + round((H?.STAPER - 10) / 2) + H.mind?.get_skill_level(/datum/skill/misc/reading)) < 0 && !is_smart)
+		if(((H?.STAINT - 10) + round((H?.STAPER - 10) / 2) + H.get_skill_level(/datum/skill/misc/reading)) < 0 && !is_smart)
 			is_stupid = TRUE
-		if(((H?.STAINT - 10) + (H?.STAPER - 10) + H.mind?.get_skill_level(/datum/skill/misc/reading)) >= 5)
+		if(((H?.STAINT - 10) + (H?.STAPER - 10) + H.get_skill_level(/datum/skill/misc/reading)) >= 5)
 			is_normal = TRUE
 
 	if(user != src)
@@ -238,7 +251,10 @@
 
 	if(wear_shirt && !(SLOT_SHIRT in obscured))
 		if(!wear_armor)
-			. += "[m3] [wear_shirt.get_examine_string(user)]."
+			var/str = "[m3] [wear_shirt.get_examine_string(user)]."
+			if(!is_stupid)
+				str += " [wear_shirt.integrity_check()]"
+			. += str
 		else
 			if(is_smart)
 				var/str = "[m3] [wear_shirt.get_examine_string(user)]. "
@@ -319,7 +335,7 @@
 			str += cloak.integrity_check()
 			. += str
 		else if (is_stupid)					//So they can tell the named RG tabards. If they can read them, anyway.
-			if(!istype(cloak, /obj/item/clothing/cloak/stabard) && user.mind?.get_skill_level(/datum/skill/misc/reading))
+			if(!istype(cloak, /obj/item/clothing/cloak/stabard) && user.get_skill_level(/datum/skill/misc/reading))
 				. += "[m3] some kinda clothy thing on [m2] shoulders!"
 			else
 				. += "[m3] [cloak.get_examine_string(user)] on [m2] shoulders."
@@ -880,13 +896,18 @@
 		if(mind.special_role == "Bandit")
 			if(HAS_TRAIT(examiner, TRAIT_COMMIE))
 				villain_text = span_notice("Free man!")
-			/*else
-				villain_text = span_userdanger("BANDIT!")*/
+			if(HAS_TRAIT(src,TRAIT_KNOWNCRIMINAL))
+				villain_text = span_userdanger("BANDIT!")
 		if(mind.special_role == "Vampire Lord")
 			var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
 			if(VD) 
 				if(!VD.disguised)
 					villain_text += span_userdanger("A MONSTER!")
+		if(mind.special_role == "Vampire Spawn")
+			var/datum/antagonist/vampirelord/lesser/VD = mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			if(VD) 
+				if(!VD.disguised)
+					villain_text += span_userdanger("A LICKER!")
 		if(mind.assigned_role == "Lunatic")
 			villain_text += span_userdanger("LUNATIC!")
 
@@ -895,14 +916,14 @@
 /proc/get_blade_dulling_text(obj/item/rogueweapon/I, verbose = FALSE)
 	switch(I.blade_dulling)
 		if(DULLING_SHAFT_WOOD)
-			return "[verbose ? "Wooden shaft" : "(W. shaft)"]"
+			return "[verbose ? "Wooden" : "(W. shaft)"]"
 		if(DULLING_SHAFT_REINFORCED)
-			return "[verbose ? "Reinforced shaft" : "(R. shaft)"]"
+			return "[verbose ? "Reinforced" : "(R. shaft)"]"
 		if(DULLING_SHAFT_METAL)
-			return "[verbose ? "Metal shaft" : "(M. shaft)"]"
+			return "[verbose ? "Metal" : "(M. shaft)"]"
 		if(DULLING_SHAFT_GRAND)
-			return "[verbose ? "Grand shaft" : "(G. shaft)"]"
+			return "[verbose ? "Grand" : "(G. shaft)"]"
 		if(DULLING_SHAFT_CONJURED)
-			return "[verbose ? "Conjured shaft" : "(C. shaft)"]"
+			return "[verbose ? "Conjured" : "(C. shaft)"]"
 		else
 			return null

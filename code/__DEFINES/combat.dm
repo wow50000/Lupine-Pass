@@ -204,6 +204,7 @@
 #define BCLASS_STAB			"stabbing"
 #define BCLASS_PICK			"stab"
 #define BCLASS_LASHING		"lashing"
+#define BCLASS_PIERCE		"pierce"
 #define BCLASS_TWIST		"twist"
 #define BCLASS_PUNCH		"punch"
 #define BCLASS_BITE			"bite"
@@ -355,3 +356,5 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 
 //Weapon values
 #define BLUNT_DEFAULT_PENFACTOR		-100
+
+#define UNARMED_DAMAGE_DEFAULT		12

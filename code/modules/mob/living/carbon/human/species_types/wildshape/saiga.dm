@@ -13,14 +13,14 @@
 /mob/living/carbon/human/species/wildshape/saiga/gain_inherent_skills()
 	. = ..()
 	if(src.mind)
-		src.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
-		src.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
+		src.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+		src.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
+		src.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
 
 		src.STASTR = 10
 		src.STACON = 13
-		src.STAEND = 18 //Because I don't want to give it TRAIT_NOROGSTAM
+		src.STAEND = 18 //Because I don't want to give it TRAIT_INFINITE_STAMINA
 		src.STASPD = 13
 
 		AddSpell(new /obj/effect/proc_holder/spell/self/saigahoofs)
@@ -37,7 +37,7 @@
 		TRAIT_HARDDISMEMBER, //Decapping wildshapes causes them to bug out, badly, and need admin intervention to fix. Bandaid fix.
 		TRAIT_PIERCEIMMUNE, //Prevents weapon dusting and caltrop effects when killed/stepping on shards.
 		TRAIT_LONGSTRIDER,
-		TRAIT_NOFATIGUE, //Saiga's gonna run a marathon
+		TRAIT_INFINITE_ENERGY, //Saiga's gonna run a marathon
 		TRAIT_PUSHIMMUNE
 	)
 	inherent_biotypes = MOB_HUMANOID
@@ -169,13 +169,14 @@
 	l = user.get_active_held_item()
 	r = user.get_inactive_held_item()
 	if(extended)
-		if(istype(user.get_active_held_item(), /obj/item/rogueweapon/saiga_hoof))
+		if(istype(l, /obj/item/rogueweapon/saiga_hoof))
 			user.dropItemToGround(l, TRUE)
-			user.dropItemToGround(r, TRUE)
 			qdel(l)
+		if(istype(r, /obj/item/rogueweapon/saiga_hoof))
+			user.dropItemToGround(r, TRUE)
 			qdel(r)
-			//user.visible_message("Your claws retract.", "You feel your claws retracting.", "You hear a sound of claws retracting.")
-			extended = FALSE
+		//user.visible_message("Your claws retract.", "You feel your claws retracting.", "You hear a sound of claws retracting.")
+		extended = FALSE
 	else
 		l = new(user,1)
 		r = new(user,2)

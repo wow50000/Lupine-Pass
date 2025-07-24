@@ -184,13 +184,13 @@
 
 //proc to upgrade a simple pull into a more aggressive grab.
 /mob/living/proc/grippedby(mob/living/carbon/user, instant = FALSE)
-	user.changeNext_move(CLICK_CD_MELEE * 2 - user.STASPD)
+	user.changeNext_move(CLICK_CD_GRABBING * 2 - user.STASPD)
 	var/skill_diff = 0
 	var/combat_modifier = 1
 	if(user.mind)
-		skill_diff += (user.mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
+		skill_diff += (user.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(mind)
-		skill_diff -= (mind.get_skill_level(/datum/skill/combat/wrestling))
+		skill_diff -= (get_skill_level(/datum/skill/combat/wrestling))
 
 	if(user == src)
 		instant = TRUE
@@ -209,7 +209,11 @@
 	else if(!user.cmode && cmode)
 		combat_modifier -= 0.3
 
-	var/probby =  clamp((((4 + (((user.STASTR - STASTR)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)
+	var/probby
+	if(!compliance)
+		probby = clamp((((4 + (((user.STASTR - STASTR)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)
+	else
+		probby = 100
 
 	if(!prob(probby) && !instant && !stat)
 		visible_message(span_warning("[user] struggles with [src]!"),

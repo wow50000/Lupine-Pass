@@ -1091,10 +1091,13 @@ SUBSYSTEM_DEF(gamemode)
 			lowest = initialized_storyteller
 	if(!highest)
 		return
-	if(storytellers_with_influence[highest] > 1.25)
-		highest.bonus_points -= 1.25
 
-	lowest.bonus_points += 1.25
+	var/adjustment = min(2.5, 1 + (0.3 * FLOOR(max(0, highest.times_chosen - 5) / 5, 1)))
+
+	if(storytellers_with_influence[highest] > adjustment)
+		highest.bonus_points -= adjustment
+
+	lowest.bonus_points += adjustment
 
 	set_storyteller(highest.type)
 
@@ -1182,7 +1185,7 @@ SUBSYSTEM_DEF(gamemode)
 			var/mob/living/carbon/human/human_mob = client.mob
 			GLOB.azure_round_stats[STATS_TOTAL_POPULATION]++
 			for(var/obj/item/clothing/neck/current_item in human_mob.get_equipped_items(TRUE))
-				if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
+				if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver,	/obj/item/clothing/neck/roguetown/psicross/g))
 					GLOB.azure_round_stats[STATS_PSYCROSS_USERS]++
 					break
 			switch(human_mob.pronouns)

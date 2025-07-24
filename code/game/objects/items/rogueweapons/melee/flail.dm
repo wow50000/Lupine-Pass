@@ -128,7 +128,7 @@
 	icon_state = "necraflail"
 
 /obj/item/rogueweapon/flail/sflail/psyflail
-	name = "psydon's flail"
+	name = "psydonian flail"
 	desc = "An ornate flail, plated in a ceremonial veneer of silver. Its flanged head can crumple even the toughest of darksteel-maille."
 	icon_state = "psyflail"
 
@@ -184,6 +184,7 @@
 	associated_skill = /datum/skill/combat/whipsflails
 	slot_flags = ITEM_SLOT_BACK
 	blade_dulling = DULLING_SHAFT_GRAND
+	anvilrepair = /datum/skill/craft/weaponsmithing
 
 
 /obj/item/rogueweapon/flail/peasantwarflail/matthios/pickup(mob/living/user)

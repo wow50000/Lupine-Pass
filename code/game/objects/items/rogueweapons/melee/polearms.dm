@@ -63,6 +63,10 @@
 	icon_state = "inuse"
 	no_attack = TRUE
 
+/datum/intent/spear/cut/naginata
+	damfactor = 1.2
+	chargetime = 0
+
 /datum/intent/sword/cut/zwei
 	reach = 2
 
@@ -150,6 +154,8 @@
 	item_d_type = "slash"
 	peel_divisor = 4
 	reach = 2
+
+
 
 /datum/intent/spear/bash/ranged/quarterstaff
 	damfactor = 1
@@ -459,7 +465,7 @@
 		/obj/item/natural/worms/leech = 50,
 		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,
 	)
-	var/sl = user.mind.get_skill_level(/datum/skill/labor/fishing) // User's skill level
+	var/sl = user.get_skill_level(/datum/skill/labor/fishing) // User's skill level
 	var/ft = 160 //Time to get a catch, in ticks
 	var/fpp =  130 - (40 + (sl * 15)) // Fishing power penalty based on fishing skill level
 	var/frwt = list(/turf/open/water/river, /turf/open/water/cleanshallow, /turf/open/water/pond)
@@ -482,8 +488,14 @@
 							fishchance -= fpp // Deduct a penalty the lower our fishing level is (-0 at legendary)
 					var/mob/living/fisherman = user
 					if(prob(fishchance)) // Finally, roll the dice to see if we fish.
+						var/A
 						if(target.type in frwt)
-							var/A = pickweight(freshfishloot)
+							A = pickweight(freshfishloot)
+						else if(target.type in salwt)
+							A = pickweight(seafishloot)
+						else if(target.type in mud)
+							A = pickweight(mudfishloot)
+						if(A)
 							var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
 							to_chat(user, "<span class='notice'>You see something!</span>")
 							playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
@@ -499,49 +511,11 @@
 									new A(user.loc)
 									to_chat(user, "<span class='warning'>Pull 'em in!</span>")
 									user.mind.add_sleep_experience(/datum/skill/labor/fishing, round(fisherman.STAINT, 2), FALSE) // Level up!
+									record_featured_stat(FEATURED_STATS_FISHERS, fisherman)
+									GLOB.azure_round_stats[STATS_FISH_CAUGHT]++
 									playsound(src.loc, 'sound/items/Fish_out.ogg', 100, TRUE)	
 							else
 								to_chat(user, "<span class='warning'>Damn, it got away... I should <b>pull away</b> next time.</span>")								
-						if(target.type in salwt)
-							var/A = pickweight(seafishloot)
-							var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
-							to_chat(user, "<span class='notice'>You see something!</span>")
-							playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
-							if(!do_after(user,ow, target = target))
-								if(ismob(A)) // TODO: Baits with mobs on their fishloot lists OR water tiles with their own fish loot pools
-									var/mob/M = A
-									if(M.type in subtypesof(/mob/living/simple_animal/hostile))
-										new M(target)
-									else
-										new M(user.loc)
-									user.mind.add_sleep_experience(/datum/skill/labor/fishing, fisherman.STAINT*2) // High risk high reward
-								else
-									new A(user.loc)
-									to_chat(user, "<span class='warning'>Pull 'em in!</span>")
-									user.mind.add_sleep_experience(/datum/skill/labor/fishing, round(fisherman.STAINT, 2), FALSE) // Level up!
-									playsound(src.loc, 'sound/items/Fish_out.ogg', 100, TRUE)	
-							else
-								to_chat(user, "<span class='warning'>Damn, it got away... I should <b>pull away</b> next time.</span>")							
-						if(target.type in mud)
-							var/A = pickweight(mudfishloot)
-							var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
-							to_chat(user, "<span class='notice'>You see something!</span>")
-							playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
-							if(!do_after(user,ow, target = target))
-								if(ismob(A)) // TODO: Baits with mobs on their fishloot lists OR water tiles with their own fish loot pools
-									var/mob/M = A
-									if(M.type in subtypesof(/mob/living/simple_animal/hostile))
-										new M(target)
-									else
-										new M(user.loc)
-									user.mind.add_sleep_experience(/datum/skill/labor/fishing, fisherman.STAINT*2) // High risk high reward
-								else
-									new A(user.loc)
-									to_chat(user, "<span class='warning'>Pull 'em in!</span>")
-									user.mind.add_sleep_experience(/datum/skill/labor/fishing, round(fisherman.STAINT, 2), FALSE) // Level up!
-									playsound(src.loc, 'sound/items/Fish_out.ogg', 100, TRUE)
-							else
-								to_chat(user, "<span class='warning'>Damn, it got away... I should <b>pull away</b> next time.</span>")
 					else
 						to_chat(user, "<span class='warning'>Not a single fish...</span>")
 						user.mind.add_sleep_experience(/datum/skill/labor/fishing, fisherman.STAINT/2) // Pity XP.
@@ -1011,7 +985,7 @@
 	force_wielded = 25
 	gripped_intents = list(/datum/intent/spear/bash/ranged/quarterstaff, /datum/intent/spear/thrust/quarterstaff)
 	icon_state = "quarterstaff_steel"
-	max_integrity = 500
+	max_integrity = 400
 	blade_dulling = DULLING_SHAFT_REINFORCED
 	intdamage_factor = 1.2
 
@@ -1065,3 +1039,28 @@
 	gripped_intents = list(/datum/intent/spear/thrust/lance, /datum/intent/lance, SPEAR_BASH)
 	resistance_flags = null
 	blade_dulling = DULLING_SHAFT_REINFORCED
+
+/obj/item/rogueweapon/spear/naginata
+	name = "Naginata"
+	desc = "A traditional Kazengunese polearm, combining the reach of a spear with the cutting power of a curved blade. Due to the brittle quality of Kazengunese bladesmithing, weaponsmiths have adapted its blade to be easily replaceable when broken by a peg upon the end of the shaft."
+	force = 16
+	force_wielded = 30
+	possible_item_intents = list(/datum/intent/spear/cut/naginata, SPEAR_BASH) // no stab for you little chuddy, it's a slashing weapon
+	gripped_intents = list(/datum/intent/rend/reach, /datum/intent/spear/cut/naginata, PARTIZAN_PEEL, SPEAR_BASH)
+	icon_state = "naginata"
+	icon = 'icons/roguetown/weapons/64.dmi'
+	minstr = 7
+	max_blade_int = 50 //Nippon suteeru (dogshit)
+	wdefense = 5
+	throwforce = 12	//Not a throwing weapon. 
+	blade_dulling = DULLING_SHAFT_REINFORCED
+	icon_angle_wielded = 50
+
+/obj/item/rogueweapon/spear/naginata/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -6,"sy" = 2,"nx" = 8,"ny" = 2,"wx" = -4,"wy" = 2,"ex" = 1,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 300,"wturn" = 32,"eturn" = -23,"nflip" = 0,"sflip" = 100,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 4,"sy" = -2,"nx" = -3,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)

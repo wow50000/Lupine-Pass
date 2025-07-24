@@ -14,68 +14,6 @@
 		return null
 	return format_text ? format_text(A.name) : A.name
 
-/proc/get_areas_in_range(dist=0, atom/center=usr)
-	if(!dist)
-		var/turf/T = get_turf(center)
-		return T ? list(T.loc) : list()
-	if(!center)
-		return list()
-
-	var/list/turfs = RANGE_TURFS(dist, center)
-	var/list/areas = list()
-	for(var/V in turfs)
-		var/turf/T = V
-		areas |= T.loc
-	return areas
-
-/proc/get_adjacent_areas(atom/center)
-	. = list(get_area(get_ranged_target_turf(center, NORTH, 1)),
-			get_area(get_ranged_target_turf(center, SOUTH, 1)),
-			get_area(get_ranged_target_turf(center, EAST, 1)),
-			get_area(get_ranged_target_turf(center, WEST, 1)))
-	listclearnulls(.)
-
-/proc/get_open_turf_in_dir(atom/center, dir)
-	var/turf/open/T = get_ranged_target_turf(center, dir, 1)
-	if(istype(T))
-		return T
-
-/proc/get_adjacent_open_turfs(atom/center)
-	. = list(get_open_turf_in_dir(center, NORTH),
-			get_open_turf_in_dir(center, SOUTH),
-			get_open_turf_in_dir(center, EAST),
-			get_open_turf_in_dir(center, WEST))
-	listclearnulls(.)
-
-/proc/get_adjacent_open_areas(atom/center)
-	. = list()
-	var/list/adjacent_turfs = get_adjacent_open_turfs(center)
-	for(var/I in adjacent_turfs)
-		. |= get_area(I)
-
-// Like view but bypasses luminosity check
-
-/proc/get_hear(range, atom/source)
-
-	var/lum = source.luminosity
-	source.luminosity = 6
-
-	var/list/heard = view(range, source)
-	source.luminosity = lum
-
-	return heard
-
-/proc/alone_in_area(area/the_area, mob/must_be_alone, check_type = /mob/living/carbon)
-	var/area/our_area = get_area(the_area)
-	for(var/C in GLOB.alive_mob_list)
-		if(!istype(C, check_type))
-			continue
-		if(C == must_be_alone)
-			continue
-		if(our_area == get_area(C))
-			return 0
-	return 1
-
 //We used to use linear regression to approximate the answer, but Mloc realized this was actually faster.
 //And lo and behold, it is, and it's more accurate to boot.
 /proc/cheap_hypotenuse(Ax,Ay,Bx,By)
@@ -118,6 +56,10 @@
 	var/dist = sqrt(dx**2 + dy**2)
 
 	return dist
+
+/// Returns the squared Euclidean distance, which is cheaper because it doesn't require sqrt.
+/proc/get_dist_euclidean_squared(atom/Loc1, atom/Loc2)
+	return (Loc1.x - Loc2.x)**2 + (Loc1.y - Loc2.y)**2
 
 /proc/circlerangeturfs(center=usr,radius=3)
 
@@ -267,53 +209,32 @@
 
 	return found_mobs
 
-
-/proc/get_hearers_in_view(R, atom/source)
-	// Returns a list of hearers in view(R) from source (ignoring luminosity). Used in saycode.
-	var/turf/T = get_turf(source)
-	. = list()
-
-	if(!T)
-		return
-
-	var/list/processing_list = list()
-	if (R == 0) // if the range is zero, we know exactly where to look for, we can skip view
-		processing_list += T.contents // We can shave off one iteration by assuming turfs cannot hear
-	else  // A variation of get_hear inlined here to take advantage of the compiler's fastpath for obj/mob in view
-		var/lum = T.luminosity
-		T.luminosity = 6 // This is the maximum luminosity
-		for(var/mob/M in view(R, T))
-			processing_list += M
-		for(var/obj/O in view(R, T))
-			processing_list += O
-		T.luminosity = lum
-
-	while(processing_list.len) // recursive_hear_check inlined here
-		var/atom/A = processing_list[1]
-		if(A.flags_1 & HEAR_1)
-			. += A
-		processing_list.Cut(1, 2)
-		processing_list += A.contents
-
-
-#define SIGNV(X) ((X<0)?-1:1)
-
-/proc/inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
-	var/turf/T
+/// Like inLineOfSight, but it checks density instead of opacity.
+/proc/inLineOfTravel(mob/traveler, atom/target)
+	var/turf/our_turf = get_turf(traveler)
+	var/turf/their_turf = get_turf(target)
+	var/X1 = our_turf.x
+	var/Y1 = our_turf.y
+	var/X2 = their_turf.x
+	var/Y2 = their_turf.y
+	var/Z = our_turf.z
+	var/turf/current_turf = our_turf
+	var/turf/last_turf
 	if(X1==X2)
 		if(Y1==Y2)
-			return 1 //Light cannot be blocked on same tile
+			return TRUE //you're already on the tile
 		else
 			var/s = SIGN(Y2-Y1)
 			Y1+=s
 			while(Y1!=Y2)
-				T=locate(X1,Y1,Z)
-				if(T.opacity)
-					return 0
+				last_turf = current_turf
+				current_turf = locate(X1,Y1,Z)
+				if(current_turf.density || last_turf.LinkBlockedWithAccess(current_turf, traveler))
+					return FALSE
 				Y1+=s
 	else
-		var/m=(32*(Y2-Y1)+(PY2-PY1))/(32*(X2-X1)+(PX2-PX1))
-		var/b=(Y1+PY1/32-0.015625)-m*(X1+PX1/32-0.015625) //In tiles
+		var/m=(Y2-Y1)/(X2-X1) // slope
+		var/b=(Y1+0.5)-m*(X1+0.5) // y axis offset in tiles
 		var/signX = SIGN(X2-X1)
 		var/signY = SIGN(Y2-Y1)
 		if(X1<X2)
@@ -323,12 +244,11 @@
 				Y1+=signY //Line exits tile vertically
 			else
 				X1+=signX //Line exits tile horizontally
-			T=locate(X1,Y1,Z)
-			if(T.opacity)
-				return 0
-	return 1
-#undef SIGNV
-
+			last_turf = current_turf
+			current_turf = locate(X1,Y1,Z)
+			if(current_turf.density || last_turf.LinkBlockedWithAccess(current_turf, traveler))
+				return FALSE
+	return TRUE
 
 /proc/isInSight(atom/A, atom/B)
 	var/turf/Aturf = get_turf(A)
