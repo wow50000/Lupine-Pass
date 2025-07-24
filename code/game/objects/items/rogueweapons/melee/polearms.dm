@@ -433,7 +433,7 @@
 	max_blade_int = 2600
 	wdefense = 8
 	throwforce = 50
-	baitMods=list(
+	fishingMods=list(
 		"commonFishingMod" = 0.8,
 		"rareFishingMod" = 1.4,
 		"treasureFishingMod" = 0,
@@ -474,13 +474,13 @@
 					if(prob(fishchance)) // Finally, roll the dice to see if we fish.
 						var/A
 						if(target.type in frwt)
-							A = pickweightAllowZero(createFreshWaterFishWeightListBaited(baitMods))
+							A = pickweightAllowZero(createFreshWaterFishWeightListBaited(fishingMods))
 						else if(target.type in salwt_coast)
-							A = pickweightAllowZero(createCoastalSeaFishWeightList(baitMods))
+							A = pickweightAllowZero(createCoastalSeaFishWeightList(fishingMods))
 						else if(target.type in salwt_deep)
-							A = pickweightAllowZero(createDeepSeaFishWeightListBaited(baitMods))
+							A = pickweightAllowZero(createDeepSeaFishWeightListBaited(fishingMods))
 						else if(target.type in mud)
-							A = pickweightAllowZero(createMudFishWeightListBaited(baitMods))
+							A = pickweightAllowZero(createMudFishWeightListBaited(fishingMods))
 						if(A)
 							var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
 							to_chat(user, "<span class='notice'>You see something!</span>")

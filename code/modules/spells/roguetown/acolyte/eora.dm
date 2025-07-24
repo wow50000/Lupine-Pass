@@ -1018,8 +1018,8 @@
 	effect_desc = "Excellent fishing bait that attracts treasure."
 	baitpenalty = 5
 	isbait = TRUE
-	baitMods=list(
-		"commonFishingMod" = 0.1,
+	fishingMods=list(
+		"commonFishingMod" = 0.2,
 		"rareFishingMod" = 1,
 		"treasureFishingMod" = 1,
 		"trashFishingMod" = 0,

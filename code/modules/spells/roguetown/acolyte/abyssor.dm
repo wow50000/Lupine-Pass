@@ -129,8 +129,8 @@
 	var/salwt_coast = list(/turf/open/water/ocean)
 	var/salwt_deep = list(/turf/open/water/ocean/deep)
 	var/mud = list(/turf/open/water/swamp, /turf/open/water/swamp/deep)
-	var/list/baitMods = list(
-		"commonFishingMod" = 1,
+	var/list/fishingMods = list(
+		"commonFishingMod" = 0.8,
 		"rareFishingMod" = 1,
 		"treasureFishingMod" = 0,
 		"trashFishingMod" = 0,
@@ -144,13 +144,13 @@
 		var/turf/T = targets[1]
 		var/A
 		if(T.type in frwt)
-			A = pickweightAllowZero(createFreshWaterFishWeightListBaited(baitMods))
+			A = pickweightAllowZero(createFreshWaterFishWeightListBaited(fishingMods))
 		else if(T.type in salwt_coast)
-			A = pickweightAllowZero(createCoastalSeaFishWeightListBaited(baitMods))
+			A = pickweightAllowZero(createCoastalSeaFishWeightListBaited(fishingMods))
 		else if(T.type in salwt_deep)
-			A = pickweightAllowZero(createDeepSeaFishWeightListBaited(baitMods))
+			A = pickweightAllowZero(createDeepSeaFishWeightListBaited(fishingMods))
 		else if(T.type in mud)
-			A = pickweightAllowZero(createMudFishWeightListBaited(baitMods))
+			A = pickweightAllowZero(createMudFishWeightListBaited(fishingMods))
 		if(A)
 			var/atom/movable/AF = new A(T)
 			AF.throw_at(get_turf(user), 5, 1, null)

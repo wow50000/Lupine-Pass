@@ -1,7 +1,7 @@
 /obj/item
 	var/baitpenalty = 100 // Using this as bait will incurr a penalty to fishing chance. 100 makes it useless as bait. Lower values are better, but Never make it past 10.
 	var/isbait = FALSE	// Is the item in question bait to be used?
-	var/list/baitMods = null
+	var/list/fishingMods = null
 
 /obj/item/natural/worms
 	name = "worm"
@@ -12,7 +12,7 @@
 	isbait = TRUE
 	color = "#985544"
 	w_class = WEIGHT_CLASS_TINY
-	baitMods=list(
+	fishingMods=list(
 		"commonFishingMod" = 1,
 		"rareFishingMod" = 1,
 		"treasureFishingMod" = 1,
@@ -30,7 +30,7 @@
 	baitpenalty = 5
 	isbait = TRUE
 	color = null
-	baitMods=list(
+	fishingMods=list(
 		"commonFishingMod" = 0.85,
 		"rareFishingMod" = 1.15,
 		"treasureFishingMod" = 1,

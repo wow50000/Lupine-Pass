@@ -6,7 +6,7 @@
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "leech"
 	baitpenalty = 0
-	baitMods=list(
+	fishingMods=list(
 		"commonFishingMod" = 0.7,
 		"rareFishingMod" = 1.3,
 		"treasureFishingMod" = 1,
