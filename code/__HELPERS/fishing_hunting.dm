@@ -14,11 +14,11 @@
 	return FALSE
 
 /proc/createFreshWaterFishWeightList(commonMod, rareMod, treasureMod, trashMod, dangerMod, ceruleanMod)
-	var/weightList = list(
+	var/list/weightList = list(
 		/obj/item/reagent_containers/food/snacks/fish/carp = 270*commonMod,
-		/obj/item/reagent_containers/food/snacks/fish/sunny = 320*commonMod,
+		/obj/item/reagent_containers/food/snacks/fish/sunny = 340*commonMod,
 		/obj/item/reagent_containers/food/snacks/fish/salmon = 180*rareMod,
-		/obj/item/reagent_containers/food/snacks/fish/eel = 200*commonMod,
+		/obj/item/reagent_containers/food/snacks/fish/eel = 180*commonMod,
 		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1*treasureMod + 15*ceruleanMod,
 		/obj/item/clothing/ring/gold = 1*treasureMod + 15*ceruleanMod,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1*treasureMod + 50*ceruleanMod,
@@ -32,21 +32,20 @@
 	)
 	return counterlist_ceiling(weightList)
 
-/proc/createFreshWaterFishWeightListBaited(list/fishingMods) (
-	. = createFreshWaterFishWeightList(fishingMods["commonfishingMod"],fishingMods["rarefishingMod"],fishingMods["treasurefishingMod"],fishingMods["trashfishingMod"],fishingMods["dangerfishingMod"],fishingMods["ceruleanfishingMod"])
-)
+/proc/createFreshWaterFishWeightListModlist(list/fishingMods)
+	return createFreshWaterFishWeightList(fishingMods["commonFishingMod"],fishingMods["rareFishingMod"],fishingMods["treasureFishingMod"],fishingMods["trashFishingMod"],fishingMods["dangerFishingMod"],fishingMods["ceruleanFishingMod"])
 
 /proc/createCoastalSeaFishWeightList(commonMod, rareMod, treasureMod, trashMod, dangerMod, ceruleanMod)
 	var/weightList = list (
-		/obj/item/reagent_containers/food/snacks/fish/cod = 200*commonMod,
+		/obj/item/reagent_containers/food/snacks/fish/cod = 210*commonMod,
 		/obj/item/reagent_containers/food/snacks/fish/plaice = 70*rareMod,
-		/obj/item/reagent_containers/food/snacks/fish/sole = 310*commonMod,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 50*rareMod,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 300*commonMod,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 60*rareMod,
 		/obj/item/reagent_containers/food/snacks/fish/lobster = 70*rareMod,
-		/obj/item/reagent_containers/food/snacks/fish/bass = 200*commonMod,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 60*rareMod,
+		/obj/item/reagent_containers/food/snacks/fish/bass = 210*commonMod,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 40*rareMod,
 		/obj/item/reagent_containers/food/snacks/fish/clownfish = 10*rareMod + 100*ceruleanMod,
-		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1*treasureMod + *ceruleanMod,
+		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1*treasureMod + 15*ceruleanMod,
 		/obj/item/clothing/ring/gold = 1*treasureMod + 15*ceruleanMod,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1*treasureMod + 50*ceruleanMod,
 		/obj/item/storage/belt/rogue/pouch/coins/mid = 10*ceruleanMod,
@@ -59,9 +58,8 @@
 	)
 	return counterlist_ceiling(weightList)
 
-/proc/createCoastalSeaFishWeightListBaited(list/fishingMods) (
-	. = createCoastalSeaFishWeightList(fishingMods["commonfishingMod"],fishingMods["rarefishingMod"],fishingMods["treasurefishingMod"],fishingMods["trashfishingMod"],fishingMods["dangerfishingMod"],fishingMods["ceruleanfishingMod"])
-)
+/proc/createCoastalSeaFishWeightListModlist(list/fishingMods) 
+	return createCoastalSeaFishWeightList(fishingMods["commonFishingMod"],fishingMods["rareFishingMod"],fishingMods["treasureFishingMod"],fishingMods["trashFishingMod"],fishingMods["dangerFishingMod"],fishingMods["ceruleanFishingMod"])
 
 /proc/createDeepSeaFishWeightList(commonMod, rareMod, treasureMod, trashMod, dangerMod, ceruleanMod)
 	var/weightList = list (
@@ -73,7 +71,7 @@
 		/obj/item/reagent_containers/food/snacks/fish/bass = 100*commonMod,
 		/obj/item/reagent_containers/food/snacks/fish/clam = 150*rareMod,
 		/obj/item/reagent_containers/food/snacks/fish/clownfish = 50*rareMod + 200*ceruleanMod,
-		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1*treasureMod + *ceruleanMod,
+		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1*treasureMod + 30*ceruleanMod,
 		/obj/item/clothing/ring/gold = 1*treasureMod + 30*ceruleanMod,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1*treasureMod + 75*ceruleanMod,
 		/obj/item/storage/belt/rogue/pouch/coins/mid = 40*ceruleanMod,
@@ -86,9 +84,8 @@
 	)
 	return counterlist_ceiling(weightList)
 
-/proc/createDeepSeaFishWeightListBaited(list/fishingMods) (
-	. = createDeepSeaFishWeightList(fishingMods["commonfishingMod"],fishingMods["rarefishingMod"],fishingMods["treasurefishingMod"],fishingMods["trashfishingMod"],fishingMods["dangerfishingMod"],fishingMods["ceruleanfishingMod"])
-)
+/proc/createDeepSeaFishWeightListModlist(list/fishingMods) 
+	return createDeepSeaFishWeightList(fishingMods["commonFishingMod"],fishingMods["rareFishingMod"],fishingMods["treasureFishingMod"],fishingMods["trashFishingMod"],fishingMods["dangerFishingMod"],fishingMods["ceruleanFishingMod"])
 
 /proc/createMudFishWeightList(commonMod, rareMod, treasureMod, trashMod, dangerMod, ceruleanMod)
 	var/weightList = list (
@@ -100,9 +97,8 @@
 	)
 	return counterlist_ceiling(weightList)
 
-/proc/createMudFishWeightListBaited(list/fishingMods) (
-	. = createMudFishWeightList(fishingMods["commonfishingMod"],fishingMods["rarefishingMod"],fishingMods["treasurefishingMod"],fishingMods["trashfishingMod"],fishingMods["dangerfishingMod"],fishingMods["ceruleanfishingMod"])
-)
+/proc/createMudFishWeightListModlist(list/fishingMods)
+	return createMudFishWeightList(fishingMods["commonFishingMod"],fishingMods["rareFishingMod"],fishingMods["treasureFishingMod"],fishingMods["trashFishingMod"],fishingMods["dangerFishingMod"],fishingMods["ceruleanFishingMod"])
 
 /proc/createCageFishWeightList(commonMod, rareMod, treasureMod, trashMod, dangerMod, ceruleanMod)
 	var/weightList = list(
@@ -114,6 +110,5 @@
 		)	
 	return counterlist_ceiling(weightList)
 
-/proc/createCageFishWeightListBaited(list/fishingMods) (
-	. = createCageFishWeightList(fishingMods["commonfishingMod"],fishingMods["rarefishingMod"],fishingMods["treasurefishingMod"],fishingMods["trashfishingMod"],fishingMods["dangerfishingMod"],fishingMods["ceruleanfishingMod"])
-)
+/proc/createCageFishWeightListModlist(list/fishingMods)
+	return createCageFishWeightList(fishingMods["commonFishingMod"],fishingMods["rareFishingMod"],fishingMods["treasureFishingMod"],fishingMods["trashFishingMod"],fishingMods["dangerFishingMod"],fishingMods["ceruleanFishingMod"])

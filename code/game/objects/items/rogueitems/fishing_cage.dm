@@ -89,7 +89,7 @@
 	if(deployed && bait)
 		if(world.time > check_counter + time2catch)
 			check_counter = world.time
-			caught = pickweightAllowZero(createCageFishWeightListBaited(bait.fishingMods))
+			caught = pickweightAllowZero(createCageFishWeightListModlist(bait.fishingMods))
 			icon_state = "fishingcage_caught"
 			QDEL_NULL(bait)
 	..()

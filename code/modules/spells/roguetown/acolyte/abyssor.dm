@@ -144,13 +144,13 @@
 		var/turf/T = targets[1]
 		var/A
 		if(T.type in frwt)
-			A = pickweightAllowZero(createFreshWaterFishWeightListBaited(fishingMods))
+			A = pickweightAllowZero(createFreshWaterFishWeightListModlist(fishingMods))
 		else if(T.type in salwt_coast)
-			A = pickweightAllowZero(createCoastalSeaFishWeightListBaited(fishingMods))
+			A = pickweightAllowZero(createCoastalSeaFishWeightListModlist(fishingMods))
 		else if(T.type in salwt_deep)
-			A = pickweightAllowZero(createDeepSeaFishWeightListBaited(fishingMods))
+			A = pickweightAllowZero(createDeepSeaFishWeightListModlist(fishingMods))
 		else if(T.type in mud)
-			A = pickweightAllowZero(createMudFishWeightListBaited(fishingMods))
+			A = pickweightAllowZero(createMudFishWeightListModlist(fishingMods))
 		if(A)
 			var/atom/movable/AF = new A(T)
 			AF.throw_at(get_turf(user), 5, 1, null)

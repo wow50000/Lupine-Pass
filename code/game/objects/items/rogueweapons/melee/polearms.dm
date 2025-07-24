@@ -423,6 +423,14 @@
 	thrown_bclass = BCLASS_STAB
 	throwforce = 35
 	resistance_flags = FLAMMABLE
+	fishingMods=list(
+		"commonFishingMod" = 0.8,
+		"rareFishingMod" = 1.4,
+		"treasureFishingMod" = 0,
+		"trashFishingMod" = 0,
+		"dangerFishingMod" = 1,
+		"ceruleanFishingMod" = 0, // 1 on cerulean aril, 0 on everything else
+	)
 
 /obj/item/rogueweapon/fishspear/depthseek //DO NOT ADD RECIPE. MEANT TO BE AN ABYSSORITE RELIC. IDEA COURTESY OF LORDINQPLAS
 	force = 45
@@ -433,14 +441,6 @@
 	max_blade_int = 2600
 	wdefense = 8
 	throwforce = 50
-	fishingMods=list(
-		"commonFishingMod" = 0.8,
-		"rareFishingMod" = 1.4,
-		"treasureFishingMod" = 0,
-		"trashFishingMod" = 0,
-		"dangerFishingMod" = 1,
-		"ceruleanFishingMod" = 0, // 1 on cerulean aril, 0 on everything else
-	)
 
 /obj/item/rogueweapon/fishspear/attack_self(mob/user)
 	if(user.used_intent.type == SPEAR_CAST)
@@ -474,13 +474,13 @@
 					if(prob(fishchance)) // Finally, roll the dice to see if we fish.
 						var/A
 						if(target.type in frwt)
-							A = pickweightAllowZero(createFreshWaterFishWeightListBaited(fishingMods))
+							A = pickweightAllowZero(createFreshWaterFishWeightListModlist(fishingMods))
 						else if(target.type in salwt_coast)
-							A = pickweightAllowZero(createCoastalSeaFishWeightList(fishingMods))
+							A = pickweightAllowZero(createCoastalSeaFishWeightListModlist(fishingMods))
 						else if(target.type in salwt_deep)
-							A = pickweightAllowZero(createDeepSeaFishWeightListBaited(fishingMods))
+							A = pickweightAllowZero(createDeepSeaFishWeightListModlist(fishingMods))
 						else if(target.type in mud)
-							A = pickweightAllowZero(createMudFishWeightListBaited(fishingMods))
+							A = pickweightAllowZero(createMudFishWeightListModlist(fishingMods))
 						if(A)
 							var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
 							to_chat(user, "<span class='notice'>You see something!</span>")
