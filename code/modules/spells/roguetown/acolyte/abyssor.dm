@@ -38,7 +38,7 @@
 
 /obj/effect/proc_holder/spell/invoked/abyssor_undertow // t1 offbalance someone for 5 seconds if on land, on water, knock them down.
 	name = "Undertow"
-	desc = "Knows target down if they are on water, otherwise puts them off balance."
+	desc = "Throws target down if they are on water, otherwise puts them off balance."
 	overlay_state = "thebends"
 	releasedrain = 15
 	chargedrain = 0
@@ -365,7 +365,7 @@
 
 /obj/effect/proc_holder/spell/invoked/abyssal_infusion
 	name = "Abyssal Infusion"
-	desc = "Consumes an anglerfish to bless target with ability to call upon Abyssal Strenght."
+	desc = "Consumes an anglerfish to bless target with ability to call upon Abyssal Strength."
 	overlay_state = "abyssal_infusion"
 	range = 7
 	no_early_release = TRUE
