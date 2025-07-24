@@ -422,7 +422,7 @@
 
 /obj/effect/proc_holder/spell/invoked/abyssal_strength
 	name = "Abyssal Strength"
-	desc = "Buffs all your stats besides fortune, and lowers your perception. Has a growing change to summon a hostile dreamfiend, but gets more powerful the more its cast."
+	desc = "Buffs all your stats besides fortune, and lowers your perception."
 	overlay_state = "abyssal_strength1"
 	range = 7
 	no_early_release = TRUE
