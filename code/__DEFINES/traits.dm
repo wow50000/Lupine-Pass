@@ -15,6 +15,7 @@
 #define TRAIT_STRONGBITE "Strong Bite"
 #define TRAIT_NOBLE "Noble Blooded"
 #define TRAIT_DEFILED_NOBLE "Drained Noble Blood"
+#define TRAIT_DISGRACED_NOBLE "Formerly Noble Blooded"
 #define TRAIT_EMPATH "Empath"
 #define TRAIT_BREADY "Battleready"
 #define TRAIT_MEDIUMARMOR "Maille Training"
@@ -231,6 +232,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_STRONGBITE = span_info("Stronger bites, critical bite attacks."),
 	TRAIT_NOBLE = span_blue("I'm of noble blood."),
 	TRAIT_DEFILED_NOBLE = span_blue("I'm of noble blood but... Something feels off!"),
+	TRAIT_DISGRACED_NOBLE = span_warning("I was a scion of a noble house... long ago."),
 	TRAIT_EMPATH = span_info("I can notice when people are in pain."),
 	TRAIT_BREADY = span_info("Defensive stance does not passively fatigue me."),
 	TRAIT_MEDIUMARMOR = span_info("I can move freely in medium armor."),
