@@ -75,3 +75,36 @@
 	ambush_times = list("night","dawn","dusk","day")
 	converted_type = /area/rogue/indoors/shelter/mountains/decap
 	ceiling_protected = TRUE
+
+/area/rogue/under/cave/dragonden
+	name = "dragonnest"
+	icon_state = "under"
+	first_time_text = "DEN OF DRAGONS"
+	droning_sound = 'sound/music/area/dragonden.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
+	deathsight_message = "a twisted tangle of soaring peaks"
+
+/area/rogue/under/cave/goblinfort
+	name = "goblinfort"
+	icon_state = "spidercave"
+	first_time_text = "GOBLIN FORTRESS"
+	droning_sound = 'sound/music/area/dungeon2.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
+	deathsight_message = "a twisted tangle of soaring peaks"
+
+/area/rogue/under/cave/scarymaze
+	name = "hauntedlabyrinth"
+	icon_state = "spidercave"
+	first_time_text = "NECRAN LABYRINTH"
+	droning_sound = 'sound/music/area/underworlddrone.ogg'
+	droning_sound_dusk = 'sound/music/area/underworlddrone.ogg'
+	droning_sound_night = 'sound/music/area/underworlddrone.ogg'
+	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
+	deathsight_message = "a twisted tangle of soaring peaks"

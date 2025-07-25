@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 
 /area/rogue/outdoors/rtfield
-	name = "azure basin"
+	name = "Azure Basin"
 	icon_state = "rtfield"
 	soundenv = 19
 	ambush_times = list("night")
@@ -153,7 +153,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 
 /area/rogue/outdoors/rtfield/eora
-	name = "eoran shrine"
+	name = "Eoran Shrine"
 	icon_state = "eora"
 	soundenv = 19
 	ambush_times = list("night")
@@ -165,6 +165,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/newmusic/lovecraft2.ogg'
 	droning_sound_night = 'sound/newmusic/lovecraft2.ogg'
 	converted_type = /area/rogue/indoors/shelter/rtfield
+	deathsight_message = "somewhere high up in a mountains, where cherry blossoms bloom"
 
 /area/rogue/outdoors/abisland
 	name = "abyssors grasp"
@@ -328,36 +329,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	converted_type = /area/rogue/outdoors/dungeon1
 	ceiling_protected = TRUE
 
-/area/rogue/under/cave/dragonden
-	name = "dragonnest"
-	icon_state = "under"
-	first_time_text = "DEN OF DRAGONS"
-	droning_sound = 'sound/music/area/dragonden.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/goblinfort
-	name = "goblinfort"
-	icon_state = "spidercave"
-	first_time_text = "GOBLIN FORTRESS"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/scarymaze
-	name = "hauntedlabyrinth"
-	icon_state = "spidercave"
-	first_time_text = "NECRAN LABYRINTH"
-	droning_sound = 'sound/music/area/underworlddrone.ogg'
-	droning_sound_dusk = 'sound/music/area/underworlddrone.ogg'
-	droning_sound_night = 'sound/music/area/underworlddrone.ogg'
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
 /area/rogue/under/cave/undeadmanor
 	name = "skelemansion"
 	icon_state = "spidercave"
@@ -375,57 +346,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	ceiling_protected = TRUE
-
-/area/rogue/under/cave/mazedungeon
-	name = "mazedungeon"
-	icon_state = "under"
-	first_time_text = "TEMPLE OF THE SHATTERED GOD"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/orcdungeon
-	name = "orcdungeon"
-	icon_state = "under"
-	first_time_text = "OLD RUIN"
-	droning_sound = 'sound/music/area/dungeon.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/goblindungeon
-	name = "goblindungeon"
-	icon_state = "under"
-	first_time_text = "GOIBLIN CAMP"
-	droning_sound = 'sound/music/area/dungeon.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/skeletoncrypt
-	name = "skeletoncrypt"
-	icon_state = "under"
-	first_time_text = "SKELETON CRYPT"
-	droning_sound = 'sound/music/area/dungeon.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambientsounds = AMB_BASEMENT
-	ambientnight = AMB_BASEMENT
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/dukecourt
-	name = "dukedungeon"
-	icon_state = "duke"
-	first_time_text = "FORGOTTEN COURT"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
 
 /area/rogue/under/cave/inhumen
 	name = "inhumen"

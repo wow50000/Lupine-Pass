@@ -49,3 +49,27 @@
 /area/rogue/under/cavewet/bogcaves/coastcaves
 	name = "South Coast Caves"
 	first_time_text = "South Coast Caves"
+
+/area/rogue/under/cave/goblindungeon
+	name = "goblindungeon"
+	icon_state = "under"
+	first_time_text = "GOBLIN CAMP"
+	droning_sound = 'sound/music/area/dungeon.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
+	deathsight_message = "root-bound caverns"
+
+/area/rogue/under/cave/skeletoncrypt
+	name = "skeletoncrypt"
+	icon_state = "under"
+	first_time_text = "SKELETON CRYPT"
+	droning_sound = 'sound/music/area/dungeon.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	ambientsounds = AMB_BASEMENT
+	ambientnight = AMB_BASEMENT
+	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
+	deathsight_message = "root-bound caverns"

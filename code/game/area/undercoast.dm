@@ -29,3 +29,25 @@
 /area/rogue/indoors/cave/southern
 	name = "Southern Undercoast"
 	first_time_text = "Southern Undercoast"
+
+/area/rogue/under/cave/mazedungeon
+	name = "mazedungeon"
+	icon_state = "under"
+	first_time_text = "TEMPLE OF THE SHATTERED GOD"
+	droning_sound = 'sound/music/area/dungeon2.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
+	deathsight_message = "a dark cave where Abyssor's dream echoes"
+
+/area/rogue/under/cave/orcdungeon
+	name = "orcdungeon"
+	icon_state = "under"
+	first_time_text = "OLD RUIN"
+	droning_sound = 'sound/music/area/dungeon.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/dungeon1
+	ceiling_protected = TRUE
+	deathsight_message = "a dark cave where Abyssor's dream echoes"

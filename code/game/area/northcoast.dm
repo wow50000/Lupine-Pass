@@ -39,3 +39,12 @@
 /area/rogue/outdoors/beach/forest/south
 	name = "The Azure Coast - South"
 
+/area/rogue/under/cave/dukecourt
+	name = "dukedungeon"
+	icon_state = "duke"
+	first_time_text = "FORGOTTEN COURT"
+	droning_sound = 'sound/music/area/dungeon2.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/dungeon1
+	deathsight_message = "somewhere betwixt Abyssor's realm and Dendor's bounty"
