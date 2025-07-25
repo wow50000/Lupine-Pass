@@ -324,7 +324,10 @@
 					to_chat(H, span_warning("You are a swift and agile warrior who relies on speed and evasion. Your light leather armor allows for maximum mobility."))
 					H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-					H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -344,14 +347,38 @@
 					backl = /obj/item/storage/backpack/rogue/satchel
 					belt = /obj/item/storage/belt/rogue/leather
 					neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-					beltr = /obj/item/rogueweapon/whip
 					backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1)
+					var/weapons = list("Steel Knuckles","Axe","Sword","Whip","Spear","MY BARE HANDS!!!")
+					var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+					switch(weapon_choice)
+						if ("Steel Knuckles")
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+							beltr = /obj/item/rogueweapon/knuckles
+						if("Axe")
+							H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+							beltr = /obj/item/rogueweapon/stoneaxe/boneaxe
+						if("Sword")
+							H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+							beltr = /obj/item/rogueweapon/sword/short
+						if("Whip")
+							H.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
+							beltr = /obj/item/rogueweapon/whip
+						if("Spear")
+							H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+							r_hand = /obj/item/rogueweapon/spear/bonespear
+						if ("MY BARE HANDS!!!")
+							H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+							ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 
 				if("Hide Armor Kini")
 					to_chat(H, span_warning("You are a swift and agile warrior who relies on speed and evasion. Your light leather armor allows for maximum mobility."))
 					H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-					H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -371,12 +398,36 @@
 					backl = /obj/item/storage/backpack/rogue/satchel
 					belt = /obj/item/storage/belt/rogue/leather
 					neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-					beltr = /obj/item/rogueweapon/whip
 					backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1)
+					var/weapons = list("Steel Knuckles","Axe","Sword","Whip","Spear","MY BARE HANDS!!!")
+					var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+					switch(weapon_choice)
+						if ("Steel Knuckles")
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+							beltr = /obj/item/rogueweapon/knuckles
+						if("Axe")
+							H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+							beltr = /obj/item/rogueweapon/stoneaxe/boneaxe
+						if("Sword")
+							H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+							beltr = /obj/item/rogueweapon/sword/short
+						if("Whip")
+							H.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
+							beltr = /obj/item/rogueweapon/whip
+						if("Spear")
+							H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+							r_hand = /obj/item/rogueweapon/spear/bonespear
+						if ("MY BARE HANDS!!!")
+							H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+							ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
+
 
 				if("Studded Leather Kini")
-					to_chat(H, span_warning("You are a refined warrior who combines light protection with precision strikes using a rapier."))
+					to_chat(H, span_warning("You are a refined warrior who combines light protection with precision striking weapons."))
 					H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -397,14 +448,33 @@
 					backl = /obj/item/storage/backpack/rogue/satchel
 					belt = /obj/item/storage/belt/rogue/leather
 					neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-					beltr = /obj/item/rogueweapon/sword/rapier
 					backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife/idagger/steel = 1)
+					var/weapons = list("Katar","Rapier","Whip","Billhook","MY BARE HANDS!!!")
+					var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+					switch(weapon_choice)
+						if ("Katar")
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+							beltr = /obj/item/rogueweapon/katar
+						if("Rapier")
+							H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+							beltr = /obj/item/rogueweapon/sword/rapier
+						if("Whip")
+							H.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
+							beltr = /obj/item/rogueweapon/whip
+						if("Billhook")
+							H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+							r_hand = /obj/item/rogueweapon/spear/billhook
+							backr = /obj/item/rogueweapon/scabbard/gwstrap
+						if ("MY BARE HANDS!!!")
+							H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+							ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 
 				if("Half Plate Kini")
-					to_chat(H, span_warning("You are a balanced warrior who wears medium armor and wields a powerful axe for devastating strikes."))
+					to_chat(H, span_warning("You are a balanced warrior who wears medium armor and wields powerful weapons for devastating strikes."))
 					H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-					H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)			
 					H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
@@ -427,16 +497,33 @@
 					backl = /obj/item/storage/backpack/rogue/satchel
 					belt = /obj/item/storage/belt/rogue/leather
 					neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-					beltr = /obj/item/rogueweapon/stoneaxe/battle
+					var/weapons = list("Great Sword","Eagle's Beak","Battle Axe","MY BARE HANDS!!!")
+					var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+					switch(weapon_choice)
+						if("Great Sword")
+							H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+							r_hand = /obj/item/rogueweapon/greatsword
+							backr = /obj/item/rogueweapon/scabbard/gwstrap
+						if("Eagle's Beak")
+							H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+							r_hand = /obj/item/rogueweapon/eaglebeak
+							backr = /obj/item/rogueweapon/scabbard/gwstrap
+						if("Battle Axe")
+							H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+							beltr = /obj/item/rogueweapon/stoneaxe/battle
+						if ("MY BARE HANDS!!!")
+							H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+							ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 					backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/recipe_book/survival = 1)
 
 				if("Plate Kini")
-					to_chat(H, span_warning("You are a heavily armored juggernaut who can withstand tremendous punishment while crushing enemies with a mace."))
+					to_chat(H, span_warning("You are a heavily armored juggernaut who can withstand tremendous punishment behind your shield."))
 					H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-					H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)			
+					H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)			
 					H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 					H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
@@ -456,9 +543,26 @@
 					backl = /obj/item/storage/backpack/rogue/satchel
 					belt = /obj/item/storage/belt/rogue/leather
 					neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-					beltr = /obj/item/rogueweapon/mace
 					backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/recipe_book/survival = 1)
-		
+					var/weapons = list("Sword and Tower Shield","Mace and Tower Shield","TWO TOWER SHIELDS!!!")
+					var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+					switch(weapon_choice)
+						if("Sword and Tower Shield")
+							H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+							beltr = /obj/item/rogueweapon/sword/short
+							backr = /obj/item/rogueweapon/shield/tower
+						if("Mace and Tower Shield")
+							H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
+							beltr = /obj/item/rogueweapon/mace
+							backr = /obj/item/rogueweapon/shield/tower
+						if ("TWO TOWER SHIELDS!!!")
+							H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+							H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+							H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+							r_hand = /obj/item/rogueweapon/shield/tower
+							l_hand = /obj/item/rogueweapon/shield/tower
+							ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
+
 		if("Ironclad")
 			to_chat(H, span_warning("You put your trust into your durable armor. The best offense is a good defense."))
 			var/helmets = list(
