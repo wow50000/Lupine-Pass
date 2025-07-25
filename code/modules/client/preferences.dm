@@ -880,12 +880,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				var/available_in_days = job.available_in_days(user.client)
 				HTML += "[used_name]</td> <td><font color=red> \[IN [(available_in_days)] DAYS\]</font></td></tr>"
 				continue
-			if(!job.required && !isnull(job.min_pq) && (get_playerquality(user.ckey) < job.min_pq))
-				HTML += "<font color=#a59461>[used_name] (Min PQ: [job.min_pq])</font></td> <td> </td></tr>"
-				continue
-			if(!job.required && !isnull(job.max_pq) && (get_playerquality(user.ckey) > job.max_pq))
-				HTML += "<font color=#a59461>[used_name] (Max PQ: [job.max_pq])</font></td> <td> </td></tr>"
-				continue
 			if(length(job.virtue_restrictions) && length(job.vice_restrictions))
 				var/name
 				if(virtue.type in job.virtue_restrictions)
@@ -1087,15 +1081,14 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		if(1)
 			jpval = JP_HIGH
 
-	if(job.required && !isnull(job.min_pq) && (get_playerquality(user.ckey) < job.min_pq))
-		if(job_preferences[job.title] == JP_LOW)
-			jpval = null
-		else
-			var/used_name = "[job.title]"
-			if((pronouns == SHE_HER || pronouns == THEY_THEM_F) && job.f_title)
-				used_name = "[job.f_title]"
-			to_chat(user, "<font color='red'>You have too low PQ for [used_name] (Min PQ: [job.min_pq]), you may only set it to low.</font>")
-			jpval = JP_LOW
+	if(job_preferences[job.title] == JP_LOW)
+		jpval = null
+	else
+		var/used_name = "[job.title]"
+		if((pronouns == SHE_HER || pronouns == THEY_THEM_F) && job.f_title)
+			used_name = "[job.f_title]"
+		to_chat(user, "<font color='red'>You have too low PQ for [used_name] (Min PQ: [job.min_pq]), you may only set it to low.</font>")
+		jpval = JP_LOW
 
 	SetJobPreferenceLevel(job, jpval)
 	SetChoices(user)
