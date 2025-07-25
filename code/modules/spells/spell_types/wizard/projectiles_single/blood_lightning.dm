@@ -1,7 +1,7 @@
 // Lich / Vampire shared list only
 /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning
 	name = "Blood Bolt"
-	desc = ""
+	desc = "Shoots a bolt of blood that electrocutes the target."
 	clothes_req = FALSE
 	overlay_state = "bloodlightning"
 	sound = 'sound/magic/vlightning.ogg'
