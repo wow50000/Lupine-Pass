@@ -1095,6 +1095,11 @@ h2.alert {
 	color: #d146f5;
 	font-size: 125%;
 }
+
+.patreontalk {
+	color: #ff7a05;
+} /* TODO - CHANGE THIS TO THE DESIRED COLOR!!!! */
+
 /*
 @keyframes hypnocolor {
 	0%		{color: #202020;}
