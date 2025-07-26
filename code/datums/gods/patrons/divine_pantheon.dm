@@ -106,6 +106,7 @@
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/divine_strike			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/call_to_arms				= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/challenge				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/persistence			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/ravox		= CLERIC_T4,
 	)
