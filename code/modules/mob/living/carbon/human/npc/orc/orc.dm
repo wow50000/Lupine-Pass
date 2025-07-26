@@ -45,6 +45,13 @@
 						/datum/sprite_accessory/hair/facial/longbeard))
 	head.sellprice = 30
 
+	src.set_patron(/datum/patron/inhumen/graggar)
+	ADD_TRAIT(src, TRAIT_LEECHIMMUNE, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_CRITICAL_RESISTANCE, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_INFINITE_ENERGY, TRAIT_GENERIC)
+
 	var/datum/bodypart_feature/hair/head/new_hair = new()
 	var/datum/bodypart_feature/hair/facial/new_facial = new()
 
@@ -74,10 +81,10 @@
 	l_hand = /obj/item/rogueweapon/shield/wood
 
 	H.STASTR = 16
-	H.STASPD = 6
+	H.STASPD = 8
 	H.STACON = 15
 	H.STAEND = 15
-	H.STAINT = 8
+	H.STAINT = 6
 
 	//light labor skills for armor repairs and such, equipment is so-so, with good stats
 	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
@@ -98,6 +105,4 @@
 	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 
-	H.set_patron(/datum/patron/inhumen/graggar)
-	ADD_TRAIT(H, TRAIT_LEECHIMMUNE, INNATE_TRAIT)
-	ADD_TRAIT(src, TRAIT_INFINITE_ENERGY, TRAIT_GENERIC)
+

@@ -1,6 +1,3 @@
-/mob/living/carbon/human/species/orc
-	race = /datum/species/orc
-
 /datum/species/orc
 	name = "Orc"
 	id = "orc"
