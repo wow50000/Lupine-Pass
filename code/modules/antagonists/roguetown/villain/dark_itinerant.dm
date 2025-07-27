@@ -194,7 +194,7 @@
 /datum/objective/dark_itinerant
 	name = "Train your squire"
 	explanation_text = "Train your squire in the field. Show them the ropes. Ensure they survive."
-	triumph_count = 3
+	triumph_count = 5
 
 /datum/objective/dark_itinerant/check_completion()
 	return !target || considered_alive(target, enforce_human = TRUE)
@@ -202,4 +202,4 @@
 /datum/objective/dark_itinerant/squire
 	name = "Serve your Knight"
 	explanation_text = "Serve faithfully to your knight, heed their commands and help them."
-	triumph_count = 3
+	triumph_count = 5
