@@ -124,6 +124,7 @@
 
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
@@ -133,7 +134,7 @@
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 		H.change_stat(STATKEY_STR, 2)
