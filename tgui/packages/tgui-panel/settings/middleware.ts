@@ -114,10 +114,10 @@ export function settingsMiddleware(store) {
     }
 
     // Set client theme
-    const theme = payload?.theme;
-    if (theme) {
-      setClientTheme(theme);
-    }
+    // const theme = payload?.theme;
+    // if (theme) {
+    //   setClientTheme(theme);
+    // }
 
     // Pass action to get an updated state
     next(action);
