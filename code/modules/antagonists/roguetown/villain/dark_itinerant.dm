@@ -97,6 +97,7 @@
 	H.cmode_music = 'sound/music/combat_heretic.ogg'
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	wretch_select_bounty(H)
 
 /datum/outfit/job/dark_itinerant_knight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -149,6 +150,7 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/combat_heretic.ogg'
+	wretch_select_bounty(H)
 
 /obj/effect/proc_holder/spell/self/convertrole/zizosquire
 	name = "Recruit Squire"
