@@ -72,7 +72,7 @@
 				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/fortitude)
 				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/forcewall/greater)
 				H.mind.adjust_spellpoints(15)
-			r_hand = /obj/item/rogueweapon/woodstaff/naledi
+			backl = /obj/item/rogueweapon/woodstaff/naledi
 
 
 			head = /obj/item/clothing/head/roguetown/roguehood/hierophant
@@ -151,7 +151,7 @@
 			H.change_stat("endurance", 2)
 			H.change_stat("intelligence", 3)
 			H.change_stat("speed", 2)
-			r_hand = /obj/item/rogueweapon/woodstaff/naledi
+			backl = /obj/item/rogueweapon/woodstaff/naledi
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/magered
 
 			mask = /obj/item/clothing/mask/rogue/lordmask/tarnished
