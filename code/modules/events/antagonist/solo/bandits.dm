@@ -72,3 +72,14 @@
 		antag_mind.current.hud_used?.set_advclass()
 
 	SSrole_class_handler.bandits_in_round = TRUE
+
+/datum/round_event_control/antagonist/solo/bandits/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return
+	var/list/candidates = get_candidates()
+
+	if(length(candidates) < 1)
+		return FALSE
+
+	return TRUE
