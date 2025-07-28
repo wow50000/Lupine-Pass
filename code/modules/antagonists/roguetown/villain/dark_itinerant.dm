@@ -117,9 +117,8 @@
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel = 1, 
 		/obj/item/rogueweapon/scabbard/sheath = 1,
-		/obj/item/rogueweapon/hammer/iron = 1, 
-		/obj/item/rogueweapon/tongs = 1, 
-		/obj/item/storage/belt/rogue/pouch/coins/poor = 1, 
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+		/obj/item/ritechalk = 1,
 	)
 
 	if(H.mind)
@@ -150,6 +149,7 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/combat_heretic.ogg'
 	wretch_select_bounty(H)
 
