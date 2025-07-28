@@ -112,6 +112,10 @@
 			else
 				. += span_notice("A noble!")
 
+		// Leashed pet status effect message
+		if(has_status_effect(/datum/status_effect/leash_pet))
+			. += span_warning("A leash is hooked to their collar. They are being led like a pet.")
+
 		if (HAS_TRAIT(src, TRAIT_OUTLANDER) && !HAS_TRAIT(user, TRAIT_OUTLANDER)) 
 			. += span_phobia("A foreigner...")
 
