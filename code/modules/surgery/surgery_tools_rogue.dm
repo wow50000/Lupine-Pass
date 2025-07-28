@@ -72,14 +72,20 @@
 	tool_behaviour = TOOL_HEMOSTAT
 	smeltresult = null
 
-/obj/item/rogueweapon/surgery/hemostat/first //Two different types for the purpose of having 2 slots for forceps in surgery bag.
+/obj/item/rogueweapon/surgery/hemostat/first //Three different types now to allow multiple surgical sites at once.
 	name = "\improper Tarsis forceps"
 
 /obj/item/rogueweapon/surgery/hemostat/first/get_belt_overlay()
-	return mutable_appearance('icons/roguetown/items/surgery_bag.dmi', "forceps")
+	return mutable_appearance('icons/roguetown/items/surgery_bag.dmi', "forceps") // the feature this was associated with was deprecated but this was kept for posterity's sake. might sanitize later
 
 /obj/item/rogueweapon/surgery/hemostat/second
 	name = "\improper Sisrat forceps"
+
+/obj/item/rogueweapon/surgery/hemostat/second/get_belt_overlay()
+	return mutable_appearance('icons/roguetown/items/surgery_bag.dmi', "forceps_2")
+
+/obj/item/rogueweapon/surgery/hemostat/third
+	name = "\improper Medella forceps"
 
 /obj/item/rogueweapon/surgery/hemostat/second/get_belt_overlay()
 	return mutable_appearance('icons/roguetown/items/surgery_bag.dmi', "forceps_2")

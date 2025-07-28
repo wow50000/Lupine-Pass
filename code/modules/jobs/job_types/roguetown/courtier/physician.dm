@@ -74,7 +74,7 @@
 	if(H.age == AGE_MIDDLEAGED)
 		H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	if(H.age == AGE_OLD)
-			H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE) //small carrot to play old
+		H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE) //small carrot to play old
 		H.change_stat("speed", -1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("perception", 1)
