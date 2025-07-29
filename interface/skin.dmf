@@ -132,7 +132,7 @@ window "output_legacy"
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
+		background-color = #000000
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 	elem "output"
@@ -143,6 +143,7 @@ window "output_legacy"
 		anchor2 = 100,100
 		is-default = true
 		saved-params = "max-lines"
+		background-color = #000000
 		style = ".system {color:#FF0000;}"
 		enable-http-images = true
 
@@ -153,7 +154,7 @@ window "output_browser"
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
+		background-color = #000000
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 	elem "browseroutput"
@@ -162,7 +163,7 @@ window "output_browser"
 		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = none
+		background-color = #000000
 		saved-params = ""
 
 window "statwindow"
