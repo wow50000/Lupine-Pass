@@ -99,7 +99,7 @@ window "outputwindow"
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
+		background-color = #000000
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 	elem "legacy_output_selector"
