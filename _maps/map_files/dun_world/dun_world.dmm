@@ -14943,10 +14943,6 @@
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/scarymaze)
-"eWW" = (
-/turf/open/floor/rogue/naturalstone,
-/turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/outdoors/mountains/decap)
 "eWX" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/grasscold,
@@ -18733,7 +18729,7 @@
 /area/rogue/outdoors/town)
 "glS" = (
 /obj/structure/bars/passage{
-	redstone_id = 3celldungeon
+	redstone_id = "3celldungeon"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/skeletoncrypt)
@@ -22155,7 +22151,7 @@
 /area/rogue/indoors/town/dwarfin)
 "hsf" = (
 /obj/structure/lever/wall{
-	redstone_id = 3celldungeon
+	redstone_id = "3celldungeon"
 	},
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave/skeletoncrypt)
@@ -22998,10 +22994,6 @@
 /mob/living/simple_animal/hostile/rogue/haunt,
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach/forest/north)
-"hHp" = (
-/turf/open/floor/rogue/grass,
-/turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/outdoors/beach/forest/hamlet)
 "hHv" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/wood,
@@ -33511,7 +33503,7 @@
 "lbl" = (
 /obj/structure/fluff/walldeco/maidendrape,
 /turf/open/floor/rogue/metal/barograte{
-	color = 7f726a
+	color = "#7f726a"
 	},
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "lbm" = (
@@ -40581,7 +40573,7 @@
 "nqM" = (
 /obj/structure/fluff/big_chain,
 /turf/open/floor/rogue/metal/barograte{
-	color = 7f726a
+	color = "#7f726a"
 	},
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "nqN" = (
@@ -274332,7 +274324,7 @@ txk
 txk
 txk
 txk
-hHp
+mQL
 njN
 auC
 auC
@@ -445219,7 +445211,7 @@ oyf
 oyf
 oyf
 oyf
-eWW
+ifS
 ftj
 hhd
 ftj
