@@ -461,7 +461,7 @@
 			
 
 /obj/effect/proc_holder/spell/invoked/blood_heal
-	name = "Blood Miracle"
+	name = "Bloodheal Miracle"
 	desc = "Restores the blood of the target with divine magycks. Scales with holy skill."
 	overlay_icon = 'icons/mob/actions/genericmiracles.dmi'
 	overlay_state = "bloodheal"
