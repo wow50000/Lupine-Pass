@@ -689,6 +689,7 @@
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
 	},
+/mob/living/carbon/human/species/orc/npc/berserker,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave/orcdungeon)
 "alD" = (
@@ -9280,6 +9281,10 @@
 /obj/item/reagent_containers/glass/bottle/claybottle/wine,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
+"cSP" = (
+/mob/living/carbon/human/species/orc/npc/berserker,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/under/cave/orcdungeon)
 "cTb" = (
 /obj/structure/fluff/pillow/magenta{
 	pixel_x = 7;
@@ -11823,6 +11828,10 @@
 "dJD" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods/south)
+"dJI" = (
+/mob/living/carbon/human/species/orc/npc/berserker,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/orcdungeon)
 "dJM" = (
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
@@ -11941,6 +11950,10 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement)
+"dLI" = (
+/mob/living/carbon/human/species/orc/npc/berserker,
+/turf/open/floor/rogue/church,
+/area/rogue/under/cave/orcdungeon)
 "dLT" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -23860,6 +23873,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town)
+"hrm" = (
+/mob/living/carbon/human/species/orc/npc/berserker,
+/turf/open/floor/rogue/wood,
+/area/rogue/under/cave/orcdungeon)
 "hrq" = (
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/dirt,
@@ -39892,7 +39909,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/mob/living/carbon/human/species/orc/npc/marauder,
+/mob/living/carbon/human/species/orc/npc/berserker,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/orcdungeon)
 "mlD" = (
@@ -55202,6 +55219,15 @@
 /obj/structure/bars/tough,
 /turf/closed/wall/mineral/rogue/pipe,
 /area/rogue/indoors/town)
+"qZr" = (
+/obj/structure/fluff/railing/wood{
+	dir = 1;
+	layer = 2.7;
+	pixel_y = 7
+	},
+/mob/living/carbon/human/species/orc/npc/berserker,
+/turf/open/floor/rogue/wood,
+/area/rogue/under/cave/orcdungeon)
 "qZs" = (
 /obj/structure/chair/wood/rogue/fancy,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -57611,6 +57637,11 @@
 "rMf" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/exposed/town/keep)
+"rMj" = (
+/obj/structure/fluff/walldeco/church/line,
+/mob/living/carbon/human/species/orc/npc/berserker,
+/turf/open/floor/rogue/churchbrick,
+/area/rogue/under/cave/orcdungeon)
 "rMt" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/wood,
@@ -170067,7 +170098,7 @@ pYt
 jDM
 iXj
 qaf
-qaf
+cSP
 jDM
 qHB
 gHA
@@ -173698,7 +173729,7 @@ jDM
 stq
 stq
 hag
-stq
+dLI
 stq
 jDM
 yhQ
@@ -283982,7 +284013,7 @@ aHk
 sAO
 sJi
 riJ
-arz
+rMj
 xQI
 xQI
 jDM
@@ -286698,7 +286729,7 @@ wpu
 diL
 jtQ
 mMU
-mMU
+dJI
 mMU
 mMU
 wvN
@@ -294835,13 +294866,13 @@ qPv
 qPv
 ujm
 jDM
-hPd
+hrm
 jQG
 lWp
 hPd
 hPd
 lWp
-ask
+qZr
 hPd
 jDM
 ujm
