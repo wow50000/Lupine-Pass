@@ -7235,6 +7235,13 @@
 /obj/structure/flora/roguegrass/herb/hypericum,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/rtfield/eora)
+"ckl" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/effect/spawner/lootdrop/valuable_tableware_spawner,
+/turf/open/floor/rogue/tile/harem1,
+/area/rogue/indoors/town)
 "ckp" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/rogue/church,
@@ -13680,7 +13687,7 @@
 "ekb" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/effect/spawner/lootdrop/general_loot_mid/x3,
-/obj/effect/spawner/lootdrop/cheap_jewelry_spawner,
+/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
 "ekg" = (
@@ -19836,6 +19843,7 @@
 /area/rogue/under/cave/orcdungeon)
 "gcm" = (
 /obj/structure/bed/rogue/inn/wooldouble,
+/obj/item/bedsheet/rogue/double_pelt,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
 "gco" = (
@@ -28611,12 +28619,15 @@
 	},
 /obj/structure/fermentation_keg/random/water{
 	icon_state = "barrel_tapped_ready";
-	pixel_y = 32
+	pixel_y = 32;
+	pixel_x = 2
 	},
 /obj/structure/rack/rogue/shelf/biggest{
 	pixel_x = 3;
 	pixel_y = 32
 	},
+/obj/item/reagent_containers/glass/cup/ceramic/fancy,
+/obj/item/reagent_containers/glass/cup/ceramic/fancy,
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town)
@@ -39379,6 +39390,7 @@
 "lSS" = (
 /obj/structure/hotspring/border/three,
 /obj/structure/flora/roguegrass,
+/obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/under/cave)
 "lSX" = (
@@ -42391,13 +42403,15 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/structure/fermentation_keg/random/water{
-	icon_state = "barrel_tapped_ready";
-	pixel_y = 32
-	},
 /obj/structure/rack/rogue/shelf/biggest{
 	pixel_x = 3;
 	pixel_y = 32
+	},
+/obj/item/reagent_containers/glass/bucket/pot/teapot/fancy,
+/obj/structure/fermentation_keg/random/water{
+	icon_state = "barrel_tapped_ready";
+	pixel_y = 32;
+	pixel_x = 2
 	},
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town)
@@ -45660,6 +45674,11 @@
 /obj/item/natural/feather,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
+"nPq" = (
+/obj/structure/flora/roguegrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/rogue/grasscold,
+/area/rogue/under/cave)
 "nPy" = (
 /obj/structure/well,
 /turf/open/floor/rogue/dirt,
@@ -50227,15 +50246,6 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/sewer)
-"pmp" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/reagent_containers/glass/cup/ceramic/fancy,
-/obj/item/reagent_containers/glass/cup/ceramic/fancy,
-/obj/item/reagent_containers/glass/bucket/pot/teapot/fancy,
-/turf/open/floor/rogue/tile/harem1,
-/area/rogue/indoors/town)
 "pmF" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/machinery/light/rogue/wallfire/candle/l,
@@ -53162,6 +53172,7 @@
 "qir" = (
 /obj/structure/bed/rogue/inn/wooldouble,
 /mob/living/simple_animal/hostile/rogue/mirespider_lurker,
+/obj/item/bedsheet/rogue/double_pelt,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
 "qit" = (
@@ -71902,6 +71913,11 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/underdark/south)
+"vKD" = (
+/obj/structure/flora/roguegrass,
+/obj/item/roguebin/water,
+/turf/open/floor/rogue/grassred,
+/area/rogue/outdoors/mountains)
 "vKP" = (
 /obj/structure/stairs{
 	dir = 8
@@ -74793,6 +74809,7 @@
 	icon_state = "tablewood1"
 	},
 /obj/effect/spawner/lootdrop/general_loot_mid/x3,
+/obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town)
 "wBC" = (
@@ -79489,11 +79506,6 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/skeletoncrypt)
-"xZE" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/grasscold,
-/area/rogue/under/cave)
 "xZK" = (
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
@@ -465200,7 +465212,7 @@ cxA
 cxA
 cxA
 cxA
-xZE
+mjn
 hnD
 lil
 cxA
@@ -466554,7 +466566,7 @@ eWX
 cxA
 cxA
 cxA
-sux
+nPq
 sVG
 nXE
 irp
@@ -471497,7 +471509,7 @@ aBB
 aBB
 cxA
 cxA
-cxA
+gTW
 eZC
 aBB
 aBB
@@ -472416,7 +472428,7 @@ bSX
 bSX
 eZC
 tCE
-tCE
+vKD
 bSX
 rnW
 rnW
@@ -473319,7 +473331,7 @@ eZC
 afK
 afK
 wBB
-knI
+nHE
 afK
 nTE
 afK
@@ -474676,7 +474688,7 @@ afK
 mQv
 aws
 ier
-nHE
+ckl
 kkB
 iBM
 flp
@@ -475578,7 +475590,7 @@ lpb
 lpb
 afK
 afK
-pmp
+knI
 wbY
 afK
 afK
