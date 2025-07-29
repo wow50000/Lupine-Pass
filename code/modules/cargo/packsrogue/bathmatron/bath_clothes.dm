@@ -77,7 +77,8 @@
 /datum/supply_pack/rogue/bath_clothes/cowbell_collar
 	name = "Cowbell Collar"
 	cost = 20
-	contains = list(/obj/item/clothing/neck/roguetown/collar/cowbell)
+	contains = list(/obj/item/clothing/neck/roguetown/collar/catbell, /obj/item/clothing/neck/roguetown/collar/cowbell)
+
 
 /datum/supply_pack/rogue/bath_clothes/loincloth
 	name = "Loincloth"
