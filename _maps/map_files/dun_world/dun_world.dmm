@@ -25806,13 +25806,6 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town)
-"iCM" = (
-/obj/item/natural/stone{
-	pixel_y = 1;
-	pixel_x = -2
-	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
 "iCP" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5
@@ -269025,7 +269018,7 @@ phl
 pfQ
 exD
 exD
-iCM
+rfc
 qyR
 qyR
 jiQ
