@@ -330,9 +330,25 @@
 		icon_state = "churchtable_end"
 	. = ..()
 
+/obj/structure/table/church/alt
+	icon_state = "churchtable_alt"
+
+/obj/structure/table/church/end
+	icon_state = "churchtable_end"
+
+/obj/structure/table/church/end/alt
+	icon_state = "churchtable_end_alt"
+
+/obj/structure/table/church/end/alt/north
+	icon_state = "churchtable_end_alt"
+	dir = 1
+
 /obj/structure/table/church/m
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "churchtable_mid"
+
+/obj/structure/table/church/m/alt
+	icon_state = "churchtable_mid_alt"
 
 /obj/structure/table/vtable
 	name = "ancient wooden table"

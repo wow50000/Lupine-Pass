@@ -448,9 +448,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "ahO" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/item/roguegem/random,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap)
@@ -1040,9 +1038,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/southwest)
 "asD" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_mid"
-	},
+/obj/structure/table/church/m,
 /obj/item/rogueweapon/pitchfork/aalloy{
 	name = "trident"
 	},
@@ -4332,9 +4328,7 @@
 /area/rogue/indoors/shelter/woods)
 "bxm" = (
 /obj/structure/fluff/psycross/copper,
-/obj/structure/table/church{
-	icon_state = "churchtable_mid_alt"
-	},
+/obj/structure/table/church/m/alt,
 /obj/item/roguegem/diamond,
 /turf/closed,
 /area/rogue/outdoors/mountains/decap)
@@ -5823,9 +5817,7 @@
 /area/rogue/indoors)
 "bXN" = (
 /obj/item/book/rogue/necra,
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/scarymaze)
 "bXP" = (
@@ -6652,9 +6644,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/shelter/woods)
 "cmn" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_mid"
-	},
+/obj/structure/table/church/m,
 /obj/item/organ/heart,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
@@ -7962,9 +7952,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/town/basement/keep)
 "cIa" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/item/reagent_containers/glass/bowl/gold,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/goblinfort)
@@ -8132,9 +8120,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors)
 "cLi" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_mid"
-	},
+/obj/structure/table/church/m,
 /obj/item/candle/skull/lit{
 	pixel_y = 6
 	},
@@ -10346,9 +10332,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
 "dyR" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/item/storage/belt/rogue/pouch/coins/mid,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/under/cave/licharena)
@@ -20280,9 +20264,7 @@
 	name = "pewter goblet";
 	pixel_x = -11
 	},
-/obj/structure/table/church{
-	icon_state = "churchtable_alt"
-	},
+/obj/structure/table/church/alt,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "gOD" = (
@@ -20738,9 +20720,7 @@
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/town)
 "gVK" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/item/ingot/blacksteel,
 /obj/item/ingot/blacksteel,
 /turf/open/floor/rogue/tile/masonic/inverted,
@@ -22705,9 +22685,7 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/sewer)
 "hBi" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_mid_alt"
-	},
+/obj/structure/table/church/m/alt,
 /obj/item/reagent_containers/glass/cup,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
@@ -25584,9 +25562,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains)
 "iyP" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/item/rogueweapon/spear{
 	name = "fool's conquest"
 	},
@@ -26520,9 +26496,7 @@
 /area/rogue/under/underdark/south)
 "iOR" = (
 /obj/structure/table/church,
-/obj/structure/table/church{
-	icon_state = "churchtable_mid"
-	},
+/obj/structure/table/church/m,
 /obj/item/roguegem/yellow,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap)
@@ -27897,9 +27871,7 @@
 /turf/open/floor/rogue/tile/bfloorz,
 /area/rogue/under/town/basement/keep)
 "jlC" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/underdark/south)
 "jlN" = (
@@ -33470,10 +33442,7 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/mountains/decap)
 "laN" = (
-/obj/structure/table/church{
-	dir = 1;
-	icon_state = "churchtable_end_alt"
-	},
+/obj/structure/table/church/end/alt/north,
 /obj/item/cooking/platter/silver,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
@@ -34026,9 +33995,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/roofs)
 "lkb" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/cave)
 "lko" = (
@@ -34359,9 +34326,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "loT" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end_alt"
-	},
+/obj/structure/table/church/end/alt,
 /turf/closed,
 /area/rogue/outdoors/mountains/decap)
 "loW" = (
@@ -35989,9 +35954,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church/basement)
 "lQW" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/eora)
 "lRb" = (
@@ -40328,9 +40291,7 @@
 /turf/open/water/sewer,
 /area/rogue/under/cave/skeletoncrypt)
 "nmC" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/shelter/mountains/decap)
@@ -40494,9 +40455,7 @@
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/town)
 "npe" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_alt"
-	},
+/obj/structure/table/church/alt,
 /obj/item/natural/rock/salt,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
@@ -40968,9 +40927,7 @@
 /turf/open/floor/rogue/metal,
 /area/rogue/under/cave/dungeon1/gethsmane)
 "nAf" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/outdoors/beach)
 "nAg" = (
@@ -43100,9 +43057,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/skeletoncrypt)
 "oiW" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/item/rogueweapon/huntingknife/stoneknife,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/outdoors/rtfield)
@@ -43896,10 +43851,7 @@
 /turf/open/floor/rogue/rooftop/green/north,
 /area/rogue/outdoors/town/roofs/keep)
 "oAE" = (
-/obj/structure/table/church{
-	dir = 1;
-	icon_state = "churchtable_end_alt"
-	},
+/obj/structure/table/church/end/alt/north,
 /obj/item/rogueweapon/tongs{
 	pixel_x = 5;
 	pixel_y = 4
@@ -45238,9 +45190,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/magician)
 "oXX" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/goblinfort)
 "oXY" = (
@@ -48504,10 +48454,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "qdR" = (
-/obj/structure/table/church{
-	dir = 1;
-	icon_state = "churchtable_end_alt"
-	},
+/obj/structure/table/church/end/alt/north,
 /obj/item/reagent_containers/glass/cup/steel{
 	pixel_x = 9;
 	pixel_y = 9
@@ -49996,8 +49943,8 @@
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/church/chapel)
 "qDy" = (
-/obj/structure/table/wood/large_table/middle,
 /obj/item/rogueweapon/huntingknife/chefknife,
+/obj/structure/table/wood/large_table/south_west,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "qDH" = (
@@ -52813,9 +52760,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
 "rAA" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_mid_alt"
-	},
+/obj/structure/table/church/m/alt,
 /obj/item/clothing/cloak/templar/malum,
 /obj/item/clothing/neck/roguetown/psicross/malum,
 /turf/open/floor/rogue/herringbone,
@@ -58194,9 +58139,7 @@
 /area/rogue/outdoors/mountains/decap)
 "tow" = (
 /obj/structure/fluff/psycross/copper,
-/obj/structure/table/church{
-	icon_state = "churchtable_mid_alt"
-	},
+/obj/structure/table/church/m/alt,
 /turf/closed,
 /area/rogue/outdoors/mountains/decap)
 "toD" = (
@@ -64701,9 +64644,7 @@
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/underdark)
 "vrg" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_mid_alt"
-	},
+/obj/structure/table/church/m/alt,
 /obj/item/natural/feather,
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/hexstone,
@@ -65921,9 +65862,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "vLX" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/shelter)
 "vMa" = (
@@ -69665,9 +69604,7 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/licharena)
 "wVy" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /obj/item/candle/candlestick/gold/lit{
 	pixel_y = 23
 	},
@@ -70476,9 +70413,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "xke" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
+/obj/structure/table/church/end,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/cave)
 "xkf" = (
@@ -72867,9 +72802,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/underdark/south)
 "xYM" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_alt"
-	},
+/obj/structure/table/church/alt,
 /obj/item/candle/candlestick/silver/lit{
 	pixel_y = 9
 	},
@@ -73440,9 +73373,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
 "yjn" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_mid_alt"
-	},
+/obj/structure/table/church/m/alt,
 /obj/item/natural/stone,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
