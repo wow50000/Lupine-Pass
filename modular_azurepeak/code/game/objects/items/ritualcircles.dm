@@ -403,7 +403,6 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 
 	for(var/obj/structure/active_abyssor_rune/R in range(1, src))
 		qdel(R)
-		sleep(1)
 
 	src.visible_message(span_danger("The spire shatters with a painful ringing. In an instant the dream recedes back to Abyssor's realm, restoring the world as it was."))
 	STOP_PROCESSING(SSobj, src)
