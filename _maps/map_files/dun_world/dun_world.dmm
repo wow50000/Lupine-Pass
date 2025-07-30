@@ -24335,10 +24335,15 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/licharena)
 "hxh" = (
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid{
+	color = #380407
+	},
+/obj/structure/ritualcircle/graggar{
+	icon_state = "graggar_active"
+	},
 /obj/structure/wonder{
 	name = "graggarite altar"
 	},
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/cave/orcdungeon)
 "hxi" = (
@@ -42932,6 +42937,10 @@
 /obj/structure/flora/newtree,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods/southeast)
+"nid" = (
+/obj/structure/ritualcircle/abyssor_alt,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/beach)
 "nin" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/indoors/shelter)
@@ -186539,7 +186548,7 @@ fce
 dYM
 jnd
 ayP
-tsj
+nid
 tsj
 asD
 tsj
