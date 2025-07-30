@@ -278,7 +278,7 @@
 	if(istype(user) && user?.wear_ring == src)
 		user.remove_status_effect(/datum/status_effect/buff/griefflower)
 
-// T2 
+// T2 - bond that lasts for 8 minutes as long as bonded are within 7 tiles, TRAIT_NOPAIN, spd = 5 end = 3
 /obj/effect/proc_holder/spell/invoked/joyride
 	name = "Joyride"
 	desc = "A frenzy for two to partake in."
