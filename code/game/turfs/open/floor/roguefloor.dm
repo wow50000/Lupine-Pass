@@ -1454,6 +1454,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/rogue,
-						/turf/closed/mineral,
-						/turf/closed/wall/mineral)
+	canSmoothWith = list(/turf/open/floor/rogue)
+
+/turf/open/floor/rogue/dark_ice/cardinal_smooth(adjacencies)
+	roguesmooth(adjacencies)
