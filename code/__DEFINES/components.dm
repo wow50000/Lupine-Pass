@@ -327,7 +327,7 @@
 #define COMSIG_ITEM_ATTACK_TURF "item_attack_turf"
 
 // /obj/item/clothing signals
-#define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/clothing/shoes/proc/step_action(): ()
+#define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/proc/step_action(): ()
 
 // /obj/item/ signals
 #define COMSIG_ITEM_OBJFIX "rogueweapon_fix"				//from base of obj/item/obj_fix()
