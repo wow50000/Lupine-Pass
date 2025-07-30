@@ -248,6 +248,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /obj/structure/ritualcircle/abyssor
 	name = "Rune of Storm"
 	desc = "A Holy Rune of Abyssor"
+	icon_state = "abyssor_chalky"
 
 /obj/structure/ritualcircle/necra
 	name = "Rune of Death"
