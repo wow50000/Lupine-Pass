@@ -24336,7 +24336,7 @@
 /area/rogue/under/cave/licharena)
 "hxh" = (
 /obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid{
-	color = a60011
+	color = "a60011"
 	},
 /obj/structure/ritualcircle/graggar{
 	icon_state = "graggar_active"
