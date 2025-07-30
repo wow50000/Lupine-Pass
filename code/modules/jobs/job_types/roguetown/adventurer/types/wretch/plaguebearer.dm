@@ -30,7 +30,7 @@
 		/obj/item/rogueweapon/huntingknife/idagger/steel/corroded = 1,
 		)
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // To escape grapplers, fuck you
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
