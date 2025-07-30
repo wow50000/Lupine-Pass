@@ -6,7 +6,6 @@
 
 import { storage } from 'common/storage';
 
-import { setClientTheme } from '../themes';
 import {
   addHighlightSetting,
   exportSettings,
@@ -124,9 +123,9 @@ export function settingsMiddleware(store) {
 
     const settings = selectSettings(store.getState());
 
-    if (importSettings.type) {
-      setClientTheme(settings.theme);
-    }
+    // if (importSettings.type) {
+    //   setClientTheme(settings.theme);
+    // }
 
     // Update stat panel settings
     setStatTabsStyle(settings.statTabsStyle);
