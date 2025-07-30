@@ -249,6 +249,223 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	name = "Rune of Storm"
 	desc = "A Holy Rune of Abyssor"
 	icon_state = "abyssor_chalky"
+	var/stormrites = list("Rite of the Crystal Spire")
+
+// Ritual implementation
+/obj/structure/ritualcircle/abyssor/attack_hand(mob/living/user)
+	if((user.patron?.type) != /datum/patron/divine/abyssor)
+		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		return
+	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
+		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		return
+	if(user.has_status_effect(/datum/status_effect/debuff/ritesexpended))
+		to_chat(user,span_smallred("I have performed enough rituals for the day... I must rest before communing more."))
+		return
+	var/riteselection = input(user, "Rituals of Storm", src) as null|anything in stormrites
+	switch(riteselection)
+		if("Rite of the Crystal Spire")
+			if(do_after(user, 50))
+				user.say("Deep Father, hear my call!")
+				if(do_after(user, 50))
+					user.say("From the Abyss, split the earth!")
+					if(do_after(user, 50))
+						icon_state = "abyssor_active"
+						user.say("Let your tempest chase away the craven ones!")
+						to_chat(user, span_cultsmall("A crystalline shard forms in my hands, humming with Abyssor's power."))
+						new /obj/item/abyssal_marker(loc)
+						user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+						spawn(120)
+							icon_state = "abyssor_chalky"
+
+/obj/item/abyssal_marker
+	name = "abyssal marker"
+	desc = "A pulsating crystal shard that hums with otherworldly energy."
+	icon = 'icons/roguetown/misc/rituals.dmi'
+	icon_state = "abyssal_marker"
+	w_class = WEIGHT_CLASS_SMALL
+	var/turf/marked_location
+	var/effect_desc = " Use in-hand to mark a location, then activate on the marked spot to break the barrier between the dream and this realm. You recall the teachings of your Hierophant... these things are dangerous to all."
+
+/obj/item/abyssal_marker/examine(mob/user)
+	. = ..()
+	if(iscarbon(user))
+		var/mob/living/carbon/c = user
+		if(c.patron.type == /datum/patron/divine/abyssor)
+			. += span_info(effect_desc)
+
+/obj/item/abyssal_marker/attack_self(mob/user)
+	if(do_after(user, 2 SECONDS) && !marked_location)
+		marked_location = get_turf(user)
+		to_chat(user, span_notice("You charge the crystal with the essence of this location."))
+		playsound(src, 'sound/magic/vlightning.ogg', 50, TRUE)
+	else if (marked_location)
+		user.visible_message(span_warning("[user] crushes the [src] in their hands!"))
+		playsound(src, 'sound/magic/lightning.ogg', 50, TRUE)
+		new /obj/structure/active_abyssor_rune(marked_location)
+		qdel(src)
+
+/obj/structure/active_abyssor_rune
+	name = "awakened abyssal rune"
+	desc = "A violently pulsating rune emitting storm energy."
+	icon = 'icons/roguetown/misc/rituals.dmi'
+	icon_state = "abyssor_active"
+	anchored = TRUE
+	layer = BELOW_OBJ_LAYER
+	density = FALSE
+	light_outer_range = 3
+	light_color = LIGHT_COLOR_BLUE
+	var/spawn_time = 10 SECONDS
+
+/obj/structure/active_abyssor_rune/Initialize()
+	. = ..()
+	addtimer(CALLBACK(src, .proc/spawn_spire), spawn_time)
+
+/obj/structure/active_abyssor_rune/proc/spawn_spire()
+	new /obj/structure/crystal_spire(get_turf(src))
+	qdel(src)
+
+// Crystal Spire Structure
+/obj/structure/crystal_spire
+	name = "crystal spire"
+	desc = "A massive crystalline structure pulsing with abyssal energy. Dark ice spreads from its base."
+	icon = 'icons/roguetown/misc/rituals.dmi'
+	icon_state = "crystal_spire"
+	anchored = TRUE
+	density = TRUE
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	max_integrity = 500
+	var/current_radius = 1
+	var/max_radius = 4
+	var/fiend_count = 0
+	var/max_fiends = 5
+	var/list/turf_data = list()
+	var/expansion_timer = 3 MINUTES
+	var/next_expansion_time = 0
+	var/spawn_timer = 45 SECONDS
+	var/next_fiend_time = 0
+	var/awakened = FALSE
+
+/obj/structure/crystal_spire/Initialize()
+	. = ..()
+	spawn_fiends(1, /mob/living/simple_animal/hostile/rogue/dreamfiend/major/unbound)
+	
+	next_fiend_time = world.time + spawn_timer
+	next_expansion_time = world.time + expansion_timer
+	
+	START_PROCESSING(SSobj, src)
+
+/obj/structure/crystal_spire/process()
+	if(world.time >= next_fiend_time)
+		spawn_fiends(1)
+		next_fiend_time = world.time + spawn_timer
+
+	if(world.time >= next_expansion_time && current_radius < max_radius || !awakened)
+		if(!awakened)
+			awakened = TRUE
+		expand_radius()
+		next_expansion_time = world.time + expansion_timer
+
+/obj/structure/crystal_spire/Destroy()
+	for(var/turf/T in turf_data)
+		T.ChangeTurf(turf_data[T], flags = CHANGETURF_IGNORE_AIR)
+	turf_data.Cut()
+
+	for(var/obj/structure/active_abyssor_rune/R in range(1, src))
+		qdel(R)
+
+	STOP_PROCESSING(SSobj, src)
+	playsound(src, 'sound/foley/glassbreak.ogg', 50, TRUE)
+	new /obj/effect/particle_effect/smoke(src.loc)
+	return ..()
+
+/obj/structure/crystal_spire/proc/convert_surroundings()
+	for(var/turf/T in spiral_range_turfs(current_radius, get_turf(src)))
+		if(istype(T, /turf/open/floor/rogue/dark_ice))
+			continue
+
+		turf_data[T] = T.type
+		T.ChangeTurf(/turf/open/floor/rogue/dark_ice, flags = CHANGETURF_IGNORE_AIR)
+		playsound(T, 'sound/magic/fleshtostone.ogg', 20, TRUE)
+		sleep(10)
+
+/obj/structure/crystal_spire/proc/expand_radius()
+	if(current_radius >= max_radius)
+		deltimer(expansion_timer)
+		return
+
+	current_radius++
+	convert_surroundings()
+
+/obj/structure/crystal_spire/proc/spawn_spire_fiend(turf/spawn_turf, obj/structure/crystal_spire/spire, mob/living/fiend_type = /mob/living/simple_animal/hostile/rogue/dreamfiend/unbound)
+	if(!spawn_turf || !spire || !ispath(fiend_type))
+		return FALSE
+
+	var/mob/living/F = new fiend_type(spawn_turf)
+	F.visible_message(span_notice("A [F] manifests, pulsing with abyssal energy!"))
+
+	var/datum/component/comp = F.AddComponent(/datum/component/spire_fiend, spire)
+	return comp ? TRUE : FALSE
+
+/obj/structure/crystal_spire/proc/spawn_fiends(amount, mob/living/fiend_type = /mob/living/simple_animal/hostile/rogue/dreamfiend/unbound)
+	if(fiend_count >= max_fiends)
+		return
+
+	for(var/i in 1 to amount)
+		if(fiend_count >= max_fiends)
+			break
+
+		var/turf/T = find_safe_spawn()
+		if(T && spawn_spire_fiend(T, src, fiend_type))
+			fiend_count++
+
+/obj/structure/crystal_spire/proc/find_safe_spawn(outer_tele_radius = 3, inner_tele_radius = 2, include_dense = FALSE, include_teleport_restricted = FALSE)
+	var/turf/target_turf = get_turf(src)
+	var/list/turfs = list()
+
+	for(var/turf/T in range(target_turf, outer_tele_radius))
+		if(T in range(target_turf, inner_tele_radius))
+			continue
+		if(istransparentturf(T))
+			continue
+		if(T.density && !include_dense)
+			continue
+		if(T.teleport_restricted && !include_teleport_restricted)
+			continue
+		if(T.x>world.maxx-outer_tele_radius || T.x<outer_tele_radius)
+			continue
+		if(T.y>world.maxy-outer_tele_radius || T.y<outer_tele_radius)
+			continue
+		turfs += T
+
+	if(!length(turfs))
+		for(var/turf/T in orange(target_turf, outer_tele_radius))
+			if(!(T in orange(target_turf, inner_tele_radius)))
+				turfs += T
+
+	if(!length(turfs))
+		return null
+
+	return pick(turfs)
+
+/obj/structure/crystal_spire/proc/fiend_died()
+	fiend_count = max(fiend_count - 1, 0)
+
+/datum/component/spire_fiend
+	var/obj/structure/crystal_spire/linked_spire
+
+/datum/component/spire_fiend/Initialize(obj/structure/crystal_spire/spire)
+	if(!isliving(parent))
+		return COMPONENT_INCOMPATIBLE
+		
+	linked_spire = spire
+	RegisterSignal(parent, COMSIG_LIVING_DEATH, .proc/on_death)
+
+/datum/component/spire_fiend/proc/on_death()
+	SIGNAL_HANDLER
+	if(linked_spire)
+		linked_spire.fiend_died()
+	qdel(src)
 
 /obj/structure/ritualcircle/necra
 	name = "Rune of Death"
@@ -308,8 +525,6 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 								icon_state = "necra_chalky"
 						else
 							loc.visible_message(span_warning("Then... nothing. The Undermaiden does not care for the vows of the damned, or those of other faiths."))
-
-
 
 /obj/structure/ritualcircle/necra/proc/undermaidenbargain(src)
 	var/ritualtargets = view(7, loc)
