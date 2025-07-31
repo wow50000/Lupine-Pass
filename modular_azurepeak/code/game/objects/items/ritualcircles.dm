@@ -669,11 +669,13 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			user.say("Let portals open, let the goblins swarm!")
 			if(!do_after(user, 5 SECONDS))
 				return
+			icon_state = "graggar_active"
 			if(perform_warritual())
 				user.apply_status_effect(/datum/status_effect/debuff/ritesexpended_heavy)
 			else
 				to_chat(user, span_smallred("The ritual fails. A noble, member of the inquisition or a tennite churchling body must be in the center of the circle!"))
-
+			spawn(120)
+				icon_state = "graggar_chalky" 
 /obj/structure/ritualcircle/graggar/proc/graggararmor(mob/living/carbon/human/target)
 	if(!HAS_TRAIT(target, TRAIT_HORDE))
 		loc.visible_message(span_cult("THE RITE REJECTS ONE WITHOUT SLAUGHTER IN THEIR HEART!!"))
