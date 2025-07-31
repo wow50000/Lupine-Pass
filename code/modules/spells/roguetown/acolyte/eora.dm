@@ -1129,39 +1129,42 @@
 	if(ishuman(eater))
 		var/mob/living/carbon/human/H = eater
 		if(H.patron.type == /datum/patron/divine/eora)
-			var/list/datum/weakref/target_refs = list()
-	
-			// Find up to two valid revival candidates and store weak references
+			var/list/mob/living/carbon/human/target_mobs = list()
+
 			for(var/mob/living/carbon/human/target in view(7, H))
-				if(target_refs.len >= 2)
+				if(target_mobs.len >= 2)
 					break
 				if(target.stat != DEAD)
 					continue
-				if(!target.mind || !target.mind.active)
-					continue
+				//if(!target.mind || !target.mind.active)
+					//continue
 				if(HAS_TRAIT(target, TRAIT_NECRAS_VOW))
 					continue
 				if(target.mob_biotypes & MOB_UNDEAD)
 					continue
-				if(target.has_status_effect(/datum/status_effect/debuff/metabolic_acceleration)) 
+				if(target.has_status_effect(/datum/status_effect/debuff/metabolic_acceleration))
 					continue
 				if(target.has_status_effect(/datum/status_effect/debuff/eoran_wilting))
 					continue
 
-				target_refs += WEAKREF(target)
+				target_mobs += target
 
-			H.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
-			//Making sure this is asyncronous...
-			addtimer(CALLBACK(src, .proc/process_ochre_revivals, target_refs), 0)
+			if(target_mobs.len > 0)
+				H.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
+				addtimer(CALLBACK(GLOBAL_PROC_REF(process_ochre_revivals), target_mobs), 0)
 
-/obj/item/reagent_containers/food/snacks/eoran_aril/ochre/proc/process_ochre_revivals(list/datum/weakref/target_refs)
-	for(var/datum/weakref/target_ref in target_refs)
-		var/mob/living/carbon/human/target = target_ref.resolve()
-		if(!target || target.stat != DEAD)
+	return ..()
+
+/proc/process_ochre_revivals(list/mob/living/carbon/human/targets_to_revive)
+	for(var/mob/living/carbon/human/target in targets_to_revive)
+		continue
+		if(target.stat != DEAD)
 			continue
-		INVOKE_ASYNC(src, .proc/revive_target, target)
 
-/obj/item/reagent_containers/food/snacks/eoran_aril/ochre/proc/revive_target(mob/living/carbon/human/target)
+		INVOKE_ASYNC(GLOBAL_PROC_REF(revive_ochre_target), target)
+
+/proc/revive_ochre_target(mob/living/carbon/human/target)
+	to_chat(world, span_userdanger("ATTEMPTING REVIVAL FOR [target]"))
 	if(QDELETED(target) || target.stat != DEAD)
 		return FALSE
 
