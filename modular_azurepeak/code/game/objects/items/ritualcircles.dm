@@ -299,7 +299,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	if(iscarbon(user))
 		var/mob/living/carbon/c = user
 		if(c.patron.type != /datum/patron/divine/abyssor)
-			user.visible_message(span_warning("My connection to Abyssor's dream is too weak to invoke his power with this crystal."))
+			to_chat(user, span_warning("My connection to Abyssor's dream is too weak to invoke his power with this crystal."))
 			return ..()
 		//Heretics get FAR stronger spires!
 		if(HAS_TRAIT(user, TRAIT_HERESIARCH))
