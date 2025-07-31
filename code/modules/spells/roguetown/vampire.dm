@@ -28,3 +28,16 @@
 	die_with_shapeshifted_form =  FALSE
 	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/bat/crow
 	sound = 'sound/vo/mobs/bird/birdfly.ogg'
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/crow/Shapeshift(mob/living/caster)//CAUSE SCREW YOU GIBBING WHEN I WITCH SHIFT
+	var/obj/shapeshift_holder/H = locate() in caster
+	if(H)
+		to_chat(caster, span_warning("You're already shapeshifted!"))
+		return
+
+	var/mob/living/shape = new shapeshift_type(caster.loc)
+	H = new(shape,src,caster)
+	shape.name = "[shape] ([caster.real_name])"
+
+	clothes_req = FALSE
+	human_req = FALSE
