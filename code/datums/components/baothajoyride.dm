@@ -3,7 +3,7 @@
 	var/mob/living/carbon/partner
 	var/mob/living/carbon/caster
 	var/duration = 8 MINUTES
-	var/max_distance = 7
+	var/max_distance = 10
 	var/ispartner = FALSE
 	can_transfer = TRUE
 

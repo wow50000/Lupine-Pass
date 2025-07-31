@@ -285,7 +285,7 @@
 	overlay_state = "bliss"
 	range = 2
 	chargetime = 0.5 SECONDS
-	invocation = "By Eora's grace, let our fates intertwine!"
+	invocation = "By Baotha's mercy, an ecstasy trance for two!"
 	sound = 'sound/magic/magnet.ogg'
 	recharge_time = 60 SECONDS
 	miracle = TRUE
@@ -297,7 +297,7 @@
 
 	var/datum/component/baotha_joyride/existing = user.GetComponent(/datum/component/baotha_joyride)
 	if(existing)
-		to_chat(user, span_warning("You are already bonded!"))
+		to_chat(user, span_warning("Your fates are already intertwined!"))
 		revert_cast()
 		return FALSE
 
@@ -306,13 +306,7 @@
 		return FALSE
 
 	if(!do_after(user, 8 SECONDS, target = target))
-		to_chat(user, span_warning("The bond requires focused concentration!"))
-		revert_cast()
-		return FALSE
-
-	var/consent = alert(target, "[user] offers a lifebond. Accept?", "Heartweave", "Yes", "No")
-	if(consent != "Yes" || QDELETED(target))
-		to_chat(user, span_warning("The bond was rejected."))
+		to_chat(user, span_warning("There is no joy without concentration!"))
 		revert_cast()
 		return FALSE
 
