@@ -11573,8 +11573,9 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/mazedungeon)
 "dTD" = (
-/obj/structure/gate/bars{
+/obj/structure/gate{
 	gid = "GolgothaGate1";
+	max_integrity = 50000;
 	redstone_id = "GolgothaGate1"
 	},
 /turf/open/floor/rogue/metal/barograte,
