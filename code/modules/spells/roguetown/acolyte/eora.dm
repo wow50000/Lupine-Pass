@@ -601,7 +601,12 @@
 			GLOB.azure_round_stats[STATS_TREES_CUT]++
 
 /obj/structure/eoran_pomegranate_tree/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armor_penetration = 0)
-	visible_message(span_notice("The tree shudders as it is harmed. You feel dread emanating from it."))
+	if(ash_offered)
+		ash_offered = FALSE
+		aura_range = 7
+		visible_message(span_notice("The tree shudders as it is harmmed, ash previously covering the leaves is shaken off, and the aura ignites once more."))
+	else
+		visible_message(span_notice("The tree shudders as it is harmed. You feel dread emanating from it."))
 	. = ..()
 
 /obj/structure/eoran_pomegranate_tree/examine(mob/user)
