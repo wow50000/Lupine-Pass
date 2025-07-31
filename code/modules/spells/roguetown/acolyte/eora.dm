@@ -1136,8 +1136,8 @@
 					break
 				if(target.stat != DEAD)
 					continue
-				//if(!target.mind || !target.mind.active)
-					//continue
+				if(!target.mind || !target.mind.active)
+					continue
 				if(HAS_TRAIT(target, TRAIT_NECRAS_VOW))
 					continue
 				if(target.mob_biotypes & MOB_UNDEAD)
