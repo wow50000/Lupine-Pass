@@ -257,7 +257,7 @@
 	return TRUE
 
 /obj/structure/underworld_portal/proc/spitout_mob(mob/living/carbon/user, turf/T)
-	if(loc == user)
+	if(src.loc == user)
 		forceMove(T ? T : user.loc)
 		user.contents.Remove(src)
 
@@ -266,7 +266,7 @@
 			user.forceMove(caster.loc)//has to be user i tried doing it as trapped before but the TIMER calls user so that can trip it up.
 			dispelled = FALSE
 		else
-			user.forceMove(loc)
+			user.forceMove(src.loc)
 		contents.Remove(user)
 		user.remove_client_colour(/datum/client_colour/monochrome)
 		REMOVE_TRAIT(user, TRAIT_BLOODLOSS_IMMUNE, STATUS_EFFECT_TRAIT)
