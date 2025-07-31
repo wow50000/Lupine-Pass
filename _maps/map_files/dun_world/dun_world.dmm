@@ -52113,10 +52113,6 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/fishmandungeon)
-"roo" = (
-/obj/structure/table/wood,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/keep)
 "ros" = (
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
@@ -398238,7 +398234,7 @@ vmi
 vmi
 vmi
 vmi
-roo
+vmi
 vmi
 vmi
 vmi
