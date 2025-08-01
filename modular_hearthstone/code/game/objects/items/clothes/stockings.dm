@@ -30,6 +30,7 @@
 				user.dropItemToGround(src)
 				forceMove(H)
 				H.legwear_socks = src
+				legwears_feature.accessory_colors = color
 
 /obj/item/legwears/random/Initialize()
 	. = ..()
