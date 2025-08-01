@@ -106,6 +106,7 @@
 		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	languages = list(
 		/datum/language/common
