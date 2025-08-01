@@ -1,6 +1,6 @@
-// Ultra easy tier skeleton with literally no armor and just a single weapon.
-/mob/living/carbon/human/species/skeleton/npc/naked
-	skel_outfit = /datum/outfit/job/roguetown/skeleton/npc/naked
+// Ultra easy tier skeleton with no armor and just a single weapon.
+/mob/living/carbon/human/species/skeleton/npc/supereasy
+	skel_outfit = /datum/outfit/job/roguetown/skeleton/npc/supereasy
 
 // Easy tier skeleton, with only incomplete chainmail and kilt
 // Ambushes people in "safe" route. A replacement for old skeletons that were effectively naked.
@@ -19,7 +19,7 @@
 /mob/living/carbon/human/species/skeleton/npc/hard
 	skel_outfit = /datum/outfit/job/roguetown/skeleton/npc/hard
 
-/datum/outfit/job/roguetown/skeleton/npc/naked/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/skeleton/npc/supereasy/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.STASTR = 10
 	H.STASPD = 8
@@ -27,6 +27,8 @@
 	H.STAEND = 10
 	H.STAINT = 1
 	name = "Skeleton"
+	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/random
+	pants = /obj/item/clothing/under/roguetown/tights/random
 	var/weapon_choice = rand(1, 4)
 	switch(weapon_choice)
 		if(1)
