@@ -27,8 +27,14 @@
 	H.STAEND = 10
 	H.STAINT = 1
 	name = "Skeleton"
-	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/random
-	pants = /obj/item/clothing/under/roguetown/tights/random
+	if(prob(50))
+		shirt = /obj/item/clothing/suit/roguetown/shirt/rags
+	else
+		shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/random
+	if(prob(50))
+		pants = /obj/item/clothing/under/roguetown/tights/random
+	else
+		pants = /obj/item/clothing/under/roguetown/loincloth
 	var/weapon_choice = rand(1, 4)
 	switch(weapon_choice)
 		if(1)
