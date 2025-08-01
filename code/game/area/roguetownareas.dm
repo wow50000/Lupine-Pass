@@ -378,6 +378,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	converted_type = /area/rogue/outdoors/dungeon1
 	ceiling_protected = TRUE
 
+/area/rogue/outdoors/eventarea
+	name = "eventarea"
+
 //////
 /////
 ////     TOWN AREAS
