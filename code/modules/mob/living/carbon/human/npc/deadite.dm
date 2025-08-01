@@ -164,6 +164,11 @@
 		return
 	if(stat >= DEAD) //do shit the natural way i guess
 		return
+	var/datum/status_effect/zombie_infection/infection = has_status_effect(/datum/status_effect/zombie_infection)
+	if(infection)
+		var/time_remaining = infection.transformation_time - world.time
+		infection.transformation_time = world.time + (time_remaining * 0.8)
+		return
 	if(!prob(ZOMBIE_INFECTION_PROBABILITY))	//Failed the probability of infection
 		return
 	to_chat(src, span_danger("I feel horrible... REALLY horrible..."))
