@@ -79,6 +79,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 		do_teleport(trash, returnzone)
 	GLOB.arenafolks.len = list()
 
+/area/rogue/indoors/eventarea
+	name = "eventarea"
+
 ///// OUTDOORS AREAS //////
 
 /area/rogue/outdoors
@@ -377,9 +380,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/dungeon1
 	ceiling_protected = TRUE
-
-/area/rogue/outdoors/eventarea
-	name = "eventarea"
 
 //////
 /////
