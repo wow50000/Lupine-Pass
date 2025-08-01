@@ -17,6 +17,7 @@
 					/obj/effect/proc_holder/spell/invoked/heal					= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/revive				= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/immolation			= CLERIC_T4,
 	)
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
@@ -88,9 +89,9 @@
 					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssor_undertow		= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/abyssheal				= CLERIC_T2,
-					/obj/effect/proc_holder/spell/invoked/call_mossback			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/call_dreamfiend		= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/call_mossback			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/call_dreamfiend		= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/abyssal_infusion		= CLERIC_T4,
 					/obj/effect/proc_holder/spell/invoked/resurrect/abyssor		= CLERIC_T4,
 	)
@@ -114,6 +115,7 @@
 					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/divine_strike			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/call_to_arms				= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/challenge				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/persistence			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/ravox		= CLERIC_T4,
@@ -138,6 +140,7 @@
 					/obj/effect/proc_holder/spell/invoked/avert					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/deaths_door			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/targeted/abrogation			= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/raise_spirits_vengeance = CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 	)
 	confess_lines = list(
