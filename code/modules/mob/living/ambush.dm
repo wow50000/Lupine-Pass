@@ -55,26 +55,18 @@ GLOBAL_LIST_INIT(valid_ambush_turfs, list(
 		if(istype(RT,/obj/structure/flora/roguetree/stump))
 			continue
 		if(isturf(RT.loc))
-			var/turf/src_turf = get_turf(RT)
-			for(var/turf/AT in get_adjacent_turfs(RT))
-				if(src_turf.LinkBlockedWithAccess(AT, src))
-					continue	
-				possible_targets += AT
-//	for(var/obj/structure/flora/roguegrass/bush/RB in range(7, src))
-//		if(can_see(src, RB))
-//			possible_targets += RB
-	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))
+			possible_targets += get_adjacent_ambush_turfs(RT.loc)
+	for(var/obj/structure/flora/roguegrass/bush/RB in view(5, src))
+		if(isturf(RB.loc))
+			possible_targets += get_adjacent_ambush_turfs(RB.loc)
+	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))w
 		if(isturf(RX.loc))
-			possible_targets += RX.loc
+			possible_targets += get_adjacent_ambush_turfs(RX.loc)
 	for(var/obj/structure/flora/newtree/RS in view(5, src))
 		if(!RS.density)
 			continue
 		if(isturf(RS.loc))
-			var/turf/src_turf = get_turf(RS)
-			for(var/turf/AT in get_adjacent_turfs(RS))
-				if(src_turf.LinkBlockedWithAccess(AT, src))
-					continue
-				possible_targets += AT
+			possible_targets += get_adjacent_ambush_turfs(RS.loc)
 	if(possible_targets.len)
 		mob_timers["ambushlast"] = world.time
 		for(var/mob/living/V in victimsa)
@@ -128,3 +120,11 @@ GLOBAL_LIST_INIT(valid_ambush_turfs, list(
 			var/mob/living/carbon/C = src
 			if(C.get_stress_amount() >= 30 && (prob(0)))
 				C.heart_attack()
+
+/proc/get_adjacent_ambush_turfs(turf/T)
+	var/list/adjacent = list()
+	for(var/turf/AT in get_adjacent_turfs(T))
+		if(AT.density || T.LinkBlockedWithAccess(AT, null))
+			continue
+		adjacent += AT
+	return adjacent
