@@ -1,5 +1,17 @@
 GLOBAL_VAR_INIT(ambush_chance_pct, 20) // Please don't raise this over 100 admins :')
 GLOBAL_VAR_INIT(ambush_mobconsider_cooldown, 5 MINUTES) // Cooldown for each individual mob being considered for an ambush
+// Instead of setting it on area and hoping no one forgets it on area we're just doing this
+GLOBAL_LIST_INIT(valid_ambush_turfs, list(
+	/turf/open/floor/rogue/dirt,
+	/turf/open/floor/rogue/dirt/road,
+	/turf/open/floor/rogue/grass,
+	/turf/open/floor/rogue/grasscold,
+	/turf/open/floor/rogue/cobble,
+	/turf/open/floor/rogue/sand,
+	/turf/open/floor/rogue/snow,
+	/turf/open/floor/rogue/AzureSand,
+	/turf/open/water
+))
 
 /mob/living/proc/ambushable()
 	if(stat)
@@ -21,7 +33,7 @@ GLOBAL_VAR_INIT(ambush_mobconsider_cooldown, 5 MINUTES) // Cooldown for each ind
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
-	if(!(T.type in AR.ambush_types))
+	if(!(T.type in GLOB.valid_ambush_turfs))
 		return
 	var/campfires = 0
 	for(var/obj/machinery/light/rogue/RF in view(5, src))
