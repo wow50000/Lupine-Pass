@@ -117,4 +117,8 @@
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/baotha(step_turf)
-
+		if("Rune of Enduring")
+			to_chat(user,span_cultsmall("I begin inscribing His holy symbol."))
+			if(do_after(user, 30, src))
+				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
+				new /obj/structure/ritualcircle/psydon(step_turf)
