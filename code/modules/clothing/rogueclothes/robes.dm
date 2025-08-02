@@ -141,6 +141,7 @@
 	icon_state = "monkvestments"
 	item_state = "monkvestments"
 	armor = ARMOR_PADDED	//Equal to gamby
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_CHOP)
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
 /obj/item/clothing/suit/roguetown/shirt/robe/monk/equipped(mob/living/user, slot)

@@ -71,8 +71,6 @@
 
 /obj/item/clothing/New()
 	..()
-	if(armor_class)
-		has_inspect_verb = TRUE
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -231,9 +229,6 @@
 	. = ..()
 	if(ispath(pocket_storage_component_path))
 		LoadComponent(pocket_storage_component_path)
-	if(prevent_crits)
-		if(prevent_crits.len)
-			has_inspect_verb = TRUE
 
 /obj/item/clothing/MouseDrop(atom/over_object)
 	. = ..()
