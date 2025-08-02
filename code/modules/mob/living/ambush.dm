@@ -59,7 +59,7 @@ GLOBAL_LIST_INIT(valid_ambush_turfs, list(
 	for(var/obj/structure/flora/roguegrass/bush/RB in view(5, src))
 		if(isturf(RB.loc))
 			possible_targets += get_adjacent_ambush_turfs(RB.loc)
-	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))w
+	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))
 		if(isturf(RX.loc))
 			possible_targets += get_adjacent_ambush_turfs(RX.loc)
 	for(var/obj/structure/flora/newtree/RS in view(5, src))
