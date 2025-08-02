@@ -71,8 +71,16 @@
 	else
 		new_hair.set_accessory_type(hairm, null, src)
 		new_facial.set_accessory_type(beard, null, src)
+		
 	head.add_bodypart_feature(new_hair)
 	head.add_bodypart_feature(new_facial)
+
+	new_hair.accessory_colors = "#31302E"
+	new_hair.hair_color = "#31302E"
+	new_facial.accessory_colors = "#31302E"
+	new_facial.hair_color = "#31302E"
+	hair_color = "#31302E"
+
 	dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
 	dna.species.handle_body(src)
 	if(gender == FEMALE)
