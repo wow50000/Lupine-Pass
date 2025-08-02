@@ -420,7 +420,7 @@
 
 /obj/effect/proc_holder/spell/invoked/wound_heal
 	name = "Wound Miracle"
-	desc = "Heals all wounds on a targeted limb, replacing them with far less dangerous bruises."
+	desc = "Heals all wounds on a targeted limb."
 	overlay_icon = 'icons/mob/actions/genericmiracles.dmi'
 	overlay_state = "woundheal"
 	action_icon_state = "woundheal"
@@ -429,6 +429,7 @@
 	chargedrain = 0
 	chargetime = 30
 	range = 1
+	ignore_los = FALSE
 	warnie = "sydwarning"
 	movement_interrupt = TRUE
 	chargedloop = /datum/looping_sound/invokeholy
@@ -475,6 +476,7 @@
 	chargedrain = 0
 	chargetime = 0
 	range = 1
+	ignore_los = FALSE
 	warnie = "sydwarning"
 	movement_interrupt = TRUE
 	sound = 'sound/magic/bloodheal.ogg'

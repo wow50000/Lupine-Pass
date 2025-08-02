@@ -520,7 +520,7 @@
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_blood(get_turf(owner))
 	H.color = "#FF0000"
 	if(!owner.construct)
-		if(skill_level >= SKILL_LEVEL_EXPERT)
+		if(skill_level >= SKILL_LEVEL_JOURNEYMAN)
 			if(owner.blood_volume < BLOOD_VOLUME_SURVIVE)
 				owner.blood_volume = BLOOD_VOLUME_SURVIVE
 		if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
