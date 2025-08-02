@@ -488,6 +488,10 @@
 /obj/item/clothing/shoes/roguetown/boots/leather,
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors)
+"qt" = (
+/obj/structure/flora/roguegrass,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/rtfield)
 "qA" = (
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors)
@@ -1774,17 +1778,17 @@ Og
 WN
 WN
 WN
+qt
 WN
 WN
 WN
 WN
 WN
-WN
-WN
+qt
 WN
 LM
 WN
-WN
+qt
 WN
 Th
 Th
@@ -1826,7 +1830,7 @@ Og
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 LM
@@ -1932,7 +1936,7 @@ WN
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 WN
@@ -2087,7 +2091,7 @@ Fo
 Fo
 Fo
 WN
-WN
+qt
 WN
 WN
 WN
@@ -2096,7 +2100,7 @@ LM
 WN
 WN
 WN
-WN
+qt
 WN
 Th
 Th
@@ -2142,7 +2146,7 @@ WN
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 WN
@@ -2397,12 +2401,12 @@ HA
 hp
 WN
 WN
-WN
+qt
 WN
 WN
 LM
 WN
-WN
+qt
 WN
 WN
 WN
@@ -2450,11 +2454,11 @@ HA
 WN
 WN
 WN
+qt
 WN
 WN
 WN
-WN
-WN
+qt
 WN
 LM
 WN
@@ -2564,7 +2568,7 @@ WN
 zD
 zD
 zD
-WN
+qt
 WN
 Th
 Th
@@ -2606,13 +2610,13 @@ HA
 WN
 WN
 WN
+qt
 WN
 WN
+qt
 WN
 WN
-WN
-WN
-WN
+qt
 zD
 gy
 zD
@@ -2712,7 +2716,7 @@ WN
 LM
 WN
 WN
-WN
+qt
 WN
 WN
 WN
@@ -2770,7 +2774,7 @@ LM
 WN
 WN
 WN
-WN
+qt
 WN
 LM
 WN
@@ -3130,8 +3134,8 @@ WN
 LM
 WN
 WN
-WN
-WN
+qt
+qt
 WN
 WN
 WN
@@ -3185,7 +3189,7 @@ WN
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 LM
@@ -3231,7 +3235,7 @@ WN
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 LM
@@ -3284,7 +3288,7 @@ WN
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 WN
@@ -3333,7 +3337,7 @@ HA
 HA
 WN
 WN
-WN
+qt
 WN
 WN
 WN
@@ -3387,7 +3391,7 @@ WN
 WN
 WN
 LM
-WN
+qt
 WN
 WN
 WN
@@ -3443,7 +3447,7 @@ WN
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 WN
@@ -3491,7 +3495,7 @@ WN
 LM
 WN
 WN
-WN
+qt
 WN
 WN
 WN
@@ -3500,7 +3504,7 @@ LM
 WN
 WN
 WN
-WN
+qt
 WN
 Th
 Th
@@ -3545,7 +3549,7 @@ WN
 WN
 WN
 WN
-WN
+qt
 WN
 WN
 WN
