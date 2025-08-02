@@ -272,7 +272,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 					if(do_after(user, 50))
 						icon_state = "abyssor_active"
 						user.say("Let your tempest chase away the craven ones!")
-						to_chat(user, span_cultsmall("A crystalline shard forms in my hands, humming with Abyssor's power."))
+						to_chat(user, span_cultsmall("A crystalline shard forms at the center of the rune, humming with Abyssor's power."))
 						new /obj/item/abyssal_marker(loc)
 						user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 						spawn(240)
@@ -285,7 +285,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	icon_state = "abyssal_marker"
 	w_class = WEIGHT_CLASS_SMALL
 	var/turf/marked_location
-	var/effect_desc = " Use in-hand to mark a location, then activate on the marked spot to break the barrier between the dream and this realm. You recall the teachings of your Hierophant... these things are dangerous to all."
+	var/effect_desc = " Use in-hand to mark a location, then activate it to break the barrier between the dream and this realm where you put a mark down earlier. You recall the teachings of your Hierophant... these things are dangerous to all."
 	var/obj/rune_type = /obj/structure/active_abyssor_rune
 
 /obj/item/abyssal_marker/examine(mob/user)
