@@ -54,6 +54,17 @@
 
 	var/datum/bodypart_feature/hair/head/new_hair = new()
 	var/datum/bodypart_feature/hair/facial/new_facial = new()
+	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
+	var/obj/item/organ/ears/organ_ears = getorgan(/obj/item/organ/ears)
+
+	if(organ_eyes)
+		organ_eyes.eye_color = "#FF0000"
+		organ_eyes.accessory_colors = "#FF0000#FF0000"
+
+	skin_tone = "50715C"
+
+	if(organ_ears)
+		organ_ears.accessory_colors = "#50715C"
 
 	if(gender == FEMALE)
 		new_hair.set_accessory_type(hairf, null, src)
