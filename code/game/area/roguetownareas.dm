@@ -167,9 +167,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "eora"
 	soundenv = 19
 	ambush_times = list("night")
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/fae/glimmerwing = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/fae/sprite = 30)
 	first_time_text = "EORAN SHRINE"
 	droning_sound = 'sound/newmusic/lovecraft2.ogg'
 	droning_sound_dusk = 'sound/newmusic/lovecraft2.ogg'
