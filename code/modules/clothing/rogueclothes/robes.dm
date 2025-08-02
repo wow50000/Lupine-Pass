@@ -140,7 +140,8 @@
 	desc = "Nomadic vestments, worn by those who pursue faith above all else. The burlap is thickly-woven and padded, in order to ward off whatever threats may arise during one's pilgrimage: be it a biting chill or a volley of arrows."
 	icon_state = "monkvestments"
 	item_state = "monkvestments"
-	armor = ARMOR_PADDED	//Equal to gamby
+	armor = ARMOR_PADDED_GOOD	//Equal to a padded gambeson, like before.
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_CHOP)	 //Ensures that this inherits the padded gambeson's resistances, too.
 	color = null
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
