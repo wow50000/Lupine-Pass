@@ -743,6 +743,10 @@
 /obj/item/clothing/gloves/roguetown/plate,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"zW" = (
+/obj/structure/flora/roguegrass/bush,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/rtfield)
 "zZ" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/grass,
@@ -1780,7 +1784,7 @@ WN
 WN
 qt
 WN
-WN
+zW
 WN
 WN
 WN
@@ -1835,7 +1839,7 @@ WN
 WN
 LM
 WN
-WN
+zW
 WN
 WN
 WN
@@ -1986,7 +1990,7 @@ HA
 WN
 WN
 WN
-WN
+zW
 WN
 WN
 WN
@@ -2045,7 +2049,7 @@ LM
 WN
 WN
 WN
-WN
+zW
 WN
 WN
 WN
@@ -2505,11 +2509,11 @@ HA
 hp
 WN
 WN
-WN
+zW
 WN
 LM
 WN
-WN
+zW
 WN
 WN
 WN
@@ -2715,13 +2719,13 @@ WN
 WN
 LM
 WN
-WN
+zW
 qt
 WN
 WN
 WN
 WN
-WN
+zW
 WN
 WN
 WN
@@ -3191,7 +3195,7 @@ WN
 WN
 qt
 WN
-WN
+zW
 LM
 WN
 Th
@@ -3233,7 +3237,7 @@ HA
 HA
 WN
 WN
-WN
+zW
 WN
 qt
 WN
@@ -3292,7 +3296,7 @@ qt
 WN
 WN
 WN
-WN
+zW
 zD
 zD
 zD
@@ -3445,13 +3449,13 @@ WN
 WN
 WN
 WN
-WN
+zW
 WN
 qt
 WN
 WN
 WN
-WN
+zW
 WN
 WN
 Th
@@ -3494,7 +3498,7 @@ hp
 WN
 LM
 WN
-WN
+zW
 qt
 WN
 WN
