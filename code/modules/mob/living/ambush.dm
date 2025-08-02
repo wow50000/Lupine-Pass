@@ -55,21 +55,26 @@ GLOBAL_LIST_INIT(valid_ambush_turfs, list(
 		if(istype(RT,/obj/structure/flora/roguetree/stump))
 			continue
 		if(isturf(RT.loc))
-			testing("foundtree")
-			possible_targets += RT.loc
+			var/turf/src_turf = get_turf(RT)
+			for(var/turf/AT in get_adjacent_turfs(RT))
+				if(src_turf.LinkBlockedWithAccess(AT, src))
+					continue	
+				possible_targets += AT
 //	for(var/obj/structure/flora/roguegrass/bush/RB in range(7, src))
 //		if(can_see(src, RB))
 //			possible_targets += RB
 	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))
 		if(isturf(RX.loc))
-			testing("foundshroom")
 			possible_targets += RX.loc
 	for(var/obj/structure/flora/newtree/RS in view(5, src))
 		if(!RS.density)
 			continue
 		if(isturf(RS.loc))
-			testing("foundshroom")
-			possible_targets += RS.loc
+			var/turf/src_turf = get_turf(RS)
+			for(var/turf/AT in get_adjacent_turfs(RS))
+				if(src_turf.LinkBlockedWithAccess(AT, src))
+					continue
+				possible_targets += AT
 	if(possible_targets.len)
 		mob_timers["ambushlast"] = world.time
 		for(var/mob/living/V in victimsa)
