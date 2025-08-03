@@ -24,21 +24,6 @@
 	cost = 30
 	contains = list(/obj/item/clothing/mask/rogue/exoticsilkmask)
 
-/datum/supply_pack/rogue/bath_clothes/silkstockings
-	name = "Stockings, Silk"
-	cost = 20
-	contains = list(/obj/item/legwears/silk/white)
-
-/datum/supply_pack/rogue/bath_clothes/fishnetstockings
-	name = "Stockings, Fishnet"
-	cost = 10
-	contains = list(/obj/item/legwears/fishnet/white)
-
-/datum/supply_pack/rogue/bath_clothes/stockings_normal
-	name = "Stockings"
-	cost = 10
-	contains = list(/obj/item/legwears/white)
-
 /datum/supply_pack/rogue/bath_clothes/collar
 	name = "Collar"
 	cost = 10
