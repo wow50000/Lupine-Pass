@@ -322,6 +322,11 @@
 /datum/config_entry/string/panic_bunker_message
 	config_entry_value = "Sorry but the server is currently not accepting connections from never before seen players."
 
+/datum/config_entry/flag/whitelist_bunker
+
+/datum/config_entry/string/whitelist_bunker_message
+	config_entry_value = "Sorry but the server is currently not accepting connections from unwhitelisted players."
+
 /datum/config_entry/number/notify_new_player_age	// how long do we notify admins of a new player
 	min_val = -1
 
