@@ -29032,7 +29032,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/southeast)
 "jjh" = (
-/mob/living/carbon/human/species/goblin/cave,
+/mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains)
 "jji" = (
@@ -29576,7 +29576,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/sewer)
 "jte" = (
-/mob/living/carbon/human/species/goblin/cave,
+/mob/living/carbon/human/species/goblin/npc/cave,
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains)
@@ -71540,7 +71540,7 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/town)
 "wKv" = (
-/mob/living/carbon/human/species/goblin/cave,
+/mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/bog/north)
 "wKx" = (
