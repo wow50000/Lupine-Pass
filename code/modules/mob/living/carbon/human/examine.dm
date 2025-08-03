@@ -817,7 +817,7 @@
 			if("lime")
 				. += "<span class='info' style='color: #00FF00'>[m1] wearing lime lipstick.</span>"
 			if("black")
-				. += "<span class='info' style='color: #000000'>[m1] wearing black lipstick.</span>"
+				. += "<span class='info' style='color: #313131ff'>[m1] wearing black lipstick.</span>"
 			
 	for(var/line in lines)
 		. += span_info(line)
