@@ -173,11 +173,9 @@
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear/ambush
 	aggressive=1
-
 	wander = TRUE
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear/after_creation()
-	..()
 	job = "Garrison Deserter"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
