@@ -604,7 +604,6 @@
 
 	if(pulledby && pulledby != src)
 		to_chat(src, span_warning("I can't jump while being grabbed."))
-		resist()
 		return
 
 	if(IsOffBalanced())
