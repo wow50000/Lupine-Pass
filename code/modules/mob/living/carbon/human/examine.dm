@@ -210,6 +210,15 @@
 					. += span_redtext("[m1] repugnant!")
 				if (THEY_THEM, THEY_THEM_F, IT_ITS)
 					. += span_redtext("[m1] repulsive!")
+
+		if(lip_style)
+			switch (pronouns)
+				if (HE_HIM)
+					. += span_beautiful_masc("[m1] wearing lipstick.")
+				if (SHE_HER)
+					. += span_beautiful_fem("[m1] wearing lipstick.")
+				if (THEY_THEM, THEY_THEM_F, IT_ITS)
+					. += span_beautiful_nb("[m1] wearing lipstick.")						
 	
 	if (HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS) && (!HAS_TRAIT(src, TRAIT_VAMP_DREAMS)))
 		if(isliving(user))
