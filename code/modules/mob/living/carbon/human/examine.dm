@@ -210,15 +210,6 @@
 					. += span_redtext("[m1] repugnant!")
 				if (THEY_THEM, THEY_THEM_F, IT_ITS)
 					. += span_redtext("[m1] repulsive!")
-
-		if(lip_style)
-			switch (pronouns)
-				if (HE_HIM)
-					. += span_beautiful_masc("[m1] wearing lipstick.")
-				if (SHE_HER)
-					. += span_beautiful_fem("[m1] wearing lipstick.")
-				if (THEY_THEM, THEY_THEM_F, IT_ITS)
-					. += span_beautiful_nb("[m1] wearing lipstick.")						
 	
 	if (HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS) && (!HAS_TRAIT(src, TRAIT_VAMP_DREAMS)))
 		if(isliving(user))
@@ -817,6 +808,17 @@
 		. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a>"
 
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
+	if(lip_style)
+		switch(lip_color)
+			if("red")
+				. += "<span class='info' style='color: #a81324'>[m1] wearing red lipstick.</span>"
+			if("purple")
+				. += "<span class='info' style='color: #800080'>[m1] wearing purple lipstick.</span>"
+			if("lime")
+				. += "<span class='info' style='color: #00FF00'>[m1] wearing lime lipstick.</span>"
+			if("black")
+				. += "<span class='info' style='color: #000000'>[m1] wearing black lipstick.</span>"
+			
 	for(var/line in lines)
 		. += span_info(line)
 
