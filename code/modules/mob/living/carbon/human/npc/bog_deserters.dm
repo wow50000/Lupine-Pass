@@ -12,7 +12,6 @@
 	flee_in_pain = TRUE
 	a_intent = INTENT_HELP
 	d_intent = INTENT_PARRY
-	selected_default_language = /datum/language/dwarvish
 	possible_mmb_intents = list(INTENT_BITE, INTENT_JUMP, INTENT_KICK, INTENT_STEAL)
 	possible_rmb_intents = list(
 		/datum/rmb_intent/feint,\
@@ -153,6 +152,24 @@
 
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear
+	aggressive=1
+	rude = TRUE
+	mode = NPC_AI_IDLE
+	faction = list("viking", "station")
+	ambushable = FALSE
+	cmode = 1
+	setparrytime = 30
+	flee_in_pain = TRUE
+	a_intent = INTENT_HELP
+	d_intent = INTENT_PARRY
+	possible_mmb_intents = list(INTENT_BITE, INTENT_JUMP, INTENT_KICK, INTENT_STEAL)
+	possible_rmb_intents = list(
+		/datum/rmb_intent/feint,\
+		/datum/rmb_intent/aimed,\
+		/datum/rmb_intent/strong,\
+		/datum/rmb_intent/riposte,\
+		/datum/rmb_intent/weak
+	)
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear/ambush
 	aggressive=1
