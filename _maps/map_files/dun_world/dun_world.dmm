@@ -6415,6 +6415,10 @@
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/beach/forest/south)
+"ceb" = (
+/obj/random/spider,
+/turf/open/water/swamp/deep,
+/area/rogue/outdoors/bog/north)
 "cee" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/twig,
@@ -6654,6 +6658,10 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/manor)
+"cis" = (
+/mob/living/simple_animal/hostile/rogue/mirespider_lurker,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bog/north)
 "ciy" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/item/clothing/suit/roguetown/shirt/dress/gown/fallgown,
@@ -11219,6 +11227,7 @@
 /obj/structure/flora/hotspring_rocks/small/five{
 	pixel_y = 11
 	},
+/obj/structure/spider/stickyweb/mirespider,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/shelter)
 "dHX" = (
@@ -11662,6 +11671,11 @@
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town)
+"dPi" = (
+/obj/structure/flora/hotspring_rocks/grassy,
+/obj/structure/spider/stickyweb/mirespider,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter)
 "dPm" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/dirt,
@@ -26181,6 +26195,9 @@
 /area/rogue/under/cave/mazedungeon)
 "ipA" = (
 /obj/structure/flora/hotspring_rocks/small/two,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/shelter)
 "ipE" = (
@@ -31252,6 +31269,10 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
+"jVV" = (
+/obj/random/spider,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bog/north)
 "jVX" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/dirt,
@@ -38698,6 +38719,10 @@
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
+"mmI" = (
+/mob/living/simple_animal/hostile/rogue/mirespider_lurker,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter)
 "mmJ" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/item/roguebin/water,
@@ -42351,6 +42376,10 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/cave)
+"nwf" = (
+/obj/structure/spider/stickyweb/mirespider,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter)
 "nwl" = (
 /obj/item/reagent_containers/food/snacks/rogue/meat/spider,
 /turf/open/floor/rogue/cobble,
@@ -47406,6 +47435,10 @@
 /obj/random/spider,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark)
+"pep" = (
+/obj/random/spider,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/shelter)
 "pev" = (
 /obj/machinery/light/rogue/hearth,
 /obj/item/cooking/pan,
@@ -49001,6 +49034,14 @@
 /obj/machinery/light/rogue/lanternpost,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
+"pGf" = (
+/obj/structure/flora/hotspring_rocks/small/five{
+	pixel_y = 11
+	},
+/obj/random/spider,
+/obj/structure/spider/stickyweb/mirespider,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/shelter)
 "pGi" = (
 /obj/structure/bookcase,
 /obj/item/book/rogue/nitebeast,
@@ -58426,6 +58467,10 @@
 "sFF" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/under/cave/skeletoncrypt)
+"sFS" = (
+/obj/random/spider,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter)
 "sGa" = (
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/rogue/ruinedwood/platform,
@@ -62378,6 +62423,13 @@
 /obj/item/rogueore/coal,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
+"tTP" = (
+/obj/structure/vine{
+	opacity = 1
+	},
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter)
 "tTT" = (
 /obj/structure/stairs/fancy/c{
 	dir = 1
@@ -336724,7 +336776,7 @@ eWk
 pCi
 pCi
 eWk
-mjV
+jVV
 mjV
 pMO
 pMO
@@ -337626,11 +337678,11 @@ eWk
 eWk
 uHo
 eWk
-eWk
+ceb
 eWk
 pMO
 irm
-bLY
+rxd
 irm
 pMO
 mjV
@@ -340338,7 +340390,7 @@ irm
 pMO
 mjV
 mjV
-mjV
+cis
 mjV
 mjV
 pCi
@@ -342146,7 +342198,7 @@ fZN
 irm
 irm
 irm
-mjV
+jVV
 mjV
 mjV
 mjV
@@ -461474,7 +461526,7 @@ cxA
 cxA
 cxA
 nMW
-qRo
+tTP
 qRo
 qRo
 nin
@@ -461928,7 +461980,7 @@ cxA
 nMW
 qRo
 qRo
-hlW
+nwf
 nMW
 cxA
 cxA
@@ -462378,8 +462430,8 @@ cxA
 cxA
 cxA
 nMW
-hlW
-hlW
+nwf
+mmI
 hlW
 nMW
 cxA
@@ -462831,8 +462883,8 @@ cxA
 cxA
 nMW
 hlW
-rQg
-nFb
+hlW
+pep
 nMW
 cxA
 cxA
@@ -463734,7 +463786,7 @@ cxA
 cxA
 cxA
 nMW
-hlW
+mmI
 nFb
 ipA
 coP
@@ -464638,8 +464690,8 @@ cxA
 cxA
 cxA
 nin
-rQg
-hlW
+nwf
+nwf
 coP
 coP
 cxA
@@ -465091,7 +465143,7 @@ cxA
 cxA
 nin
 nFb
-hlW
+nwf
 coP
 coP
 cxA
@@ -465544,7 +465596,7 @@ cxA
 coP
 nFb
 hlW
-qNX
+dPi
 coP
 cxA
 cxA
@@ -465994,7 +466046,7 @@ cxA
 cxA
 cxA
 coP
-dHU
+pGf
 nFb
 hlW
 coP
@@ -466900,7 +466952,7 @@ cxA
 coP
 coP
 dHU
-hlW
+sFS
 nin
 cxA
 cxA
@@ -467352,7 +467404,7 @@ cxA
 coP
 coP
 cnv
-rQg
+nwf
 nin
 cxA
 cxA
