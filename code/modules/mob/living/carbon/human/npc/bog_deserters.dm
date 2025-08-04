@@ -1,6 +1,37 @@
 
 //After the bogfort fell to undead, the remaining guard who didn't flea turned to bandirty. Wellarmed and trained.
 //These guys use alot of iron stuff with small amounts of steel mixed in, not really one for finetuned balance might be too hard or easy idk. Going off vibes atm
+/datum/outfit/job/roguetown/human/northern/bog_deserters/proc/add_random_deserter_cloak(mob/living/carbon/human/H)
+	var/random_deserter_cloak = rand(1,4)
+	switch(random_deserter_cloak)
+		if(1)
+			cloak = /obj/item/clothing/cloak/stabard/bog
+		if(2)
+			cloak = /obj/item/clothing/cloak/stabard/guard
+		if(3)
+			cloak = /obj/item/clothing/suit/roguetown/armor/longcoat/brown
+
+/datum/outfit/job/roguetown/human/northern/bog_deserters/proc/add_random_deserter_weapon(mob/living/carbon/human/H)
+	var/random_deserter_weapon = rand(1,3)
+	switch(random_deserter_weapon)
+		if(1)
+			r_hand = /obj/item/rogueweapon/sword/iron
+			l_hand = /obj/item/rogueweapon/shield/heater
+		if(2)
+			r_hand = /obj/item/rogueweapon/spear
+		if(3)
+			r_hand = /obj/item/rogueweapon/halberd
+
+/datum/outfit/job/roguetown/human/northern/bog_deserters/proc/add_random_deserter_armor_hard(mob/living/carbon/human/H)
+	var/random_deserter_armor_hard = rand(1,3)
+	switch(random_deserter_armor_hard)
+		if(1)
+			armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light
+		if(2)
+			armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
+		if(3)
+			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
+
 /mob/living/carbon/human/species/human/northern/bog_deserters
 	aggressive=1
 	rude = TRUE
@@ -119,15 +150,7 @@
 	H.STAPER = 11
 	H.STAINT = 11
 	//Chest Gear
-	var/random_deserter_cloak = rand(1,4)
-	var/random_deserter_weapon = rand(1,3)
-	switch(random_deserter_cloak)
-		if(1)
-			cloak = /obj/item/clothing/cloak/stabard/bog
-		if(2)
-			cloak = /obj/item/clothing/cloak/stabard/guard
-		if(3)
-			cloak = /obj/item/clothing/suit/roguetown/armor/longcoat/brown
+	add_random_deserter_cloak(H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
 	//Head Gear
@@ -141,15 +164,7 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
 	//Weapons
-	switch(random_deserter_weapon)
-		if(1)
-			r_hand = /obj/item/rogueweapon/sword/iron
-			l_hand = /obj/item/rogueweapon/shield/heater
-		if(2)
-			r_hand = /obj/item/rogueweapon/spear
-		if(3)
-			r_hand = /obj/item/rogueweapon/halberd
-
+	add_random_deserter_weapon(H)
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear
 	aggressive=1
@@ -219,17 +234,9 @@
 	H.STAPER = 11
 	H.STAINT = 11
 	//Chest Gear
-	var/random_deserter_cloak = rand(1,4)
-	var/random_deserter_weapon = rand(1,3)
-	switch(random_deserter_cloak)
-		if(1)
-			cloak = /obj/item/clothing/cloak/stabard/bog
-		if(2)
-			cloak = /obj/item/clothing/cloak/stabard/guard
-		if(3)
-			cloak = /obj/item/clothing/suit/roguetown/armor/longcoat/brown
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
-	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light
+	add_random_deserter_armor_hard(H)
+	add_random_deserter_cloak(H)
 	//Head Gear
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/full
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle
@@ -241,11 +248,4 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
 	//Weapons
-	switch(random_deserter_weapon)
-		if(1)
-			r_hand = /obj/item/rogueweapon/sword/iron
-			l_hand = /obj/item/rogueweapon/shield/heater
-		if(2)
-			r_hand = /obj/item/rogueweapon/spear
-		if(3)
-			r_hand = /obj/item/rogueweapon/halberd
+	add_random_deserter_weapon(H)
