@@ -7661,7 +7661,8 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
 "czw" = (
-/mob/living/carbon/human/species/skeleton/npc/hard,
+/obj/item/rogueweapon/sword/rapier,
+/obj/structure/closet/crate/roguecloset,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/shelter/mountains/decap)
 "czy" = (
