@@ -30792,12 +30792,6 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/beach/north)
-"jNY" = (
-/obj/structure/fluff/railing/fence{
-	dir = 4
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/indoors/shelter)
 "jNZ" = (
 /mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/hexstone,
@@ -450713,7 +450707,7 @@ wjM
 lXa
 czD
 uGX
-jNY
+hlW
 hlW
 ygS
 nMW
