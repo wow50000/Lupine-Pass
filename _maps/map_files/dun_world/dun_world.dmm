@@ -71899,6 +71899,10 @@
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
+"xky" = (
+/obj/item/rogueweapon/sword/sabre,
+/turf/open/water/cleanshallow,
+/area/rogue/indoors/cave)
 "xkB" = (
 /obj/item/bedsheet/rogue/double_pelt,
 /obj/structure/bed/rogue/inn/double,
@@ -269865,7 +269869,7 @@ gAt
 qPv
 qPv
 mlk
-mlk
+xky
 mlk
 qPv
 qPv
