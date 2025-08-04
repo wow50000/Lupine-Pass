@@ -40,6 +40,8 @@
 	var/mob/living/host
 	/// Multiplier for extracted blood. Mainly used by Cheeles or equivalent.
 	var/blood_multiplier = 1
+	/// Whether we can be attached to mindless mobs.
+	var/mindless_attach = TRUE
 
 /obj/item/natural/worms/leech/Initialize()
 	. = ..()
@@ -140,6 +142,9 @@
 	if(ishuman(M))
 		if(!giving && M.stat == DEAD)
 			to_chat(user, span_warning("They are deceased. Only running blood may be extracted."))
+			return
+		if(!giving && !M.mind && !mindless_attach)
+			to_chat(user, span_warning("They are mindless. The [src] won't attach."))
 			return
 		var/mob/living/carbon/human/H = M
 		var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
@@ -250,6 +255,7 @@
 	blood_multiplier = 3
 	blood_storage = BLOOD_VOLUME_BAD
 	blood_maximum = BLOOD_VOLUME_NORMAL
+	mindless_attach = FALSE
 
 /obj/item/natural/worms/leech/cheele/attack_self(mob/user)
 	. = ..()
