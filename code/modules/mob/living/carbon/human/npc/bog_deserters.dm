@@ -20,7 +20,60 @@
 		if(2)
 			r_hand = /obj/item/rogueweapon/spear
 		if(3)
-			r_hand = /obj/item/rogueweapon/halberd
+			r_hand = /obj/item/rogueweapon/stoneaxe/battle
+			l_hand = /obj/item/rogueweapon/shield/heater
+
+/datum/outfit/job/roguetown/human/northern/bog_deserters/proc/add_random_deserter_weapon_hard(mob/living/carbon/human/H)
+	var/add_random_deserter_weapon_hard = rand(1,4)
+	switch(add_random_deserter_weapon_hard)
+		if(1)
+			r_hand = /obj/item/rogueweapon/sword/iron
+			l_hand = /obj/item/rogueweapon/shield/heater
+		if(2)
+			r_hand = /obj/item/rogueweapon/mace/warhammer
+			l_hand = /obj/item/rogueweapon/shield/heater
+		if(3)
+			r_hand = /obj/item/rogueweapon/stoneaxe/battle
+			l_hand = /obj/item/rogueweapon/shield/heater
+		if(4)
+			r_hand = /obj/item/rogueweapon/flail
+			l_hand = /obj/item/rogueweapon/shield/heater
+
+/datum/outfit/job/roguetown/human/northern/bog_deserters/proc/add_random_deserter_beltl_stuff(mob/living/carbon/human/H)
+	var/add_random_deserter_beltl_stuff = rand(1,7)
+	switch(add_random_deserter_beltl_stuff)
+		if(1)
+			beltl = /obj/item/storage/belt/rogue/pouch/food
+		if(2)
+			beltl = /obj/item/storage/belt/rogue/pouch/medicine
+		if(3)
+			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+		if(4)
+			beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
+		if(5)
+			beltl = /obj/item/reagent_containers/glass/bottle/waterskin
+		if(6)
+			beltl = /obj/item/reagent_containers/glass/bottle/alchemical/healthpot
+		if(7)
+			beltl = /obj/item/rogueweapon/scabbard/sheath
+
+/datum/outfit/job/roguetown/human/northern/bog_deserters/proc/add_random_deserter_beltr_stuff(mob/living/carbon/human/H)
+	var/add_random_deserter_beltr_stuff = rand(1,7)
+	switch(add_random_deserter_beltr_stuff)
+		if(1)
+			beltr = /obj/item/storage/belt/rogue/pouch/food
+		if(2)
+			beltr = /obj/item/storage/belt/rogue/pouch/medicine
+		if(3)
+			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
+		if(4)
+			beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
+		if(5)
+			beltr = /obj/item/reagent_containers/glass/bottle/waterskin
+		if(6)
+			beltr = /obj/item/reagent_containers/glass/bottle/alchemical/healthpot
+		if(7)
+			beltr = /obj/item/rogueweapon/scabbard/sword
 
 /datum/outfit/job/roguetown/human/northern/bog_deserters/proc/add_random_deserter_armor_hard(mob/living/carbon/human/H)
 	var/random_deserter_armor_hard = rand(1,3)
@@ -57,7 +110,6 @@
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/ambush
 	aggressive=1
-
 	wander = TRUE
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/retaliate(mob/living/L)
@@ -165,6 +217,8 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
 	//Weapons
 	add_random_deserter_weapon(H)
+	add_random_deserter_beltl_stuff(H)
+	add_random_deserter_beltr_stuff(H)
 
 /mob/living/carbon/human/species/human/northern/bog_deserters/better_gear
 	aggressive=1
@@ -248,4 +302,6 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
 	//Weapons
-	add_random_deserter_weapon(H)
+	add_random_deserter_weapon_hard(H)
+	add_random_deserter_beltl_stuff(H)
+	add_random_deserter_beltr_stuff(H)

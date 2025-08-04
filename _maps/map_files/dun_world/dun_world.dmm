@@ -7591,6 +7591,8 @@
 /area/rogue/outdoors/mountains)
 "cwO" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mimic,
+/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
+/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/bog/north)
 "cwY" = (
@@ -17355,6 +17357,8 @@
 /area/rogue/under/town/sewer)
 "fyx" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mimic,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter)
 "fyz" = (
@@ -46985,6 +46989,7 @@
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "oXG" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mimic,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/spells,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter)
 "oXN" = (
