@@ -586,6 +586,10 @@
 /obj/structure/fluff/railing/corner,
 /turf/open/water/pond,
 /area/rogue/outdoors/woods/north)
+"akI" = (
+/obj/effect/landmark/chest_or_mimic/loot_chest,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bog/south)
 "akS" = (
 /obj/structure/flora/roguegrass/herb/rosa,
 /turf/open/floor/rogue/grassred,
@@ -7590,7 +7594,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains)
 "cwO" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/mimic,
+/obj/effect/landmark/chest_or_mimic/loot_chest,
 /obj/item/clothing/ring/aalloy,
 /obj/item/clothing/ring/aalloy,
 /turf/open/floor/rogue/cobble/mossy,
@@ -17356,8 +17360,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/sewer)
 "fyx" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/mimic,
-/obj/item/clothing/ring/emerald,
+/obj/effect/landmark/chest_or_mimic/loot_chest,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter)
 "fyz" = (
@@ -31066,6 +31069,10 @@
 /obj/item/toy/cards/deck,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
+"jSy" = (
+/obj/effect/landmark/chest_or_mimic/loot_chest,
+/turf/open/floor/rogue/twig,
+/area/rogue/outdoors/bog/north)
 "jSC" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/carpet/royalblack,
@@ -39437,6 +39444,11 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/indoors/town)
+"mys" = (
+/obj/structure/flora/roguegrass/water/reeds,
+/obj/effect/landmark/chest_or_mimic/loot_chest,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bog/north)
 "myt" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/carpet/royalblack,
@@ -46987,8 +46999,7 @@
 /turf/closed/mineral/rogue/tin,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "oXG" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/mimic,
-/obj/item/clothing/ring/rubys,
+/obj/effect/landmark/chest_or_mimic/loot_chest,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter)
 "oXN" = (
@@ -57071,6 +57082,10 @@
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave)
+"skZ" = (
+/obj/effect/landmark/chest_or_mimic/loot_chest,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bog/north)
 "sla" = (
 /obj/structure/toilet,
 /turf/open/floor/rogue/tile/bath,
@@ -68520,6 +68535,10 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/headless,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/skeletoncrypt)
+"vMR" = (
+/obj/effect/landmark/chest_or_mimic/loot_chest,
+/turf/open/water/swamp/deep,
+/area/rogue/outdoors/bog/north)
 "vMX" = (
 /obj/structure/flora/roguegrass,
 /turf/closed/mineral/random/rogue/high,
@@ -313713,7 +313732,7 @@ irm
 fvl
 qwK
 qwK
-irm
+skZ
 fvl
 irm
 pCi
@@ -319625,7 +319644,7 @@ eWk
 eWk
 mjV
 pMO
-aAP
+jSy
 aAP
 aAP
 eWk
@@ -320531,7 +320550,7 @@ mjV
 aAP
 aAP
 eWk
-eWk
+vMR
 eWk
 eWk
 pCi
@@ -322862,7 +322881,7 @@ aay
 lCD
 sxN
 xot
-sxN
+akI
 sxN
 eCO
 eCO
@@ -323313,7 +323332,7 @@ lCD
 lCD
 lCD
 sxN
-sxN
+akI
 mAW
 sxN
 xot
@@ -330912,7 +330931,7 @@ mjV
 mjV
 pMO
 dDb
-pMO
+mys
 pMO
 uGX
 uGX
@@ -345339,7 +345358,7 @@ vvB
 vvB
 vvB
 vvB
-irm
+skZ
 irm
 irm
 irm
