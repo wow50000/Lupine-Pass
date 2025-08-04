@@ -28840,11 +28840,6 @@
 /obj/item/storage/belt/rogue/pouch/coins/poor,
 /obj/item/clothing/neck/roguetown/psicross/pearl,
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/paper{
-	info = NORTH. In this land of rot and erosion... EAST. You stand alone... SOUTH. Static, stoic, frozen... I see your home, a state of abandon... WEST. I scan the horizon... Not heaven's skies, nor caverns below... There is no judgement, only dangers aglow... Your search continues, as does mine... A word of warning;
-	don't get lost in time.;
-	name = "a word of warning"
-	},
 /turf/open/floor/rogue/AzureSand,
 /area/rogue/under/cavewet/bogcaves/north)
 "jhw" = (
@@ -31398,10 +31393,6 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"jYf" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/mossback,
-/turf/open/floor/rogue/AzureSand,
-/area/rogue/outdoors/beach/south)
 "jYp" = (
 /obj/structure/fluff/statue/knight/r,
 /turf/open/floor/rogue/concrete,
@@ -59007,6 +58998,11 @@
 /obj/structure/flora/roguegrass/water,
 /turf/open/water/ocean,
 /area/rogue/outdoors/beach)
+"sTV" = (
+/obj/machinery/light/rogue/wallfire/candle/r,
+/obj/effect/decal/cleanable/debris/woody,
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors)
 "sUa" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/spear/stone/copper,
@@ -147984,7 +147980,7 @@ fce
 svv
 svv
 svv
-iTM
+aCJ
 bhJ
 tKt
 tKt
@@ -148433,7 +148429,7 @@ fce
 fce
 fce
 fce
-svv
+nDz
 svv
 iTM
 iTM
@@ -148885,11 +148881,11 @@ tXb
 fce
 fce
 fce
-svv
 fce
+iTM
 tME
 iTM
-iTM
+aCJ
 tKt
 tKt
 tKt
@@ -149338,7 +149334,7 @@ tXb
 fce
 fce
 fce
-fce
+sTT
 iTM
 iTM
 lyr
@@ -149788,7 +149784,7 @@ tXb
 tXb
 tXb
 fce
-fce
+sTT
 fce
 fce
 iTM
@@ -151147,7 +151143,7 @@ tXb
 tXb
 fce
 fce
-fce
+nDz
 tME
 oWa
 oWa
@@ -156126,7 +156122,7 @@ tXb
 tXb
 fce
 fce
-fce
+svv
 svv
 svv
 ksm
@@ -159726,7 +159722,7 @@ wnR
 jhX
 bwv
 usj
-wnR
+sTV
 dVE
 lUc
 tXb
@@ -160629,7 +160625,7 @@ lUc
 dVE
 usj
 xWY
-usj
+jhX
 vIy
 lUc
 tXb
@@ -182369,7 +182365,7 @@ cFw
 apS
 lIE
 cFw
-jYf
+kul
 cLo
 jfS
 oTx
@@ -183718,7 +183714,7 @@ oTx
 cLo
 cLo
 apS
-lIE
+oiZ
 lIE
 rYw
 qhD
