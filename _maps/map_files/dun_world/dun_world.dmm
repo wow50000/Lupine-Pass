@@ -11958,6 +11958,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
+"dTA" = (
+/obj/structure/vine{
+	opacity = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/shelter)
 "dTC" = (
 /obj/machinery/anvil/crafted,
 /turf/open/floor/rogue/cobblerock,
@@ -62424,10 +62430,8 @@
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
 "tTP" = (
-/obj/structure/vine{
-	opacity = 1
-	},
 /obj/effect/decal/cleanable/dirt/cobweb,
+/obj/structure/spider/stickyweb/mirespider,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter)
 "tTT" = (
@@ -75329,6 +75333,13 @@
 "xXp" = (
 /turf/closed/wall/mineral/rogue/pipe/line/four,
 /area/rogue/indoors/cave)
+"xXr" = (
+/obj/structure/trap/rock_fall,
+/obj/structure/vine{
+	opacity = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter)
 "xXt" = (
 /obj/structure/bars,
 /turf/open/floor/rogue/blocks,
@@ -459718,8 +459729,8 @@ cxA
 cxA
 cxA
 coP
-nFb
-hlW
+dTA
+qRo
 hlW
 hlW
 nMW
@@ -460170,9 +460181,9 @@ cxA
 cxA
 cxA
 coP
-nFb
-nFb
-rQg
+dTA
+dTA
+xXr
 nMW
 nMW
 cxA
@@ -460623,7 +460634,7 @@ cxA
 cxA
 coP
 coP
-nFb
+dTA
 nin
 nMW
 cxA
@@ -461527,8 +461538,8 @@ cxA
 cxA
 nMW
 tTP
-qRo
-qRo
+nwf
+nwf
 nin
 cxA
 cxA
@@ -461978,8 +461989,8 @@ cxA
 cxA
 cxA
 nMW
-qRo
-qRo
+nwf
+nwf
 nwf
 nMW
 cxA
