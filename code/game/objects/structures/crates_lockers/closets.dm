@@ -271,7 +271,7 @@
 		trypicklock(W, user)
 		return
 	if(istype(W, /obj/item/melee/touch_attack/lesserknock))
-		trypicklock(I, user)
+		trypicklock(W, user)
 		return
 	if(istype(W,/obj/item/lockpickring))
 		var/obj/item/lockpickring/pickring = W
