@@ -270,7 +270,7 @@
 	if(istype(W, /obj/item/lockpick))
 		trypicklock(W, user)
 		return
-	if(istype(I, /obj/item/melee/touch_attack/lesserknock))
+	if(istype(W, /obj/item/melee/touch_attack/lesserknock))
 		trypicklock(I, user)
 		return
 	if(istype(W,/obj/item/lockpickring))
