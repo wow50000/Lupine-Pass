@@ -924,7 +924,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/proc/on_client_exit(datum/source, datum/exited)
 	SIGNAL_HANDLER
-	recalculate_idle()
+	consider_wakeup()
 
 /mob/living/simple_animal/proc/set_new_cells()
 	var/turf/our_turf = get_turf(src)
@@ -939,7 +939,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	for(var/datum/spatial_grid_cell/new_grid as anything in cell_collections[1])
 		RegisterSignal(new_grid, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_enter))
 		RegisterSignal(new_grid, SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_exit))
-	recalculate_idle()
+	consider_wakeup()
 
 /mob/living/simple_animal/Moved()
 	. = ..()
@@ -958,4 +958,4 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	for(var/datum/spatial_grid_cell/new_grid as anything in cell_collections[1])
 		RegisterSignal(new_grid, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_enter))
 		RegisterSignal(new_grid, SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_exit))
-	recalculate_idle()
+	consider_wakeup()
