@@ -1751,14 +1751,9 @@
 		return
 
 	// Find the index of the current intent
-	var/index = possible_rmb_intents.Find(rmb_intent)
+	var/index = possible_rmb_intents.Find(rmb_intent?.type)
 
-	if(index == -1)
-		swap_rmb_intent(possible_rmb_intents[1])
-	else
-		// Calculate the next index, wrapping around if at the end
-		index = (index % possible_rmb_intents.len) + 1
-		swap_rmb_intent(possible_rmb_intents[index])
+	index == -1 ? swap_rmb_intent(possible_rmb_intents[1]) : swap_rmb_intent(possible_rmb_intents[(index % possible_rmb_intents.len) + 1])
 
 /atom/movable/screen/time
 	name = "Sir Sun"
