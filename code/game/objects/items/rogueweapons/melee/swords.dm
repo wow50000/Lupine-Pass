@@ -476,7 +476,7 @@
 
 /obj/item/rogueweapon/sword/short/ashort
 	name = "decrepit short sword"
-	desc = "A decrepit old short sword. Aeon's grasp has withered its form."
+	desc = "A chipped sidearm-sword, wrought from frayed bronze. It's hard to gauge whether it was naturally forged to be so short, or if it's all that remained of a longer blade."
 	icon_state = "ashortsword"
 	sheathe_icon = "ashortsword"
 	max_integrity = 75
@@ -486,7 +486,7 @@
 
 /obj/item/rogueweapon/sword/short/pashortsword
 	name = "ancient shortsword"
-	desc = "A sword made of ancient alloys. Aeon's grasp has been lifted from its form."
+	desc = "A polished sidearm-sword, forged from gilbranze. From after His sacrifice, but before Her ascension; the tithe of a war without reason, waged between squabbling children who hadn't known that the world was about to end."
 	icon_state = "ashortsword"
 	sheathe_icon = "ashortsword"
 	smeltresult = /obj/item/ingot/aaslag
@@ -511,7 +511,7 @@
 
 /obj/item/rogueweapon/sword/short/gladius/agladius
 	name = "decrepit gladius"
-	desc = "A decrepit old gladius. Aeon's grasp is upon its form."
+	desc = "A hefty shortsword, wrought from frayed bronze. Once, the sidearm of a proud legionnaire; now, a consequence of progress and sacrifice."
 	force = 18
 	max_integrity = 150
 	icon_state = "agladius"
@@ -520,7 +520,7 @@
 
 /obj/item/rogueweapon/sword/short/gladius/pagladius
 	name = "ancient gladius"
-	desc = "A gladius made of ancient alloys. Aeon's grasp lifted from its form."
+	desc = "A polished shortsword, forged from gilbranze. Favored by Zizo's undying legionnaires, this antiquated tool serves a simple purpose; to spill the innards of unenlightened fools."
 	icon_state = "agladius"
 	smeltresult = /obj/item/ingot/aaslag
 
