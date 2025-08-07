@@ -133,10 +133,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			S["facial_style_name"]	>> facial_hairstyle
 	if(current_version < 30)
 		S["voice_color"]		>> voice_color
-	if(current_version < 32) // Update races
+	if(current_version < 33) // Update races
 		var/species_name
 		S["species"] >> species_name
-		testing("Save version < 32, updating [species_name].")
+		testing("Save version < 33, updating [species_name].")
 		if(species_name)
 			var/newtype = GLOB.species_list[species_name]
 			if(!newtype)
