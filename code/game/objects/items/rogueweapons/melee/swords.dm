@@ -260,6 +260,15 @@
 	desc = "An uncommon and elaborate type of longsword with a compound hilt like those seen on rapiers and smallswords. It has a marked unsharpened section for safe unarmored half-swording, and it's made of Calorian steel."
 	icon_state = "elongsword"
 
+/obj/item/rogueweapon/sword/long/frei		//Challenge weapon
+	name = "dueling longsword"
+	desc = "Fechtfeders are a type of training sword brought up by Grenzelhoft fencing guilds, their name - literally \"Feather\" - matches their construction; thinner, lighter, dull but more balanced - with a blade catcher to boot. Freifechters often modify them, giving them edges and a point for use in real dueling - this is one such example, and there's a reason they don't make it out of the fighting pit."
+	icon_state = "sharpfeder"
+	force = 22
+	force_wielded = 27
+	wdefense = 5		//+1
+	wbalance = WBALANCE_SWIFT
+
 /obj/item/rogueweapon/sword/long/malumflamm
 	name = "forgefiend flamberge"
 	desc = "This sword's creation took a riddle in its own making. A great sacrifice was made for a blade of perfect quality."
@@ -267,7 +276,7 @@
 	max_integrity = 200
 
 /obj/item/rogueweapon/sword/long/zizo
-	name = "darksteel longsword"
+	name = "avantyne longsword"
 	desc = "A wicked, unconventional, and otherwordly blade that was created by no swordsmith - a manifestation of hate for the state of this world that follows no design principles but spite and anger."
 	icon_state = "zizosword"
 	sheathe_icon = "zizosword"
@@ -481,8 +490,10 @@
 	sheathe_icon = "ashortsword"
 	max_integrity = 75
 	force = 18
-	smeltresult = /obj/item/ingot/aalloy
 	blade_dulling = DULLING_SHAFT_CONJURED
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 /obj/item/rogueweapon/sword/short/pashortsword
 	name = "ancient shortsword"
@@ -515,8 +526,10 @@
 	force = 18
 	max_integrity = 150
 	icon_state = "agladius"
-	smeltresult = /obj/item/ingot/aalloy
 	blade_dulling = DULLING_SHAFT_CONJURED
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 /obj/item/rogueweapon/sword/short/gladius/pagladius
 	name = "ancient gladius"
@@ -629,16 +642,18 @@
 
 /obj/item/rogueweapon/sword/sabre/alloy
 	name = "decrepit khopesh"
-	desc = "A decrepit old khopesh. Aeon's grasp is upon its form."
-	smeltresult = /obj/item/ingot/aalloy
+	desc = "A hooked sword, wrought from frayed bronze. The design is not only baffling, but seems to predate history itself."
 	force = 18
 	max_integrity = 115
 	icon_state = "akhopesh"
 	blade_dulling = DULLING_SHAFT_CONJURED
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 /obj/item/rogueweapon/sword/sabre/palloy
 	name = "ancient khopesh"
-	desc = "A ancient alloy khopesh. Aeon's grasp has been lifted from its form."
+	desc = "A polished hook-sword, forged from gilbronze. The Comet Syon's glare once graced this blade; now, it's wielded by those who can't even remember what came before His sacrifice."
 	smeltresult = /obj/item/ingot/aaslag
 	icon_state = "akhopesh"
 
@@ -815,7 +830,7 @@
 	to the siege that smashed the Mad Duke's keep to rubble, and burnt the Duke himself to cinders."
 	icon_state = "lordrap"
 	sheathe_icon = "lordrapier"
-	sellprice = 300
+	sellprice = 150
 	max_integrity = 300
 	max_blade_int = 300
 	wdefense = 7
@@ -1247,3 +1262,161 @@
 	icon_state = "eastsword3"
 	max_integrity = 180
 	wdefense = 4
+
+/obj/item/rogueweapon/sword/sabre/hook
+	force = 20
+	name = "hook sword"
+	desc = "A steel sword with a hooked design at the tip of it; perfect for disarming enemies. Its back edge is sharpened and the hilt appears to have a sharpened tip."
+	icon = 'icons/roguetown/weapons/swords64.dmi'
+	icon_state = "hook_sword"
+	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust/hook, /datum/intent/sword/strike, /datum/intent/sword/disarm)
+	max_integrity = 180
+	wdefense = 5
+
+/obj/item/rogueweapon/sword/sabre/hook/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen") return list(
+				"shrink" = 0.5,
+				"sx" = -14,
+				"sy" = -8,
+				"nx" = 15,
+				"ny" = -7,
+				"wx" = -10,
+				"wy" = -5,
+				"ex" = 7,
+				"ey" = -6,
+				"northabove" = 0,
+				"southabove" = 1,
+				"eastabove" = 1,
+				"westabove" = 0,
+				"nturn" = -13,
+				"sturn" = 110,
+				"wturn" = -60,
+				"eturn" = -30,
+				"nflip" = 1,
+				"sflip" = 1,
+				"wflip" = 8,
+				"eflip" = 1,
+				)
+			if("onback") return list(
+				"shrink" = 0.5,
+				"sx" = -1,
+				"sy" = 2,
+				"nx" = 0,
+				"ny" = 2,
+				"wx" = 2,
+				"wy" = 1,
+				"ex" = 0,
+				"ey" = 1,
+				"nturn" = 0,
+				"sturn" = 0,
+				"wturn" = 70,
+				"eturn" = 15,
+				"nflip" = 1,
+				"sflip" = 1,
+				"wflip" = 1,
+				"eflip" = 1,
+				"northabove" = 1,
+				"southabove" = 0,
+				"eastabove" = 0,
+				"westabove" = 0,
+				)
+			if("onbelt") return list(
+				"shrink" = 0.4,
+				"sx" = -4,
+				"sy" = -6,
+				"nx" = 5,
+				"ny" = -6,
+				"wx" = 0,
+				"wy" = -6,
+				"ex" = -1,
+				"ey" = -6,
+				"nturn" = 100,
+				"sturn" = 156,
+				"wturn" = 90,
+				"eturn" = 180,
+				"nflip" = 0,
+				"sflip" = 0,
+				"wflip" = 0,
+				"eflip" = 0,
+				"northabove" = 0,
+				"southabove" = 1,
+				"eastabove" = 1,
+				"westabove" = 0,
+				)
+
+/datum/intent/sword/thrust/hook
+	damfactor = 0.9
+
+//Snowflake version of hand-targeting disarm intent.
+/datum/intent/sword/disarm
+	name = "disarm"
+	icon_state = "intake"
+	animname = "strike"
+	blade_class = null	//We don't use a blade class because it has on damage.
+	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
+	penfactor = BLUNT_DEFAULT_PENFACTOR
+	swingdelay = 2	//Small delay to hook
+	damfactor = 0.1	//No real damage
+	clickcd = 22	//Can't spam this; long delay.
+	item_d_type = "blunt"
+
+/obj/item/rogueweapon/sword/sabre/hook/attack(mob/living/M, mob/living/user, bodyzone_hit)
+	. = ..()
+	var/skill_diff = 0
+	if(istype(user.used_intent, /datum/intent/sword/disarm))
+		var/obj/item/I
+		if(user.zone_selected == BODY_ZONE_PRECISE_L_HAND && M.active_hand_index == 1)
+			I = M.get_active_held_item()
+		else
+			if(user.zone_selected == BODY_ZONE_PRECISE_R_HAND && M.active_hand_index == 2)
+				I = M.get_active_held_item()
+			else
+				I = M.get_inactive_held_item()
+		if(user.mind)
+			skill_diff += (user.get_skill_level(/datum/skill/combat/swords))	//You check your sword skill
+		if(M.mind)
+			skill_diff -= (M.get_skill_level(/datum/skill/combat/wrestling))	//They check their wrestling skill to stop the weapon from being pulled.
+		user.stamina_add(rand(3,8))
+		var/probby = clamp((((3 + (((user.STASTR - M.STASTR)/4) + skill_diff)) * 10)), 5, 95)
+		if(I)
+			if(M.mind)
+				if(I.associated_skill)
+					probby -= M.get_skill_level(I.associated_skill) * 5
+			var/obj/item/mainhand = user.get_active_held_item()
+			var/obj/item/offhand = user.get_inactive_held_item()
+			if(HAS_TRAIT(src, TRAIT_DUALWIELDER) && istype(offhand, mainhand))
+				probby += 20	//We give notable bonus to dual-wielders who use two hooked swords.
+			if(prob(probby))
+				M.dropItemToGround(I, force = FALSE, silent = FALSE)
+				user.stop_pulling()
+				user.put_in_inactive_hand(I)
+				M.visible_message(span_danger("[user] takes [I] from [M]'s hand!"), \
+				span_userdanger("[user] takes [I] from my hand!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
+				user.changeNext_move(12)//avoids instantly attacking with the new weapon
+				playsound(src.loc, 'sound/combat/weaponr1.ogg', 100, FALSE, -1) //sound queue to let them know that they got disarmed
+				if(!M.mind)	//If you hit an NPC - they pick up weapons instantly. So, we do more stuff.
+					M.Stun(10)
+			else
+				probby += 20
+				if(prob(probby))
+					M.dropItemToGround(I, force = FALSE, silent = FALSE)
+					M.visible_message(span_danger("[user] disarms [M] of [I]!"), \
+					span_userdanger("[user] disarms me of [I]!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
+					if(!M.mind)
+						M.Stun(20)	//high delay to pick up weapon
+					else
+						M.Stun(6)	//slight delay to pick up the weapon
+				else
+					user.Immobilize(10)
+					M.Immobilize(10)
+					M.visible_message(span_notice("[user.name] struggles to disarm [M.name]!"))
+					playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
+		if(!isliving(M))
+			to_chat(user, span_warning("You cannot disarm this enemy!"))
+			return
+		else
+			to_chat(user, span_warning("They aren't holding anything on that hand!"))
+			return
