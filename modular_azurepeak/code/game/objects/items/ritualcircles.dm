@@ -295,6 +295,20 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	faith_locked = FALSE
 	icon_state = "abyssal_marker_volatile"
 
+/obj/item/abyssal_marker/volatile/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	var/turf/T = get_turf(hit_atom)
+	if(T)
+		marked_location = T
+		visible_message(span_warning("[src] shatters on impact!"))
+		playsound(src, 'sound/magic/lightning.ogg', 50, TRUE)
+		var/mob/thrower = throwingdatum?.thrower
+		if(thrower && HAS_TRAIT(thrower, TRAIT_HERESIARCH))
+			rune_type = /obj/structure/active_abyssor_rune/greater
+		new rune_type(T)
+		qdel(src)
+	else
+		return ..()
+
 /obj/item/abyssal_marker/examine(mob/user)
 	. = ..()
 	if(iscarbon(user))
