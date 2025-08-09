@@ -742,5 +742,4 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/underworld/dream
 	name = "dream realm"
 	icon_state = "dream"
-	first_time_text = "The Dwarven Quarter"
 	first_time_text = "Abyssal Dream"
