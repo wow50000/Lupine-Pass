@@ -195,6 +195,7 @@
 	/datum/species/halforc,\
 	/datum/species/kobold,\
 	/datum/species/goblinp,\
+	/datum/species/dullahan,\
 )
 
 #define RACES_RESPECTED \
@@ -222,6 +223,7 @@
 	/datum/species/halforc,\
 	/datum/species/anthromorphsmall,\
 	/datum/species/kobold,\
+	/datum/species/dullahan,\
 
 #define RACES_DESPISED \
 	/datum/species/goblinp,\
