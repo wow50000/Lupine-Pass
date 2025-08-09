@@ -287,18 +287,25 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/turf/marked_location
 	var/effect_desc = " Use in-hand to mark a location, then activate it to break the barrier between the dream and this realm where you put a mark down earlier. You recall the teachings of your Hierophant... these things are dangerous to all."
 	var/obj/rune_type = /obj/structure/active_abyssor_rune
+	var/faith_locked = TRUE
+
+/obj/item/abyssal_marker/volatile
+	name = "volatile abyssal marker"
+	effect_desc = " Whispers fill your head. The crystal yearns to be used, it shall bring forth a beautiful dream. The first use shall mark, the second shall unleash."
+	faith_locked = FALSE
+	icon_state = "abyssal_marker_volatile"
 
 /obj/item/abyssal_marker/examine(mob/user)
 	. = ..()
 	if(iscarbon(user))
 		var/mob/living/carbon/c = user
-		if(c.patron.type == /datum/patron/divine/abyssor)
+		if(c.patron.type == /datum/patron/divine/abyssor || !faith_locked)
 			. += span_info(effect_desc)
 
 /obj/item/abyssal_marker/attack_self(mob/user)
 	if(iscarbon(user))
 		var/mob/living/carbon/c = user
-		if(c.patron.type != /datum/patron/divine/abyssor)
+		if(c.patron.type != /datum/patron/divine/abyssor && faith_locked)
 			to_chat(user, span_warning("My connection to Abyssor's dream is too weak to invoke his power with this crystal."))
 			return ..()
 		//Heretics get FAR stronger spires!
