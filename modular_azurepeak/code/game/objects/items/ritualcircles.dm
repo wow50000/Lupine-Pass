@@ -291,7 +291,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 
 /obj/item/abyssal_marker/volatile
 	name = "volatile abyssal marker"
-	effect_desc = " Whispers fill your head. The crystal yearns to be used, it shall bring forth a beautiful dream. The first use shall mark, the second shall unleash."
+	effect_desc = " Whispers fill your head. The crystal yearns to be used, it shall bring forth a beautiful dream. The first use shall mark, the second shall unleash. Seems fragile, like it would break when thrown..."
 	faith_locked = FALSE
 	icon_state = "abyssal_marker_volatile"
 
