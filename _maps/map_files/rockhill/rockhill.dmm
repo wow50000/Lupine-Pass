@@ -8126,6 +8126,12 @@
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor)
+"hxB" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/sword/short/messer/iron,
+/obj/item/rogueweapon/sword/short/messer/iron,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement)
 "hyc" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 1
@@ -13458,12 +13464,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/tavern)
-"nDD" = (
-/obj/structure/telescope,
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
 "nEd" = (
 /obj/structure/closet/crate/roguecloset/inn/south,
 /turf/open/floor/rogue/wood,
@@ -19548,6 +19548,12 @@
 /obj/item/rogueweapon/huntingknife/cleaver,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors)
+"urj" = (
+/obj/structure/telescope,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town/shop)
 "urr" = (
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
@@ -19619,6 +19625,17 @@
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/town)
+"uvg" = (
+/obj/structure/rack/rogue,
+/obj/machinery/light/rogue/torchholder{
+	pixel_y = 26
+	},
+/obj/item/rogueweapon/sword/short/messer/iron,
+/obj/item/rogueweapon/sword/short/messer/iron,
+/obj/item/rogueweapon/sword/short/messer/iron,
+/obj/item/rogueweapon/sword/short/messer/iron,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors)
 "uvu" = (
 /turf/closed/wall/mineral/rogue/wooddark/end{
 	dir = 8
@@ -20566,12 +20583,6 @@
 /obj/effect/landmark/start/monk,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/chapel)
-"vse" = (
-/obj/structure/rack/rogue,
-/obj/item/rogueweapon/sword/short/messer/iron,
-/obj/item/rogueweapon/sword/short/messer/iron,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/town/basement)
 "vsh" = (
 /obj/item/rogueweapon/mace/goden,
 /obj/item/rogueweapon/mace/goden,
@@ -23223,17 +23234,6 @@
 "yho" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/shop)
-"yhw" = (
-/obj/structure/rack/rogue,
-/obj/machinery/light/rogue/torchholder{
-	pixel_y = 26
-	},
-/obj/item/rogueweapon/sword/short/messer/iron,
-/obj/item/rogueweapon/sword/short/messer/iron,
-/obj/item/rogueweapon/sword/short/messer/iron,
-/obj/item/rogueweapon/sword/short/messer/iron,
-/turf/open/floor/rogue/blocks,
-/area/rogue/indoors)
 "yhF" = (
 /obj/structure/bed/rogue,
 /turf/open/floor/rogue/ruinedwood{
@@ -182256,7 +182256,7 @@ noC
 noC
 noC
 lVe
-yhw
+uvg
 suz
 hqJ
 woq
@@ -193407,7 +193407,7 @@ aAe
 iTw
 rbr
 iTw
-vse
+hxB
 txa
 jyI
 txa
@@ -500610,7 +500610,7 @@ woj
 eSt
 fxf
 swZ
-nDD
+urj
 swZ
 fmR
 eSt
