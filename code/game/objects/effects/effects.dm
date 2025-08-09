@@ -46,3 +46,4 @@
 	density = TRUE
 	opacity = 0
 	invisibility = INVISIBILITY_MAXIMUM
+	icon_state = "nothing"

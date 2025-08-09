@@ -415,6 +415,11 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	STOP_PROCESSING(SSobj, src)
 	playsound(src, 'sound/foley/glassbreak.ogg', 50, TRUE)
 	new /obj/effect/particle_effect/smoke(src.loc)
+
+	var/list/witnesses = view(7, src)
+	for(var/mob/living/carbon/human/H in witnesses)
+		teleport_to_dream(H, 0.1)
+
 	return ..()
 
 /obj/structure/crystal_spire/proc/start_conversion()
