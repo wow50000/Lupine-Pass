@@ -136,34 +136,34 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Zweihander")
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/greatsword/zwei
 			backl = /obj/item/gwstrap
 		if("Great Mace")
-			H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/maces, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/mace/goden/steel
 		if("Battle Axe")
-			H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/axes, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/stoneaxe/battle
 		if("Greataxe")
-			H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/axes, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/greataxe/steel/doublehead
 			backl = /obj/item/gwstrap
 		if("Estoc")
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/estoc
 			backl = /obj/item/gwstrap
 		if("Longsword & Shield")
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/sword/long
 			beltr = /obj/item/rogueweapon/scabbard/sword
 			backl = /obj/item/rogueweapon/shield/tower/metal
 		if("Flail & Shield")
-			H.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 5, TRUE)
 			beltr = /obj/item/rogueweapon/flail/sflail
 			backl = /obj/item/rogueweapon/shield/tower/metal
 		if("Sabre & Shield")
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
 			beltr = /obj/item/rogueweapon/scabbard/sword
 			r_hand = /obj/item/rogueweapon/sword/sabre
 			backl = /obj/item/rogueweapon/shield/tower/metal
@@ -256,27 +256,27 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Longsword & Recurve Bow")
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/sword/long
 			beltl = /obj/item/rogueweapon/scabbard/sword
 			beltr = /obj/item/quiver/arrows
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 		if("Mace & Crossbow")
-			H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/maces, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/mace
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 			beltr = /obj/item/quiver/bolts
 		if("Spear & Shield")
-			H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/spear
 			backl = /obj/item/rogueweapon/shield/tower/metal
 		if("Sabre & Shield")
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
 			l_hand = /obj/item/rogueweapon/sword/sabre
 			beltl = /obj/item/rogueweapon/scabbard/sword
 			backl = /obj/item/rogueweapon/shield/tower/metal
 		if("Lance + Kite Shield")
-			H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 5, TRUE)
 			r_hand = /obj/item/rogueweapon/spear/lance
 			backl = /obj/item/rogueweapon/shield/tower/metal
 	var/helmets = list(
