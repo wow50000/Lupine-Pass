@@ -142,3 +142,4 @@
 	H.grant_language(/datum/language/grenzelhoftian)
 	H.merctype = 7
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)		// me when my business is combat and I get shocked when ppl lose limbs
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)

@@ -11,7 +11,7 @@
 
 /datum/outfit/job/roguetown/mercenary/forlorn/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate
 	pants = /obj/item/clothing/under/roguetown/splintlegs		// They're brigandinejaks. ergo have them start w/the whole thing
@@ -49,4 +49,5 @@
 	H.change_stat("endurance", 3) // tuff boys
 	H.change_stat("constitution", 2) 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
 	H.merctype = 5
