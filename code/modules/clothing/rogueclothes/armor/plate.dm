@@ -389,7 +389,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "lamellar"
-	max_integrity = ARMOR_INT_CHEST_MEDIUM_SCALE
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
@@ -400,7 +400,7 @@
 	name = "steel steppesman hatanga"
 	desc = "A set of steel-scaled hatanga armor hailing from the southern steppes."
 	icon_state = "hudesutu"
-	max_integrity = ARMOR_INT_CHEST_MEDIUM_HATANGA		//Grenzel gets 100+ integrity, I don't see why not give a +50 here.
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_HATANGA		//Gets +25 Integrity for a unique
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	slot_flags = ITEM_SLOT_ARMOR
