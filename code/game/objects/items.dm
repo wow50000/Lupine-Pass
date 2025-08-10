@@ -147,6 +147,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/list/gripped_intents //intents while gripped, replacing main intents
 	var/force_wielded = 0
 	var/gripsprite = FALSE //use alternate grip sprite for inhand
+	var/wieldsound = FALSE
 
 	var/dropshrink = 0
 	/// Force value that is force or force_wielded, with any added bonuses from external sources. (Mainly components for enchantments)
@@ -190,13 +191,9 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/icon/experimental_inhand = TRUE
 	var/icon/experimental_onhip = FALSE
 	var/icon/experimental_onback = FALSE
-
-	///trying to emote or talk with this in our mouth makes us muffled
 	var/muteinmouth = TRUE
 	///using spit emote spits the item out of our mouth and falls out after some time
 	var/spitoutmouth = TRUE
-
-	var/has_inspect_verb = FALSE
 
 	///The appropriate skill to repair this obj/item. If null, our object cannot be placed on an anvil to be repaired
 	var/anvilrepair
@@ -251,9 +248,6 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(!pixel_x && !pixel_y && !bigboy)
 		pixel_x = rand(-5,5)
 		pixel_y = rand(-5,5)
-		
-	if(twohands_required)
-		has_inspect_verb = TRUE
 
 	if(grid_width <= 0)
 		grid_width = (w_class * world.icon_size)
@@ -432,6 +426,15 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 /obj/item/Topic(href, href_list)
 	. = ..()
 
+	if(href_list["explainshaft"])
+		to_chat(usr, span_info("Your weapon's shaft determines what kind of damage it is weak and strong against. Shafts other than Grand & Conjured Shaft can be swapped out.\n\
+		<b>Metal Shaft</b>: [DULLFACTOR_COUNTERED_BY]x vs Blunt/Smash, [DULLFACTOR_COUNTERS] vs Cut/Chop. 1x Everything Else. \n\
+		<b>Reinforced Shaft</b>: [DULLFACTOR_COUNTERED_BY]x vs Stab/Pick, [DULLFACTOR_COUNTERS] vs Blunt/Smash. 1x Everything Else. \n\
+		<b>Wooden Shaft</b>: [DULLFACTOR_COUNTERED_BY]x vs Cut/Chop, [DULLFACTOR_COUNTERS] vs Blunt/Smash. 1x Everything Else. \n\
+		<b>Grand Shaft</b>: [DULLFACTOR_ANTAG]x vs Everything but Smash. 1x vs Smash. Only present on certain special weapons. \n\
+		<b>Conjured Shaft</b>: [DULLFACTOR_COUNTERED_BY]x vs Everything. Present on Conjured or Decrepit weapons. Also meant to represent crumbling weapons. \n\
+		"))
+	
 	if(href_list["inspect"])
 		if(!usr.canUseTopic(src, be_close=TRUE))
 			return
@@ -442,7 +445,8 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(force)
 			inspec += "\n<b>FORCE:</b> [get_force_string(force)]"
 		if(gripped_intents && !wielded)
-			inspec += "\n<b>WIELDED FORCE:</b> [get_force_string(force_wielded)]"
+			if(force_wielded)
+				inspec += "\n<b>WIELDED FORCE:</b> [get_force_string(force_wielded)]"
 
 		if(wbalance)
 			inspec += "\n<b>BALANCE: </b>"
@@ -466,7 +470,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 		var/shafttext = get_blade_dulling_text(src, verbose = TRUE)
 		if(shafttext)
-			inspec += "\n<b>SHAFT:</b> [shafttext]"
+			inspec += "\n<b>SHAFT:</b> [shafttext] <span class='info'><a href='?src=[REF(src)];explainshaft=1'>{?}</a></span>"
 
 		if(gripped_intents)
 			inspec += "\n<b>TWO-HANDED</b>"
@@ -485,7 +489,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(associated_skill && associated_skill.name)
 			inspec += "\n<b>SKILL:</b> [associated_skill.name]"
 		
-		if(intdamage_factor)
+		if(intdamage_factor && force >= 5)
 			inspec += "\n<b>INTEGRITY DAMAGE:</b> [intdamage_factor * 100]%"
 
 //**** CLOTHING STUFF
@@ -543,9 +547,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/simpleton_price = FALSE
 
 /obj/item/get_inspect_button()
-	if(has_inspect_verb || (obj_integrity < max_integrity))
-		return " <span class='info'><a href='?src=[REF(src)];inspect=1'>{?}</a></span>"
-	return ..()
+	return " <span class='info'><a href='?src=[REF(src)];inspect=1'>{?}</a></span>"
 
 
 /obj/item/interact(mob/user)
@@ -1252,7 +1254,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(alt_intents)
 			user.update_a_intents()
 
-/obj/item/proc/wield(mob/living/carbon/user)
+/obj/item/proc/wield(mob/living/carbon/user, show_message = TRUE)
 	if(wielded)
 		return
 	if(user.get_inactive_held_item())
@@ -1269,8 +1271,10 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		force_dynamic = force_wielded
 	wdefense_dynamic = (wdefense + wdefense_wbonus)
 	update_transform()
-	to_chat(user, span_notice("I wield [src] with both hands."))
-	playsound(loc, pick('sound/combat/weaponr1.ogg','sound/combat/weaponr2.ogg'), 100, TRUE)
+	if(show_message)
+		to_chat(user, span_notice("I wield [src] with both hands."))
+	if(!wieldsound)
+		playsound(loc, pick('sound/combat/weaponr1.ogg','sound/combat/weaponr2.ogg'), 100, TRUE)
 	if(twohands_required)
 		if(!wielded)
 			user.dropItemToGround(src)

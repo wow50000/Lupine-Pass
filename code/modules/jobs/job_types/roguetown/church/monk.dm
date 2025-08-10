@@ -10,7 +10,7 @@
 	allowed_patrons = ALL_DIVINE_PATRONS 
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/monk
-	tutorial = "Chores, some more chores- Even more chores.. Oh how the life of a humble acolyte is exhausting… You have faith, but even you know you gave up a life of adventure for that of the security in the Church. Assist the Priest in their daily tasks, maybe today will be the day something interesting happens."
+	tutorial = "Chores, some more chores- Even more chores.. Oh how the life of a humble acolyte is exhausting… You have faith, but even you know you gave up a life of adventure for that of the security in the Church. Assist the Bishop in their daily tasks, maybe today will be the day something interesting happens."
 
 	display_order = JDO_MONK
 	give_bank_account = TRUE
@@ -55,7 +55,7 @@
 			pants = /obj/item/clothing/under/roguetown/tights
 			neck = /obj/item/clothing/neck/roguetown/psicross/abyssor
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/abyssor
-			head = /obj/item/clothing/head/roguetown/roguehood/abyssor		
+			head = /obj/item/clothing/head/roguetown/roguehood/abyssor
 		if(/datum/patron/divine/dendor) //Dendorites all busted. Play Druid.
 			head = /obj/item/clothing/head/roguetown/dendormask
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
@@ -138,6 +138,7 @@
 		H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE) // for their arcane spells, very little CDR and cast speed.
 	if(H.patron?.type == /datum/patron/divine/abyssor) // The Sea and Weather - probably would be good at fishing
 		H.adjust_skillrank(/datum/skill/labor/fishing, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		ADD_TRAIT(H, TRAIT_WATERBREATHING, TRAIT_GENERIC)
 	if(H.patron?.type == /datum/patron/divine/necra) // Death and Moving on - grave diggers.
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)

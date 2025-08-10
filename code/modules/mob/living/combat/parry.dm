@@ -81,32 +81,34 @@
 		prob2defend += highest_defense
 		weapon_parry = TRUE
 
-	if(U.mind)
-		if(intenty.masteritem)
-			attacker_skill = U.get_skill_level(intenty.masteritem.associated_skill)
-			prob2defend -= (attacker_skill * 20)
-			if((intenty.masteritem.wbalance == WBALANCE_SWIFT) && (user.STASPD > src.STASPD)) //enemy weapon is quick, so get a bonus based on spddiff
-				var/spdmod = ((user.STASPD - src.STASPD) * 10)
-				var/permod = ((src.STAPER - user.STAPER) * 10)
-				var/intmod = ((src.STAINT - user.STAINT) * 3)
-				if(mind)
-					if(permod > 0)
-						spdmod -= permod
-					if(intmod > 0)
-						spdmod -= intmod
-				var/finalmod = spdmod
-				if(mind)
-					finalmod = clamp(spdmod, 0, 30)
-				prob2defend -= finalmod
-		else
-			attacker_skill = U.get_skill_level(/datum/skill/combat/unarmed)
-			prob2defend -= (attacker_skill * 20)
+	if(intenty.masteritem)
+		attacker_skill = U.get_skill_level(intenty.masteritem.associated_skill)
+		prob2defend -= (attacker_skill * 20)
+		if((intenty.masteritem.wbalance == WBALANCE_SWIFT) && (user.STASPD > src.STASPD)) //enemy weapon is quick, so get a bonus based on spddiff
+			var/spdmod = ((user.STASPD - src.STASPD) * 10)
+			var/permod = ((src.STAPER - user.STAPER) * 10)
+			var/intmod = ((src.STAINT - user.STAINT) * 3)
+			if(mind)
+				if(permod > 0)
+					spdmod -= permod
+				if(intmod > 0)
+					spdmod -= intmod
+			var/finalmod = spdmod
+			if(mind)
+				finalmod = clamp(spdmod, 0, 30)
+			prob2defend -= finalmod
+	else
+		attacker_skill = U.get_skill_level(/datum/skill/combat/unarmed)
+		prob2defend -= (attacker_skill * 20)
 
 	if(HAS_TRAIT(src, TRAIT_GUIDANCE))
 		prob2defend += 20
 
 	if(HAS_TRAIT(user, TRAIT_GUIDANCE))
 		prob2defend -= 20
+	
+	if(HAS_TRAIT(user, TRAIT_CURSE_RAVOX))
+		prob2defend -= 40
 
 	// parrying while knocked down sucks ass
 	if(!(mobility_flags & MOBILITY_STAND))
@@ -205,7 +207,9 @@
 				var/skill_target = attacker_skill
 				if(!HAS_TRAIT(U, TRAIT_GOODTRAINER))
 					skill_target -= SKILL_LEVEL_NOVICE
-				if (can_train_combat_skill(src, used_weapon.associated_skill, skill_target))
+				if(HAS_TRAIT(U, TRAIT_BADTRAINER))
+					skill_target -= SKILL_LEVEL_NOVICE
+				if (can_train_combat_skill(src, used_weapon.associated_skill, skill_target) && ispath(used_weapon.associated_skill, /datum/skill/combat))
 					mind.add_sleep_experience(used_weapon.associated_skill, max(round(STAINT*exp_multi), 0), FALSE)
 
 			var/obj/item/AB = intenty.masteritem
@@ -222,7 +226,9 @@
 					var/skill_target = defender_skill
 					if(!HAS_TRAIT(src, TRAIT_GOODTRAINER))
 						skill_target -= SKILL_LEVEL_NOVICE
-					if (can_train_combat_skill(U, attacker_skill_type, skill_target))
+					if(HAS_TRAIT(U, TRAIT_BADTRAINER))
+						skill_target -= SKILL_LEVEL_NOVICE
+					if (can_train_combat_skill(U, attacker_skill_type, skill_target) && ispath(attacker_skill_type, /datum/skill/combat))
 						U.mind.add_sleep_experience(attacker_skill_type, max(round(STAINT*exp_multi), 0), FALSE)
 
 			if(prob(66) && AB)
@@ -288,6 +294,8 @@
 			if((mobility_flags & MOBILITY_STAND))
 				var/skill_target = attacker_skill
 				if(!HAS_TRAIT(U, TRAIT_GOODTRAINER))
+					skill_target -= SKILL_LEVEL_NOVICE
+				if(HAS_TRAIT(U, TRAIT_BADTRAINER))
 					skill_target -= SKILL_LEVEL_NOVICE
 				if(can_train_combat_skill(H, /datum/skill/combat/unarmed, skill_target))
 					H.mind?.add_sleep_experience(/datum/skill/combat/unarmed, max(round(STAINT*exp_multi), 0), FALSE)

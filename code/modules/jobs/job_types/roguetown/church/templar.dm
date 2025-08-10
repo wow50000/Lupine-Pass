@@ -4,7 +4,7 @@
 	title = "Templar"
 	department_flag = CHURCHMEN
 	faction = "Station"
-	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its priest while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
+	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its bishop while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	allowed_patrons = ALL_DIVINE_PATRONS
@@ -234,7 +234,7 @@
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm
 			cloak = /obj/item/clothing/cloak/templar/ravox
 			mask = /obj/item/clothing/head/roguetown/roguehood/ravoxgorget
-			backpack_contents = list(/obj/item/ritechalk, /obj/item/book/rogue/law)
+			backpack_contents = list(/obj/item/ritechalk, /obj/item/book/rogue/law, /obj/item/rogueweapon/scabbard/sheath, /obj/item/storage/belt/rogue/pouch/coins/mid)
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/roguetown/psicross/malum
 			cloak = /obj/item/clothing/cloak/templar/malumite
@@ -280,6 +280,7 @@
 		H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 	if(H.patron?.type == /datum/patron/divine/abyssor)
 		H.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		ADD_TRAIT(H, TRAIT_WATERBREATHING, TRAIT_GENERIC)
 	if(H.patron?.type == /datum/patron/divine/necra)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
@@ -338,6 +339,8 @@
 			weapons += "Duel Settler"
 		if(/datum/patron/divine/eora)
 			weapons += "The Heartstring"
+		if(/datum/patron/divine/abyssor)
+			weapons += "Tidecleaver"
 	var/weapon_choice = input(H,"Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	switch(weapon_choice)
 		if("Longsword")
@@ -380,3 +383,6 @@
 		if("The Heartstring")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/rapier/eora(H), TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+		if("Tidecleaver")
+			H.put_in_hands(new /obj/item/rogueweapon/stoneaxe/battle/abyssoraxe(H), TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)

@@ -581,7 +581,9 @@
 	else
 		cmode = TRUE
 		playsound_local(src, 'sound/misc/combon.ogg', 100)
-		if(L.cmode_music)
+		if(length(L.cmode_music_override))
+			SSdroning.play_combat_music(L.cmode_music_override, client)
+		else if(L.cmode_music)
 			SSdroning.play_combat_music(L.cmode_music, client)
 		if(client && HAS_TRAIT(src, TRAIT_SCHIZO_AMBIENCE))
 			animate(client, pixel_y = 1, time = 1, loop = -1, flags = ANIMATION_RELATIVE)
@@ -598,6 +600,11 @@
 	var/last_aimhchange = 0
 	var/aimheight = 11
 	var/cmode_music = list('sound/music/cmode/towner/combat_towner.ogg') //This should minimize the lag it creates by picking from multiple ones
+
+/mob/proc/cmode_change(input) // change cmode music, and shift into it immediately if we're already in cmode.
+	cmode_music = input
+	toggle_cmode()
+	toggle_cmode()
 
 /mob/proc/aimheight_change(input)
 	var/old_zone = zone_selected
