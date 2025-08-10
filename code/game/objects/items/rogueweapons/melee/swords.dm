@@ -212,6 +212,54 @@
 	wdefense = 4
 	sellprice = 10
 
+/obj/item/rogueweapon/sword/short
+	name = "steel shortsword"
+	desc = "The arming sword's shorter and much older brother. Despite being centuries older than the swords of todae, it remains in use as a cheap sidearm for shieldbearers and archers."
+	force = 19
+	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short, /datum/intent/sword/peel)
+	icon_state = "swordshort"
+	sheathe_icon = "swordshort"
+	gripped_intents = null
+	minstr = 4
+	wdefense = 4
+	wlength = WLENGTH_SHORT
+	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 96
+
+/obj/item/rogueweapon/sword/short/pashortsword
+	name = "ancient shortsword"
+	desc = "A polished sidearm-sword, forged from gilbranze. From after His sacrifice, but before Her ascension; the tithe of a war without reason, waged between squabbling children who hadn't known that the world was about to end."
+	icon_state = "ashortsword"
+	sheathe_icon = "ashortsword"
+	smeltresult = /obj/item/ingot/aaslag
+
+/obj/item/rogueweapon/sword/short/psy
+	name = "psydonian shortsword"
+	desc = "Otavan smiths worked with Grenzelhoftian artificers, and an esoteric blade was born: a blade with an unique design, dismissing a crossguard in favor of a hollow beak to hook and draw harm away from its user. Short in length, yet lethally light in weight."
+	force = 19
+	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short, /datum/intent/sword/peel)
+	icon_state = "psyswordshort"
+	sheathe_icon = "psyswordshort"
+	gripped_intents = null
+	minstr = 4
+	wdefense = 4
+	wbalance = WBALANCE_SWIFT
+	wlength = WLENGTH_SHORT
+	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 96
+
+/obj/item/rogueweapon/sword/short/psy/ComponentInitialize()
+	. = ..()							//+3 force, +100 blade int, +50 int, +1 def, make silver
+	AddComponent(/datum/component/psyblessed, FALSE, 3, 100, 50, 1, TRUE)
+
+/obj/item/rogueweapon/sword/short/psy/preblessed
+
+/obj/item/rogueweapon/sword/short/psy/preblessed/ComponentInitialize()
+	// PREBLESS IT +3 force, +100 blade int, +50 int, +1 def, make silver
+	AddComponent(/datum/component/psyblessed, TRUE, 3, 100, 50, 1, TRUE)
+
 /obj/item/rogueweapon/sword/long
 	name = "longsword"
 	desc = "A lethal and perfectly balanced weapon. The longsword is the protagonist of endless tales and myths all across Psydonia, seen in the hands of noblemen and an ever-decreasing quantity of master duelists.\
@@ -273,6 +321,8 @@
 	name = "forgefiend flamberge"
 	desc = "This sword's creation took a riddle in its own making. A great sacrifice was made for a blade of perfect quality."
 	icon_state = "malumflamberge"
+	force = 28 // +3 force as a unique sword. Longsword isn't THAT good anyway
+	force_wielded = 33 // Also +3
 	max_integrity = 200
 
 /obj/item/rogueweapon/sword/long/zizo
@@ -823,6 +873,18 @@
 	sheathe_icon = "decrapier"
 	sellprice = 140
 
+/obj/item/rogueweapon/sword/rapier/psy/relic
+	name = "Eucharist"
+	desc = "Etruscan shape falling prey to Otavan craftsmanship. Saint Malum's smiths created an uniquely thin blade, capable of swiftly skewering the unholy and the miscreants through gaps that most claim to have never existed in the first place. <b> Silver-dipped steel crowned upon a basket hilt that keeps righteous hands safe from harm."
+	icon_state = "psyrapier"
+	sheathe_icon = "psyrapier"
+	max_integrity = 300
+	max_blade_int = 300
+	wdefense = 7
+
+/obj/item/rogueweapon/sword/rapier/psy/relic/ComponentInitialize()		//Pre-blessed, +100 Blade int, +100 int, +2 def, make it silver
+	AddComponent(/datum/component/psyblessed, TRUE, 5, 100, 100, 2, TRUE)
+
 /obj/item/rogueweapon/sword/rapier/lord
 	name = "sword of the Mad Duke"
 	desc = "A royal heirloom whose spiraling basket hilt is inlaid with fine cut gems. It bears the burnish of \
@@ -845,6 +907,8 @@
 	grid_height = 64
 	dropshrink = 0
 	bigboy = FALSE
+	force = 25 // Same statline as the cup hilted etruscan rapier
+	wdefense = 8
 
 /obj/item/rogueweapon/sword/cutlass
 	name = "cutlass"
