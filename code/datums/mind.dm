@@ -265,6 +265,19 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 
 	return language_holder
 
+/datum/mind/proc/set_current(mob/new_current)
+	if(new_current && QDELETED(new_current))
+		CRASH("Tried to set a mind's current var to a qdeleted mob, what the fuck")
+	if(current)
+		UnregisterSignal(src, COMSIG_QDELETING)
+	current = new_current
+	if(current)
+		RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_current))
+
+/datum/mind/proc/clear_current(datum/source)
+	SIGNAL_HANDLER
+	set_current(null)
+
 /datum/mind/proc/transfer_to(mob/new_character, force_key_move = 0)
 	if(current)	// remove ourself from our old body's mind variable
 		current.mind = null
