@@ -22759,8 +22759,8 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/beach/forest/hamlet)
 "hgf" = (
-/obj/item/reagent_containers/glass/bucket/pot/aalloy,
 /obj/structure/rack/rogue,
+/obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/rogue/metal{
 	dir = 4
 	},
@@ -43718,13 +43718,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/tavern)
-"nDp" = (
-/obj/structure/table/wood/poor,
-/obj/structure/mineral_door/wood/deadbolt/shutter{
-	dir = 2
-	},
-/turf/closed,
-/area/rogue/indoors)
 "nDt" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 1
@@ -61850,7 +61843,7 @@
 /area/rogue/outdoors/beach)
 "tkS" = (
 /obj/machinery/light/rogue/hearth,
-/obj/item/cooking/pan/aalloy,
+/obj/item/cooking/pan,
 /turf/open/floor/rogue/metal{
 	icon_state = "plating2"
 	},
@@ -155402,7 +155395,7 @@ tXb
 bwv
 bwv
 bwv
-nDp
+bir
 bwv
 plo
 bwv
