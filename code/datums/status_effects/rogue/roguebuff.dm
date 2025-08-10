@@ -353,12 +353,12 @@
 /datum/status_effect/buff/wardenbuff
 	id = "wardenbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/wardenbuff
-	effectedstats = list("speed" = 1, "perception" = 3) 
+	effectedstats = list("speed" = 1, "perception" = 3)
 
 /datum/status_effect/buff/barkeepbuff
 	id = "barkeepbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/barkeepbuff
-	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "strength" = 3) 
+	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "strength" = 3)
 
 /datum/status_effect/buff/barkeepbuff/process()
 
@@ -370,7 +370,7 @@
 /datum/status_effect/buff/guardbuffone
 	id = "guardbuffone"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/guardbuffone
-	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "perception" = 2) 
+	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "perception" = 2)
 
 /datum/status_effect/buff/dungeoneerbuff
 	id = "dungeoneerbuff"
@@ -584,7 +584,7 @@
 		owner.adjustOxyLoss(-healing_on_tick, 0)
 		owner.adjustToxLoss(-healing_on_tick, 0)
 		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
-		owner.adjustCloneLoss(-healing_on_tick, 0)		
+		owner.adjustCloneLoss(-healing_on_tick, 0)
 
 /datum/status_effect/buff/psyvived
 	id = "psyvived"
@@ -629,6 +629,66 @@
 		owner.adjustToxLoss(0.15*-healing_on_tick, 0)
 		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.15*-healing_on_tick)
 		owner.adjustCloneLoss(0.15*-healing_on_tick, 0)
+
+//A very brief burst heal, from eating gems. Not stones.
+//The better the gem, the better the heal.
+/datum/status_effect/buff/gemmuncher
+	id = "gemmuncher"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/gemmuncher
+	duration = 4 SECONDS
+	var/healing_on_tick = 3
+
+/datum/status_effect/buff/gemmuncher/on_creation(mob/living/new_owner, new_healing_on_tick)
+	healing_on_tick = new_healing_on_tick
+	return ..()
+
+/datum/status_effect/buff/gemmuncher/tick()
+	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
+	H.color = "#FF0000"
+	var/list/wCount = owner.get_wounds()
+	if(iskobold(owner))
+		if(wCount.len > 0)
+			owner.heal_wounds(healing_on_tick)
+			owner.update_damage_overlays()
+		owner.adjustBruteLoss(0.15*-healing_on_tick, 0)
+		owner.adjustFireLoss(0.15*-healing_on_tick, 0)
+		owner.adjustOxyLoss(0.15*-healing_on_tick, 0)
+		owner.adjustToxLoss(0.15*-healing_on_tick, 0)
+		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.15*-healing_on_tick)
+		owner.adjustCloneLoss(0.15*-healing_on_tick, 0)
+
+/atom/movable/screen/alert/status_effect/buff/gemmuncher
+	name = "Gorged"
+	desc = "I've devoured a gem."
+	icon_state = "buff"
+
+//Lesser stone eating. Far, far less ideal.
+//Heals wounds based on stone level. Restores blood at a static rate.
+/datum/status_effect/buff/rockmuncher_lesser
+	id = "rockmuncher_lesser"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/rockmuncher_lesser
+	duration = 10 SECONDS
+	var/healing_on_tick = 1
+
+/datum/status_effect/buff/rockmuncher_lesser/on_creation(mob/living/new_owner, new_healing_on_tick)
+	healing_on_tick = new_healing_on_tick
+	return ..()
+
+/datum/status_effect/buff/rockmuncher_lesser/tick()
+	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
+	H.color = "#FF0000"
+	var/list/wCount = owner.get_wounds()
+	if(iskobold(owner))
+		if(wCount.len > 0)
+			owner.heal_wounds(healing_on_tick)
+			owner.update_damage_overlays()
+		if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
+			owner.blood_volume = min(owner.blood_volume+4, BLOOD_VOLUME_NORMAL)
+
+/atom/movable/screen/alert/status_effect/buff/rockmuncher_lesser
+	name = "Sated"
+	desc = "I've devoured a stone."
+	icon_state = "buff"
 
 /datum/status_effect/buff/healing/on_remove()
 	owner.remove_filter(MIRACLE_HEALING_FILTER)
@@ -1109,7 +1169,7 @@
 /datum/status_effect/buff/psydonic_endurance
 	id = "psydonic_endurance"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/psydonic_endurance
-	effectedstats = list("constitution" = 1,"endurance" = 1) 
+	effectedstats = list("constitution" = 1,"endurance" = 1)
 
 /datum/status_effect/buff/psydonic_endurance/on_apply()
 	. = ..()
