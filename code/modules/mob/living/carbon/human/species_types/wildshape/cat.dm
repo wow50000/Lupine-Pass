@@ -39,7 +39,8 @@
 		TRAIT_HARDDISMEMBER, //Decapping wildshapes causes them to bug out, badly, and need admin intervention to fix. Bandaid fix.
 		TRAIT_DODGEEXPERT,
 		TRAIT_BRITTLE,
-		TRAIT_LEAPER
+		TRAIT_LEAPER,
+		TRAIT_ZJUMP //its a CAT. Cats can jump so high!
 	)
 	inherent_biotypes = MOB_HUMANOID
 	no_equip = list(SLOT_SHIRT, SLOT_HEAD, SLOT_WEAR_MASK, SLOT_ARMOR, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_CLOAK, SLOT_BELT, SLOT_BACK_R, SLOT_BACK_L, SLOT_S_STORE)
