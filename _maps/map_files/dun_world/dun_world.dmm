@@ -10988,8 +10988,9 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "dza" = (
-/obj/structure/mineral_door/wood/towner/generic{
-	lockid = vesselbed
+/obj/structure/mineral_door/wood{
+	name = "Captain's Quarters";
+	lockid = "captain_bedroom"
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
@@ -30706,9 +30707,6 @@
 /obj/item/flashlight/flare/torch/metal,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
-"jAf" = (
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/outdoors/mountains)
 "jAj" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/hotspring_rocks/small/two,
@@ -40615,6 +40613,13 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave/goblindungeon)
+"mBX" = (
+/obj/structure/mineral_door/wood{
+	name = "Bunks";
+	lockid = "vesseldeck"
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors)
 "mCi" = (
 /obj/structure/chair/bench/couch/r,
 /turf/open/floor/carpet/royalblack,
@@ -46856,11 +46861,6 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
-"oDA" = (
-/obj/structure/ladder,
-/obj/structure/bars/grille,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "oDC" = (
 /obj/structure/rack/rogue/shelf/big{
 	icon_state = "shelf_biggest";
@@ -48973,8 +48973,9 @@
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town)
 "plo" = (
-/obj/structure/mineral_door/wood/towner/generic{
-	lockid = vesseldeck
+/obj/structure/mineral_door/wood{
+	lockid = "vesseldeck";
+	name = "Kitchen"
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
@@ -57769,10 +57770,10 @@
 	lockid = "vesseldeck";
 	desc = "This is a rusty key. You're not sure where it goes to."
 	},
-/obj/item/roguekey/custom{
+/obj/item/roguekey/manor{
 	name = "strange key";
-	lockid = "vesselbed";
-	desc = "This is a rusty key. You're not sure where it goes to."
+	desc = "You're not sure where this goes to.";
+	lockid = "captain_bedroom"
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/beach/south)
@@ -73466,6 +73467,13 @@
 	},
 /turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/town/bath)
+"wLz" = (
+/obj/structure/mineral_door/wood{
+	lockid = "vesseldeck";
+	name = "Storage"
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors)
 "wLA" = (
 /obj/structure/roguemachine/scomm/r,
 /turf/open/floor/rogue/herringbone,
@@ -158072,7 +158080,7 @@ ika
 sko
 bwv
 olg
-plo
+wLz
 gsr
 bwv
 ttk
@@ -161687,9 +161695,9 @@ tXb
 bwv
 bwv
 bwv
-plo
+mBX
 bwv
-plo
+mBX
 bwv
 bwv
 bwv
@@ -502951,7 +502959,7 @@ aBB
 aBB
 gNl
 gBd
-jAf
+uYI
 tAw
 ssS
 aBB
@@ -503402,9 +503410,9 @@ aBB
 aBB
 aBB
 rUY
-jAf
-jAf
-jAf
+uYI
+uYI
+uYI
 noQ
 aBB
 aBB
@@ -503855,7 +503863,7 @@ aBB
 aBB
 kyt
 fzC
-oDA
+rjk
 dOO
 nMn
 aBB
