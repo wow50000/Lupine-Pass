@@ -1776,15 +1776,15 @@
 
 /datum/emote/living/yip
 	key = "yip"
-    key_third_person = "yips"
-    message = "yips!"
-    emote_type = EMOTE_AUDIBLE
-    message_muffled = "makes a muffled yip!"
+	key_third_person = "yips"
+	message = "yips!"
+	emote_type = EMOTE_AUDIBLE
+	message_muffled = "makes a muffled yip!"
 	is_animal = TRUE
-    show_runechat = FALSE
+	show_runechat = FALSE
 
 /mob/living/carbon/human/verb/yip()
-    set name = "Yip"
-    set category = "Noises"
+	set name = "Yip"
+	set category = "Noises"
 
-    emote("yip", intentional = TRUE)
+	emote("yip", intentional = TRUE)
