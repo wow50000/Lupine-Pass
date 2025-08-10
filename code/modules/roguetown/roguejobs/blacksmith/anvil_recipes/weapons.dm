@@ -466,7 +466,7 @@
 /datum/anvil_recipe/weapons/steel/falchion
 	name = "Falchion, Steel"
 	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/rogueweapon/sword/falchion
+	created_item = /obj/item/rogueweapon/sword/short/falchion
 	craftdiff = 3
 
 /datum/anvil_recipe/weapons/steel/messer
