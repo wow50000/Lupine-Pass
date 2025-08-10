@@ -24909,7 +24909,7 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town)
 "hNI" = (
-/mob/living/carbon/human/species/human/northern/bog_deserters,
+/mob/living/carbon/human/species/human/northern/bog_deserters/better_gear,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains)
 "hNK" = (
@@ -60138,6 +60138,7 @@
 /area/rogue/outdoors/mountains)
 "sKn" = (
 /obj/structure/bars/passage{
+	max_integrity = 3000;
 	redstone_id = "bog_dung_banditfort"
 	},
 /turf/open/floor/rogue/cobble,
@@ -64644,7 +64645,7 @@
 /area/rogue/outdoors/mountains/decap/minotaurfort)
 "ucg" = (
 /obj/structure/fluff/walldeco/chains,
-/mob/living/carbon/human/species/human/northern/bog_deserters/better_gear,
+/mob/living/carbon/human/species/human/northern/bog_deserters,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter)
 "uch" = (
