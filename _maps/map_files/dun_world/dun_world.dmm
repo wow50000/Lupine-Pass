@@ -10989,7 +10989,7 @@
 /area/rogue/outdoors/town)
 "dza" = (
 /obj/structure/mineral_door/wood/towner/generic{
-	lockid = vesselcaptain
+	lockid = vesselbed
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
@@ -38178,12 +38178,6 @@
 "lPq" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/woods/southeast)
-"lPv" = (
-/obj/structure/boatbell{
-	alpha = 0
-	},
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors)
 "lPw" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/ruinedwood,
@@ -57777,7 +57771,7 @@
 	},
 /obj/item/roguekey/custom{
 	name = "strange key";
-	lockid = "vesselcaptain";
+	lockid = "vesselbed";
 	desc = "This is a rusty key. You're not sure where it goes to."
 	},
 /turf/open/floor/rogue/dirt,
@@ -277858,7 +277852,7 @@ ebU
 jyg
 kwI
 sZs
-lPv
+usj
 usj
 usj
 pQb
@@ -278309,7 +278303,7 @@ ebU
 ebU
 jyg
 sfA
-lPv
+usj
 usj
 usj
 usj
