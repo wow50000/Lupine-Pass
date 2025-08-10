@@ -53429,6 +53429,12 @@
 /obj/structure/table/wood/poor/alt,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog/south)
+"qHq" = (
+/obj/structure/boatbell{
+	alpha = 0
+	},
+/turf/closed/wall/mineral/rogue/wooddark/horizontal,
+/area/rogue/indoors)
 "qHs" = (
 /obj/structure/well,
 /turf/open/floor/rogue/dirt/road,
@@ -72267,6 +72273,9 @@
 "wrX" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/storage/roguebag,
+/obj/structure/boatbell{
+	alpha = 0
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "wsf" = (
@@ -162137,7 +162146,7 @@ fFM
 sPy
 svt
 sWf
-bwv
+xWY
 usj
 lni
 vRB
@@ -275590,7 +275599,7 @@ aWg
 uYI
 uYI
 uYI
-ebB
+uYI
 uYI
 uYI
 uYI
@@ -276943,13 +276952,13 @@ ebU
 ebU
 bwv
 bwv
-xWY
+qHq
 xWY
 bwv
 dza
 bwv
 xWY
-xWY
+qHq
 bwv
 bwv
 kZf
@@ -277849,7 +277858,7 @@ ebU
 jyg
 kwI
 sZs
-usj
+lPv
 usj
 usj
 pQb
@@ -278300,9 +278309,9 @@ ebU
 ebU
 jyg
 sfA
-usj
-usj
 lPv
+usj
+usj
 usj
 usj
 wAj
@@ -279203,13 +279212,13 @@ ebU
 ebU
 ebU
 ebU
-bwv
+ahI
 bwv
 pAg
 tPg
 xkd
 bwv
-bwv
+ahI
 ebU
 kZf
 kZf
