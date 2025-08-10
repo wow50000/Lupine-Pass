@@ -43,6 +43,10 @@
 	. = ..()
 	color = pick("#e6e5e5", CLOTHING_BLACK, CLOTHING_BLUE, "#6F0000", "#664357")
 
+/obj/item/legwears/random/Destroy()
+	legwears_feature = null
+	return ..()
+
 /obj/item/legwears/white
 	color = "#e6e5e5"
 
