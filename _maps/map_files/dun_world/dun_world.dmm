@@ -10988,7 +10988,9 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "dza" = (
-/obj/structure/mineral_door/wood/towner/generic,
+/obj/structure/mineral_door/wood/towner/generic{
+	lockid = vesselcaptain
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "dzd" = (
@@ -48977,10 +48979,8 @@
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town)
 "plo" = (
-/obj/structure/mineral_door/swing_door{
-	lockid = "vesseldeck";
-	name = "kitchen swing door";
-	locked = 1
+/obj/structure/mineral_door/wood/towner/generic{
+	lockid = vesseldeck
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
@@ -158069,7 +158069,7 @@ ika
 sko
 bwv
 olg
-dza
+plo
 gsr
 bwv
 ttk
@@ -161684,9 +161684,9 @@ tXb
 bwv
 bwv
 bwv
-dza
+plo
 bwv
-dza
+plo
 bwv
 bwv
 bwv
