@@ -69596,6 +69596,7 @@
 /area/rogue/under/cave/goblindungeon)
 "vAW" = (
 /obj/machinery/light/rogue/torchholder/l,
+/mob/living/carbon/human/species/human/northern/bog_deserters/better_gear,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/shelter)
 "vAX" = (
@@ -336155,7 +336156,7 @@ irm
 fvl
 pMO
 uGX
-irI
+hlW
 hlW
 nMW
 hlW
