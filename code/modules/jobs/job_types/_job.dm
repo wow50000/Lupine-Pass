@@ -152,6 +152,9 @@
 	var/list/virtue_restrictions
 	var/list/vice_restrictions
 
+	//The job's stat UPPER ceilings, clamped after statpacks and job stats are applied.
+	var/list/stat_ceilings
+
 
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
 	return TRUE
@@ -319,6 +322,7 @@
 
 	if(!visualsOnly && announce)
 		announce(H)
+	//clamp_stats(H)
 
 /datum/job/proc/get_access()
 	if(!config)	//Needed for robots.
@@ -405,6 +409,14 @@
 	if(CONFIG_GET(flag/security_has_maint_access))
 		return list(ACCESS_MAINT_TUNNELS)
 	return list()
+
+/datum/job/proc/clamp_stats(var/mob/living/carbon/human/H)
+	if(length(stat_ceilings))
+		for(var/stat in stat_ceilings)
+			if(stat_ceilings[stat] < H.get_stat(stat))
+				H.change_stat(stat, (stat_ceilings[stat] - H.get_stat(stat)))
+				to_chat(H, "Your [stat] was reduced to \Roman[stat_ceilings[stat]].")
+
 
 // LETHALSTONE EDIT: Helper functions for pronoun-based clothing selection
 /proc/should_wear_masc_clothes(mob/living/carbon/human/H)

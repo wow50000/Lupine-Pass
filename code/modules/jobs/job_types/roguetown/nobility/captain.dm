@@ -99,6 +99,7 @@
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	to_chat(world, "entering pre_equip")
 	H.change_stat("strength", 2)
 	H.change_stat("perception", 1)
 	H.change_stat("intelligence", 2)
