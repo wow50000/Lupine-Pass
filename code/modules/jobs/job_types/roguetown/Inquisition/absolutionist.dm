@@ -25,6 +25,14 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		H.grant_language(/datum/language/otavan)
+		if(H.mind)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/psydonpersist)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/psydonlux_tamper)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/psydonabsolve)
+			// H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/psydondefy) -- not ready yet.
+			H.mind.RemoveSpell(/obj/effect/proc_holder/spell/self/psydonrespite)
+			H.mind.teach_crafting_recipe(/datum/crafting_recipe/roguetown/alchemy/qsabsolution)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 
 /datum/outfit/job/roguetown/absolver/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -66,11 +74,6 @@
 	H.change_stat("endurance", 3)
 	H.change_stat("constitution", 7)
 	H.change_stat("speed", -2)
-	if(H.mind)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/psydonabsolve)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/psydonlux_tamper)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
-		H.mind.teach_crafting_recipe(/datum/crafting_recipe/roguetown/alchemy/qsabsolution)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_ABSOLVER, start_maxed = TRUE) // PSYDONIAN MIRACLE-WORKER. LUX-MERGING FREEK.
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
