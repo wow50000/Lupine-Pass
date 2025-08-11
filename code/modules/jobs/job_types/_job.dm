@@ -322,7 +322,6 @@
 
 	if(!visualsOnly && announce)
 		announce(H)
-	//clamp_stats(H)
 
 /datum/job/proc/get_access()
 	if(!config)	//Needed for robots.

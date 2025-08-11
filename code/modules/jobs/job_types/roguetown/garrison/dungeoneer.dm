@@ -24,7 +24,7 @@
 
 	cmode_music = 'sound/music/combat_dungeoneer.ogg'
 
-	stat_ceilings = list(STAT_STRENGTH = 16, STAT_CONSTITUTION = 16, STAT_ENDURANCE = 16)
+	stat_ceilings = list(STAT_STRENGTH = 16, STAT_CONSTITUTION = 15, STAT_ENDURANCE = 16)
 
 /datum/job/roguetown/dungeoneer/New()
 	. = ..()
