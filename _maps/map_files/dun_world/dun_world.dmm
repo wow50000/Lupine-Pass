@@ -1282,7 +1282,9 @@
 /obj/structure/table/wood{
 	icon_state = "map4"
 	},
-/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 9
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq)
 "auw" = (
@@ -1307,6 +1309,8 @@
 	icon_state = "tablewood1"
 	},
 /obj/item/paper,
+/obj/item/reagent_containers/food/snacks/tallow/red,
+/obj/item/inqarticles/tallowpot,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq/basement)
 "auJ" = (
@@ -5733,9 +5737,12 @@
 	dir = 1;
 	icon_state = "longtable_mid"
 	},
-/obj/item/quicksilver,
 /obj/structure/fluff/walldeco/painting/seraphina{
 	pixel_y = 32
+	},
+/obj/item/candle/candlestick/silver/lit{
+	pixel_x = -1;
+	pixel_y = 9
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq/office)
@@ -6707,6 +6714,34 @@
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/church/chapel)
+"cfJ" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/reagent_containers/glass/cup/silver/small{
+	pixel_x = 7;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/glass/cup/silver/small{
+	pixel_x = -6;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/glass/cup/silver/small{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/cup/silver/small{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/cup/silver/small{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/glass/cup/silver/small{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/inq)
 "cfO" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/carpet/lord/center/no_teleport,
@@ -12017,6 +12052,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/rtfield)
+"dOZ" = (
+/obj/structure/fermentation_keg/whitewine,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/inq)
 "dPb" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor5-old"
@@ -14853,6 +14892,8 @@
 /obj/structure/fluff/walldeco/psybanner/red{
 	pixel_y = 32
 	},
+/obj/item/reagent_containers/food/snacks/tallow/red,
+/obj/item/inqarticles/tallowpot,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/office)
 "eEY" = (
@@ -17272,6 +17313,34 @@
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town)
+"fqi" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = -6;
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = -7;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/inq)
 "fqn" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/naturalstone,
@@ -18010,6 +18079,9 @@
 /area/rogue/outdoors/town)
 "fCF" = (
 /obj/structure/closet/crate/chest/neu_iron,
+/obj/item/paper/confession,
+/obj/item/paper/confession,
+/obj/item/paper/confession,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/office)
 "fCO" = (
@@ -20038,6 +20110,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate,
 /obj/item/clothing/gloves/roguetown/chain/psydon,
 /obj/item/clothing/gloves/roguetown/otavan/inqgloves,
+/obj/item/clothing/mask/rogue/sack/psy,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/office)
 "gnG" = (
@@ -20708,6 +20781,10 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/magician)
+"gxu" = (
+/obj/structure/fermentation_keg/redwine,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/inq)
 "gxv" = (
 /obj/structure/table/wood,
 /turf/open/floor/rogue/concrete,
@@ -25458,7 +25535,10 @@
 /obj/structure/table/wood{
 	icon_state = "map3"
 	},
-/obj/item/reagent_containers/glass/cup/steel,
+/obj/item/candle/candlestick/silver/lit{
+	pixel_x = -1;
+	pixel_y = 9
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq)
 "hVG" = (
@@ -26551,6 +26631,9 @@
 	},
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_x = 6
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_y = -7
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/inq)
@@ -30815,8 +30898,9 @@
 /obj/item/speakerinq,
 /obj/item/speakerinq,
 /obj/structure/closet/crate/roguecloset,
-/obj/item/listeningdevice,
-/obj/item/flashlight/flare/torch/lantern,
+/obj/item/rope/inqarticles/inquirycord,
+/obj/item/rope/inqarticles/inquirycord,
+/obj/item/rope/inqarticles/inquirycord,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/inq/office)
 "jzW" = (
@@ -38009,6 +38093,7 @@
 /obj/structure/fluff/walldeco/psybanner/red{
 	pixel_y = 32
 	},
+/obj/item/quicksilver,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq/office)
 "lJw" = (
@@ -38519,6 +38604,12 @@
 "lRY" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
 /obj/structure/closet/crate/chest,
+/obj/item/paper/confession,
+/obj/item/paper/confession,
+/obj/item/paper/confession,
+/obj/item/paper/inqslip/accusation,
+/obj/item/paper/inqslip/accusation,
+/obj/item/paper/inqslip/accusation,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/inq/office)
 "lRZ" = (
@@ -47190,6 +47281,7 @@
 /obj/structure/table/wood{
 	icon_state = "map1"
 	},
+/obj/item/paper/scroll,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq)
 "oFy" = (
@@ -49077,6 +49169,14 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/mountains)
+"piY" = (
+/obj/machinery/light/rogue/wallfire/candle/l,
+/obj/structure/closet/crate/chest,
+/obj/item/inqarticles/indexer,
+/obj/item/inqarticles/indexer,
+/obj/item/inqarticles/indexer,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/inq/office)
 "pja" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/concrete{
@@ -62069,9 +62169,30 @@
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "tjz" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/glass/bottle/claybottle,
-/obj/item/reagent_containers/glass/bottle/claybottle,
-/obj/item/reagent_containers/glass/bottle/claybottle,
+/obj/item/reagent_containers/glass/bottle/claybottle{
+	pixel_x = 7;
+	pixel_y = 18
+	},
+/obj/item/reagent_containers/glass/bottle/claybottle{
+	pixel_x = -7;
+	pixel_y = 18
+	},
+/obj/item/reagent_containers/glass/bottle/claybottle{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/bottle/claybottle{
+	pixel_y = -1;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/glass/bottle/claybottle{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/bottle/claybottle{
+	pixel_x = -7;
+	pixel_y = -1
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq)
 "tjB" = (
@@ -66872,9 +66993,30 @@
 /area/rogue/indoors/town)
 "uHC" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/glass/bottle,
-/obj/item/reagent_containers/glass/bottle,
-/obj/item/reagent_containers/glass/bottle,
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = 8;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = 8;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = 8;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -5;
+	pixel_y = -4
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq)
 "uHE" = (
@@ -68452,6 +68594,10 @@
 /obj/item/storage/belt/rogue/leather/steel/tasset,
 /obj/item/storage/belt/rogue/leather/steel/tasset,
 /obj/item/storage/belt/rogue/leather/steel/tasset,
+/obj/item/clothing/mask/rogue/sack/psy,
+/obj/item/clothing/mask/rogue/sack/psy,
+/obj/item/clothing/mask/rogue/sack/psy,
+/obj/item/clothing/mask/rogue/sack/psy,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/inq/office)
 "vgh" = (
@@ -70007,6 +70153,13 @@
 "vDu" = (
 /obj/structure/table/wood{
 	icon_state = "map5"
+	},
+/obj/item/inqarticles/tallowpot{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/snacks/tallow/red{
+	pixel_y = 3;
+	pixel_x = 8
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq)
@@ -75233,6 +75386,7 @@
 /obj/structure/table/wood{
 	icon_state = "map2"
 	},
+/obj/item/natural/feather,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq)
 "xjQ" = (
@@ -359021,7 +359175,7 @@ qwK
 qwK
 qwK
 dTp
-tjz
+fqi
 tjz
 dTp
 ctG
@@ -359925,7 +360079,7 @@ qwK
 qwK
 qwK
 dTp
-uHC
+cfJ
 sGd
 dTp
 ccV
@@ -360377,7 +360531,7 @@ qwK
 qwK
 qwK
 dTp
-qjG
+gxu
 qjG
 nXP
 ctG
@@ -360829,7 +360983,7 @@ qwK
 qwK
 qwK
 dTp
-qjG
+dOZ
 qjG
 dTp
 ctG
@@ -468859,7 +469013,7 @@ cxA
 png
 qsx
 vfV
-lRY
+piY
 wvb
 lRY
 jzV
