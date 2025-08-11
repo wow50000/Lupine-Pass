@@ -54623,6 +54623,7 @@
 "qUy" = (
 /obj/structure/table/wood/long_table/mid/alt,
 /obj/item/candle/candlestick/silver/lit,
+/obj/structure/fireaxecabinet/unforgotten/south,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/inq/basement)
 "qUz" = (
