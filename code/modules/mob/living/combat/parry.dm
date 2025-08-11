@@ -69,7 +69,7 @@
 		defender_skill = H.get_skill_level(/datum/skill/combat/unarmed)
 		var/obj/B = H.get_item_by_slot(SLOT_WRISTS)
 		if(istype(B, /obj/item/clothing/wrists/roguetown/bracers))
-			prob2defend += (defender_skill * 30)
+			prob2defend += (defender_skill * 35)
 		else
 			prob2defend += (defender_skill * 10)		// no bracers gonna be butts.
 		weapon_parry = FALSE
