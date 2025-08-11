@@ -278,7 +278,7 @@
 	associated_skill = /datum/skill/combat/unarmed
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
 	throwforce = 12
-	wdefense = 2
+	wdefense = 0	//Meant to be used with bracers
 	wbalance = WBALANCE_SWIFT
 	thrown_bclass = BCLASS_CUT
 	anvilrepair = /datum/skill/craft/weaponsmithing
@@ -299,7 +299,7 @@
 	desc = "A gift from a creature of the sea. The claw is sharpened to a wicked edge."
 	icon_state = "abyssorclaw"
 	force = 27	//Its thrust will be able to pen 80 stab armor if the wielder has 17 STR. (With softcap)
-	max_integrity = 120
+	max_integrity = 80
 
 /obj/item/rogueweapon/katar/punchdagger
 	name = "punch dagger"
@@ -308,7 +308,7 @@
 	max_integrity = 120		//Steel dagger -30
 	force = 15		//Steel dagger -5
 	throwforce = 8
-	wdefense = 1	//Hell no!
+	wdefense = 0	//Hell no!
 	thrown_bclass = BCLASS_STAB
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/thrust/pick)
 	icon_state = "plug"
