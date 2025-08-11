@@ -379,8 +379,13 @@
 		if(/datum/patron/divine/eora)
 			neck = /obj/item/clothing/neck/roguetown/psicross/eora
 			H.cmode_music = 'sound/music/cmode/church/combat_eora.ogg'
-		if(/datum/patron/inhumen/zizo)
-			H.cmode_music = 'sound/music/combat_heretic.ogg'
+		if(/datum/patron/divine/xylix) // no longer random, rejoice my fellow xylixians!
+			neck = /obj/item/clothing/neck/roguetown/psicross/xylix
+		if(/datum/patron/inhumen/zizo,
+	  		/datum/patron/inhumen/matthios,
+	   		/datum/patron/inhumen/graggar,
+	   		/datum/patron/inhumen/baotha)
+			H.cmode_music = 'sound/music/combat_cult.ogg'
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
 		if(/datum/patron/inhumen/matthios)
 			H.cmode_music = 'sound/music/combat_matthios.ogg'
