@@ -45,6 +45,8 @@
 			return strings("kazengun_replacement.json", type)
 		if("Avar accent")
 			return strings("russian_replacement.json", type)
+		if("Pirate accent")
+			return strings("axian_replacement.json", type)
 
 /datum/species/proc/get_accent(mob/living/carbon/human/H)
 	return get_accent_list(H,"full")
