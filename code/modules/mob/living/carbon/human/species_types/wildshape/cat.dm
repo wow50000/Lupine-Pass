@@ -206,8 +206,6 @@
         var/rid = /datum/reagent/medicine/healthpot
         target.reagents.add_reagent(rid, ramount)
         ramount = 2
-        rid = /datum/reagent/medicine/healthpot
-        target.reagents.add_reagent(rid, ramount)
         if(target.mind.has_antag_datum(/datum/antagonist/werewolf))
             target.visible_message(span_green("[user] is licking [target]'s wounds with its tongue!"), span_notice("My kin has covered my wounds..."))
             ramount = 20
