@@ -1831,9 +1831,9 @@
 	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/cotehardie
-	name = "cotehardie"
-	desc = "A long-sleeved tunic often worn by peasants. It's used by men and women, in both summer and winter."
-	color = null
+	name = "fitted coat"
+	desc = "Also known as a cotehardie: a long-sleeved tunic worn by peasants and nobles alike. It's used by men and women, in both summer and winter."
+	color = "#586849"
 	icon_state = "cotehardie"
 	item_state = "cotehardie"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
@@ -1842,6 +1842,8 @@
 	boobed = TRUE
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	flags_inv = HIDECROTCH|HIDEBOOB
+	detail_tag = "_detail"
+	detail_color = "#36241f"
 	var/overarmor = TRUE
 
 /obj/item/clothing/cloak/cotehardie/ComponentInitialize()
@@ -1856,4 +1858,15 @@
 		for(var/obj/item/I in things)
 			STR.remove_from_storage(I, get_turf(src))
 
-/obj/item/clothing/cloak/cotehardie/noble
+/obj/item/clothing/cloak/cotehardie/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/cloak/cotehardie/Initialize()
+	..()
+	update_icon()
