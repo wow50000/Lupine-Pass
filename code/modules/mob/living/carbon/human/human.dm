@@ -325,7 +325,7 @@
 		// Might need re-wording.
 		to_chat(user, span_alert("There is no exposed flesh or thin material [above_neck(target_zone) ? "on [p_their()] head" : "on [p_their()] body"]."))
 
-//Used for new human mobs created by cloning/goleming/podding
+//Used for new human mobs created by cloning/constructing/podding
 /mob/living/carbon/human/proc/set_cloned_appearance()
 	if(gender == MALE)
 		facial_hairstyle = "Full Beard"

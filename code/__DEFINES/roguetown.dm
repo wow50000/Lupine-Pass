@@ -190,7 +190,6 @@
 	/datum/species/moth,\
 	/datum/species/dracon,\
 	/datum/species/anthromorph,\
-	/datum/species/anthromorphsmall,\
 	/datum/species/demihuman,\
 	/datum/species/halforc,\
 	/datum/species/kobold,\
@@ -218,7 +217,6 @@
 	/datum/species/anthromorph,\
 	/datum/species/demihuman,\
 
-
 #define RACES_SHUNNED \
 	/datum/species/halforc,\
 	/datum/species/anthromorphsmall,\
@@ -228,8 +226,10 @@
 #define RACES_DESPISED \
 	/datum/species/goblinp,\
 
+
 #define RACES_CONSTRUCT \
 	/datum/species/construct/metal,\
+	/datum/species/construct/porcelain,\
 
 #define RACES_ALL_KINDS list(RACES_DESPISED, RACES_SHUNNED, RACES_TOLERATED, RACES_RESPECTED, RACES_CONSTRUCT)
 
@@ -260,6 +260,8 @@
 	/datum/species/kobold,\
 	/datum/species/goblinp,\
 	/datum/species/construct/metal,\
+	/datum/species/construct/porcelain,\
+	/datum/species/dullahan,\
 )
 
 #define CLOTHED_RACES_TYPES list(\
@@ -285,6 +287,8 @@
 	/datum/species/kobold,\
 	/datum/species/goblinp,\
 	/datum/species/construct/metal,\
+	/datum/species/construct/porcelain,\
+	/datum/species/dullahan,\
 )
 // Non-dwarf non-kobold non-goblin mostly
 #define NON_DWARVEN_RACE_TYPES list(\
@@ -305,6 +309,8 @@
 	/datum/species/demihuman,\
 	/datum/species/halforc,\
 	/datum/species/construct/metal,\
+	/datum/species/construct/porcelain,\
+	/datum/species/dullahan,\
 )
 // Non-elf non-dwarf non-kobold non-goblin mostly
 #define HUMANLIKE_RACE_TYPES list(\
@@ -321,6 +327,8 @@
 	/datum/species/anthromorph,\
 	/datum/species/demihuman,\
 	/datum/species/construct/metal,\
+	/datum/species/construct/porcelain,\
+	/datum/species/dullahan,\
 )
 #define ALL_CLERIC_PATRONS list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/necra, /datum/patron/divine/pestra, /datum/patron/divine/ravox, /datum/patron/divine/malum, /datum/patron/divine/eora, /datum/patron/divine/undivided) // Currently unused.
 
