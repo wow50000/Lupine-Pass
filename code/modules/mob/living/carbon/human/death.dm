@@ -161,7 +161,7 @@
 	if(!.)
 		return
 	switch(job)
-		if("Grand Duke")
+		if("Grand Duke", "Grand Duchess")
 			removeomen(OMEN_NOLORD)
 		if("Bishop")
 			removeomen(OMEN_NOPRIEST)
