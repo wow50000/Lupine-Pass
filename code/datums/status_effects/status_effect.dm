@@ -65,6 +65,9 @@
 					if((owner.get_stat(S) + (effectedstats[S] + i)) == 1)	//We keep incrementing the status effect until it will reduce it to 1.
 						effectedstats[S] = (effectedstats[S] + i)
 						break
+		else
+			if((owner.get_stat(S) + effectedstats[S]) > 20)	//We check for overflow as well.
+				effectedstats[S] = max(((owner.get_stat(S) + effectedstats[S]) - 20), 0)
 		owner.change_stat(S, effectedstats[S])
 	return TRUE
 
