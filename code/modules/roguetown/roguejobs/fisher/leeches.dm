@@ -6,48 +6,15 @@
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "leech"
 	baitpenalty = 0
-	freshfishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/carp = 200,
-		/obj/item/reagent_containers/food/snacks/fish/sunny = 305,
-		/obj/item/reagent_containers/food/snacks/fish/salmon = 210,
-		/obj/item/reagent_containers/food/snacks/fish/eel = 160,
-		/obj/item/grown/log/tree/stick = 3,
-		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
-		/obj/item/natural/cloth = 1,
-		/obj/item/ammo_casing/caseless/rogue/arrow = 1,
-		/obj/item/clothing/ring/gold = 1,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //That's not a fish...?
-		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1,
-		/obj/item/reagent_containers/glass/bottle/rogue = 1,		
-		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 20,		
+	fishingMods=list(
+		"commonFishingMod" = 0.7,
+		"rareFishingMod" = 1.3,
+		"treasureFishingMod" = 1,
+		"trashFishingMod" = 1,
+		"dangerFishingMod" = 1.1,
+		"ceruleanFishingMod" = 0, // 1 on cerulean aril, 0 on everything else
 	)
-	seafishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/cod = 230,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 180,
-		/obj/item/reagent_containers/food/snacks/fish/sole = 250,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 170,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 180,
-		/obj/item/reagent_containers/food/snacks/fish/bass = 230,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 50,
-		/obj/item/reagent_containers/food/snacks/fish/clownfish = 40,
-		/obj/item/grown/log/tree/stick = 3,
-		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
-		/obj/item/natural/cloth = 1,
-		/obj/item/ammo_casing/caseless/rogue/arrow = 1,
-		/obj/item/clothing/ring/gold = 1,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //That's not a fish...?
-		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1,
-		/obj/item/reagent_containers/glass/bottle/rogue = 1,	
-		/mob/living/carbon/human/species/goblin/npc/sea = 25,
-		/mob/living/simple_animal/hostile/rogue/deepone = 30,
-		/mob/living/simple_animal/hostile/rogue/deepone/spit = 30,			
-	)
-	mudfishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/mudskipper = 200,
-		/obj/item/natural/worms/leech = 50,
-		/obj/item/clothing/ring/gold = 1,	
-		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,			
-	)	
+
 	embedding = list(
 		"embed_chance" = 100,
 		"embedded_unsafe_removal_time" = 0,
@@ -71,6 +38,10 @@
 	var/blood_maximum = BLOOD_VOLUME_SURVIVE
 	// Who are we latching onto?
 	var/mob/living/host
+	/// Multiplier for extracted blood. Mainly used by Cheeles or equivalent.
+	var/blood_multiplier = 1
+	/// Whether we can be attached to mindless mobs.
+	var/mindless_attach = TRUE
 
 /obj/item/natural/worms/leech/Initialize()
 	. = ..()
@@ -91,6 +62,8 @@
 		host = null
 		return FALSE
 	if(!host)
+		return FALSE
+	if(!giving && host.stat == DEAD)
 		return FALSE
 	host.adjustToxLoss(toxin_healing)
 	var/obj/item/bodypart/bp = loc
@@ -133,7 +106,7 @@
 	else
 		var/blood_extracted = min(blood_maximum - blood_storage, user.blood_volume, blood_sucking)
 		user.blood_volume = max(user.blood_volume - blood_extracted, 0)
-		blood_storage += blood_extracted
+		blood_storage += blood_extracted * blood_multiplier
 		if((blood_storage >= blood_maximum) || (user.blood_volume <= 0))
 			if(bodypart)
 				bodypart.remove_embedded_object(src)
@@ -167,6 +140,12 @@
 
 /obj/item/natural/worms/leech/attack(mob/living/M, mob/user)
 	if(ishuman(M))
+		if(!giving && M.stat == DEAD)
+			to_chat(user, span_warning("They are deceased. Only running blood may be extracted."))
+			return
+		if(!giving && !M.mind && !mindless_attach)
+			to_chat(user, span_warning("They are mindless. The [src] won't attach."))
+			return
 		var/mob/living/carbon/human/H = M
 		var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
 		if(!affecting)
@@ -174,7 +153,7 @@
 		if(!get_location_accessible(H, check_zone(user.zone_selected)))
 			to_chat(user, span_warning("Something in the way."))
 			return
-		var/used_time = (70 - (user.mind.get_skill_level(/datum/skill/misc/medicine) * 10))/2
+		var/used_time = (70 - (user.get_skill_level(/datum/skill/misc/medicine) * 10))/2
 		if(!do_mob(user, H, used_time))
 			return
 		if(!H)
@@ -273,8 +252,10 @@
 	drainage = 0
 	blood_sucking = 5
 	toxin_healing = -2
-	blood_storage = BLOOD_VOLUME_SURVIVE
-	blood_maximum = BLOOD_VOLUME_BAD
+	blood_multiplier = 3
+	blood_storage = BLOOD_VOLUME_BAD
+	blood_maximum = BLOOD_VOLUME_NORMAL
+	mindless_attach = FALSE
 
 /obj/item/natural/worms/leech/cheele/attack_self(mob/user)
 	. = ..()
@@ -290,3 +271,26 @@
 
 /obj/item/natural/worms/leech/attack_right(mob/user)
 	return
+
+/obj/item/natural/worms/leech/abyssoid
+	name = "abyssoid leech"
+	desc = "A holy leech sent by Abyssor himself."
+	icon_state = "leech"
+	drainage = 0
+	blood_sucking = 0
+	embedding = list(
+		"embed_chance" = 100,
+		"embedded_unsafe_removal_time" = 0,
+		"embedded_pain_chance" = 0,
+		"embedded_fall_chance" = 0,
+		"embedded_bloodloss"= 0,
+	)
+
+/obj/item/natural/worms/leech/abyssoid/on_embed_life(mob/living/user, obj/item/bodypart/bodypart)
+	. = ..()
+	if(!user)
+		return
+	if(iscarbon(user))
+		var/mob/living/carbon/V = user
+		if(prob(3))
+			V.say(pick("PRAISE ABYSSOR!", "REMEMBER ABYSSOR!", "ABYSSOR LIVES!", "GLORY TO ABYSSOR!", "ABYSSOR IS COMING!"))

@@ -98,6 +98,25 @@
 	pixel_x = -32
 	icon = 'icons/obj/flora/jungletreesmall.dmi'
 
+
+/obj/structure/flora/tree/evil/Initialize()
+	. = ..()
+	icon_state = "wv[rand(1,2)]"
+	soundloop = new(src, FALSE)
+	soundloop.start()
+
+/obj/structure/flora/tree/evil/Destroy()
+	soundloop.stop()
+	if(controller)
+		controller.endvines()
+		controller.tree = null
+		controller = null
+	. = ..()
+
+/obj/structure/flora/tree/evil
+	var/datum/looping_sound/boneloop/soundloop
+	var/datum/vine_controller/controller
+
 //grass
 /obj/structure/flora/grass
 	name = "grass"
@@ -274,7 +293,7 @@
 /obj/item/twohanded/required/kirbyplants/Initialize()
 	. = ..()
 	AddComponent(/datum/component/tactical)
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, AddComponent), /datum/component/beauty, 500), 0)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, _AddComponent), /datum/component/beauty, 500), 0)
 
 /obj/item/twohanded/required/kirbyplants/random
 	icon_state = "random_plant"

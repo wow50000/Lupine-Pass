@@ -1,6 +1,8 @@
 /atom/movable
 	layer = OBJ_LAYER
 	var/last_move = null
+	/// A list containing arguments for Moved().
+	VAR_PRIVATE/tmp/list/active_movement
 	var/last_move_time = 0
 	var/anchored = FALSE
 	var/move_resist = MOVE_RESIST_DEFAULT
@@ -29,7 +31,6 @@
 	var/lastcardinal = 0
 	var/lastcardpress = 0
 	var/atom/movable/moving_from_pull		//attempt to resume grab after moving instead of before.
-	var/list/client_mobs_in_contents // This contains all the client mobs within this container
 	var/list/acted_explosions	//for explosion dodging
 	glide_size = 6
 	appearance_flags = TILE_BOUND|PIXEL_SCALE
@@ -43,6 +44,20 @@
 	var/can_be_z_moved = TRUE
 	var/jumping = FALSE
 	var/zfalling = FALSE
+	/**
+	 * an associative lazylist of relevant nested contents by "channel", the list is of the form: list(channel = list(important nested contents of that type))
+	 * each channel has a specific purpose and is meant to replace potentially expensive nested contents iteration.
+	 * do NOT add channels to this for little reason as it can add considerable memory usage.
+	 */
+	var/list/important_recursive_contents
+	///contains every client mob corresponding to every client eye in this container. lazily updated by SSparallax and is sparse:
+	///only the last container of a client eye has this list assuming no movement since SSparallax's last fire
+	var/list/client_mobs_in_contents
+
+	/// String representing the spatial grid groups we want to be held in.
+	/// acts as a key to the list of spatial grid contents types we exist in via SSspatial_grid.spatial_grid_categories.
+	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
+	var/spatial_grid_key
 
 /atom/movable/proc/can_zFall(turf/source, levels = 1, turf/target, direction)
 	if(!direction)
@@ -161,6 +176,9 @@
 		if(!supress_message)
 			M.visible_message("<span class='warning'>[src] grabs [M].</span>", \
 				"<span class='danger'>[src] grabs you.</span>")
+	if(istype(AM, /mob/living/simple_animal))
+		var/mob/living/simple_animal/simple_animal = AM
+		simple_animal.toggle_ai(AI_ON)
 	return TRUE
 
 /atom/movable/proc/stop_pulling(forced = TRUE)
@@ -402,6 +420,23 @@
 	if (length(client_mobs_in_contents))
 		update_parallax_contents()
 
+	var/turf/old_turf = get_turf(OldLoc)
+	var/turf/new_turf = get_turf(src)
+
+	if(HAS_SPATIAL_GRID_CONTENTS(src))
+		if(old_turf && new_turf && (old_turf.z != new_turf.z \
+			|| GET_SPATIAL_INDEX(old_turf.x) != GET_SPATIAL_INDEX(new_turf.x) \
+			|| GET_SPATIAL_INDEX(old_turf.y) != GET_SPATIAL_INDEX(new_turf.y)))
+
+			SSspatial_grid.exit_cell(src, old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
+
+		else if(old_turf && !new_turf)
+			SSspatial_grid.exit_cell(src, old_turf)
+
+		else if(new_turf && !old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
+
 	return TRUE
 
 /atom/movable/Destroy(force)
@@ -420,6 +455,10 @@
 	for(var/atom/movable/AM in contents)
 		qdel(AM)
 	moveToNullspace()
+	//This absolutely must be after moveToNullspace()
+	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
+	//If we clear this before the nullspace move, a ref to this object will be hung in any of its movable containers
+	LAZYNULL(important_recursive_contents)
 	invisibility = INVISIBILITY_ABSTRACT
 	if(pulledby)
 		pulledby.stop_pulling()
@@ -427,6 +466,8 @@
 	if(orbiting)
 		orbiting.end_orbit(src)
 		orbiting = null
+
+	LAZYNULL(client_mobs_in_contents)
 
 // Make sure you know what you're doing if you call this, this is intended to only be called by byond directly.
 // You probably want CanPass()
@@ -462,21 +503,32 @@
 	A.Bumped(src)
 
 /atom/movable/proc/forceMove(atom/destination)
+	var/mob/living/carbon/human/H = null
+	if(ishuman(src.loc))
+		H = src.loc
+	
 	. = FALSE
 	if(destination)
 		. = doMove(destination)
 	else
 		CRASH("[src] No valid destination passed into forceMove")
 
+	if(H)
+		H.update_a_intents()
+
 /atom/movable/proc/moveToNullspace()
 	return doMove(null)
 
 /atom/movable/proc/doMove(atom/destination)
 	. = FALSE
+	RESOLVE_ACTIVE_MOVEMENT
+
+	var/atom/oldloc = loc
+	SET_ACTIVE_MOVEMENT(oldloc, NONE, TRUE, null)
+
 	if(destination)
 		if(pulledby)
 			pulledby.stop_pulling()
-		var/atom/oldloc = loc
 		var/same_loc = oldloc == destination
 		var/area/old_area = get_area(oldloc)
 		var/area/destarea = get_area(destination)
@@ -513,12 +565,13 @@
 	else
 		. = TRUE
 		if (loc)
-			var/atom/oldloc = loc
 			var/area/old_area = get_area(oldloc)
 			oldloc.Exited(src, null)
 			if(old_area)
 				old_area.Exited(src, null)
+			Moved(oldloc, NONE, TRUE)
 		loc = null
+	RESOLVE_ACTIVE_MOVEMENT
 
 /atom/movable/proc/onTransitZ(old_z,new_z)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_z, new_z)
@@ -565,6 +618,8 @@
 /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	set waitfor = 0
 	SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, throwingdatum)
+	if(QDELETED(hit_atom))
+		return
 	return hit_atom.hitby(src, throwingdatum=throwingdatum)
 
 /atom/movable/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked, datum/thrownthing/throwingdatum, damage_flag = "blunt")
@@ -740,87 +795,207 @@
 /mob
 	no_bump_effect = FALSE
 
-/atom/movable/proc/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
-	if(!no_effect && (visual_effect_icon || used_item))
-		do_item_attack_animation(A, visual_effect_icon, used_item)
+GLOBAL_VAR_INIT(pixel_diff, 8)
+GLOBAL_VAR_INIT(pixel_diff_time, 1)
 
-	if(!no_bump_effect)
-		return
-
-	if(ismob(A))
-		var/mob/M = A
-		if(M.stat == DEAD)
-			return
-
-	if(A == src)
-		return //don't do an animation if attacking self
+//Generic tg-style attack wiggle towards atom A.
+/atom/movable/proc/wiggle(atom/A)
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
+	var/turn_dir = 1
 
 	var/direction = get_dir(src, A)
 	if(direction & NORTH)
-		pixel_y_diff = 8
+		pixel_y_diff = GLOB.pixel_diff
+		turn_dir = prob(50) ? -1 : 1
 	else if(direction & SOUTH)
-		pixel_y_diff = -8
+		pixel_y_diff = -GLOB.pixel_diff
+		turn_dir = prob(50) ? -1 : 1
 
 	if(direction & EAST)
-		pixel_x_diff = 8
+		pixel_x_diff = GLOB.pixel_diff
 	else if(direction & WEST)
-		pixel_x_diff = -8
+		pixel_x_diff = -GLOB.pixel_diff
+		turn_dir = -1
 
-	animate(A, pixel_x = A.pixel_x + pixel_x_diff, pixel_y = A.pixel_y + pixel_y_diff, time = 2)
-	animate(A, pixel_x = A.pixel_x - pixel_x_diff, pixel_y = A.pixel_y - pixel_y_diff, time = 2)
+	var/matrix/initial_transform = matrix(transform)
+	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = GLOB.pixel_diff_time, easing=LINEAR_EASING, flags = ANIMATION_PARALLEL)
+	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = GLOB.pixel_diff_time * 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
 
-/atom/movable/proc/do_item_attack_animation(atom/A, visual_effect_icon, obj/item/used_item)
-//	var/noanim = FALSE
+/atom/movable/proc/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent, simplified = FALSE)
+	if(used_item || !simplified)
+		var/animation_type = item_animation_override || used_intent?.get_attack_animation_type()
+		do_item_attack_animation(A, visual_effect_icon, used_item, animation_type = animation_type)
+		return
+	wiggle(A)
+
+
+/atom/movable/proc/do_item_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, animation_type = ATTACK_ANIMATION_SWIPE)
 	if(used_item)
 		if(used_item.no_effect)
 			return
 	if(!visual_effect_icon)
 		return
-/*
-	I = image(icon = 'icons/effects/effects.dmi', loc = src, icon_state = visual_effect_icon, layer = src.layer + 0.1)
 	if(A == src)
 		return
-	else
-		I.dir = get_dir(src, A)
-	if(I.dir & NORTH)
-		I.pixel_y = 32
-	else if(I.dir & SOUTH)
-		I.pixel_y = -32
-
-	if(I.dir & EAST)
-		I.pixel_x = 32
-	else if(I.dir & WEST)
-		I.pixel_x = -32
-	noanim = TRUE
-
-
-	if(!I)
-		return
-
-	I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	flick_overlay(I, GLOB.clients, 5) // 5 ticks/half a second
-
-	if(!noanim)
-		// And animate the attack!
-		animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 3)
-	*/
-	if(A == src)
+	if (isnull(used_item))
 		return
 	var/dist = get_dist(src, A)
-	var/turf/first_step = get_step(src, get_dir(src, A))
-	if(dist >= 1)	//1 tile range attack, no need for any loops
-		var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(first_step, get_dir(src, A))
-		atk.icon_state = visual_effect_icon
-		atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	if(dist > 1)	//2+ tiles, we algo
-		for(var/i = 1, i<dist, i++)
-			var/turf/next_step = get_step(first_step, get_dir(first_step, A))
-			var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(next_step, get_dir(first_step, A))
-			atk.icon_state = visual_effect_icon
-			atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-			first_step = next_step
+	if(dist <= 1)
+		var/image/attack_image = image(icon = used_item, icon_state = used_item.icon_state)
+		attack_image.plane = A.plane + 1
+		attack_image.pixel_w = used_item.pixel_x + used_item.pixel_w
+		attack_image.pixel_z = used_item.pixel_y + used_item.pixel_z
+		// Scale the icon.
+		attack_image.transform *= 0.5
+		// The icon should not rotate.
+		attack_image.appearance_flags = APPEARANCE_UI
+
+		var/atom/movable/flick_visual/attack = A.flick_overlay_view(attack_image, 1 SECONDS)
+		var/matrix/copy_transform = new(transform)
+		var/x_sign = 0
+		var/y_sign = 0
+		var/direction = get_dir(src, A)
+		if (direction & NORTH)
+			y_sign = -1
+		else if (direction & SOUTH)
+			y_sign = 1
+
+		if (direction & EAST)
+			x_sign = -1
+		else if (direction & WEST)
+			x_sign = 1
+
+		// Attacking self, or something on the same turf as us
+		if (!direction)
+			y_sign = 1
+			// Not a fan of this, but its the "cleanest" way to animate this
+			x_sign = 0.25 * (prob(50) ? 1 : -1)
+			// For piercing attacks
+			direction = SOUTH
+
+		// And animate the attack!
+		switch (animation_type)
+			if (ATTACK_ANIMATION_BONK)
+				attack.pixel_x = 14 * x_sign
+				attack.pixel_y = 12 * y_sign
+				animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), pixel_x = 4 * x_sign, pixel_y = 3 * y_sign, time = 0.2 SECONDS)
+				animate(time = 0.1 SECONDS)
+				animate(alpha = 0, time = 0.1 SECONDS, easing = BACK_EASING|EASE_OUT)
+
+			if (ATTACK_ANIMATION_THRUST)
+				var/attack_angle = dir2angle(direction) + rand(-7, 7)
+				// Deducting 90 because we're assuming that icon_angle of 0 means an east-facing sprite
+				var/anim_angle = attack_angle - 90 + used_item.icon_angle
+				var/angle_mult = 1
+				if (x_sign && y_sign)
+					angle_mult = 1.4
+				attack.pixel_x = 22 * x_sign * angle_mult
+				attack.pixel_y = 18 * y_sign * angle_mult
+				attack.transform = attack.transform.Turn(anim_angle)
+				copy_transform = copy_transform.Turn(anim_angle)
+				animate(
+					attack,
+					pixel_x = (22 * x_sign - 12 * sin(attack_angle)) * angle_mult,
+					pixel_y = (18 * y_sign - 8 * cos(attack_angle)) * angle_mult,
+					time = 0.1 SECONDS,
+					easing = BACK_EASING|EASE_OUT,
+				)
+				animate(
+					attack,
+					alpha = 175,
+					transform = copy_transform.Scale(0.75),
+					pixel_x = (22 * x_sign + 26 * sin(attack_angle)) * angle_mult,
+					pixel_y = (18 * y_sign + 22 * cos(attack_angle)) * angle_mult,
+					time = 0.3 SECONDS,
+					easing = BACK_EASING|EASE_OUT,
+				)
+				animate(
+					alpha = 0,
+					pixel_x = -3 * -(x_sign + sin(attack_angle)),
+					pixel_y = -2 * -(y_sign + cos(attack_angle)),
+					time = 0.1 SECONDS,
+					easing = BACK_EASING|EASE_OUT
+				)
+
+			if (ATTACK_ANIMATION_SWIPE)
+				attack.pixel_x = 18 * x_sign
+				attack.pixel_y = 14 * y_sign
+				var/x_rot_sign = 0
+				var/y_rot_sign = 0
+				var/attack_dir = (prob(50) ? 1 : -1)
+				var/anim_angle = dir2angle(direction) - 90 + used_item.icon_angle
+
+				if (x_sign)
+					y_rot_sign = attack_dir
+				if (y_sign)
+					x_rot_sign = attack_dir
+
+				// Animations are flipped, so flip us too!
+				if (x_sign > 0 || y_sign < 0)
+					attack_dir *= -1
+
+				// We're swinging diagonally, use separate logic
+				var/anim_dir = attack_dir
+				if (x_sign && y_sign)
+					if (attack_dir < 0)
+						x_rot_sign = -x_sign * 1.4
+						y_rot_sign = 0
+					else
+						x_rot_sign = 0
+						y_rot_sign = -y_sign * 1.4
+
+					// Flip us if we've been flipped *unless* we're flipped due to both axis
+					if ((x_sign < 0 && y_sign > 0) || (x_sign > 0 && y_sign < 0))
+						anim_dir *= -1
+
+				attack.pixel_x += 10 * x_rot_sign
+				attack.pixel_y += 8 * y_rot_sign
+				attack.transform = attack.transform.Turn(anim_angle - 45 * anim_dir)
+				copy_transform = copy_transform.Scale(0.75)
+				animate(attack, alpha = 175, time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
+				animate(time = 0.1 SECONDS)
+				animate(alpha = 0, time = 0.1 SECONDS, easing = BACK_EASING|EASE_OUT)
+
+				animate(attack, transform = copy_transform.Turn(anim_angle + 45 * anim_dir), time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
+
+				var/x_return = 10 * -x_rot_sign
+				var/y_return = 8 * -y_rot_sign
+
+				if (!x_rot_sign)
+					x_return = 18 * x_sign
+				if (!y_rot_sign)
+					y_return = 14 * y_sign
+
+				var/angle_mult = 1
+				if (x_sign && y_sign)
+					angle_mult = 1.4
+					if (attack_dir > 0)
+						x_return = 8 * x_sign
+						y_return = 14 * y_sign
+					else
+						x_return = 18 * x_sign
+						y_return = 6 * y_sign
+
+				animate(attack, pixel_x = 4 * x_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+				animate(pixel_x = x_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
+
+				animate(attack, pixel_y = 3 * y_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+				animate(pixel_y = y_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
+	else
+		//Oldschool indicators.
+		var/turf/first_step = get_step(src, get_dir(src, A))
+		var/obj/effect/temp_visual/dir_setting/attack_effect/firstatk = new(first_step, get_dir(src, A))
+		firstatk.icon_state = visual_effect_icon
+		firstatk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+		if(dist > 1)	//2+ tiles, we trace a path to the target.
+			for(var/i = 1, i<dist, i++)
+				var/turf/next_step = get_step(first_step, get_dir(first_step, A))
+				var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(next_step, get_dir(first_step, A))
+				atk.icon_state = visual_effect_icon
+				atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+				first_step = next_step
 
 /obj/effect/temp_visual/dir_setting/attack_effect
 	icon = 'icons/effects/effects.dmi'
@@ -991,3 +1166,131 @@
 	animate(I, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = M, easing = CUBIC_EASING)
 	sleep(1)
 	animate(I, alpha = 0, transform = matrix(), time = 1)
+
+/atom/movable/Exited(atom/movable/gone, atom/newLoc)
+	. = ..()
+	if(!LAZYLEN(gone.important_recursive_contents))
+		return
+	var/list/nested_locs = get_nested_locs(src) + src
+	for(var/channel in gone.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			LAZYINITLIST(location.important_recursive_contents)
+			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+			LAZYINITLIST(recursive_contents[channel])
+			recursive_contents[channel] -= gone.important_recursive_contents[channel]
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						// This relies on a nice property of the linked recursive and gridmap types
+						// They're defined in relation to each other, so they have the same value
+						SSspatial_grid.remove_grid_awareness(location, channel)
+			ASSOC_UNSETEMPTY(recursive_contents, channel)
+			UNSETEMPTY(location.important_recursive_contents)
+
+/atom/movable/Entered(atom/movable/arrived, atom/old_loc)
+	. = ..()
+
+	if(!LAZYLEN(arrived.important_recursive_contents))
+		return
+	var/list/nested_locs = get_nested_locs(src) + src
+	for(var/channel in arrived.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			LAZYINITLIST(location.important_recursive_contents)
+			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+			LAZYINITLIST(recursive_contents[channel])
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						SSspatial_grid.add_grid_awareness(location, channel)
+			recursive_contents[channel] |= arrived.important_recursive_contents[channel]
+
+///allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
+/atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
+	var/already_hearing_sensitive = HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE)
+	ADD_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
+	if(already_hearing_sensitive) // If we were already hearing sensitive, we don't wanna be in important_recursive_contents twice, else we'll have potential issues like one radio sending the same message multiple times
+		return
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(location.important_recursive_contents)
+		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+			SSspatial_grid.add_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] += list(src)
+
+	var/turf/our_turf = get_turf(src)
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+
+/**
+ * removes the hearing sensitivity channel from the important_recursive_contents list of this and all nested locs containing us if there are no more sources of the trait left
+ * since RECURSIVE_CONTENTS_HEARING_SENSITIVE is also a spatial grid content type, removes us from the spatial grid if the trait is removed
+ *
+ * * trait_source - trait source define or ALL, if ALL, force removes hearing sensitivity. if a trait source define, removes hearing sensitivity only if the trait is removed
+ */
+/atom/movable/proc/lose_hearing_sensitivity(trait_source = TRAIT_GENERIC)
+	if(!HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+	REMOVE_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
+	if(HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+
+	var/turf/our_turf = get_turf(src)
+	/// We get our awareness updated by the important recursive contents stuff, here we remove our membership
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+			SSspatial_grid.remove_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+		UNSETEMPTY(location.important_recursive_contents)
+
+///allows this movable to know when it has "entered" another area no matter how many movable atoms its stuffed into, uses important_recursive_contents
+/atom/movable/proc/become_area_sensitive(trait_source = TRAIT_GENERIC)
+	if(!HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
+		for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+			LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AREA_SENSITIVE, src)
+	ADD_TRAIT(src, TRAIT_AREA_SENSITIVE, trait_source)
+
+///removes the area sensitive channel from the important_recursive_contents list of this and all nested locs containing us if there are no more source of the trait left
+/atom/movable/proc/lose_area_sensitivity(trait_source = TRAIT_GENERIC)
+	if(!HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
+		return
+	REMOVE_TRAIT(src, TRAIT_AREA_SENSITIVE, trait_source)
+	if(HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
+		return
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_AREA_SENSITIVE, src)
+
+///propogates ourselves through our nested contents, similar to other important_recursive_contents procs
+///main difference is that client contents need to possibly duplicate recursive contents for the clients mob AND its eye
+/mob/proc/enable_client_mobs_in_contents()
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]))
+			SSspatial_grid.add_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
+		recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] |= src
+
+	var/turf/our_turf = get_turf(src)
+	/// We got our awareness updated by the important recursive contents stuff, now we add our membership
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+
+///Clears the clients channel of this mob
+/mob/proc/clear_important_client_contents()
+	var/turf/our_turf = get_turf(src)
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
+		recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]))
+			SSspatial_grid.remove_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS)
+		UNSETEMPTY(movable_loc.important_recursive_contents)
+

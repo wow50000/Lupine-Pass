@@ -1,3 +1,7 @@
+/mob/living
+	//used by the basic ai controller /datum/ai_behavior/basic_melee_attack to determine how fast a mob can attack
+	var/melee_cooldown = CLICK_CD_MELEE
+
 /mob/living/Initialize()
 	. = ..()
 	update_a_intents()
@@ -54,6 +58,7 @@
 	playsound(src.loc, 'sound/foley/zfall.ogg', 100, FALSE)
 	if(!isgroundlessturf(T))
 		ZImpactDamage(T, levels)
+		GLOB.azure_round_stats[STATS_MOAT_FALLERS]++
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
@@ -168,7 +173,8 @@
 			var/sprint_distance = sprinted_tiles
 			var/instafail = FALSE
 			toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
-
+			if(HAS_TRAIT(src, TRAIT_PACIFISM)) // No Con-Checking if you're a pacifist. You aren't MEAN!!!
+				return FALSE
 			var/mob/living/L = M
 
 			var/self_points = FLOOR((STACON + STASTR)/2, 1)
@@ -197,7 +203,16 @@
 				self_points -= 99
 				instafail = TRUE
 				to_chat(src, span_warning("I changed direction too late!"))
-
+			var/clash_blocked
+			if(L.has_status_effect(/datum/status_effect/buff/clash) && !instafail)
+				self_points -= 99
+				L.remove_status_effect(/datum/status_effect/buff/clash)
+				to_chat(src, span_warning("[L] was ready for me!"))
+				if(prob(10))
+					playsound(src, 'sound/combat/clash_charge_meme.ogg', 100)
+				else
+					playsound(src, 'sound/combat/clash_charge.ogg', 100)
+				clash_blocked = TRUE
 			if(self_points > target_points)
 				L.Knockdown(1)
 			if(self_points < target_points)
@@ -205,19 +220,22 @@
 			if(self_points == target_points)
 				L.Knockdown(1)
 				Knockdown(30)
-			Immobilize(30)
+			Immobilize(10)
 			var/playsound = FALSE
-			if(apply_damage(15, BRUTE, "head", run_armor_check("head", "blunt", damage = 20)))
+			if(L.apply_damage(15, BRUTE, "chest", L.run_armor_check("chest", "blunt", damage = 10)))
 				playsound = TRUE
-			if(!instafail)
-				if(L.apply_damage(15, BRUTE, "chest", L.run_armor_check("chest", "blunt", damage = 10)))
+			if(instafail)
+				if(apply_damage(15, BRUTE, "head", run_armor_check("head", "blunt", damage = 20)))
 					playsound = TRUE
 			if(playsound)
 				playsound(src, "genblunt", 100, TRUE)
-			if(!instafail)
-				visible_message(span_warning("[src] charges into [L]!"), span_warning("I charge into [L]!"))
+			if(instafail || clash_blocked)
+				if(instafail)
+					visible_message(span_warning("[src] smashes into [L] with no headstart!"), span_warning("I charge into [L] too early!"))
+				if(clash_blocked)
+					visible_message(span_warning("[src] gets tripped by [L]!"), span_warning("I get tripped by [L]!"))
 			else
-				visible_message(span_warning("[src] smashes into [L] with no headstart!"), span_warning("I charge into [L] too early!"))
+				visible_message(span_warning("[src] charges into [L]!"), span_warning("I charge into [L]!"))
 			return TRUE
 
 	//okay, so we didn't switch. but should we push?
@@ -295,6 +313,10 @@
 			return FALSE
 		if(!lying_attack_check(L))
 			return FALSE
+		// snowflake check for blocking mouthgrabs on biting deadites
+		if(L.zone_selected == BODY_ZONE_PRECISE_MOUTH && istype(mouth, /obj/item/grabbing/bite))
+			to_chat(L, span_warning("You can't grab [src]'s mouth while [p_theyre()] biting something!"))
+			return FALSE
 	return TRUE
 
 /mob/living/carbon/proc/kick_attack_check(mob/living/L)
@@ -322,8 +344,8 @@
 			else //we have a short/medium weapon, so allow hitting legs
 				acceptable = list(BODY_ZONE_HEAD, BODY_ZONE_R_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_NECK, BODY_ZONE_PRECISE_R_EYE,BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH)
 		else
-			if(!CZ) //we are punching, no legs
-				acceptable = list(BODY_ZONE_HEAD, BODY_ZONE_R_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_NECK, BODY_ZONE_PRECISE_R_EYE,BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH)
+			if(!CZ)
+				acceptable = list(BODY_ZONE_HEAD, BODY_ZONE_R_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_NECK, BODY_ZONE_PRECISE_R_EYE,BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH)
 				if(HAS_TRAIT(L, TRAIT_CIVILIZEDBARBARIAN))
 					acceptable = list(BODY_ZONE_HEAD, BODY_ZONE_R_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_NECK, BODY_ZONE_PRECISE_R_EYE,BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
 	else if(!(L.mobility_flags & MOBILITY_STAND) && (mobility_flags & MOBILITY_STAND)) //we are prone, victim is standing
@@ -376,7 +398,6 @@
 //				to_chat(src, span_notice("I pull [AM] from [AM.pulledby]'s grip!"))
 //			log_combat(AM, AM.pulledby, "pulled from", src)
 //			AM.pulledby.stop_pulling() //an object can't be pulled by two mobs at once.
-
 	if(AM != src)
 		pulling = AM
 		AM.pulledby = src
@@ -389,6 +410,16 @@
 			M.LAssailant = null
 		else
 			M.LAssailant = usr
+
+		M.update_damage_hud()
+
+		if(HAS_TRAIT(M, TRAIT_GRABIMMUNE) && M.stat == CONSCIOUS) // Grab immunity check
+			if(M.cmode)
+				M.visible_message(span_warning("[M] breaks from [src]'s grip effortlessly!"), \
+						span_warning("I breaks from [src]'s grab effortlesly!"))
+				log_combat(src, M, "tried grabbing", addition="passive grab")
+				stop_pulling()
+				return
 
 		// Makes it so people who recently broke out of grabs cannot be grabbed again
 		if(TIMER_COOLDOWN_RUNNING(M, "broke_free") && M.stat == CONSCIOUS)
@@ -531,6 +562,11 @@
 			var/mob/living/M = pulling
 			M.reset_offsets("pulledby")
 			reset_pull_offsets(pulling)
+			if(HAS_TRAIT(M, TRAIT_GARROTED))
+				var/obj/item/inqarticles/garrote/gcord = src.get_active_held_item()
+				if(!gcord)
+					gcord = src.get_inactive_held_item()
+				gcord.wipeslate(src)	
 
 		if(forced) //if false, called by the grab item itself, no reason to drop it again
 			if(istype(get_active_held_item(), /obj/item/grabbing))
@@ -581,6 +617,10 @@
 		return
 	if (InCritical() || health <= 0 || (blood_volume < BLOOD_VOLUME_SURVIVE))
 		log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] while in [InFullCritical() ? "hard":"soft"] critical with [round(health, 0.1)] points of health!", LOG_ATTACK)
+		
+		if(istype(src.loc, /turf/open/water) && !HAS_TRAIT(src, TRAIT_NOBREATH) && lying && client)
+			GLOB.azure_round_stats[STATS_PEOPLE_DROWNED]++
+
 		adjustOxyLoss(201)
 		updatehealth()
 //		if(!whispered)
@@ -810,6 +850,7 @@
 			wound.heal_wound(wound.whp)
 	ExtinguishMob()
 	fire_stacks = 0
+	divine_fire_stacks = 0
 	confused = 0
 	dizziness = 0
 	drowsyness = 0
@@ -915,8 +956,6 @@
 	..()
 	if(olddir != dir)
 		stop_looking()
-		if(doing)
-			doing = 0
 		if(client)
 			update_vision_cone()
 
@@ -979,10 +1018,18 @@
 
 	SEND_SIGNAL(src, COMSIG_LIVING_RESIST, src)
 	//resisting grabs (as if it helps anyone...)
-	if(!restrained(ignore_grab = 1) && pulledby)
-		log_combat(src, pulledby, "resisted grab")
-		resist_grab()
-		return
+	if(pulledby)
+		var/mob/living/P
+		if(isliving(pulledby))
+			P = pulledby
+		if(!restrained(ignore_grab = 1))
+			log_combat(src, pulledby, "resisted grab")
+			resist_grab()
+			return
+		else if(P.compliance) // we ARE handcuffed apart from the grab, but grabber has Compliance Mode on
+			log_combat(src, pulledby, "resisted grab (is restrained, compliance mode bypass)") // if you try baiting prisoners with this, I'll know.
+			resist_grab() // resisting out of his grab (100% success) takes priority here
+			return
 
 	//unbuckling yourself
 	if(buckled && last_special <= world.time)
@@ -1010,6 +1057,7 @@
 			return
 	log_combat(src, null, "surrendered")
 	surrendering = 1
+	GLOB.azure_round_stats[STATS_YIELDS]++
 	toggle_cmode()
 	changeNext_move(CLICK_CD_EXHAUSTED)
 	var/obj/effect/temp_visual/surrender/flaggy = new(src)
@@ -1025,6 +1073,27 @@
 
 /mob/living/proc/end_submit()
 	surrendering = 0
+	update_mobility()
+
+/mob/living/proc/toggle_compliance()
+	set name = "Toggle Compliance"
+	set category = "IC"
+	set hidden = 1
+
+	var/notifyme = TRUE
+	if(client && client.prefs)
+		notifyme = client.prefs.compliance_notifs
+
+	if(has_status_effect(/datum/status_effect/compliance))
+		src.compliance = 0
+		remove_status_effect(/datum/status_effect/compliance)
+		if(notifyme)
+			to_chat(src, span_info("I will struggle against grabs as usual."))
+	else
+		src.compliance = 1
+		apply_status_effect(/datum/status_effect/compliance)
+		if(notifyme)
+			to_chat(src, span_info("I will allow all grabs and resistance attempts by others."))
 
 
 /mob/proc/stop_attack(message = FALSE)
@@ -1048,74 +1117,102 @@
 	update_charging_movespeed()
 
 /mob/proc/resist_grab(moving_resist)
-	return 1 //returning 0 means we successfully broke free
+	return TRUE //returning 0 means we successfully broke free
 
 /mob/living/resist_grab(moving_resist)
 	. = TRUE
 
 	var/wrestling_diff = 0
-	var/resist_chance = 40
+	var/resist_chance = 55
 	var/mob/living/L = pulledby
 	var/combat_modifier = 1
+	var/agg_grab = FALSE
 
 	if(mind)
-		wrestling_diff += (mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
+		wrestling_diff += (get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(L.mind)
-		wrestling_diff -= (L.mind.get_skill_level(/datum/skill/combat/wrestling))
+		wrestling_diff -= (L.get_skill_level(/datum/skill/combat/wrestling))
+	if(L.grab_state > GRAB_PASSIVE)
+		agg_grab = TRUE
 
 	if(restrained())
 		combat_modifier -= 0.25
-
 	if(!(L.mobility_flags & MOBILITY_STAND) && mobility_flags & MOBILITY_STAND)
 		combat_modifier += 0.2
-
 	if(cmode && !L.cmode)
 		combat_modifier += 0.3
 	else if(!cmode && L.cmode)
 		combat_modifier -= 0.3
+	if(agg_grab)
+		if(!HAS_TRAIT(src, TRAIT_GARROTED))
+			combat_modifier -= 0.3
+		else
+			if(HAS_TRAIT(L, TRAIT_BLACKBAGGER))
+				combat_modifier -= 0.3	
+	for(var/obj/item/grabbing/G in grabbedby)
+		if(G.chokehold == TRUE)
+			combat_modifier -= 0.15
 
-	resist_chance = clamp((((4 + (((STASTR - L.STASTR)/2) + wrestling_diff)) * 10 + rand(-5, 10)) * combat_modifier), 5, 95)
+	resist_chance += max((wrestling_diff * 10), -20)
+	if(HAS_TRAIT(src, TRAIT_GARROTED))
+		resist_chance += (STACON - L.STASPD) * 5
+	else
+		resist_chance += (STACON - (agg_grab ? L.STASTR : L.STAEND)) * 5
+	resist_chance *= combat_modifier
+	resist_chance = clamp(resist_chance, 5, 95)
+
+	if(L.compliance)
+		resist_chance = 100
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
-	if(prob(resist_chance))
-		rogfat_add(rand(5,15))
-		visible_message(span_warning("[src] breaks free of [pulledby]'s grip!"), \
-						span_notice("I break free of [pulledby]'s grip!"), null, null, pulledby)
-		to_chat(pulledby, span_danger("[src] breaks free of my grip!"))
-		log_combat(pulledby, src, "broke grab")
-		pulledby.changeNext_move(CLICK_CD_GRABBING)
-		playsound(src.loc, 'sound/combat/grabbreak.ogg', 50, TRUE, -1)
-		pulledby.stop_pulling()
-		return FALSE
-	else
-		rogfat_add(rand(5,15))
-		var/shitte = ""
-//		if(client?.prefs.showrolls)
-//			shitte = " ([resist_chance]%)"
-		visible_message(span_warning("[src] struggles to break free from [pulledby]'s grip!"), \
-						span_warning("I struggle against [pulledby]'s grip![shitte]"), null, null, pulledby)
+	stamina_add(rand(5,15))
+
+	if(!prob(resist_chance))
+		var/rchance = ""
+		if(client?.prefs.showrolls)
+			rchance = " ([resist_chance]%)"
+		if(HAS_TRAIT(src, TRAIT_GARROTED))
+			var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+			if(!gcord)
+				gcord = L.get_inactive_held_item()
+			to_chat(pulledby, span_warning("[src] struggles against the [gcord]!"))
+			gcord.take_damage(13)
+		if(!HAS_TRAIT(src, TRAIT_GARROTED))	
+			visible_message(span_warning("[src] struggles to break free from [L]'s grip!"), \
+						span_warning("I struggle against [L]'s grip![rchance]"), null, null, L)
+		else
+			var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+			if(!gcord)
+				gcord = L.get_inactive_held_item()
+			visible_message(span_warning("[src] struggles to break free from [L]'s [gcord]!"), \
+						span_warning("I struggle against [L]'s [gcord]![rchance]"), null, null, L)					
 		playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
-		to_chat(pulledby, span_warning("[src] struggles against my grip!"))
-
-		return TRUE
-
-/mob/living/carbon/human/resist_grab(moving_resist)
-	var/mob/living/L = pulledby
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		if(HAS_TRAIT(H, TRAIT_NOSEGRAB) && !HAS_TRAIT(src, TRAIT_MISSING_NOSE))
-			var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)
-			for(var/obj/item/grabbing/G in grabbedby)
-				if(G.limb_grabbed == head)
-					if(G.grabbee == pulledby)
-						if(G.sublimb_grabbed == BODY_ZONE_PRECISE_NOSE)
-							visible_message(span_warning("[src] struggles to break free from [pulledby]'s grip!"), \
-											span_warning("I struggle against [pulledby]'s grip!"), null, null, pulledby)
-							playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
-							to_chat(pulledby, span_warning("[src] struggles against my grip!"))
-							return FALSE
-	return ..()
+		if(!HAS_TRAIT(src, TRAIT_GARROTED))
+			to_chat(pulledby, span_warning("[src] struggles against my grip!"))
+		return FALSE
+	if(!HAS_TRAIT(src, TRAIT_GARROTED))
+		visible_message(span_warning("[src] breaks free of [L]'s grip!"), \
+						span_notice("I break free of [L]'s grip!"), null, null, L)
+		to_chat(L, span_danger("[src] breaks free of my grip!"))
+	else
+		var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+		if(!gcord)
+			gcord = L.get_inactive_held_item()	
+		visible_message(span_warning("[src] breaks free of [L]'s [gcord]!"), \
+						span_notice("I break free of [L]'s [gcord]!"), null, null, L)
+		to_chat(L, span_danger("[src] breaks free from my [gcord]!"))
+	if(HAS_TRAIT(src, TRAIT_GARROTED))
+		var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+		if(!gcord)
+			gcord = L.get_inactive_held_item()
+		gcord.take_damage(26)
+		gcord.wipeslate(src)	
+	log_combat(L, src, "broke grab")
+	L.changeNext_move(agg_grab ? CLICK_CD_GRABBING : CLICK_CD_GRABBING + 1 SECONDS)
+	playsound(src.loc, 'sound/combat/grabbreak.ogg', 50, TRUE, -1)
+	L.stop_pulling()
+	return TRUE
 
 /mob/living/proc/resist_buckle()
 	buckled.user_unbuckle_mob(src,src)
@@ -1192,7 +1289,7 @@
 		if(L.cmode && L.mobility_flags & MOBILITY_STAND && !L.restrained())
 			to_chat(src, span_warning("I can't take \the [what] off, they are too tense!"))
 			return
-		if(L.surrendering)
+		if(L.compliance || L.surrendering)
 			surrender_mod = 0.5
 
 	if(!who.Adjacent(src))
@@ -1247,7 +1344,7 @@
 			if(L.cmode && L.mobility_flags & MOBILITY_STAND)
 				to_chat(src, span_warning("I can't put \the [what] on them, they are too tense!"))
 				return
-			if(L.surrendering)
+			if(L.compliance || L.surrendering)
 				surrender_mod = 0.5
 
 		who.visible_message(span_notice("[src] tries to put [what] on [who]."), \
@@ -1353,9 +1450,6 @@
 		return FALSE
 	return TRUE
 
-/mob/living/proc/update_stamina()
-	return
-
 /mob/living/proc/owns_soul()
 	if(mind)
 		return mind.soulOwner == mind
@@ -1399,7 +1493,7 @@
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()
-	if(fire_stacks > 0 && !on_fire)
+	if((fire_stacks > 0 || divine_fire_stacks > 0) && !on_fire)
 		if(HAS_TRAIT(src, TRAIT_NOFIRE) && prob(90)) // Nofire is described as nonflammable, not immune. 90% chance of avoiding ignite
 			return
 		testing("ignis")
@@ -1433,10 +1527,16 @@
 	if(on_fire && fire_stacks <= 0)
 		ExtinguishMob()
 
+/mob/living/proc/adjust_divine_fire_stacks(add_fire_stacks) //Adjusting the amount of divine_fire_stacks we have on person
+	divine_fire_stacks = CLAMP(divine_fire_stacks + add_fire_stacks, 0, 100)
+
 //Share fire evenly between the two mobs
 //Called in MobBump() and Crossed()
 /mob/living/proc/spreadFire(mob/living/L)
 	if(!istype(L))
+		return
+		
+	if(HAS_TRAIT(L, TRAIT_NOFIRE) || HAS_TRAIT(src, TRAIT_NOFIRE))
 		return
 
 	if(on_fire)
@@ -1764,7 +1864,7 @@
 	changeNext_move(HAS_TRAIT(src, TRAIT_SLEUTH) ? CLICK_CD_SLEUTH : CLICK_CD_TRACKING)
 	if(m_intent != MOVE_INTENT_SNEAK)
 		visible_message(span_info("[src] begins looking around."))
-	var/looktime = 50 - (STAPER * 2) - (mind?.get_skill_level(/datum/skill/misc/tracking) * 5)
+	var/looktime = 50 - (STAPER * 2) - (get_skill_level(/datum/skill/misc/tracking) * 5)
 	looktime = clamp(looktime, 7, 50)
 	if(HAS_TRAIT(src, TRAIT_SLEUTH) ? move_after(src, looktime, target = src) : do_after(src, looktime, target = src))
 		for(var/mob/living/M in view(7,src))
@@ -1773,14 +1873,14 @@
 				continue
 			if(see_invisible < M.invisibility)
 				continue
-			var/probby = (2 * STAPER) + (mind?.get_skill_level(/datum/skill/misc/tracking)) * 5
+			var/probby = (2 * STAPER) + (get_skill_level(/datum/skill/misc/tracking)) * 5
 			if(M.mob_timers[MT_INVISIBILITY] > world.time) // Check if the mob is affected by the invisibility spell
-				if(mind?.get_skill_level(/datum/skill/misc/tracking) <= SKILL_LEVEL_EXPERT)	//Master or Legendary from this point
+				if(get_skill_level(/datum/skill/misc/tracking) <= SKILL_LEVEL_EXPERT)	//Master or Legendary from this point
 					continue
 			if(M.mind)	//We find the biggest value and use that, to account for mages / Nocites / sneaky people all at once
-				var/target_sneak = M.mind?.get_skill_level(/datum/skill/misc/sneaking)
-				var/target_holy = M.mind?.get_skill_level(/datum/skill/magic/holy)
-				var/target_arcyne = M.mind?.get_skill_level(/datum/skill/magic/arcane)
+				var/target_sneak = M.get_skill_level(/datum/skill/misc/sneaking)
+				var/target_holy = M.get_skill_level(/datum/skill/magic/holy)
+				var/target_arcyne = M.get_skill_level(/datum/skill/magic/arcane)
 				var/chosen_skill = max(target_sneak, target_holy, target_arcyne)
 				probby -= chosen_skill * 5
 				if(M.STAPER > 10)
@@ -1791,9 +1891,9 @@
 				if(M.m_intent == MOVE_INTENT_SNEAK || M.mob_timers[MT_INVISIBILITY] > world.time)
 					emote("huh")
 					to_chat(M, span_danger("[src] sees me! I'm found!"))
-					M.update_sneak_invis()
 					M.mob_timers[MT_INVISIBILITY] = world.time
 					M.mob_timers[MT_FOUNDSNEAK] = world.time
+					M.update_sneak_invis(reset = TRUE)
 			else
 				if(M.m_intent == MOVE_INTENT_SNEAK || M.mob_timers[MT_INVISIBILITY] > world.time)
 					if(M.client?.prefs.showrolls)
@@ -1813,6 +1913,14 @@
 		for(var/obj/O in view(7,src))
 			if(istype(O, /obj/item/restraints/legcuffs/beartrap))
 				var/obj/item/restraints/legcuffs/beartrap/M = O
+				if(isturf(M.loc) && M.armed)
+					found_ping(get_turf(M), client, "trap")
+			if(istype(O, /obj/structure/trap,))
+				var/obj/structure/trap/M = O
+				if(isturf(M.loc) && M.armed)
+					found_ping(get_turf(M), client, "trap")
+			if(istype(O, /obj/structure/closet/crate/chest/trapped,))
+				var/obj/structure/trap/M = O
 				if(isturf(M.loc) && M.armed)
 					found_ping(get_turf(M), client, "trap")
 			if(istype(O, /obj/structure/flora/roguegrass/maneater/real))

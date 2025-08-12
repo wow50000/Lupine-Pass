@@ -9,7 +9,7 @@
 	icon = 'icons/roguetown/weapons/tools.dmi'
 	sharpness = IS_BLUNT
 	//dropshrink = 0.8
-	wlength = 10
+	wlength = WLENGTH_NORMAL
 	max_integrity = 400
 	slot_flags = ITEM_SLOT_HIP
 	toolspeed = 1
@@ -68,3 +68,25 @@
 	gripped_intents = list(/datum/intent/pick)
 	max_integrity = 250
 	smeltresult = null
+
+/obj/item/rogueweapon/pick/aalloy
+	name = "decrepit pick"
+	desc = "A chisel of wrought bronze, which once labored to gather the ores necessary for an ancient alloy; such was lost in the aftermath of Her ascension."
+	force = 12
+	force_wielded = 17
+	icon_state = "apick"
+	possible_item_intents = list(/datum/intent/pick)
+	gripped_intents = list(/datum/intent/pick)
+	max_integrity = 150
+	smeltresult = /obj/item/ingot/aaslag
+	color = "#bb9696"
+	sellprice = 15
+
+/obj/item/rogueweapon/pick/copper
+	name = "copper pick"
+	desc = "A copper pick, slightly better than a stone pick."
+	force = 15
+	force_wielded = 19
+	icon_state = "cpick"
+	max_integrity = 325
+	smeltresult = /obj/item/ingot/copper

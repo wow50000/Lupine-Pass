@@ -9,7 +9,7 @@
 	releasedrain = 30
 	chargedrain = 1
 	chargetime = 25
-	recharge_time = 20 SECONDS
+	recharge_time = 15 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
@@ -21,7 +21,7 @@
 	glow_intensity = GLOW_INTENSITY_HIGH
 	chargedloop = /datum/looping_sound/invokefire
 	associated_skill = /datum/skill/magic/arcane
-	cost = 2
+	cost = 6
 	xp_gain = TRUE
 
 /obj/projectile/magic/aoe/fireball/rogue
@@ -30,8 +30,9 @@
 	exp_light = 0
 	exp_flash = 0
 	exp_fire = 1
-	damage = 10
+	damage = 60
 	damage_type = BURN
+	npc_damage_mult = 2 // HAHAHA
 	accuracy = 40 // Base accuracy is lower for burn projectiles because they bypass armor
 	nodamage = FALSE
 	flag = "magic"

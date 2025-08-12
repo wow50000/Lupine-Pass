@@ -42,6 +42,7 @@
 	var/obj/item/clothing/ears = null
 
 	var/obj/item/undies/underwear = null	//Underwear item
+	var/obj/item/legwears/legwear_socks = null	//legwear item
 
 
 	var/datum/dna/dna = null //Carbon
@@ -89,3 +90,4 @@
 /// Amount of remaining vitae that can be drained from this mob
 	var/vitae_pool = 8000
 
+	var/next_smell = 0

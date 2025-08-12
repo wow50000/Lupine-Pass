@@ -30,6 +30,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 	GLOB.alive_mob_list -= src
 	GLOB.mob_directory -= tag
 	focus = null
+	if(mind?.current == src)
+		mind.set_current(null)
+		mind.soulOwner = null
 
 	for (var/alert in alerts)
 		clear_alert(alert, TRUE)
@@ -40,11 +43,15 @@ GLOBAL_VAR_INIT(mobids, 1)
 	qdel(hud_used)
 	for(var/cc in client_colours)
 		qdel(cc)
+	for(var/datum/intent in base_intents)
+		qdel(intent)
+	if(skills && skills.current == src)
+		qdel(skills)
 	client_colours = null
 	testing("EPICWIN!! [src] [type]")
 	ghostize(drawskip=TRUE)
 	..()
-	return QDEL_HINT_HARDDEL
+	return QDEL_HINT_QUEUE
 
 /**
  * Intialize a mob
@@ -84,6 +91,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	set_nutrition(rand(NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_START_MAX))
 	set_hydration(rand(HYDRATION_LEVEL_START_MIN, HYDRATION_LEVEL_START_MAX))
 	. = ..()
+	become_hearing_sensitive()
 	update_config_movespeed()
 	update_movespeed(TRUE)
 
@@ -339,7 +347,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  * Initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
  */
 /mob/proc/equip_to_slot_if_possible(obj/item/W, slot, qdel_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, bypass_equip_delay_self = FALSE, initial)
-	if(!istype(W))
+	if(!istype(W) || QDELETED(W)) //This qdeleted is to prevent stupid behavior with things that qdel during init, like say stacks
 		return FALSE
 	if(!W.mob_can_equip(src, null, slot, disable_warning, bypass_equip_delay_self))
 		if(qdel_on_fail)
@@ -484,7 +492,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 					target = "\the [T.name]'s [T.simple_limb_hit(zone_selected)]"
 				if(iscarbon(T) && T != src)
 					target = "[T]'s [parse_zone(zone_selected)]"
-			visible_message(span_emote("[message] [target]."))
+			if(m_intent != MOVE_INTENT_SNEAK)
+				visible_message(span_emote("[message] [target]."))
 
 	var/list/result = A.examine(src)
 	if(result)
@@ -760,10 +769,12 @@ GLOBAL_VAR_INIT(mobids, 1)
  * For mobs this just shows the inventory
  */
 /mob/MouseDrop_T(atom/dropping, atom/user)
-	. = ..()
+	..()
 	if(ismob(dropping) && dropping != user)
+		var/mob/U = user
 		var/mob/M = dropping
-		M.show_inv(user)
+		if (!U.cmode || U.client.prefs.toggles & CMODE_STRIPPING)
+			M.show_inv(user)
 		return TRUE
 
 ///Is the mob muzzled (default false)
@@ -780,7 +791,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	..()
 	// && check_rights(R_ADMIN,0)
 	var/ticker_time = world.time - SSticker.round_start_time
-	var/time_left = SSticker.mode?.round_ends_at - ticker_time
+	var/time_left = SSgamemode.round_ends_at - ticker_time
 	if(client && client.holder)
 		if(statpanel("Status"))
 			if (client)
@@ -792,7 +803,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 			stat(null, "Round ID: [GLOB.rogue_round_id ? GLOB.rogue_round_id : "NULL"]")
 //			stat(null, "Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]")
 			stat(null, "Round Time: [time2text(STATION_TIME_PASSED(), "hh:mm:ss", 0)] [world.time - SSticker.round_start_time]")
-			if(SSticker.mode?.roundvoteend)
+			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
 			stat(null, "Round TrueTime: [worldtime2text()] [world.time]")
 			stat(null, "TimeOfDay: [GLOB.tod]")
@@ -805,7 +816,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(statpanel("RoundInfo"))
 			stat("Round ID: [GLOB.rogue_round_id]")
 			stat("Round Time: [time2text(STATION_TIME_PASSED(), "hh:mm:ss", 0)] [world.time - SSticker.round_start_time]")
-			if(SSticker.mode?.roundvoteend)
+			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
 			stat("TimeOfDay: [GLOB.tod]")
 
@@ -894,7 +905,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  * * no transform not set
  * * we are not restrained
  */
-/mob/proc/canface()
+/mob/proc/canface(atom/A)
 	if(client)
 		if(world.time < client.last_turn)
 			return FALSE
@@ -911,13 +922,41 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return TRUE
 
 ///Checks mobility move as well as parent checks
-/mob/living/canface()
+/mob/living/canface(atom/A)
 	if(!(mobility_flags & MOBILITY_MOVE))
 		return FALSE
 	if(world.time < last_dir_change + 5)
 		return
-	if(pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
-		return FALSE
+	if(A && pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
+		// get_cardinal_dir is inconsistent, reuse face_atom code
+		var/dx = A.x - src.x
+		var/dy = A.y - src.y
+		var/dir
+		if(!dx && !dy) // Wall items are graphically shifted but on the floor
+			if(A.pixel_y > 16)
+				dir = NORTH
+			else if(A.pixel_y < -16)
+				dir = SOUTH
+			else if(A.pixel_x > 16)
+				dir = EAST
+			else if(A.pixel_x < -16)
+				dir = WEST
+		else
+			if(abs(dx) < abs(dy))
+				if(dy > 0)
+					dir = NORTH
+				else
+					dir = SOUTH
+			else
+				if(dx > 0)
+					dir = EAST
+				else
+					dir = WEST
+		if(dir == pulledby.dir) // can never face away from the person grabbing you
+			return FALSE
+		for(var/obj/item/grabbing/G in grabbedby) // only chokeholds prevent turning
+			if(G.chokehold)
+				return FALSE
 	if(IsImmobilized())
 		return FALSE
 	return ..()
@@ -960,23 +999,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 	setDir(SOUTH)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
 	return TRUE
-
-///Hidden Pixel Shift Verbs, now handled through modularized pixel_shift 
-/mob/verb/eastshift()
-	set hidden = TRUE
-	pixel_shift(EAST)
-
-/mob/verb/westshift()
-	set hidden = TRUE
-	pixel_shift(WEST)
-
-/mob/verb/northshift()
-	set hidden = TRUE
-	pixel_shift(NORTH)
-
-/mob/verb/southshift()
-	set hidden = TRUE
-	pixel_shift(SOUTH)
 
 ///This might need a rename but it should replace the can this mob use things check
 /mob/proc/IsAdvancedToolUser()
@@ -1377,3 +1399,19 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(customsayverb)
 		input = capitalize(copytext(input, customsayverb+1))
 	return "[message_spans_start(spans)][input]</span>"
+
+/mob/living/proc/can_smell()
+	if(HAS_TRAIT(src, TRAIT_MISSING_NOSE))
+		return FALSE
+	return TRUE
+
+/mob/proc/become_uncliented()
+	if(!canon_client)
+		return
+
+	if(canon_client?.movingmob)
+		LAZYREMOVE(canon_client.movingmob.client_mobs_in_contents, src)
+		canon_client.movingmob = null
+
+	clear_important_client_contents()
+	canon_client = null

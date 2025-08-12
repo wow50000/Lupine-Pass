@@ -93,8 +93,6 @@
 	set name = "Changelog"
 	set category = "OOC"
 	set hidden = 1
-//	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
-//	changelog.send(src)
 	src << browse('html/changelog.html', "window=changes;size=675x650")
 	if(prefs.lastchangelog != GLOB.changelog_hash)
 		prefs.lastchangelog = GLOB.changelog_hash
@@ -148,7 +146,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tMMB (no intent) = Special Interaction
 \tSHIFT + LMB = Examine something
 \tSHIFT + RMB = Focus
-\tCTRL + LMB = TileAtomList
+\tALT + RMB = TileAtomList
 \tCTRL + RMB = Point at something
 </font>"}
 

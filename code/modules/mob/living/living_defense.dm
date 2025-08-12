@@ -19,6 +19,9 @@
 			to_chat(src, span_warning("[soften_text]"))
 //		else
 //			to_chat(src, span_warning("My armor softens the blow!"))
+	if(mob_timers[MT_INVISIBILITY] > world.time)			
+		mob_timers[MT_INVISIBILITY] = world.time
+		update_sneak_invis(reset = TRUE)
 	return armor
 
 
@@ -44,7 +47,10 @@
 	return BULLET_ACT_HIT
 
 /mob/living/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
-	var/armor = run_armor_check(def_zone, P.flag, "", "",P.armor_penetration, damage = P.damage)
+	if(!prob(P.accuracy + P.bonus_accuracy))
+		def_zone = BODY_ZONE_CHEST
+	var/ap = (P.flag == "blunt") ? BLUNT_DEFAULT_PENFACTOR : P.armor_penetration
+	var/armor = run_armor_check(def_zone, P.flag, "", "",armor_penetration = ap, damage = P.damage)
 
 	next_attack_msg.Cut()
 
@@ -54,7 +60,7 @@
 		if(!apply_damage(P.damage, P.damage_type, def_zone, armor))
 			nodmg = TRUE
 			next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
-		apply_effects(P.stun, P.knockdown, P.unconscious, P.slur, P.stutter, P.eyeblur, P.drowsy, armor, P.stamina, P.jitter, P.paralyze, P.immobilize)
+		apply_effects(stun = P.stun, knockdown = P.knockdown, unconscious = P.unconscious, slur = P.slur, stutter = P.stutter, eyeblur = P.eyeblur, drowsy = P.drowsy, blocked = armor, stamina = P.stamina, jitter = P.jitter, paralyze = P.paralyze, immobilize = P.immobilize)
 		if(!nodmg)
 			if(P.dismemberment)
 				check_projectile_dismemberment(P, def_zone,armor)
@@ -115,7 +121,8 @@
 		var/zone = throwingdatum?.target_zone || ran_zone(BODY_ZONE_CHEST, 65)
 		SEND_SIGNAL(I, COMSIG_MOVABLE_IMPACT_ZONE, src, zone)
 		if(!blocked)
-			var/armor = run_armor_check(zone, damage_flag, "", "",I.armor_penetration, damage = I.throwforce)
+			var/ap = (damage_flag == "blunt") ? BLUNT_DEFAULT_PENFACTOR : I.armor_penetration 
+			var/armor = run_armor_check(zone, damage_flag, "", "", armor_penetration = ap, damage = I.throwforce)
 			next_attack_msg.Cut()
 			var/nodmg = FALSE
 			if(!apply_damage(I.throwforce, I.damtype, zone, armor))
@@ -150,7 +157,7 @@
 	if(!maxstacks)
 		maxstacks = 1
 	if(maxstacks)
-		if(fire_stacks >= maxstacks)
+		if(fire_stacks + divine_fire_stacks >= maxstacks)
 			return
 	if(added)
 		adjust_fire_stacks(added)
@@ -177,17 +184,20 @@
 
 //proc to upgrade a simple pull into a more aggressive grab.
 /mob/living/proc/grippedby(mob/living/carbon/user, instant = FALSE)
-	user.changeNext_move(CLICK_CD_MELEE * 2 - user.STASPD)
+	user.changeNext_move(CLICK_CD_GRABBING * 2 - user.STASPD)
 	var/skill_diff = 0
 	var/combat_modifier = 1
 	if(user.mind)
-		skill_diff += (user.mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
+		skill_diff += (user.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(mind)
-		skill_diff -= (mind.get_skill_level(/datum/skill/combat/wrestling))
+		skill_diff -= (get_skill_level(/datum/skill/combat/wrestling))
 
 	if(user == src)
 		instant = TRUE
 
+	if(HAS_TRAIT(user, TRAIT_NOSTRUGGLE))	
+		instant = TRUE
+		
 	if(surrendering)
 		combat_modifier = 2
 
@@ -201,8 +211,15 @@
 		combat_modifier += 0.3
 	else if(!user.cmode && cmode)
 		combat_modifier -= 0.3
+	for(var/obj/item/grabbing/G in grabbedby)
+		if(G.chokehold == TRUE)
+			combat_modifier += 0.15
 
-	var/probby =  clamp((((4 + (((user.STASTR - STASTR)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)
+	var/probby
+	if(!compliance)
+		probby = clamp((((4 + (((user.STASTR - STASTR)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)
+	else
+		probby = 100
 
 	if(!prob(probby) && !instant && !stat)
 		visible_message(span_warning("[user] struggles with [src]!"),
@@ -238,7 +255,8 @@
 		add_log = " (pacifist)"
 	send_grabbed_message(user)
 	if(user != src)
-		stop_pulling()
+		if(pulling != user) // If the person we're pulling aggro grabs us don't break the grab
+			stop_pulling()
 		user.set_pull_offsets(src, user.grab_state)
 	log_combat(user, src, "grabbed", addition="aggressive grab[add_log]")
 	return 1
@@ -283,6 +301,8 @@
 	return list(/datum/intent/grab/move)
 
 /mob/living/proc/send_grabbed_message(mob/living/carbon/user)
+	if(HAS_TRAIT(user, TRAIT_NOTIGHTGRABMESSAGE))	
+		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		visible_message(span_danger("[user] firmly grips [src]!"),
 						span_danger("[user] firmly grips me!"), span_hear("I hear aggressive shuffling!"), null, user)
@@ -447,7 +467,7 @@
 	return
 
 
-/mob/living/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
+/mob/living/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent, simplified = TRUE)
 	if(!used_item)
 		used_item = get_active_held_item()
 	..()

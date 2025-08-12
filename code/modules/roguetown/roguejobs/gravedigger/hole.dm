@@ -162,7 +162,7 @@
 			var/mob/living/carbon/C = user
 			if(C.domhand)
 				used_str = C.get_str_arms(C.used_hand)
-			C.rogfat_add(max(60 - (used_str * 5), 1))
+			C.stamina_add(max(60 - (used_str * 5), 1))
 		if(stage < 3)
 			if(faildirt < 2)
 				if(prob(used_str * 5))
@@ -177,6 +177,8 @@
 			locked = FALSE
 			open()
 			for(var/obj/structure/gravemarker/G in loc)
+				record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+				GLOB.azure_round_stats[STATS_GRAVES_ROBBED]++
 				qdel(G)
 				if(isliving(user))
 					var/mob/living/L = user
@@ -314,14 +316,15 @@
 							new /obj/item/natural/worms/leech(T)
 					else
 						new /obj/item/natural/worms(T)
+			if(!(locate(/obj/item/natural/clay) in T))
+				if(prob(25))
+					new /obj/item/natural/clay(T)
 		else
-			if(!(locate(/obj/item/natural/stone) in T))
+			if(!(locate(/obj/item/natural/stone) in T) || !(locate(/obj/item/natural/clay) in T))
 				if(prob(23))
 					new /obj/item/natural/stone(T)
-			else 
-				if(!(locate(/obj/item/natural/clay) in T))
-					if(prob(40))	
-						new /obj/item/natural/clay(T)
+				if(prob(18))	
+					new /obj/item/natural/clay(T)
 	return ..()
 
 /obj/structure/closet/dirthole/Destroy()

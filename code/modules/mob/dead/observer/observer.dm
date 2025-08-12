@@ -92,6 +92,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	see_in_dark = 0
 	hud_type = /datum/hud/obs
 
+/mob/dead/observer/screye/blackmirror
+	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS
+	see_in_dark = 100
+
 /mob/dead/observer/screye/Move(n, direct)
 	return
 
@@ -105,9 +109,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		/mob/dead/observer/proc/open_spawners_menu,
 		/mob/dead/observer/proc/tray_view)
 
-	if(!(istype(src, /mob/dead/observer/rogue/arcaneeye)))
-		client?.verbs += GLOB.ghost_verbs
-		to_chat(src, span_danger("Click the <b>SKULL</b> on the left of your HUD to respawn."))
+	if(!istype(src, /mob/dead/observer/rogue/arcaneeye))
+		if(!istype(src, /mob/dead/observer/screye))
+			client?.verbs += GLOB.ghost_verbs
+			to_chat(src, span_danger("Click the <b>SKULL</b> on the left of your HUD to respawn."))
 
 	if(icon_state in GLOB.ghost_forms_with_directions_list)
 		ghostimage_default = image(src.icon,src,src.icon_state + "")
@@ -203,7 +208,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			continue
 		var/datum/atom_hud/alternate_appearance/AA = v
 		AA.onNewMob(src)
-
+	become_hearing_sensitive()
 	. = ..()
 
 	grant_all_languages()
@@ -213,6 +218,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 /mob/dead/observer/Login()
 	. = ..()
 	if(!(istype(src, /mob/dead/observer/rogue/arcaneeye)))
+		if(istype(src, /mob/dead/observer/screye))
+			return
 		client?.verbs += GLOB.ghost_verbs
 		to_chat(src, span_danger("Click the <b>SKULL</b> on the left of your HUD to respawn."))
 
@@ -782,7 +789,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	var/bt = world.time
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
-	if(alert(src, "A lich has summoned you to destroy ROGUETOWN!", "Join the Horde", "Yes", "No") == "Yes")
+	if(alert(src, "You have been summoned you to destroy Azuria!", "Join the Horde", "Yes", "No") == "Yes")
 		if(world.time > bt + 5 MINUTES)
 			to_chat(src, span_warning("Too late."))
 			return FALSE

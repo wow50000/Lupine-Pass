@@ -45,7 +45,11 @@
 	ZOMBIFICATION
 */
 /datum/component/rot/corpse/process()
+	var/time_elapsed = last_process ? (world.time - last_process)/10 : 1
 	..()
+	if(has_world_trait(/datum/world_trait/pestra_mercy))
+		amount -= 5 * time_elapsed
+	
 	var/mob/living/carbon/C = parent
 	var/is_zombie
 	if(C.mind)
@@ -68,6 +72,7 @@
 		if(is_zombie)
 			var/datum/antagonist/zombie/Z = C.mind.has_antag_datum(/datum/antagonist/zombie)
 			if(Z && !Z.has_turned && !Z.revived && C.stat == DEAD)
+				C.infected = TRUE
 				wake_zombie(C, infected_wake = TRUE, converted = FALSE)
 
 	var/findonerotten = FALSE
@@ -104,7 +109,7 @@
 	if(findonerotten)
 		var/turf/open/T = C.loc
 		if(istype(T))
-			T.add_pollutants(/datum/pollutant/rot, 5)
+			T.pollute_turf(/datum/pollutant/rot, 5)
 			if(soundloop && soundloop.stopped && !is_zombie)
 				soundloop.start()
 		else
@@ -133,7 +138,7 @@
 			soundloop.start()
 		var/turf/open/T = get_turf(L)
 		if(istype(T))
-			T.add_pollutants(/datum/pollutant/rot, 5)
+			T.pollute_turf(/datum/pollutant/rot, 5)
 	if(amount > 25 MINUTES)
 		qdel(src)
 		return L.dust(drop_items=TRUE)

@@ -1,7 +1,7 @@
 
 /obj/structure/flora/roguegrass/maneater
 	name = "grass"
-	desc = "Green and vivid.. Did i see.. a tendril?"
+	desc = "Green and vivid. Was that a tendril?"
 	icon = 'icons/roguetown/mob/monster/maneater.dmi'
 	icon_state = "maneater-hidden"
 	max_integrity = 5
@@ -76,17 +76,21 @@
 				spawn(50)
 					if(C && (C.buckled == src))
 						var/obj/item/bodypart/limb
-						var/list/limb_list = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+						var/list/limb_list = shuffle(list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
 						for(var/zone in limb_list)
 							limb = C.get_bodypart(zone)
 							if(limb)
 								playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-								limb.dismember()
-								qdel(limb)
-								seednutrition += 20
-								if(C.mind) // eat only one limb of things with minds
-									maneater_spit_out(C)
-									return
+								if(limb.dismember())
+									limb.drop_limb()
+									qdel(limb)
+									seednutrition += 20
+									if(C.mind) // eat only one limb of things with minds
+										maneater_spit_out(C)
+										return
+								if(!limb.dismemberable) //gib goblins right away as they cant be dismembered, meaning they will be stuck in infinit loop of being snatched and not dismembered
+									C.gib()
+									seednutrition += 50
 								return
 						if(C.mind) // nugget case, just spit them out
 							maneater_spit_out(C)
@@ -94,8 +98,9 @@
 						limb = C.get_bodypart(BODY_ZONE_HEAD)
 						if(limb)
 							playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-							limb.dismember()
-							qdel(limb)
+							if(limb.dismember())
+								limb.drop_limb()
+								qdel(limb)
 							return
 						limb = C.get_bodypart(BODY_ZONE_CHEST)
 						if(limb)
@@ -143,7 +148,7 @@
 		var/time2mount = CLAMP((L.STASTR * 2), 1, 99)
 		if(istype(src, /obj/structure/flora/roguegrass/maneater/real/juvenile)) //Easier to escape juvenile
 			time2mount = CLAMP(time2mount * 3, 1, 99)
-		user.changeNext_move(CLICK_CD_RAPID)
+		user.changeNext_move(CLICK_CD_FAST, override = TRUE)
 		if(user != M)
 			if(prob(time2mount))
 				..()
@@ -199,7 +204,7 @@
 
 /obj/item/maneaterseed
 	name = "maneater seed"
-	desc = "A seed from a maneater. It looks like it could grow into something dangerous. It can only take root in green grass, or dirt."
+	desc = "A seed from a maneater. It looks like it could grow into something dangerous if planted in green grass or dirt."
 	icon = 'icons/roguetown/mob/monster/maneater.dmi'
 	icon_state = "maneater-seed"
 	max_integrity = 5
@@ -244,7 +249,7 @@
 
 /obj/structure/flora/roguegrass/maneater/real/juvenile
 	name = "juvenile maneater"
-	desc = "Green and vivid.. This plant seems smaller than usual.."
+	desc = "Green and vivid. This one seems smaller than usual."
 	icon = 'icons/roguetown/mob/monster/maneater.dmi'
 	icon_state = "maneater-hidden"
 	max_integrity = 50

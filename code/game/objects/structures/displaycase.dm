@@ -5,7 +5,7 @@
 	density = TRUE
 	anchored = TRUE
 	resistance_flags = ACID_PROOF
-	armor = list("blunt" = 30, "slash" = 30, "stab" = 30,  "piercing" = 0, "fire" = 70, "acid" = 100)
+	armor = ARMOR_DISPLAYCASE
 	max_integrity = 200
 	integrity_failure = 0.25
 	var/obj/item/showpiece = null
@@ -59,7 +59,7 @@
 	if(!(flags_1 & NODECONSTRUCT_1))
 		dump()
 		if(!disassembled)
-			new /obj/item/natural/glass/shard( src.loc )
+			new /obj/item/natural/glass_shard( src.loc )
 	qdel(src)
 
 /obj/structure/displaycase/obj_break(damage_flag)
@@ -67,7 +67,7 @@
 
 	if(!obj_broken && !(flags_1 & NODECONSTRUCT_1))
 		density = FALSE
-		new /obj/item/natural/glass/shard( src.loc )
+		new /obj/item/natural/glass_shard( src.loc )
 		playsound(src, "shatter", 70, TRUE)
 		update_icon()
 

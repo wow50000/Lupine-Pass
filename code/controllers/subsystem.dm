@@ -38,6 +38,8 @@
 
 	var/processing_flag = PROCESSING_DEFAULT
 
+	var/lazy_load = TRUE
+
 //Do not override
 ///datum/controller/subsystem/New()
 
@@ -46,6 +48,9 @@
 // Prefer to use Initialize if possible
 /datum/controller/subsystem/proc/PreInit()
 	return
+
+/// Called after the config has been loaded or reloaded.
+/datum/controller/subsystem/proc/OnConfigLoad()
 
 //This is used so the mc knows when the subsystem sleeps. do not override.
 /datum/controller/subsystem/proc/ignite(resumed = 0)

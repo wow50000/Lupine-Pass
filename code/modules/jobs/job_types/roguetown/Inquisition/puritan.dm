@@ -24,6 +24,7 @@
 /datum/outfit/job/roguetown/puritan
 	name = "Inquisitor"
 	jobtype = /datum/job/roguetown/puritan
+	job_bitflag = BITFLAG_CHURCH	//Counts as church.
 	allowed_patrons = list(/datum/patron/old_god)
 
 /datum/job/roguetown/puritan/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
@@ -47,51 +48,81 @@
 
 /datum/outfit/job/roguetown/puritan/inspector/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/tracking, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 3)
-		H.change_stat("perception", 3)
-		H.change_stat("speed", 1)
-		H.change_stat("intelligence", 3)
+	has_loadout = TRUE
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/tracking, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.change_stat("strength", 2)
+	H.change_stat("endurance", 2)
+	H.change_stat("constitution", 3)
+	H.change_stat("perception", 3)
+	H.change_stat("speed", 1)
+	H.change_stat("intelligence", 3)
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
-	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
+	var/datum/devotion/C = new /datum/devotion(H, H.patron)
+	C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1) //Capped to T1 miracles.
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_BLACKBAGGER, TRAIT_GENERIC) // Probably trained the Confessors. Or was one. Who knows.
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SILVER_BLESSED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/inq
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/psydon
-	neck = /obj/item/clothing/neck/roguetown/gorget
+	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan/inqboots
-	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
-	backr = /obj/item/storage/backpack/rogue/satchel
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/otavan
+	backr =  /obj/item/storage/backpack/rogue/satchel/otavan
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	beltr = /obj/item/quiver/bolts
 	head = /obj/item/clothing/head/roguetown/inqhat
-	gloves = /obj/item/clothing/gloves/roguetown/otavan/inqgloves
+	mask = /obj/item/clothing/mask/rogue/spectacles/inq/spawnpair
+	gloves = /obj/item/clothing/gloves/roguetown/otavan/psygloves
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
-	beltl = /obj/item/rogueweapon/sword/rapier
+	id = /obj/item/clothing/ring/signet/silver
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
-	backpack_contents = list(/obj/item/storage/keyring/puritan = 1, /obj/item/lockpickring/mundane = 1, /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger, /obj/item/grapplinghook = 1, /obj/item/storage/belt/rogue/pouch/coins/rich = 1)
+	backpack_contents = list(
+		/obj/item/storage/keyring/puritan = 1,
+		/obj/item/lockpickring/mundane = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/silver/psydagger,
+		/obj/item/clothing/head/inqarticles/blackbag = 1,
+		/obj/item/inqarticles/garrote = 1,
+		/obj/item/rope/inqarticles/inquirycord = 1,
+		/obj/item/grapplinghook = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/rich = 1,
+		/obj/item/paper/inqslip/arrival/inq = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1
+		)
+
+
+/datum/outfit/job/roguetown/puritan/inspector/choose_loadout(mob/living/carbon/human/H)
+	. = ..()
+	var/weapons = list("Eucharist (Rapier)", "Daybreak (Whip)", "Stigmata (Halberd)")
+	var/weapon_choice = input(H,"CHOOSE YOUR RELIQUARY PIECE.", "WIELD THEM IN HIS NAME.") as anything in weapons
+	switch(weapon_choice)
+		if("Eucharist (Rapier)")
+			H.put_in_hands(new /obj/item/rogueweapon/sword/rapier/psy/relic(H), TRUE)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sword, SLOT_BELT_L, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
+		if("Daybreak (Whip)")
+			H.put_in_hands(new /obj/item/rogueweapon/whip/antique/psywhip(H), TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 4, TRUE)
+		if("Stigmata (Halberd)")
+			H.put_in_hands(new /obj/item/rogueweapon/halberd/psyhalberd/relic(H), TRUE)
+			H.put_in_hands(new /obj/item/gwstrap(H), TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 4, TRUE)
 
 
 ///The dirty, violent side of the Inquisition. Meant for confrontational, conflict-driven situations as opposed to simply sneaking around and asking questions. Templar with none of the miracles, but with all the muscles and more. 
@@ -106,52 +137,74 @@
 
 /datum/outfit/job/roguetown/puritan/ordinator/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/tracking, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 3)
-		H.change_stat("perception", 3)
-		H.change_stat("speed", 1)
-		H.change_stat("intelligence", 3)
+	has_loadout = TRUE
+	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/tracking, 5, TRUE)
+	H.change_stat("strength", 2)
+	H.change_stat("endurance", 3)
+	H.change_stat("constitution", 3)
+	H.change_stat("perception", 2)
+	H.change_stat("intelligence", 2)
+	var/datum/devotion/C = new /datum/devotion(H, H.patron)
+	C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1) //Capped to T1 miracles.
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
-	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SILVER_BLESSED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
-	belt = /obj/item/storage/belt/rogue/leather/steel
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/inq
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/ordinator
+	belt = /obj/item/storage/belt/rogue/leather/steel/tasset
+	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan/inqboots
+	backl = /obj/item/storage/backpack/rogue/satchel/otavan
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
-	pants = /obj/item/clothing/under/roguetown/chainlegs/kilt
-	cloak = /obj/item/clothing/cloak/psydontabard
-	backr = /obj/item/storage/backpack/rogue/satchel/black
-	backl = /obj/item/rogueweapon/shield/tower/metal
+	id = /obj/item/clothing/ring/signet/silver
+	pants = /obj/item/clothing/under/roguetown/platelegs
+	cloak = /obj/item/clothing/cloak/ordinatorcape
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm
-	gloves = /obj/item/clothing/gloves/roguetown/otavan/inqgloves
-	beltl = /obj/item/rogueweapon/sword/long/psysword
-	backpack_contents = list(/obj/item/storage/keyring/puritan = 1, /obj/item/lockpickring/mundane = 1, /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger, /obj/item/grapplinghook = 1, /obj/item/storage/belt/rogue/pouch/coins/rich = 1)
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/ordinatorhelm
+	gloves = /obj/item/clothing/gloves/roguetown/otavan/psygloves
+	backpack_contents = list(
+		/obj/item/storage/keyring/puritan = 1,
+		/obj/item/paper/inqslip/arrival/inq = 1
+		)
+
+/datum/outfit/job/roguetown/puritan/ordinator/choose_loadout(mob/living/carbon/human/H)
+	. = ..()
+	var/weapons = list("Covenant And Creed (Broadsword + Shield)", "Covenant and Consecratia (Flail + Shield)", "Apocrypha (Greatsword) and a Silver Dagger")
+	var/weapon_choice = input(H,"CHOOSE YOUR RELIQUARY PIECE.", "WIELD THEM IN HIS NAME.") as anything in weapons
+	switch(weapon_choice)
+		if("Covenant And Creed (Broadsword + Shield)")
+			H.put_in_hands(new /obj/item/rogueweapon/greatsword/bsword/psy/relic(H), TRUE)
+			H.put_in_hands(new /obj/item/paper/inqslip/arrival/inq(H), TRUE)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/shield/tower/metal/psy, SLOT_BACK_R, TRUE)
+			var/annoyingbag = H.get_item_by_slot(SLOT_BACK_L)
+			qdel(annoyingbag)
+			H.equip_to_slot(new /obj/item/gwstrap, SLOT_BACK_L, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/storage/keyring/puritan, SLOT_BELT_L, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/shields, 4, TRUE)
+		if("Covenant and Consecratia (Flail + Shield)")
+			H.put_in_hands(new /obj/item/rogueweapon/flail/sflail/psyflail/relic(H), TRUE)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/shield/tower/metal/psy, SLOT_BACK_R, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 5, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/shields, 4, TRUE)
+		if("Apocrypha (Greatsword) and a Silver Dagger")
+			H.put_in_hands(new /obj/item/rogueweapon/greatsword/psygsword/relic(H), TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger(H), TRUE)
+			H.equip_to_slot_or_del(new /obj/item/gwstrap, SLOT_BACK_R, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sheath, SLOT_BELT_L, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/knives, 4, TRUE)
+
 
 /obj/item/clothing/gloves/roguetown/chain/blk
 		color = CLOTHING_GREY
@@ -164,52 +217,6 @@
 
 /obj/item/clothing/shoes/roguetown/boots/armor/blk
 		color = CLOTHING_GREY
-
-/mob/living/carbon/human/proc/torture_victim()
-	set name = "Extract Confession"
-	set category = "Inquisition"
-	var/obj/item/grabbing/I = get_active_held_item()
-	var/mob/living/carbon/human/H
-	var/obj/item/S = get_inactive_held_item()
-	var/found = null
-	if(!istype(I) || !ishuman(I.grabbed))
-		to_chat(src, span_warning("I don't have a victim in my hands!"))
-		return
-	H = I.grabbed
-	if(H == src)
-		to_chat(src, span_warning("I already torture myself."))
-		return
-	if (!H.restrained())
-		to_chat(src, span_warning ("My victim needs to be restrained in order to do this!"))
-		return
-	if(!istype(S, /obj/item/clothing/neck/roguetown/psicross/silver))
-		to_chat(src, span_warning("I need to be holding a silver psycross to extract this divination!"))
-		return
-	for(var/obj/structure/fluff/psycross/N in oview(5, src))
-		found = N
-	if(!found)
-		to_chat(src, span_warning("I need a large psycross structure nearby to extract this divination!"))
-	if(!H.stat)
-		var/static/list/torture_lines = list(
-			"CONFESS!",
-			"TELL ME YOUR SECRETS!",
-			"SPEAK!",
-			"YOU WILL SPEAK!",
-			"TELL ME!",
-		)
-
-		src.visible_message(span_warning("[src] shoves the silver psycross in [H]'s face!"))
-		say(pick(torture_lines), spans = list("torture"))
-		H.emote("agony", forced = TRUE)
-
-		if(!(do_mob(src, H, 10 SECONDS)))
-			return
-
-		src.visible_message(span_warning("[src]'s silver psycross abruptly catches flame, burning away in an instant!"))
-		H.confess_sins("antag")
-		qdel(S)
-		return
-	to_chat(src, span_warning("This one is not in a ready state to be questioned..."))
 
 /mob/living/carbon/human/proc/faith_test()
 	set name = "Test Faith"
@@ -234,7 +241,7 @@
 	for(var/obj/structure/fluff/psycross/N in oview(5, src))
 		found = N
 	if(!found)
-		to_chat(src, span_warning("I need a large psycross structure nearby to extract this divination!"))
+		to_chat(src, span_warning("I need a large psycross structure nearby to extract this divination!"))	
 		return
 	if(!H.stat)
 		var/static/list/faith_lines = list(
@@ -243,14 +250,12 @@
 			"ARE YOU FAITHFUL?",
 			"WHO IS YOUR SHEPHERD?",
 		)
-
 		src.visible_message(span_warning("[src] shoves the silver psycross in [H]'s face!"))
 		say(pick(faith_lines), spans = list("torture"))
 		H.emote("agony", forced = TRUE)
 
 		if(!(do_mob(src, H, 10 SECONDS)))
 			return
-
 		src.visible_message(span_warning("[src]'s silver psycross abruptly catches flame, burning away in an instant!"))
 		H.confess_sins("patron")
 		qdel(S)
@@ -278,3 +283,47 @@
 		say(pick(confessions), spans = list("torture"))
 		return
 	say(pick(innocent_lines), spans = list("torture"))
+
+/mob/living/carbon/human/proc/torture_victim()
+	set name = "Reveal Allegiance"
+	set category = "Inquisition"
+	var/obj/item/grabbing/I = get_active_held_item()
+	var/mob/living/carbon/human/H
+	var/obj/item/S = get_inactive_held_item()
+	var/found = null
+	if(!istype(I) || !ishuman(I.grabbed))
+		to_chat(src, span_warning("I don't have a victim in my hands!"))
+		return
+	H = I.grabbed
+	if(H == src)
+		to_chat(src, span_warning("I already torture myself."))
+		return
+	if (!H.restrained())
+		to_chat(src, span_warning ("My victim needs to be restrained in order to do this!"))
+		return
+	if(!istype(S, /obj/item/clothing/neck/roguetown/psicross/silver))
+		to_chat(src, span_warning("I need to be holding a silver psycross to extract this divination!"))
+		return
+	for(var/obj/structure/fluff/psycross/N in oview(5, src))
+		found = N
+	if(!found)
+		to_chat(src, span_warning("I need a large psycross structure nearby to extract this divination!"))
+		return	
+	if(!H.stat)
+		var/static/list/torture_lines = list(
+			"CONFESS!",
+			"TELL ME YOUR SECRETS!",
+			"SPEAK!",
+			"YOU WILL SPEAK!",
+			"TELL ME!",
+		)
+		say(pick(torture_lines), spans = list("torture"))
+		H.emote("agony", forced = TRUE)
+
+		if(!(do_mob(src, H, 10 SECONDS)))
+			return
+		src.visible_message(span_warning("[src]'s silver psycross abruptly catches flame, burning away in an instant!"))
+		H.confess_sins("antag")
+		qdel(S)
+		return
+	to_chat(src, span_warning("This one is not in a ready state to be questioned..."))

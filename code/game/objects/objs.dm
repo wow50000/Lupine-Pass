@@ -9,6 +9,8 @@
 
 	var/damtype = BRUTE
 	var/force = 0
+	//a modifier to an item's damage against structures
+	var/demolition_mod = 1
 
 	var/datum/armor/armor
 	var/last_peeled_limb
@@ -21,6 +23,8 @@
 	var/damage_deflection = 0
 	var/obj_broken = FALSE
 	var/obj_destroyed = FALSE
+
+	var/extinguishable = TRUE // flag for torches, lanterns, clothing, and the like.
 
 	var/resistance_flags = NONE // INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ON_FIRE | UNACIDABLE | ACID_PROOF
 
@@ -50,6 +54,9 @@
 	var/destroy_message = null
 
 	var/animate_dmg = TRUE
+
+	/// Icon to use as a 32x32 preview in crafting menus and such
+	var/icon_state_preview
 
 	vis_flags = VIS_INHERIT_PLANE
 
@@ -174,7 +181,7 @@
 /obj/get_dumping_location(datum/component/storage/source,mob/user)
 	return get_turf(src)
 
-/obj/proc/CanAStarPass()
+/obj/proc/CanAStarPass(ID, to_dir, caller)
 	. = !density
 
 /obj/proc/check_uplink_validity()
@@ -262,3 +269,9 @@
 // Should move all contained objects to it's location.
 /obj/proc/dump_contents()
 	CRASH("Unimplemented.")
+
+/obj/merge_conflict_marker
+	name = "---Merge Conflict Marker---"
+	desc = "Mapping helper."
+	icon = 'icons/obj/merge_conflict_marker.dmi'
+	icon_state = "merge_conflict_marker"

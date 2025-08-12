@@ -35,14 +35,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	if(delete_after_roundstart)
 		qdel(src)
 
-/obj/effect/landmark/start/New()
+/obj/effect/landmark/start/Initialize()
 	GLOB.start_landmarks_list += src
 	if(jobspawn_override.len)
 		for(var/X in jobspawn_override)
 			if(!GLOB.jobspawn_overrides[X])
 				GLOB.jobspawn_overrides[X] = list()
 			GLOB.jobspawn_overrides[X] += src
-	..()
+	. = ..()
 	if(name != "start")
 		tag = "start*[name]"
 
@@ -216,7 +216,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/priest
-	name = "Priest"
+	name = "Bishop"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/cleric
@@ -245,6 +245,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/orthodoxist
 	name = "Orthodoxist"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/absolver
+	name = "Absolver"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/sergeant
@@ -280,16 +284,12 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Archivist"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/weaponsmith
-	name = "Weaponsmith"
+/obj/effect/landmark/start/guildsman
+	name = "Guildsman"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/armorsmith
-	name = "Armorer"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/blacksmith
-	name = "Blacksmith"
+/obj/effect/landmark/start/guildmaster
+	name = "Guildmaster"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/tailor
@@ -298,10 +298,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/alchemist
 	name = "Alchemist"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/artificer
-	name = "Artificer"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/scribe
@@ -334,6 +330,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/vagrant
 	name = "Beggar"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/suitor
+	name = "Suitor"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/lady
@@ -468,6 +468,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "bandit"
 	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "arrow"
+	jobspawn_override = list("Bandit")
+	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/bandit/Initialize()
 	. = ..()

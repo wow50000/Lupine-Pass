@@ -5,7 +5,9 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	30
+
+//	This also works with decimals.
+#define SAVEFILE_VERSION_MAX	33.9
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -46,6 +48,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 		parent.update_movement_keys()
 		to_chat(parent, span_danger("Empty keybindings, setting default to [hotkeys ? "Hotkey" : "Classic"] mode"))
+	if(current_version < 31) // RAISE THIS TO SAVEFILE_VERSION_MAX (and make sure to add +1 to the version) EVERY TIME YOU ADD SERVER-CHANGING KEYBINDS LIKE CHANGING HOW SAY WORKS!!
+		force_reset_keybindings_direct(TRUE)
+		addtimer(CALLBACK(src, PROC_REF(force_reset_keybindings)), 30)
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	if(current_version < 19)
@@ -128,6 +133,21 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			S["facial_style_name"]	>> facial_hairstyle
 	if(current_version < 30)
 		S["voice_color"]		>> voice_color
+	if(current_version < 34) // Update races
+		var/species_name
+		S["species"] >> species_name
+		testing("Save version < 34, updating [species_name].")
+		if(species_name)
+			var/newtype = GLOB.species_list[species_name]
+			if(!newtype)
+				switch(species_name)
+					if("Sissean")
+						testing("Updating to Zardman.")
+						species_name = "Zardman"
+					if("Vulpkian")
+						testing("Your character is now a Venardine.")
+						species_name = "Venardine"
+		_load_species(S, species_name)	
 
 /datum/preferences/proc/load_path(ckey,filename="preferences.sav")
 	if(!ckey)
@@ -169,13 +189,13 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["anonymize"]			>> anonymize
 	S["masked_examine"]		>> masked_examine
 	S["mute_animal_emotes"]	>> mute_animal_emotes
+	S["autoconsume"]		>> autoconsume
 	S["crt"]				>> crt
 	S["grain"]				>> grain
 	S["sexable"]			>> sexable
 	S["shake"]				>> shake
 	S["mastervol"]			>> mastervol
 	S["lastclass"]			>> lastclass
-	S["prefer_old_chat"]	>> prefer_old_chat
 
 
 	S["default_slot"]		>> default_slot
@@ -238,11 +258,25 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_style		= sanitize_inlist(pda_style, GLOB.pda_styles, initial(pda_style))
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_islist(key_bindings, list())
-
+	
 	//ROGUETOWN
 	parallax = PARALLAX_INSANE
 
+	verify_keybindings_valid()
 	return TRUE
+
+/datum/preferences/proc/verify_keybindings_valid()
+	// Sanitize the actual keybinds to make sure they exist.
+	for(var/key in key_bindings)
+		if(!islist(key_bindings[key]))
+			key_bindings -= key
+		var/list/binds = key_bindings[key]
+		for(var/bind in binds)
+			if(!GLOB.keybindings_by_name[bind])
+				binds -= bind
+		if(!length(binds))
+			key_bindings -= key
+	// End
 
 /datum/preferences/proc/save_preferences()
 	if(!path)
@@ -263,6 +297,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["anonymize"], anonymize)
 	WRITE_FILE(S["masked_examine"], masked_examine)
 	WRITE_FILE(S["mute_animal_emotes"], mute_animal_emotes)
+	WRITE_FILE(S["autoconsume"], autoconsume)
 	WRITE_FILE(S["crt"], crt)
 	WRITE_FILE(S["sexable"], sexable)
 	WRITE_FILE(S["shake"], shake)
@@ -304,14 +339,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_style"], pda_style)
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
-	WRITE_FILE(S["prefer_old_chat"], prefer_old_chat)
 	return TRUE
 
 
-/datum/preferences/proc/_load_species(S)
-	var/species_name
+/datum/preferences/proc/_load_species(S, species_name = null)
 	testing("begin _load_species()")
-	S["species"] >> species_name
+	if(!species_name)
+		S["species"] >> species_name
+
 	if(species_name)
 		var/newtype = GLOB.species_list[species_name]
 		if(newtype)
@@ -380,6 +415,19 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if (loadout_type3)
 		loadout3 = new loadout_type3()
 
+/datum/preferences/proc/_load_height(S)
+	var/preview_height
+	S["body_height"] >> preview_height
+	if (preview_height)
+		preview_height = new preview_height()
+
+/datum/preferences/proc/_load_combat_music(S)
+	var/combat_music_type
+	S["combat_music"] >> combat_music_type
+	if (GLOB.cmode_tracks_by_type[combat_music_type])
+		combat_music = GLOB.cmode_tracks_by_type[combat_music_type]
+	else
+		combat_music = GLOB.cmode_tracks_by_type[default_cmusic_type]
 
 /datum/preferences/proc/_load_appearence(S)
 	S["real_name"]			>> real_name
@@ -412,6 +460,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["voice_type"]			>> voice_type
 	S["nickname"]			>> nickname
 	S["highlight_color"]	>> highlight_color
+	S["taur_type"]			>> taur_type
+	S["taur_color"]			>> taur_color
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)
@@ -447,6 +497,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_loadout2(S)
 	_load_loadout3(S)
 
+	_load_combat_music(S)
+
 	if(!S["features["mcolor"]"] || S["features["mcolor"]"] == "#000")
 		WRITE_FILE(S["features["mcolor"]"]	, "#FFF")
 	if(!S["features["mcolor2"]"] || S["features["mcolor2"]"] == "#000")
@@ -459,6 +511,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Character
 	_load_appearence(S)
+	_load_height(S)
 
 	var/patron_typepath
 	S["selected_patron"]	>> patron_typepath
@@ -504,6 +557,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	S["pronouns"] >> pronouns
 	S["voice_type"] >> voice_type
+	S["body_size"] >> features["body_size"]
+	if (!features["body_size"])
+		features["body_size"] = BODY_SIZE_NORMAL
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
 		update_character(needs_update, S)		//needs_update == savefile_version if we need an update (positive integer)
@@ -539,7 +595,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	voice_color		= voice_color
 	voice_pitch		= voice_pitch
 	skin_tone		= skin_tone
-	backpack			= sanitize_inlist(backpack, GLOB.backpacklist, initial(backpack))
+	backpack		= sanitize_inlist(backpack, GLOB.backpacklist, initial(backpack))
 	jumpsuit_style	= sanitize_inlist(jumpsuit_style, GLOB.jumpsuitlist, initial(jumpsuit_style))
 	uplink_spawn_loc = sanitize_inlist(uplink_spawn_loc, GLOB.uplink_spawn_loc_list, initial(uplink_spawn_loc))
 	pronouns = sanitize_text(pronouns, THEY_THEM)
@@ -549,6 +605,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	features["mcolor3"]	= sanitize_hexcolor(features["mcolor3"], 6, 0)
 	features["ethcolor"]	= copytext(features["ethcolor"],1,7)
 	features["feature_lizard_legs"]	= sanitize_inlist(features["legs"], GLOB.legs_list, "Normal Legs")
+	var/list/valid_taur_types = pref_species.get_taur_list()
+	if(!(taur_type in valid_taur_types))
+		taur_type = null
+	taur_color = sanitize_hexcolor(taur_color, 6, 0)
+
 	S["body_markings"] >> body_markings
 	body_markings = SANITIZE_LIST(body_markings)
 	validate_body_markings()
@@ -608,15 +669,17 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["backpack"]			, backpack)
 	WRITE_FILE(S["jumpsuit_style"]		, jumpsuit_style)
 	WRITE_FILE(S["uplink_loc"]			, uplink_spawn_loc)
-	WRITE_FILE(S["randomise"]		, randomise)
-	WRITE_FILE(S["species"]			, pref_species.name)
+	WRITE_FILE(S["randomise"]			, randomise)
+	WRITE_FILE(S["species"]				, pref_species.name)
 	WRITE_FILE(S["charflaw"]			, charflaw.type)
-	WRITE_FILE(S["feature_mcolor"]					, features["mcolor"])
-	WRITE_FILE(S["feature_mcolor2"]					, features["mcolor2"])
-	WRITE_FILE(S["feature_mcolor3"]					, features["mcolor3"])
-	WRITE_FILE(S["feature_ethcolor"]					, features["ethcolor"])
+	WRITE_FILE(S["feature_mcolor"]		, features["mcolor"])
+	WRITE_FILE(S["feature_mcolor2"]		, features["mcolor2"])
+	WRITE_FILE(S["feature_mcolor3"]		, features["mcolor3"])
+	WRITE_FILE(S["feature_ethcolor"]	, features["ethcolor"])
 	WRITE_FILE(S["nickname"]			, nickname)
 	WRITE_FILE(S["highlight_color"]		, highlight_color)
+	WRITE_FILE(S["taur_type"]			, taur_type)
+	WRITE_FILE(S["taur_color"]			, taur_color)
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)
@@ -660,6 +723,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["statpack"] , statpack.type)
 	WRITE_FILE(S["virtue"] , virtue.type)
 	WRITE_FILE(S["virtuetwo"], virtuetwo.type)
+	WRITE_FILE(S["combat_music"], combat_music.type)
+	WRITE_FILE(S["body_size"] , features["body_size"])
 	if(loadout)
 		WRITE_FILE(S["loadout"] , loadout.type)
 	else
@@ -672,7 +737,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		WRITE_FILE(S["loadout3"] , loadout3.type)
 	else
 		WRITE_FILE(S["loadout3"] , null)
-
 
 	return TRUE
 

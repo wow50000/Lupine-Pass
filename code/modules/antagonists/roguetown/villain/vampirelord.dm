@@ -11,9 +11,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	roundend_category = "Vampires"
 	antagpanel_category = "Vampire"
 	job_rank = ROLE_VAMPIRE
-	var/list/inherent_traits = list(TRAIT_STRONGBITE, TRAIT_NOBLE, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_NOPAIN, TRAIT_TOXIMMUNE, TRAIT_STEELHEARTED, TRAIT_NOSLEEP, TRAIT_VAMPMANSION, TRAIT_VAMP_DREAMS, TRAIT_NOROGSTAM, TRAIT_HEAVYARMOR, TRAIT_COUNTERCOUNTERSPELL)
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "vampire lord"
+	var/list/inherent_traits = list(TRAIT_STRONGBITE, TRAIT_NOBLE, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_NOPAIN, TRAIT_TOXIMMUNE, TRAIT_STEELHEARTED, TRAIT_NOSLEEP, TRAIT_VAMPMANSION, TRAIT_VAMP_DREAMS, TRAIT_INFINITE_STAMINA, TRAIT_HEAVYARMOR, TRAIT_COUNTERCOUNTERSPELL, TRAIT_STRENGTH_UNCAPPED, TRAIT_CRITICAL_WEAKNESS)
+	antag_hud_type = ANTAG_HUD_VAMPIRE
+	antag_hud_name = "Vlord"
 	confess_lines = list(
 		"I AM ANCIENT",
 		"I AM THE LAND",
@@ -31,7 +31,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/obj/structure/vampire/bloodpool/mypool
 	var/last_transform
 	var/cache_skin
-	var/cache_eyes
+	var/obj/item/organ/eyes/cache_eyes
+	var/cache_eye_color
 	var/cache_hair
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
@@ -55,19 +56,12 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/vampirelord/on_gain()
-	var/datum/game_mode/C = SSticker.mode
-	C.vampires |= owner
+	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
 	for(var/inherited_trait in inherent_traits)
 		ADD_TRAIT(owner.current, inherited_trait, "[type]")
-	owner.current.cmode_music = 'sound/music/combat_vamp.ogg'
-	var/obj/item/organ/eyes/eyes = owner.current.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(owner.current,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(owner.current)
+	owner.current.cmode_music = 'sound/music/cmode/antag/combat_thrall.ogg' // vampire lords get this too... For Now.
 	owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix)
 	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 	owner.current.verbs |= /mob/living/carbon/human/proc/vampire_telepathy
@@ -81,7 +75,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			mypool = mansion
 		equip_spawn()
 		greet()
-		addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, spawn_pick_class), "VAMPIRE SPAWN"), 5 SECONDS)
+		addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, equipOutfit), /datum/outfit/job/roguetown/vampthrall), 5 SECONDS)
+
 	else
 		forge_vampirelord_objectives()
 		finalize_vampire()
@@ -107,12 +102,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		owner.person_knows_me(MF)
 
 	var/mob/living/carbon/human/H = owner.current
-	var/obj/item/organ/eyes/eyes = owner.current.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(owner.current,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(owner.current)
 	H.equipOutfit(/datum/outfit/job/roguetown/vamplord)
 	H.set_patron(/datum/patron/inhumen/zizo)
 
@@ -129,35 +118,20 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
 
-	owner.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+	owner.current.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 	owner.current.ambushable = FALSE
-
-/mob/living/carbon/human/proc/spawn_pick_class()
-	var/list/classoptions = list("Ranger","Blacksmith","Carpenter","Seamstress","Rogue","Mage","Hunter","Trader")
-	var/list/visoptions = list()
-
-	for(var/T in 1 to 5)
-		if(length(classoptions))
-			visoptions += pick_n_take(classoptions)
-
-	var/selected = input(src, "Which class was I?", "VAMPIRE SPAWN") as anything in visoptions
-
-	for(var/datum/advclass/A in SSrole_class_handler.sorted_class_categories[CTAG_ALLCLASS])
-		if(A.name == selected)
-			equipOutfit(A.outfit)
-			return
 
 /datum/outfit/job/roguetown/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //he has been alive for 2 thousand years, bro why
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 6, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 6, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //he has been alive for 2 thousand years, bro why
+	H.adjust_skillrank(/datum/skill/combat/maces, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shirt = /obj/item/clothing/suit/roguetown/shirt/vampire
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
@@ -168,6 +142,25 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	backl = /obj/item/storage/backpack/rogue/satchel/black
 	H.ambushable = FALSE
 
+
+
+/datum/outfit/job/roguetown/vampthrall/pre_equip(mob/living/carbon/human/H)
+	H.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/maces, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/axes, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/shields, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/bows, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/combat/knives, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/misc/swimming, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/misc/athletics, 4, TRUE)
+	H.ambushable = FALSE
+
 ////////Outfits////////
 /obj/item/clothing/under/roguetown/platelegs/vampire
 	name = "ancient plate greaves"
@@ -176,7 +169,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	icon_state = "vpants"
 	item_state = "vpants"
 	sewrepair = FALSE
-	armor = list("blunt" = 100, "slash" = 100, "stab" = 90, "piercing" = 0, "fire" = 0, "acid" = 0)
+	armor = ARMOR_VAMP
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	blocksound = PLATEHIT
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
@@ -187,7 +180,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	slot_flags = ITEM_SLOT_SHIRT
 	name = "regal silks"
 	desc = "A set of ornate robes with a sash coming across the breast."
-	body_parts_covered = CHEST|GROIN|LEGS|VITALS
+	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	icon_state = "vrobe"
 	item_state = "vrobe"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -207,7 +200,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
 	name = "ancient chain shirt"
 	desc = ""
-	body_parts_covered = CHEST|GROIN|VITALS
+	body_parts_covered = COVERAGE_TORSO
 	armor_class = 2
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
@@ -215,10 +208,10 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "ancient ceremonial plate"
 	desc = ""
-	body_parts_covered = CHEST|GROIN|VITALS
+	body_parts_covered = COVERAGE_TORSO
 	icon_state = "vplate"
 	item_state = "vplate"
-	armor = list("blunt" = 100, "slash" = 100, "stab" = 90, "piercing" = 100, "fire" = 0, "acid" = 0)
+	armor = ARMOR_VAMP
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	nodismemsleeves = TRUE
 	max_integrity = 500
@@ -238,7 +231,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	color = null
 	blocksound = PLATEHIT
-	armor = list("blunt" = 100, "slash" = 100, "stab" = 90, "piercing" = 100, "fire" = 0, "acid" = 0)
+	armor = ARMOR_VAMP
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/head/roguetown/helmet/heavy/vampire
@@ -247,6 +240,23 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	max_integrity = 250
 	block2add = FOV_BEHIND
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	var/active_item = FALSE
+
+
+/obj/item/clothing/head/roguetown/helmet/heavy/vampire/equipped(mob/living/user, slot)
+	. = ..()
+	if(active_item)
+		return
+	if(slot == SLOT_HEAD)
+		active_item = TRUE
+		ADD_TRAIT(user, TRAIT_BITERHELM, TRAIT_GENERIC)
+
+/obj/item/clothing/head/roguetown/helmet/heavy/vampire/dropped(mob/living/user)
+	..()
+	if(!active_item)
+		return
+	active_item = FALSE
+	REMOVE_TRAIT(user, TRAIT_BITERHELM, TRAIT_GENERIC)
 
 /obj/item/clothing/gloves/roguetown/chain/vampire
 	name = "ancient ceremonial gloves"
@@ -319,11 +329,22 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	V.skin_tone = "c9d3de"
 	V.hair_color = "181a1d"
 	V.facial_hair_color = "181a1d"
-	V.eye_color = "ff0000"
+	var/obj/item/organ/eyes/eyes = V.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		cache_eyes = V.dna?.species.organs[ORGAN_SLOT_EYES]
+		cache_eye_color = eyes.eye_color
+		eyes.Remove(V)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.Insert(V)
+	set_eye_color(V, "#ff0000", "#ff0000")
+	eyes.update_accessory_colors()
 	V.update_body()
 	V.update_hair()
 	V.update_body_parts(redraw = TRUE)
 	V.mob_biotypes = MOB_UNDEAD
+	V.vampire_disguise()
+	V.vampire_undisguise()
 	if(isspawn)
 		V.vampire_disguise()
 
@@ -406,7 +427,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.current.forceMove(pick(GLOB.vlord_starts))
 
 /datum/antagonist/vampirelord/proc/grow_in_power()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	switch(vamplevel)
 		if(0)
 			vamplevel = 1
@@ -424,7 +444,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
 			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
-			owner.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
+			owner.current.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
 			gas = new
 			owner.current.AddSpell(gas)
 			for(var/S in MOBSTATS)
@@ -449,8 +469,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			vamplevel = 4
 			owner.current.visible_message("<font color='red'>[owner.current] is enveloped in dark crimson, a horrific sound echoing in the area. They are evolved.</font>","<font color='red'>I AM ANCIENT, I AM THE LAND. EVEN THE SUN BOWS TO ME.</font>")
 			ascended = TRUE
-			C.ascended = TRUE
-			for(var/datum/mind/thrall in C.vampires)
+			SSmapping.retainer.ascended = TRUE
+			ADD_TRAIT(owner, TRAIT_GRABIMMUNE, TRAIT_GENERIC)
+			for(var/datum/mind/thrall in SSmapping.retainer.vampires)
 				if(thrall.special_role == "Vampire Spawn")
 					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_strength
 					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
@@ -463,7 +484,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/vampirelord/lesser
 	name = "Vampire Spawn"
 	antag_hud_name = "Vspawn"
-	inherent_traits = list(TRAIT_STRONGBITE, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_NOPAIN, TRAIT_TOXIMMUNE, TRAIT_STEELHEARTED, TRAIT_NOSLEEP, TRAIT_VAMPMANSION, TRAIT_VAMP_DREAMS)
+	inherent_traits = list(TRAIT_STRONGBITE, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_NOPAIN, TRAIT_TOXIMMUNE, TRAIT_STEELHEARTED, TRAIT_NOSLEEP, TRAIT_VAMPMANSION, TRAIT_VAMP_DREAMS, TRAIT_INFINITE_ENERGY, TRAIT_CRITICAL_WEAKNESS)
 	confess_lines = list(
 		"THE CRIMSON CALLS!",
 		"MY MASTER COMMANDS",
@@ -478,11 +499,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /mob/living/carbon/human/proc/demand_submission()
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(istype(C))
-		if(C.kingsubmit)
-			to_chat(src, "I am already the Master of Enigma.")
-			return
+	if(SSmapping.retainer.king_submitted)
+		to_chat(src, "I am already the Master of Azuria.")
+		return
 	for(var/mob/living/carbon/human/H in oview(1))
 		if(SSticker.rulermob == H)
 			H.receive_submission(src)
@@ -492,10 +511,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return
 	switch(alert("Submit and Pledge Allegiance to Lord [lord.name]?",,"Yes","No"))
 		if("Yes")
-			var/datum/game_mode/chaosmode/C = SSticker.mode
-			if(istype(C))
-				if(!C.kingsubmit)
-					C.kingsubmit = TRUE
+			if(!SSmapping.retainer.king_submitted)
+				SSmapping.retainer.king_submitted = TRUE
 		if("No")
 			lord << span_boldnotice("They refuse!")
 			src << span_boldnotice("I refuse!")
@@ -504,13 +521,12 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Telepathy"
 	set category = "VAMPIRE"
 
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/msg = input("Send a message.", "Command") as text|null
 	if(!msg)
 		return
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		to_chat(V, span_boldnotice("A message from [src.real_name]:[msg]"))
-	for(var/datum/mind/D in C.deathknights)
+	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		to_chat(D, span_boldnotice("A message from [src.real_name]:[msg]"))
 	for(var/mob/dead/observer/rogue/arcaneeye/A in GLOB.mob_list)
 		to_chat(A, span_boldnotice("A message from [src.real_name]:[msg]"))
@@ -519,12 +535,11 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Punish Minion"
 	set category = "VAMPIRE"
 
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/possible = list()
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		if(V.special_role == "Vampire Spawn")
 			possible[V.current.real_name] = V.current
-	for(var/datum/mind/D in C.deathknights)
+	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		possible[D.current.real_name] = D.current
 	var/name_choice = input(src, "Who to punish?", "PUNISHMENT") as null|anything in possible
 	if(!name_choice)
@@ -647,7 +662,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				if(do_after(user, 100))
 					lord.handle_vitae(-5000)
 					new /obj/item/clothing/under/roguetown/platelegs/vampire(user.loc)
-					new /obj/item/clothing/neck/roguetown/bevor(user.loc)
+					new /obj/item/clothing/neck/roguetown/gorget/steel(user.loc)
 					new /obj/item/clothing/suit/roguetown/armor/chainmail/iron/vampire(user.loc)
 					new /obj/item/clothing/suit/roguetown/armor/plate/vampire(user.loc)
 					new /obj/item/clothing/shoes/roguetown/boots/armor/vampire(user.loc)
@@ -656,16 +671,14 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				user.playsound_local(get_turf(src), 'sound/misc/vcraft.ogg', 100, FALSE, pressure_affected = FALSE)
 
 /obj/structure/vampire/bloodpool/proc/update_pool(change)
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/tempmax = 8000
-	if(istype(C))
-		for(var/datum/mind/V in C.vampires)
-			if(V.special_role == "vampirespawn")
-				tempmax += 4000
-		if(maximum != tempmax)
-			maximum = tempmax
-			if(current > maximum)
-				current = maximum
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
+		if(V.special_role == "vampirespawn")
+			tempmax += 4000
+	if(maximum != tempmax)
+		maximum = tempmax
+		if(current > maximum)
+			current = maximum
 	if(debug)
 		maximum = 999999
 		current = 999999
@@ -760,7 +773,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /obj/structure/vampire/necromanticbook/attack_hand(mob/living/carbon/human/user)
 	var/datum/antagonist/vampirelord/lord = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	if(user.mind.special_role == "Vampire Lord")
 		if(!unlocked)
 			to_chat(user, "I have yet to regain this aspect of my power!")
@@ -769,7 +781,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		switch(choice)
 			if("Create Death Knight")
 				if(alert(user, "Create a Death Knight? Cost:5000","","Yes","No") == "Yes")
-					if(C.deathknights.len >= 3)
+					if(length(SSmapping.retainer.death_knights) >= 3)
 						to_chat(user, "You cannot summon any more death knights.")
 						return
 					if(!lord.mypool.check_withdraw(-5000))
@@ -777,7 +789,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 						return
 					if(do_after(user, 100))
 						to_chat(user, "I have summoned a knight from the underworld. I need only wait for them to materialize.")
-						C.deathknightspawn = TRUE
+						SSmapping.add_world_trait(/datum/world_trait/death_knight, -1)
 						for(var/mob/dead/observer/D in GLOB.player_list)
 							D.death_knight_spawn()
 						for(var/mob/living/carbon/spirit/D in GLOB.player_list)
@@ -814,17 +826,31 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		to_chat(user, "I don't have the power to use this!")
 
 /mob/proc/death_knight_spawn()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
-	if(alert(src, "A Vampire Lord is summoning you from the Underworld.", "Be Risen?", "Yes", "No") == "Yes")
-		if(!C.deathknightspawn)
-			to_chat(src, span_warning("Another soul was chosen."))
-		returntolobby()
+	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as a Death Knight?", ROLE_VAMPIRE, null, null, 10 SECONDS, src, POLL_IGNORE_NECROMANCER_SKELETON)
+	if(LAZYLEN(candidates))
+		var/mob/dead/observer/C = pick(candidates)
+		log_game("VAMPIRE LOG: [C.ckey] chosen as new death knight.")
+		var/mob/living/carbon/human/new_knight = new /mob/living/carbon/human/species/human/northern()
+		new_knight.forceMove(usr.loc)
+		new_knight.ckey = C.key
+		new_knight.equipOutfit(/datum/job/roguetown/deathknight)
+		new_knight.regenerate_icons()
 
 // DEATH KNIGHT ANTAG
 /datum/antagonist/skeleton/knight
 	name = "Death Knight"
 	increase_votepwr = FALSE
+	antag_hud_name = "Vspawn"
+	antag_hud_type = ANTAG_HUD_VAMPIRE
+
+/datum/antagonist/skeleton/knight/apply_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	add_antag_hud(antag_hud_type, antag_hud_name, M)
+
+/datum/antagonist/skeleton/knight/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/skeleton/knight/on_gain()
 	. = ..()
@@ -888,10 +914,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	triumph_count = 5
 
 /datum/objective/vampirelord/conquer/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(istype(C))
-		if(C.kingsubmit)
-			return TRUE
+	if(SSmapping.retainer.king_submitted)
+		return TRUE
 
 /datum/objective/vampirelord/ascend
 	name = "sun"
@@ -900,8 +924,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	triumph_count = 5
 
 /datum/objective/vampirelord/ascend/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(C.ascended)
+	if(SSmapping.retainer.ascended)
 		return TRUE
 
 /datum/objective/vampirelord/infiltrate/one
@@ -910,9 +933,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	triumph_count = 5
 
 /datum/objective/vampirelord/infiltrate/one/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	var/list/churchjobs = list("Priest", "Priestess", "Cleric", "Acolyte", "Templar", "Churchling", "Crusader", "Inquisitor", "Martyr")
-	for(var/datum/mind/V in C.vampires)
+	var/list/churchjobs = list("Bishop", "Cleric", "Acolyte", "Templar", "Churchling", "Crusader", "Inquisitor", "Martyr")
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		if(V.current.job in churchjobs)
 			return TRUE
 
@@ -922,9 +944,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	triumph_count = 5
 
 /datum/objective/vampirelord/infiltrate/two/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/noblejobs = list("Grand Duke", "Consort", "Prince", "Princess", "Hand", "Steward")
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		if(V.current.job in noblejobs)
 			return TRUE
 
@@ -934,8 +955,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	triumph_count = 5
 
 /datum/objective/vampirelord/spread/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(C.vampires.len >= 10)
+	if(length(SSmapping.retainer.vampires) >= 10)
 		return TRUE
 
 /datum/objective/vampirelord/stock
@@ -949,8 +969,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	triumph_count = 3
 
 /datum/objective/vlordsurvive/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(!C.vlord.stat)
+	if(considered_alive(SSmapping.retainer.vampire_lord?.mind))
 		return TRUE
 
 /datum/objective/vlordserve
@@ -959,8 +978,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	triumph_count = 3
 
 /datum/objective/vlordserve/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(!C.vlord.stat)
+	if(considered_alive(SSmapping.retainer.vampire_lord?.mind))
 		return TRUE
 
 /datum/antagonist/vampirelord/roundend_report()
@@ -1192,8 +1210,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /mob/dead/observer/rogue/arcaneeye/Crossed(mob/living/L)
 	if(istype(L, /mob/living/carbon/human))
 		var/mob/living/carbon/human/V = L
-		var/holyskill = V.mind.get_skill_level(/datum/skill/magic/holy)
-		var/magicskill = V.mind.get_skill_level(/datum/skill/magic/arcane)
+		var/holyskill = V.get_skill_level(/datum/skill/magic/holy)
+		var/magicskill = V.get_skill_level(/datum/skill/magic/arcane)
 		if(magicskill >= 2)
 			to_chat(V, "<font color='red'>An ancient and unusual magic looms in the air around you.</font>")
 			return
@@ -1208,13 +1226,12 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Telepathy"
 	set category = "Arcane Eye"
 
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/msg = input("Send a message.", "Command") as text|null
 	if(!msg)
 		return
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		to_chat(V, span_boldnotice("A message from [src.real_name]:[msg]"))
-	for(var/datum/mind/D in C.deathknights)
+	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		to_chat(D, span_boldnotice("A message from [src.real_name]:[msg]"))
 	for(var/mob/dead/observer/rogue/arcaneeye/A in GLOB.mob_list)
 		to_chat(A, span_boldnotice("A message from [src.real_name]:[msg]"))
@@ -1284,7 +1301,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	if(length(msg) < 10)
 		to_chat(user, span_userdanger("This is not enough!"))
 		return FALSE
-	var/bloodskill = user.mind.get_skill_level(/datum/skill/magic/blood)
+	var/bloodskill = user.get_skill_level(/datum/skill/magic/blood)
 	var/bloodroll = roll("[bloodskill]d8")
 	user.say(msg)
 	for(var/mob/living/carbon/human/L in targets)
@@ -1342,8 +1359,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				else
 					to_chat(user, "I fail to ensnare their mind.")
 					to_chat(L, "I feel like someone or something unholy is messing with my head. I should get out of here!")
-					var/holyskill = L.mind.get_skill_level(/datum/skill/magic/holy)
-					var/arcaneskill = L.mind.get_skill_level(/datum/skill/magic/arcane)
+					var/holyskill = L.get_skill_level(/datum/skill/magic/holy)
+					var/arcaneskill = L.get_skill_level(/datum/skill/magic/arcane)
 					if(holyskill + arcaneskill >= 1)
 						to_chat(L, "I feel like the unholy magic came from [user].")
 

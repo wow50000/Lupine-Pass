@@ -8,6 +8,9 @@
 #define SHOULD_RESIST(source) (source.on_fire || source.buckled || HAS_TRAIT(source, TRAIT_RESTRAINED) || (source.pulledby && source.pulledby.grab_state > GRAB_PASSIVE))
 #define IS_DEAD_OR_INCAP(source) (source.incapacitated() || source.stat)
 
+// How far should we, by default, be looking for interesting things to de-idle?
+#define AI_DEFAULT_INTERESTING_DIST 10
+
 ///Max pathing attempts before auto-fail
 #define MAX_PATHING_ATTEMPTS 30
 ///Flags for ai_behavior new()
@@ -49,6 +52,7 @@
 #define BB_BASIC_MOB_FLEE_TARGET_HIDING_LOCATION "BB_basic_flee_target_hiding_location"
 #define BB_FLEE_TARGETTING_DATUM "flee_targetting_datum"
 
+#define BB_FUTURE_MOVEMENT_PATH "BB_future_path"
 
 ///time until we should next eat, set by the generic hunger subtree
 #define BB_NEXT_HUNGRY "BB_NEXT_HUNGRY"
@@ -56,8 +60,17 @@
 #define BB_BASIC_MOB_FOOD_TARGET "BB_basic_food_target"
 ///what corpse we'll next try to eat
 #define BB_BASIC_MOB_CORPSE_TARGET "BB_basic_mob_corpse_target"
+///What creature we want to cocoon
+#define BB_BASIC_MOB_COCOON_TARGET "BB_basic_mob_cocoon_target"
+///Who we want dead above all else...
+#define BB_MAIN_TARGET "BB_main_target"
+///How many times we'll attack defendants before getting disinterested
+#define BB_RETALIATE_ATTACKS_LEFT "BB_relatiate_attacks_left"
+#define BB_RETALIATE_COOLDOWN "BB_retaliate_cooldown"
 
 #define BB_BASIC_MOB_TAMED "BB_basic_mob_tamed"
+
+#define BB_WANDER_POINT "BB_wander_point"
 
 //farm animals ai
 #define BB_CHICKEN_LAY_EGG "BB_chicken_lay_egg"

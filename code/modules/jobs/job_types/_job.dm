@@ -127,6 +127,15 @@
 	/// This job is immune to species-based swapped gender locks
 	var/immune_to_genderswap = FALSE
 
+	/// Jobs that are obsfuscated on actor screen
+	var/obsfuscated_job = FALSE
+
+	///Jobs that are hidden from actor screen
+	var/hidden_job = FALSE
+
+	///Jobs that change their advclass examine as the user levels up.
+	var/adaptive_name = FALSE
+
 
 /*
 	How this works, its CTAG_DEFINE = amount_to_attempt_to_role
@@ -142,6 +151,9 @@
 
 	var/list/virtue_restrictions
 	var/list/vice_restrictions
+
+	//The job's stat UPPER ceilings, clamped after statpacks and job stats are applied.
+	var/list/stat_ceilings
 
 
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
@@ -164,6 +176,8 @@
 //Only override this proc
 //H is usually a human unless an /equip override transformed it
 /datum/job/proc/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_JOB_AFTER_SPAWN, src)
 	//do actions on H but send messages to M as the key may not have been transferred_yet
 	if(mind_traits)
 		for(var/t in mind_traits)
@@ -215,10 +229,11 @@
 	if(cmode_music)
 		H.cmode_music = cmode_music
 
-	if(H.mind.special_role == "Court Agent" || H.mind.assigned_role == "Bandit" || H.mind.assigned_role == "Wretch") //For obfuscating Court Agents & Bandits in Actors list
-		GLOB.actors_list[H.mobid] = "[H.real_name] as Adventurer<BR>"
-	else
-		GLOB.actors_list[H.mobid] = "[H.real_name] as [H.mind.assigned_role]<BR>"
+	if (!hidden_job)
+		if (obsfuscated_job)
+			GLOB.actors_list[H.mobid] = "[H.real_name] as Adventurer<BR>"
+		else
+			GLOB.actors_list[H.mobid] = "[H.real_name] as [H.mind.assigned_role]<BR>"
 
 /client/verb/set_mugshot()
 	set category = "OOC"
@@ -393,6 +408,14 @@
 	if(CONFIG_GET(flag/security_has_maint_access))
 		return list(ACCESS_MAINT_TUNNELS)
 	return list()
+
+/datum/job/proc/clamp_stats(var/mob/living/carbon/human/H)
+	if(length(stat_ceilings))
+		for(var/stat in stat_ceilings)
+			if(stat_ceilings[stat] < H.get_stat(stat))
+				H.change_stat(stat, (stat_ceilings[stat] - H.get_stat(stat)))
+				to_chat(H, "Your [stat] was reduced to \Roman[stat_ceilings[stat]].")
+
 
 // LETHALSTONE EDIT: Helper functions for pronoun-based clothing selection
 /proc/should_wear_masc_clothes(mob/living/carbon/human/H)

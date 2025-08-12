@@ -365,6 +365,42 @@
 	return covered_parts
 
 
+//Takes a user-targeted zone and returns a readable version of it.
+/proc/bodyzone2readablezone(zone)
+	switch(zone)
+		if(BODY_ZONE_HEAD)
+			return READABLE_ZONE_HEAD
+		if(BODY_ZONE_PRECISE_EARS)
+			return READABLE_ZONE_HEAD
+		if(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
+			return READABLE_ZONE_EYES
+		if(BODY_ZONE_PRECISE_MOUTH)
+			return READABLE_ZONE_MOUTH
+		if(BODY_ZONE_PRECISE_NOSE)
+			return READABLE_ZONE_NOSE
+		if(BODY_ZONE_CHEST)
+			return READABLE_ZONE_CHEST
+		if(BODY_ZONE_PRECISE_STOMACH)
+			return READABLE_ZONE_VITALS
+		if(BODY_ZONE_PRECISE_GROIN)
+			return READABLE_ZONE_GROIN
+		if(BODY_ZONE_L_ARM)
+			return READABLE_ZONE_L_ARM
+		if(BODY_ZONE_PRECISE_L_HAND)
+			return READABLE_ZONE_L_HAND
+		if(BODY_ZONE_R_ARM)
+			return READABLE_ZONE_R_ARM
+		if(BODY_ZONE_PRECISE_R_HAND)
+			return READABLE_ZONE_R_HAND
+		if(BODY_ZONE_L_LEG)
+			return READABLE_ZONE_L_LEG
+		if(BODY_ZONE_PRECISE_L_FOOT)
+			return READABLE_ZONE_L_FOOT
+		if(BODY_ZONE_R_LEG)
+			return READABLE_ZONE_R_LEG
+		if(BODY_ZONE_PRECISE_R_FOOT)
+			return READABLE_ZONE_R_FOOT
+		
 
 /proc/slot2body_zone(slot)
 	switch(slot)
@@ -591,3 +627,30 @@
 			return null
 		r += ascii2text(c)
 	return r
+
+/// Returns a list(x, y), being the change in position required to step in the passed in direction
+/proc/dir2offset(dir)
+	switch(dir)
+		if(NORTH)
+			return list(0, 1)
+		if(SOUTH)
+			return list(0, -1)
+		if(EAST)
+			return list(1, 0)
+		if(WEST)
+			return list(-1, 0)
+		if(NORTHEAST)
+			return list(1, 1)
+		if(SOUTHEAST)
+			return list(1, -1)
+		if(NORTHWEST)
+			return list(-1, 1)
+		if(SOUTHWEST)
+			return list(-1, -1)
+		else
+			return list(0, 0)
+
+/// Return html to load a url.
+/// for use inside of browse() calls to html assets that might be loaded on a cdn.
+/proc/url2htmlloader(url)
+	return {"<html><head><meta http-equiv="refresh" content="0;URL='[url]'"/></head><body onLoad="parent.location='[url]'"></body></html>"}

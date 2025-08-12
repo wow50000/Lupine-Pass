@@ -9,6 +9,11 @@
 	skin_tone_wording = "Ancestry"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY,MUTCOLORS_PARTSONLY)
+	allowed_taur_types = list(
+		/obj/item/bodypart/taur/lamia,
+		/obj/item/bodypart/taur/spider,
+		/obj/item/bodypart/taur/horse,
+	)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
 	possible_ages = ALL_AGES_LIST
@@ -57,6 +62,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/ears/demihuman,
 		/datum/customizer/organ/horns/demihuman,
 		/datum/customizer/organ/tail/demihuman,
@@ -68,9 +74,11 @@
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,
+		/datum/body_marking_set/belly,
 		/datum/body_marking_set/socks,
 		/datum/body_marking_set/tiger,
 		/datum/body_marking_set/tiger_dark,
+		/datum/body_marking_set/gradient,
 	)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
@@ -79,6 +87,9 @@
 		/datum/body_marking/socklonger,
 		/datum/body_marking/tips,
 		/datum/body_marking/nose,
+		/datum/body_marking/bangs,
+		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -140,5 +151,6 @@
 		"West Raneshen (Vrdaqnan)" = SKIN_COLOR_SHALVISTINE,
 		"East Raneshen (Nshkormh)" = SKIN_COLOR_LALVESTINE,
 		"Naledi" = SKIN_COLOR_NALEDI,
+		"Naledi South" = SKIN_COLOR_NALEDI_LIGHT,
 		"Kazengun" = SKIN_COLOR_KAZENGUN,
 	)

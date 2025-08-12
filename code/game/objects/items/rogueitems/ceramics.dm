@@ -15,9 +15,10 @@
 
 /obj/item/reagent_containers/glass/bottle/claybottle
 	name = "clay vessel"
-	desc = "A small ceramic bottle."
+	desc = "A ceramic bottle." //The sprite was anything but small
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "claybottlecook"
+	volume = 65 // Larger than glass bottle
 	sellprice = 6
 	reagent_flags = OPENCONTAINER	//So it doesn't appear through
 
@@ -59,7 +60,7 @@
 /obj/item/natural/clay/claycup
 	name = "unglazed clay flask"
 	icon = 'icons/roguetown/items/cooking.dmi'
-	icon_state = "claycuperaw"
+	icon_state = "claycupraw"
 	desc = "A small flask fashioned from clay. Still needs to be glazed to be useful."
 	cooked_type = /obj/item/reagent_containers/glass/cup/claycup
 
@@ -67,9 +68,25 @@
 	name = "clay flask"
 	desc = "A small ceramic flask."
 	icon = 'icons/roguetown/items/cooking.dmi'
-	icon_state = "claybottlecook"
+	icon_state = "claycupcook"
 	sellprice = 3
 	reagent_flags = OPENCONTAINER	//So it doesn't appear through
+
+// Raw teapot
+/obj/item/natural/clay/rawteapot
+	name = "raw teapot"
+	icon = 'icons/roguetown/items/cooking.dmi'
+	icon_state = "teapot_raw"
+	desc = "A teapot fashioned from clay. Still needs to be baked to be useful."
+	cooked_type = /obj/item/reagent_containers/glass/bucket/pot/teapot
+
+// Raw teacup
+/obj/item/natural/clay/rawteacup
+	name = "raw teacup"
+	icon = 'icons/roguetown/items/cooking.dmi'
+	icon_state = "teacup_raw"
+	desc = "A teacup fashioned from clay. Still needs to be baked to be useful."
+	cooked_type = /obj/item/reagent_containers/glass/cup/ceramic
 
 //Bricks - Makes bricks which are used for building. (Need brick-wall sprites for this.. augh..)
 /obj/item/natural/clay/claybrick
@@ -91,13 +108,13 @@
 	name = "ceramic statue"
 	desc = "A ceramic statue, shining in its eligance!"
 	icon = 'icons/roguetown/items/cooking.dmi'
-	icon_state = "claystatuecook1"
+	icon_state = "claystatuecooked1"
 	smeltresult = null	//No resource return
 	sellprice = 15		//Iron is worth 20, so these gotta be a little cheaper
 
 /obj/item/roguestatue/clay/Initialize()
 	. = ..()
-	icon_state = "claystatuecook[pick(1,2)]"
+	icon_state = "claystatuecooked[pick(1,2)]"
 
 /obj/item/roguestatue/glass
 	name = "glass statue"

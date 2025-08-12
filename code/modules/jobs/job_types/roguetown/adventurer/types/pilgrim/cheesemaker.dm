@@ -6,26 +6,26 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/cheesemaker
-
+	
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 
 /datum/outfit/job/roguetown/adventurer/cheesemaker/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	mouth = /obj/item/rogueweapon/huntingknife
 	belt = /obj/item/storage/belt/rogue/leather
 	pants = /obj/item/clothing/under/roguetown/tights/random
@@ -42,6 +42,7 @@
 		/obj/item/reagent_containers/food/snacks/rogue/cheddar = 2,
 		/obj/item/natural/cloth = 2,
 		/obj/item/book/rogue/yeoldecookingmanual = 1,
+		/obj/item/recipe_book/survival = 1,
 		)
 	r_hand = /obj/item/flashlight/flare/torch
 	H.change_stat("intelligence", 2)

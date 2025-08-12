@@ -28,8 +28,11 @@
 	var/obscure_name = FALSE
 	var/race_name = dna.species.name
 	var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
+	var/datum/antagonist/skeleton/skeleton = user.mind?.has_antag_datum(/datum/antagonist/skeleton)
 	if(maniac && (user != src))
 		race_name = "disgusting pig"
+	if(skeleton && (user != src))
+		race_name = "[pick("shambling", "taut", "decrepit")]"
 
 	var/m1 = "[t_He] [t_is]"
 	var/m2 = "[t_his]"
@@ -61,6 +64,8 @@
 		on_examine_face(user)
 		var/used_name = name
 		var/used_title = get_role_title()
+		if(SSticker.regentmob == src)
+			used_title = "[used_title]" + " Regent"
 		var/display_as_wanderer = FALSE
 		var/is_returning = FALSE
 		if(observer_privilege)
@@ -93,14 +98,25 @@
 		if(GLOB.lord_titles[name])
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
-		if(HAS_TRAIT(src, TRAIT_NOBLE))
-			if(HAS_TRAIT(user, TRAIT_NOBLE))
+		if(HAS_TRAIT(src, TRAIT_NOBLE) || HAS_TRAIT(src, TRAIT_DEFILED_NOBLE))
+			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_DEFILED_NOBLE))
 				. += span_notice("A fellow noble.")
 			else
 				. += span_notice("A noble!")
 
 		if (HAS_TRAIT(src, TRAIT_OUTLANDER) && !HAS_TRAIT(user, TRAIT_OUTLANDER)) 
 			. += span_phobia("A foreigner...")
+
+		//For tennite schism god-event
+		if(length(GLOB.tennite_schisms))
+			var/datum/tennite_schism/S = GLOB.tennite_schisms[1]
+			var/user_side = (WEAKREF(user) in S.supporters_astrata) ? "astrata" : (WEAKREF(user) in S.supporters_challenger) ? "challenger" : null
+			var/mob_side = (WEAKREF(src) in S.supporters_astrata) ? "astrata" : (WEAKREF(src) in S.supporters_challenger) ? "challenger" : null
+
+			if(user_side && mob_side)
+				var/datum/patron/their_god = (mob_side == "astrata") ? S.astrata_god.resolve() : S.challenger_god.resolve()
+				if(their_god)
+					. += (user_side == mob_side) ? span_notice("Fellow [their_god.name] supporter!") : span_userdanger("Vile [their_god.name] supporter!")
 
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -109,7 +125,20 @@
 
 		if(name in GLOB.excommunicated_players)
 			. += span_userdanger("HERETIC! SHAME!")
-
+		
+		if(HAS_TRAIT(src, TRAIT_EXCOMMUNICATED))
+			. += span_userdanger("EXCOMMUNICATED! SHAME!")//Temporary, probably going to get rid of the trait since it doesn't fit for us.
+/*
+		if(name in GLOB.excommunicated_players)
+			var/mob/living/carbon/human/H = src
+			switch (H.patron)
+				if (istype(H.patron, /datum/patron/divine))
+					. += span_userdanger("EXCOMMUNICATED! SHAME!")
+				if (istype(H.patron, /datum/patron/inhumen))
+					. += span_userdanger("HERETIC! SHAME!")
+				if (istype(H.patron, /datum/patron/old_god))
+					. += span_userdanger("HEATHEN! SHAME!")
+*/
 		if(name in GLOB.outlawed_players)
 			. += span_userdanger("OUTLAW!")
 
@@ -148,6 +177,8 @@
 				. += span_secradio("[m1] marked by scars inflicted for pleasure. A delectable target for my urges.")
 			if(has_flaw(/datum/charflaw/addiction/sadist) && user.has_flaw(/datum/charflaw/masochist))
 				. += span_secradio("[m1] looking with eyes filled with a desire to inflict pain. So exciting.")
+			if(HAS_TRAIT(user, TRAIT_EMPATH) && HAS_TRAIT(src, TRAIT_PERMAMUTE))
+				. += span_notice("[m1] lacks a voice. [m1] is a mute!")
 
 		var/villain_text = get_villain_text(user)
 		if(villain_text)
@@ -179,6 +210,12 @@
 					. += span_redtext("[m1] repugnant!")
 				if (THEY_THEM, THEY_THEM_F, IT_ITS)
 					. += span_redtext("[m1] repulsive!")
+	
+	if (HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS) && (!HAS_TRAIT(src, TRAIT_VAMP_DREAMS)))
+		if(isliving(user))
+			var/mob/living/L = user
+			if(L.STAINT > 9 && L.STAPER > 9)
+				. += span_redtext("<i>[m1] critically fragile!</i>")
 
 	if(user != src && HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
 		var/atom/item = get_most_expensive()
@@ -191,11 +228,11 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 
-		if(HAS_TRAIT(H, TRAIT_INTELLECTUAL) || H.mind?.get_skill_level(H, /datum/skill/craft/blacksmithing) >= SKILL_EXP_EXPERT)
+		if(HAS_TRAIT(H, TRAIT_INTELLECTUAL) || H.get_skill_level(H, /datum/skill/craft/blacksmithing) >= SKILL_EXP_EXPERT)
 			is_smart = TRUE	//Most of this is determining integrity of objects + seeing multiple layers. 
-		if(((H?.STAINT - 10) + round((H?.STAPER - 10) / 2) + H.mind?.get_skill_level(/datum/skill/misc/reading)) < 0 && !is_smart)
+		if(((H?.STAINT - 10) + round((H?.STAPER - 10) / 2) + H.get_skill_level(/datum/skill/misc/reading)) < 0 && !is_smart)
 			is_stupid = TRUE
-		if(((H?.STAINT - 10) + (H?.STAPER - 10) + H.mind?.get_skill_level(/datum/skill/misc/reading)) >= 5)
+		if(((H?.STAINT - 10) + (H?.STAPER - 10) + H.get_skill_level(/datum/skill/misc/reading)) >= 5)
 			is_normal = TRUE
 
 	if(user != src)
@@ -214,7 +251,10 @@
 
 	if(wear_shirt && !(SLOT_SHIRT in obscured))
 		if(!wear_armor)
-			. += "[m3] [wear_shirt.get_examine_string(user)]."
+			var/str = "[m3] [wear_shirt.get_examine_string(user)]."
+			if(!is_stupid)
+				str += " [wear_shirt.integrity_check()]"
+			. += str
 		else
 			if(is_smart)
 				var/str = "[m3] [wear_shirt.get_examine_string(user)]. "
@@ -295,7 +335,7 @@
 			str += cloak.integrity_check()
 			. += str
 		else if (is_stupid)					//So they can tell the named RG tabards. If they can read them, anyway.
-			if(!istype(cloak, /obj/item/clothing/cloak/stabard) && user.mind?.get_skill_level(/datum/skill/misc/reading))
+			if(!istype(cloak, /obj/item/clothing/cloak/stabard) && user.get_skill_level(/datum/skill/misc/reading))
 				. += "[m3] some kinda clothy thing on [m2] shoulders!"
 			else
 				. += "[m3] [cloak.get_examine_string(user)] on [m2] shoulders."
@@ -468,6 +508,10 @@
 	if(legcuffed)
 		. += "<A href='?src=[REF(src)];item=[SLOT_LEGCUFFED]'><span class='warning'>[m3] \a [legcuffed] around [m2] legs!</span></A>"
 
+	var/datum/status_effect/bugged/effect = has_status_effect(/datum/status_effect/bugged)
+	if(effect && HAS_TRAIT(user, TRAIT_INQUISITION))
+		. += "<A href='?src=[REF(src)];item=[effect.device]'><span class='warning'>[m3] \a [effect.device] implanted.</span></A>"
+
 	//Gets encapsulated with a warning span
 	var/list/msg = list()
 
@@ -592,7 +636,7 @@
 				msg += "[m1] looking parched."
 
 	//Fire/water stacks
-	if(fire_stacks > 0)
+	if(fire_stacks + divine_fire_stacks > 0)
 		msg += "[m1] covered in something flammable."
 	else if(fire_stacks < 0)
 		msg += "[m1] soaked."
@@ -768,6 +812,17 @@
 		. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a>"
 
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
+	if(lip_style)
+		switch(lip_color)
+			if("red")
+				. += "<span class='info' style='color: #a81324'>[m1] wearing red lipstick.</span>"
+			if("purple")
+				. += "<span class='info' style='color: #800080'>[m1] wearing purple lipstick.</span>"
+			if("lime")
+				. += "<span class='info' style='color: #00FF00'>[m1] wearing lime lipstick.</span>"
+			if("black")
+				. += "<span class='info' style='color: #313131ff'>[m1] wearing black lipstick.</span>"
+			
 	for(var/line in lines)
 		. += span_info(line)
 
@@ -845,7 +900,13 @@
 /mob/living/proc/get_inquisition_text(mob/examiner)
 	var/inquisition_text
 	if(HAS_TRAIT(src, TRAIT_INQUISITION) && HAS_TRAIT(examiner, TRAIT_INQUISITION))
-		inquisition_text += "Fellow Member of the Inquisition"
+		inquisition_text = "A Practical of our Psydonic Inquisitorial Sect."
+	if(HAS_TRAIT(src, TRAIT_PURITAN) && HAS_TRAIT(examiner, TRAIT_INQUISITION))
+		inquisition_text = "The Lorde-Inquisitor of our Psydonic Inquisitorial Sect."	
+	if(HAS_TRAIT(src, TRAIT_INQUISITION) && HAS_TRAIT(examiner, TRAIT_PURITAN))
+		inquisition_text = "Subordinate to me in the Psydonic Inquisitorial Sect."
+	if(HAS_TRAIT(src, TRAIT_PURITAN) && HAS_TRAIT(examiner, TRAIT_PURITAN))
+		inquisition_text = "The Lorde-Inquisitor of the Sect sent here. That's me."				
 
 	return inquisition_text
 
@@ -856,14 +917,34 @@
 		if(mind.special_role == "Bandit")
 			if(HAS_TRAIT(examiner, TRAIT_COMMIE))
 				villain_text = span_notice("Free man!")
-			/*else
-				villain_text = span_userdanger("BANDIT!")*/
+			if(HAS_TRAIT(src,TRAIT_KNOWNCRIMINAL))
+				villain_text = span_userdanger("BANDIT!")
 		if(mind.special_role == "Vampire Lord")
 			var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
 			if(VD) 
 				if(!VD.disguised)
 					villain_text += span_userdanger("A MONSTER!")
+		if(mind.special_role == "Vampire Spawn")
+			var/datum/antagonist/vampirelord/lesser/VD = mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			if(VD) 
+				if(!VD.disguised)
+					villain_text += span_userdanger("A LICKER!")
 		if(mind.assigned_role == "Lunatic")
 			villain_text += span_userdanger("LUNATIC!")
 
 	return villain_text
+
+/proc/get_blade_dulling_text(obj/item/rogueweapon/I, verbose = FALSE)
+	switch(I.blade_dulling)
+		if(DULLING_SHAFT_WOOD)
+			return "[verbose ? "Wooden" : "(W. shaft)"]"
+		if(DULLING_SHAFT_REINFORCED)
+			return "[verbose ? "Reinforced" : "(R. shaft)"]"
+		if(DULLING_SHAFT_METAL)
+			return "[verbose ? "Metal" : "(M. shaft)"]"
+		if(DULLING_SHAFT_GRAND)
+			return "[verbose ? "Grand" : "(G. shaft)"]"
+		if(DULLING_SHAFT_CONJURED)
+			return "[verbose ? "Conjured" : "(C. shaft)"]"
+		else
+			return null

@@ -1,11 +1,16 @@
 /mob/living/carbon/human/species/vulpkanin
 	race = /datum/species/vulpkanin
 
-/datum/species/vulpkanin
-	name = "Vulpkian"
+/datum/species/vulpkanin		//These should technically not exist, but completely exploding people's savefiles is too high a price to pay for some minor race bloat.
+	name = "Venardine"
 	id = "vulpkanin"
-	desc = "Foxy creatures known for their cleverness and mischief. In ancient history they were Dendor's original champions, but as His madness grew the connect became frey and forgotten, leaving them to their own devices. Or, at least, that's what they say.<br>\
-	(+1 Intelligence, +1 Perception)"
+	desc = "<b>Venardine</b><br>\
+	Based on the writings of the living Fietje von Zenitstadt: A subspecies of the more common \"Lupian\", found almost exclusively in thick forests.\
+	They are usually shorter and meeker, but in turn more perceptive than their Volf-like brethren. \
+	Their name is quite obvious, coming from the Venards they closely resemble. \
+	Venardines are often much more solitary than Lupians, lacking the fervent pack mentality of their parent race. \
+	To this dae, their origin is heavily disputed by few archivists across Psydonia - though the rest, perhaps for sanity's sake, consider them to be just Lupians.<br>\
+	(+1 Perception, +1 Intelligence)"
 	default_color = "444"
 	species_traits = list(
 		MUTCOLORS,
@@ -64,6 +69,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/tail/vulpkanin,
 		/datum/customizer/organ/snout/vulpkanin,
 		/datum/customizer/organ/ears/vulpkanin,
@@ -87,6 +93,11 @@
 		/datum/body_marking/butt,
 		/datum/body_marking/tonage,
 		/datum/body_marking/nose,
+		/datum/body_marking/harlequin,
+		/datum/body_marking/harlequinreversed,
+		/datum/body_marking/bangs,
+		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -103,7 +114,6 @@
 	)
 	languages = list(
 		/datum/language/common,
-		/datum/language/canilunzt
 	)
 
 /datum/species/vulpkanin/check_roundstart_eligible()

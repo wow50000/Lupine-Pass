@@ -20,6 +20,31 @@
 	grid_width = 32
 	grid_height = 64
 
+/obj/item/rope/Initialize()
+	. = ..()
+	var/static/list/slapcraft_recipe_list = list(
+		/datum/crafting_recipe/roguetown/survival/ropebelt,
+		/datum/crafting_recipe/roguetown/survival/net,
+		/datum/crafting_recipe/roguetown/survival/billhook,
+		/datum/crafting_recipe/roguetown/survival/goedendag,
+		/datum/crafting_recipe/roguetown/survival/rucksack,
+		/datum/crafting_recipe/roguetown/survival/peasantry/thresher/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/shovel/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/hoe/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/pitchfork/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/peasantwarflail,
+		/datum/crafting_recipe/roguetown/survival/peasantry/goedendag,
+		/datum/crafting_recipe/roguetown/survival/peasantry/waraxe,
+		/datum/crafting_recipe/roguetown/survival/peasantry/warspear_hoe,
+		/datum/crafting_recipe/roguetown/survival/peasantry/warspear_pitchfork,
+		/datum/crafting_recipe/roguetown/survival/peasantry/scythe,
+		)
+
+	AddElement(
+		/datum/element/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+		)
+
 /datum/intent/tie
 	name = "tie"
 	chargetime = 0
@@ -74,14 +99,14 @@
 		return
 
 	var/surrender_mod = 1
-	if(C.surrendering)
-		surrender_mod = 0.5
+	if(C.compliance || C.surrendering || HAS_TRAIT(C, TRAIT_BAGGED))
+		surrender_mod = 0.5	
 
 	C.visible_message(span_warning("[user] is trying to tie [C]'s arms with [src.name]!"), \
 						span_userdanger("[user] is trying to tie my arms with [src.name]!"))
 	playsound(loc, cuffsound, 100, TRUE, -2)
 
-	if(!(do_mob(user, C, 60 * surrender_mod) && C.get_num_arms(FALSE)))
+	if(!(do_mob(user, C, 60 * surrender_mod, double_progress = TRUE) && C.get_num_arms(FALSE)))
 		to_chat(user, span_warning("I fail to tie up [C]!"))
 		return
 
@@ -104,7 +129,7 @@
 		return
 
 	var/surrender_mod = 1
-	if(C.surrendering)
+	if(C.compliance || C.surrendering)
 		surrender_mod = 0.5
 
 	C.visible_message(span_warning("[user] is trying to tie [C]'s legs with [src.name]!"), \
@@ -175,7 +200,7 @@
 	throw_range = 3
 	breakouttime = 10 SECONDS
 	slipouttime = 2 MINUTES
-	cuffsound = 'sound/blank.ogg'
+	cuffsound = 'sound/misc/chains.ogg'
 	possible_item_intents = list(/datum/intent/tie, /datum/intent/whips)
 	firefuel = null
 	smeltresult = /obj/item/ingot/iron
@@ -194,8 +219,9 @@
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "net"
-	breakouttime = 35//easy to apply, easy to break out of
+	slipouttime = 2 SECONDS //ideally you're using this to catch a dodger, not in the middle of combat
 	gender = NEUTER
+	throw_speed = 2
 	var/knockdown = 0
 
 /obj/item/net/Initialize()

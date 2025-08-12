@@ -27,7 +27,7 @@
 
 /obj/structure/spider/stickyweb/attacked_by(obj/item/I, mob/living/user) //Snipping action for webs, scissors turning webs into silk fast!
 	var/snip_time = 50
-	var/sewing_skill = user.mind.get_skill_level(/datum/skill/misc/sewing)
+	var/sewing_skill = user.get_skill_level(/datum/skill/misc/sewing)
 	var/amount = rand(1, 2)
 	if(user.used_intent.type == /datum/intent/snip)
 		snip_time = (50 - (sewing_skill * 10))
@@ -76,8 +76,10 @@
 /obj/structure/spider/cocoon
 	name = "cocoon"
 	desc = ""
-	icon_state = "cocoon1"
+	icon = 'modular/Mapping/icons/webbing.dmi'
+	icon_state = "cocoon_person"
 	max_integrity = 40
+	static_debris = list(/obj/item/natural/silk = 5)
 
 /obj/structure/spider/cocoon/container_resist(mob/living/user)
 	var/breakout_time = 600
@@ -87,31 +89,17 @@
 	visible_message("<span class='notice'>I see something struggling and writhing in \the [src]!</span>")
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
+			to_chat(user, "<span class='notice'>Augh! The pain! I fail to break out for now.)</span>")
 			return
+		user.remove_status_effect(/datum/status_effect/buff/healing/spider_cocoon)
 		qdel(src)
 
 /obj/structure/spider/cocoon/Destroy()
 	var/turf/T = get_turf(src)
 	src.visible_message("<span class='warning'>\The [src] splits open.</span>")
 	for(var/atom/movable/A in contents)
+		if(istype(A, /mob/living))
+			var/mob/living/L = A
+			L.remove_status_effect(/datum/status_effect/buff/healing/spider_cocoon)
 		A.forceMove(T)
 	return ..()
-
-/obj/structure/spider/cocoon/Initialize()
-	switch(pick(1,2,3,4,5))
-		if (1)
-			static_debris = list(/obj/item/natural/silk = 3)
-			icon_state = pick("cocoon1","cocoon2")
-		if (2)
-			static_debris = list(/obj/item/natural/silk = 2, /obj/effect/decal/remains/bigrat = 1)
-			icon_state = pick("cocoon2","cocoon3")
-		if (3)
-			static_debris = list(/obj/item/natural/silk = 2, /obj/effect/decal/remains/human = 1)
-			icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
-		if (4)
-			static_debris = list(/obj/item/natural/silk = 2, /obj/effect/decal/cleanable/blood/gibs = 1)
-			icon_state = pick("cocoon1","cocoon2","cocoon3")
-		if (5)
-			static_debris = list(/obj/item/natural/silk = 2, /obj/item/natural/stone = 1)
-			icon_state = pick("cocoon1","cocoon2")
-	. = ..()

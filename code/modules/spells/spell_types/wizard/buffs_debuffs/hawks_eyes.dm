@@ -1,8 +1,8 @@
 /obj/effect/proc_holder/spell/invoked/hawks_eyes
 	name = "Hawk's Eyes"
 	overlay_state = "hawks_eyes"
-	desc = "Sharpens the target's vision. (+3 Perception)"
-	cost = 1
+	desc = "Sharpens the target's vision. (+5 Perception)"
+	cost = 2
 	xp_gain = TRUE
 	releasedrain = 60
 	chargedrain = 1
@@ -11,7 +11,7 @@
 	warnie = "spellwarning"
 	school = "transmutation"
 	spell_tier = 2
-	invocation = "Oculus Accipiteris"
+	invocation = "Oculi Accipitris." // Oculi - Eyes. Accipitris - Hawk, singular.
 	invocation_type = "whisper"
 	glow_color = GLOW_COLOR_BUFF
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -32,11 +32,11 @@
 	playsound(get_turf(spelltarget), 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
 	if(spelltarget != user)
-		user.visible_message("[user] mutters an incantation and [spelltarget] 's skin hardens like stone.")
+		user.visible_message("[user] mutters an incantation and [spelltarget] 's eyes glimmers.")
 		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
 		spelltarget.apply_status_effect(/datum/status_effect/buff/hawks_eyes/other)
 	else
-		user.visible_message("[user] mutters an incantation and their skin hardens.")
+		user.visible_message("[user] mutters an incantation and their eyes glimmers.")
 		spelltarget.apply_status_effect(/datum/status_effect/buff/hawks_eyes)
 
 	return TRUE
@@ -44,14 +44,14 @@
 #define HAWKSEYES_FILTER "hawkseyes_glow"
 /atom/movable/screen/alert/status_effect/buff/hawks_eyes
 	name = "Hawk's Eyes"
-	desc = "My vision is sharpened. (+3 Perception)"
+	desc = "My vision is sharpened. (+5 Perception)"
 	icon_state = "buff"
 
 /datum/status_effect/buff/hawks_eyes
 	var/outline_colour ="#ffff00" // Same color as perception potion
 	id = "hawkseyes"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/hawks_eyes
-	effectedstats = list("perception" = 3)
+	effectedstats = list("perception" = 5)
 	duration = 1 MINUTES
 
 /datum/status_effect/buff/hawks_eyes/other

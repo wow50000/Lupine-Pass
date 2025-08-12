@@ -6,7 +6,7 @@
 	drag_slowdown = 1.5		// Same as a prone mob
 	max_integrity = 200
 	integrity_failure = 0.25
-	armor = list("blunt" = 20, "slash" = 10, "stab" = 15, "piercing" = 10, "fire" = 70, "acid" = 60)
+	armor = ARMOR_CLOSET
 
 	var/icon_door = null
 	var/icon_door_override = FALSE //override to have open overlay use icon different to its base's
@@ -118,6 +118,11 @@
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))
 			. += span_notice("Ctrl-Shift-click [src] to jump inside.")*/
+
+/obj/structure/closet/CanAStarPass(ID, dir, caller)
+	if(wall_mounted)
+		return TRUE
+	return ..()
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target)
 	if(wall_mounted)
@@ -265,6 +270,9 @@
 	if(istype(W, /obj/item/lockpick))
 		trypicklock(W, user)
 		return
+	if(istype(W, /obj/item/melee/touch_attack/lesserknock))
+		trypicklock(W, user)
+		return
 	if(istype(W,/obj/item/lockpickring))
 		var/obj/item/lockpickring/pickring = W
 		if(pickring.picks.len)
@@ -321,12 +329,12 @@
 		return
 	else
 		var/lockprogress = 0
-		var/locktreshold = 100
+		var/locktreshold = lock_strength
 
 		var/obj/item/lockpick/P = I
 		var/mob/living/L = user
 
-		var/pickskill = user.mind.get_skill_level(/datum/skill/misc/lockpicking)
+		var/pickskill = user.get_skill_level(/datum/skill/misc/lockpicking)
 		var/perbonus = L.STAPER/5
 		var/picktime = 70
 		var/pickchance = 35
@@ -356,6 +364,8 @@
 					add_sleep_experience(L, /datum/skill/misc/lockpicking, L.STAINT/2)
 				if(lockprogress >= locktreshold)
 					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
+					record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+					GLOB.azure_round_stats[STATS_LOCKS_PICKED]++
 					togglelock(user)
 					break
 				else
@@ -431,7 +441,7 @@
 		return
 	if(!(user.mobility_flags & MOBILITY_STAND) && get_dist(src, user) > 0)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	toggle(user)
 
 /obj/structure/closet/attack_paw(mob/user)
@@ -449,7 +459,7 @@
 	if(!usr.canUseTopic(src, BE_CLOSE) || !isturf(loc))
 		return
 
-	if(iscarbon(usr) || isdrone(usr))
+	if(iscarbon(usr))
 		return toggle(usr)
 	else
 		to_chat(usr, span_warning("This mob type can't use this verb."))
@@ -505,7 +515,7 @@
 	dive_into(user)
 
 /obj/structure/closet/proc/togglelock(mob/living/user, silent)
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	if(locked)
 		user.visible_message(span_warning("[user] unlocks [src]."), \
 			span_notice("I unlock [src]."))

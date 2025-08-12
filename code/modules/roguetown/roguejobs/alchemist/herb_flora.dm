@@ -10,53 +10,78 @@
 	var/list/looty = list()
 	var/herbtype
 
+	var/timerid
+	var/harvested = FALSE
+
 /obj/structure/flora/roguegrass/herb/Initialize()
 	. = ..()
 	desc = "An herb. This one looks like [name]."
+	GLOB.herb_locations |= src
+	loot_replenish()
+
+/obj/structure/flora/roguegrass/herb/Destroy()
+	. = ..()
+	GLOB.harvested_herbs -= src
+	GLOB.herb_locations -= src
 
 /obj/structure/flora/roguegrass/herb/update_icon()
 	return
 
 /obj/structure/flora/roguegrass/herb/attack_hand(mob/user)
+	if(harvested)
+		to_chat(user, span_warning("Picked clean; but looks healthy. I should try again later."))
 	if(isliving(user))
 		var/mob/living/L = user
-		user.changeNext_move(CLICK_CD_MELEE)
+		user.changeNext_move(CLICK_CD_INTENTCAP)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
-		if(do_after(L, rand(3,5), target = src))
-			if(!looty.len && (world.time > res_replenish))
-				loot_replenish()
-			if(prob(50) && looty.len)
-				if(looty.len == 1)
-					res_replenish = world.time + 5 MINUTES
-				var/obj/item/B = pick_n_take(looty)
-				if(B)
-					B = new B(user.loc)
-					user.put_in_hands(B)
-					if(HAS_TRAIT(user, TRAIT_WOODWALKER))
-						var/obj/item/C = new B.type(user.loc)
-						user.put_in_hands(C)
-					user.visible_message(span_notice("[user] finds [HAS_TRAIT(user, TRAIT_WOODWALKER) ? "two of " : ""][B] in [src]."))
-					return
-			user.visible_message(span_notice("[user] searches through [src]."))
+		if(do_after(L, rand(3,5), src))
 			if(!looty.len)
-				to_chat(user, span_warning("Picked clean; but looks healthy. I should try again later."))
+				return
+			var/obj/item/B = pick_n_take(looty)
+			if(B)
+				B = new B(user.loc)
+				user.put_in_hands(B)
+				if(HAS_TRAIT(user, TRAIT_WOODWALKER))
+					var/obj/item/C = new B.type(user.loc)
+					user.put_in_hands(C)
+				user.visible_message(span_notice("[user] finds [HAS_TRAIT(user, TRAIT_WOODWALKER) ? "two of " : ""][B] in [src]."))
+				harvested = TRUE
+				timerid = addtimer(CALLBACK(src, PROC_REF(loot_replenish)), 5 MINUTES, flags = TIMER_STOPPABLE)
+				//add_filter("picked", 1, alpha_mask_filter(icon = icon('icons/effects/picked_overlay.dmi', "picked_overlay_[rand(1,3)]"), flags = MASK_INVERSE))
+				GLOB.harvested_herbs |= src
+				return
+			user.visible_message(span_notice("[user] searches through [src]."))
 
 /obj/structure/flora/roguegrass/herb/proc/loot_replenish()
 	if(herbtype)
 		looty += herbtype
+	harvested = FALSE
+	remove_filter("picked")
+	GLOB.harvested_herbs -= src
+	if(timerid)
+		deltimer(timerid)
 
 /obj/structure/flora/roguegrass/herb/random
 	name = "random herb"
 	desc = "Haha, im in danger."
 
 /obj/structure/flora/roguegrass/herb/random/Initialize()
-	var/type = pick(list(/obj/structure/flora/roguegrass/herb/atropa,/obj/structure/flora/roguegrass/herb/matricaria,
-	/obj/structure/flora/roguegrass/herb/symphitum,/obj/structure/flora/roguegrass/herb/taraxacum,
-	/obj/structure/flora/roguegrass/herb/euphrasia,/obj/structure/flora/roguegrass/herb/paris,
-	/obj/structure/flora/roguegrass/herb/calendula,/obj/structure/flora/roguegrass/herb/mentha,
-	/obj/structure/flora/roguegrass/herb/urtica,/obj/structure/flora/roguegrass/herb/salvia,
-	/obj/structure/flora/roguegrass/herb/hypericum,/obj/structure/flora/roguegrass/herb/benedictus,
-	/obj/structure/flora/roguegrass/herb/valeriana,/obj/structure/flora/roguegrass/herb/artemisia,/obj/structure/flora/roguegrass/herb/rosa,/obj/structure/flora/roguegrass/swampweed))
+	var/type = pick(list(/obj/structure/flora/roguegrass/herb/atropa,
+	/obj/structure/flora/roguegrass/herb/matricaria,
+	/obj/structure/flora/roguegrass/herb/symphitum,
+	/obj/structure/flora/roguegrass/herb/taraxacum,
+	/obj/structure/flora/roguegrass/herb/euphrasia,
+	/obj/structure/flora/roguegrass/herb/paris,
+	/obj/structure/flora/roguegrass/herb/calendula,
+	/obj/structure/flora/roguegrass/herb/mentha,
+	/obj/structure/flora/roguegrass/herb/urtica,
+	/obj/structure/flora/roguegrass/herb/salvia,
+	/obj/structure/flora/roguegrass/herb/hypericum,
+	/obj/structure/flora/roguegrass/herb/benedictus,
+	/obj/structure/flora/roguegrass/herb/valeriana,
+	/obj/structure/flora/roguegrass/herb/artemisia,
+	/obj/structure/flora/roguegrass/herb/rosa,
+	/obj/structure/flora/roguegrass/swampweed))
 
 	var/obj/structure/flora/roguegrass/herb/boi = new type
 	boi.forceMove(get_turf(src))
@@ -155,3 +180,10 @@
 	icon_state = "rosa"
 
 	herbtype = /obj/item/alch/rosa
+
+/obj/structure/flora/roguegrass/herb/manabloom
+	name = "manabloom"
+	icon = 'icons/roguetown/misc/crops.dmi' // this is awful why am I doing this
+	icon_state = "manabloom2"
+
+	herbtype = /obj/item/reagent_containers/food/snacks/grown/manabloom

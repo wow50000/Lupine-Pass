@@ -13,10 +13,11 @@
 	sharpness = IS_BLUNT
 	//dropshrink = 0.8
 	slot_flags = ITEM_SLOT_BACK
-	wlength = 33
+	wlength = WLENGTH_NORMAL
 	gripsprite = TRUE
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	smeltresult = /obj/item/ingot/iron
+
 /datum/intent/flailthresh
 	name = "thresh"
 	icon_state = "inthresh"
@@ -25,6 +26,10 @@
 	candodge = FALSE
 	misscost = 0
 	no_attack = TRUE
+
+/obj/item/rogueweapon/thresher/examine(mob/user)
+	. = ..()
+	. += span_notice("Use on STRIKE intent to break up produce for seeds. THRESH on stalks to beat out grains.")
 
 /obj/item/rogueweapon/thresher/getonmobprop(tag)
 	. = ..()
@@ -50,6 +55,17 @@
 			return
 	..()
 
+/obj/item/rogueweapon/thresher/aalloy
+	name = "decrepit thresher"
+	desc = "A thresher of wrought bronze; from when the wheat was plentiful, and when Man wasn't burdened with the weight of sin."
+	force = 5
+	force_wielded = 7
+	icon_state = "athresh"
+	smeltresult = /obj/item/ingot/aalloy
+	color = "#bb9696"
+	sellprice = 15
+
+
 /obj/item/rogueweapon/sickle
 	force = 10
 	possible_item_intents = list(DAGGER_CUT)
@@ -62,10 +78,14 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	sharpness = IS_SHARP
 	//dropshrink = 0.8
-	wlength = 10
+	wlength = WLENGTH_SHORT
 	slot_flags = ITEM_SLOT_HIP
 	max_blade_int = 50
 	smeltresult = /obj/item/ingot/iron
+
+/obj/item/rogueweapon/sickle/examine(mob/user)
+	. = ..()
+	. += span_notice("Use on any plant to instantly harvest it. HERBS turn to fiber when attacked.")
 
 /obj/item/rogueweapon/sickle/getonmobprop(tag)
 	. = ..()
@@ -73,6 +93,18 @@
 		switch(tag)
 			if("gen") return list("shrink" = 0.6,"sx" = -9,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -5,"wy" = 1,"ex" = 4,"ey" = 1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("onbelt") return list("shrink" = 0.5,"sx" = -2,"sy" = -3,"nx" = 3,"ny" = -3,"wx" = -2,"wy" = -3,"ex" = 3,"ey" = -2,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/rogueweapon/sickle/aalloy
+	name = "decrepit sickle"
+	desc = "Her thought was simple; to seperate the wheat from the chaff. By removing the limitations set upon one's spirit by lyfe, only then could divinity be obtained. She was correct - yet Her ascension had gone terribly awry, all-the-same."
+	icon_state = "asickle"
+	color = "#bb9696"
+	sellprice = 15
+
+/obj/item/rogueweapon/sickle/copper
+	name = "copper sickle"
+	icon_state = "csickle"
+	smeltresult = /obj/item/ingot/copper
 
 /obj/item/rogueweapon/hoe
 	force = 10
@@ -89,11 +121,24 @@
 	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
 	sharpness = IS_BLUNT
 	//dropshrink = 0.8
-	wlength = 33
+	wlength = WLENGTH_NORMAL
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	smeltresult = /obj/item/ingot/iron
 	var/hoe_damage = null //the durability damage recieved for every work cycle
 	var/work_time = 3 SECONDS // the time it takes to make new soil or till soil
+
+/obj/item/rogueweapon/hoe/aalloy
+	name = "decrepit hoe"
+	desc = "Food is what cultivates lyfe; and without lyfe, there would be nothing left. At least, that is what His children would want you to believe."
+	icon_state = "ahoe"
+	smeltresult = /obj/item/ingot/aalloy
+	color = "#bb9696"
+	sellprice = 15
+
+/obj/item/rogueweapon/hoe/copper
+	name = "copper hoe"
+	icon_state = "choe"
+	smeltresult = /obj/item/ingot/copper
 
 /obj/item/rogueweapon/hoe/stone
 	force = 7
@@ -108,6 +153,9 @@
 	hoe_damage = 25
 	work_time = 15 SECONDS
 
+/obj/item/rogueweapon/hoe/examine(mob/user)
+	. = ..()
+	. += span_notice("TILT intent allows you to make new plots for plants. Using it (on any intent) on a plot that already has something planted removes WEEDS.")
 
 /obj/item/rogueweapon/hoe/getonmobprop(tag)
 	. = ..()
@@ -162,10 +210,10 @@
 
 /obj/item/rogueweapon/hoe/attack_turf(turf/T, mob/living/user)
 	if(user.used_intent.type == /datum/intent/till)
-		if(user.mind.get_skill_level(/datum/skill/labor/farming) == SKILL_LEVEL_LEGENDARY) //check if the user has legendary farming skill
+		if(user.get_skill_level(/datum/skill/labor/farming) == SKILL_LEVEL_LEGENDARY) //check if the user has legendary farming skill
 			work_time = 0.5 SECONDS //if legendary skill, do_afters take half a second instead of 3
 
-		user.changeNext_move(CLICK_CD_MELEE)
+		user.changeNext_move(CLICK_CD_INTENTCAP)
 		if(istype(T, /turf/open/floor/rogue/snow) || istype(T, /turf/open/floor/rogue/snowrough) || istype(T, /turf/open/floor/rogue/snowpatchy))
 			playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
 			if (do_after(user, work_time, target = src))
@@ -249,11 +297,16 @@
 	sharpness = IS_BLUNT
 	associated_skill = /datum/skill/combat/polearms
 	//dropshrink = 0.8
-	wlength = 33
+	wlength = WLENGTH_GREAT
 	var/list/forked = list()
 	slot_flags = ITEM_SLOT_BACK
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	smeltresult = /obj/item/ingot/iron
+
+/obj/item/rogueweapon/pitchfork/examine(mob/user)
+	. = ..()
+	. += span_notice("Use RIGHT CLICK to flip compost in the bin. While wielded SCOOP intent allows you to pick up large amount (19) stalks.")
+
 /obj/item/rogueweapon/pitchfork/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -261,6 +314,24 @@
 			if("gen") return list("shrink" = 0.7,"sx" = -9,"sy" = 2,"nx" = 10,"ny" = 2,"wx" = -6,"wy" = 1,"ex" = 3,"ey" = 1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -15,"sturn" = 12,"wturn" = 0,"eturn" = 354,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("wielded") return list("shrink" = 0.8,"sx" = 7,"sy" = -3,"nx" = -6,"ny" = -2,"wx" = -3,"wy" = -2,"ex" = 7,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 39,"wturn" = -35,"eturn" = 27,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 			if("onback") return list("shrink" = 0.7,"sx" = 1,"sy" = 3,"nx" = -1,"ny" = 3,"wx" = 4,"wy" = 3,"ex" = -3,"ey" = 3,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 8,"sflip" = 0,"wflip" = 0,"eflip" = 8,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
+
+/obj/item/rogueweapon/pitchfork/aalloy
+	name = "decrepit pitchfork"
+	desc = "Do not fault the layman for fearing Her disciples, nor for driving them out of the villages with pitchforks-and-torches. They, too, will come to see the blessings of Zizo, all in due tyme." 
+	icon_state = "apitchfork"
+	smeltresult = /obj/item/ingot/aalloy
+	color = "#bb9696"
+	sellprice = 15
+
+/obj/item/rogueweapon/pitchfork/copper
+	name = "copper pitchfork"
+	icon = 'icons/roguetown/weapons/64.dmi'
+	pixel_y = -16
+	pixel_x = -16
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	icon_state = "cfork"
+	smeltresult = /obj/item/ingot/copper
 
 /datum/intent/pforkdump
 	name = "scoop"
@@ -296,7 +367,7 @@
 
 /obj/item/rogueweapon/pitchfork/update_icon()
 	if(forked.len)
-		icon_state = "pitchforkstuff"
+		icon_state = "[initial(icon_state)]stuff"
 	else
 		icon_state = initial(icon_state)
 	..()

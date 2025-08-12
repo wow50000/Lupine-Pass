@@ -81,7 +81,7 @@
 				groupplaying = FALSE
 		if(!groupplaying)
 			var/list/options = song_list.Copy()
-			if(user.mind && user.mind.get_skill_level(/datum/skill/misc/music) >= 4)
+			if(user.mind && user.get_skill_level(/datum/skill/misc/music) >= 4)
 				options["Upload New Song"] = "upload"
 			
 			var/choice = input(user, "Which song?", "Music", name) as null|anything in options
@@ -106,7 +106,7 @@
 				var/filename = "[infile]"
 				var/file_ext = lowertext(copytext(filename, -4))
 				var/file_size = length(infile)
-
+				message_admins("[ADMIN_LOOKUPFLW(user)] uploaded a song [filename] of size [file_size / 1000000] (~MB).")
 				if(file_ext != ".ogg")
 					to_chat(user, span_warning("SONG MUST BE AN OGG."))
 					return
@@ -124,7 +124,7 @@
 			if(!user || playing || !(src in user.held_items))
 				return
 			if(user.mind)
-				switch(user.mind.get_skill_level(/datum/skill/misc/music))
+				switch(user.get_skill_level(/datum/skill/misc/music))
 					if(1)
 						stressevent = /datum/stressevent/music
 						soundloop.stress2give = stressevent
@@ -163,6 +163,7 @@
 				soundloop.cursound = null
 				soundloop.start()
 				user.apply_status_effect(/datum/status_effect/buff/playing_music, stressevent, note_color)
+				GLOB.azure_round_stats[STATS_SONGS_PLAYED]++
 			else
 				playing = FALSE
 				groupplaying = FALSE
@@ -262,7 +263,7 @@
 
 /obj/item/rogue/instrument/flute
 	name = "flute"
-	desc = "A slender flute carefully carved from a smooth wood piece."
+	desc = "A row of slender hollow tubes of varying lengths that produce a light airy sound when blown across."
 	icon_state = "flute"
 	song_list = list("Half-Dragon's Ten Mammon" = 'sound/music/instruments/flute (1).ogg',
 	"'The Local Favorite'" = 'sound/music/instruments/flute (2).ogg',
@@ -313,7 +314,7 @@
 
 /obj/item/rogue/instrument/vocals
 	name = "vocalist's talisman"
-	desc = "This talisman eminates a small shimmer of light. When held, it can amplify and even change a bard's voice."
+	desc = "This talisman emanates a soft shimmer of light. When held, it can amplify and even change a bard's voice."
 	icon_state = "vtalisman"
 	song_list = list("Harpy's Call (Feminine)" = 'sound/music/instruments/vocalsf (1).ogg',
 	"Necra's Lullaby (Feminine)" = 'sound/music/instruments/vocalsf (2).ogg',
@@ -329,3 +330,19 @@
 	"The Power (Whistling)" = 'sound/music/instruments/vocalsx (2).ogg',
 	"Bard Dance (Whistling)" = 'sound/music/instruments/vocalsx (3).ogg',
 	"Old Time Battles (Whistling)" = 'sound/music/instruments/vocalsx (4).ogg')
+
+/obj/item/rogue/instrument/shamisen
+	name = "shamisen"
+	desc = "The shamisen, or simply «three strings», is an kazengunese stringed instrument with a washer, which is usually played with the help of a bachi."
+	icon_state = "shamisen"
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	song_list = list(
+	"Cursed Apple" = 'sound/music/instruments/shamisen (1).ogg',
+	"Fire Dance" = 'sound/music/instruments/shamisen (2).ogg',
+	"Lute" = 'sound/music/instruments/shamisen (3).ogg',
+	"Tsugaru Ripple" = 'sound/music/instruments/shamisen (4).ogg',
+	"Tsugaru" = 'sound/music/instruments/shamisen (5).ogg',
+	"Season" = 'sound/music/instruments/shamisen (6).ogg',
+	"Parade" = 'sound/music/instruments/shamisen (7).ogg',
+	"Koshiro" = 'sound/music/instruments/shamisen (8).ogg')

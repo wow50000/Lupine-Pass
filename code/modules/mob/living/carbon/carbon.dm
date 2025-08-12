@@ -79,6 +79,11 @@
 	update_a_intents()
 
 	givingto = null
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if(H.has_status_effect(/datum/status_effect/buff/clash))
+			H.bad_guard(span_warning("I swapped away from the weapon!"))
 	return TRUE
 
 
@@ -250,6 +255,7 @@
 		log_message("has thrown [thrown_thing]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))
 		thrown_thing.safe_throw_at(target, thrown_range, thrown_speed, src, null, null, null, move_force)
+		changeNext_move(CLICK_CD_MELEE)
 		if(!used_sound)
 			used_sound = pick(PUNCHWOOSH)
 		playsound(get_turf(src), used_sound, 60, FALSE)
@@ -297,6 +303,10 @@
 	if(legcuffed)
 		dat += "<BR><A href='?src=[REF(src)];item=[SLOT_LEGCUFFED]'>Legcuffed</A>"
 
+	var/datum/status_effect/bugged/effect = has_status_effect(/datum/status_effect/bugged)
+	if(effect && HAS_TRAIT(user, TRAIT_INQUISITION))
+		dat += "<BR><A href='?src=[REF(src)];item=[effect.device]'>BUGGED</A>"
+
 	dat += {"
 	<BR>
 	<BR><A href='?src=[REF(user)];mach_close=mob[REF(src)]'>Close</A>
@@ -305,7 +315,7 @@
 	onclose(user, "mob[REF(src)]")
 
 /mob/living/carbon/fall(forced)
-	loc.handle_fall(src, forced)//it's loc so it doesn't call the mob's handle_fall which does nothing
+	loc?.handle_fall(src, forced)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
 	return(istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
@@ -323,15 +333,19 @@
 	if(restrained())
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
-		var/buckle_cd = 600
+		var/buckle_cd = 1 MINUTES
 		if(handcuffed)
 			var/obj/item/restraints/O = src.get_item_by_slot(SLOT_HANDCUFFED)
-			buckle_cd = O.breakouttime
+			if(STASTR > 15)
+				buckle_cd = O.breakouttime
+			else if(STASTR > 10)
+				buckle_cd = O.slipouttime - ((STASTR - 10) * 20 SECONDS)
 		if(istype(buckled, /obj/structure))
 			var/obj/structure/S = buckled
-			buckle_cd += S.breakoutextra
-		if(STASTR > 15)
-			buckle_cd = 3 SECONDS
+			if(STASTR > 15)
+				buckle_cd += 10 SECONDS
+			else
+				buckle_cd += S.breakoutextra
 		visible_message("<span class='warning'>[src] attempts to struggle free!</span>", \
 					"<span class='notice'>I attempt to struggle free...</span>")
 		if(do_after(src, buckle_cd, 0, target = src))
@@ -383,11 +397,14 @@
 		return
 	I.item_flags |= BEING_REMOVED
 	breakouttime = I.slipouttime
-	if((STASTR > 10) || (mind && mind.has_antag_datum(/datum/antagonist/zombie)))
-		cuff_break = FAST_CUFFBREAK
-		breakouttime = I.breakouttime
+	if((STASTR > 10))
+		var/time_mod = (STASTR - 10) * 20 SECONDS
+		breakouttime -= time_mod
+	if(mind && mind.has_antag_datum(/datum/antagonist/zombie))
+		breakouttime = 10 SECONDS
 	if(STASTR > 15)
 		cuff_break = INSTANT_CUFFBREAK
+		breakouttime = I.breakouttime
 	if(!cuff_break)
 		to_chat(src, "<span class='notice'>I attempt to remove [I]...</span>")
 		if(do_after(src, breakouttime, 0, target = src))
@@ -421,7 +438,7 @@
 			if (W)
 				W.layer = initial(W.layer)
 				W.plane = initial(W.plane)
-		changeNext_move(0)
+		changeNext_move(0, override = TRUE)
 	if (legcuffed)
 		var/obj/item/W = legcuffed
 		legcuffed = null
@@ -434,7 +451,7 @@
 			if (W)
 				W.layer = initial(W.layer)
 				W.plane = initial(W.plane)
-		changeNext_move(0)
+		changeNext_move(0, override = TRUE)
 
 /mob/living/carbon/proc/clear_cuffs(obj/item/I, cuff_break)
 	if(!I.loc || buckled)
@@ -442,6 +459,8 @@
 	if(I != handcuffed && I != legcuffed)
 		return FALSE
 	visible_message("[cuff_break ? "<span class='danger'>" : "<span class='warning'>"][src] manages to [cuff_break ? "break" : "slip"] out of [I]!</span>")
+	if(cuff_break)
+		playsound(src, 'sound/misc/chain_snap.ogg', 100, FALSE, 10)
 	to_chat(src, "<span class='notice'>I [cuff_break ? "break" : "slip"] out of [I]!</span>")
 
 	if(istype(I, /obj/item/net))
@@ -578,7 +597,7 @@
 		if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 			return TRUE
 		add_nausea(-100)
-		rogstam_add(-50)
+		energy_add(-50)
 		if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
 			if(message)
 				visible_message("<span class='danger'>[src] throws up all over [p_them()]self!</span>", \
@@ -695,15 +714,6 @@
 	else
 		remove_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE)
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
-/mob/living/carbon/update_stamina()
-	var/stam = getStaminaLoss()
-	if(stam > DAMAGE_PRECISION && (maxHealth - stam) <= crit_threshold && !stat)
-		enter_stamcrit()
-	else if(stam_paralyzed)
-		stam_paralyzed = FALSE
-	else
-		return
-	update_health_hud()
 
 /mob/living/carbon
 	var/lightning_flashing = FALSE
@@ -753,6 +763,15 @@
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_DARKVISION)
 		see_in_dark = max(see_in_dark, 12)
 
+	if(HAS_TRAIT(src, TRAIT_NOCSHADES))
+		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_NOCSHADES)
+		see_in_dark = max(see_in_dark, 12)	
+		add_client_colour(/datum/client_colour/nocshaded)
+		overlay_fullscreen("inqvision", /atom/movable/screen/fullscreen/inqvision)
+	else
+		remove_client_colour(/datum/client_colour/nocshaded)
+		clear_fullscreen("inqvision")
+
 	if(HAS_TRAIT(src, TRAIT_THERMAL_VISION))
 		sight |= (SEE_MOBS)
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
@@ -761,8 +780,8 @@
 		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		see_in_dark = max(see_in_dark, 8)
 
-	if(HAS_TRAIT(src, TRAIT_NOCSIGHT))
-		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_NOCVISION)
+	if(HAS_TRAIT(src, TRAIT_ZIZOSIGHT))
+		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_ZIZOVISION)
 		see_in_dark = max(see_in_dark, 8)
 
 	if(see_override)
@@ -927,8 +946,8 @@
 	else
 		clear_fullscreen("brute")*/
 
-	var/hurtdamage = ((get_complex_pain() / (STAEND * 10)) * 100) //what percent out of 100 to max pain
-	if(hurtdamage)
+	var/hurtdamage = ((get_complex_pain() / (STACON * 10)) * 100) //what percent out of 100 to max pain
+	if(hurtdamage > 5) //float
 		var/severity = 0
 		switch(hurtdamage)
 			if(5 to 20)
@@ -1086,13 +1105,14 @@
 	if(itemz)
 		for(var/X in get_equipped_items())
 			var/obj/item/I = X
+			if(I.extinguishable)
+				I.extinguish() //extinguishes our clothes
 			I.acid_level = 0 //washes off the acid on our clothes
-			I.extinguish() //extinguishes our clothes
 		var/obj/item/I = get_active_held_item()
-		if(I)
+		if(I && I.extinguishable)
 			I.extinguish()
 		I = get_inactive_held_item()
-		if(I)
+		if(I && I.extinguishable)
 			I.extinguish()
 	..()
 

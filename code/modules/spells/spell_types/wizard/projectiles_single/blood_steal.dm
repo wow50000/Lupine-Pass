@@ -1,7 +1,7 @@
 // Lich / Vampire shared list only
 /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal
 	name = "Blood Steal"
-	desc = ""
+	desc = "Steal anothers blood for your own collection."
 	clothes_req = FALSE
 	overlay_state = "bloodsteal"
 	sound = 'sound/magic/vlightning.ogg'
@@ -22,6 +22,7 @@
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/blood
+	cost = 3
 
 /obj/projectile/magic/bloodsteal
 	name = "blood steal"

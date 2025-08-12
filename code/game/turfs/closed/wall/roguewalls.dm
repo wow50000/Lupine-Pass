@@ -29,7 +29,7 @@
 
 /turf/closed/wall/mineral/rogue/stone
 	name = "stone wall"
-	desc = "A wall of smooth, unyielding stone."
+	desc = "A wall of smooth unyielding stone."
 	icon = 'icons/turf/walls/stone_wall.dmi'
 	icon_state = "stone"
 	smooth = SMOOTH_MORE
@@ -46,12 +46,12 @@
 	damage_deflection = 10
 
 /turf/closed/wall/mineral/rogue/stone/turf_destruction()
-	loud_message("Sound of a crumbling stone wall rings out", hearing_distance = 14)
+	loud_message("The sound of a crumbling stone wall rings out", hearing_distance = 14)
 	. = ..()
 
 /turf/closed/wall/mineral/rogue/stone/window
 	name = "stone window"
-	desc = "A window with solid and sturdy stone frame."
+	desc = "A window with a solid and sturdy stone frame."
 	opacity = FALSE
 	max_integrity = 1300
 
@@ -76,7 +76,7 @@
 
 /turf/closed/wall/mineral/rogue/craftstone
 	name = "stone wall"
-	desc = "A durable wall made from specially crafted stone."
+	desc = "A durable wall made from specially-crafted stone."
 	icon = 'icons/turf/walls/craftstone.dmi'
 	icon_state = "box"
 	smooth = SMOOTH_MORE
@@ -93,12 +93,12 @@
 	damage_deflection = 10
 
 /turf/closed/wall/mineral/rogue/craftstone/turf_destruction()
-	loud_message("Sound of heavy stone bricks crumbling apart rings out", hearing_distance = 14)
+	loud_message("The sound of heavy stone bricks crumbling apart rings out", hearing_distance = 14)
 	. = ..()
 
 /turf/closed/wall/mineral/rogue/stonebrick
 	name = "brick wall"
-	desc = "Several rows of bricks form this wall."
+	desc = "Rows of overlapping bricks form this wall."
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
 	smooth = SMOOTH_MORE
@@ -131,9 +131,12 @@
 	neighborlay = "dirtedge"
 	climbdiff = 3
 
+	burn_power = 20
+	spread_chance = 4
+
 /turf/closed/wall/mineral/rogue/wood/window
 	name = "wooden window"
-	desc = "A window with rough hewn wood frame."
+	desc = "A window with a rough-hewn wood frame."
 	opacity = FALSE
 	max_integrity = 550
 
@@ -149,7 +152,7 @@
 
 /turf/closed/wall/mineral/rogue/tent
 	name = "tent"
-	desc = "Made from durable fabric and wooden branches."
+	desc = "Made from durable fabric stretched over wooden branches."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "tent"
 	smooth = SMOOTH_FALSE
@@ -163,6 +166,9 @@
 	baseturfs = list(/turf/open/floor/rogue/twig)
 	neighborlay = "dirtedge"
 	climbdiff = 1
+
+	burn_power = 20
+	spread_chance = 9
 
 /turf/closed/wall/mineral/rogue/wooddark
 	name = "dark wood wall"
@@ -179,6 +185,8 @@
 	baseturfs = list(/turf/open/floor/rogue/ruinedwood)
 	neighborlay = "dirtedge"
 	climbdiff = 3
+	burn_power = 20
+	spread_chance = 4
 
 /turf/closed/wall/mineral/rogue/wooddark/horizontal
 	icon_state = "horizwooddark"
@@ -188,6 +196,15 @@
 
 /turf/closed/wall/mineral/rogue/wooddark/end
 	icon_state = "endwooddark"
+
+/turf/closed/wall/mineral/rogue/wooddark/end/east
+	dir = 4
+
+/turf/closed/wall/mineral/rogue/wooddark/end/west
+	dir = 8
+
+/turf/closed/wall/mineral/rogue/wooddark/end/north
+	dir = 1
 
 /turf/closed/wall/mineral/rogue/wooddark/slitted
 	icon_state = "slittedwooddark"
@@ -216,6 +233,8 @@
 	baseturfs = list(/turf/open/floor/rogue/ruinedwood)
 	neighborlay = "dirtedge"
 	climbdiff = 3
+	burn_power = 20
+	spread_chance = 4
 
 /turf/closed/wall/mineral/rogue/roofwall/center
 	icon_state = "roofTurf_I"
@@ -223,15 +242,42 @@
 /turf/closed/wall/mineral/rogue/roofwall/middle
 	icon_state = "roofTurf_M"
 
+/turf/closed/wall/mineral/rogue/roofwall/middle/dir1
+	dir = 1
+
+/turf/closed/wall/mineral/rogue/roofwall/middle/dir8
+	dir = 8
+
+/turf/closed/wall/mineral/rogue/roofwall/middle/dir4
+	dir = 4
+
 /turf/closed/wall/mineral/rogue/roofwall/outercorner
 	icon_state = "roofTurf_OC"
+
+/turf/closed/wall/mineral/rogue/roofwall/outercorner/dir1
+	dir = 1
+
+/turf/closed/wall/mineral/rogue/roofwall/outercorner/dir8
+	dir = 8
+
+/turf/closed/wall/mineral/rogue/roofwall/outercorner/dir4
+	dir = 4
 
 /turf/closed/wall/mineral/rogue/roofwall/innercorner
 	icon_state = "roofTurf_IC"
 
+/turf/closed/wall/mineral/rogue/roofwall/innercorner/dir1
+	dir = 1
+
+/turf/closed/wall/mineral/rogue/roofwall/innercorner/dir8
+	dir = 8
+
+/turf/closed/wall/mineral/rogue/roofwall/innercorner/dir4
+	dir = 4
+
 /turf/closed/wall/mineral/rogue/decowood
 	name = "decorated wooden wall"
-	desc = "Meticulously designed by an professional carpenter."
+	desc = "Meticulously designed by a professional carpenter."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decowood"
 	smooth = SMOOTH_FALSE
@@ -244,6 +290,8 @@
 	baseturfs = list(/turf/open/floor/rogue/ruinedwood)
 	neighborlay = "dirtedge"
 	climbdiff = 3
+	burn_power = 20
+	spread_chance = 4
 
 /turf/closed/wall/mineral/rogue/decowood/Initialize()
 	. = ..()
@@ -272,6 +320,9 @@
 /turf/closed/wall/mineral/rogue/decostone/long
 	icon_state = "decostone-l"
 
+/turf/closed/wall/mineral/rogue/decostone/long/east_west
+	dir = 1
+
 /obj/structure/thronething
 	name = "decorated stone wall" // what is thronething??
 	icon = 'icons/turf/roguewall.dmi'
@@ -285,6 +336,15 @@
 /turf/closed/wall/mineral/rogue/decostone/end
 	icon_state = "decostone-e"
 
+/turf/closed/wall/mineral/rogue/decostone/end/north
+	dir = 1
+
+/turf/closed/wall/mineral/rogue/decostone/end/east
+	dir = 4
+
+/turf/closed/wall/mineral/rogue/decostone/end/west
+	dir = 8
+
 /turf/closed/wall/mineral/rogue/decostone/cand
 	icon_state = "decostone-cand"
 
@@ -294,7 +354,7 @@
 //Mildly better than stone-wall due to it being harder to make, plus not loose-stone cobbled together. Also higher climbing diff akin to stone-brick wall.
 /turf/closed/wall/mineral/rogue/brick
 	name = "brick wall"
-	desc = "Several rows of bricks form this wall, held together by motar."
+	desc = "Rows of overlapping bricks held together by mortar form a nigh-impenetrable wall of stone."
 	icon = 'icons/turf/walls/brick_wall.dmi'
 	icon_state = "brick"
 	smooth = SMOOTH_MORE
@@ -312,7 +372,7 @@
 
 /turf/closed/wall/mineral/rogue/brick/window
 	name = "brick window"
-	desc = "A window with solid and sturdy stone frame."
+	desc = "A window with a solid and sturdy stone frame."
 	opacity = FALSE
 	max_integrity = 1500
 
@@ -385,6 +445,36 @@
 	baseturfs = list(/turf/open/floor/rogue/concrete)
 	climbdiff = 4
 	damage_deflection = 20
+
+/turf/closed/wall/mineral/rogue/pipe/corners
+	icon_state = "iron_corner"
+
+/turf/closed/wall/mineral/rogue/pipe/corners/one
+	dir = 1
+
+/turf/closed/wall/mineral/rogue/pipe/corners/four
+	dir = 4
+
+/turf/closed/wall/mineral/rogue/pipe/corners/eight
+	dir = 8
+
+/turf/closed/wall/mineral/rogue/pipe/joint
+	icon_state = "iron_joint"
+
+/turf/closed/wall/mineral/rogue/pipe/joint/one
+	dir = 1
+
+/turf/closed/wall/mineral/rogue/pipe/joint/four
+	dir = 4
+
+/turf/closed/wall/mineral/rogue/pipe/joint/eight
+	dir = 8
+
+/turf/closed/wall/mineral/rogue/pipe/line
+	icon_state = "iron_line"
+
+/turf/closed/wall/mineral/rogue/pipe/line/four
+	dir = 4
 
 /turf/closed/wall/mineral/rogue/stone/blue_moss
 	icon = 'icons/turf/walls/blue_mossy.dmi'

@@ -139,13 +139,10 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	var/dextrous = FALSE
 	var/dextrous_hud_type = /datum/hud/dextrous
 
-	///The Status of our AI, can be set to AI_ON (On, usual processing), AI_IDLE (Will not process, but will return to AI_ON if an enemy comes near), AI_OFF (Off, Not processing ever), AI_Z_OFF (Temporarily off due to nonpresence of players).
+	///The Status of our AI, can be set to AI_ON (On, usual processing), AI_IDLE (Will not process, but will return to AI_ON if an enemy comes near), NPC_AI_OFF (Off, Not processing ever), AI_Z_OFF (Temporarily off due to nonpresence of players).
 	var/AIStatus = AI_ON
 	///once we have become sentient, we can never go back.
 	var/can_have_ai = TRUE
-
-	///convenience var for forcibly waking up an idling AI on next check.
-	var/shouldwakeup = FALSE
 
 	///Domestication.
 	var/tame = FALSE
@@ -174,6 +171,15 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	cmode = 1
 
 	var/remains_type
+	var/binded = FALSE // Whether it is bound to a summoning circle or not
+
+	var/botched_butcher_results
+	var/perfect_butcher_results
+
+	///What distance should we be checking for interesting things when considering idling/deidling? Defaults to AI_DEFAULT_INTERESTING_DIST
+	var/interesting_dist = AI_DEFAULT_INTERESTING_DIST
+	///our current cell grid
+	var/datum/cell_tracker/our_cells
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
@@ -185,13 +191,15 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(!loc)
 		stack_trace("Simple animal being instantiated in nullspace")
 	update_simplemob_varspeed()
+	our_cells = new(interesting_dist, interesting_dist, 1)
+	set_new_cells()
 //	if(dextrous)
 //		AddComponent(/datum/component/personal_crafting)
 
 /mob/living/simple_animal/Destroy()
+	our_cells = null
 	GLOB.simple_animals[AIStatus] -= src
-	if (SSnpcpool.state == SS_PAUSED && LAZYLEN(SSnpcpool.currentrun))
-		SSnpcpool.currentrun -= src
+	SSnpcpool.currentrun -= src
 
 	if(nest)
 		nest.spawned_mobs -= src
@@ -234,6 +242,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	stop_automated_movement_when_pulled = TRUE
 	if(user)
 		owner = user
+		SEND_SIGNAL(user, COMSIG_ANIMAL_TAMED, src)
 	return
 
 //mob/living/simple_animal/examine(mob/user)
@@ -262,6 +271,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		retreating = null
 		retreat_distance = initial(retreat_distance)
 		minimum_distance = initial(minimum_distance)
+	if(HAS_TRAIT(src, TRAIT_RIGIDMOVEMENT))
+		return
 	if(HAS_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN))
 		move_to_delay = initial(move_to_delay)
 		return
@@ -289,7 +300,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
 			return
 	if(footstep_type)
-		AddComponent(/datum/component/footstep, footstep_type)
+		if(!QDELING(src))
+			AddComponent(/datum/component/footstep, footstep_type)
 
 /mob/living/simple_animal/handle_status_effects()
 	..()
@@ -305,6 +317,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(!stop_automated_movement && wander && !doing)
 		if(ssaddle && has_buckled_mobs())
 			return 0
+		if(binded)
+			return FALSE
 		if((isturf(loc) || allow_movement_on_non_turfs) && (mobility_flags & MOBILITY_MOVE))		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
 			if(turns_since_move >= turns_per_move)
@@ -388,46 +402,70 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(held_item)
 			if((butcher_results || guaranteed_butcher_results) && held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 				var/used_time = 210
+				if(src.buckled && istype(src.buckled, /obj/structure/meathook))
+					used_time -= 30
+					visible_message("[user] begins to efficiently butcher [src]...")
+				else
+					visible_message("[user] begins to butcher [src]...")
 				if(user.mind)
-					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 30)
-				visible_message("[user] begins to butcher [src].")
+					used_time -= (user.get_skill_level(/datum/skill/labor/butchering) * 30)
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				if(do_after(user, used_time, target = src))
-					gib()
+					butcher(user)
 					if(user.mind)
 						user.mind.add_sleep_experience(/datum/skill/labor/butchering, user.STAINT * 4)
-	else if (stat != DEAD && istype(ssaddle, /obj/item/natural/saddle))
+		
+	else if (stat != DEAD && istype(ssaddle, /obj/item/natural/saddle))		//Fallback saftey for saddles
 		var/datum/component/storage/saddle_storage = ssaddle.GetComponent(/datum/component/storage)
 		var/access_time = (user in buckled_mobs) ? 10 : 30
 		if (do_after(user, access_time, target = src))
 			saddle_storage.show_to(user)
 	..()
 
-/mob/living/simple_animal/gib()
+/mob/living/simple_animal/proc/butcher(mob/user)
 	if(ssaddle)
 		ssaddle.forceMove(get_turf(src))
 		ssaddle = null
-	if(butcher_results || guaranteed_butcher_results)
-		var/list/butcher = list()
-
-		if(butcher_results)
-			butcher += butcher_results
-		if(guaranteed_butcher_results)
-			butcher += guaranteed_butcher_results
-		var/rotstuff = FALSE
-		var/datum/component/rot/simple/CR = GetComponent(/datum/component/rot/simple)
-		if(CR)
-			if(CR.amount >= 10 MINUTES)
-				rotstuff = TRUE
-		var/atom/Tsec = drop_location()
-		for(var/path in butcher)
-			for(var/i in 1 to butcher[path])
-				var/obj/item/I = new path(Tsec)
-				I.add_mob_blood(src)
-				if(rotstuff && istype(I,/obj/item/reagent_containers/food/snacks))
-					var/obj/item/reagent_containers/food/snacks/F = I
-					F.become_rotten()
-	..()
+	var/list/butcher = list()
+	var/butchery_skill_level = user.get_skill_level(/datum/skill/labor/butchering)
+	var/botch_chance = 0
+	if(length(botched_butcher_results) && butchery_skill_level < SKILL_LEVEL_JOURNEYMAN)
+		botch_chance = 70 - (20 * butchery_skill_level) // 70% at unskilled, 20% lower for each level above it, 0% at journeyman or higher
+	var/perfect_chance = 0
+	if(length(perfect_butcher_results))
+		switch(butchery_skill_level)
+			if(SKILL_LEVEL_NONE to SKILL_LEVEL_APPRENTICE)
+				perfect_chance = 0
+			if(SKILL_LEVEL_JOURNEYMAN)
+				perfect_chance = 10
+			if(SKILL_LEVEL_EXPERT)
+				perfect_chance = 50
+			if(SKILL_LEVEL_MASTER to INFINITY)
+				perfect_chance = 100
+	butcher = butcher_results
+	if(prob(botch_chance))
+		butcher = botched_butcher_results
+		to_chat(user, "<span class='smallred'>I BOTCHED THE BUTCHERY! ([botch_chance]%!)</span>")
+	else if(prob(perfect_chance))
+		butcher = perfect_butcher_results
+		to_chat(user,"<span class='smallgreen'>My butchering was perfect! ([perfect_chance]%!)</span>")
+	if(guaranteed_butcher_results)
+		butcher += guaranteed_butcher_results
+	
+	var/rotstuff = FALSE
+	var/datum/component/rot/simple/CR = GetComponent(/datum/component/rot/simple)
+	if(CR)
+		if(CR.amount >= 10 MINUTES)
+			rotstuff = TRUE
+	var/atom/Tsec = drop_location()
+	for(var/path in butcher)
+		for(var/i in 1 to butcher[path])
+			var/obj/item/I = new path(Tsec)
+			I.add_mob_blood(src)
+			if(rotstuff && istype(I,/obj/item/reagent_containers/food/snacks))
+				var/obj/item/reagent_containers/food/snacks/F = I
+				F.become_rotten()
+	gib()
 
 /mob/living/simple_animal/spawn_dust(just_ash = FALSE)
 	if(just_ash || !remains_type)
@@ -503,9 +541,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/handle_fire()
 	. = ..()
-	if(fire_stacks > 0)
+	if(!on_fire)
+		return TRUE
+	if(fire_stacks + divine_fire_stacks > 0)
 		apply_damage(5, BURN)
-		if(fire_stacks > 5)
+		if(fire_stacks + divine_fire_stacks > 5)
 			apply_damage(10, BURN)
 
 //mob/living/simple_animal/IgniteMob()
@@ -714,7 +754,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		return
 	var/time2mount = 12
 	if(M.mind)
-		var/amt = M.mind.get_skill_level(/datum/skill/misc/riding)
+		var/amt = M.get_skill_level(/datum/skill/misc/riding)
 		if(amt)
 			if(amt > 3)
 				time2mount = 0
@@ -738,7 +778,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		var/time2mount = 12
 		riding_datum.vehicle_move_delay = move_to_delay
 		if(M.mind)
-			var/amt = M.mind.get_skill_level(/datum/skill/misc/riding)
+			var/amt = M.get_skill_level(/datum/skill/misc/riding)
 			if(amt)
 				if(amt > 3)
 					time2mount = 0
@@ -787,7 +827,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					else
 						do_footstep = FALSE
 			if(user.mind)
-				var/amt = user.mind.get_skill_level(/datum/skill/misc/riding)
+				var/amt = user.get_skill_level(/datum/skill/misc/riding)
 				if(amt)
 					riding_datum.vehicle_move_delay -= 5 + amt/6
 				else
@@ -827,9 +867,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		else
 			stack_trace("Something attempted to set simple animals AI to an invalid state: [togglestatus]")
 
+/mob/living/simple_animal/process(delta_time)
+	pass()
+
 /mob/living/simple_animal/proc/consider_wakeup()
-	if (pulledby || shouldwakeup)
-		toggle_ai(AI_ON)
+	pass()
 
 /mob/living/simple_animal/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -873,3 +915,46 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(isturf(loc))
 			playsound(src, "fart", 100, TRUE)
 			new pooptype(loc)
+
+/mob/living/simple_animal/proc/on_client_enter(datum/source, atom/target)
+	SIGNAL_HANDLER
+	if(AIStatus == AI_IDLE)
+		toggle_ai(AI_ON)
+
+/mob/living/simple_animal/proc/on_client_exit(datum/source, datum/exited)
+	SIGNAL_HANDLER
+	consider_wakeup()
+
+/mob/living/simple_animal/proc/set_new_cells()
+	var/turf/our_turf = get_turf(src)
+	if(isnull(our_turf))
+		return
+
+	var/list/cell_collections = our_cells.recalculate_cells(our_turf)
+
+	for(var/datum/old_grid as anything in cell_collections[2])
+		UnregisterSignal(old_grid, list(SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)))
+
+	for(var/datum/spatial_grid_cell/new_grid as anything in cell_collections[1])
+		RegisterSignal(new_grid, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_enter))
+		RegisterSignal(new_grid, SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_exit))
+	consider_wakeup()
+
+/mob/living/simple_animal/Moved()
+	. = ..()
+	update_grid()
+
+/mob/living/simple_animal/proc/update_grid()
+	var/turf/our_turf = get_turf(src)
+	if(isnull(our_turf) || isnull(our_cells))
+		return
+
+	var/list/cell_collections = our_cells.recalculate_cells(our_turf)
+
+	for(var/datum/old_grid as anything in cell_collections[2])
+		UnregisterSignal(old_grid, list(SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)))
+
+	for(var/datum/spatial_grid_cell/new_grid as anything in cell_collections[1])
+		RegisterSignal(new_grid, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_enter))
+		RegisterSignal(new_grid, SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_exit))
+	consider_wakeup()

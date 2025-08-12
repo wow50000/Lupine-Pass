@@ -8,6 +8,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/check_pq,
 	/client/proc/adjust_pq,
 	/client/proc/hearallasghost,
+	/client/proc/hearglobalLOOC,
 	/client/proc/toggle_aghost_invis,
 	/client/proc/admin_ghost,
 	/datum/admins/proc/start_vote,
@@ -32,6 +33,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/set_context_menu_enabled,
 	/client/proc/delete_player_book,
 	/client/proc/amend_player_book,
+	/client/proc/enable_browser_debug,
 	/client/proc/pull_book_file_names,
 	/client/proc/adminwho,
 	/client/proc/admin_spread_effect,
@@ -83,7 +85,6 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/cmd_admin_subtle_message,	/*send an message to somebody as a 'voice in their head'*/
 	/client/proc/cmd_admin_delete,		/*delete an instance/object/mob/etc*/
 	/client/proc/cmd_admin_check_contents,	/*displays the contents of an instance*/
-	/client/proc/centcom_podlauncher,/*Open a window to launch a Supplypod and configure it or it's contents*/
 	/client/proc/check_antagonists,		/*shows all antags*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/Getmob,				/*teleports a mob to our location*/
@@ -141,6 +142,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/set_ooc,
 	/client/proc/reset_ooc,
 	/client/proc/forceEvent,
+	/client/proc/forceGamemode,
 //	/client/proc/admin_change_sec_level,
 //	/client/proc/run_weather,
 	/client/proc/run_particle_weather,
@@ -156,7 +158,6 @@ GLOBAL_PROTECT(admin_verbs_server)
 /world/proc/AVerbsServer()
 	return list(
 	/datum/admins/proc/startnow,
-	/datum/admins/proc/forcemode,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/end_round,
 	/datum/admins/proc/delay,
@@ -491,19 +492,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	if(!holder)
 		return
-	/*
-		#define SPAN_DWARF "dwarf"
-		#define SPAN_ELF "elf"
-		#define SPAN_SAND "sandspeak"
-		#define SPAN_DELF "delf"
-		#define SPAN_HELL "hellspeak"
-		#define SPAN_LUPIAN "lupian"
-		#define SPAN_BEAST "beast"
-		#define SPAN_ORC "orc"
-		#define SPAN_DRACONIC "reptile"
-		#define SPAN_UNDEAD "undead" //nyi
-		#define SPAN_CAT "cat" //nyi
-	*/
+
 	var/who = usr
 	var/languages = list(
 		"human",
@@ -896,3 +885,13 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			message_admins("[ADMIN_LOOKUPFLW(src)] has removed the bounty on [ADMIN_LOOKUPFLW(target_name)]")
 			return
 	to_chat(src, "Error. Bounty no longer active.") 
+
+/client/proc/enable_browser_debug()
+	set category = "Debug"
+	set name = "Enable Browser Debug"
+	if(!holder)
+		return
+
+	to_chat(src, "Browser tools are now enabled.")
+	winset(src, null, "browser-options=devtools,find,byondstorage")
+

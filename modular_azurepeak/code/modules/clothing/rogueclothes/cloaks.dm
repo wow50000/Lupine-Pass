@@ -37,3 +37,13 @@
 	name = "eoran tabard"
 	desc = "A complex covering of translucent pink and beige clothes. They carry the scent of flowers in them."
 	icon_state = "eoratabard"
+
+/obj/item/clothing/cloak/templar/xylixian
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	alternate_worn_layer = TABARD_LAYER
+	boobed = TRUE
+	name = "xylixian cloak"
+	desc = "Swirling cloth, jingling bells! Oh, how I love the path to hell!"
+	icon_state = "xylixcloak"
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_cloaks.dmi'
+	sleevetype = "shirt"

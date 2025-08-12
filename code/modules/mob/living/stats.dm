@@ -1,11 +1,4 @@
 	
-#define STAT_STRENGTH "strength"
-#define STAT_PERCEPTION "perception"
-#define STAT_INTELLIGENCE "intelligence"
-#define STAT_CONSTITUTION "constitution"
-#define STAT_ENDURANCE "endurance"
-#define STAT_SPEED "speed"
-#define STAT_FORTUNE "fortune"
 
 /mob/living
 	var/STASTR = 10
@@ -77,6 +70,7 @@
 				change_stat("perception", -1)
 				change_stat("constitution", -2)
 				change_stat("intelligence", 2)
+				change_stat("fortune", 1)
 		if(key)
 			if(check_blacklist(ckey(key)))
 				change_stat("strength", -5)
@@ -89,6 +83,27 @@
 				testing("foundpsych")
 				H.eye_color = "ff0000"
 				H.voice_color = "ff0000"
+
+/mob/living/proc/get_stat(stat)
+	if(!stat)
+		return
+	switch(stat)
+		if(STAT_STRENGTH)
+			return STASTR
+		if(STAT_PERCEPTION)
+			return STAPER
+		if(STAT_INTELLIGENCE)
+			return STAINT
+		if(STAT_CONSTITUTION)
+			return STACON
+		if(STAT_ENDURANCE)
+			return STAEND
+		if(STAT_SPEED)
+			return STASPD
+		if(STAT_FORTUNE)
+			return STALUC
+		else
+			CRASH("get_stat called on [src] with an erroneous stat flag: [stat]")
 
 /mob/living/proc/change_stat(stat, amt, index)
 	if(!stat)
@@ -230,6 +245,7 @@
 				newamt--
 				BUFSPE++
 			STASPD = newamt
+			update_move_intent_slowdown()
 
 		if("fortune")
 			newamt = STALUC + amt
@@ -265,3 +281,20 @@
 /mob/living/proc/goodluck(multi = 3)
 	if(STALUC > 10)
 		return prob((STALUC - 10) * multi)
+
+/mob/living/proc/get_stat_level(stat_keys)
+	switch(stat_keys)
+		if(STATKEY_STR)
+			return STASTR
+		if(STATKEY_PER)
+			return STAPER
+		if(STATKEY_END)
+			return STAEND
+		if(STATKEY_CON)
+			return STACON
+		if(STATKEY_INT)
+			return STAINT
+		if(STATKEY_SPD)
+			return STASPD
+		if(STATKEY_LCK)
+			return STALUC

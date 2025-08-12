@@ -17,6 +17,8 @@
 #define ROLE_LICH				"Lich"
 #define ROLE_ASCENDANT			"Ascendant"
 #define ROLE_WRETCH				"Wretch"
+#define ROLE_UNBOUND_DEATHKNIGHT "Unbound Death Knight"
+#define ROLE_DARK_ITINERANT "Dark Itinerant"
 
 #define ROLE_SYNDICATE			"Syndicate"
 #define ROLE_TRAITOR			"Traitor"
@@ -46,22 +48,9 @@
 #define ROLE_DEATHSQUAD			"Deathsquad"
 #define ROLE_LAVALAND			"Lavaland"
 #define ROLE_INTERNAL_AFFAIRS	"Internal Affairs Agent"
-#define ROLE_NECRO_SKELETON		"Necromancer Skeleton" // RT role
-
-//Missing assignment means it's not a gamemode specific role, IT'S NOT A BUG OR ERROR.
-//The gamemode specific ones are just so the gamemodes can query whether a player is old enough
-//(in game days played) to play that role
-GLOBAL_LIST_INIT(special_roles, list(
-	ROLE_TRAITOR = /datum/game_mode/traitor,
-	ROLE_PAI,
-	ROLE_BLOB,
-	ROLE_NINJA,
-	ROLE_OBSESSED,
-	ROLE_REVENANT,
-	ROLE_ABDUCTOR,
-//	ROLE_INTERNAL_AFFAIRS = /datum/game_mode/traitor/internal_affairs,
-	ROLE_SENTIENCE
-))
+#define ROLE_NECRO_SKELETON		"Necromancer Skeleton"
+#define ROLE_LICH_SKELETON		"Lich Skeleton"
+#define ROLE_CHOSEN				"Chosen"
 
 GLOBAL_LIST_INIT(special_roles_rogue, list(
 	ROLE_MANIAC = /datum/antagonist/maniac,

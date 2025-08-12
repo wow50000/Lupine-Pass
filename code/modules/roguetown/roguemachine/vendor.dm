@@ -31,7 +31,10 @@
 			return
 
 /obj/structure/roguemachine/vendor/attackby(obj/item/P, mob/user, params)
-
+	if(istype(P, /obj/item/roguecoin/aalloy))
+		return
+	if(istype(P, /obj/item/roguecoin/inqcoin))	
+		return
 	if(istype(P, /obj/item/roguecoin))
 		budget += P.get_real_price()
 		qdel(P)
@@ -133,6 +136,8 @@
 				preprice = held_items[O]["PRICE"]
 			var/newprice = input(usr, "SET A NEW PRICE FOR THIS PRODUCT", src, preprice) as null|num
 			if(newprice)
+				if(newprice < 0)
+					return attack_hand(usr)
 				if(findtext(num2text(newprice), "."))
 					return attack_hand(usr)
 				held_items[O]["PRICE"] = newprice
@@ -142,7 +147,7 @@
 	. = ..()
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	var/canread = user.can_read(src, TRUE)
 	var/contents

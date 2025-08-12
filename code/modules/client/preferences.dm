@@ -58,7 +58,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/preferred_map = null
 	var/pda_style = MONO
 	var/pda_color = "#808000"
-	var/prefer_old_chat = FALSE
 
 	var/uses_glasses_colour = 0
 
@@ -97,6 +96,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/phobia = "spiders"
 	var/shake = TRUE
 	var/sexable = FALSE
+	var/compliance_notifs = TRUE
 
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
@@ -132,6 +132,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/anonymize = TRUE
 	var/masked_examine = FALSE
 	var/mute_animal_emotes = FALSE
+	var/autoconsume = FALSE
 
 	var/lastclass
 
@@ -150,6 +151,10 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/highlight_color = "#FF0000"
 	var/datum/charflaw/charflaw
 
+	var/static/default_cmusic_type = /datum/combat_music/default
+	var/datum/combat_music/combat_music
+	var/combat_music_helptext_shown = FALSE
+	
 	var/family = FAMILY_NONE
 
 	var/crt = FALSE
@@ -179,6 +184,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/ooc_notes
 	var/ooc_notes_display
 
+	var/taur_type = null
+	var/taur_color = "ffffff"
+
 /datum/preferences/New(client/C)
 	parent = C
 	migrant  = new /datum/migrant_pref(src)
@@ -207,6 +215,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 		charflaw = new charflaw()
 	if(!selected_patron)
 		selected_patron = GLOB.patronlist[default_patron]
+	if(!combat_music)
+		combat_music = GLOB.cmode_tracks_by_type[default_cmusic_type]
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C.update_movement_keys()
 	if(!loaded_preferences_successfully)
@@ -223,7 +233,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 		if(pref_species.desc)
 			to_chat(user, "[pref_species.desc]")
 		to_chat(user, "<font color='red'>Classes reset.</font>")
-	random_character(gender)
+	random_character(gender, FALSE, FALSE)
 	accessory = "Nothing"
 
 	customizer_entries = list()
@@ -231,6 +241,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	reset_all_customizer_accessory_colors()
 	randomize_all_customizer_accessories()
 	reset_descriptors()
+	taur_type = null
 
 #define APPEARANCE_CATEGORY_COLUMN "<td valign='top' width='14%'>"
 #define MAX_MUTANT_ROWS 4
@@ -357,6 +368,12 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
 					dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER]'>Always Random Bodytype: [(randomise[RANDOM_GENDER]) ? "Yes" : "No"]</A>"
 					dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER_ANTAG]'>When Antagonist: [(randomise[RANDOM_GENDER_ANTAG]) ? "Yes" : "No"]</A>"
+			
+			if(LAZYLEN(pref_species.allowed_taur_types))
+				var/obj/item/bodypart/taur/T = taur_type
+				var/name = ispath(T) ? T::name : "None"
+				dat += "<b>Taur Body Type:</b> <a href='?_src_=prefs;preference=taur_type;task=input'>[name]</a><BR>"
+				dat += "<b>Taur Color:</b><span style='border: 1px solid #161616; background-color: #[taur_color];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=taur_color;task=input'>Change</a><BR>"
 
 			// LETHALSTONE EDIT BEGIN: add voice type prefs
 			dat += "<b>Voice Type</b>: <a href='?_src_=prefs;preference=voicetype;task=input'>[voice_type]</a><BR>"
@@ -379,6 +396,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<b>Patron:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
 //			dat += "<b>Family:</b> <a href='?_src_=prefs;preference=family'>Unknown</a><BR>" // Disabling until its working
 			dat += "<b>Dominance:</b> <a href='?_src_=prefs;preference=domhand'>[domhand == 1 ? "Left-handed" : "Right-handed"]</a><BR>"
+
+			var/musicname = (combat_music.shortname ? combat_music.shortname : combat_music.name)
+			dat += "<b>Combat Music:</b> <a href='?_src_=prefs;preference=combat_music;task=input'>[musicname || "FUCK!"]</a><BR>"
 
 /*
 			dat += "<br><br><b>Special Names:</b><BR>"
@@ -436,6 +456,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<br><b>Voice Pitch: </b><a href='?_src_=prefs;preference=voice_pitch;task=input'>[voice_pitch]</a>"
 			//dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=char_accent;task=input'>[char_accent]</a>"
 			dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
+			dat += "<br><b>Sprite Scale:</b><a href='?_src_=prefs;preference=body_size;task=input'>[(features["body_size"] * 100)]%</a>"
 			dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
 			dat += "<br><b>Descriptors:</b> <a href='?_src_=prefs;preference=descriptors;task=menu'>Change</a>"
 
@@ -470,7 +491,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
 			dat += "<h2>General Settings</h2>"
 //			dat += "<b>UI Style:</b> <a href='?_src_=prefs;task=input;preference=ui'>[UI_style]</a><br>"
-//			dat += "<b>tgui Monitors:</b> <a href='?_src_=prefs;preference=tgui_lock'>[(tgui_lock) ? "Primary" : "All"]</a><br>"
+			dat += "<b>tgui Monitors:</b> <a href='?_src_=prefs;preference=tgui_lock'>[(tgui_lock) ? "Primary" : "All"]</a><br>"
 //			dat += "<b>tgui Style:</b> <a href='?_src_=prefs;preference=tgui_fancy'>[(tgui_fancy) ? "Fancy" : "No Frills"]</a><br>"
 //			dat += "<b>Show Runechat Chat Bubbles:</b> <a href='?_src_=prefs;preference=chat_on_map'>[chat_on_map ? "Enabled" : "Disabled"]</a><br>"
 //			dat += "<b>Runechat message char limit:</b> <a href='?_src_=prefs;preference=max_chat_length;task=input'>[max_chat_length]</a><br>"
@@ -574,10 +595,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 					dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;bancheck=[i]'>BANNED</a><br>"
 				else
 					var/days_remaining = null
-					if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-						var/mode_path = GLOB.special_roles[i]
-						var/datum/game_mode/temp_mode = new mode_path
-						days_remaining = temp_mode.get_remaining_days(user.client)
+					if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
+						days_remaining = get_remaining_days(user.client)
 
 					if(days_remaining)
 						dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -778,7 +797,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Court Magician", "Knight Captain", "Priest", "Merchant", "Archivist", "Towner", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
+/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Court Magician", "Knight Captain", "Bishop", "Merchant", "Archivist", "Towner", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
 	if(!SSjob)
 		return
 
@@ -1151,10 +1170,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;bancheck=[i]'>BANNED</a><br>"
 		else
 			var/days_remaining = null
-			if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-				var/mode_path = GLOB.special_roles[i]
-				var/datum/game_mode/temp_mode = new mode_path
-				days_remaining = temp_mode.get_remaining_days(user.client)
+			if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
+				days_remaining = get_remaining_days(user.client)
 
 			if(days_remaining)
 				dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -1383,7 +1400,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("suit")
 					jumpsuit_style = PREF_SUIT
 				if("all")
-					random_character(gender)
+					random_character(gender, FALSE, FALSE)
 
 		if("input")
 
@@ -1463,7 +1480,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							if (AGE_MIDDLEAGED)
 								to_chat(user, "Muscles ache and joints begin to slow as Aeon's grasp begins to settle upon your shoulders. (-1 SPD, +1 END)")
 							if (AGE_OLD)
-								to_chat(user, "In a place as lethal as Engima, the elderly are all but marvels... or beneficiaries of the habitually privileged. (-1 STR, -2 SPE, -1 PER, -2 CON, +2 INT)")
+								to_chat(user, "In a place as lethal as PSYDONIA, the elderly are all but marvels... or beneficiaries of the habitually privileged. (-1 STR, -2 SPE, -1 PER, -2 CON, +2 INT, +1 FOR)")
 						// LETHALSTONE EDIT END
 						ResetJobs()
 						to_chat(user, "<font color='red'>Classes reset.</font>")
@@ -1503,6 +1520,29 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						voice_type = voicetype_input
 						to_chat(user, "<font color='red'>Your character will now vocalize with a [lowertext(voice_type)] affect.</font>")
 
+				if("taur_type")
+					var/list/species_taur_list = pref_species.get_taur_list()
+					if(!LAZYLEN(species_taur_list))
+						taur_type = null
+						to_chat(user, span_bad("There are no available taur bodies for this species."))
+						return
+
+					var/list/taur_selection = list("None")
+					for(var/obj/item/bodypart/taur/tt as anything in pref_species.get_taur_list())
+						taur_selection[tt::name] = tt
+					
+					var/new_taur_type = input(user, "Choose your character's taur body", "Taur Body") as null|anything in taur_selection
+					if(!new_taur_type)
+						return
+
+					if(new_taur_type == "None")
+						taur_type = null
+					else
+						taur_type = taur_selection[new_taur_type]
+
+					var/obj/item/bodypart/taur/tt = taur_type
+					to_chat(user, span_red("Your character now has [tt ? tt::name : "no taurtype."]."))
+
 				if("faith")
 					var/list/faiths_named = list()
 					for(var/path as anything in GLOB.preference_faiths)
@@ -1534,6 +1574,23 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						to_chat(user, "Background: [selected_patron.desc]")
 						to_chat(user, "<font color='red'>Likely Worshippers: [selected_patron.worshippers]</font>")
 
+				if("combat_music") // if u change shit here look at /client/verb/combat_music() too
+					if(!combat_music_helptext_shown)
+						to_chat(user, span_notice("<span class='bold'>Combat Music Override</span>\n") + \
+						"Options other than \"Default\" override whatever the game dynamically sets for you, \
+						which is influenced by your job class, villain status, or certain events.\n\
+						You can change this later through \"Combat Mode Music\" in the Options tab.\"</span>")
+						combat_music_helptext_shown = TRUE
+					var/track_select = input(user, "Set a track to be your combat music.", "Combat Music", combat_music?.name)\
+											as null|anything in GLOB.cmode_tracks_by_name
+					if(track_select)
+						combat_music = GLOB.cmode_tracks_by_name[track_select]
+						to_chat(user, span_notice("Selected track: <b>[track_select]</b>."))
+						if(combat_music.desc)
+							to_chat(user, "<i>[combat_music.desc]</i>")
+						if(combat_music.credits)
+							to_chat(user, span_info("Song name: <b>[combat_music.credits]</b>"))
+
 				if("bdetail")
 					var/list/loly = list("Not yet.","Work in progress.","Don't click me.","Stop clicking this.","Nope.","Be patient.","Sooner or later.")
 					to_chat(user, "<font color='red'>[pick(loly)]</font>")
@@ -1555,7 +1612,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						/datum/language/hellspeak,
 						/datum/language/draconic,
 						/datum/language/celestial,
-						/datum/language/canilunzt,
 						/datum/language/grenzelhoftian,
 						/datum/language/kazengunese,
 						/datum/language/etruscan,
@@ -1630,7 +1686,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					dat += "^text^ : Increases the <font size = \"4\">size</font> of the text.<br>"
 					dat += "((text)) : Decreases the <font size = \"1\">size</font> of the text.<br>"
 					dat += "* item : An unordered list item.<br>"
-					dat += "--- : Adds a horizontal rule.<br><br>"
+					dat += "--- : Adds a horizontal rule.<br>"
+					dat += "-=FFFFFFtext=- : Adds a specific <font color = '#FFFFFF'>colour</font> to text.<br><br>"
 					dat += "Minimum Flavortext: <b>[MINIMUM_FLAVOR_TEXT]</b> characters.<br>"
 					dat += "Minimum OOC Notes: <b>[MINIMUM_OOC_NOTES]</b> characters."
 					var/datum/browser/popup = new(user, "Formatting Help", nwidth = 400, nheight = 350)
@@ -1701,7 +1758,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						dat += "<div align='center'><b>OOC notes</b></div>"
 						dat += "<div align='left'>[ooc_notes_display]</div>"
 					if(ooc_extra)
-						dat += "[ooc_extra]"
+						dat += "<div align='center'>[ooc_extra]</div>"
 					var/datum/browser/popup = new(user, "[real_name]", nwidth = 600, nheight = 800)
 					popup.set_content(dat.Join())
 					popup.open(FALSE)
@@ -1895,21 +1952,32 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						if(charflaw.desc)
 							to_chat(user, "<span class='info'>[charflaw.desc]</span>")
 
+				if("body_size")
+					var/new_body_size = input(user, "Choose your desired sprite size:\n([BODY_SIZE_MIN*100]%-[BODY_SIZE_MAX*100]%), Warning: May make your character look distorted", "Character Preference", features["body_size"]*100) as num|null
+					if(new_body_size)
+						new_body_size = clamp(new_body_size * 0.01, BODY_SIZE_MIN, BODY_SIZE_MAX)
+						features["body_size"] = new_body_size
+
+				if("taur_color")
+					var/new_taur_color = color_pick_sanitized(user, "Choose your character's taur color:", "Character Preference", "#"+taur_color)
+					if(new_taur_color)
+						taur_color = sanitize_hexcolor(new_taur_color)
+
 				if("mutant_color")
-					var/new_mutantcolor = color_pick_sanitized_lumi(user, "Choose your character's mutant #1 color:", "Character Preference","#"+features["mcolor"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #1 color:", "Character Preference","#"+features["mcolor"])
 					if(new_mutantcolor)
 
 						features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
 
 				if("mutant_color2")
-					var/new_mutantcolor = color_pick_sanitized_lumi(user, "Choose your character's mutant #2 color:", "Character Preference","#"+features["mcolor2"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #2 color:", "Character Preference","#"+features["mcolor2"])
 					if(new_mutantcolor)
 						features["mcolor2"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
 
 				if("mutant_color3")
-					var/new_mutantcolor = color_pick_sanitized_lumi(user, "Choose your character's mutant #3 color:", "Character Preference","#"+features["mcolor3"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #3 color:", "Character Preference","#"+features["mcolor3"])
 					if(new_mutantcolor)
 						features["mcolor3"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
@@ -2049,24 +2117,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						domhand = 2
 					else
 						domhand = 1
-				if("bespecial")
-					if(next_special_trait)
-						print_special_text(user, next_special_trait)
-						return
-					to_chat(user, span_boldwarning("You will become special for one round, this could be something negative, positive or neutral and could have a high impact on your character and your experience. You cannot back out from or reroll this, and it will not carry over to other rounds."))
-					var/result = alert(user, "You'll receive a unique trait for one round\n You cannot back out from or reroll this\nDo you really want to be special?", "Be Special", "Yes", "No")
-					if(result != "Yes")
-						return
-					if(next_special_trait)
-						return
-					next_special_trait = roll_random_special(user.client)
-					if(next_special_trait)
-						log_game("SPECIALS: Rolled [next_special_trait] for ckey: [user.ckey]")
-						print_special_text(user, next_special_trait)
-						user.playsound_local(user, 'sound/misc/alert.ogg', 100)
-						to_chat(user, span_warning("This will be applied on your next game join."))
-						to_chat(user, span_warning("You may switch your character and choose any role, if you don't meet the requirements (if any are specified) it won't be applied"))
-
 				if("family")
 					var/list/loly = list("Not yet.","Work in progress.","Don't click me.","Stop clicking this.","Nope.","Be patient.","Sooner or later.")
 					to_chat(user, "<font color='red'>[pick(loly)]</font>")
@@ -2321,7 +2371,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(choice)
 						choice = choices[choice]
 						if(!load_character(choice))
-							random_character()
+							random_character(null, FALSE, FALSE)
 							save_character()
 
 				if("tab")
@@ -2359,16 +2409,17 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	if(!(pref_species.name in GLOB.roundstart_races))
 		set_new_race(new /datum/species/human/northern)
 
-		random_character(gender)
+		random_character(gender, FALSE, FALSE)
 	if(parent)
 		if(pref_species.patreon_req > parent.patreonlevel())
 			set_new_race(new /datum/species/human/northern)
-			random_character(gender)
+			random_character(gender, FALSE, FALSE)
 
 	character.age = age
 	character.dna.features = features.Copy()
 	character.gender = gender
 	character.set_species(chosen_species, icon_update = FALSE, pref_load = src)
+	character.dna.update_body_size()
 
 	if((randomise[RANDOM_NAME] || randomise[RANDOM_NAME_ANTAG] && antagonist) && !character_setup)
 		slot_randomized = TRUE
@@ -2390,6 +2441,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.name = character.real_name
 
 	character.domhand = domhand
+	character.cmode_music_override = combat_music.musicpath
+	character.cmode_music_override_name = combat_music.name
 	character.highlight_color = highlight_color
 	character.nickname = nickname
 
@@ -2449,12 +2502,19 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			for(var/X in L)
 				ADD_TRAIT(character, curse2trait(X), TRAIT_GENERIC)
 
+	if(taur_type)
+		character.Taurize(taur_type, "#[taur_color]")
+	else if(character_setup)
+		// This should only ever ~do~ anything for previews
+		character.ensure_not_taur()
+
 	if(icon_updates)
 		character.update_body()
-		character.update_hair()
+		character.update_hair() 
 		character.update_body_parts(redraw = TRUE)
 
 	character.char_accent = char_accent
+
 
 /datum/preferences/proc/get_default_name(name_id)
 	switch(name_id)
@@ -2492,6 +2552,22 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			return
 		else
 			custom_names[name_id] = sanitized_name
+
+/// Resets the client's keybindings. Asks them for which
+/datum/preferences/proc/force_reset_keybindings()
+	var/choice = tgalert(parent.mob, "Your basic keybindings need to be reset, the custom keybinds you've set will remain. Would you prefer 'hotkey' or 'classic TG' mode? DO NOT CLICK CLASSIC UNLESS YOU KNOW WHAT YOU'RE DOING.", "Reset keybindings", "Hotkey", "Classic")
+	hotkeys = (choice != "Classic")
+	force_reset_keybindings_direct(hotkeys)
+
+/// Does the actual reset
+/datum/preferences/proc/force_reset_keybindings_direct(hotkeys = TRUE)
+	var/list/oldkeys = key_bindings
+	key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
+
+	for(var/key in oldkeys)
+		if(!key_bindings[key])
+			key_bindings[key] = oldkeys[key]
+	parent?.ensure_keys_set(src)
 
 /datum/preferences/proc/try_update_mutant_colors()
 	if(update_mutant_colors)

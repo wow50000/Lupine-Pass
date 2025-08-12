@@ -42,7 +42,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			dat += "<div align='center'><b>OOC notes</b></div>"
 			dat += "<div align='left'>[ooc_notes_display]</div>"
 		if(ooc_extra)
-			dat += "[ooc_extra]"
+			dat += "<div align='center'>[ooc_extra]</div>"
 		var/datum/browser/popup = new(user, "[src]", nwidth = 600, nheight = 800)
 		popup.set_content(dat.Join())
 		popup.open(FALSE)
@@ -93,6 +93,11 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		var/obj/item/bodypart/L = locate(href_list["bandaged_limb"]) in bodyparts
 		if(!L)
 			return
+
+		if(!usr.Adjacent(src))
+			to_chat(usr, span_warning("I need to be closer to remove that!"))
+			return
+
 		var/obj/item/I = L.bandage
 		if(!I)
 			return
@@ -122,6 +127,22 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(do_after(usr, 50, needhand = 1, target = src))
 			var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
 			chest.remove_bodypart_feature(underwear.undies_feature)
+			underwear.forceMove(get_turf(src))
+			if(iscarbon(usr))
+				var/mob/living/carbon/C = usr
+				C.put_in_hands(underwear)
+			underwear = null
+
+	if(href_list["legwearsthing"]) //canUseTopic check for this is handled by mob/Topic()
+		if(!get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
+			to_chat(usr, span_warning("I can't reach that! Something is covering it."))
+			return
+		if(!legwear_socks)
+			return
+		usr.visible_message(span_warning("[usr] starts taking off [src]'s [legwear_socks.name]."),span_warning("I start taking off [src]'s [legwear_socks.name]..."))
+		if(do_after(usr, 50, needhand = 1, target = src))
+			var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
+			chest.remove_bodypart_feature(legwear_socks.legwears_feature)
 			underwear.forceMove(get_turf(src))
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
@@ -188,17 +209,17 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 		user.visible_message("[user] begins assessing [src].")
 		
-		if(do_mob(user, src, ((intellectual ? 20 : 40)) - (user.STAINT - 10) - (user.STAPER - 10) - user.mind?.get_skill_level(/datum/skill/misc/reading), uninterruptible = intellectual, double_progress = (intellectual ? FALSE : TRUE)))
+		if(do_mob(user, src, ((intellectual ? 20 : 40)) - (user.STAINT - 10) - (user.STAPER - 10) - user.get_skill_level(/datum/skill/misc/reading), uninterruptible = intellectual, double_progress = (intellectual ? FALSE : TRUE)))
 			var/is_guarded = HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS)	//Will scramble Stats and prevent skills from being shown
 			var/is_smart = FALSE	//Maximum info (all skills, gear and stats) either Intellectual virtue or having high enough PER / INT / Reading
 			var/is_stupid = FALSE	//Less than 9 INT, Intellectual virtue overrides it.
 			var/is_normal = FALSE	//High amount of info -- most gear slots, combat skills. No stats.
 			//If you don't get any of these, you'll still get to see 3 gear slots and shown weapon skills in Assess.
-			if(intellectual || ((user.STAINT - 10) + (user.STAPER - 10) + user.mind?.get_skill_level(/datum/skill/misc/reading)) >= 10)
+			if(intellectual || ((user.STAINT - 10) + (user.STAPER - 10) + user.get_skill_level(/datum/skill/misc/reading)) >= 10)
 				is_smart = TRUE	
 			if(user.STAINT < 10 && !is_smart)
 				is_stupid = TRUE
-			if(!is_smart && !is_stupid && ((user.STAINT - 10) + (user.STAPER - 10) + user?.mind?.get_skill_level(/datum/skill/misc/reading)) >= 5)
+			if(!is_smart && !is_stupid && ((user.STAINT - 10) + (user.STAPER - 10) + user?.get_skill_level(/datum/skill/misc/reading)) >= 5)
 				is_normal = TRUE
 			var/list/dat = list()
 			// Top-level table
@@ -384,35 +405,35 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 								var/obj/item/wornthing = stuff
 								if(wornthing.associated_skill)
 									var/datum/skill/SK = wornthing.associated_skill
-									if(user.mind?.get_skill_level(SK) > 0)
+									if(user.get_skill_level(SK) > 0)
 										dat += "<font size = 4; font color = '#dddada'><b>[SK.name]</b><br></font>"
-										var/skilldiff = user.mind?.get_skill_level(SK) - H.mind?.get_skill_level(SK)
+										var/skilldiff = user.get_skill_level(SK) - H.get_skill_level(SK)
 										dat += "[skilldiff_report(skilldiff)] <br>"
 										dat += "-----------------------<br>"
 					for(var/obj/item/I in held_items)	//Also what's in their hands!
 						if(!(I.item_flags & ABSTRACT))
 							if(I.associated_skill)
 								var/datum/skill/SK = I.associated_skill
-								if(user.mind?.get_skill_level(SK) > 0)
+								if(user.get_skill_level(SK) > 0)
 									dat += "<font size = 4; font color = '#dddada'><b>[SK.name]</b><br></font>"
-									var/skilldiff = user.mind?.get_skill_level(SK) - H.mind?.get_skill_level(SK)
+									var/skilldiff = user.get_skill_level(SK) - H.get_skill_level(SK)
 									dat += "[skilldiff_report(skilldiff)] <br>"
 									dat += "-----------------------<br>"
 				else	//Otherwise, we get to see all of their combat skills
 					for(var/S in subtypesof(/datum/skill/combat))
 						var/datum/skill/combat/SK = S
-						if(user.mind?.get_skill_level(S) > 0)
+						if(user.get_skill_level(S) > 0)
 							dat += "<font size = 4; font color = '#dddada'><b>[SK.name]</b><br></font>"
-							var/skilldiff = user.mind?.get_skill_level(S) - H.mind?.get_skill_level(S)
+							var/skilldiff = user.get_skill_level(S) - H.get_skill_level(S)
 							dat += "[skilldiff_report(skilldiff)] <br>"
 							dat += "-----------------------<br>"
 					if(is_smart)	//And if we're smart enough, /all/ skills.
 						for(var/S in subtypesof(/datum/skill))
-							if(user.mind?.get_skill_level(S) > 0)
+							if(user.get_skill_level(S) > 0)
 								if(!ispath(S, /datum/skill/combat))	//We already did these.
 									var/datum/skill/SL = S
 									dat += "<font size = 4; font color = '#dddada'><b>[SL.name]</b><br></font>"
-									var/skilldiff = user.mind?.get_skill_level(S) - H.mind?.get_skill_level(S)
+									var/skilldiff = user.get_skill_level(S) - H.get_skill_level(S)
 									dat += "[skilldiff_report(skilldiff)] <br>"
 									dat += "-----------------------<br>"
 								else

@@ -31,7 +31,7 @@
 
 /obj/machinery/Initialize()
 	if(!armor)
-		armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 10, "fire" = 50, "acid" = 70)
+		armor = ARMOR_MACHINERY
 	. = ..()
 	GLOB.machines += src
 
@@ -83,19 +83,25 @@
 	return !(stat & (NOPOWER|BROKEN|MAINT))
 
 /obj/machinery/can_interact(mob/user)
-	var/silicon = IsAdminGhost(user)
+	if(QDELETED(user))
+		return FALSE
+
 	if((stat & (NOPOWER|BROKEN)) && !(interaction_flags_machine & INTERACT_MACHINE_OFFLINE))
 		return FALSE
-	if(!(interaction_flags_machine & INTERACT_MACHINE_OPEN))
-		if(!silicon || !(interaction_flags_machine & INTERACT_MACHINE_OPEN_SILICON))
-			return FALSE
 
-	if(silicon)
-		if(!(interaction_flags_machine & INTERACT_MACHINE_ALLOW_SILICON))
-			return FALSE
-	else
-		if(interaction_flags_machine & INTERACT_MACHINE_REQUIRES_SILICON)
-			return FALSE
+	if(isAdminGhostAI(user))
+		return TRUE
+
+	if(!isliving(user))
+		return FALSE
+
+	if(!user.can_hold_items())
+		return FALSE
+
+	. = ..()
+	if(!.)
+		return FALSE
+
 	return TRUE
 
 ////////////////////////////////////////////////////////////////////////////////////////////

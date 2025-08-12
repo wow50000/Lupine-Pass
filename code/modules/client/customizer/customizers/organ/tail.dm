@@ -15,10 +15,13 @@
 	name = "Vulpkian Tail"
 	organ_type = /obj/item/organ/tail/vulpkanin
 	sprite_accessories = list(
-	/datum/sprite_accessory/tail/fox,
-	/datum/sprite_accessory/tail/eevee,
-	/datum/sprite_accessory/tail/fennec
-	)
+		/datum/sprite_accessory/tail/fox,
+		/datum/sprite_accessory/tail/fox2,
+		/datum/sprite_accessory/tail/eevee,
+		/datum/sprite_accessory/tail/fennec,
+		/datum/sprite_accessory/tail/jackal,
+		/datum/sprite_accessory/tail/tamamo_kitsune
+		)
 
 /datum/customizer/organ/tail/lupian
 	customizer_choices = list(/datum/customizer_choice/organ/tail/lupian)
@@ -48,13 +51,14 @@
 		/datum/sprite_accessory/tail/cat,
 		/datum/sprite_accessory/tail/tiger,
 		/datum/sprite_accessory/tail/leopard,
+		/datum/sprite_accessory/tail/lynx,
 		)
 
 /datum/customizer/organ/tail/lizard
 	customizer_choices = list(/datum/customizer_choice/organ/tail/lizard)
 
 /datum/customizer_choice/organ/tail/lizard
-	name = "Sissean Tail"
+	name = "Zardman Tail"
 	organ_type = /obj/item/organ/tail/lizard
 	generic_random_pick = TRUE
 	sprite_accessories = list(
@@ -77,7 +81,7 @@
 
 /datum/customizer/organ/tail/tiefling
 	customizer_choices = list(/datum/customizer_choice/organ/tail/tiefling)
-	allows_disabling = FALSE
+	allows_disabling = TRUE
 
 /datum/customizer_choice/organ/tail/tiefling
 	name = "Tiefling Tail"
@@ -152,7 +156,9 @@
 		/datum/sprite_accessory/tail/lizard/dtiger,
 		/datum/sprite_accessory/tail/lizard/ltiger,
 		/datum/sprite_accessory/tail/lizard/spikes,
-		/datum/sprite_accessory/tail/rattlesnake
+		/datum/sprite_accessory/tail/rattlesnake,
+		/datum/sprite_accessory/tail/lynx,
+		/datum/sprite_accessory/tail/owl,
 		)
 
 /datum/customizer/organ/tail/anthro
@@ -219,5 +225,7 @@
 		/datum/sprite_accessory/tail/lizard/dtiger,
 		/datum/sprite_accessory/tail/lizard/ltiger,
 		/datum/sprite_accessory/tail/lizard/spikes,
-		/datum/sprite_accessory/tail/rattlesnake
+		/datum/sprite_accessory/tail/rattlesnake,
+		/datum/sprite_accessory/tail/lynx,
+		/datum/sprite_accessory/tail/owl,
 		)

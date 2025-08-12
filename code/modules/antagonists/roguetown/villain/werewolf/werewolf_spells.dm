@@ -24,7 +24,7 @@
 		if(isbrain(player)) continue
 
 		// Announcement to other werewolves (and anyone else who has beast language somehow)
-		if(player.mind.has_antag_datum(/datum/antagonist/werewolf) || (use_language && player.has_language(/datum/language/beast)))
+		if(player.mind.has_antag_datum(/datum/antagonist/werewolf) || (player.has_language(/datum/language/beast)))
 			to_chat(player, span_boldannounce("[werewolf_player ? werewolf_player.wolfname : user.real_name] howls to the hidden moon: [message]"))
 
 		//sound played for other players
@@ -32,7 +32,9 @@
 		if(get_dist(player, src) > 7)
 			player.playsound_local(get_turf(player), pick('sound/vo/mobs/wwolf/howldist (1).ogg','sound/vo/mobs/wwolf/howldist (2).ogg'), 50, FALSE, pressure_affected = FALSE)
 
-	user.log_message("howls: [message] (WEREWOLF)")
+	var/log_type = werewolf_player ? "(WEREWOLF))" : "(BEAST LANGUAGE)"
+
+	user.log_message("howls: [message] ([log_type])", LOG_GAME)
 
 /obj/effect/proc_holder/spell/self/claws
 	name = "Lupine Claws"

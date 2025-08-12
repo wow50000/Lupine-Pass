@@ -9,7 +9,6 @@
 	blade_dulling = DULLING_BASH
 	max_integrity = 0
 	pixel_y = 32
-	flags_1 = HEAR_1
 	anchored = TRUE
 	var/next_decree = 0
 	var/listening = TRUE
@@ -20,6 +19,14 @@
 	var/obj/structure/roguemachine/scomm/called_by = null
 	var/spawned_rat = FALSE
 	var/garrisonline = FALSE
+
+/obj/structure/roguemachine/scomm/Initialize()
+	. = ..()
+	become_hearing_sensitive()
+
+/obj/structure/roguemachine/scomm/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
 
 /obj/structure/roguemachine/scomm/OnCrafted(dirin, mob/user)
 	. = ..()
@@ -59,17 +66,20 @@
 			. += span_small("[i]. [GLOB.laws_of_the_land[i]]")
 
 /obj/structure/roguemachine/scomm/process()
-	if(world.time > next_decree)
-		next_decree = world.time + rand(3 MINUTES, 8 MINUTES)
-		if(GLOB.lord_decrees.len)
-			if(speaking)
-				say("The [SSticker.rulertype] Decrees: [pick(GLOB.lord_decrees)]", spans = list("info"))
+	if(world.time <= next_decree)
+		return
+	next_decree = world.time + rand(3 MINUTES, 8 MINUTES)
+	if(!GLOB.lord_decrees.len)
+		return
+	if(!speaking)
+		return
+	say("The [SSticker.rulertype] Decrees: [pick(GLOB.lord_decrees)]", spans = list("info"))
 
 /obj/structure/roguemachine/scomm/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	if(called_by && !calling)
 		calling = called_by
@@ -89,7 +99,7 @@
 /obj/structure/roguemachine/scomm/attack_right(mob/user)
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	if(called_by && !calling)
 		called_by.say("Jabberline refused.", spans = list("info"))
@@ -119,14 +129,14 @@
 /obj/structure/roguemachine/scomm/MiddleClick(mob/living/carbon/human/user)
 	if(.)
 		return
-	if((HAS_TRAIT(user, TRAIT_GUARDSMAN) || (HAS_TRAIT(user, TRAIT_KNIGHTSMAN)) || (user.job == "Warden") || (user.job == "Squire") || (user.job == "Marshal") || (user.job == "Grand Duke") || (user.job == "Knight Captain") || (user.job == "Grand Duchess")))
+	if((HAS_TRAIT(user, TRAIT_GUARDSMAN) || (user.job == "Warden") || (user.job == "Squire") || (user.job == "Marshal") || (user.job == "Grand Duke") || (user.job == "Knight Captain") || (user.job == "Grand Duchess")))
 		if(alert("Would you like to swap lines or connect to a jabberline?",, "swap", "jabberline") != "jabberline")
 			garrisonline = !garrisonline
 			to_chat(user, span_info("I [garrisonline ? "connect to the garrison SCOMline" : "connect to the general SCOMLINE"]"))
 			playsound(loc, 'sound/misc/garrisonscom.ogg', 100, FALSE, -1)
 			update_icon()
 			return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	if(calling)
 		calling.say("Jabberline severed.", spans = list("info"))
@@ -274,6 +284,7 @@
 			for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
 				if(S.garrisonline)
 					S.repeat_message(raw_message, src, usedcolor, message_language)
+			SSroguemachine.crown?.repeat_message(raw_message, src, usedcolor, message_language)
 			return
 		for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
 			if(!S.calling)
@@ -282,6 +293,7 @@
 			S.repeat_message(raw_message, src, usedcolor, message_language)
 		for(var/obj/item/listenstone/S in SSroguemachine.scomm_machines)
 			S.repeat_message(raw_message, src, usedcolor, message_language)//make the listenstone hear scom
+		SSroguemachine.crown?.repeat_message(raw_message, src, usedcolor, message_language)
 
 /obj/structure/roguemachine/scomm/proc/dictate_laws()
 	if(dictating)
@@ -312,8 +324,8 @@
 
 /obj/item/scomstone
 	name = "scomstone"
-	icon_state = "ring_emerald"
-	desc = "A golden ring with an emerald gem."
+	icon_state = "ring_scom"
+	desc = "A heavy ring made of metal. There is a gem embedded in the center - dim, but alive."
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -324,7 +336,6 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	experimental_inhand = FALSE
-	flags_1 = HEAR_1
 	muteinmouth = TRUE
 	var/listening = TRUE
 	var/speaking = TRUE
@@ -336,26 +347,29 @@
 	grid_height = 32
 //wip
 /obj/item/scomstone/attack_right(mob/living/carbon/human/user)
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
+	visible_message(span_notice ("[user] presses their ring against their mouth."))
 	var/input_text = input(user, "Enter your message:", "Message")
-	if(input_text)
-		var/usedcolor = user.voice_color
-		if(user.voicecolor_override)
-			usedcolor = user.voicecolor_override
-		user.whisper(input_text)
-		if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
-			input_text = "<small>[input_text]</small>"
-		for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
-			S.repeat_message(input_text, src, usedcolor)
-		for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
-			S.repeat_message(input_text, src, usedcolor)
-		for(var/obj/item/listenstone/S in SSroguemachine.scomm_machines)//make the listenstone hear scomstone
-			S.repeat_message(input_text, src, usedcolor)
+	if(!input_text)
+		return
+	var/usedcolor = user.voice_color
+	if(user.voicecolor_override)
+		usedcolor = user.voicecolor_override
+	user.whisper(input_text)
+	if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
+		input_text = "<small>[input_text]</small>"
+	for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
+		S.repeat_message(input_text, src, usedcolor)
+	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
+		S.repeat_message(input_text, src, usedcolor)
+	for(var/obj/item/listenstone/S in SSroguemachine.scomm_machines)//make the listenstone hear scomstone
+		S.repeat_message(input_text, src, usedcolor)
+	SSroguemachine.crown?.repeat_message(input_text, src, usedcolor)
 
 /obj/item/scomstone/MiddleClick(mob/user)
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	listening = !listening
 	speaking = !speaking
@@ -364,10 +378,12 @@
 
 /obj/item/scomstone/Destroy()
 	SSroguemachine.scomm_machines -= src
+	lose_hearing_sensitivity()
 	return ..()
 
 /obj/item/scomstone/Initialize()
 	. = ..()
+	become_hearing_sensitive()
 	update_icon()
 	SSroguemachine.scomm_machines += src
 
@@ -400,8 +416,8 @@
 
 /obj/item/scomstone/bad
 	name = "serfstone"
-	desc = "A steel ring with a dull gem shoddily sticking out of it."
-	icon_state = "ring_lamerald"
+	desc = "A rusty shoddily-made metal ring. The gem embedded within is barely holding on."
+	icon_state = "ring_serfscom"
 	listening = FALSE
 	sellprice = 20
 
@@ -412,7 +428,7 @@
 /obj/item/listenstone
 	name = "emerald choker"
 	icon_state = "listenstone"
-	desc = "A iron and gold choker with an emerald gem."
+	desc = "An iron and gold choker with an emerald gem."
 	gripped_intents = null
 	//dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -423,7 +439,6 @@
 	icon = 'icons/roguetown/clothing/neck.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	experimental_inhand = FALSE
-	flags_1 = HEAR_1
 	muteinmouth = TRUE
 	var/listening = TRUE
 	var/speaking = TRUE
@@ -434,7 +449,7 @@
 /obj/item/listenstone/MiddleClick(mob/user)
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	listening = !listening
 	speaking = !speaking
@@ -482,7 +497,7 @@
 /obj/item/mattcoin
 	name = "rontz ring"
 	icon_state = "mattcoin"
-	desc = "A faded coin, a ruby laid into its center."
+	desc = "A faded coin with a ruby laid into its center."
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -493,7 +508,6 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	experimental_inhand = FALSE
-	flags_1 = HEAR_1
 	muteinmouth = TRUE
 	var/listening = TRUE
 	var/speaking = TRUE
@@ -501,8 +515,11 @@
 	grid_width = 32
 	grid_height = 32
 
-/obj/item/mattcoin/New(loc, ...)
+/obj/item/mattcoin/Initialize()
 	. = ..()
+	become_hearing_sensitive()
+	update_icon()
+	SSroguemachine.scomm_machines += src
 	name = pick("rontz ring", "gold ring")
 
 /obj/item/mattcoin/pickup(mob/living/user)
@@ -512,8 +529,16 @@
 		qdel(src)
 	..()
 
+/obj/item/mattcoin/doStrip(mob/stripper, mob/owner)
+	if(!(stripper?.mind.has_antag_datum(/datum/antagonist/bandit))) //You're not a bandit, you can't strip the bandit coin
+		to_chat(stripper, "[src] turns to ash in my hands!")
+		playsound(stripper.loc, 'sound/items/firesnuff.ogg', 100, FALSE, -1)
+		qdel(src)
+		return FALSE
+	. = ..()
+
 /obj/item/mattcoin/attack_right(mob/living/carbon/human/user)
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	var/input_text = input(user, "Enter your message:", "Message")
 	if(input_text)
 		var/usedcolor = user.voice_color
@@ -528,7 +553,7 @@
 /obj/item/mattcoin/MiddleClick(mob/user)
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/coindispense.ogg', 100, FALSE, -1)
 	listening = !listening
 	speaking = !speaking
@@ -536,13 +561,9 @@
 	update_icon()
 
 /obj/item/mattcoin/Destroy()
+	lose_hearing_sensitivity()
 	SSroguemachine.scomm_machines -= src
 	return ..()
-
-/obj/item/mattcoin/Initialize()
-	. = ..()
-	update_icon()
-	SSroguemachine.scomm_machines += src
 
 /obj/item/mattcoin/proc/repeat_message(message, atom/A, tcolor, message_language)
 	if(A == src)
@@ -581,7 +602,7 @@
 	var/speaking = TRUE
 	sellprice = 20
 	icon = 'icons/roguetown/items/misc.dmi'
-	icon_state = "scomite_active"
+	icon_state = "scomite"
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -589,10 +610,12 @@
 	throwforce = 10
 	w_class = WEIGHT_CLASS_SMALL
 	experimental_inhand = FALSE
-	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_RING
+	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_RING
 	possible_item_intents = list(INTENT_GENERIC)
+	sleeved = 'icons/roguetown/clothing/onmob/neck.dmi'
 	grid_width = 32
 	grid_height = 32
+	var/fakename = "secret whisperer"
 
 /obj/item/speakerinq/proc/repeat_message(message, atom/A, tcolor, message_language)
 	if(A == src)
@@ -602,7 +625,8 @@
 	if(tcolor)
 		voicecolor_override = tcolor
 	if(speaking && message)
-		playsound(loc, 'sound/vo/mobs/rat/rat_life.ogg', 20, TRUE, -1)
+		var/mob/living/carbon/human/wearer = loc
+		wearer.playsound_local(wearer, 'sound/vo/mobs/rat/rat_life.ogg', 50, TRUE)
 		say(message, language = message_language)
 	voicecolor_override = null
 
@@ -620,133 +644,213 @@
 	else
 		send_speech(message, 0, src, , spans, message_language=language)
 
+
+/obj/item/speakerinq/equipped(mob/user, slot)
+	. = ..()
+	switch(slot)
+		if(SLOT_RING)
+			fakename = "silver signet ring"	
+			name = fakename
+	return TRUE		
+
+
+/obj/item/speakerinq/dropped(mob/user, silent)
+	. = ..()
+	name = initial(name)
+	sleeved = null
+	mob_overlay_icon = null
+
 /obj/item/speakerinq/Destroy()
 	SSroguemachine.scomm_machines -= src
 	return ..()
 
 /obj/item/speakerinq/Initialize()
 	. = ..()
+	icon_state = "scomite_active"
 	update_icon()
 	SSroguemachine.scomm_machines += src
 
 /obj/item/speakerinq/MiddleClick(mob/user)
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	speaking = !speaking
-	to_chat(user, span_info("I [speaking ? "unmute" : "mute"] the listener."))
+	to_chat(user, span_info("I [speaking ? "unsilence" : "silence"] the whisperer."))
+	if(speaking)
+		icon_state = "[initial(icon_state)]_active"
+	else
+		icon_state = "[initial(icon_state)]"
 	update_icon()
 
 /obj/item/listeningdevice
 	name = "listener"
-	desc = "A ever attentive ear"
+	desc = "An ever-attentive ear..."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "listenstone"
-	dropshrink = 0.75
+	dropshrink = 0.6
 	gripped_intents = null
 	possible_item_intents = list(INTENT_GENERIC)
 	force = 10
 	throwforce = 10
+	alpha = 255
 	w_class = WEIGHT_CLASS_SMALL
 	experimental_inhand = FALSE
 	grid_width = 32
 	grid_height = 32
+	var/label = null
+	var/inqdesc = null
+	var/hidden = FALSE
+	var/active = FALSE
+	var/datum/status_effect/bugged/effect
 
+/obj/item/listeningdevice/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_INQUISITION))
+		desc = inqdesc
+	else
+		desc = initial(desc)
+
+/obj/item/listeningdevice/Initialize()
+	. = ..()
+	become_hearing_sensitive()
+	inqdesc = "An ever-attentive ear... [span_notice("This ear hasn't been bent. It's unlabelled.")]"
+
+/obj/item/listeningdevice/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
 
 /obj/item/listeningdevice/attack_self(mob/living/user)
-	var/turf/step_turf = get_step(get_turf(user), user.dir)
-	to_chat(user, span_tinynotice("I begin planting the listen-stone..."))
-	if(do_after(user, 30, src))
-		new /obj/structure/listeningdeviceactive(step_turf)
-		message_admins("[usr.key] has planted a listening device")
-		qdel(src)
-
-
-/obj/structure/listeningdeviceactive
-	name = "listener"
-	desc = "A ever attentive ear, a red light blinks upon it..."
-	icon_state = "listenstone_active"
-	icon = 'icons/roguetown/items/misc.dmi'
-	var/listening = TRUE
-	density = FALSE
-	anchored = TRUE
-	flags_1 = HEAR_1
-	alpha = 0
-	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
-
-
-/obj/structure/listeningdeviceactive/attack_right(mob/user)
-	to_chat(user, span_info("I begin dismounting the listen-stone..."))
-	if(do_after(user, 30, src))
-		new /obj/item/listeningdevice(loc)
-		qdel(src)
-
-/obj/structure/listeningdeviceactive/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
-	if(!ishuman(speaker))
+	var/input = input(user, "SIX LETTERS", "BEND AN EAR")
+	if(!input)
+		label = null
+		inqdesc = "An ever-attentive ear... [span_notice("This ear hasn't been bent. It's unlabelled.")]"
+		desc = inqdesc
 		return
-	if(!listening)
+	label = uppertext(trim(input, 7))
+	inqdesc = "An ever-attentive ear... [span_notice("This ear's been bent. It's labelled as [label].")]"
+	desc = inqdesc
+	return
+
+/obj/item/listeningdevice/attack_right(mob/living/user)
+	if(!hidden)
+		alpha = 30
+		name = "thing"
+		desc = "What is that thing?.."
+		hidden = TRUE
+		return TRUE
+	alpha = 255
+	name = initial(name)
+	desc = initial(desc)
+	hidden = FALSE
+	return TRUE
+/* - REVISIT IN A FUTURE PR. ATTACHABLE LISTENERS.
+/obj/item/listeningdevice/attack(mob/living/M, mob/living/user)
+	if(!active)
+		to_chat(user, span_warning("[src] is inactive.."))
+		return FALSE
+	
+	to_chat(user, span_notice("I attach [src] to [M]."))
+	effect = M.apply_status_effect(/datum/status_effect/bugged)
+	effect.device = src
+	forceMove(M)
+	M.contents.Add(src)
+
+	if(M.STAPER > user.STASPD)
+		to_chat(M, span_hidden("I feel something brush against mine own self. It stings."))
+
+	..()
+*/
+/obj/item/listeningdevice/MiddleClick(mob/user)
+	if(.)
+		return
+	user.changeNext_move(CLICK_CD_MELEE)
+	playsound(loc, 'sound/misc/bug.ogg', 50, FALSE, -1)
+	active = !active
+	if(active)
+		icon_state = "[initial(icon_state)]_active"
+	else
+		icon_state = initial(icon_state)
+	to_chat(user, span_info("I [active ? "undeafen" : "deafen"] the Listener."))
+	update_icon()
+	return
+
+/obj/item/listeningdevice/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
+	if(!active)
+		return
+	if(!ishuman(speaker))
 		return
 	var/mob/living/carbon/human/H = speaker
 	var/usedcolor = H.voice_color
 	if(H.voicecolor_override)
 		usedcolor = H.voicecolor_override
-	if(raw_message)
-		if(length(raw_message) > 100)
-			raw_message = "<small>[raw_message]</small>"
-		for(var/obj/item/speakerinq/S in SSroguemachine.scomm_machines)
-			S.repeat_message(raw_message, src, usedcolor, message_language)
+	if(!raw_message)
+		return
+	if(length(raw_message) > 100)
+		raw_message = "<small>[raw_message]</small>"
+	for(var/obj/item/speakerinq/S in SSroguemachine.scomm_machines)
+		S.name = label ? "#[label]" : "#NOTSET"
+		S.repeat_message(raw_message, src, usedcolor, message_language)
+		S.name = (S.fakename)
 
 // garrison scoms/listenstones
 
 /obj/item/scomstone/garrison
 	name = "crownstone"
-	icon_state = "ring_sapphire"
-	desc = "A silver ring with an sapphire gem."
+	icon_state = "ring_crownscom"
+	desc = "A lavish golden ring with the mark of the Crown. Heavy and garish. The gem embedded flickering in excitement."
 	var/garrisonline = TRUE
 	messagereceivedsound = 'sound/misc/garrisonscom.ogg'
 	hearrange = 0
 	sellprice = 100
 
 /obj/item/scomstone/garrison/attack_right(mob/living/carbon/human/user)
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
+	visible_message(span_notice ("[user] presses their ring against their mouth."))
 	var/input_text = input(user, "Enter your message:", "Message")
-	if(input_text)
-		var/usedcolor = user.voice_color
-		if(user.voicecolor_override)
-			usedcolor = user.voicecolor_override
-		user.whisper(input_text)
-		if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
-			input_text = "<small>[input_text]</small>"
-		if(!garrisonline)
-			for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
+	if(!input_text)
+		return
+	var/usedcolor = user.voice_color
+	if(user.voicecolor_override)
+		usedcolor = user.voicecolor_override
+	user.whisper(input_text)
+	if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
+		input_text = "<small>[input_text]</small>"
+	if(garrisonline)
+		input_text = "<big><span style='color: [GARRISON_SCOM_COLOR]'>[input_text]</span></big>" //Prettying up for Garrison line
+		for(var/obj/item/scomstone/bad/garrison/S in SSroguemachine.scomm_machines)
+			S.repeat_message(input_text, src, usedcolor)
+		for(var/obj/item/scomstone/garrison/S in SSroguemachine.scomm_machines)
+			S.repeat_message(input_text, src, usedcolor)
+		for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
+			if(S.garrisonline)
 				S.repeat_message(input_text, src, usedcolor)
-			for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
-				S.repeat_message(input_text, src, usedcolor)
-			for(var/obj/item/listenstone/S in SSroguemachine.scomm_machines)
-				S.repeat_message(input_text, src, usedcolor)
-		if(garrisonline)
-			input_text = "<big><span style='color: [GARRISON_SCOM_COLOR]'>[input_text]</span></big>" //Prettying up for Garrison line
-			for(var/obj/item/scomstone/bad/garrison/S in SSroguemachine.scomm_machines)
-				S.repeat_message(input_text, src, usedcolor)
-			for(var/obj/item/scomstone/garrison/S in SSroguemachine.scomm_machines)
-				S.repeat_message(input_text, src, usedcolor)
-			for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
-				if(S.garrisonline)
-					S.repeat_message(input_text, src, usedcolor)
+		SSroguemachine.crown?.repeat_message(input_text, src, usedcolor)
+		return
+	for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
+		S.repeat_message(input_text, src, usedcolor)
+	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
+		S.repeat_message(input_text, src, usedcolor)
+	for(var/obj/item/listenstone/S in SSroguemachine.scomm_machines)
+		S.repeat_message(input_text, src, usedcolor)
+	SSroguemachine.crown?.repeat_message(input_text, src, usedcolor)
 
 /obj/item/scomstone/garrison/attack_self(mob/living/user)
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	garrisonline = !garrisonline
 	to_chat(user, span_info("I [garrisonline ? "connect to the garrison SCOMline" : "connect to the general SCOMline"]"))
+	update_icon()
+
+/obj/item/scomstone/garrison/update_icon()
+	icon_state = "[initial(icon_state)][garrisonline ? "_on" : ""]"
 
 /obj/item/scomstone/bad/garrison
 	name = "houndstone"
-	desc = "A steel ring with a dull gem shoddily sticking out of it. This one has the mark of the Crown upon its side."
-	icon_state = "ring_lamerald"
+	desc = "A basic metal ring. It has a well-cut, dismal gem embedded - bearing the mark of the Crown."
+	icon_state = "ring_houndscom"
 	listening = FALSE
 	sellprice = 20
 	messagereceivedsound = 'sound/misc/garrisonscom.ogg'

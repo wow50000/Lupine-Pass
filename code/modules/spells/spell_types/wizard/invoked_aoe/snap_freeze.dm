@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/snap_freeze // to do: get scroll icon
 	name = "Snap Freeze"
 	desc = "Freeze the air in a small area in an instant, slowing and mildly damaging those affected."
-	cost = 2
+	cost = 6
 	xp_gain = TRUE
 	releasedrain = 30
 	overlay_state = "snap_freeze" // Placeholder. 1 frame of shield sparkles
@@ -22,8 +22,8 @@
 	glow_color = GLOW_COLOR_ICE
 	glow_intensity = GLOW_INTENSITY_HIGH
 	ignore_los = FALSE
-	var/delay = 6
-	var/damage = 50 // less then fireball, more then lighting bolt
+	var/delay = 10
+	var/damage = 40 // less then fireball, more then lighting bolt
 	var/area_of_effect = 2
 
 /obj/effect/temp_visual/trapice

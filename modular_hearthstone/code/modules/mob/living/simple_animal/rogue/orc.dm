@@ -31,7 +31,6 @@
 	canparry = TRUE
 	d_intent = INTENT_PARRY
 	defprob = 50
-	defdrain = 20
 	speak_emote = list("grunts")
 	speak = list("WAAAGH!", "KRUSH AND KILL!", "Never should have come here!", "Slaughter them all!", "Kill everything!", "Hahaha! Die!")
 	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
@@ -74,7 +73,7 @@
 	maxHealth = ORC_HEALTH * 2 //TWICE THE ORC
 	health = ORC_HEALTH * 2
 	loot = list(/obj/effect/mob_spawn/human/orc/corpse/orcmarauder,
-			/obj/item/rogueweapon/sword/iron/messer,
+			/obj/item/rogueweapon/sword/short/messer/iron,
 			/obj/effect/decal/cleanable/blood)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/orc/orc_marauder/spear
