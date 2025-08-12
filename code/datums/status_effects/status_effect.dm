@@ -59,6 +59,15 @@
 
 /datum/status_effect/proc/on_apply() //Called whenever the buff is applied; returning FALSE will cause it to autoremove itself.
 	for(var/S in effectedstats)
+		if(effectedstats[S] < 0)	//We only care about negative bonuses here
+			if((owner.get_stat(S) + effectedstats[S]) < 1)	//The status effect would reduce our stats beyond the limit of !1! Not 0.
+				for(var/i in 1 to abs(effectedstats[S]))
+					if((owner.get_stat(S) + (effectedstats[S] + i)) == 1)	//We keep incrementing the status effect until it will reduce it to 1.
+						effectedstats[S] = (effectedstats[S] + i)
+						break
+		else
+			if((owner.get_stat(S) + effectedstats[S]) > 20)	//We check for overflow as well.
+				effectedstats[S] = max(((owner.get_stat(S) + effectedstats[S]) - 20), 0)
 		owner.change_stat(S, effectedstats[S])
 	return TRUE
 
