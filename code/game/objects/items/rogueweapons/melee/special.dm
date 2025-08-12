@@ -283,6 +283,8 @@
 	thrown_bclass = BCLASS_CUT
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/steel
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/rogueweapon/katar/getonmobprop(tag)
 	. = ..()
