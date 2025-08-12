@@ -1844,6 +1844,7 @@
 	flags_inv = HIDECROTCH|HIDEBOOB
 	detail_tag = "_detail"
 	detail_color = "#36241f"
+	sleeved = TRUE
 	var/overarmor = TRUE
 
 /obj/item/clothing/cloak/cotehardie/ComponentInitialize()
