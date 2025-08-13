@@ -28,7 +28,7 @@
 /obj/item/bait/attack_self(mob/user)
 	var/area/A = get_area(user.loc)
 	if(!is_valid_hunting_area(A))
-		to_chat(user, span_warning("I should save \the [name] for the wilderness..."))
+		to_chat(user, span_warning("I should save [name] for the wilderness..."))
 		return
 
 	. = ..()
