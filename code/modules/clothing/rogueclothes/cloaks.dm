@@ -1832,7 +1832,7 @@
 
 /obj/item/clothing/cloak/cotehardie
 	name = "fitted coat"
-	desc = "Also known as a cotehardie: a long-sleeved tunic worn by peasants and nobles alike. It's used by men and women, in both summer and winter."
+	desc = "Also known as a cotehardie: a long-sleeved tunic worn by peasants and nobles alike. It's used by men and women, in both summer and winter. It won't drop any items inside when unequipped."
 	color = "#586849"
 	icon_state = "cotehardie"
 	item_state = "cotehardie"
@@ -1840,24 +1840,17 @@
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN|ARMS
 	boobed = TRUE
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_CLOAK
 	flags_inv = HIDECROTCH|HIDEBOOB
 	detail_tag = "_detail"
 	detail_color = "#36241f"
-	sleeved = TRUE
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_cloaks.dmi'
+	sleevetype = "cotehardie"
 	var/overarmor = TRUE
 
 /obj/item/clothing/cloak/cotehardie/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
-
-/obj/item/clothing/cloak/cotehardie/dropped(mob/living/carbon/human/user)
-	..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		var/list/things = STR.contents()
-		for(var/obj/item/I in things)
-			STR.remove_from_storage(I, get_turf(src))
 
 /obj/item/clothing/cloak/cotehardie/update_icon()
 	cut_overlays()
@@ -1871,3 +1864,13 @@
 /obj/item/clothing/cloak/cotehardie/Initialize()
 	..()
 	update_icon()
+
+/obj/item/clothing/cloak/cotehardie/MiddleClick(mob/user)
+	overarmor = !overarmor
+	to_chat(user, span_info("I [overarmor ? "wear the coat over my armor" : "wear the coat under my armor"]."))
+	if(overarmor)
+		alternate_worn_layer = TABARD_LAYER
+	else
+		alternate_worn_layer = UNDER_ARMOR_LAYER
+	user.update_inv_cloak()
+	user.update_inv_armor()
