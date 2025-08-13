@@ -272,3 +272,12 @@
 
 	loot_spawn_cooldown = world.time + 30 MINUTES
 	return TRUE
+
+/obj/item/reagent_containers/food/snacks/fish/creepy_shark/examine(mob/user)
+	. = ..()
+	if(loot_spawn_cooldown && world.time < loot_spawn_cooldown)
+		var/time_left = (loot_spawn_cooldown - world.time) / (1 MINUTES)
+		var/minutes_left = round(time_left, 0.1)
+		. += span_notice("It feels inert and cannot be squeezed yet. About [minutes_left] more minutes required.")
+	else
+		. += span_notice("You swear you can hear it demand you squeeze it in your hand.")
