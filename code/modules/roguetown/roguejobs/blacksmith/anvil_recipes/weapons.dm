@@ -1109,7 +1109,7 @@
 	i_type = "Weapons"
 
 // Silver bullion
-/datum/anvil_recipe/weapons/psy/axe/inq
+	/datum/anvil_recipe/weapons/psy/axe/inq
 	name = "Psydonian War Axe (+1 B. Silver, +1 Stick)"
 	req_bar = /obj/item/ingot/silverblessed/bullion
 	craftdiff = 3
@@ -1140,7 +1140,7 @@
 	created_item = /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger
 	i_type = "Weapons"
 
-/datum/anvil_recipe/weapons/psy/shortsword/inq
+/datum/anvil_recipe/weapons/psy/inq
 	name = "Psydonian Shortsword"
 	req_bar = /obj/item/ingot/silverblessed/bullion
 	craftdiff = 3
