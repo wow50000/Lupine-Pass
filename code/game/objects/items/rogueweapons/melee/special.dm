@@ -69,7 +69,7 @@
 	damfactor = 1.1
 	clickcd = CLICK_CD_MELEE
 	swingdelay = 8
-	intent_intdamage_factor = 1.8
+	intent_intdamage_factor = 1.35
 	icon_state = "insmash"
 	item_d_type = "blunt"
 /// INTENT DATUMS	^
@@ -278,7 +278,7 @@
 	associated_skill = /datum/skill/combat/unarmed
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
 	throwforce = 12
-	wdefense = 4
+	wdefense = 0	//Meant to be used with bracers
 	wbalance = WBALANCE_SWIFT
 	thrown_bclass = BCLASS_CUT
 	anvilrepair = /datum/skill/craft/weaponsmithing
@@ -301,7 +301,7 @@
 	desc = "A gift from a creature of the sea. The claw is sharpened to a wicked edge."
 	icon_state = "abyssorclaw"
 	force = 27	//Its thrust will be able to pen 80 stab armor if the wielder has 17 STR. (With softcap)
-	max_integrity = 120
+	max_integrity = 80
 
 /obj/item/rogueweapon/katar/punchdagger
 	name = "punch dagger"
@@ -310,7 +310,7 @@
 	max_integrity = 120		//Steel dagger -30
 	force = 15		//Steel dagger -5
 	throwforce = 8
-	wdefense = 1	//Hell no!
+	wdefense = 0	//Hell no!
 	thrown_bclass = BCLASS_STAB
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/thrust/pick)
 	icon_state = "plug"
@@ -351,12 +351,12 @@
 	slot_flags = ITEM_SLOT_HIP
 	parrysound = list('sound/combat/parry/pugilism/unarmparry (1).ogg','sound/combat/parry/pugilism/unarmparry (2).ogg','sound/combat/parry/pugilism/unarmparry (3).ogg')
 	sharpness = IS_BLUNT
-	max_integrity = 300
+	max_integrity = 150
 	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
 	throwforce = 12
-	wdefense = 7
-	wbalance = WBALANCE_HEAVY
+	wdefense = 4
+	wbalance = WBALANCE_NORMAL
 	blade_dulling = DULLING_SHAFT_WOOD
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -376,7 +376,7 @@
 /obj/item/rogueweapon/knuckles/bronzeknuckles
 	name = "bronze knuckles"
 	desc = "A mean looking pair of bronze knuckles. Mildly heavier than it's steel counterpart, making it a solid defensive option, if less wieldy."
-	force = 20
+	force = 18
 	possible_item_intents = list(/datum/intent/knuckles/strike,/datum/intent/knuckles/smash)
 	icon = 'icons/roguetown/weapons/32.dmi'
 	icon_state = "bronzeknuckle"
@@ -386,7 +386,7 @@
 	slot_flags = ITEM_SLOT_HIP
 	parrysound = list('sound/combat/parry/pugilism/unarmparry (1).ogg','sound/combat/parry/pugilism/unarmparry (2).ogg','sound/combat/parry/pugilism/unarmparry (3).ogg')
 	sharpness = IS_BLUNT
-	max_integrity = 250
+	max_integrity = 200
 	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
 	throwforce = 12
@@ -402,8 +402,8 @@
 	desc = "a set of knuckles made of ancient metals, Aeon's grasp wither their form."
 	icon_state = "aknuckle"
 	force = 12
-	max_integrity = 150
-	wdefense = 5
+	max_integrity = 100
+	wdefense = 4
 	smeltresult = /obj/item/ingot/aalloy
 	blade_dulling = DULLING_SHAFT_CONJURED
 
