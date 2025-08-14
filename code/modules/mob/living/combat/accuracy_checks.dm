@@ -32,8 +32,6 @@
 			chance2hit += 25
 		if(used_intent.blade_class == BCLASS_CUT)
 			chance2hit += 6
-		if((used_intent.blade_class == BCLASS_BLUNT || used_intent.blade_class == BCLASS_SMASH) && check_zone(zone) != zone)	//A mace can't hit the eyes very well
-			chance2hit -= 10
 
 	if(I)
 		if(I.wlength == WLENGTH_SHORT)
@@ -54,6 +52,8 @@
 	
 	if(HAS_TRAIT(user, TRAIT_CURSE_RAVOX))
 		chance2hit -= 40
+
+	chance2hit += zone_difficulty(zone)
 
 	chance2hit = CLAMP(chance2hit, 5, 93)
 
@@ -87,3 +87,29 @@
 		flash_fullscreen("blackflash2")
 		user.aftermiss()
 		return TRUE
+
+/proc/zone_difficulty(zone)
+	switch(zone)
+		//Hyper specific targetting is very difficult
+		if(BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE,
+		   BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_EARS,
+		   BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH,
+		   BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND,
+		   BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT)
+			return -25
+
+		// Head, arms, legs are all harder to hit then chest, but doable
+		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NECK,
+		   BODY_ZONE_L_ARM, BODY_ZONE_R_ARM,
+		   BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+			return -10
+
+		// Groin/stomach maybe mild difficulty
+		if(BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH)
+			return -5
+
+		// Chest is easiest
+		if(BODY_ZONE_CHEST)
+			return 0
+
+	return 0
