@@ -33,6 +33,7 @@
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 1)
 	H.change_stat("fortune", 2)
+	ADD_TRAIT(H, TRAIT_CAUTIOUS_FISHER, TRAIT_GENERIC)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/labor/fishing, 5, TRUE)
 	else
