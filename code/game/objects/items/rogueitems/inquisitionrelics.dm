@@ -585,13 +585,12 @@ Inquisitorial armory down here
 
 /obj/item/inqarticles/indexer/attack_right(mob/user) 
 	if(HAS_TRAIT(user, TRAIT_INQUISITION))	
-		if(subject || cursedblood)
-			if(alert(user, "EMPTY THE INDEXER?", "INDEXING...", "YES", "NO") != "NO")
-				playsound(src, 'sound/items/indexer_empty.ogg', 75, FALSE, 3)
-				visible_message(span_warning("[src] boils its contents away!"))
-				fullreset(user)
-			else
-				return	
+		if(alert(user, "EMPTY THE INDEXER?", "INDEXING...", "YES", "NO") != "NO")
+			playsound(src, 'sound/items/indexer_empty.ogg', 75, FALSE, 3)
+			visible_message(span_warning("[src] boils its contents away!"))
+			fullreset(user)
+		else
+			return	
 	else
 		return				
 
