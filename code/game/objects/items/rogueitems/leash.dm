@@ -361,6 +361,46 @@
 	leash_freepet = null
 //	leash_pet.add_movespeed_modifier(/datum/movespeed_modifier/leash)
 
+// These procs were made for travel tiles and are called in traveltile.dm. But they might have uses elsewhere.
+
+/proc/leashed_by_other(mob/living/L)
+	if(L.has_status_effect(/datum/status_effect/leash_pet))
+		for(var/obj/item/leash/held_leash in L.contents)
+			if(held_leash.leash_pet == L)
+				return FALSE
+		for(var/obj/item/leash/dropped_freepet_leash in view(5, L))
+			if(dropped_freepet_leash.leash_pet == L)
+				return FALSE
+		return TRUE
+	return FALSE
+
+/proc/get_master_leashed_mobs(mob/living/L, do_not_remove = TRUE)
+	var/list/master_leashed_mobs = list()
+	if(L.has_status_effect(/datum/status_effect/leash_owner))
+		for(var/obj/item/leash/leash in L.contents)
+			var/mob/living/nearby_pet
+			for(var/mob/living/target in view(5, L) - L)
+				if((L == leash.leash_master) && (target == leash.leash_pet))  // As of writing, you are not considered a master for leashing yourself, or for holding your own leash.
+					nearby_pet = target
+					break
+			if(!nearby_pet)
+				if(leash.leash_pet && !do_not_remove) // leash will unregister them next process(), to not spontaneously throw pet up a z-level
+					leash.leash_pet.remove_status_effect(/datum/status_effect/leash_pet)
+				continue
+			else
+				master_leashed_mobs += nearby_pet
+	return master_leashed_mobs
+
+/proc/get_freepet_leash(atom/movable/subject)
+	if(!isliving(subject))
+		return
+	var/mob/living/L = subject
+	if(L.has_status_effect(/datum/status_effect/leash_freepet))
+		for(var/obj/item/leash/leash in view(5, L))
+			if(leash.leash_freepet == L)
+				return leash
+	return null
+
 /*/datum/movespeed_modifier/leash
 	id = MOVESPEED_ID_LEASH
 	multiplicative_slowdown = 5 */
