@@ -49,6 +49,8 @@
 
 /mob/living/carbon/human/species/lizardfolk/psy_vault_dungeon_guardian/after_creation()
 	..()
+	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes/elf)
+	var/obj/item/organ/ears/organ_ears = getorgan(/obj/item/organ/ears/elf)
 	skin_tone = "E9D298"
 	job = "Dungeon Guardian"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
@@ -60,12 +62,11 @@
 	ADD_TRAIT(src, TRAIT_BIGGUY, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_STRONGBITE, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/roguetown/human/species/lizardfolk/psy_vault_dungeon_guardian)
-	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
 	if(organ_eyes)
 		organ_eyes.eye_color = pick("27becc", "35cc27", "000000")
 	update_hair()
 	update_body()
-
+	
 /mob/living/carbon/human/species/lizardfolk/psy_vault_dungeon_guardian/npc_idle()
 	if(m_intent == MOVE_INTENT_SNEAK)
 		return
