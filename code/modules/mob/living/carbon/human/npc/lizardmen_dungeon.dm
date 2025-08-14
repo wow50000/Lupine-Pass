@@ -47,9 +47,9 @@
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 	is_silent = TRUE
 
-
 /mob/living/carbon/human/species/lizardfolk/psy_vault_dungeon_guardian/after_creation()
 	..()
+	skin_tone = "E9D298"
 	job = "Dungeon Guardian"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -61,11 +61,8 @@
 	ADD_TRAIT(src, TRAIT_STRONGBITE, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/roguetown/human/species/lizardfolk/psy_vault_dungeon_guardian)
 	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
-	var/obj/item/organ/tail/lizard/organ_tail = getorgan(/obj/item/organ/tail/lizard)
 	if(organ_eyes)
 		organ_eyes.eye_color = pick("27becc", "35cc27", "000000")
-	if(organ_tail)
-		
 	update_hair()
 	update_body()
 
