@@ -22,13 +22,15 @@
 	typepath = /datum/round_event/antagonist/solo/vampire
 	antag_datum = /datum/antagonist/vampirelord
 
-	restricted_roles = list(
+	restricted_roles = list( // basically just keep and church roles
 		"Grand Duke",
 		"Grand Duchess",
+		"Knight Captain",
 		"Consort",
 		"Dungeoneer",
 		"Sergeant",
-		"Men-at-arms",
+		"Men-at-Arms",
+		"Woman-at-Arms",
 		"Marshal",
 		"Merchant",
 		"Bishop",
@@ -41,11 +43,17 @@
 		"Princess",
 		"Hand",
 		"Steward",
+		"Clerk",
+		"Magos Thrall",
+		"Jester",
+		"Servant",
+		"Seneschal",
 		"Court Physician",
 		"Town Elder",
 		"Captain",
 		"Archivist",
 		"Knight",
+		"Dame",
 		"Court Magician",
 		"Inquisitor",
 		"Orthodoxist",
