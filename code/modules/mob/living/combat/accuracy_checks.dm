@@ -113,3 +113,18 @@
 			return 0
 
 	return 0
+
+// Based on the remaining accuracy of the projectile and the aimed zone, return the zone, precise zone or chest
+/mob/living/proc/bullet_hit_accuracy_check(final_accuracy, def_zone = BODY_ZONE_CHEST)
+	// No matter what, 5% chance to hit the zone. No benefit from overaccuracy (unlikely)
+	var/chance2hit = CLAMP(final_accuracy, 5, 100) + zone_difficulty(def_zone)
+	// This means even in best scenario - 75% chance of hitting an ultra precise zone point blank.
+	// Take chance2hit. - zone difficulty for aiming.
+	// If fail to hit zone, hit next bigger zone. 
+	// If double fail, hit chest.
+	if(prob(chance2hit))
+		return def_zone
+	else if(prob(chance2hit))
+		return check_zone(def_zone)
+	else
+		return BODY_ZONE_CHEST
