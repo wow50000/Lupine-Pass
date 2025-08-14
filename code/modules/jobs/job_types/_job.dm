@@ -154,6 +154,7 @@
 
 	//The job's stat UPPER ceilings, clamped after statpacks and job stats are applied.
 	var/list/stat_ceilings
+	var/carebox_table = null
 
 
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
