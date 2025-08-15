@@ -156,13 +156,13 @@
 // Special brew reagent
 /datum/reagent/frankenbrew
 	name = "Reanimation Elixir"
-	description = "A volatile chemical mixture that reanimates biological tissue."
+	description = "A volatile chemical mixture that helps the deceased conduct electricity."
 	color = "#00ff15"
 	taste_description = "lightning and regret"
 
 /obj/item/reagent_containers/glass/bottle/frankenbrew
 	name = "vial of Reanimation Elixir"
-	desc = "A volatile chemical mixture that reanimates biological tissue. Looks expensive..."
+	desc = "A volatile chemical mixture that helps the deceased conduct electricity. Looks expensive..."
 	list_reagents = list(/datum/reagent/frankenbrew = 48)
 
 /obj/structure/chair/frankenstein/proc/start_cranking_animation()
