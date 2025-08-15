@@ -494,9 +494,9 @@
 
 /obj/item/rogueweapon/sword/long/oldpsysword
 	name = "old psydonian longsword"
-	desc = "A finely made longsword, plated in a worn-down veneer of grubby silver. It's long seen better daes."
-	icon_state = "psysword"
-	sheathe_icon = "psysword"
+	desc = "A finely made longsword, plated in a worn-down veneer of grubby silver. It's long seen better daes. Yet alike PSYDON, it ENDURES."
+	icon_state = "opsysword"
+	sheathe_icon = "opsysword"
 
 /obj/item/rogueweapon/sword/long/psysword
 	name = "psydonian longsword"
