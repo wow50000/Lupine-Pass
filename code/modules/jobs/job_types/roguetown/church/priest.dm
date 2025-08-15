@@ -221,12 +221,13 @@ GLOBAL_LIST_EMPTY(heretical_players)
 				var/obj/effect/proc_holder/spell/new_spell = new spell_type
 				mind.AddSpell(new_spell)
 
-	var/list/base_spells = list(
-		/obj/effect/proc_holder/spell/invoked/revive
-	)
-	for(var/type in base_spells)
-		if(!mind.has_spell(type))
-			mind.AddSpell(new type)
+		var/list/base_spells = list(
+			/obj/effect/proc_holder/spell/invoked/revive,
+			/obj/effect/proc_holder/spell/invoked/immolation
+		)
+		for(var/type in base_spells)
+			if(!mind.has_spell(type))
+				mind.AddSpell(new type)
 
 	// Special messages
 	if(string_choice == "Astrata")
