@@ -159,6 +159,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		//devotion.granted_spells.Cut()
 		patron = god
 		patrondev.grant_miracles(src, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, devotion_limit = CLERIC_REQ_4)
+		if(!mind.has_spell(/obj/effect/proc_holder/spell/invoked/revive))
+			mind.AddSpell(/obj/effect/proc_holder/spell/invoked/revive)
 	else
 		// Define whitelist of swapable spells (T0-T2 only)
 		var/list/whitelist = list(
