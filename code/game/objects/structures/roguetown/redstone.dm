@@ -224,3 +224,14 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		sleep(40)
 		icon_state = "kybraxor1"
 		changing_state = FALSE
+
+/obj/structure/kybraxor/psy
+	redstone_id = "swamp_psy_dungeon"
+
+/obj/structure/kybraxor/psy/proc/delayopen()
+	message_admins("[src] is trying to open")
+	for(var/obj/structure/O in redstone_attached)
+		spawn(0) O.redstone_triggered()
+
+/obj/structure/kybraxor/psy/Initialize()
+	addtimer(CALLBACK(src, PROC_REF(delayopen)), 300)
