@@ -277,8 +277,8 @@
 	craftdiff = 5
 
 //conversion material for some hard to find materials that don't have a use
-/datum/crafting_recipe/roguetown/arcana/arcanefusion1 //gives some T1 and T2 arcane material
-	name = "Arcane fusion - (1 essense of wilderness, sea water, 5x clay, 1 skull)"
+/datum/crafting_recipe/roguetown/arcana/arcynefission1 //gives some T1 and T2 arcane material
+	name = "arcyne fission - (1 essense of wilderness, sea water, 5x clay, 1 skull)"
 	result = list(/obj/item/magic/manacrystal, /obj/item/magic/manacrystal,
 				  /obj/item/magic/manacrystal,
 				  /obj/item/magic/infernalash,
@@ -294,8 +294,8 @@
 				/obj/item/rogueore/cinnabar = 1)
 	craftdiff = 3
 
-/datum/crafting_recipe/roguetown/arcana/arcanefusion2 //gives T1, T2, and T3 arcane material, sorry Tudon
-	name = "Arcane fusion - (1 lich's phylactery, sea water, 5x clay, 1 silver ore)"
+/datum/crafting_recipe/roguetown/arcana/arcynefission2 //gives T1, T2, and T3 arcane material, sorry Tudon
+	name = "arcyne fission - (1 lich's phylactery, sea water, 5x clay, 1 silver ore)"
 	result = list(/obj/item/magic/manacrystal,
 				  /obj/item/magic/manacrystal,
 				  /obj/item/magic/manacrystal,
