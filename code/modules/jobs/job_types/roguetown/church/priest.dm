@@ -106,15 +106,15 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	set category = "Priest"
 	var/mono_first_pick = FALSE
 
-	if(!mind)
-		return
-
-	if(!COOLDOWN_FINISHED(src, priest_change_miracles))
-		to_chat(src, "<font color='yellow'>I am not yet ready to call upon another god.</font>")
+	if(!mind || user != src)
 		return
 
 	if(HAS_TRAIT(src, TRAIT_MONOTHEIST))
 		to_chat(src, "<font color='yellow'>I have dedicated myself to a single god.</font>")
+		return
+
+	if(!COOLDOWN_FINISHED(src, priest_change_miracles))
+		to_chat(src, "<font color='yellow'>I am not yet ready to call upon another god.</font>")
 		return
 
 	if(!HAS_TRAIT(src, TRAIT_POLYTHEIST))
@@ -134,6 +134,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	var/list/god_type = list()
 	for(var/path as anything in GLOB.patrons_by_faith[/datum/faith/divine])
 		var/datum/patron/patron = GLOB.patronlist[path]
+		if(!patron || !patron.name)
+			continue
 		god_choice[patron.name] = icon(icon = 'icons/mob/overhead_effects.dmi', icon_state = "sign_[patron.name]")
 		god_type[patron.name] = patron
 
@@ -149,12 +151,12 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		to_chat(src, "<font color='yellow'>I'm already blessed by that [patron.name].</font>")
 		return
 
+	if(mono_first_pick)
+		for(var/obj/effect/proc_holder/spell/S in src.devotion.granted_spells)
+			src.mind.RemoveSpell(S)
 	var/datum/devotion/patrondev = new /datum/devotion(src, god)
 	if(mono_first_pick)
-		for(var/obj/effect/proc_holder/spell/S in devotion.granted_spells)
-			if(src?.mind)
-				src.mind.RemoveSpell(S)
-		devotion.granted_spells.Cut()
+		//devotion.granted_spells.Cut()
 		patron = god
 		patrondev.grant_miracles(src, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, devotion_limit = CLERIC_REQ_4)
 	else
