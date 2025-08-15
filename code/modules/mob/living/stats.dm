@@ -103,7 +103,7 @@
 		if(STAT_FORTUNE)
 			return STALUC
 		else
-			return
+			CRASH("get_stat called on [src] with an erroneous stat flag: [stat]")
 
 /mob/living/proc/change_stat(stat, amt, index)
 	if(!stat)
