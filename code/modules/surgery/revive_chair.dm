@@ -32,15 +32,6 @@
 	var/cranking = FALSE
 	pixel_x = -8
 
-/obj/structure/chair/frankenstein/examine(mob/user)
-	. = ..()
-	if(!ishuman(user))
-		return ..()
-
-	var/mob/living/carbon/human/H = user
-	if(H.patron.type == /datum/patron/divine/pestra || H.patron.type == /datum/patron/inhumen/zizo)
-		. += span_info("You recall that these chairs are often shipped in enigmatic black crates marked with white crosses. The components are assembled by mysterious beaked figures on site, and taking it apart again seems like an impossible task.")
-
 /obj/structure/chair/frankenstein/zizo
 	chair_skill_level = 2
 	current_brew = 48
@@ -149,11 +140,18 @@
 	. = ..()
 	. += span_info("Fluid level: [current_brew]/[max_brew] units")
 	. += span_info("Charge level: [charge]/[max_charge]")
+	. += span_info("Useful leaflet: To charge, use the crank affixed on the right.")
+	. += span_info("There's a big juicy level in the middle on the backside that looks enticing to pull.")
 
 	if(current_brew > 0)
 		. += span_notice("The fluid tank contains a glowing green liquid.")
 	else
 		. += span_warning("The fluid tank is empty.")
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.patron.type == /datum/patron/divine/pestra || H.patron.type == /datum/patron/inhumen/zizo)
+			. += span_info("You recall that these chairs are often shipped in enigmatic black crates marked with white crosses. The components are assembled by mysterious beaked figures on site, and taking it apart again seems like an impossible task.")
 
 // Special brew reagent
 /datum/reagent/frankenbrew
