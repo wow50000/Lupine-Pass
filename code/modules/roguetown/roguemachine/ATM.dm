@@ -205,7 +205,7 @@
 
 /obj/item/coveter
 	name = "Covetous Crown"
-	desc = "A Crown which craves the brow of meisters. The Covetous Crab"
+	desc = "A Crown which craves the brow of meisters and can drain the gold from a person's account if placed on their head."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "crown_object"
 	force = 10
