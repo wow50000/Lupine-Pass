@@ -270,7 +270,7 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/arcana/abyssalflame //T4 mage summon loot
-	name = "elemental relic - (4 infernal core, 1 rontz)"
+	name = "abyssal flame - (4 infernal core, 1 rontz)"
 	result = /obj/item/magic/abyssalflame
 	reqs = list(/obj/item/magic/infernalcore = 2,
 				/obj/item/roguegem/ruby = 1)
