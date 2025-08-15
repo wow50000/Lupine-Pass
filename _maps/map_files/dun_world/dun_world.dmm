@@ -63720,6 +63720,9 @@
 /obj/item/clothing/cloak/stabard/surcoat/guard,
 /obj/item/clothing/cloak/stabard/guardhood,
 /obj/item/clothing/cloak/stabard/guardhood,
+/obj/item/clothing/cloak/stabard/guard,
+/obj/item/clothing/cloak/stabard/guard,
+/obj/item/clothing/cloak/stabard/guard,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
 "tiB" = (
