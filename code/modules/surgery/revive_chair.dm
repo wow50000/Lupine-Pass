@@ -2,8 +2,8 @@
 
 // The immovable chair structure
 /obj/structure/chair/frankenstein
-	name = "grotesque reanimation chair"
-	desc = "A nightmarish contraption of leather straps, fluid tanks, and sparking electrodes. It seems permanently fixed to the ground."
+	name = "Fulmenor chair"
+	desc = "A nightmarish contraption of pipes, and sparking electrodes. It seems permanently fixed to the ground."
 	icon = 'icons/roguetown/misc/struc48x48.dmi'
 	icon_state = "frankenchair0"
 	anchored = TRUE
@@ -20,6 +20,7 @@
 	var/brew_required = 48
 	var/current_brew = 0
 	var/max_brew = 96
+	var/chair_skill_level = 4
 
 	var/static/list/brew_overlays = list(
 		"low" = "frankenbrew_low",
@@ -28,7 +29,21 @@
 	)
 	var/brew_color = "#00ff15"
 	var/brew_alpha = 200
+	var/cranking = FALSE
 	pixel_x = -8
+
+/obj/structure/chair/frankenstein/examine(mob/user)
+	. = ..()
+	if(!ishuman(user))
+		return ..()
+
+	var/mob/living/carbon/human/H = user
+	if(H.patron.type == /datum/patron/divine/pestra || H.patron.type == /datum/patron/inhumen/zizo)
+		. += span_info("You recall that these chairs are often shipped in enigmatic black crates marked with white crosses. The components are assembled by mysterious beaked figures on site, and taking it apart again seems like an impossible task.")
+
+/obj/structure/chair/frankenstein/zizo
+	chair_skill_level = 2
+	current_brew = 48
 
 /obj/structure/chair/frankenstein/Initialize()
 	. = ..()
@@ -36,7 +51,6 @@
 
 /obj/structure/chair/frankenstein/update_icon()
 	cut_overlays()
-	icon_state = "frankenchair0" // Reset base state
 
 	// Add fluid overlay if there's brew
 	if(current_brew > 0)
@@ -66,6 +80,9 @@
 		add_overlay(charge_overlay)
 
 /obj/structure/chair/frankenstein/attackby(obj/item/I, mob/user)
+	if(!ishuman(user))
+		to_chat(user, span_warning("I have no idea how to operate this."))
+	var/mob/living/carbon/human/H = user
 	// Handle filling with brew containers
 	if(istype(I, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/container = I
@@ -88,9 +105,10 @@
 			user.visible_message(span_notice("[user] begins filling [src] with [container]."), 
 								span_notice("You begin filling [src] with [container]."))
 
+			var/skill_mod = get_user_skill(H)
 			var/transferred = 0
 			var/transfer_amount = 3
-			var/transfer_time = 2 SECONDS
+			var/transfer_time = 1.5 SECONDS * skill_mod
 
 			while(remaining_capacity > 0 && available_brew > 0)
 				// Check if we can continue
@@ -125,23 +143,6 @@
 		else
 			to_chat(user, span_warning("This container doesn't have the special brew!"))
 			return
-
-	// Handle cranking mechanism
-	if(istype(I, /obj/item))
-		if(charge >= max_charge)
-			to_chat(user, span_warning("[src] is already fully charged!"))
-			return
-
-		user.visible_message(span_notice("[user] begins cranking [src]."), 
-							span_notice("You start cranking [src]..."))
-
-		if(do_after(user, 5 SECONDS, target = src))
-			charge = min(charge + 25, max_charge)
-			to_chat(user, span_notice("You add charge to [src]. Current charge: [charge]/[max_charge]"))
-			playsound(src, 'sound/misc/click.ogg', 50, 1)
-			update_icon()
-		return TRUE
-
 	return ..()
 
 /obj/structure/chair/frankenstein/examine(mob/user)
@@ -165,3 +166,158 @@
 	name = "vial of Reanimation Elixir"
 	desc = "A volatile chemical mixture that reanimates biological tissue. Looks expensive..."
 	list_reagents = list(/datum/reagent/frankenbrew = 48)
+
+/obj/structure/chair/frankenstein/proc/start_cranking_animation()
+	if(cranking)
+		return
+	cranking = TRUE
+	icon_state = "frankenchair_crank"
+	update_icon()
+
+/obj/structure/chair/frankenstein/proc/stop_cranking_animation()
+	cranking = FALSE
+	icon_state = "frankenchair0"
+	update_icon()
+
+/obj/structure/chair/frankenstein/proc/get_user_skill(mob/living/carbon/human/user)
+	var/medical_skill = user.get_skill_level(/datum/skill/misc/medicine)
+	var/skill_mod = 1.0
+
+	switch(medical_skill)
+		if(0 to 3)
+			skill_mod = 4.0
+		if(4)
+			skill_mod = 1.0
+		if(5)
+			skill_mod = 0.9
+		if(6)
+			skill_mod = 0.8
+
+	return skill_mod
+
+/obj/structure/chair/frankenstein/attack_right(mob/user)
+	if(!ishuman(user))
+		to_chat(user, span_warning("I have no idea how to operate this."))
+	var/mob/living/carbon/human/H = user
+
+	if(cranking)
+		to_chat(user, span_warning("Someone is already cranking [src]!"))
+		return
+
+	if(charge >= max_charge)
+		to_chat(user, span_warning("[src] is already fully charged!"))
+		return
+
+	// Start cranking
+	user.visible_message(span_notice("[user] begins cranking [src]."), 
+						span_notice("You start cranking [src]..."))
+
+	start_cranking_animation()
+
+	var/cranks = 0
+	var/skill_mod = get_user_skill(H)
+	var/crank_time = 2 SECONDS * skill_mod
+	var/charge_per_crank = 10
+
+	while(charge < max_charge && do_after(user, crank_time, target = src))
+		// Add charge
+		charge = min(charge + charge_per_crank, max_charge)
+		cranks++
+		update_icon()
+
+		// Play sound
+		playsound(src, 'sound/misc/click.ogg', 50, 1)
+
+		// Check if we reached max charge
+		if(charge >= max_charge)
+			break
+
+	stop_cranking_animation()
+
+	if(cranks > 0)
+		to_chat(user, span_notice("You crank [src] [cranks] times."))
+	else
+		to_chat(user, span_warning("You stop cranking it."))
+
+	return TRUE
+
+/obj/structure/chair/frankenstein/MiddleClick(mob/user)
+	if(!ishuman(user))
+		return ..()
+
+	var/mob/living/carbon/human/H = user
+
+	// Check medical skill requirement
+	if(H.get_skill_level(/datum/skill/misc/medicine) < chair_skill_level)
+		to_chat(H, span_warning("I don't have the medical expertise to operate this device!"))
+		return
+
+	// Check if chair is occupied
+	var/mob/living/carbon/occupant
+	for(var/mob/living/carbon/C in get_turf(src))
+		if(C != user)
+			occupant = C
+			break
+
+	if(!occupant)
+		to_chat(H, span_warning("The chair needs an occupant to perform reanimation!"))
+		return
+
+	// Check resources
+	if(current_brew < brew_required)
+		to_chat(H, span_warning("Insufficient fluid!"))
+		return
+	if(charge < max_charge)
+		to_chat(H, span_warning("Insufficient charge!"))
+		return
+
+	// Check if occupant is valid
+	if(occupant.stat != DEAD)
+		to_chat(H, span_warning("[occupant] is still alive!"))
+		return
+	if(!occupant.mind)
+		to_chat(H, span_warning("The brain of [occupant] seems thoroughly fried."))
+		return
+	if(HAS_TRAIT(occupant, TRAIT_NECRAS_VOW))
+		to_chat(H, span_warning("This soul belongs to Necra and cannot be reclaimed! You feel her fury!"))
+		return
+	if(!occupant.mind.active)
+		to_chat(H, span_warning("The spirit has moved beyond recall."))
+		return
+
+	// Prompt ghost
+	to_chat(occupant, span_ghostalert("You sense powerful energies attempting to pull you back to your body!"))
+	var/alert_result = alert(occupant, "They are calling for you. Are you ready?", "Reanimation", "I need to wake up", "Don't let me go")
+
+	// Verify occupant is still valid
+	if(occupant.stat != DEAD || occupant.loc != get_turf(src) || !occupant.buckled)
+		to_chat(H, span_warning("The subject is no longer properly buckled to the chair!"))
+		return
+
+	if(alert_result != "I need to wake up")
+		to_chat(H, span_warning("[occupant] refuses to return."))
+		return
+
+	// Animation and sound
+	playsound(src, 'sound/magic/lightning.ogg', 100, TRUE)
+	do_sparks(8, TRUE, occupant)
+	occupant.visible_message(span_danger("Bolts of electricity course through [occupant]!"))
+
+	// Revive process
+	occupant.adjustOxyLoss(-occupant.getOxyLoss())
+	if(occupant.revive(full_heal = FALSE))
+		// Restore consciousness
+		occupant.grab_ghost(force = TRUE)
+		occupant.emote("gasp")
+		occupant.Jitter(100)
+		occupant.electrocute_act(100, src, 1)
+		occupant.visible_message(span_notice("[occupant] jerks awake with a gasp!"), 
+								span_userdanger("You awaken with agonizing pain as unnatural energy courses through your veins!"))
+		current_brew -= brew_required
+		charge = 0
+		update_icon()
+
+		// Apply debuffs
+		occupant.apply_status_effect(/atom/movable/screen/alert/status_effect/debuff/revived)
+
+	return TRUE
