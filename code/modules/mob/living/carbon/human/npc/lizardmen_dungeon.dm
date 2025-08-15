@@ -82,7 +82,7 @@
 	ADD_TRAIT(src, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_BIGGUY, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_STRONGBITE, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/roguetown/human/species/lizardfolk/psy_vault_guard)
 	patron = /datum/patron/old_god
 	update_hair()
@@ -134,19 +134,20 @@
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	ADD_TRAIT(H, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
 	//Clothing Stuff
 	//Head Gear
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/priest/zard_guard
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+	armor = /obj/item/clothing/suit/roguetown/shirt/undershirt/priest/zard_guard
 	add_random_psy_vault_guard_mask(H)
-	neck = /obj/item/clothing/neck/roguetown/leather
+	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	//wrist Gear
 	add_random_psy_vault_guard_psycross(H)
 	//Lower Gear
 	belt = /obj/item/storage/belt/rogue/leather/sash
 	add_random_psy_vault_guard_beltr_stuff(H)
 	add_random_psy_vault_guard_beltl_stuff(H)
-	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
-	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+	pants = /obj/item/clothing/under/roguetown/chainlegs/kilt
 	//Weapons
 	add_random_psy_vault_guard_weapon(H)
 

@@ -45,6 +45,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/priest/zard_guard //I made this so I could have the lizard guards look cool while having armoured bits
 	name = "padded undervestments"
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_CHOP)
 	armor = ARMOR_PADDED_GOOD
 	body_parts_covered = COVERAGE_FULL
