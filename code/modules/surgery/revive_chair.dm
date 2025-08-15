@@ -141,7 +141,7 @@
 	. += span_info("Fluid level: [current_brew]/[max_brew] units")
 	. += span_info("Charge level: [charge]/[max_charge]")
 	. += span_info("Useful leaflet: To charge, use the crank affixed on the right.")
-	. += span_info("There's a big juicy level in the middle on the backside that looks enticing to pull.")
+	. += span_info("There's a big juicy lever in the middle on the backside that looks enticing to pull.")
 
 	if(current_brew > 0)
 		. += span_notice("The fluid tank contains a glowing green liquid.")
