@@ -5703,10 +5703,6 @@
 /obj/structure/fluff/railing/border/north,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/manor)
-"bIi" = (
-/obj/structure/fluff/psycross/psycrucifix/stone,
-/turf/open/water/swamp/deep,
-/area/rogue/under/cave/his_vault)
 "bIn" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/dirt,
@@ -14268,9 +14264,6 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/town)
-"edZ" = (
-/turf/open/water/swamp/deep,
-/area/rogue/under/cave/his_vault)
 "eed" = (
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/rogue/dirt/road,
@@ -213267,8 +213260,8 @@ ujm
 ujm
 pdu
 pdu
-bIi
-edZ
+pkV
+gUp
 vKE
 gUp
 gUp
