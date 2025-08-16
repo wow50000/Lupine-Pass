@@ -43890,7 +43890,7 @@
 /area/rogue/indoors/town)
 "mrK" = (
 /obj/structure/lever/wall{
-	redstone_id = "bog_dung_psy_ps2_d1";
+	redstone_id = "bog_dung_psy_ps2_d2";
 	pixel_x = -18;
 	dir = 8
 	},
