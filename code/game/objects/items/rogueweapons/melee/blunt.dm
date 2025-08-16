@@ -216,6 +216,16 @@
 /obj/item/rogueweapon/mace/cudgel/psy/preblessed/ComponentInitialize()
 	add_psyblessed_component(is_preblessed = TRUE, bonus_force = 3, bonus_sharpness = 100, bonus_integrity = 50, bonus_wdef = 1, make_silver = TRUE)	
 
+/obj/item/rogueweapon/mace/cudgel/psy/old
+	name = "old psydonian handmace"
+	desc = "A shorthanded mace and convenient sleeping aid, its grown harder to swing with age, though it hasn't lost reliability."
+	force = 20
+	wbalance = WBALANCE_NORMAL
+	icon_state = "opsyflangedmace"
+
+/obj/item/rogueweapon/mace/cudgel/psy/old/ComponentInitialize()
+	return	
+
 /obj/item/rogueweapon/mace/cudgel/copper
 	name = "copper bludgeon"
 	desc = "An extremely crude weapon for cruder bastards."
