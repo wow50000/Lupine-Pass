@@ -12422,9 +12422,10 @@
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/exposed/town/keep)
 "dES" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_checkpoint_jail_last";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_checkpoint_jail_last"
 	},
 /turf/open/floor/rogue/metal{
 	icon_state = "plating2"
@@ -81555,7 +81556,8 @@
 	},
 /obj/item/ingot/silverblessed{
 	pixel_y = 4;
-	pixel_x = -3
+	pixel_x = -3;
+	layer = 3.1
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
@@ -233799,9 +233801,9 @@ hCe
 viR
 viR
 jak
-xmO
-xmO
-xmO
+jlk
+jlk
+jlk
 jak
 viR
 pdu
@@ -235153,7 +235155,7 @@ bEl
 nLp
 gUp
 gMn
-xmO
+jlk
 rik
 gUp
 qTS
@@ -235605,7 +235607,7 @@ rik
 gUp
 gUp
 gMn
-xmO
+jlk
 rik
 gUp
 lEU
