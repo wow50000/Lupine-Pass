@@ -154,9 +154,9 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if(mono_first_pick)
 		for(var/obj/effect/proc_holder/spell/S in src.devotion.granted_spells)
 			src.mind.RemoveSpell(S)
-	var/datum/devotion/patrondev = new /datum/devotion(src, god)
 	if(mono_first_pick)
 		//devotion.granted_spells.Cut()
+		var/datum/devotion/patrondev = new /datum/devotion(src, god)
 		patron = god
 		patrondev.grant_miracles(src, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, devotion_limit = CLERIC_REQ_4)
 	else
@@ -227,6 +227,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	for(var/type in base_spells)
 		if(!mind.has_spell(type))
 			mind.AddSpell(new type)
+
+	src.devotion.devotion *= 0.4
 
 	// Special messages
 	if(string_choice == "Astrata")
