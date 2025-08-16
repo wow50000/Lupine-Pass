@@ -7243,9 +7243,10 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "cfE" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_ps2_d1";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_ps2_d1"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -13432,9 +13433,10 @@
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
 	},
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_ps2_d2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_ps2_d2"
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
@@ -16088,6 +16090,16 @@
 "eDG" = (
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/woods/south)
+"eDM" = (
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_j3"
+	},
+/turf/open/floor/rogue/metal{
+	dir = 4
+	},
+/area/rogue/under/cave/his_vault)
 "eDN" = (
 /obj/structure/lever/wall{
 	dir = 8;
@@ -17419,9 +17431,10 @@
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
 	},
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_ps2_d2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_ps2_d2"
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
@@ -21073,9 +21086,10 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest/south)
 "fYX" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_trap_hall_evil2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_evil2"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -24469,6 +24483,13 @@
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/sewer)
+"gXF" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "gXN" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab/cabbit,
 /turf/open/floor/rogue/grass,
@@ -28899,7 +28920,7 @@
 "ijs" = (
 /obj/structure/lever/wall{
 	dir = 8;
-	redstone_id = "bog_dung_psy_trap_hall_j3";
+	redstone_id = "bog_dung_psy_trap_hall_j4";
 	pixel_y = -29;
 	pixel_x = 16
 	},
@@ -30340,9 +30361,10 @@
 /turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town/manor)
 "iDs" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_ps2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_ps2"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -30978,9 +31000,10 @@
 /area/rogue/outdoors/town)
 "iMY" = (
 /obj/structure/fluff/railing/corner/south_east,
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_trap_hall_evil2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_evil2"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -31754,6 +31777,16 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/skeletoncrypt)
+"iYh" = (
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_j4"
+	},
+/turf/open/floor/rogue/metal{
+	dir = 4
+	},
+/area/rogue/under/cave/his_vault)
 "iYj" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -32643,6 +32676,16 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
+"jlk" = (
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_j5"
+	},
+/turf/open/floor/rogue/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/under/cave/his_vault)
 "jlm" = (
 /obj/structure/chair/bench/couchamagenta/r,
 /turf/open/floor/rogue/tile/harem,
@@ -37157,9 +37200,10 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/exposed/town/keep)
 "kAz" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_trap_hall_j2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_j2"
 	},
 /turf/open/floor/rogue/metal{
 	dir = 4
@@ -50038,9 +50082,10 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/beach/north)
 "odE" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_ps2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_ps2"
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
@@ -65783,9 +65828,10 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town)
 "sBT" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_ps2_d2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_ps2_d2"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -68619,9 +68665,10 @@
 /area/rogue/under/cave/dungeon1/gethsmane)
 "tpm" = (
 /obj/structure/fluff/railing/corner/north_east,
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_trap_hall_evil2";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_evil2"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -217878,7 +217925,7 @@ ujm
 ujm
 ujm
 ujm
-pIu
+xYx
 gUp
 wFo
 kOw
@@ -219234,7 +219281,7 @@ ujm
 ujm
 hCe
 uzo
-uzo
+gXF
 jSe
 wdT
 viR
@@ -224253,9 +224300,9 @@ kAz
 iIC
 ext
 ext
-lMr
-lMr
-lMr
+eDM
+eDM
+eDM
 pdu
 pdu
 hCe
@@ -226973,7 +227020,7 @@ gUp
 gUp
 bBp
 gUF
-iPU
+iYh
 xXc
 xXc
 xaU
@@ -227425,7 +227472,7 @@ gUp
 bBp
 oQl
 rIE
-iPU
+iYh
 sfg
 xXc
 xXc
@@ -230129,9 +230176,9 @@ sMC
 iiq
 iiq
 sMC
-xmO
-xmO
-xmO
+jlk
+jlk
+jlk
 pdu
 wGZ
 wGZ
