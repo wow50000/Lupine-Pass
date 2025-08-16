@@ -20551,7 +20551,6 @@
 	dir = 8
 	},
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
-/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
 	lockid = "psy_bog_dung_lootkey"
@@ -32272,7 +32271,6 @@
 /area/rogue/indoors/shelter/mountains/decap)
 "jfi" = (
 /obj/structure/mannequin,
-/obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate,
 /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -38966,7 +38964,6 @@
 	locked = 1;
 	lockid = "psy_bog_dung_lootkey"
 	},
-/obj/item/storage/belt/rogue/pouch/coins/rich,
 /obj/item/roguegem/random,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
@@ -79541,7 +79538,6 @@
 	icon_state = "chains5"
 	},
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
-/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
 	lockid = "psy_bog_dung_lootkey"
@@ -86030,7 +86026,6 @@
 	lockid = "psy_bog_dung_lootkey"
 	},
 /obj/item/storage/belt/rogue/pouch/coins/rich,
-/obj/item/roguegem/random,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
 "yff" = (
