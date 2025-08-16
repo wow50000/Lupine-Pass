@@ -83886,7 +83886,9 @@
 /area/rogue/indoors/shelter/mountains/decap)
 "xzt" = (
 /obj/structure/mannequin,
-/obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate,
+/obj/item/clothing/under/roguetown/platelegs/holysee,
+/obj/item/clothing/suit/roguetown/armor/plate/full/holysee,
+/obj/item/clothing/head/roguetown/helmet/heavy/holysee,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "xzv" = (
