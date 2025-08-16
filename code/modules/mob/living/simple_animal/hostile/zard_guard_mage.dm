@@ -131,7 +131,7 @@
 /obj/effect/oneway/psy_bog //one way barrier to the boss room. Can be despawned with the key the boss drops.
 	name = "magical barrier"
 	max_integrity = 99999
-	desc = "Victory or death - once you pass this point you will either triumph or fall. Recommended 3 players or more."
+	desc = "Victory or death - once you pass this point you will either triumph or fall. Recommended 6 players or more."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smoke"
 	invisibility = SEE_INVISIBLE_LIVING
