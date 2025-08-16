@@ -16029,15 +16029,6 @@
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog/south)
-"eCP" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 4;
-	locked = 1;
-	lockid = "psy_bog_dung_lootkey";
-	max_integrity = 9999
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cave/his_vault)
 "eCX" = (
 /obj/effect/decal/mossy{
 	dir = 4
@@ -80770,6 +80761,14 @@
 /obj/item/natural/cloth,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/inq/basement)
+"wGx" = (
+/obj/structure/mineral_door/wood/donjon{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey";
+	max_integrity = 9999
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault)
 "wGB" = (
 /obj/machinery/light/rogue/oven/east,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -233116,9 +233115,9 @@ uzo
 gpQ
 viR
 viR
-pdu
-eCP
-pdu
+wGZ
+wGZ
+afg
 pdu
 oej
 pZP
@@ -234022,7 +234021,7 @@ ceq
 hCe
 wGZ
 wGZ
-wGZ
+pdu
 pdu
 iBT
 gUp
@@ -234474,7 +234473,7 @@ hCe
 hCe
 wGZ
 wGZ
-wGZ
+pdu
 uJv
 bOS
 gUp
@@ -234926,7 +234925,7 @@ hCe
 wGZ
 wGZ
 wGZ
-wGZ
+wGx
 wGZ
 afg
 wBf
@@ -235378,7 +235377,7 @@ wGZ
 wGZ
 wGZ
 wGZ
-wGZ
+pdu
 wGZ
 uSO
 pGQ
@@ -235830,7 +235829,7 @@ wGZ
 wGZ
 wGZ
 wGZ
-acq
+pdu
 pdu
 mLb
 ujm
