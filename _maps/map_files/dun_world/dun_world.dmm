@@ -25092,6 +25092,10 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/underdark/north)
+"hhw" = (
+/obj/structure/fluff/psycross/psycrucifix/silver,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "hhD" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/structure/table/wood/poor,
@@ -27486,6 +27490,7 @@
 	pixel_y = 9;
 	layer = 3.1
 	},
+/obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "hPK" = (
@@ -39997,6 +40002,11 @@
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
+"lqd" = (
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
+/obj/structure/fluff/railing/border/west,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "lqe" = (
 /obj/structure/table/wood/poor,
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -58654,7 +58664,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
 "qFm" = (
-/obj/structure/fluff/psycross/psycrucifix/stone,
+/obj/structure/fluff/psycross/psycrucifix/silver,
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -61615,7 +61625,8 @@
 /area/rogue/under/cave/dukecourt)
 "rvb" = (
 /obj/structure/ritualcircle/psydon,
-/turf/open/water/swamp/deep,
+/obj/structure/fluff/railing/border/west,
+/turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "rvg" = (
 /obj/effect/decal/cobbleedge{
@@ -66393,6 +66404,10 @@
 "sMC" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave/his_vault/three)
+"sMD" = (
+/obj/structure/fluff/railing/border/west,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "sME" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10
@@ -212352,7 +212367,7 @@ pdu
 pdu
 qFm
 gUp
-pkV
+hhw
 pdu
 pdu
 pdu
@@ -212802,9 +212817,9 @@ ujm
 pdu
 pdu
 rvb
-obZ
-gUp
-obZ
+lqd
+sMD
+lqd
 hPI
 pdu
 pdu
