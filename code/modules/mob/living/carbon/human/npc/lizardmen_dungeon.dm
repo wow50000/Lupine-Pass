@@ -138,7 +138,7 @@
 	//Clothing Stuff
 	//Head Gear
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
-	armor = /obj/item/clothing/suit/roguetown/shirt/undershirt/priest/zard_guard
+	armor = /obj/item/clothing/suit/roguetown/shirt/undershirt/priest
 	add_random_psy_vault_guard_mask(H)
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	//wrist Gear
