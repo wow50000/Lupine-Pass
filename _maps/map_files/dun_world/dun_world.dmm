@@ -16012,7 +16012,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter/woods)
 "eCv" = (
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
 /obj/item/natural/bundle/bone/full,
@@ -21265,7 +21268,10 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors)
 "gdi" = (
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/reagent_containers/lux,
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -29676,7 +29682,10 @@
 	pixel_x = -8;
 	pixel_y = 1
 	},
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
 /obj/item/natural/bundle/bone/full,
@@ -30037,7 +30046,10 @@
 /turf/open/water/river/flow,
 /area/rogue/outdoors/woods/northwest)
 "izY" = (
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/reagent_containers/lux,
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -30392,7 +30404,10 @@
 	pixel_x = -8;
 	pixel_y = 1
 	},
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
 /obj/item/natural/bundle/bone/full,
@@ -34864,7 +34879,10 @@
 	dir = 5;
 	pixel_x = -9
 	},
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/reagent_containers/lux,
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -47160,7 +47178,10 @@
 /obj/effect/decal/cobbleedge{
 	dir = 6
 	},
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
 /obj/item/natural/bundle/bone/full,
@@ -60942,7 +60963,10 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/shelter)
 "rlz" = (
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
 /obj/item/natural/bundle/bone/full,
@@ -77214,7 +77238,10 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/town/manor)
 "vIT" = (
-/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey"
+	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
 /obj/item/natural/bundle/bone/full,
