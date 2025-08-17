@@ -316,6 +316,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 
 	if(req_items.len)
+		var/list/missing_names = list()
 		var/met_requirement = FALSE
 		for(var/I in req_items)
 			met_requirement = FALSE
@@ -323,13 +324,18 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 				if(istype(IN, I))
 					met_requirement = TRUE
 					continue
+			if(!met_requirement)
+				var/obj/item/M = I
+				missing_names.Add(M.name)
 		if(!met_requirement)
-			to_chat(user, span_warning("I'm missing something to cast this."))
+			to_chat(user, span_warning("I'm missing [missing_names.Join(", ")] to cast this."))
 			return FALSE
 
 	if(req_inhand)
 		if(!istype(user.get_active_held_item(), req_inhand))
-			to_chat(user, span_warning("I'm missing something to cast this."))
+			var/obj/item/M = req_inhand
+			var/req_name = M.name
+			to_chat(user, span_warning("I'm missing [req_name] in my hand to cast this."))
 			return FALSE
 
 	if(!skipcharge)
