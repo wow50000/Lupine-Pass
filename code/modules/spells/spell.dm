@@ -316,15 +316,14 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 
 	if(req_items.len)
-		var/list/confirmed_items = list()
+		var/met_requirement = FALSE
 		for(var/I in req_items)
-			testing("req item [I]")
+			met_requirement = FALSE
 			for(var/obj/item/IN in user.contents)
 				if(istype(IN, I))
-					testing("confirmed [I]")
-					confirmed_items += IN
+					met_requirement = TRUE
 					continue
-		if(confirmed_items.len != req_items.len)
+		if(!met_requirement)
 			to_chat(user, span_warning("I'm missing something to cast this."))
 			return FALSE
 
