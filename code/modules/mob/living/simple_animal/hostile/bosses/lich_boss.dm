@@ -437,8 +437,6 @@
 	school = "abjuration"
 	recharge_time = 20
 	clothes_req = FALSE
-	invocations = "none"
-	invocation_type = "none"
 	range = -1
 	include_user = TRUE
 	cooldown_min = 5 //4 deciseconds reduction per rank
