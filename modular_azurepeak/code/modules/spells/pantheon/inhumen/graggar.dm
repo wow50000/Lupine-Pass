@@ -15,10 +15,10 @@
 	for(var/mob/living/carbon/target in view(3, get_turf(user)))
 		if(istype(target.patron, /datum/patron/inhumen))
 			target.apply_status_effect(/datum/status_effect/buff/call_to_slaughter)	//Buffs inhumens
-			return
+			continue
 		if(istype(target.patron, /datum/patron/old_god))
 			to_chat(target, span_danger("You feel a surge of cold wash over you; leaving your body as quick as it hit.."))	//No effect on Psydonians!
-			return
+			continue
 		if(!user.faction_check_mob(target))
 			continue
 		if(target.mob_biotypes & MOB_UNDEAD)
@@ -105,7 +105,10 @@
 	desc = "Grants you unbound strength for a short while."
 	overlay_state = "bloodrage"
 	recharge_time = 5 MINUTES
-	invocations = list("GRAGGAR!! GRAGGAR!! GRAGGAR!!")
+	invocations = list("GRAGGAR!! GRAGGAR!! GRAGGAR!!",
+		"GRAGGAR! BREAK MY CHAINS!",
+		"GRAGGAR! SHATTER MY BINDS!"
+	)
 	invocation_type = "shout"
 	sound = 'sound/magic/bloodrage.ogg'
 	releasedrain = 30
