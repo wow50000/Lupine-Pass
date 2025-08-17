@@ -7,7 +7,7 @@
 	cooldown_min = 50
 	range = -1
 	include_user = TRUE
-	invocation = "RAC'WA NO!"
+	invocations = list("RAC'WA NO!")
 	invocation_type = "shout"
 	action_icon_state = "shapeshift"
 

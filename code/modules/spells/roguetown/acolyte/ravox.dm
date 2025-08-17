@@ -14,7 +14,7 @@
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/timestop.ogg'
-	invocation = "By Ravox, stand and fight!"
+	invocations = list("By Ravox, stand and fight!")
 	invocation_type = "shout"
 	antimagic_allowed = TRUE
 	miracle = TRUE
@@ -83,7 +83,7 @@
 	overlay_state = "call_to_arms"
 	recharge_time = 5 MINUTES
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
-	invocation = "FOR GLORY AND HONOR!"
+	invocations = list("FOR GLORY AND HONOR!")
 	invocation_type = "shout"
 	sound = 'sound/magic/timestop.ogg'
 	releasedrain = 30
@@ -117,7 +117,7 @@
 	warnie = "sydwarning"
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/timestop.ogg'
-	invocation = "Ravox deems your persistence worthy!"
+	invocations = list("Ravox deems your persistence worthy!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -183,7 +183,7 @@
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/timestop.ogg'
-	invocation = "By Ravox, let your sins guide you to justice!"
+	invocations = list("By Ravox, let your sins guide you to justice!")
 	invocation_type = "shout"
 	antimagic_allowed = FALSE
 	miracle = TRUE
@@ -252,7 +252,7 @@
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/timestop.ogg'
-	invocation = "By Ravox, I challenge you!!"
+	invocations = list("By Ravox, I challenge you!!")
 	chargedloop = /datum/looping_sound/invokeholy
 	invocation_type = "shout"
 	antimagic_allowed = TRUE

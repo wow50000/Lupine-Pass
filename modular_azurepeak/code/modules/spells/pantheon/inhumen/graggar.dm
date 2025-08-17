@@ -4,7 +4,7 @@
 	desc = "Grants you and all allies nearby a buff to their strength, endurance, and constitution."
 	overlay_state = "call_to_slaughter"
 	recharge_time = 5 MINUTES
-	invocation = "LAMBS TO THE SLAUGHTER!"
+	invocations = list("LAMBS TO THE SLAUGHTER!")
 	invocation_type = "shout"
 	sound = 'sound/magic/timestop.ogg'
 	releasedrain = 30
@@ -70,7 +70,7 @@
 	desc = "The blood of your enemy shall boil, their skin feeling as if it's being ripped apart! Gaggar demands their blood must FLOW!!!."
 	overlay_state = "bloodsteal"
 	recharge_time = 5 MINUTES
-	invocation = "YOUR BLOOD WILL BOIL TILL IT'S SPILLED!"
+	invocations = list("YOUR BLOOD WILL BOIL TILL IT'S SPILLED!")
 	invocation_type = "shout"
 	sound = 'sound/magic/antimagic.ogg'
 	releasedrain = 30
@@ -105,7 +105,7 @@
 	desc = "Grants you unbound strength for a short while."
 	overlay_state = "bloodrage"
 	recharge_time = 5 MINUTES
-	invocation = "GRAGGAR!! GRAGGAR!! GRAGGAR!!"
+	invocations = list("GRAGGAR!! GRAGGAR!! GRAGGAR!!")
 	invocation_type = "shout"
 	sound = 'sound/magic/bloodrage.ogg'
 	releasedrain = 30

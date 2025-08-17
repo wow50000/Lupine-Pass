@@ -10,7 +10,7 @@
 	sound = 'sound/magic/webspin.ogg'
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
-	invocation = null
+	invocations = null
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	associated_skill = /datum/skill/magic/arcane
 
