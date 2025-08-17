@@ -27,6 +27,7 @@
 	var/t_is = p_are()
 	var/obscure_name = FALSE
 	var/race_name = dna.species.name
+	var/mob/living/carbon/human/viewer = user
 	var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
 	var/datum/antagonist/skeleton/skeleton = user.mind?.has_antag_datum(/datum/antagonist/skeleton)
 	if(maniac && (user != src))
@@ -781,6 +782,9 @@
 		if(heart?.inscryption && (heart.inscryption_key in maniac.key_nums))
 			. += span_danger("[t_He] know[p_s()] [heart.inscryption_key], I AM SURE OF IT!")
 
+	if((!obscure_name || client?.prefs.masked_examine) && (flavortext || headshot_link || ooc_notes) && (viewer?.chatheadshot == 2))
+		if(headshot_link)
+			. += "<span class='info'><img src=[headshot_link] width=100 height=100/></span>"
 	if(Adjacent(user))
 		if(observer_privilege)
 			var/static/list/check_zones = list(
