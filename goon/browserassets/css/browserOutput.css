@@ -51,8 +51,8 @@ body {
 }
 
 @font-face {
-  font-family: "Ramadhan Karim";
-  src: url('algaib.ttf');
+  font-family: "Persian";
+  src: url('algaib.otf');
 }
 
 @font-face { 
@@ -936,7 +936,8 @@ h2.alert {
 	color: #42ff20;
 }
 
-.sandwauk 				{font-family: "Ramadhan Karim", "Pterra"; font-size: 120%;}
+.orator					{font-family: "Project Sans", "Pterra"; font-size: 100%;}
+.sandwauk 				{font-family: "Persian", "Pterra"; font-size: 140%; letter-spacing: 2px;}
 .human 					{font-family: "Honoka Mincho", "Pterra";}
 .elf					{font-family: "Dauphin", cursive, "Pterra";}
 .dwarf 					{font-family: "MasonAlternate", "Pterra";} 
