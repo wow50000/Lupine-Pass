@@ -414,11 +414,11 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	path = /obj/item/clothing/mask/rogue/blindfold
 
 /datum/loadout_item/bases
-	name = "Bases"
+	name = "Cloth military skirt"
 	path = /obj/item/storage/belt/rogue/leather/battleskirt
 
 /datum/loadout_item/fauldedbelt
-	name = "Belt with Faulds"
+	name = "Belt with faulds"
 	path = /obj/item/storage/belt/rogue/leather/battleskirt/faulds
 
 /datum/loadout_item/psicross
