@@ -60,7 +60,7 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 
 /obj/item/storage/belt/rogue/leather/battleskirt
-	name = "military skirt"
+	name = "cloth military skirt"
 	icon_state = "battleskirt"
 	sewrepair = FALSE
 	detail_tag = "_belt"
