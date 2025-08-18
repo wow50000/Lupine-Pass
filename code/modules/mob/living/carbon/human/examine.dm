@@ -81,12 +81,20 @@
 				display_as_wanderer = TRUE
 			if(islatejoin)
 				is_returning = TRUE
-		if(display_as_wanderer)
-			. = list(span_info("ø ------------ ø\nThis is <EM>[used_name]</EM>, the wandering [race_name]."))
-		else if(used_title)
-			. = list(span_info("ø ------------ ø\nThis is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title]."))
+		if ((flavortext || headshot_link || ooc_notes) && (viewer?.chatheadshot == 2))
+			if(display_as_wanderer)
+				. = list(span_info("ø ------------ ø\n<img src=[headshot_link] width=100 height=100/>\nThis is <EM>[used_name]</EM>, the wandering [race_name]."))
+			else if(used_title)
+				. = list(span_info("ø ------------ ø\n<img src=[headshot_link] width=100 height=100/>\nThis is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title]."))
+			else
+				. = list(span_info("ø ------------ ø\n<img src=[headshot_link] width=100 height=100/>\nThis is the <EM>[used_name]</EM>, the [race_name]."))
 		else
-			. = list(span_info("ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name]."))
+			if(display_as_wanderer)
+				. = list(span_info("ø ------------ ø\nThis is <EM>[used_name]</EM>, the wandering [race_name]."))
+			else if(used_title)
+				. = list(span_info("ø ------------ ø\nThis is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title]."))
+			else
+				. = list(span_info("ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name]."))
 
 		if(HAS_TRAIT(src, TRAIT_WITCH))
 			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_INQUISITION) || HAS_TRAIT(user, TRAIT_WITCH))
@@ -781,10 +789,6 @@
 		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.inscryption && (heart.inscryption_key in maniac.key_nums))
 			. += span_danger("[t_He] know[p_s()] [heart.inscryption_key], I AM SURE OF IT!")
-
-	if((!obscure_name || client?.prefs.masked_examine) && (flavortext || headshot_link || ooc_notes) && (viewer?.chatheadshot == 2))
-		if(headshot_link)
-			. += "<span class='info'><img src=[headshot_link] width=100 height=100/></span>"
 	if(Adjacent(user))
 		if(observer_privilege)
 			var/static/list/check_zones = list(
