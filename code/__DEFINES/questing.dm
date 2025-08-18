@@ -6,7 +6,7 @@
 #define QUEST_COURIER "Courier"
 #define QUEST_KILL "Kill"
 #define QUEST_CLEAR_OUT "Clear Out"
-#define QUEST_MINIBOSS "Miniboss"
+#define QUEST_OUTLAW "Outlaw"
 #define QUEST_BEACON "Beacon"
 
 #define QUEST_REWARD_EASY_LOW 15
