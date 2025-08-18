@@ -78,7 +78,6 @@
 			trait_capped_level = skillref.trait_restrictions[trait]
 			if(!HAS_TRAIT(mind.current, trait) && mind.current.get_skill_level(skill) >= skillref.trait_restrictions[trait])	//We don't have the trait & we're at the skill limit.
 				return
-	if(trait_capped_level && (trait_capped_level <= (mind.current.get_skill_level(skill) + 2)))
 	var/capped_pre = enough_sleep_xp_to_advance(skill, 2)
 	var/can_advance_pre = enough_sleep_xp_to_advance(skill, 1)
 
