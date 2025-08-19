@@ -199,6 +199,9 @@
 	recharge_time = 10 SECONDS
 	miracle = TRUE
 	devotion_cost = 50
+	var/slickness = 10
+	var/max_slickness = 10
+	var/base_healing = 6.5
 
 /obj/effect/proc_holder/spell/invoked/abyssheal/cast(list/targets, mob/living/user)
 	. = ..()
@@ -209,30 +212,48 @@
 			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			return FALSE
-		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD)) //THE DEEP CALLS- sorry, the pressure of the deep falls upon those of the undead ilk
+		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))
 			target.visible_message(span_danger("[target] is crushed by divine pressure!"), span_userdanger("I'm crushed by divine pressure!"))
 			target.adjustBruteLoss(30)			
 			return TRUE
+
 		var/conditional_buff = FALSE
-		var/situational_bonus = 1
+		var/situational_bonus = 0
 		target.visible_message(span_info("A wave of divine energy crashes over [target]!"), span_notice("I'm crushed by healing energies!"))
+
 		var/list/water = list(/turf/open/water/bath, /turf/open/water/ocean, /turf/open/water/cleanshallow, /turf/open/water/swamp, /turf/open/water/swamp/deep, /turf/open/water/pond, /turf/open/water/river)
-		situational_bonus = 0
-		// the more warter around us, the more we heal
+
+		// Calculate situational bonus based on water nearby
 		for (var/turf/O in oview(3, user))
-			if (O in water)
+			if (is_type_in_list(O, water))
 				situational_bonus = min(situational_bonus + 0.1, 2)
 		for (var/turf/open/water/ocean/deep/O in oview(3, user))
 			situational_bonus += 0.5
-		// Healing by the deep sea gives an extra boost.
+
+		// Update slickness based on situational bonus
 		if (situational_bonus > 0)
+			slickness = max_slickness
 			conditional_buff = TRUE
-		var/healing = 6.5
+			to_chat(user, "Calling upon Abyssor's power is easier in these conditions!")
+		else
+			slickness = max(0, slickness - 1)
+
+			// Warning messages
+			if(slickness == 0)
+				to_chat(user, span_warning("The connection to Abyssor feels distant and weak. Find water to strengthen it!"))
+			else if(slickness <= 5)
+				to_chat(user, span_warning("Your connection to Abyssor is weakening. Seek water to renew it."))
+
+		to_chat(world, "Slickness: [slickness], Situational Bonus: [situational_bonus]")
+
+		// Calculate healing based on slickness and situational bonus
+		var/healing = base_healing * (0.1 * slickness) + situational_bonus
+		to_chat(world, "Slickness: [healing]")
+
 		target.adjustFireLoss(-80)
 		if (conditional_buff)
-			to_chat(user, "Calling upon Abyssor's power is easier in these conditions!")
-			healing += situational_bonus
 			target.adjustFireLoss(-40)
+
 		target.apply_status_effect(/datum/status_effect/buff/healing, healing)
 		return TRUE
 

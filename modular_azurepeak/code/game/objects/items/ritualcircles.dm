@@ -569,7 +569,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			T.ChangeTurf(/turf/open/floor/rogue/dark_ice, flags = CHANGETURF_IGNORE_AIR)
 			playsound(T, 'sound/magic/fleshtostone.ogg', 30, TRUE)
 			sleep(10)
-		
+
 	end_conversion()
 
 /obj/structure/crystal_spire/tidal/convert_surroundings()
@@ -586,7 +586,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			continue
 		if(istransparentturf(T))
 			continue
-		
+
 		// Calculate distance from center
 		var/dx = abs(T.x - center.x)
 		var/dy = abs(T.y - center.y)
@@ -600,7 +600,6 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			//Faster since it's less harmful.
 			sleep(5)
 
-	
 	// Stop processing if fully expanded
 	if(current_radius >= max_radius)
 		STOP_PROCESSING(SSobj, src)
@@ -680,7 +679,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /datum/component/spire_fiend/Initialize(obj/structure/crystal_spire/spire)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
-		
+
 	linked_spire = spire
 	RegisterSignal(parent, COMSIG_LIVING_DEATH, .proc/on_death)
 
