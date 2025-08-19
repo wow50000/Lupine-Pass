@@ -246,12 +246,8 @@
 		if((slickness / max_slickness) <= 0.5)
 			to_chat(user, span_warning("Your connection to Abyssor is weakening. Cast near water to renew it."))
 
-		to_chat(world, "Slickness: [slickness], Situational Bonus: [situational_bonus]")
-
 		// Calculate healing based on slickness and situational bonus
 		var/healing = max(base_healing * (slickness / max_slickness) + situational_bonus, 3)
-		to_chat(world, "Healing: [healing]")
-
 		if (situational_bonus == 0)
 			slickness = max(0, slickness - 1)
 
