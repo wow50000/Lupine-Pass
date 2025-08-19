@@ -66,7 +66,7 @@
 		H.become_blind("advsetup")
 
 /datum/advclass/captain/infantry
-	name = "Infantry Captain"
+	name = "Knight Captain"
 	tutorial = "You've fought shoulder to shoulder with the realm's worthiest Knights while embedded directly within \
 	massed infantry formations. As a peerless armed combatant and tactician both, you are a formidable presence \
 	on any battlefield."
