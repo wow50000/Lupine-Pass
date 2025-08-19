@@ -67821,7 +67821,9 @@
 /area/rogue/under/cave/dukecourt)
 "sHD" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/roguekey/psy_bog/two,
+/obj/item/roguekey/psy_bog/two{
+	name = "Rusted exit key"
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
 "sHL" = (
@@ -81039,7 +81041,7 @@
 "wgl" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two";
+	lockid = "psy_bog_dung_lootkey";
 	max_integrity = 9999
 	},
 /turf/open/floor/rogue/naturalstone,
