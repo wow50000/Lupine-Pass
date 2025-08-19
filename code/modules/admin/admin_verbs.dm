@@ -170,8 +170,8 @@ GLOBAL_PROTECT(admin_verbs_server)
 	/client/proc/forcerandomrotate,
 	/client/proc/adminchangemap,
 	/client/proc/panicbunker,
-	/datum/admins/proc/BC_WhitelistKeyVerb,
-	/datum/admins/proc/BC_RemoveKeyVerb,
+	// /datum/admins/proc/BC_WhitelistKeyVerb,
+	// /datum/admins/proc/BC_RemoveKeyVerb,
 	/client/proc/whitelistbunker,
 	/client/proc/toggle_hub
 	)
