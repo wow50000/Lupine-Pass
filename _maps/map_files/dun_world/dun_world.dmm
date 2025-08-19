@@ -21699,6 +21699,7 @@
 	pixel_y = -3;
 	pixel_x = 12
 	},
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
 "gaJ" = (
@@ -23044,11 +23045,6 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
-"gtA" = (
-/obj/structure/bars/grille,
-/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
-/turf/open/floor/rogue/concrete,
-/area/rogue/under/cave/his_vault/two)
 "gtB" = (
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/rogue/dirt/road,
@@ -24161,6 +24157,10 @@
 	},
 /turf/open/floor/rogue/tile/bfloorz,
 /area/rogue/indoors/town/manor)
+"gIz" = (
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault/three)
 "gIE" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/woods/northwest)
@@ -26083,6 +26083,7 @@
 	icon_state = "cobbleedge-sread";
 	pixel_y = -6
 	},
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
 "hiw" = (
@@ -52118,6 +52119,13 @@
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/rogue/AzureSand,
 /area/rogue/outdoors/beach)
+"onQ" = (
+/obj/effect/decal/cobbleedge{
+	icon_state = "cobbleedge-sread"
+	},
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault)
 "onY" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -55056,6 +55064,12 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
+"pfH" = (
+/obj/structure/fluff/railing/border/north,
+/obj/structure/ritualcircle/psydon,
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "pfK" = (
 /turf/closed/wall/mineral/rogue/tent{
 	dir = 4
@@ -61403,11 +61417,6 @@
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/mountains)
 "qTS" = (
-/obj/structure/lever/wall{
-	dir = 4;
-	pixel_x = 16;
-	redstone_id = "bog_dung_psy_trap_hall_j5"
-	},
 /obj/structure/table/wood/large_table/north_west,
 /obj/item/millstone{
 	pixel_x = 3;
@@ -64479,6 +64488,16 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement/keep)
+"rNl" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault/two)
 "rNs" = (
 /obj/structure/flora/roguegrass/water,
 /turf/open/floor/rogue/AzureSand,
@@ -72606,6 +72625,9 @@
 	max_integrity = 15000;
 	redstone_id = "bog_dung_psy_checkpoint117_end_p1"
 	},
+/obj/effect/oneway/psy_bog_two{
+	dir = 1
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
 "tXb" = (
@@ -78143,9 +78165,10 @@
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/under/town/basement/keep)
 "vtF" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_trap_hall_j1";
-	max_integrity = 9000
+/obj/structure/bars/passage/shutter{
+	max_integrity = 15000;
+	name = "Lockdown Shutter";
+	redstone_id = "bog_dung_psy_trap_hall_j1"
 	},
 /turf/open/floor/rogue/metal{
 	dir = 4
@@ -83633,11 +83656,10 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield)
 "wQh" = (
-/obj/structure/bars/passage/steel{
+/obj/structure/bars/passage/shutter/open{
 	redstone_id = "bog_dung_psy_trap_hall_j1";
-	icon_state = "passage1";
-	density = 0;
-	max_integrity = 9000
+	max_integrity = 15000;
+	name = "Lockdown Shutter"
 	},
 /turf/open/floor/rogue/metal{
 	dir = 4
@@ -84784,6 +84806,9 @@
 	max_integrity = 15000;
 	name = "Lockdown Shutter";
 	redstone_id = "bog_dung_psy_checkpoint117"
+	},
+/obj/effect/oneway/psy_bog_two{
+	dir = 1
 	},
 /turf/open/floor/rogue/metal{
 	icon_state = "plating2"
@@ -88021,6 +88046,13 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap)
+"yck" = (
+/obj/structure/fluff/walldeco/church/line{
+	layer = 3
+	},
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "yco" = (
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/wood,
@@ -223745,7 +223777,7 @@ kFW
 xqQ
 uTy
 rtZ
-gtA
+qxo
 ouI
 mCn
 vEY
@@ -225572,7 +225604,7 @@ oZu
 cFq
 ciO
 xFN
-xFN
+dXh
 kFl
 xFN
 hRp
@@ -226008,7 +226040,7 @@ ocf
 pPJ
 sSQ
 veb
-veb
+rNl
 veb
 sSQ
 iqb
@@ -227817,7 +227849,7 @@ kFW
 roT
 orD
 bLK
-cGn
+yck
 gaq
 kYp
 vgm
@@ -228280,7 +228312,7 @@ oZu
 hjB
 xFN
 xFN
-xFN
+dXh
 oZu
 oZu
 uDn
@@ -228720,7 +228752,7 @@ ocf
 vwN
 xHY
 orD
-sBj
+pfH
 cGn
 kFW
 iJq
@@ -230546,7 +230578,7 @@ kFW
 dPI
 sRd
 sCV
-xFN
+dXh
 xFN
 sdv
 fgR
@@ -230981,7 +231013,7 @@ oZu
 rYm
 ozO
 xFN
-xFN
+dXh
 xFN
 uHf
 dOB
@@ -234144,7 +234176,7 @@ mTH
 dbm
 xSe
 guC
-ejI
+gIz
 ejI
 hno
 xLZ
@@ -234158,7 +234190,7 @@ txm
 xbH
 rso
 jXQ
-mcF
+onQ
 xFN
 wCo
 kFW
@@ -234566,7 +234598,7 @@ rIE
 kFl
 xFN
 xFN
-xFN
+dXh
 kFW
 xFN
 xFN
@@ -234994,7 +235026,7 @@ vJN
 jQw
 jQw
 hqk
-jQw
+xbm
 bok
 jQw
 jQw
@@ -235037,7 +235069,7 @@ oZu
 oAD
 dhz
 hFE
-xFN
+dXh
 xFN
 xFN
 eYY
@@ -236381,7 +236413,7 @@ ihu
 oZu
 xFN
 xFN
-xFN
+dXh
 uIA
 oZu
 oZu
@@ -236802,7 +236834,7 @@ eJP
 jQw
 jQw
 hqk
-jQw
+xbm
 kFb
 jQw
 jQw
@@ -236867,7 +236899,7 @@ vwN
 tms
 xFN
 kFl
-mMM
+ozO
 lqQ
 xAw
 xAw
@@ -238182,7 +238214,7 @@ rXA
 htt
 dfU
 xFN
-xFN
+dXh
 oZu
 hoH
 gUg
@@ -238214,7 +238246,7 @@ kFW
 vtH
 xFN
 xFW
-xFN
+dXh
 wGz
 mlm
 cdo
