@@ -88588,6 +88588,7 @@
 "yiU" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/ritualcircle/psydon,
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
 "yjd" = (
@@ -220612,7 +220613,7 @@ aRe
 yex
 eqQ
 pPi
-eqQ
+mZS
 tSM
 vgm
 xFN
