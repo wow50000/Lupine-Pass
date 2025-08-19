@@ -426,6 +426,7 @@
 #define SKIN_COLOR_GRENDUSKRA "969696"
 
 //WOOD ELF SKIN TONES
+#define SKIN_COLOR_GHOST "ffffff"
 #define SKIN_COLOR_GRENZEL_WOODS "fff0e9"
 #define SKIN_COLOR_DANDELION_CREEK "ffe0d1"
 #define SKIN_COLOR_ROSEVEIL "fcccb3"
@@ -517,6 +518,7 @@
 #define SKIN_COLOR_CHYERNO "252e41"
 #define SKIN_COLOR_DREMA "D16A51"
 #define SKIN_COLOR_CHIR "549ab6"
+#define SKIN_COLOR_VESYL "7A2525"
 
 //GOBLIN SKIN TONES
 #define SKIN_COLOR_OCHRE "968127"
@@ -575,9 +577,21 @@
 #define GOLEM_COBALT "323666"
 #define GOLEM_GRANITE "ff8f8f"
 #define GOLEM_JADE "517051"
+#define GOLEM_AMETHYST "3a0b3d"
+#define GOLEM_CORAL "ff96d6" //Pink
+#define GOLEM_LIMESTONE "e6e4d8" //Tan
+#define GOLEM_SILVER "94B9C0" //Ice grey, at least that's what microsoft paint says
+#define GOLEM_COPPER "b87333" //Orange
+#define GOLEM_GOLD "d4af37" //Gold
+#define GOLEM_RUST "B71F1F" //Dark red
+#define GOLEM_OBSIDIAN "19132a" //Black
+#define GOLEM_LAPIS "26619C" //Deep blue
+#define GOLEM_BASALT "474a4c" //Dark grey
+#define GOLEM_MARBLE "E6E6E6" //White
+#define GOLEM_TOPER "fffb9e"
 
 //DOLL PAINT COLOR
-#define DOLL_LEAD "ffffff"
+#define DOLL_PORCELAIN "ffffff"
 #define DOLL_SIENNA "a0522d"
 
 // Pixel shifting
