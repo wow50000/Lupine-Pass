@@ -198,7 +198,7 @@
 	antimagic_allowed = TRUE
 	recharge_time = 10 SECONDS
 	miracle = TRUE
-	devotion_cost = 50
+	devotion_cost = 45
 	var/slickness = 20
 	var/max_slickness = 20
 	var/max_slickness_greater_caster = 40
