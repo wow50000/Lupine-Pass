@@ -47804,6 +47804,10 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/shop)
+"ncU" = (
+/obj/structure/bars/grille,
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/cave/his_vault/puzzle)
 "ndb" = (
 /obj/structure/bars/passage/shutter{
 	max_integrity = 15000;
@@ -221795,7 +221799,7 @@ tMR
 tMR
 fZr
 frq
-mPS
+ncU
 eoW
 imj
 imj
