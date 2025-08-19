@@ -2468,6 +2468,10 @@
 /obj/structure/fluff/walldeco/chains{
 	icon_state = "chains8"
 	},
+/obj/structure/stairs/stone{
+	dir = 8
+	},
+/obj/structure/fluff/railing/border/north,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "aJZ" = (
@@ -3426,6 +3430,16 @@
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/rtfield)
+"aYc" = (
+/obj/structure/bars/passage/steel{
+	redstone_id = "bog_dung_psy_trap_hall_j2";
+	max_integrity = 9000
+	},
+/obj/structure/fluff/railing/corner/south_east,
+/turf/open/floor/rogue/metal{
+	dir = 4
+	},
+/area/rogue/under/cave/his_vault)
 "aYi" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/effect/decal/cobbleedge{
@@ -6996,6 +7010,16 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
+"bVz" = (
+/obj/effect/decal/cobbleedge{
+	dir = 9
+	},
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/obj/structure/fluff/railing/border/west,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/cave/his_vault)
 "bVC" = (
 /turf/open/water/river/flow/north,
 /area/rogue/under/cavewet/bogcaves/central)
@@ -13986,6 +14010,12 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/tavern)
+"dVB" = (
+/obj/structure/stairs/stone{
+	dir = 8
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "dVH" = (
 /obj/structure/fluff/railing/border/east,
 /obj/structure/fluff/railing/border,
@@ -14728,6 +14758,7 @@
 	pixel_x = -25;
 	name = "Rusted exit key"
 	},
+/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "efH" = (
@@ -22403,6 +22434,7 @@
 /obj/structure/mannequin,
 /obj/item/clothing/head/roguetown/helmet/heavy/aalloy,
 /obj/item/clothing/under/roguetown/platelegs/aalloy,
+/obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "gla" = (
@@ -23593,6 +23625,7 @@
 /obj/structure/mannequin,
 /obj/item/clothing/suit/roguetown/armor/plate/half/aalloy,
 /obj/item/clothing/mask/rogue/facemask/aalloy,
+/obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "gAY" = (
@@ -25757,7 +25790,7 @@
 /obj/structure/table/church,
 /obj/structure/stationary_bell{
 	pixel_x = -15;
-	pixel_y = -3
+	pixel_y = -11
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -26827,7 +26860,7 @@
 	name = "Lockdown Shutter";
 	redstone_id = "bog_dung_psy_checkpoint117"
 	},
-/obj/effect/oneway/psy_bog/two{
+/obj/effect/oneway/psy_bog_two{
 	dir = 1
 	},
 /turf/open/floor/rogue/metal,
@@ -27117,14 +27150,6 @@
 	},
 /turf/open/floor/rogue/metal,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
-"hxk" = (
-/obj/structure/fluff/psycross/psycrucifix/stone,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1;
-	layer = 3
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault)
 "hxn" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
@@ -28955,7 +28980,6 @@
 	pixel_x = 7
 	},
 /obj/structure/flora/roguegrass,
-/obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
 "hXZ" = (
@@ -34832,6 +34856,11 @@
 /obj/item/roguegem/amethyst,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/goblinfort)
+"jCk" = (
+/obj/structure/stairs/stone,
+/obj/structure/fluff/railing/border/west,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "jCp" = (
 /obj/structure/bars/passage/shutter{
 	max_integrity = 15000;
@@ -40060,6 +40089,14 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/cave)
+"kYp" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1;
+	layer = 3
+	},
+/obj/structure/fluff/railing/corner/south_east,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "kYs" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8;
@@ -41730,7 +41767,6 @@
 /area/rogue/indoors)
 "luw" = (
 /obj/structure/table/church/end/alt,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
 "luE" = (
@@ -48915,6 +48951,13 @@
 "nsm" = (
 /turf/closed/wall/mineral/rogue/decostone/long,
 /area/rogue/under/town/sewer)
+"nss" = (
+/obj/structure/stairs/stone{
+	dir = 8
+	},
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "nsB" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/natural/feather,
@@ -52621,6 +52664,10 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/goblindungeon)
+"oyo" = (
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "oyq" = (
 /obj/structure/table/wood/crafted,
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -60194,6 +60241,14 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town)
+"qDL" = (
+/obj/item/rope/chain,
+/obj/structure/stairs/stone{
+	dir = 4
+	},
+/obj/structure/fluff/railing/border/north,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "qDN" = (
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors)
@@ -64399,6 +64454,11 @@
 /mob/living/simple_animal/hostile/rogue/mirespider_lurker,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/mountains)
+"rMC" = (
+/obj/structure/stairs/stone,
+/obj/structure/fluff/railing/border/east,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "rMF" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/concrete,
@@ -65480,6 +65540,16 @@
 	},
 /turf/closed/wall/mineral/rogue/pipe/line,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
+"sbX" = (
+/obj/structure/bars/passage/steel{
+	redstone_id = "bog_dung_psy_trap_hall_j2";
+	max_integrity = 9000
+	},
+/obj/structure/fluff/railing/corner/south_west,
+/turf/open/floor/rogue/metal{
+	dir = 4
+	},
+/area/rogue/under/cave/his_vault)
 "sbY" = (
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/rogue/dirt,
@@ -67751,9 +67821,7 @@
 /area/rogue/under/cave/dukecourt)
 "sHD" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/roguekey/psy_bog/exit/two{
-	name = "Rusted exit key"
-	},
+/obj/item/roguekey/psy_bog/two,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
 "sHL" = (
@@ -68380,6 +68448,10 @@
 /obj/item/natural/worms/grubs,
 /turf/open/floor/rogue/AzureSand,
 /area/rogue/outdoors/beach)
+"sQb" = (
+/obj/effect/spawner/lootdrop/general_loot_hi,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "sQd" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -71246,7 +71318,7 @@
 	max_integrity = 15000;
 	redstone_id = "bog_dung_psy_checkpoint117"
 	},
-/obj/effect/oneway/psy_bog/two{
+/obj/effect/oneway/psy_bog_two{
 	dir = 1
 	},
 /turf/open/floor/rogue/metal,
@@ -75208,6 +75280,10 @@
 "uGX" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/shelter)
+"uHf" = (
+/obj/structure/fluff/railing/corner/south_west,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "uHh" = (
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -76362,6 +76438,15 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/indoors/inq)
+"uWc" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-n";
+	pixel_y = 1
+	},
+/obj/structure/flora/roguegrass,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/cave/his_vault)
 "uWd" = (
 /obj/structure/roguemachine/scomm/r,
 /turf/open/floor/carpet/royalblack,
@@ -83508,16 +83593,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
 "wPt" = (
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-w"
+/obj/structure/stairs/stone{
+	dir = 4
 	},
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-n";
-	pixel_y = 1
-	},
-/obj/structure/flora/roguegrass,
+/obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
 "wPy" = (
@@ -85080,7 +85159,6 @@
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "xnH" = (
 /obj/structure/table/wood/large_table/south_west,
-/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "xnQ" = (
@@ -227739,11 +227817,11 @@ orD
 bLK
 cGn
 gaq
-bso
+kYp
+vgm
 xFN
-xFN
-xFN
-xFN
+hPt
+vgm
 xFN
 xFN
 xFN
@@ -228192,8 +228270,8 @@ sBj
 cGn
 kFW
 kFW
-oCD
-xFN
+qDL
+tkI
 wPt
 oZu
 oZu
@@ -228643,10 +228721,10 @@ orD
 sBj
 cGn
 kFW
-hxk
+iJq
+sQb
 xFN
-xFN
-dtC
+uWc
 kwi
 oZu
 gAW
@@ -229094,14 +229172,14 @@ orD
 ryv
 bLK
 cGn
-gaq
-bso
+sbX
+jCk
 xFN
 heN
 aZU
 gop
-eEQ
-xFN
+bVz
+dOB
 xFN
 uIA
 jtl
@@ -229546,14 +229624,14 @@ lGY
 lGY
 jWW
 iVl
-gaq
-bso
+aYc
+rMC
 xFN
 efG
 tRh
-dtC
-xFN
-xFN
+uWc
+tSM
+vgm
 uIA
 dkI
 cmN
@@ -229999,10 +230077,10 @@ gaq
 gaq
 gaq
 kFW
-hxk
+iJq
 xFN
 xFN
-xFN
+oyo
 iJq
 kFW
 gkV
@@ -230453,8 +230531,8 @@ vHM
 kFW
 kFW
 aJW
-xFN
-xFN
+dVB
+nss
 kFW
 kFW
 wRA
@@ -230903,11 +230981,11 @@ ozO
 xFN
 xFN
 xFN
+uHf
+dOB
 xFN
-xFN
-xFN
-xFN
-xFN
+uHf
+dOB
 xFN
 sIG
 rso
