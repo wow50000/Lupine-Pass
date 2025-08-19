@@ -181,7 +181,7 @@
 //T2, Abyssal Healing. Totally stole most of this from lesser heal.
 /obj/effect/proc_holder/spell/invoked/abyssheal
 	name = "Abyssal Healing"
-	desc = "Heals target over time, more if there is water around you."
+	desc = "Heals target over time, more if there is water around you. Weakens if cast away from water for too long"
 	overlay_icon = 'icons/mob/actions/abyssormiracles.dmi'
 	action_icon = 'icons/mob/actions/abyssormiracles.dmi'
 	overlay_state = "deepheal"
@@ -199,8 +199,9 @@
 	recharge_time = 10 SECONDS
 	miracle = TRUE
 	devotion_cost = 50
-	var/slickness = 10
-	var/max_slickness = 10
+	var/slickness = 20
+	var/max_slickness = 20
+	var/max_slickness_greater_caster = 40
 	var/base_healing = 6.5
 
 /obj/effect/proc_holder/spell/invoked/abyssheal/cast(list/targets, mob/living/user)
@@ -230,25 +231,29 @@
 		for (var/turf/open/water/ocean/deep/O in oview(3, user))
 			situational_bonus += 0.5
 
+		var/holy_skill = user.get_skill_level(associated_skill)
+		// It's annoying to have to do a check here -every- time for a one time change, but it's the only way I can think of without a refactor of job systems or spells...
+		if(holy_skill > 3)
+			max_slickness = max_slickness_greater_caster
+
 		// Update slickness based on situational bonus
 		if (situational_bonus > 0)
 			slickness = max_slickness
 			conditional_buff = TRUE
 			to_chat(user, "Calling upon Abyssor's power is easier in these conditions!")
-		else
-			slickness = max(0, slickness - 1)
 
-			// Warning messages
-			if(slickness == 0)
-				to_chat(user, span_warning("The connection to Abyssor feels distant and weak. Find water to strengthen it!"))
-			else if(slickness <= 5)
-				to_chat(user, span_warning("Your connection to Abyssor is weakening. Seek water to renew it."))
+		// Warning messages
+		if((slickness / max_slickness) <= 0.5)
+			to_chat(user, span_warning("Your connection to Abyssor is weakening. Cast near water to renew it."))
 
 		to_chat(world, "Slickness: [slickness], Situational Bonus: [situational_bonus]")
 
 		// Calculate healing based on slickness and situational bonus
-		var/healing = base_healing * (0.1 * slickness) + situational_bonus
-		to_chat(world, "Slickness: [healing]")
+		var/healing = max(base_healing * (slickness / max_slickness) + situational_bonus, 3)
+		to_chat(world, "Healing: [healing]")
+
+		if (situational_bonus == 0)
+			slickness = max(0, slickness - 1)
 
 		target.adjustFireLoss(-80)
 		if (conditional_buff)
