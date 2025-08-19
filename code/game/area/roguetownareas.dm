@@ -363,6 +363,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	return FALSE
 
 /area/rogue/under/cave/his_vault/puzzle
+	first_time_text = "NODD 8:14"
 
 /area/rogue/under/cave/his_vault/puzzle/can_craft_here()
 	return FALSE
