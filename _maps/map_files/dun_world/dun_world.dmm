@@ -16997,7 +16997,8 @@
 "eJL" = (
 /obj/structure/bars{
 	color = "#755f48";
-	name = "rusted bars"
+	name = "rusted bars";
+	max_integrity = 9999
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/puzzle)
@@ -57930,7 +57931,8 @@
 "pXz" = (
 /obj/structure/bars{
 	color = "#755f48";
-	name = "rusted bars"
+	name = "rusted bars";
+	max_integrity = 9999
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault/puzzle)
