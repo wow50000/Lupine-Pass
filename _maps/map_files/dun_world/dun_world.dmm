@@ -1087,7 +1087,7 @@
 "apm" = (
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/blacksteel_equipment_spawner,
 /turf/open/floor/rogue/cobble,
@@ -2543,7 +2543,7 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -13918,7 +13918,7 @@
 /obj/item/rogueweapon/greatsword/psygsword,
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
@@ -14724,6 +14724,10 @@
 /area/rogue/outdoors/town)
 "efG" = (
 /obj/structure/table/church/end,
+/obj/item/roguekey/psy_bog/exit{
+	pixel_x = -25;
+	name = "Rusted exit key"
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "efH" = (
@@ -16737,7 +16741,7 @@
 	},
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/medium_armor_spawner,
 /turf/open/floor/rogue/cobble/mossy,
@@ -18210,7 +18214,7 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -19601,7 +19605,7 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/reagent_containers/lux,
 /obj/item/skull,
@@ -21923,6 +21927,15 @@
 /obj/structure/hotspring/border/seven,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/mountains)
+"geD" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault)
 "geF" = (
 /obj/structure/plasticflaps,
 /turf/open/water/bloody,
@@ -21942,7 +21955,7 @@
 "geM" = (
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/general_loot_mid/x3,
 /obj/effect/spawner/lootdrop/general_loot_hi,
@@ -25744,7 +25757,7 @@
 /obj/structure/table/church,
 /obj/structure/stationary_bell{
 	pixel_x = -15;
-	pixel_y = -12
+	pixel_y = -3
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -26813,6 +26826,9 @@
 /obj/structure/bars/passage/shutter/open{
 	name = "Lockdown Shutter";
 	redstone_id = "bog_dung_psy_checkpoint117"
+	},
+/obj/effect/oneway/psy_bog/two{
+	dir = 1
 	},
 /turf/open/floor/rogue/metal,
 /area/rogue/under/cave/his_vault)
@@ -34016,7 +34032,7 @@
 "jrE" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -38418,7 +38434,7 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -40557,7 +40573,7 @@
 "lfL" = (
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/cobble,
@@ -44094,10 +44110,17 @@
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "mce" = (
-/obj/machinery/light/rogue/wallfire/candle/off/r,
 /obj/structure/fluff/railing/border/east,
 /obj/structure/stairs/stone{
 	dir = 1
+	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
+/obj/structure/lever/wall{
+	dir = 4;
+	pixel_x = 16;
+	redstone_id = "bog_dung_psy_trap_hall_j5_99"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -51488,7 +51511,7 @@
 "oeH" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -53937,7 +53960,7 @@
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8;
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey";
+	lockid = "psy_bog_dung_lootkey_two";
 	max_integrity = 9999
 	},
 /turf/open/floor/rogue/cobble,
@@ -57187,7 +57210,7 @@
 "pMl" = (
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/spells,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/spells,
@@ -58591,7 +58614,7 @@
 /obj/machinery/light/rogue/wallfire/candle/off,
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/heavy_armor_spawner,
 /turf/open/floor/rogue/cobble/mossy,
@@ -58663,7 +58686,7 @@
 /obj/machinery/light/rogue/wallfire/candle/off,
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/silver_weapon_spawner,
 /turf/open/floor/rogue/cobble,
@@ -60052,7 +60075,7 @@
 	},
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/helmet_spawner,
 /turf/open/floor/rogue/cobble/mossy,
@@ -60502,7 +60525,7 @@
 /obj/structure/flora/roguegrass,
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/medium_armor_spawner,
 /turf/open/floor/rogue/cobble/mossy,
@@ -61294,7 +61317,7 @@
 	},
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/effect/spawner/lootdrop/steel_weapon_spawner,
 /turf/open/floor/rogue/cobble/mossy,
@@ -63124,7 +63147,7 @@
 "rtU" = (
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/storage/belt/rogue/pouch/coins/rich,
 /turf/open/floor/rogue/cobble/mossy,
@@ -64127,7 +64150,7 @@
 /obj/effect/spawner/lootdrop/armored_boots_spawner,
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -66634,7 +66657,7 @@
 "ssb" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/reagent_containers/lux,
 /obj/item/skull,
@@ -66888,7 +66911,7 @@
 "suX" = (
 /obj/structure/closet/crate/chest/inqreliquary{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/roguegem/random,
 /turf/open/floor/rogue/naturalstone,
@@ -67728,8 +67751,8 @@
 /area/rogue/under/cave/dukecourt)
 "sHD" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/roguekey/psy_bog/exit{
-	pixel_y = 6
+/obj/item/roguekey/psy_bog/exit/two{
+	name = "Rusted exit key"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
@@ -70896,6 +70919,9 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "tzg" = (
@@ -71219,6 +71245,9 @@
 	name = "Lockdown Shutter";
 	max_integrity = 15000;
 	redstone_id = "bog_dung_psy_checkpoint117"
+	},
+/obj/effect/oneway/psy_bog/two{
+	dir = 1
 	},
 /turf/open/floor/rogue/metal,
 /area/rogue/under/cave/his_vault)
@@ -71623,7 +71652,7 @@
 "tKi" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -79538,7 +79567,7 @@
 "vOa" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -80925,7 +80954,7 @@
 "wgl" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey";
+	lockid = "psy_bog_dung_lootkey_two";
 	max_integrity = 9999
 	},
 /turf/open/floor/rogue/naturalstone,
@@ -86873,6 +86902,13 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
+"xOz" = (
+/obj/structure/bars/passage/steel{
+	redstone_id = "bog_dung_psy_trap_hall_j5_99";
+	max_integrity = 9000
+	},
+/turf/open/floor/rogue/metal,
+/area/rogue/under/cave/his_vault)
 "xOB" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/trash/applecore,
@@ -87335,7 +87371,7 @@
 "xUv" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey"
+	lockid = "psy_bog_dung_lootkey_two"
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -235381,7 +235417,7 @@ xLd
 xFN
 ldy
 htE
-xLd
+xOz
 tzd
 dOB
 vHM
@@ -235833,8 +235869,8 @@ xLd
 xFN
 rXA
 tDS
-xLd
-tmA
+xOz
+geD
 xFN
 xFN
 wWs
@@ -236285,7 +236321,7 @@ xLd
 fkg
 rXA
 tDS
-xLd
+xOz
 mce
 bTy
 bhA
