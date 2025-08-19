@@ -126,6 +126,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		if(t3_choice)
 			var/obj/effect/proc_holder/chosen_miracle = t3[t3_choice]
 			H.mind?.AddSpell(new chosen_miracle)
+			t3.Remove(t3_choice)
 			t3_count--
 
 
