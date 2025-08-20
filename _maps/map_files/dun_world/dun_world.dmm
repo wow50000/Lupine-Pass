@@ -2547,7 +2547,8 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -2706,7 +2707,7 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods/northwest)
 "aMF" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/one)
 "aMX" = (
 /obj/effect/decal/cobbleedge{
@@ -3124,7 +3125,7 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
 "aTJ" = (
-/turf/closed/wall/mineral/rogue/stone/window,
+/turf/closed/wall/mineral/rogue/stone/window/unbreakable,
 /area/rogue/under/cave/his_vault/puzzle)
 "aTL" = (
 /obj/effect/decal/wood/herringbone2{
@@ -4148,7 +4149,7 @@
 /turf/closed/wall/mineral/rogue/roofwall/middle,
 /area/rogue/indoors)
 "bhq" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/one)
 "bhA" = (
 /obj/structure/fluff/walldeco/church/line{
@@ -6952,7 +6953,7 @@
 	pixel_x = 7;
 	pixel_y = -5
 	},
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/four)
 "bUF" = (
 /obj/machinery/light/rogue/torchholder/l,
@@ -7530,7 +7531,7 @@
 	dir = 6;
 	pixel_y = 11
 	},
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault)
 "ceP" = (
 /obj/effect/turf_decal/trimline/yellow/filled/corner,
@@ -7854,6 +7855,13 @@
 "cja" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9
+	},
+/obj/structure/closet/crate/coffin/royal{
+	name = "divine casket";
+	locked = 1;
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999;
+	desc = "A coffin made of fine wood and gilded metals that depict a psycross. It emits a strange aura.."
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
@@ -9103,14 +9111,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach/forest/south)
-"cBy" = (
-/obj/structure/bars/passage/shutter/open{
-	name = "Lockdown Shutter";
-	max_integrity = 15000;
-	redstone_id = "bog_dung_psy_checkpoint117_end"
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault)
 "cBO" = (
 /obj/structure/rack/rogue,
 /obj/item/quiver/arrows{
@@ -10891,7 +10891,7 @@
 /area/rogue/outdoors/mountains)
 "dbm" = (
 /obj/structure/vine,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/three)
 "dbs" = (
 /obj/effect/decal/remains/bigrat,
@@ -11234,7 +11234,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault)
 "dhi" = (
 /obj/structure/fluff/railing/border,
@@ -11380,7 +11380,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/three)
 "diJ" = (
 /obj/effect/decal/cobbleedge{
@@ -14754,10 +14754,6 @@
 /area/rogue/outdoors/town)
 "efG" = (
 /obj/structure/table/church/end,
-/obj/item/roguekey/psy_bog/exit{
-	pixel_x = -25;
-	name = "Rusted exit key"
-	},
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -18063,7 +18059,7 @@
 /area/rogue/indoors/shelter/woods)
 "eYY" = (
 /obj/structure/vine,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault)
 "eZb" = (
 /turf/open/floor/carpet/stellar,
@@ -18245,7 +18241,8 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -18904,14 +18901,6 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town)
-"fkg" = (
-/obj/structure/lever/wall{
-	dir = 4;
-	pixel_x = 16;
-	redstone_id = "bog_dung_psy_checkpoint117"
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault)
 "fkm" = (
 /obj/structure/flora/roguetree/burnt,
 /obj/structure/fluff/railing/corner,
@@ -19045,7 +19034,7 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave/mazedungeon)
 "flY" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/four)
 "flZ" = (
 /obj/structure/spider/stickyweb{
@@ -19636,7 +19625,8 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/reagent_containers/lux,
 /obj/item/skull,
@@ -19921,6 +19911,12 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/underdark/north)
+"fze" = (
+/obj/effect/oneway/psy_bog_two{
+	dir = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault/puzzle)
 "fzq" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/roguegrass/herb/rosa,
@@ -21611,7 +21607,7 @@
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
 "fZr" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/puzzle)
 "fZu" = (
 /obj/structure/rack/rogue,
@@ -22607,10 +22603,6 @@
 /obj/structure/stairs,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest/north)
-"goh" = (
-/obj/structure/vine,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault/four)
 "gol" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
@@ -24026,12 +24018,8 @@
 	dir = 6;
 	pixel_y = 11
 	},
-/obj/structure/fluff/traveltile/dungeon{
-	aportalgoesto = "psy_bog_exit";
-	aportalid = "nothing";
-	pixel_x = 16
-	},
 /obj/structure/vine,
+/obj/structure/fluff/railing/border/east,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
 "gGP" = (
@@ -26857,14 +26845,10 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town)
 "htE" = (
-/obj/structure/bars/passage/shutter/open{
-	name = "Lockdown Shutter";
-	redstone_id = "bog_dung_psy_checkpoint117"
-	},
 /obj/effect/oneway/psy_bog_two{
 	dir = 1
 	},
-/turf/open/floor/rogue/metal,
+/turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
 "htH" = (
 /obj/structure/fluff/railing/border/west,
@@ -27668,7 +27652,7 @@
 /turf/closed/wall/mineral/rogue/stone/red_moss,
 /area/rogue/outdoors/mountains/decap/stepbelow)
 "hEm" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/three)
 "hEq" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
@@ -29711,6 +29695,7 @@
 	dir = 9
 	},
 /obj/structure/flora/roguegrass,
+/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault/four)
 "iis" = (
@@ -29990,7 +29975,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/underdark/north)
 "imj" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/puzzle)
 "imq" = (
 /obj/structure/closet/crate/roguecloset,
@@ -30216,18 +30201,6 @@
 /obj/structure/bars{
 	color = "#755f48";
 	name = "rusted bars"
-	},
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/under/cave/his_vault)
-"ipl" = (
-/obj/effect/decal/cobbleedge{
-	dir = 10
-	},
-/obj/structure/flora/roguegrass,
-/obj/structure/bars/passage/shutter/open{
-	name = "Lockdown Shutter";
-	max_integrity = 15000;
-	redstone_id = "bog_dung_psy_checkpoint117_end"
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault)
@@ -31941,6 +31914,11 @@
 	redstone_id = "bog_dung_psy_trap_hall_j2";
 	pixel_y = 29
 	},
+/obj/item/roguekey/psy_bog/exit{
+	name = "Rusted exit key";
+	desc = "A strange key...ever enduring. Use this to break the magical barrier and leave this place."
+	},
+/obj/structure/table/wood/fancy/red,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/two)
 "iND" = (
@@ -32272,17 +32250,6 @@
 /obj/item/rogueweapon/spear/billhook,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
-"iSU" = (
-/obj/structure/lever/wall{
-	dir = 4;
-	pixel_x = 16;
-	redstone_id = "bog_dung_psy_checkpoint117_end"
-	},
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault)
 "iSV" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8;
@@ -33197,6 +33164,12 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/sewer)
+"jeM" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/his_vault/four)
 "jeN" = (
 /mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/wood/nosmooth,
@@ -33277,10 +33250,6 @@
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/underdark/north)
-"jgc" = (
-/obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault/four)
 "jgm" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 8
@@ -33969,11 +33938,6 @@
 /obj/structure/table/wood,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cavewet/bogcaves/west)
-"jqd" = (
-/obj/structure/fluff/walldeco/church/line,
-/obj/structure/ritualcircle/psydon,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault/four)
 "jqe" = (
 /obj/structure/closet/crate/drawer,
 /turf/open/floor/rogue/wood,
@@ -34057,7 +34021,8 @@
 "jrE" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -35279,13 +35244,6 @@
 /obj/structure/closet/crate/chest/crate,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach)
-"jIU" = (
-/obj/structure/winch{
-	dir = 4;
-	redstone_id = "prop_do_not_use"
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault/four)
 "jIV" = (
 /obj/structure/roguewindow/openclose/reinforced{
 	dir = 1
@@ -37340,7 +37298,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault)
 "kjY" = (
 /obj/structure/roguewindow,
@@ -38464,7 +38422,8 @@
 	},
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -38934,7 +38893,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault)
 "kFq" = (
 /turf/open/floor/rogue/blocks,
@@ -38978,7 +38937,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains/decap)
 "kFW" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault)
 "kFZ" = (
 /obj/structure/fluff/railing/border/north,
@@ -40621,7 +40580,7 @@
 /area/rogue/outdoors/mountains/decap)
 "lfX" = (
 /obj/structure/vine,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/four)
 "lgb" = (
 /obj/structure/roguewindow,
@@ -41683,6 +41642,12 @@
 "ltk" = (
 /turf/open/floor/rogue/hexstone,
 /area/rogue/outdoors/mountains/decap)
+"ltl" = (
+/obj/effect/oneway/psy_bog{
+	opacity = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault/puzzle)
 "ltm" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/rogue/cobblerock,
@@ -44157,7 +44122,7 @@
 /obj/structure/lever/wall{
 	dir = 4;
 	pixel_x = 16;
-	redstone_id = "bog_dung_psy_trap_hall_j5_99"
+	redstone_id = "bog_dung_psy_checkpoint117"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault)
@@ -47091,6 +47056,16 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/underdark/north)
+"mRy" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-e"
+	},
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault/four)
 "mRC" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5
@@ -47685,7 +47660,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/one)
 "mZO" = (
 /obj/effect/landmark/start/woodsman,
@@ -47790,6 +47765,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 6
 	},
+/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault/four)
 "nbx" = (
@@ -47897,7 +47873,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave)
 "ndo" = (
-/turf/closed/wall/mineral/rogue/stone/window,
+/turf/closed/wall/mineral/rogue/stone/window/unbreakable,
 /area/rogue/under/cave/his_vault/two)
 "ndp" = (
 /obj/structure/fluff/railing/wood/east{
@@ -51555,7 +51531,8 @@
 "oeH" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -52233,7 +52210,7 @@
 	dir = 10
 	},
 /obj/structure/flora/roguegrass,
-/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault/four)
 "oqD" = (
@@ -53097,7 +53074,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "oDy" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/four)
 "oDC" = (
 /obj/structure/rack/rogue/shelf/big{
@@ -53774,7 +53751,7 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/licharena)
 "oNX" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/two)
 "oOd" = (
 /obj/structure/fluff/railing/border,
@@ -54598,7 +54575,7 @@
 /area/rogue/outdoors/mountains/decap/minotaurfort)
 "oYQ" = (
 /obj/structure/spider/stickyweb/mirespider,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault)
 "oYR" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -54660,7 +54637,7 @@
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/indoors/town/dwarfin)
 "oZu" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault)
 "oZw" = (
 /obj/structure/fluff/railing/fence{
@@ -56134,7 +56111,7 @@
 	dir = 10
 	},
 /obj/structure/flora/roguegrass,
-/obj/structure/fluff/walldeco/church/line{
+/obj/effect/oneway/psy_bog_two{
 	dir = 1
 	},
 /turf/open/floor/rogue/cobble/mossy,
@@ -58093,7 +58070,7 @@
 /area/rogue/outdoors/woods/southwest)
 "pYE" = (
 /obj/structure/vine,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/four)
 "pYG" = (
 /obj/effect/landmark/chest_or_mimic/loot_chest,
@@ -62644,6 +62621,7 @@
 	pixel_x = 1;
 	pixel_y = 2
 	},
+/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault/four)
 "rlV" = (
@@ -63599,7 +63577,7 @@
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "rzt" = (
 /obj/structure/vine,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/three)
 "rzA" = (
 /obj/structure/table/wood/long_table/mid/alt,
@@ -63862,7 +63840,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault)
 "rCV" = (
 /turf/open/transparent/openspace,
@@ -63897,6 +63875,10 @@
 /area/rogue/outdoors/mountains/decap)
 "rDu" = (
 /obj/structure/fluff/walldeco/chains,
+/obj/structure/winch{
+	dir = 1;
+	redstone_id = "prop_do_not_use"
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
 "rDA" = (
@@ -64753,7 +64735,7 @@
 	icon_state = "cobbleedge-n"
 	},
 /obj/structure/flora/roguegrass,
-/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
+/mob/living/carbon/human/species/lizardfolk/psy_vault_guard,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/his_vault/four)
 "rRE" = (
@@ -64800,7 +64782,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/puzzle)
 "rSp" = (
 /turf/closed/wall/mineral/rogue/pipe,
@@ -65597,6 +65579,15 @@
 /obj/structure/roguerock,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
+"scp" = (
+/obj/effect/oneway/psy_bog_two{
+	dir = 1
+	},
+/obj/effect/oneway/psy_bog{
+	opacity = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault/puzzle)
 "sct" = (
 /obj/structure/bars/cemetery,
 /obj/effect/decal/mossy{
@@ -66746,7 +66737,8 @@
 "ssb" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/reagent_containers/lux,
 /obj/item/skull,
@@ -68170,7 +68162,7 @@
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/rtfield/eora)
 "sMw" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/two)
 "sME" = (
 /obj/effect/decal/cobbleedge{
@@ -68794,7 +68786,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/three)
 "sUn" = (
 /obj/structure/table/wood,
@@ -70137,7 +70129,7 @@
 /area/rogue/indoors)
 "tmT" = (
 /obj/structure/fluff/walldeco/psybanner,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/one)
 "tmW" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
@@ -71333,17 +71325,6 @@
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods/northwest)
-"tDS" = (
-/obj/structure/bars/passage/shutter/open{
-	name = "Lockdown Shutter";
-	max_integrity = 15000;
-	redstone_id = "bog_dung_psy_checkpoint117"
-	},
-/obj/effect/oneway/psy_bog_two{
-	dir = 1
-	},
-/turf/open/floor/rogue/metal,
-/area/rogue/under/cave/his_vault)
 "tDV" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach/forest/hamlet)
@@ -71461,9 +71442,6 @@
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
-"tFu" = (
-/turf/closed/wall/mineral/rogue/stonebrick,
-/area/rogue/outdoors/mountains)
 "tFy" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/AzureSand,
@@ -71745,7 +71723,8 @@
 "tKi" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -72615,16 +72594,6 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/mountains)
 "tXa" = (
-/obj/structure/bars/passage/shutter{
-	max_integrity = 15000;
-	name = "Lockdown Shutter";
-	redstone_id = "bog_dung_psy_checkpoint117_end"
-	},
-/obj/structure/bars/passage/shutter/open{
-	name = "Lockdown Shutter";
-	max_integrity = 15000;
-	redstone_id = "bog_dung_psy_checkpoint117_end_p1"
-	},
 /obj/effect/oneway/psy_bog_two{
 	dir = 1
 	},
@@ -73644,6 +73613,10 @@
 /obj/structure/fluff/walldeco/chains{
 	icon_state = "chains8"
 	},
+/obj/structure/winch{
+	dir = 1;
+	redstone_id = "prop_do_not_use"
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/his_vault/four)
 "uks" = (
@@ -73990,6 +73963,15 @@
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter/woods)
+"upD" = (
+/obj/effect/decal/cobbleedge{
+	icon_state = "cobbleedge-sread"
+	},
+/obj/effect/oneway/psy_bog{
+	opacity = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault/puzzle)
 "upI" = (
 /obj/structure/lever/wall{
 	pixel_x = 16;
@@ -76264,7 +76246,7 @@
 /area/rogue/indoors/town/magician)
 "uTh" = (
 /obj/structure/vine,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/puzzle)
 "uTk" = (
 /obj/effect/oneway/lich{
@@ -77138,13 +77120,6 @@
 	},
 /turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/town/bath)
-"vfH" = (
-/obj/structure/winch{
-	dir = 8;
-	redstone_id = "prop_do_not_use"
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/his_vault/four)
 "vfI" = (
 /obj/effect/decal/carpet/kover_purple{
 	dir = 4;
@@ -78449,7 +78424,7 @@
 /area/rogue/indoors/town)
 "vwN" = (
 /obj/structure/vine,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault)
 "vwT" = (
 /obj/structure/bookcase/random/religion,
@@ -79091,7 +79066,7 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/dwarfin)
 "vFP" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/three)
 "vGa" = (
 /turf/open/floor/rogue/hexstone,
@@ -79677,7 +79652,8 @@
 "vOa" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -80139,13 +80115,6 @@
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
-"vTG" = (
-/obj/structure/fluff/traveltile/dungeon{
-	aportalgoesto = "nada";
-	aportalid = "psy_bog_exit"
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/mountains)
 "vTK" = (
 /obj/machinery/light/roguestreet/midlamp,
 /turf/open/floor/rogue/naturalstone,
@@ -82145,6 +82114,16 @@
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/garrison)
+"wwt" = (
+/obj/effect/decal/cobbleedge{
+	icon_state = "cobbleedge-n";
+	pixel_y = 7
+	},
+/obj/effect/oneway/psy_bog_two{
+	dir = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault/puzzle)
 "wwG" = (
 /obj/effect/landmark/start/magician,
 /turf/open/floor/rogue/herringbone,
@@ -82713,7 +82692,7 @@
 /obj/structure/fluff/walldeco/stone{
 	icon_state = "walldec6"
 	},
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/rogue/stone/moss/unbreakable,
 /area/rogue/under/cave/his_vault/one)
 "wDS" = (
 /obj/structure/flora/newleaf,
@@ -83516,7 +83495,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault)
 "wNR" = (
-/turf/closed/wall/mineral/rogue/stone/window/moss,
+/turf/closed/wall/mineral/rogue/stone/window/moss/unbreakable,
 /area/rogue/under/cave/his_vault/puzzle)
 "wNS" = (
 /obj/structure/table/wood/large_table/south_west,
@@ -84801,19 +84780,6 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/dragon/broodmother,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/cave/mazedungeon)
-"xhM" = (
-/obj/structure/bars/passage/shutter{
-	max_integrity = 15000;
-	name = "Lockdown Shutter";
-	redstone_id = "bog_dung_psy_checkpoint117"
-	},
-/obj/effect/oneway/psy_bog_two{
-	dir = 1
-	},
-/turf/open/floor/rogue/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/under/cave/his_vault)
 "xhO" = (
 /obj/structure/fluff/walldeco/customflag{
 	pixel_y = 32
@@ -86572,7 +86538,7 @@
 /area/rogue/indoors/town)
 "xHD" = (
 /obj/structure/spider/stickyweb/mirespider,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/rogue/stone/unbreakable,
 /area/rogue/under/cave/his_vault/two)
 "xHF" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
@@ -87007,13 +86973,6 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
-"xOz" = (
-/obj/structure/bars/passage/steel{
-	redstone_id = "bog_dung_psy_trap_hall_j5_99";
-	max_integrity = 9000
-	},
-/turf/open/floor/rogue/metal,
-/area/rogue/under/cave/his_vault)
 "xOB" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/trash/applecore,
@@ -87476,7 +87435,8 @@
 "xUv" = (
 /obj/structure/closet/crate/coffin{
 	locked = 1;
-	lockid = "psy_bog_dung_lootkey_two"
+	lockid = "psy_bog_dung_lootkey_two";
+	max_integrity = 9999
 	},
 /obj/item/skull,
 /obj/item/natural/bundle/bone/full,
@@ -88550,6 +88510,13 @@
 /obj/structure/table/wood/map/three,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
+"yio" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
+/mob/living/simple_animal/hostile/rogue/zardman_jailer_mage,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave/his_vault/four)
 "yis" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/naturalstone,
@@ -223288,12 +223255,12 @@ ujm
 oZu
 hsH
 mMM
-ocf
-ocf
-ocf
-ocf
-ocf
-fZr
+wwt
+fze
+scp
+ltl
+upD
+ixl
 ixl
 lEa
 nOs
@@ -232771,10 +232738,10 @@ flY
 flY
 oDy
 nbs
-gqx
+jQw
 xbm
 xbm
-gqx
+jQw
 rlS
 oDy
 flY
@@ -234575,7 +234542,7 @@ bUE
 pmK
 jQw
 hqk
-xbm
+gqx
 dCV
 gIf
 jQw
@@ -234583,7 +234550,7 @@ voT
 wNh
 wNh
 wNh
-jIU
+jQw
 jQw
 fbT
 kqH
@@ -235018,8 +234985,8 @@ ujm
 ujm
 ujm
 ujm
-goh
-goh
+ujm
+flY
 gGN
 cJB
 igP
@@ -235470,10 +235437,10 @@ ujm
 ujm
 ujm
 ujm
-jQw
-jQw
-jQw
-oer
+ujm
+flY
+flY
+mRy
 aCs
 qKg
 jQw
@@ -235494,12 +235461,12 @@ jQw
 aGo
 jQw
 jQw
-jgc
+jQw
 tXa
 pvV
 hsH
 fpP
-ipl
+gPC
 uiJ
 dOB
 wWs
@@ -235524,13 +235491,13 @@ ihu
 mMM
 xFN
 xFN
-rXA
-xhM
-xLd
 xFN
-ldy
 htE
-xOz
+htE
+xFN
+lqQ
+htE
+htt
 tzd
 dOB
 vHM
@@ -235922,10 +235889,10 @@ ujm
 ujm
 ujm
 ujm
-jQw
-jQw
+ujm
+flY
 cja
-jQw
+jeM
 nRo
 eJP
 jQw
@@ -235946,12 +235913,12 @@ aGo
 aGo
 aGo
 aGo
-jqd
+aGo
 tXa
-xLd
+htE
 gPC
 qjf
-cBy
+xFN
 tmA
 lqQ
 xFN
@@ -235976,13 +235943,13 @@ oAD
 ihu
 vvQ
 xFN
-rXA
-xhM
-xLd
 xFN
-rXA
-tDS
-xOz
+htE
+htE
+xFN
+xFN
+htE
+htt
 geD
 xFN
 xFN
@@ -236374,10 +236341,10 @@ ujm
 ujm
 ujm
 ujm
-jQw
-jQw
-jQw
-jQw
+ujm
+flY
+flY
+jeM
 jQw
 eJP
 jQw
@@ -236398,12 +236365,12 @@ jQw
 aGo
 jQw
 jQw
-jgc
+jQw
 tXa
-iSU
+htE
 xFN
 xFN
-cBy
+xFN
 tSM
 vgm
 xFN
@@ -236428,13 +236395,13 @@ oZu
 oAD
 mMM
 xFN
-ldy
-xhM
-xLd
-fkg
-rXA
-tDS
-xOz
+lqQ
+htE
+htE
+xFN
+xFN
+htE
+htt
 mce
 bTy
 bhA
@@ -236826,9 +236793,9 @@ ujm
 ujm
 ujm
 ujm
-goh
-goh
-jQw
+ujm
+lfX
+aQq
 jQw
 jQw
 eJP
@@ -236853,7 +236820,7 @@ jQw
 upJ
 oDy
 flY
-dhh
+vwN
 kFW
 kFW
 vwN
@@ -237287,7 +237254,7 @@ oDy
 jQw
 jQw
 hqk
-xbm
+gqx
 kFb
 jQw
 jQw
@@ -237295,7 +237262,7 @@ wNh
 wNh
 wNh
 wNh
-vfH
+jQw
 jQw
 jQw
 jQw
@@ -239099,11 +239066,11 @@ lfX
 flY
 oDy
 iir
-gqx
+jQw
 xbm
 xbm
-gqx
-jdf
+jQw
+yio
 oDy
 flY
 flY
@@ -350227,7 +350194,7 @@ oyf
 vvB
 vvB
 vvB
-fZN
+vvB
 irm
 pMO
 eWk
@@ -350678,8 +350645,8 @@ oyf
 oyf
 vvB
 vvB
-fZN
-fZN
+vvB
+vvB
 klM
 irm
 eWk
@@ -351126,12 +351093,12 @@ oyf
 oyf
 oyf
 oyf
-sgP
-sgP
-tFu
-fZN
-fZN
-fZN
+oyf
+oyf
+vvB
+vvB
+vvB
+vvB
 irm
 eWk
 pMO
@@ -351578,12 +351545,12 @@ oyf
 oyf
 oyf
 oyf
-lfO
-lfO
-vTG
-fZN
-fZN
-fZN
+oyf
+oyf
+vvB
+vvB
+vvB
+vvB
 irm
 eWk
 pMO
@@ -352030,12 +351997,12 @@ oyf
 oyf
 oyf
 oyf
-lfO
-lfO
-fZN
-fZN
-fZN
-fZN
+oyf
+oyf
+vvB
+vvB
+vvB
+vvB
 irm
 eWk
 pMO
@@ -352482,12 +352449,12 @@ oyf
 oyf
 oyf
 oyf
-lfO
-lfO
-fZN
-fZN
-fZN
-fZN
+oyf
+oyf
+vvB
+vvB
+vvB
+vvB
 irm
 irm
 mjV
@@ -352934,12 +352901,12 @@ oyf
 oyf
 oyf
 oyf
-lfO
-lfO
-fZN
-fZN
-fZN
-fZN
+oyf
+oyf
+vvB
+vvB
+vvB
+vvB
 irm
 irm
 irm
@@ -353386,12 +353353,12 @@ oyf
 oyf
 oyf
 oyf
-sgP
-sgP
-tFu
-fZN
-fZN
-fZN
+oyf
+oyf
+vvB
+vvB
+vvB
+vvB
 irm
 irm
 fvl
@@ -353843,8 +353810,8 @@ oyf
 vvB
 vvB
 vvB
-fZN
-fZN
+vvB
+vvB
 irm
 irm
 irm
@@ -354296,7 +354263,7 @@ vvB
 vvB
 vvB
 vvB
-fZN
+vvB
 irm
 irm
 irm
