@@ -788,6 +788,7 @@
 		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.inscryption && (heart.inscryption_key in maniac.key_nums))
 			. += span_danger("[t_He] know[p_s()] [heart.inscryption_key], I AM SURE OF IT!")
+
 	if(Adjacent(user))
 		if(observer_privilege)
 			var/static/list/check_zones = list(

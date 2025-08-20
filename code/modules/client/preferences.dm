@@ -36,7 +36,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	var/chat_on_map = TRUE
 	var/showrolls = TRUE
-	
 	var/max_chat_length = CHAT_MESSAGE_MAX_LENGTH
 	var/see_chat_non_mob = TRUE
 
