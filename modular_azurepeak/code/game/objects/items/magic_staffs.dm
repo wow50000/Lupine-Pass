@@ -124,7 +124,7 @@
 /obj/item/rogueweapon/woodstaff/naledi
 	cast_time_reduction = DIAMOND_CAST_TIME_REDUCTION
 	resistance_flags = FIRE_PROOF
-	sellprice = 80
+	sellprice = 40
 
 //crafting datums
 
