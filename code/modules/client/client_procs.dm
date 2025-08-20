@@ -1113,8 +1113,14 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if(!query_client_in_db.Execute())
 		qdel(query_client_in_db)
 		return
+	if (CONFIG_GET(flag/whitelist_bunker) && !holder && !GLOB.deadmins[ckey] && !entry_whitelist_check())
+		log_access("Failed Login: [key] - Unwhitelisted account attempting to connect during whitelist bunker")
+		message_admins(span_adminnotice("Failed Login: [key] - Unwhitelisted account attempting to connect during whitelist bunker"))
+		to_chat(src, CONFIG_GET(string/whitelist_bunker_message))
+		qdel(src)
+		return
 	if(!query_client_in_db.NextRow())
-		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !bunker_bypass_check())
+		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !entry_whitelist_check())
 			log_access("Failed Login: [key] - New account attempting to connect during panic bunker")
 			message_admins(span_adminnotice("Failed Login: [key] - New account attempting to connect during panic bunker"))
 			to_chat(src, CONFIG_GET(string/panic_bunker_message))
@@ -1128,7 +1134,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			qdel(query_client_in_db)
 			qdel(src)
 			return
-
+		
 		new_player = 1
 		account_join_date = findJoinDate()
 		var/datum/DBQuery/query_add_player = SSdbcore.NewQuery({"
