@@ -38,6 +38,7 @@
 	resistance_flags = FIRE_PROOF //imagine the salt
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
+	sellprice = 34
 
 /obj/item/rogueweapon/woodstaff/amethyst
 	name = "amethyst-focused staff"
@@ -49,7 +50,6 @@
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
 
-
 /obj/item/rogueweapon/woodstaff/emerald
 	name = "gemerald-focused staff"
 	desc = "A glistening green focus-gem hewn by pressure immense sits nestled in crown of this staff."
@@ -59,7 +59,7 @@
 	resistance_flags = FIRE_PROOF
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
-
+	sellprice = 42
 
 /obj/item/rogueweapon/woodstaff/sapphire
 	name = "saffira-focused staff"
@@ -70,6 +70,7 @@
 	resistance_flags = FIRE_PROOF
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
+	sellprice = 56
 
 /obj/item/rogueweapon/woodstaff/quartz
 	name = "blortz-focused staff"
@@ -80,6 +81,7 @@
 	resistance_flags = FIRE_PROOF
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
+	sellprice = 88
 
 /obj/item/rogueweapon/woodstaff/ruby
 	name = "ronts-focused staff"
@@ -90,6 +92,7 @@
 	resistance_flags = FIRE_PROOF
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
+	sellprice = 100
 
 /obj/item/rogueweapon/woodstaff/diamond
 	name = "dorpel-focused staff"
@@ -100,6 +103,7 @@
 	resistance_flags = FIRE_PROOF
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
+	sellprice = 121
 
 /obj/item/rogueweapon/woodstaff/riddle_of_steel
 	name = "\improper Staff of the Riddle-Steel"
@@ -111,6 +115,7 @@
 	resistance_flags = FIRE_PROOF
 	possible_item_intents = list(SPEAR_BASH, /datum/intent/special/magicarc)
 	gripped_intents = list(SPEAR_BASH, /datum/intent/mace/smash/wood, /datum/intent/special/magicarc)
+	sellprice = 400
 
 /obj/item/rogueweapon/woodstaff/riddle_of_steel/magos
 	name = "\improper Staff of the Court Magos"
@@ -119,6 +124,7 @@
 /obj/item/rogueweapon/woodstaff/naledi
 	cast_time_reduction = DIAMOND_CAST_TIME_REDUCTION
 	resistance_flags = FIRE_PROOF
+	sellprice = 80
 
 //crafting datums
 
