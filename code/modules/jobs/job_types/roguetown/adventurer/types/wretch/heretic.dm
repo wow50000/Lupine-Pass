@@ -82,13 +82,13 @@
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold
 		if(/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/combat_baotha.ogg'
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle
+			head = /obj/item/clothing/head/roguetown/helmet/bascinet/etruscan
 		if(/datum/patron/inhumen/graggar)
 			H.cmode_music = 'sound/music/combat_graggar.ogg'
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/guard
 		if(/datum/patron/divine/astrata)
 			wrists = /obj/item/clothing/neck/roguetown/psicross/astrata
-			head = /obj/item/clothing/head/roguetown/helmet/bascinet/etruscan
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold
 			H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 		if(/datum/patron/divine/abyssor)
 			wrists = /obj/item/clothing/neck/roguetown/psicross/abyssor
