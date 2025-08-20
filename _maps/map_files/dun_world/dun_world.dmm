@@ -8,17 +8,19 @@
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/town/roofs/keep)
+"aac" = (
+/obj/structure/fluff/railing/corner/north_east{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/roofs)
 "aad" = (
 /turf/closed/wall/mineral/rogue/pipe{
 	dir = 4;
 	icon_state = "iron_corner"
 	},
 /area/rogue/under/town/sewer)
-"aae" = (
-/turf/closed/wall/mineral/rogue/pipe{
-	icon_state = "iron_line"
-	},
-/area/rogue/under/cave)
 "aaf" = (
 /turf/closed/wall/mineral/rogue/pipe{
 	dir = 1;
@@ -1420,6 +1422,13 @@
 	},
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/physician)
+"adw" = (
+/obj/structure/fluff/railing/border/north{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/roofs)
 "adx" = (
 /obj/structure/stairs,
 /turf/open/floor/carpet/red,
@@ -1712,8 +1721,8 @@
 "aei" = (
 /obj/structure/fluff/railing/border{
 	dir = 8;
-	pixel_x = -6;
-	pixel_y = 2
+	pixel_x = -5;
+	pixel_y = 1
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/roofs)
@@ -2012,6 +2021,13 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/ambush,
 /area/rogue/outdoors/bog/south)
+"aeR" = (
+/obj/structure/fluff/railing/border/north{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/roofs)
 "aeS" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 4
@@ -2043,6 +2059,13 @@
 	dir = 1
 	},
 /area/rogue/indoors/town/physician)
+"aeX" = (
+/obj/structure/fluff/railing/border/north{
+	pixel_x = -5;
+	pixel_y = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/roofs)
 "aeY" = (
 /turf/closed/wall/mineral/rogue/roofwall/middle{
 	dir = 1
@@ -2057,6 +2080,13 @@
 	},
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/town)
+"afa" = (
+/obj/structure/fluff/railing/corner{
+	pixel_x = -5;
+	pixel_y = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/roofs)
 "afb" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -152428,7 +152458,7 @@ sGj
 sGj
 aao
 aak
-aae
+abQ
 aaa
 mMx
 dlK
@@ -499568,7 +499598,7 @@ fVk
 vrN
 aej
 aef
-bGf
+aac
 bGf
 bGf
 bGf
@@ -500020,7 +500050,7 @@ aen
 gAH
 aek
 aeg
-bGf
+adw
 bGf
 bGf
 bGf
@@ -500472,7 +500502,7 @@ aen
 eMg
 ael
 quq
-bGf
+aeR
 bGf
 bGf
 bGf
@@ -500924,7 +500954,7 @@ aen
 bqk
 aek
 quq
-bGf
+aeX
 bGf
 bGf
 bGf
@@ -501376,7 +501406,7 @@ aeo
 nnL
 dFk
 aei
-bGf
+afa
 bGf
 bGf
 bGf
