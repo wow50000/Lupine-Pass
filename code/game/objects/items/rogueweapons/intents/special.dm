@@ -3,4 +3,4 @@
 	name = "Magic Arcing"
 	icon_state = "inarc"
 	damfactor = 0
-	desc = "With this intent active, certain spells will fire in an arc (Over anyone in between) toward the targets"
+	desc = "With this intent active, certain spells will fire in an arc (Over anyone in between) toward the target"
