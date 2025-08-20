@@ -44,9 +44,7 @@ SUBSYSTEM_DEF(whitelist)
 	qdel(query_load_entry_whitelist)
 
 /client/proc/entry_whitelist_check()
-	if (ckey in SSwhitelist.whitelist)
-		return TRUE
-	return FALSE
+	return (ckey && (ckey in SSwhitelist.whitelist))
 
 /client/proc/bunker_bypass()
 	set category = "-Server-"
