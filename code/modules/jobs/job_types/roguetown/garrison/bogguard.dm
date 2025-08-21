@@ -104,6 +104,15 @@
 	if(helmchoice != "None")
 		head = helmets[helmchoice]
 
+	var/hoods = list(
+		"Common Shroud" 	= /obj/item/clothing/head/roguetown/roguehood/warden,
+		"Antlered Shroud"		= /obj/item/clothing/head/roguetown/roguehood/warden/antler,
+		"None"
+	)
+	var/hoodchoice = input("Choose your Shroud.", "HOOD SELECTION") as anything in hoods
+	if(helmchoice != "None")
+		mask = hoods[hoodchoice]
+
 /datum/advclass/bogguardsman/forester
 	name = "Forester"
 	tutorial = "You are a forester, a woodsman who volunteered to become a part of the wardens. You have experience using axes and polearms."
@@ -166,3 +175,12 @@
 	var/helmchoice = input("Choose your Path.", "HELMET SELECTION") as anything in helmets
 	if(helmchoice != "None")
 		head = helmets[helmchoice]
+
+	var/hoods = list(
+		"Common Shroud" 	= /obj/item/clothing/head/roguetown/roguehood/warden,
+		"Antlered Shroud"		= /obj/item/clothing/head/roguetown/roguehood/warden/antler,
+		"None"
+	)
+	var/hoodchoice = input("Choose your Shroud.", "HOOD SELECTION") as anything in hoods
+	if(helmchoice != "None")
+		mask = hoods[hoodchoice]
