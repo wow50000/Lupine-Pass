@@ -70,7 +70,7 @@
 	desc = "A hardened leather harness with a large pauldron worn over a maille coat, associated with the Azurian wardens."
 	icon = 'icons/roguetown/clothing/special/warden.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/warden.dmi'
-	icon_state = "foresthide"
+	icon_state = "forestleather"
 
 /obj/item/clothing/suit/roguetown/armor/leather/studded/warden/upgraded
 	name = "forester's brigandine"
