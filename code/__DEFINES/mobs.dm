@@ -567,28 +567,27 @@
 #define DARKBROWN_FUR "3b2e27"
 #define BLACK_FUR	 "271f1a"
 
-//GOLEM MATERIALS
-#define GOLEM_BRASS "dfbd6c"
-#define GOLEM_IRON "525352"
-#define GOLEM_STEEL  "babbb9"
-#define GOLEM_BRONZE "e2a670"
-#define GOLEM_MARBLE "FFF2F2"
-#define GOLEM_COAL "1f1f1f"
-#define GOLEM_COBALT "323666"
-#define GOLEM_GRANITE "ff8f8f"
-#define GOLEM_JADE "517051"
-#define GOLEM_AMETHYST "3a0b3d"
-#define GOLEM_CORAL "ff96d6" //Pink
-#define GOLEM_LIMESTONE "e6e4d8" //Tan
-#define GOLEM_SILVER "94B9C0" //Ice grey, at least that's what microsoft paint says
-#define GOLEM_COPPER "b87333" //Orange
-#define GOLEM_GOLD "d4af37" //Gold
-#define GOLEM_RUST "B71F1F" //Dark red
-#define GOLEM_OBSIDIAN "19132a" //Black
-#define GOLEM_LAPIS "26619C" //Deep blue
-#define GOLEM_BASALT "474a4c" //Dark grey
-#define GOLEM_MARBLE "E6E6E6" //White
-#define GOLEM_TOPER "fffb9e"
+//CONSTUCT MATERIALS
+#define CONSTRUCT_BRASS "dfbd6c"
+#define CONSTRUCT_IRON "525352"
+#define CONSTRUCT_STEEL  "babbb9"
+#define CONSTRUCT_BRONZE "e2a670"
+#define CONSTRUCT_COAL "1f1f1f"
+#define CONSTRUCT_COBALT "323666"
+#define CONSTRUCT_GRANITE "ff8f8f"
+#define CONSTRUCT_JADE "517051"
+#define CONSTRUCT_AMETHYST "3a0b3d"
+#define CONSTRUCT_CORAL "ff96d6" //Pink
+#define CONSTRUCT_LIMESTONE "e6e4d8" //Tan
+#define CONSTRUCT_SILVER "94B9C0" //Ice grey, at least that's what microsoft paint says
+#define CONSTRUCT_COPPER "b87333" //Orange
+#define CONSTRUCT_GOLD "d4af37" //Gold
+#define CONSTRUCT_RUST "B71F1F" //Dark red
+#define CONSTRUCT_OBSIDIAN "19132a" //Black
+#define CONSTRUCT_LAPIS "26619C" //Deep blue
+#define CONSTRUCT_BASALT "474a4c" //Dark grey
+#define CONSTRUCT_MARBLE "E6E6E6" //White
+#define CONSTRUCT_TOPER "fffb9e"
 
 //DOLL PAINT COLOR
 #define DOLL_PORCELAIN "ffffff"

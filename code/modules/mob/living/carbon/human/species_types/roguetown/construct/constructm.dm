@@ -100,15 +100,26 @@
 
 /datum/species/construct/metal/get_skin_list()
 	return list(
-		"Brass" = GOLEM_BRASS,
-		"Iron" = GOLEM_IRON,
-		"Steel" = GOLEM_STEEL,
-		"Bronze" = GOLEM_BRONZE,
-		"Marble" = GOLEM_MARBLE,
-		"Coal" = GOLEM_COAL,
-		"Cobalt" = GOLEM_COBALT,
-		"Granite" = GOLEM_GRANITE,
-		"Jade" = GOLEM_JADE
+		"Brass" = CONSTRUCT_BRASS,
+		"Iron" = CONSTRUCT_IRON,
+		"Steel" = CONSTRUCT_STEEL,
+		"Bronze" = CONSTRUCT_BRONZE,
+		"Marble" = CONSTRUCT_MARBLE,
+		"Toper" = CONSTRUCT_TOPER,
+		"Coal" = CONSTRUCT_COAL,
+		"Cobalt" = CONSTRUCT_COBALT,
+		"Granite" = CONSTRUCT_GRANITE,
+		"Jade" = CONSTRUCT_JADE,
+		"Amythortz" = CONSTRUCT_AMETHYST,
+		"Silver" = CONSTRUCT_SILVER,
+		"Coral" = CONSTRUCT_CORAL,
+		"Gold" = CONSTRUCT_GOLD,
+		"Limestone" = CONSTRUCT_LIMESTONE,
+		"Copper" = CONSTRUCT_COPPER,
+		"Rust" = CONSTRUCT_RUST,
+		"Obsidian" = CONSTRUCT_OBSIDIAN,
+		"Lapis" = CONSTRUCT_LAPIS,
+		"Basalt" = CONSTRUCT_BASALT
 	)
 
 /datum/species/construct/metal/get_hairc_list()
