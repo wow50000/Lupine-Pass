@@ -643,10 +643,8 @@
 		pickchance *= P.picklvl
 		pickchance = clamp(pickchance, 1, 95)
 
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			message_admins("[H.real_name]([key_name(user)]) is attempting to lockpick [src.name]. [ADMIN_JMP(src)]")
-			log_admin("[H.real_name]([key_name(user)]) is attempting to lockpick [src.name].")
+		var/picked = FALSE
+		user.log_message("attempting to lockpick door \"[src.name]\" (currently [locked ? "locked" : "unlocked"]).", LOG_ATTACK)
 
 		while(!QDELETED(I) &&(lockprogress < locktreshold))
 			if(!do_after(user, picktime, target = src))
@@ -658,15 +656,13 @@
 				if(L.mind)
 					add_sleep_experience(L, /datum/skill/misc/lockpicking, L.STAINT/2)
 				if(lockprogress >= locktreshold)
+					picked = TRUE
 					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
-					if(ishuman(user))
-						var/mob/living/carbon/human/H = user
-						message_admins("[H.real_name]([key_name(user)]) successfully lockpicked [src.name] & [locked ? "unlocked" : "locked"] it. [ADMIN_JMP(src)]")
-						log_admin("[H.real_name]([key_name(user)]) successfully lockpicked [src.name].")
-						record_featured_stat(FEATURED_STATS_CRIMINALS, user)
-						GLOB.azure_round_stats[STATS_LOCKS_PICKED]++
-						var/obj/effect/track/structure/new_track = new(get_turf(src))
-						new_track.handle_creation(user)
+					record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+					GLOB.azure_round_stats[STATS_LOCKS_PICKED]++
+					var/obj/effect/track/structure/new_track = new(get_turf(src))
+					new_track.handle_creation(user)
+					user.log_message("finished lockpicking door \"[src.name]\" (now [locked ? "unlocked" : "locked"]).", LOG_ATTACK)
 					lock_toggle(user)
 					break
 				else
@@ -677,6 +673,8 @@
 				to_chat(user, "<span class='warning'>Clack.</span>")
 				add_sleep_experience(L, /datum/skill/misc/lockpicking, L.STAINT/4)
 				continue
+		if(!picked)
+			user.log_message("stopped/failed lockpicking door \"[src.name]\" (remains [locked ? "locked" : "unlocked"]).", LOG_ATTACK)
 		return
 
 /obj/structure/mineral_door/proc/tryskeletonlock(mob/user)
