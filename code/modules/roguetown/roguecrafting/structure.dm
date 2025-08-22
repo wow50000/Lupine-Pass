@@ -888,6 +888,7 @@
 	name = "noose"
 	result = /obj/structure/noose
 	reqs = list(/obj/item/rope = 1)
+	craftdiff = 1	
 	verbage = "tie"
 	craftsound = 'sound/foley/noose_idle.ogg'
 	ontile = TRUE
@@ -895,10 +896,10 @@
 /datum/crafting_recipe/roguetown/structure/noose/TurfCheck(mob/user, turf/T)
 	var/turf/checking = get_step_multiz(T, UP)
 	if(!checking)
-		return FALSE
+		return TRUE // Letting you craft in centcomm Z-level (bandit/vampire/wretch camps)
 	if(!isopenturf(checking))
 		return FALSE
-	if(istype(checking,/turf/open/transparent/openspace))
+	if(istype(checking, /turf/open/transparent/openspace))
 		return FALSE
 	return TRUE
 
@@ -906,6 +907,7 @@
 	name = "gallows"
 	result = /obj/structure/noose/gallows
 	reqs = list(/obj/item/rope = 1, /obj/item/grown/log/tree/small = 2)
+	craftdiff = 2
 	verbage = "constructs"
 	craftsound = 'sound/foley/Building-01.ogg'
 	ontile = TRUE
