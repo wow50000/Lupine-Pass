@@ -402,7 +402,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(held_item)
 			if((butcher_results || guaranteed_butcher_results) && held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 				var/used_time = 3 SECONDS
+				var/on_meathook = FALSE
 				if(src.buckled && istype(src.buckled, /obj/structure/meathook))
+					on_meathook = TRUE
 					used_time -= 3 SECONDS
 					visible_message("[user] begins to efficiently butcher [src]...")
 				else
@@ -411,7 +413,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					used_time -= (user.get_skill_level(/datum/skill/labor/butchering) * 30)
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				if(do_after(user, 3 SECONDS, target = src))
-					butcher(user)
+					butcher(user, on_meathook)
 
 	else if (stat != DEAD && istype(ssaddle, /obj/item/natural/saddle))		//Fallback saftey for saddles
 		var/datum/component/storage/saddle_storage = ssaddle.GetComponent(/datum/component/storage)
@@ -420,14 +422,15 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			saddle_storage.show_to(user)
 	..()
 
-/mob/living/simple_animal/proc/butcher(mob/living/user)
+/mob/living/simple_animal/proc/butcher(mob/living/user, on_meathook = FALSE)
 	if(ssaddle)
 		ssaddle.forceMove(get_turf(src))
 		ssaddle = null
 
 	var/butchery_skill_level = user.get_skill_level(/datum/skill/labor/butchering)
 	var/time_per_cut = max(5, 30 - butchery_skill_level * 5) // 3 seconds for no skill, 5 ticks for master
-	
+	if(on_meathook)
+		time_per_cut *= 0.75
 	var/botch_chance = 0
 	if(length(botched_butcher_results) && butchery_skill_level < SKILL_LEVEL_JOURNEYMAN)
 		botch_chance = 70 - (20 * butchery_skill_level) // 70% at unskilled, 20% lower for each level above it, 0% at journeyman or higher
