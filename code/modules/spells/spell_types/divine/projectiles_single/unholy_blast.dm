@@ -85,7 +85,8 @@
 					H.adjustToxLoss(10)
 					H.Dizzy(5)
 				if(/datum/patron/inhumen/matthios)
-					if(HAS_TRAIT(target, TRAIT_NOBLE))
+					if(HAS_TRAIT(H, TRAIT_NOBLE))
+						damage += 10 
 						H.adjust_fire_stacks(4)
 					H.adjust_fire_stacks(2)
 					H.IgniteMob()
@@ -94,7 +95,6 @@
 					H.Dizzy(5)
 					H.blur_eyes(5)
 				if(/datum/patron/inhumen/zizo)
-					invocations = list("ZIZO BLAST!!")
 					if(istype(H.patron, /datum/patron/divine/necra)) //Hilarious
 						H.adjust_fire_stacks(6)
 						H.IgniteMob()
