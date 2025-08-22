@@ -40,11 +40,6 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/H = target
-		if((H.job in list("Heretic")))
-			visible_message(span_warning("[src]'s power brushes off of [H] with no harm!"))
-			playsound(get_turf(H), 'sound/magic/magic_nulled.ogg', 100)
-			qdel(src)
-			return BULLET_ACT_BLOCK
 		if(H.mob_biotypes & MOB_UNDEAD)
 			damage += 20
 	if(ishuman(target))
@@ -98,10 +93,11 @@
 					if(istype(H.patron, /datum/patron/divine/necra)) //Hilarious
 						H.adjust_fire_stacks(6)
 						H.IgniteMob()
-					H.Slowdown(4) 
+					H.Slowdown(3) 
 					H.visible_message(span_warning("Seething ambition sears within [H]'s mind!"), span_warning("Visions of progress and ambition sear into my mind!"))
 	else
 		return
+
 
 
 
