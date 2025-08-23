@@ -104,7 +104,6 @@
 		"Iron" = CONSTRUCT_IRON,
 		"Steel" = CONSTRUCT_STEEL,
 		"Bronze" = CONSTRUCT_BRONZE,
-		"Marble" = CONSTRUCT_MARBLE,
 		"Toper" = CONSTRUCT_TOPER,
 		"Coal" = CONSTRUCT_COAL,
 		"Cobalt" = CONSTRUCT_COBALT,
