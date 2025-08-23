@@ -260,6 +260,8 @@
 /datum/wound/fracture/chest/on_mob_gain(mob/living/affected)
 	. = ..()
 	affected.Immobilize(15)		//Stuns you, major downside
+	if(HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
+		affected.death()
 
 /datum/wound/fracture/chest/on_life()
 	. = ..()
