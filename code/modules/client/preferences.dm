@@ -762,11 +762,17 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	if(user.client.is_new_player())
 		dat = list("<center>REGISTER!</center>")
 
+	var/W = 700
+	var/H = 970
+
 	winshow(user, "preferencess_window", TRUE)
+	winset(user, "preferencess_window", "size=[W]x[H];is-visible=true")
+	winset(user, "preferences_browser", "pos=0,0;size=[W]x[H];anchor1=0,0;anchor2=100,100;is-visible=true")
 	var/datum/browser/noclose/popup = new(user, "preferences_browser", "<div align='center'>[used_title]</div>")
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
+	winset(user, "preferencess_window.character_preview_map", "pos=275,350;size=110x140;is-visible=true;mouse-opacity=0")
 	update_preview_icon()
 //	onclose(user, "preferencess_window", src)
 
@@ -840,7 +846,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 					//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
 					//the last job's selection color. Creating a rather nice effect.
 					for(var/i = 0, i < (limit - index), i += 1)
-						HTML += "<tr bgcolor='#000000'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
+						HTML += "<tr bgcolor='#00000066'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
 				HTML += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 				index = 0
 

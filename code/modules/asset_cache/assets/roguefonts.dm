@@ -2,6 +2,8 @@
 	keep_local_name = TRUE
 	assets = list(
 		"pterra.ttf" = 'interface/fonts/pterra.ttf',
+		"newrocker.ttf" = 'interface/fonts/newrocker.ttf',
+		"nosfer.ttf" = 'interface/fonts/nosfer.ttf',
 		"chiseld.ttf" = 'interface/fonts/chiseld.ttf',
 		"blackmoor.ttf" = 'interface/fonts/blackmoor.ttf',
 		"handwrite.ttf" = 'interface/fonts/handwrite.ttf',
