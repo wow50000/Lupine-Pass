@@ -67,7 +67,7 @@
 			to_chat(usr, "With Dendor's aide, you soothe [animal] of their anger.")
 	return tamed
 
-/obj/effect/proc_holder/spell/targeted/conjure_glowshroom
+/obj/effect/proc_holder/spell/targeted/conjure_glowshroom // This has been moved to the druid job type, but is still here for reference.
 	name = "Fungal Illumination"
 	desc = "Summons glowing mushrooms that shock people that try moving into them. Dendorites are immune."
 	range = 1
