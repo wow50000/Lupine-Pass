@@ -99,29 +99,22 @@
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)		// Make your energy count, little silly individual
-			H.adjust_skillrank(/datum/skill/labor/butchering, 3, TRUE)		// meant to live off the land and set up camp.
+			H.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)		// meant to live off the land and set up camp.
 			H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)		// learn 2 maintain your uniform.
 			H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)		// Just so you don't suck at cooking
 			H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)		// track ur prey
 			H.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)	
 			H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)	// crafting for pallisades, lumberjacking for not fucking up wood
 			beltr = /obj/item/quiver/bolts
 			beltl = /obj/item/rogueweapon/stoneaxe/woodcut/steel
+			r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 			H.change_stat("strength", 1) // 1 STR for the axe and crossbow reload. END for chopping trees, a bit of SPD for running, PER for shooting. -1 CON bc you aint a frontliner
 			H.change_stat("endurance", 2)
 			H.change_stat("constitution", -1)
 			H.change_stat("perception", 2)
 			H.change_stat("speed", 2)
-			var/weapons = list("Crossbow", "Slurbow")
-			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS", "DELIVER BOLTS") as anything in weapons
 			var/armor_options = list("Light Brigandine", "Studded Leather Vest")
 			var/armor_choice = input("Choose your armor.", "DRESS UP") as anything in armor_options
-			switch(weapon_choice)
-				if("Crossbow")
-					r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-				if("Slurbow")
-					r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/slurbow
 			switch(armor_choice)
 				if("Light Brigandine")
 					armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light	// find a smithy to fix it
@@ -141,7 +134,9 @@
 	backpack_contents = list(
 		/obj/item/roguekey/mercenary = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
-		/obj/item/flashlight/flare/torch = 1
+		/obj/item/flashlight/flare/torch = 1,
+		/obj/item/rogueweapon/huntingknife = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
 
 	H.grant_language(/datum/language/grenzelhoftian)
