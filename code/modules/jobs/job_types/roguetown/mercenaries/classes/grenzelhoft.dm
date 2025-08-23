@@ -8,7 +8,7 @@
 	traits_applied = list(TRAIT_OUTLANDER)
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'	
 	classes = list("Doppelsoldner" = "You are a Doppelsoldner - \"Double-pay Mercenary\" - an experienced frontliner trained by the master swordsmen of the Zenitstadt fencing guild.",
-					"Halberdier" = "You're an experienced soldier skilled in the use of polearms and axes. Your equals make up the bulk of the mercenary guild's forces.",)
+					"Halberdier" = "You're an experienced soldier skilled in the use of polearms and axes. Your equals make up the bulk of the mercenary guild's forces.",
 					"Armbrustschutze" = "You're a proved marksman with a crossbow, and learned how to set up camp and defenses in the wild. The guild needs you.")
 
 /datum/outfit/job/roguetown/mercenary/grenzelhoft/pre_equip(mob/living/carbon/human/H)
