@@ -176,6 +176,9 @@
 			user.visible_message(span_notice("[user] hammers [user.p_their()] [affecting]."), span_notice("I hammer my [affecting]."))
 		else
 			user.visible_message(span_notice("[user] hammers [M]'s [affecting]."), span_notice("I hammer [M]'s [affecting]."))
+		if(wCount.len > 0)
+			// Auto repeat healing
+			hammerheal(M, user)
 	else //Non-construct.
 		to_chat(user, span_warning("I can't tinker on living flesh!"))
 
