@@ -214,7 +214,7 @@
 	beltl = /obj/item/quiver/sling/iron
 	beltr = /obj/item/gun/ballistic/revolver/grenadelauncher/sling
 	backr = /obj/item/storage/backpack/rogue/satchel
-	pants = /obj/item/clothing/under/roguetown/brayette
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/shorts
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced/short
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman
