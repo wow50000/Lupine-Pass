@@ -65,8 +65,11 @@ GLOBAL_VAR(restart_counter)
 		GLOB.rogue_round_id = "[pick(GLOB.roundid)][GLOB.round_id]-[timestamp]"
 	SetupLogs()
 	load_poll_data()
+
 	if(CONFIG_GET(string/channel_announce_new_game_message))
 		send2chat(new /datum/tgs_message_content(CONFIG_GET(string/channel_announce_new_game_message)), CONFIG_GET(string/chat_announce_new_game))
+
+	TgsAnnounceServerStart()
 
 #ifndef USE_CUSTOM_ERROR_HANDLER
 	world.log = file("[GLOB.log_directory]/dd.log")
@@ -478,5 +481,98 @@ GLOBAL_VAR(restart_counter)
 	var/dll = GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (dll)
 		call_ext(dll, "auxtools_shutdown")()
-	
+
 	. = ..()
+
+/world/proc/TgsAnnounceServerStart()
+	if(!TgsAvailable())
+		return
+
+	var/announce_channel = CONFIG_GET(string/chat_announce_new_game)
+
+	if(!announce_channel)
+		return
+
+	var/datum/tgs_chat_embed/structure/embed = new()
+	embed.title = "Server started!"
+	embed.description = "The story is about to begin..."
+	embed.colour = "#B9B28A"
+
+	var/ping_role_id = CONFIG_GET(string/game_alert_role_id)
+	var/datum/tgs_message_content/message = new(ping_role_id ? "<@&[ping_role_id]>": "")
+	message.embed = embed
+
+	send2chat(
+		message,
+		announce_channel
+	)
+
+/world/proc/TgsAnnounceRoundStart()
+	if(!TgsAvailable())
+		return
+
+	var/announce_channel = CONFIG_GET(string/chat_announce_new_game)
+
+	if(!announce_channel)
+		return
+
+	var/datum/tgs_chat_embed/structure/embed = new()
+	embed.title = "The story has begun!"
+	embed.description = GLOB.rogue_round_id
+	embed.colour = "#79ac78"
+
+	var/datum/tgs_message_content/message = new("")
+	message.embed = embed
+
+	send2chat(
+		message,
+		announce_channel
+	)
+
+/world/proc/TgsAnnounceVoteEndRound()
+	if(!TgsAvailable())
+		return
+
+	var/announce_channel = CONFIG_GET(string/chat_announce_new_game)
+
+	if(!announce_channel)
+		return
+
+	var/datum/tgs_chat_embed/structure/embed = new()
+	embed.title = "The end approaches!"
+	embed.description = "The players have voted to end the story. Time left: [ROUND_END_TIME_VERBAL]"
+	embed.colour = "#ac87c5"
+	embed.footer = new(GLOB.rogue_round_id)
+
+	var/datum/tgs_message_content/message = new("")
+	message.embed = embed
+
+	send2chat(
+		message,
+		announce_channel
+	)
+
+/world/proc/TgsAnnounceRoundEnd()
+	if(!TgsAvailable())
+		return
+
+	var/announce_channel = CONFIG_GET(string/chat_announce_new_game)
+
+	if(!announce_channel)
+		return
+
+	var/round_duration = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0
+
+	var/datum/tgs_chat_embed/structure/embed = new()
+	embed.title = "The story has ended!"
+	embed.description = "The story has lasted [round_duration]."
+	embed.colour = "#9f5255"
+	embed.footer = new(GLOB.rogue_round_id)
+
+	var/datum/tgs_message_content/message = new("")
+	message.embed = embed
+
+	send2chat(
+		message,
+		announce_channel
+	)

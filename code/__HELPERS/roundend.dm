@@ -209,6 +209,8 @@
 	//stop collecting feedback during grifftime
 	SSblackbox.Seal()
 
+	world.TgsAnnounceRoundEnd()
+
 	sleep(10 SECONDS)
 	SSvote.initiate_vote("map", "Actors")
 	ready_for_reboot = TRUE
