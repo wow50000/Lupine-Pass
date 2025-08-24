@@ -15,6 +15,8 @@
 			return strings("russian_replacement.json", type)
 		if("Grenzelhoft accent")
 			return strings("german_replacement.json", type)
+		if("North Etruscan accent")
+			return strings("italian_replacement.json", type)
 		if("Hammerhold accent")
 			return strings("Anglish.json", type)
 		if("Assimar accent")
