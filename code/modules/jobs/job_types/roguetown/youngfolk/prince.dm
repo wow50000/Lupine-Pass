@@ -39,10 +39,10 @@
 
 /datum/outfit/job/roguetown/heir/daring/pre_equip(mob/living/carbon/human/H)
 	..()
-	
+
 	// Equipment choice - only affects clothing/gear, not skills
 	var/equipment_choice = input(H, "Choose your equipment style", "Equipment Choice") as anything in list("Wartime Outfit", "Traditional Dress")
-	
+
 	if(equipment_choice == "Wartime Outfit")
 		// Original daring twit equipment
 		head = /obj/item/clothing/head/roguetown/circlet
@@ -62,7 +62,6 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/longcoat
 			shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
 		if(should_wear_femme_clothes(H))
-			pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random
 			shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
 		head = /obj/item/clothing/head/roguetown/circlet
 		belt = /obj/item/storage/belt/rogue/leather/cloth/lady
@@ -117,7 +116,6 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/longcoat
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
 	if(should_wear_femme_clothes(H))
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
 	head = /obj/item/clothing/head/roguetown/circlet
 	belt = /obj/item/storage/belt/rogue/leather/cloth/lady
@@ -133,11 +131,10 @@
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+	H?.mind.adjust_spellpoints(9)
 	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 	if(H.mind)
-		ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-		H.mind.adjust_spellpoints(9)
 	H.change_stat("strength", -1)
 	H.change_stat("intelligence", 2)
 	H.change_stat("speed", 1)
@@ -171,7 +168,6 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/silkcoat
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random
 	H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, pick(0,1), TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
@@ -216,8 +212,6 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/silkcoat
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random
-
 	H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, pick(0,1), TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
