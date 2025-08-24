@@ -128,6 +128,7 @@
 				var/secular_diagnose = new /obj/effect/proc_holder/spell/invoked/diagnose/secular
 				user.mind?.AddSpell(secular_diagnose)
 			add_spells(user, utility_bundle, grant_all = TRUE)
+			user.mind?.RemoveSpell(src.type)
 		if("Offense")
 			add_spells(user, offensive_bundle, grant_all = TRUE)
 			ADD_TRAIT(user, TRAIT_MAGEARMOR, TRAIT_MIRACLE)
@@ -135,6 +136,7 @@
 		if("Buffs")
 			add_spells(user, buff_bundle, choice_count = 4)
 			ADD_TRAIT(user, TRAIT_MAGEARMOR, TRAIT_MIRACLE)
+			user.mind?.RemoveSpell(src.type)
 		else
 			revert_cast()
 
