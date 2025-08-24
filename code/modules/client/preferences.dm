@@ -265,7 +265,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 //	dat += "<a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>Keybinds</a>"
 
 	dat += "</center>"
-
+	dat += "<div class='charpreview-border'></div>"
+	
 	var/used_title
 	switch(current_tab)
 		if (0) // Character Settings#
@@ -846,14 +847,14 @@ GLOBAL_LIST_EMPTY(chosen_names)
 					//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
 					//the last job's selection color. Creating a rather nice effect.
 					for(var/i = 0, i < (limit - index), i += 1)
-						HTML += "<tr bgcolor='#00000066'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
+						HTML += "<tr style='background-color: #00000066;'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
 				HTML += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 				index = 0
 
 			if(job.title in splitJobs)
-				HTML += "<tr bgcolor='#000000'><td width='60%' align='right'><hr></td></tr>"
+				HTML += "<tr style='background-color: #00000066;'><td width='60%' align='right'><hr></td></tr>"
 
-			HTML += "<tr bgcolor='#000000'><td width='60%' align='right'>"
+			HTML += "<tr style='background-color: #00000066;'><td width='60%' align='right'>"
 			var/rank = job.title
 			var/used_name = "[job.title]"
 			if((pronouns == SHE_HER || pronouns == THEY_THEM_F) && job.f_title)

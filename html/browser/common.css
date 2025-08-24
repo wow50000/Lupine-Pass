@@ -1,16 +1,27 @@
 @font-face {
 	font-family: "New Rocker";
-	src: url("newrocker.ttf") format("truetype");
+	src: url("newrocker.ttf");
+}
+
+@font-face {
+	font-family: "Pterra";
+	src: url("pterra.ttf");
+}
+
+@font-face {
+	font-family: "Nosfer";
+	src: url("nosfer.ttf");
 }
 
 body {
 	font-family: "New Rocker", TrueType;
 	padding: 0;
 	margin: 0;
-	background: url("flowers.png") repeat;
+	background: #100000 url("flowers.png") repeat;
 	font-size: 14px;
 	color: #aa8f8f;
 	line-height: 170%;
+	vertical-align: middle;
 }
 
 hr {
@@ -25,7 +36,7 @@ a:visited,
 a:active,
 .linkOn,
 .linkOff {
-	font-family: Pterra, TrueType;
+	font-family: Pterra, TrueType !important;
 	color: #7b5353;
 	text-decoration: none;
 	background: #00000066;
@@ -33,6 +44,7 @@ a:active,
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
 	cursor: pointer;
+	vertical-align: middle;
 }
 
 a:hover {
@@ -118,10 +130,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "New Rocker", TrueType;
+	font-family: "New Rocker", TrueType !important;
 	margin: 0;
 	padding: 16px 0 8px 0;
 	color: #9b3131;
+	vertical-align: middle;
 }
 
 h1 {
@@ -146,7 +159,7 @@ h4 {
 }
 
 .uiTitle {
-	font-family: Nosfer, TrueType;
+	font-family: Nosfer, TrueType !important;
 	clear: both;
 	padding: 6px 8px 6px 8px;
 	border-bottom: 2px solid #161616;
@@ -277,6 +290,17 @@ div.notice {
 .progressFill.highlight {
 	color: #ffffff;
 	background: #8ba5c4;
+}
+
+.charpreview-border {
+	position: fixed;
+	left: 216px;
+	top: 276px;
+	width: 96px;
+	height: 121px;
+	border: 4px double #aa8f8f;
+	z-index: 1;
+	box-sizing: border-box;
 }
 
 .clearBoth {
