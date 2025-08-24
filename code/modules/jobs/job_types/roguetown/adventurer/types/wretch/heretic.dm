@@ -223,6 +223,7 @@
 			H.change_stat("intelligence", 1)
 			H.change_stat("endurance", 2)
 			H.change_stat("speed", 2) //Slower than outlaw, but a bit more PER and INT
+			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/convert_heretic)
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_4)	//Minor regen, can level up to T4.
 			wretch_select_bounty(H)
