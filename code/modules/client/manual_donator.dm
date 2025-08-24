@@ -68,7 +68,7 @@ GLOBAL_VAR_INIT(donatorLoaded, 0)
 	var/key = input("CKey to Add", "Add Donator CKey") as null|text
 
 	if(key)
-		var/confirm = alert("Add [key] to the donator list?", , "Yes", "No")
+		var/confirm = alert("Add [key] to the donator list? (They need to reconnect to update status)", , "Yes", "No")
 		if(confirm == "Yes")
 			message_admins("[key_name(usr)] added [key] to the donator list.")
 			log_admin("[key_name(usr)] added [key] to the donator list.")
