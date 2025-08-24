@@ -83,6 +83,21 @@
 					H.update_inv_armor()
 			return
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/royal
+	name = "royal gambeson"
+	desc = "A fancy gambeson for royalty. Adorned with extra details and padded for extra protection."
+	icon_state = "royalgamb"
+	color = "#FFFFFF"
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	sellprice = 50
+	boobed = TRUE
+	nodismemsleeves = TRUE
+	sleeved_detail = TRUE
+	boobed_detail = FALSE
+	detail_tag = "_detail"
+	detail_color = "#e2ab32"
+	max_integrity = 250 //Same as grenzelshirt
+	shiftable = FALSE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
 	name = "fencing gambeson"
