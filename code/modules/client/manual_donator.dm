@@ -48,14 +48,14 @@ GLOBAL_VAR_INIT(donatorLoaded, 0)
 	if(!GLOB.donatorCkeysSaveFile)
 		return FALSE
 
-	GLOB.donatorCkeysSaveFile["donatorCkeysSaveFile"] >> GLOB.donatorCkeys
+	GLOB.donatorCkeysSaveFile["donatorCkeys"] >> GLOB.donatorCkeys
 
 	GLOB.donatorLoaded = TRUE
 
 /proc/save_donators()
 	if(!GLOB.donatorCkeys)
 		return FALSE
-	if(!GLOB.borderControlFile)
+	if(!GLOB.donatorCkeysSaveFile)
 		return FALSE
 
 	GLOB.donatorCkeysSaveFile["donatorCkeys"] << GLOB.donatorCkeys
@@ -70,8 +70,8 @@ GLOBAL_VAR_INIT(donatorLoaded, 0)
 	if(key)
 		var/confirm = alert("Add [key] to the donator list?", , "Yes", "No")
 		if(confirm == "Yes")
-			message_admins("added [key] to the donator list.")
-			log_admin("added [key] to the donator list.")
+			message_admins("[key_name(usr)] added [key] to the donator list.")
+			log_admin("[key_name(usr)] added [key] to the donator list.")
 			donator_addkey(key)
 
 /datum/admins/proc/admin_remove_donator_verb()
@@ -83,12 +83,6 @@ GLOBAL_VAR_INIT(donatorLoaded, 0)
 	if(key)
 		var/confirm = alert("Remove [key] from the donator list?", , "Yes", "No")
 		if(confirm == "Yes")
-			message_admins("removed [key] from the donator list.")
-			log_admin("removed [key] from the donator list.")
+			message_admins("[key_name(usr)] removed [key] from the donator list.")
+			log_admin("[key_name(usr)] removed [key] from the donator list.")
 			donator_removekey(key)
-
-//////////////////////////////////////////////////////////////////////////////////
-
-/hook/startup/proc/loadDonatorListHook()
-	load_donators()
-	return TRUE
