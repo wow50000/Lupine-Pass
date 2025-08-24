@@ -298,7 +298,7 @@ div.notice {
 	top: 276px;
 	width: 96px;
 	height: 121px;
-	border: 4px double #aa8f8f;
+	border: 4px ridge #aa8f8f;
 	z-index: 1;
 	box-sizing: border-box;
 }
