@@ -1276,25 +1276,25 @@
 	sellprice = 140
 
 // kazengite content
-
+// Stronger offense less defense sword meant to be paired w/ scabbard for parrying
 /obj/item/rogueweapon/sword/sabre/mulyeog
 	force = 25
-	name = "foreign straight blade"
-	desc = "A foreign sword used by cut-throats & thugs. There's a red tassel on the hilt."
+	name = "hwando" // From Korean Hwangdo - Lit. Military Sword / Sabre, noted for less curves than a Japanese katana.
+	desc = "A foreign single-edged sword used by cut-throats & thugs. There's a red tassel on the hilt, said to bring about good fortune."
 	sheathe_icon = "mulyeog"
 	icon_state = "eastsword1"
 	smeltresult = /obj/item/ingot/steel
 	wdefense = 3
 
 /obj/item/rogueweapon/sword/sabre/mulyeog/rumahench
-	name = "hwang blade"
-	desc = "A foreign steel sword with cloud patterns on the groove. An blade of the Ruma clan's insignia along it."
+	name = "ruma hwando"
+	desc = "A foreign steel single-edged sword with cloud patterns on the groove. The Ruma Clan's insignia is engraved on the blade."
 	icon_state = "eastsword2"
 
 /obj/item/rogueweapon/sword/sabre/mulyeog/rumacaptain
 	force = 30
 	name = "samjeongdo"
-	desc = "A gold-stained with cloud patterns on the groove. One of a kind. It is a symbol of status within the Ruma clan."
+	desc = "A gold-stained sword with cloud patterns on the groove. One of a kind. It is a symbol of status within the Ruma clan."
 	icon_state = "eastsword3"
 	max_integrity = 180
 	wdefense = 4
