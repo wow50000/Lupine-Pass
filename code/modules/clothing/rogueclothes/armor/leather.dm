@@ -67,7 +67,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/studded/warden
 	name = "forester's armor"
-	desc = "A hardened leather harness with a large pauldron worn over a maille coat, associated with the Azurian wardens."
+	desc = "A hardened leather harness with a large pauldron worn over a maille coat, associated with the wardens."
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon = 'icons/roguetown/clothing/special/warden.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/warden.dmi'
 	icon_state = "forestleather"
@@ -77,7 +78,7 @@
 	desc = "A hardened leather harness with a large pauldron worn over a tasseted brigandine, imbued with Dendor's essence."
 	icon_state = "forestbrig"
 	max_integrity = ARMOR_INT_CHEST_PLATE_BRIGANDINE + 50
-	equip_delay_self = 50
+	equip_delay_self = 4 SECONDS
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/suit/roguetown/armor/leather/studded
