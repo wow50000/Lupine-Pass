@@ -120,8 +120,9 @@
 
 /// Called after a bodypart is attacked so that wounds and critical effects can be applied
 /obj/item/bodypart/proc/bodypart_attacked_by(bclass = BCLASS_BLUNT, dam, mob/living/user, zone_precise = src.body_zone, silent = FALSE, crit_message = FALSE, armor)
+	RETURN_TYPE(/datum/wound)
 	if(!bclass || !dam || !owner || (owner.status_flags & GODMODE))
-		return FALSE
+		return null
 	var/do_crit = TRUE
 	var/acheck_dflag
 	switch(bclass)
