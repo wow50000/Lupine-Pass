@@ -67,6 +67,7 @@
 #define SPAN_GRENZELHOFTIAN "grenzelhoftian"
 #define SPAN_OTAVAN "otavan"
 #define SPAN_ETRUSCAN "etruscan"
+#define SPAN_ABYSSAL "abyssal"
 #define SPAN_GRONNIC "gronnic"
 #define SPAN_BEAST "beast"
 #define SPAN_ORC "orc"

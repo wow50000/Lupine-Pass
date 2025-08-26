@@ -113,6 +113,11 @@
 		/datum/descriptor_choice/prominent_four,
 	)
 
+	languages = list(
+		/datum/language/common,
+		/datum/language/abyssal
+	)
+
 /datum/species/akula/check_roundstart_eligible()
 	return TRUE
 
