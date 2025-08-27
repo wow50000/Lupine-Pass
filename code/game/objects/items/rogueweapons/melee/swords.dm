@@ -253,7 +253,7 @@
 	icon_state = "eclipsum"
 	sheathe_icon = "eclipsum"
 	force = 28
-	force = 33
+	force_wielded = 33
 
 /obj/item/rogueweapon/sword/long/undivided/getonmobprop(tag)
 	. = ..()
