@@ -225,14 +225,15 @@
 		/obj/item/lockpickring/mundane = 1,
 	)
 					
-	H.adjust_skillrank(/datum/skill/combat/slings, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/slings, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 
 	H.change_stat("strength", -3)
