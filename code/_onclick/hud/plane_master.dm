@@ -67,7 +67,6 @@
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	clear_filters()
 	filters += AMBIENT_OCCLUSION
-//		filters += filter(type="bloom", size = 4, offset = 0, threshold = "#282828")
 	if(istype(mymob) && mymob.eye_blurry)
 		filters += GAUSSIAN_BLUR(CLAMP(mymob.eye_blurry*0.1,0.6,3))
 	if(istype(mymob))
@@ -75,7 +74,6 @@
 			var/mob/living/L = mymob
 			if(L.has_status_effect(/datum/status_effect/buff/druqks))
 				add_filter("druqks_color", 2, color_matrix_filter(list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0)))
-
 
 /atom/movable/screen/plane_master/lighting
 	name = "lighting plane master"
@@ -157,7 +155,6 @@
 			var/mob/living/L = mymob
 			if(L.has_status_effect(/datum/status_effect/buff/druqks))
 				add_filter("druqks_color", 2, color_matrix_filter(list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0)))
-				animate(filter, 1 SECONDS, -1, radius=480, size=50, flags=ANIMATION_PARALLEL)
 
 /atom/movable/screen/plane_master/game_world_below
 	name = "lowest game world plane master"
@@ -166,7 +163,7 @@
 	blend_mode = BLEND_OVERLAY
 
 /atom/movable/screen/plane_master/game_world_below/backdrop(mob/mymob)
-	filters = list()
+	clear_filters()
 	filters += AMBIENT_OCCLUSION
 	if(istype(mymob) && mymob.eye_blurry)
 		filters += GAUSSIAN_BLUR(CLAMP(mymob.eye_blurry*0.1,0.6,3))
@@ -174,11 +171,10 @@
 		if(isliving(mymob))
 			var/mob/living/L = mymob
 			if(L.has_status_effect(/datum/status_effect/buff/druqks))
-				filters += filter(type="ripple",x=80,size=50,radius=0,falloff = 1)
-				var/F1 = filters[filters.len]
-				filters += filter(type="color", color = list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0))
-				F1 = filters[filters.len-1]
-				animate(F1, size=50, radius=480, time=10, loop=-1, flags=ANIMATION_PARALLEL)
+				add_filter("druqks_ripple", 1, ripple_filter(0, 50, 1, x = 80))
+				var/filter = get_filter("druqks_ripple")
+				add_filter("druqks_color", 2, color_matrix_filter(list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0)))
+				animate(filter, 1 SECONDS, -1, radius=480, size=50, flags=ANIMATION_PARALLEL)
 
 
 /atom/movable/screen/plane_master/game_world_walls
@@ -188,7 +184,7 @@
 	blend_mode = BLEND_OVERLAY
 
 /atom/movable/screen/plane_master/game_world_walls/backdrop(mob/mymob)
-	filters = list()
+	clear_filters()
 	filters += AMBIENT_OCCLUSION_WALLS
 	if(istype(mymob) && mymob.eye_blurry)
 		filters += GAUSSIAN_BLUR(CLAMP(mymob.eye_blurry*0.1,0.6,3))
@@ -196,11 +192,10 @@
 		if(isliving(mymob))
 			var/mob/living/L = mymob
 			if(L.has_status_effect(/datum/status_effect/buff/druqks))
-				filters += filter(type="ripple",x=80,size=50,radius=0,falloff = 1)
-				var/F1 = filters[filters.len]
-				filters += filter(type="color", color = list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0))
-				F1 = filters[filters.len-1]
-				animate(F1, size=50, radius=480, time=10, loop=-1, flags=ANIMATION_PARALLEL)
+				add_filter("druqks_ripple", 1, ripple_filter(0, 50, 1, x = 80))
+				var/filter = get_filter("druqks_ripple")
+				add_filter("druqks_color", 2, color_matrix_filter(list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0)))
+				animate(filter, 1 SECONDS, -1, radius=480, size=50, flags=ANIMATION_PARALLEL)
 
 
 /atom/movable/screen/plane_master/field_of_vision_blocker
