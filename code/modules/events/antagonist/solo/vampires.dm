@@ -20,7 +20,7 @@
 	earliest_start = 0 SECONDS
 
 	typepath = /datum/round_event/antagonist/solo/vampire
-	antag_datum = /datum/antagonist/vampirelord
+	antag_datum = /datum/antagonist/vampirelord/lesser //vlord once again disabled by host request for now
 
 	restricted_roles = list( // basically just keep and church roles
 		"Grand Duke",
