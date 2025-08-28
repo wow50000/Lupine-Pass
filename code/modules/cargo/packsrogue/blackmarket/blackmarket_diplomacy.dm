@@ -72,11 +72,6 @@
 	/obj/item/ammo_casing/caseless/rogue/bolt/water
 	)
 
-/datum/supply_pack/rogue/blackmarket_diplomacy/lovepotion
-	name = "Potion of Love"
-	cost =	600
-	contains = list(/obj/item/lovepotion)
-
 /datum/supply_pack/rogue/blackmarket_diplomacy/leathercollar
 	name = "Leather Collar"
 	cost =	50	//sense of pride and accomplishment
