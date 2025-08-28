@@ -68,7 +68,7 @@
 			return FALSE
 		if((owner.client?.chargedprog == 100 && owner.used_intent?.tranged) || prob(coverage))
 			owner.visible_message(span_danger("[owner] expertly blocks [hitby] with [src]!"))
-			src.take_damage(floor(damage / 2)) // Halved damage so they don't feel too fragile
+			src.take_damage(INTEG_PARRY_DECAY_NOSHARP) // Halved damage so they don't feel too fragile
 			return TRUE
 	return FALSE
 
