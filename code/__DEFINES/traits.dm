@@ -201,6 +201,7 @@
 #define TRAIT_DYES "Dyemaster"
 // ARMOR / CLOTHING GIVEN TRAITS (GIVEN BY WEARING CLOTHES/ARMOR PIECES)
 #define TRAIT_MONK_ROBE	"Holy Vestatures"
+#define TRAIT_RACISMISBAD "Heritage Vision"
 
 // If you want description to show up you gotta have the trait name defined BEFORE this lol
 
@@ -366,6 +367,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ADRENALINE_RUSH = span_notice("I'm invigorated in the midst of battle! I don't feel my wounds!"),
 	TRAIT_MEDICINE_EXPERT = span_greentext("I've deep, intricate knowledge of my craft. I can learn to become a Master or above."),
 	TRAIT_DYES = span_notice("I know my way around pigments and shades, and I'm able to create the exact colors I want in a dye station.")
+	TRAIT_RACISMISBAD = span_warning("The Black Oaks can spot ANY Foreigners and Outsiders, no matter how long they've lived in Azuria. This is an easy skill to master, as it is simply identifying who isn't an elf."),
 ))
 
 // trait accessor defines
