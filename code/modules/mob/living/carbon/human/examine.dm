@@ -859,7 +859,12 @@
 	if((!obscure_name || client?.prefs.masked_examine) && (flavortext || headshot_link || ooc_notes))
 		. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a>"
 
-	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
+	//tiny picture when you are not examining closer, shouldnt take too much space.
+	var/list/lines
+	if(get_visible_name() in unknown_names)
+		lines = build_cool_description_unknown(get_mob_descriptors(obscure_name, user), src)
+	else
+		lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
 	if(lip_style)
 		switch(lip_color)
 			if("red")
