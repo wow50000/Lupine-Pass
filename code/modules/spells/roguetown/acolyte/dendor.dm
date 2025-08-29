@@ -67,7 +67,7 @@
 			to_chat(usr, "With Dendor's aide, you soothe [animal] of their anger.")
 	return tamed
 
-/obj/effect/proc_holder/spell/targeted/conjure_glowshroom // This has been moved to the druid job type, but is still here for reference.
+/obj/effect/proc_holder/spell/targeted/conjure_glowshroom
 	name = "Fungal Illumination"
 	desc = "Summons glowing mushrooms that shock people that try moving into them. Dendorites are immune."
 	range = 1
@@ -88,8 +88,8 @@
 	var/turf/T = user.loc
 	for(var/X in GLOB.cardinals)
 		var/turf/TT = get_step(T, X)
-		if(!isclosedturf(TT) && !locate(/obj/structure/glowshroom) in TT)
-			new /obj/structure/glowshroom(TT)
+		if(!isclosedturf(TT) && !locate(/obj/structure/glowshroom) in TT && !locate(/obj/structure/glowshroom/dendorite) in TT)
+			new /obj/structure/glowshroom/dendorite(TT)
 	return TRUE
 
 /obj/effect/proc_holder/spell/self/howl/call_of_the_moon
