@@ -269,7 +269,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 //	dat += "<a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>Keybinds</a>"
 
 	dat += "</center>"
-	dat += "<div class='charpreview-border'></div>"
+	// Fuck me - need to figure out why it's scaling like that
+	// dat += "<div class='charpreview-border'></div>"
 	
 	var/used_title
 	switch(current_tab)
@@ -379,7 +380,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				var/obj/item/bodypart/taur/T = taur_type
 				var/name = ispath(T) ? T::name : "None"
 				dat += "<b>Taur Body Type:</b> <a href='?_src_=prefs;preference=taur_type;task=input'>[name]</a><BR>"
-				dat += "<b>Taur Color:</b> <span class='colorbox' style='background-color: #[taur_color];'></span> <a href='?_src_=prefs;preference=taur_color;task=input'>Change</a><BR>"
+				if(T)
+					dat += "<b>Taur Color:</b> <span class='colorbox' style='background-color: #[taur_color];'></span> <a href='?_src_=prefs;preference=taur_color;task=input'>Change</a><BR>"
 
 			// LETHALSTONE EDIT BEGIN: add voice type prefs
 			dat += "<b>Voice Type</b>: <a href='?_src_=prefs;preference=voicetype;task=input'>[voice_type]</a><BR>"
@@ -449,7 +451,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<b>Mutant Color #1:</b><span class='colorbox' style='background-color: #[features["mcolor"]];'></span><a href='?_src_=prefs;preference=mutant_color;task=input'>Change</a><BR>"
 				dat += "<b>Mutant Color #2:</b><span class='colorbox' style='background-color: #[features["mcolor2"]];'></span><a href='?_src_=prefs;preference=mutant_color2;task=input'>Change</a><BR>"
 				dat += "<b>Mutant Color #3:</b><span class='colorbox' style='background-color: #[features["mcolor3"]];'></span><a href='?_src_=prefs;preference=mutant_color3;task=input'>Change</a><BR>"
-				
 			if((LAMIAN_TAIL in pref_species.species_traits))
 				dat += "<b>Skin/scales color #1:</b><a href='?_src_=prefs;preference=skin_color_ref_list;task=input'>(?)</a><span class='colorbox' style='background-color: #[features["mcolor"]];'></span> <a href='?_src_=prefs;preference=skin_choice_pick;task=input'>Change</a><BR>"
 				dat += "<b>Feature Color #1:</b><span class='colorbox' style='background-color: #[features["mcolor2"]];'></span> <a href='?_src_=prefs;preference=mutant_color2;task=input'>Change</a><BR>"
@@ -772,7 +773,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 		dat = list("<center>REGISTER!</center>")
 
 	var/W = 700
-	var/H = 970
+	var/H = 1020
 
 	winshow(user, "preferencess_window", TRUE)
 	winset(user, "preferencess_window", "size=[W]x[H];is-visible=true")
