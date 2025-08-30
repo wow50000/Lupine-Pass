@@ -23,19 +23,6 @@
 		REMOVE_TRAIT(recipient, TRAIT_BEAUTIFUL, TRAIT_VIRTUE)
 		REMOVE_TRAIT(recipient, TRAIT_UNSEEMLY, TRAIT_VIRTUE)
 
-/datum/virtue/utility/beautiful
-	name = "Beautiful"
-	desc = "Wherever I go, I turn heads, such is my natural beauty. I am also rather good in bed, though they always say that."
-	custom_text = "Incompatible with Ugly virtue."
-	added_traits = list(TRAIT_BEAUTIFUL, TRAIT_GOODLOVER)
-
-/datum/virtue/utility/beautiful/handle_traits(mob/living/carbon/human/recipient)
-	..()
-	if(HAS_TRAIT(recipient, TRAIT_UNSEEMLY))
-		to_chat(recipient, "Your social grace is cancelled out! You become normal.")
-		REMOVE_TRAIT(recipient, TRAIT_BEAUTIFUL, TRAIT_VIRTUE)
-		REMOVE_TRAIT(recipient, TRAIT_UNSEEMLY, TRAIT_VIRTUE)
-
 /datum/virtue/utility/deadened
 	name = "Deadened"
 	desc = "Some terrible incident colours my past, and now, I feel nothing."
@@ -49,7 +36,7 @@
 
 /datum/virtue/utility/resident
 	name = "Resident"
-	desc = "I'm a resident of Azure Peak. I have an account in the city's treasury and a home in the city."
+	desc = "I'm a resident of the vale. I have an account in the city's treasury and a home in the city."
 	added_traits = list(TRAIT_RESIDENT)
 
 /datum/virtue/utility/resident/apply_to_human(mob/living/carbon/human/recipient)
@@ -87,7 +74,7 @@
 				var/obj/structure/chair/chosen_chair = pick(possible_chairs)
 				recipient.forceMove(get_turf(chosen_chair))
 				chosen_chair.buckle_mob(recipient)
-				to_chat(recipient, span_notice("As a resident of Azure Peak, you find yourself seated at a chair in the local tavern."))
+				to_chat(recipient, span_notice("As a resident of the vale, you find yourself seated at a chair in the local tavern."))
 			else
 				var/list/possible_spawns = list()
 				for(var/turf/T in spawn_area)
@@ -97,7 +84,7 @@
 				if(length(possible_spawns))
 					var/turf/spawn_loc = pick(possible_spawns)
 					recipient.forceMove(spawn_loc)
-					to_chat(recipient, span_notice("As a resident of Azure Peak, you find yourself in the local tavern."))
+					to_chat(recipient, span_notice("As a resident of the vale, you find yourself in the local tavern."))
 
 /datum/virtue/utility/failed_squire
 	name = "Failed Squire"

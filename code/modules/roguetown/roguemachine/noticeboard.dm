@@ -1,6 +1,6 @@
 /obj/structure/roguemachine/noticeboard
 	name = "Notice Board"
-	desc = "A large wooden notice board, carrying postings from all across Azurea. A ZAD perch sits atop it."
+	desc = "A large wooden notice board, carrying postings from all across the vale. A ZAD perch sits atop it."
 	icon = 'icons/roguetown/misc/64x64.dmi'
 	icon_state = "noticeboard0"
 	density = TRUE
@@ -16,7 +16,7 @@
 
 /obj/structure/roguemachine/boardbarrier //Blocks sprite locations
 	name = ""
-	desc = "A large wooden notice board, carrying postings from all across Azurea. A ZAD perch sits atop it."
+	desc = "A large wooden notice board, carrying postings from all across the vale. A ZAD perch sits atop it."
 	icon = 'icons/roguetown/underworld/underworld.dmi'
 	icon_state = "spiritpart"
 	density = TRUE
@@ -85,23 +85,23 @@
 		return attack_hand(usr)
 	if(href_list["authorityremovepost"])
 		authority_removepost(usr)
-		return attack_hand(usr) 
+		return attack_hand(usr)
 	if(href_list["consultcontracts"])
 		consult_contracts(usr)
-		return attack_hand(usr) 
+		return attack_hand(usr)
 	if(href_list["turnincontract"])
 		turn_in_contract(usr)
-		return attack_hand(usr) 
+		return attack_hand(usr)
 	if(href_list["abandoncontract"])
 		abandon_contract(usr)
-		return attack_hand(usr) 
+		return attack_hand(usr)
 	if(href_list["printcontracts"])
 		print_contracts(usr)
-		return attack_hand(usr) 
+		return attack_hand(usr)
 	return attack_hand(usr)
 
 /obj/structure/roguemachine/noticeboard/attack_hand(mob/living/carbon/human/user)
-	if(!ishuman(user)) 
+	if(!ishuman(user))
 		return
 	var/can_remove = FALSE
 	var/can_premium = FALSE
@@ -160,7 +160,7 @@
 		contents += "Scouts rate how dangerous a region is from Safe -> Low -> Moderate -> Dangerous -> Bleak <br>"
 		contents += "A safe region is safe and travelers are unlikely to be ambushed by common creechurs and brigands <br>"
 		contents += "A low threat region is unlikely to manifest any great threat and brigands and creechurs are often found alone.<br>"
-		contents += "Only Azure Basin, Northern Grove, South Azurean Coast, and the Terrorbog can be rendered safe entirely. <br>" 
+		contents += "Only Rotwood Basin, Northern Grove, South Rotwood Coast, and the Terrorbog can be rendered safe entirely. <br>"
 		contents += "Regions not listed are beyond the charge of the wardens. Danger will be constant in these regions.<br>"
 		contents += "Danger is reduced by luring villains and creechurs and killing them when they ambush you. The signal horns wardens have been issued can help with this. Take care with using it."
 	var/datum/browser/popup = new(user, "NOTICEBOARD", "", 800, 650)
@@ -320,21 +320,21 @@
 
 	var/list/difficulty_data = list(
 		QUEST_DIFFICULTY_EASY = list(
-			deposit = QUEST_DEPOSIT_EASY, 
-			reward_min = QUEST_REWARD_EASY_LOW, 
-			reward_max = QUEST_REWARD_EASY_HIGH, 
+			deposit = QUEST_DEPOSIT_EASY,
+			reward_min = QUEST_REWARD_EASY_LOW,
+			reward_max = QUEST_REWARD_EASY_HIGH,
 			icon = "scroll_quest_low"
 		),
 		QUEST_DIFFICULTY_MEDIUM = list(
-			deposit = QUEST_DEPOSIT_MEDIUM, 
-			reward_min = QUEST_REWARD_MEDIUM_LOW, 
-			reward_max = QUEST_REWARD_MEDIUM_HIGH, 
+			deposit = QUEST_DEPOSIT_MEDIUM,
+			reward_min = QUEST_REWARD_MEDIUM_LOW,
+			reward_max = QUEST_REWARD_MEDIUM_HIGH,
 			icon = "scroll_quest_mid"
 		),
 		QUEST_DIFFICULTY_HARD = list(
-			deposit = QUEST_DEPOSIT_HARD, 
-			reward_min = QUEST_REWARD_HARD_LOW, 
-			reward_max = QUEST_REWARD_HARD_HIGH, 
+			deposit = QUEST_DEPOSIT_HARD,
+			reward_min = QUEST_REWARD_HARD_LOW,
+			reward_max = QUEST_REWARD_HARD_HIGH,
 			icon = "scroll_quest_high"
 		)
 	)
@@ -466,22 +466,22 @@
 		// Calculate base reward
 		var/base_reward = scroll.assigned_quest.reward_amount
 		original_reward += base_reward
-		
+
 		// Calculate deposit return based on difficulty
 		var/deposit_return = scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_EASY ? QUEST_DEPOSIT_EASY : \
 							scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? QUEST_DEPOSIT_MEDIUM : QUEST_DEPOSIT_HARD
 		total_deposit_return += deposit_return
-		
+
 		// Apply Steward/Mechant bonus if applicable (only to the base reward)
 		if(user.job == "Steward" || user.job == "Merchant")
 			reward += base_reward * QUEST_HANDLER_REWARD_MULTIPLIER
 		else
 			reward += base_reward
-		
+
 		// Add deposit return to both reward totals
 		reward += deposit_return
 		original_reward += deposit_return
-		
+
 		qdel(scroll.assigned_quest)
 		qdel(scroll)
 

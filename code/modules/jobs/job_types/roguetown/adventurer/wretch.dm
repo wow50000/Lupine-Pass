@@ -51,8 +51,8 @@
 
 // Proc for wretch to select a bounty
 /proc/wretch_select_bounty(mob/living/carbon/human/H)
-	var/bounty_poster = input(H, "Who placed a bounty on you?", "Bounty Poster") as anything in list("The Justiciary of Azuria", "The Grenzelhoftian Holy See", "The Otavan Orthodoxy")
-	if(bounty_poster == "The Justiciary of Azuria")
+	var/bounty_poster = input(H, "Who placed a bounty on you?", "Bounty Poster") as anything in list("The Justiciary of Rotwood", "The Grenzelhoftian Holy See", "The Otavan Orthodoxy")
+	if(bounty_poster == "The Justiciary of Rotwood")
 		GLOB.outlawed_players += H.real_name
 	else
 		GLOB.excommunicated_players += H.real_name
