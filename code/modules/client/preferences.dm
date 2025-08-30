@@ -1099,15 +1099,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		if(1)
 			jpval = JP_HIGH
 
-	if(job_preferences[job.title] == JP_LOW)
-		jpval = null
-	else
-		var/used_name = "[job.title]"
-		if((pronouns == SHE_HER || pronouns == THEY_THEM_F) && job.f_title)
-			used_name = "[job.f_title]"
-		to_chat(user, "<font color='red'>You have too low PQ for [used_name] (Min PQ: [job.min_pq]), you may only set it to low.</font>")
-		jpval = JP_LOW
-
 	SetJobPreferenceLevel(job, jpval)
 	SetChoices(user)
 
