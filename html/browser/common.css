@@ -303,6 +303,16 @@ div.notice {
 	box-sizing: border-box;
 }
 
+.colorbox {
+	width: 12px;
+	height: 12px;
+	margin-left: 4px;
+	border-radius: 2px;
+	border: 1px solid #aa8f8f;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .clearBoth {
 	clear: both;
 }
