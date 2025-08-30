@@ -861,7 +861,7 @@
 
 	//tiny picture when you are not examining closer, shouldnt take too much space.
 	var/list/lines
-	if(get_visible_name() in unknown_names)
+	if((get_visible_name() in unknown_names) && !observer_privilege)
 		lines = build_cool_description_unknown(get_mob_descriptors(obscure_name, user), src)
 	else
 		lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
