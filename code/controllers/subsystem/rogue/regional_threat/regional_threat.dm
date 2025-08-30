@@ -5,11 +5,11 @@
 #define DANGER_LEVEL_DANGEROUS "Dangerous"
 #define DANGER_LEVEL_BLEAK "Bleak"
 
-#define THREAT_REGION_AZURE_BASIN "Azure Basin"
+#define THREAT_REGION_AZURE_BASIN "Rotwood Basin"
 #define THREAT_REGION_NORTHERN_GROVE "Northern Grove"
 #define THREAT_REGION_OUTER_GROVE "Outer Grove" // Grove west of the road
-#define THREAT_REGION_SOUTH_AZUREAN_COAST "South Azurean Coast"
-#define THREAT_REGION_NORTH_AZUREAN_COAST "North Azurean Coast"
+#define THREAT_REGION_SOUTH_AZUREAN_COAST "South Rotwood Coast"
+#define THREAT_REGION_NORTH_AZUREAN_COAST "North Rotwood Coast"
 #define THREAT_REGION_MOUNT_DECAP "Mount Decapitation"
 #define THREAT_REGION_TERRORBOG "Terrorbog"
 
@@ -24,10 +24,10 @@ SUBSYSTEM_DEF(regionthreat)
 	// The first four regions are meant to be "tameable" for towner purposes
 	var/list/threat_regions = list(
 		new /datum/threat_region(
-			_region_name = THREAT_REGION_AZURE_BASIN, 
+			_region_name = THREAT_REGION_AZURE_BASIN,
 			_latent_ambush = DANGER_LOW_FLOOR,
 			_min_ambush = DANGER_SAFE_FLOOR,
-			_max_ambush = DANGER_DANGEROUS_LIMIT, // Let's not go DIRE no matter what, in the future 
+			_max_ambush = DANGER_DANGEROUS_LIMIT, // Let's not go DIRE no matter what, in the future
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
 			_highpop_tick = 1,

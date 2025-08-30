@@ -697,7 +697,7 @@
 	if(!user.is_literate())
 		. += "I have no idea what it says."
 	else
-		. += "It says \"AZURE PEAK\""
+		. += "It says \"ROTWOOD VALE\""
 
 /obj/structure/fluff/buysign
 	icon_state = "signwrote"
@@ -1030,10 +1030,10 @@
 		/obj/item/kitchen/spoon/silver,
 		/obj/item/candle/candlestick/gold,
 		/obj/item/candle/candlestick/silver,
-		/obj/item/rogueweapon/sword/long/judgement, // various unique weapons around from a few roles follows. Don't lose your fancy toys.... 
+		/obj/item/rogueweapon/sword/long/judgement, // various unique weapons around from a few roles follows. Don't lose your fancy toys....
 		/obj/item/rogueweapon/sword/long/oathkeeper,
 		/obj/item/rogueweapon/woodstaff/riddle_of_steel/magos, //bit dumb for a bandit mage to toss this toy away but whatever
-		/obj/item/rogueweapon/halberd/psyhalberd, // relic weapons but not standard Inquisition stuff 
+		/obj/item/rogueweapon/halberd/psyhalberd, // relic weapons but not standard Inquisition stuff
 		/obj/item/rogueweapon/greatsword/psygsword,
 	)
 
@@ -1148,7 +1148,7 @@
 
 /obj/structure/fluff/psycross/psycrucifix/stone
 	name = "stone psydonic crucifix"
-	desc = "Formed of stone, this great Psycross symbolises that HE is forever ENDURING. Considered a rare sight upon the Peaks."
+	desc = "Formed of stone, this great Psycross symbolises that HE is forever ENDURING. Considered a rare sight upon the vale."
 	icon_state = "psycruci_r"
 	max_integrity = 120
 	chance2hear = 10

@@ -218,7 +218,7 @@
 		var/used_title = title
 		if((H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F) && f_title)
 			used_title = f_title
-		scom_announce("[H.real_name] the [used_title] arrives to Azure Peak.")
+		scom_announce("[H.real_name] the [used_title] arrives to Rotwood Vale.")
 
 	if(give_bank_account)
 		if(give_bank_account > 1)
@@ -236,7 +236,7 @@
 		H.cmode_music = cmode_music
 
 	if (!hidden_job)
-		var/mob/living/carbon/human/Hu = H 
+		var/mob/living/carbon/human/Hu = H
 		if (istype(H, /mob/living/carbon/human))
 			if (obsfuscated_job)
 				GLOB.actors_list[H.mobid] = "[H.real_name] as the [Hu.dna.species.name] Adventurer<BR>"

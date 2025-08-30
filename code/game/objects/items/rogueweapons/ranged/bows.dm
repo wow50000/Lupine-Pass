@@ -25,7 +25,7 @@
 		if(strength_check == TRUE)
 			newtime = ((newtime + 10) - (mastermob.STASTR / 2))
 		else
-			newtime = newtime 
+			newtime = newtime
 		newtime = ((newtime + 20) - (mastermob.STAPER))
 		if(newtime > 1)
 			return newtime //this value is how fast we can accurately shoot a bow. most builds will turn up with about 6 - 12 on non heavy bows.
@@ -62,7 +62,7 @@
 		if(strength_check == TRUE)
 			newtime = ((newtime + 10) - (mastermob.STASTR / 2))
 		else
-			newtime = newtime 
+			newtime = newtime
 		newtime = ((newtime + 20) - (mastermob.STAPER))
 		if(newtime > 3)
 			return newtime
@@ -427,7 +427,7 @@
 	name = "blackhorn bow"
 	desc = "When a northern black-horned saiga is old enough, it will shed its two-metre long antlers. As time passes, they harden progressively more but keep a degree of flexibility that can outdo even yew.\
 		Wardens often collect such antlers in the rare occasion they are found and send them to be filed, strung and treated by a master bowyer. Such tradition carries merit even todae, \
-		and thus one can see Azurian wardens carrying their endemic blackhorn bows with pride."
+		and thus one can see the vale's wardens carrying their endemic blackhorn bows with pride."
 	icon_state = "recurve_warden"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow/warden

@@ -174,8 +174,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		SSticker.regentmob = null
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)
-		say("By the authority of the gods, I pronounce you Ruler of all Azuria!")
-		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of AZURE PEAK!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
+		say("By the authority of the gods, I pronounce you Ruler of all the vale!")
+		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of ROTWOOD VALE!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
 		var/datum/job/roguetown/nomoredukes = SSjob.GetJob("Grand Duke")
 		if(nomoredukes)
 			nomoredukes.total_positions = -1000 //We got what we got now.
@@ -191,7 +191,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		to_chat(src, span_warning("I need to do this in the chapel."))
 		return FALSE
 
-	var/announcementinput = input("Bellow to the Peaks", "Make an Announcement") as text|null
+	var/announcementinput = input("Bellow to the vale", "Make an Announcement") as text|null
 	if(announcementinput)
 		if(!src.can_speak_vocal())
 			to_chat(src,span_warning("I can't speak!"))
@@ -496,7 +496,7 @@ code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep 
 
 			COOLDOWN_START(src, priest_curse, PRIEST_CURSE_COOLDOWN)
 			H.add_curse(curse_type)
-			
+
 			priority_announce("[real_name] has stricken [H.real_name] with [curse_pick]! SHAME!", title = "JUDGEMENT", sound = 'sound/misc/excomm.ogg')
 			message_admins("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
 			log_game("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")

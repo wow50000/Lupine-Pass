@@ -119,7 +119,7 @@
 	open_wear = TRUE
 
 
-/obj/item/clothing/cloak/psydontabard/MiddleClick(mob/user) 
+/obj/item/clothing/cloak/psydontabard/MiddleClick(mob/user)
 	overarmor = !overarmor
 	to_chat(user, span_info("I [overarmor ? "wear the tabard over my armor" : "wear the tabard under my armor"]."))
 	if(overarmor)
@@ -468,7 +468,7 @@
 		for(var/obj/item/I in things)
 			STR.remove_from_storage(I, get_turf(src))
 
-/obj/item/clothing/cloak/stabard/MiddleClick(mob/user) 
+/obj/item/clothing/cloak/stabard/MiddleClick(mob/user)
 	overarmor = !overarmor
 	to_chat(user, span_info("I [overarmor ? "wear the tabard over my armor" : "wear the tabard under my armor"]."))
 	if(overarmor)
@@ -1008,7 +1008,7 @@
 
 /obj/item/clothing/cloak/raincloak/furcloak/black
 	color = "#2b292e"
-	
+
 /obj/item/clothing/cloak/raincloak/furcloak/darkgreen
 	color = "#264d26"
 
@@ -1470,8 +1470,8 @@
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
-	
-/obj/item/clothing/cloak/templar/MiddleClick(mob/user) 
+
+/obj/item/clothing/cloak/templar/MiddleClick(mob/user)
 	overarmor = !overarmor
 	to_chat(user, span_info("I [overarmor ? "wear the tabard over my armor" : "wear the tabard under my armor"]."))
 	if(overarmor)
@@ -1720,7 +1720,7 @@
 	return ..()
 
 /obj/item/clothing/cloak/stabard/guardhood/elder
-	name = "elder's hood"	
+	name = "elder's hood"
 
 /obj/item/clothing/cloak/hierophant
 	name = "hierophant's sash"
@@ -1901,7 +1901,7 @@
 
 /obj/item/clothing/cloak/captain
 	name = "captain's cape"
-	desc = "A cape with a gold embroided heraldry of Azure."
+	desc = "A cape with a gold embroided heraldry of the vale."
 	icon = 'icons/roguetown/clothing/special/captain.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/captain.dmi'
