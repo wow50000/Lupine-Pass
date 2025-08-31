@@ -809,7 +809,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	// var/W = 900
 	// var/H = 1000
 
-	// winshow(user, "preferencess_window", TRUE)
+	winshow(user, "preferencess_window", TRUE)
 	// winset(user, "preferencess_window", "size=[W]x[H];is-visible=true")
 	// winset(user, "preferences_browser", "pos=0,0;size=[W]x[H];anchor1=0,0;anchor2=100,100;is-visible=true")
 	var/datum/browser/noclose/popup = new(user, "preferences_browser", "<div align='center'>[used_title]</div>")
