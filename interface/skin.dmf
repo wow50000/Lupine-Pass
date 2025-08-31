@@ -123,6 +123,7 @@ window "outputwindow"
 		is-default = true
 		border = sunken
 		saved-params = "command"
+		command=""
 
 window "output_legacy"
 	elem "output_legacy"
@@ -220,6 +221,7 @@ window "preferencess_window"
 		statusbar = false
 		can-close = false
 		can-resize = false
+		can_scroll = true
 		icon = 'icons\\tg_32.png'
 	elem "preferences_browser"
 		type = BROWSER

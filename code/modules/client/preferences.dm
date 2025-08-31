@@ -349,7 +349,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<td width=40% valign='top'>"
 
 // 			-----------START OF IDENT TABLE-----------
-			dat += "<h2>Identity</h2>"
+			dat += "<center><h2>Identity</h2></center>"
 			dat += "<table width='100%'><tr><td width='75%' valign='top'>"
 			if(is_banned_from(user.ckey, "Appearance"))
 				dat += "<b>Thou are banned from using custom names and appearances. Thou can continue to adjust thy characters, but thee will be randomised once thee joins the game.</b><br>"
@@ -446,7 +446,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<td width=20% valign='top'>"
 			// Rightmost column, 40% width
 			dat += "<td width=40% valign='top'>"
-			dat += "<h2>Body</h2>"
+			dat += "<center><h2>Body</h2></center>"
 
 //			-----------START OF BODY TABLE-----------
 			dat += "<table width='100%'><tr><td width='1%' valign='top'>"
@@ -790,8 +790,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	if(user.client.is_new_player())
 		dat = list("<center>REGISTER!</center>")
 
-	var/W = 700
-	var/H = 1020
+	var/W = 900
+	var/H = 1000
 
 	winshow(user, "preferencess_window", TRUE)
 	winset(user, "preferencess_window", "size=[W]x[H];is-visible=true")
@@ -800,7 +800,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
-	winset(user, "preferencess_window.character_preview_map", "pos=275,350;size=110x140;is-visible=true;mouse-opacity=0")
+	winset(user, "preferencess_window.character_preview_map", "pos=370,350;size=130x160;is-visible=true;mouse-opacity=0")
 	update_preview_icon()
 //	onclose(user, "preferencess_window", src)
 
