@@ -448,7 +448,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["bark_pitch"] >> bark_pitch
 	S["bark_variance"] >> bark_variance
 
-	if(!bark_id in GLOB.bark_list)
+	if(!(bark_id in GLOB.bark_list))
 		bark_id = pick(GLOB.bark_random_list)
 	var/datum/bark/B = GLOB.bark_list[bark_id]
 	bark_speed = round(clamp(bark_speed, initial(B.minspeed), initial(B.maxspeed)), 1)
