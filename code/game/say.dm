@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		for(var/mob/M in hearers)
 			if(!M.client)
 				continue
-			if(!(M.client.prefs.toggles & SOUND_BARK))
+			if(!(M.client.prefs.hear_barks))
 				hearers -= M
 		var/barks = min(round((LAZYLEN(message) / vocal_speed)) + 1, BARK_MAX_BARKS)
 		var/total_delay
