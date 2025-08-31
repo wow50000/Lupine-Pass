@@ -362,14 +362,7 @@ GLOBAL_LIST_EMPTY(bark_random_list)
 	name = "Tweet"
 	id = "tweet"
 	soundpath = 'code/modules/blooper/voice/bloopers/kazooie/tweet.ogg'
-
-/datum/bark/dwoop
-	name = "Dwoop"
-	id = "dwoop"
-	soundpath = 'code/modules/blooper/voice/bloopers/kazooie/dwoop.ogg'
-	minspeed = 3
-	maxspeed = 9
-
+	
 /datum/bark/uhm
 	name = "Uhm"
 	id = "uhm"

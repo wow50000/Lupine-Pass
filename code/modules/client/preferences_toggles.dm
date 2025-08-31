@@ -152,9 +152,9 @@
 	set category = "Options"
 	set desc = ""
 	if(prefs)
-		prefs.toggles ^= SOUND_BARK
+		prefs.hear_barks = !prefs.hear_barks
 		prefs.save_preferences()
-	to_chat(src, "You will [prefs.toggles & SOUND_BARK ? "" : "not"] hear vocal barks.")
+	to_chat(src, "You will [prefs.hear_barks ? "" : "not "]hear vocal barks.")
 
 /*
 //toggles

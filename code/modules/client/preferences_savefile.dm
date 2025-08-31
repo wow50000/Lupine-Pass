@@ -447,6 +447,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["bark_speed"] >> bark_speed
 	S["bark_pitch"] >> bark_pitch
 	S["bark_variance"] >> bark_variance
+	S["hear_barks"] >> hear_barks
 
 	if(!(bark_id in GLOB.bark_list))
 		bark_id = pick(GLOB.bark_random_list)
@@ -744,6 +745,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["bark_speed"]				, bark_speed)
 	WRITE_FILE(S["bark_pitch"]				, bark_pitch)
 	WRITE_FILE(S["bark_variance"]			, bark_variance)
+	WRITE_FILE(S["hear_barks"]				, hear_barks)
 
 	WRITE_FILE(S["update_mutant_colors"] , update_mutant_colors)
 	WRITE_FILE(S["headshot_link"] , headshot_link)

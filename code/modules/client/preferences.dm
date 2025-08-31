@@ -180,6 +180,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/bark_pitch = 1
 	var/bark_variance = 0.2
 	COOLDOWN_DECLARE(bark_previewing)
+	var/hear_barks = TRUE
 
 	// PATREON
 	// Vrell - I fucking hate how inconsistent the variable style is for this shit. underscores? all lowercase? camelcase? 
