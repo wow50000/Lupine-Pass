@@ -147,6 +147,15 @@
 		prefs.save_preferences()
 	to_chat(src, "You will [prefs.toggles & CMODE_STRIPPING ? "" : "not"] be able to open the strip menu in combat mode.")
 
+/client/verb/vocal_barks()
+	set name = "Hear Vocal Barks"
+	set category = "Options"
+	set desc = ""
+	if(prefs)
+		prefs.toggles ^= SOUND_BARK
+		prefs.save_preferences()
+	to_chat(src, "You will [prefs.toggles & SOUND_BARK ? "" : "not"] hear vocal barks.")
+
 /*
 //toggles
 /datum/verbs/menu/Settings/Ghost/chatterbox

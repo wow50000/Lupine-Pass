@@ -172,7 +172,14 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/list/descriptor_entries = list()
 	var/list/custom_descriptors = list()
 
-	var/char_accent = "No accent"	
+	var/char_accent = "No accent"
+
+	// Vocal bark prefs
+	var/bark_id = "mutedc3"
+	var/bark_speed = 4
+	var/bark_pitch = 1
+	var/bark_variance = 0.2
+	COOLDOWN_DECLARE(bark_previewing)
 
 	// PATREON
 	// Vrell - I fucking hate how inconsistent the variable style is for this shit. underscores? all lowercase? camelcase? 
@@ -437,6 +444,15 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<a href='?_src_=prefs;preference=ai_core_icon;task=input'><b>Preferred AI Core Display:</b> [preferred_ai_core_display]</a><br>"
 			dat += "<a href='?_src_=prefs;preference=sec_dept;task=input'><b>Preferred Security Department:</b> [prefered_security_department]</a><BR></td>"
 */
+			var/datum/bark/B = GLOB.bark_list[bark_id]
+			dat += "<br>"
+			dat += "<b>Vocal Bark Sound:</b><br>"
+			dat += "<a href='?_src_=prefs;preference=barksound;task=input'>[B ? initial(B.name) : "INVALID"]</a><br>"
+			dat += "<b>Vocal Bark Speed:</b> <a href='?_src_=prefs;preference=barkspeed;task=input'>[bark_speed]</a><br>"
+			dat += "<b>Vocal Bark Pitch:</b> <a href='?_src_=prefs;preference=barkpitch;task=input'>[bark_pitch]</a><br>"
+			dat += "<b>Vocal Bark Variance:</b> <a href='?_src_=prefs;preference=barkvary;task=input'>[bark_variance]</a><br>"
+			dat += "<b><a href='?_src_=prefs;preference=barkpreview;task=input'>Preview Bark</a></b><br>"
+			dat += "</td>"
 			dat += "</tr></table>"
 // 			-----------END OF IDENT TABLE-----------
 
@@ -790,12 +806,12 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	if(user.client.is_new_player())
 		dat = list("<center>REGISTER!</center>")
 
-	var/W = 900
-	var/H = 1000
+	// var/W = 900
+	// var/H = 1000
 
-	winshow(user, "preferencess_window", TRUE)
-	winset(user, "preferencess_window", "size=[W]x[H];is-visible=true")
-	winset(user, "preferences_browser", "pos=0,0;size=[W]x[H];anchor1=0,0;anchor2=100,100;is-visible=true")
+	// winshow(user, "preferencess_window", TRUE)
+	// winset(user, "preferencess_window", "size=[W]x[H];is-visible=true")
+	// winset(user, "preferences_browser", "pos=0,0;size=[W]x[H];anchor1=0,0;anchor2=100,100;is-visible=true")
 	var/datum/browser/noclose/popup = new(user, "preferences_browser", "<div align='center'>[used_title]</div>")
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
@@ -1664,6 +1680,60 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='red'>Value must be between [MIN_VOICE_PITCH] and [MAX_VOICE_PITCH].</font>")
 							return
 						voice_pitch = new_voice_pitch
+
+				if("barksound")
+					var/list/woof_woof = list()
+					for(var/path in GLOB.bark_list)
+						var/datum/bark/B = GLOB.bark_list[path]
+						if(initial(B.ignore))
+							continue
+						if(initial(B.ckeys_allowed))
+							var/list/allowed = initial(B.ckeys_allowed)
+							if(!allowed.Find(user.client.ckey))
+								continue
+						woof_woof[initial(B.name)] = initial(B.id)
+					var/new_bork = input(user, "Choose your desired vocal bark", "Character Preference") as null|anything in woof_woof
+					if(new_bork)
+						bark_id = woof_woof[new_bork]
+						var/datum/bark/B = GLOB.bark_list[bark_id] //Now we need sanitization to take into account bark-specific min/max values
+						bark_speed = round(clamp(bark_speed, initial(B.minspeed), initial(B.maxspeed)), 1)
+						bark_pitch = clamp(bark_pitch, initial(B.minpitch), initial(B.maxpitch))
+						bark_variance = clamp(bark_variance, initial(B.minvariance), initial(B.maxvariance))
+
+				if("barkspeed")
+					var/datum/bark/B = GLOB.bark_list[bark_id]
+					var/borkset = input(user, "Choose your desired bark speed (Higher is slower, lower is faster). Min: [initial(B.minspeed)]. Max: [initial(B.maxspeed)]", "Character Preference") as null|num
+					if(!isnull(borkset))
+						bark_speed = round(clamp(borkset, initial(B.minspeed), initial(B.maxspeed)), 1)
+
+				if("barkpitch")
+					var/datum/bark/B = GLOB.bark_list[bark_id]
+					var/borkset = input(user, "Choose your desired baseline bark pitch. Min: [initial(B.minpitch)]. Max: [initial(B.maxpitch)]", "Character Preference") as null|num
+					if(!isnull(borkset))
+						bark_pitch = clamp(borkset, initial(B.minpitch), initial(B.maxpitch))
+
+				if("barkvary")
+					var/datum/bark/B = GLOB.bark_list[bark_id]
+					var/borkset = input(user, "Choose your desired baseline bark pitch. Min: [initial(B.minvariance)]. Max: [initial(B.maxvariance)]", "Character Preference") as null|num
+					if(!isnull(borkset))
+						bark_variance = clamp(borkset, initial(B.minvariance), initial(B.maxvariance))
+
+				if("barkpreview")
+					if(SSticker.current_state == GAME_STATE_STARTUP) //Timers don't tick at all during game startup, so let's just give an error message
+						to_chat(user, "<span class='warning'>Bark previews can't play during initialization!</span>")
+						return
+					if(!COOLDOWN_FINISHED(src, bark_previewing))
+						return
+					if(!parent || !parent.mob)
+						return
+					COOLDOWN_START(src, bark_previewing, (5 SECONDS))
+					var/atom/movable/barkbox = new(get_turf(parent.mob))
+					barkbox.set_bark(bark_id)
+					var/total_delay = 0
+					for(var/i in 1 to (round((32 / bark_speed)) + 1))
+						addtimer(CALLBACK(barkbox, TYPE_PROC_REF(/atom/movable, bark), list(parent.mob), 7, 70, BARK_DO_VARY(bark_pitch, bark_variance)), total_delay)
+						total_delay += rand(DS2TICKS(bark_speed/4), DS2TICKS(bark_speed/4) + DS2TICKS(bark_speed/4)) TICKS
+					QDEL_IN(barkbox, total_delay)
 
 				if("highlight_color")
 					var/new_color = input(user, "Choose your character's nickname highlight color:", "Character Preference","#"+highlight_color) as color|null
@@ -2565,6 +2635,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.voice_type = voice_type
 
 	// LETHALSTONE ADDITION END
+
+	character.set_bark(bark_id)
+	character.vocal_speed = bark_speed
+	character.vocal_pitch = bark_pitch
+	character.vocal_pitch_range = bark_variance
 
 	if(parent)
 		var/list/L = get_player_curses(parent.ckey)
