@@ -22,7 +22,7 @@
 	return vocal_bark
 
 /atom/movable/vv_edit_var(var_name, var_value, massedit)
-	if(NAMEOF(src, vocal_bark))
+	if(var_name == NAMEOF(src, vocal_bark))
 		if(isfile(var_value))
 			vocal_bark = sound(var_value)
 		. = TRUE

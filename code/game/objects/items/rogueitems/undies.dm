@@ -11,6 +11,7 @@
 	max_integrity = 200
 	integrity_failure = 0.1
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	slot_flags = ITEM_SLOT_MOUTH
 	var/gendered
 	var/race
 	var/datum/bodypart_feature/underwear/undies_feature
