@@ -120,6 +120,7 @@
 					backpack_contents = list(
 						/obj/item/flashlight/flare/torch = 1,
 						/obj/item/rogueweapon/huntingknife/idagger/steel = 1,
+						/obj/item/rogueweapon/scabbard/sheath = 1,
 						/obj/item/lockpickring/mundane = 1,
 						/obj/item/recipe_book/survival = 1,
 						)
