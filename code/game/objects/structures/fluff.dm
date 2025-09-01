@@ -721,7 +721,7 @@
 	if(!user.is_literate())
 		. += "I have no idea what it says."
 	else
-		. += "It says \"EXPORTS\""
+		. += "I can read this sign."
 
 
 /obj/structure/fluff/customsign
