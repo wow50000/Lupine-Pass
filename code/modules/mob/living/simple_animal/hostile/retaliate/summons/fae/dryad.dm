@@ -45,6 +45,8 @@
 //	stat_attack = UNCONSCIOUS
 	ranged = FALSE
 	var/vine_cd
+	inherent_spells = list(/obj/effect/proc_holder/spell/self/create_vines)
+
 
 /mob/living/simple_animal/hostile/retaliate/rogue/fae/dryad/Initialize()
 	src.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
@@ -84,7 +86,7 @@
 		if(!Process_Spacemove()) //Drifting
 			walk(src,0)
 			return 1
-		if(world.time >= src.vine_cd + 100)
+		if(world.time >= src.vine_cd + 10 SECONDS && !mind)
 			vine()
 			src.vine_cd = world.time
 		if(retreat_distance != null) //If we have a retreat distance, check if we need to run from our target
@@ -124,12 +126,31 @@
 	src.visible_message(span_boldwarning("Vines near [src] wither as it returns to it's plane!"))
 	var/turf/deathspot = get_turf(src)
 	new /obj/item/magic/melded/t1(deathspot)
-	new /obj/item/magic/iridescentscale(deathspot)
-	new /obj/item/magic/iridescentscale(deathspot)
-	new /obj/item/magic/heartwoodcore(deathspot)
-	new /obj/item/magic/heartwoodcore(deathspot)
-	new /obj/item/magic/fairydust(deathspot)
-	new /obj/item/magic/fairydust(deathspot)
+	new /obj/item/magic/fae/scale(deathspot)
+	new /obj/item/magic/fae/scale(deathspot)
+	new /obj/item/magic/fae/core(deathspot)
+	new /obj/item/magic/fae/core(deathspot)
+	new /obj/item/magic/fae/dust(deathspot)
+	new /obj/item/magic/fae/dust(deathspot)
 	update_icon()
 	spill_embedded_objects()
 	qdel(src)
+
+/obj/effect/proc_holder/spell/self/create_vines
+	name = "Spawn Vines"
+	recharge_time = 10 SECONDS
+	sound = 'sound/magic/churn.ogg'
+	overlay_state = "blesscrop"
+
+/obj/effect/proc_holder/spell/self/create_vines/cast(list/targets, mob/living/user = usr)
+	if(istype(user, /mob/living/simple_animal/hostile/retaliate/rogue/fae/dryad))
+		var/mob/living/simple_animal/hostile/retaliate/rogue/fae/dryad/treeguy = user
+		if(world.time <= treeguy.vine_cd + 100)//shouldn't ever happen cuz the spell cd is the same as summon_cd but I'd rather it check with the internal cd just in case
+			to_chat(user,span_warning("Too soon!"))
+			revert_cast()
+			return FALSE
+		if(treeguy.binded)
+			revert_cast()
+			return FALSE
+		treeguy.vine()
+		treeguy.vine_cd = world.time

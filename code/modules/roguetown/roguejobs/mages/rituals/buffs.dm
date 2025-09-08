@@ -20,13 +20,13 @@
 	buff = /datum/status_effect/buff/magicstrength
 	tier = 2
 	blacklisted = FALSE
-	required_atoms = list(/obj/item/magic/manacrystal = 2,/obj/item/magic/elementalshard = 2)
+	required_atoms = list(/obj/item/magic/manacrystal = 2,/obj/item/magic/elemental/shard = 2)
 
 /datum/runeritual/buff/lesserstrength
 	name = "lesser arcane augmentation of strength"
 	buff = /datum/status_effect/buff/magicstrength/lesser
 	blacklisted = FALSE
-	required_atoms = list(/obj/item/magic/elementalmote = 2,/obj/item/magic/manacrystal = 1)
+	required_atoms = list(/obj/item/magic/elemental/mote = 2,/obj/item/magic/manacrystal = 1)
 
 /datum/runeritual/buff/constitution
 	name = "fortify constitution"
@@ -59,29 +59,29 @@
 	buff = /datum/status_effect/buff/magicperception
 	tier = 2
 	blacklisted = FALSE
-	required_atoms = list(/obj/item/reagent_containers/food/snacks/grown/manabloom = 2, /obj/item/magic/hellhoundfang = 1)
+	required_atoms = list(/obj/item/reagent_containers/food/snacks/grown/manabloom = 2, /obj/item/magic/infernal/fang = 1)
 
 /datum/runeritual/buff/lesserperception
 	name = "lesser arcane eyes"
 	buff = /datum/status_effect/buff/magicperception/lesser
 	blacklisted = FALSE
-	required_atoms = list(/obj/item/reagent_containers/food/snacks/grown/manabloom = 1, /obj/item/magic/infernalash = 2)
+	required_atoms = list(/obj/item/reagent_containers/food/snacks/grown/manabloom = 1, /obj/item/magic/infernal/ash = 2)
 
 /datum/runeritual/buff/endurance
 	name = "vitalized endurance"
 	buff = /datum/status_effect/buff/magicendurance
 	tier = 2
 	blacklisted = FALSE
-	required_atoms = list(/obj/item/magic/obsidian = 2, /obj/item/magic/iridescentscale = 1)
+	required_atoms = list(/obj/item/magic/obsidian = 2, /obj/item/magic/fae/scale = 1)
 
 /datum/runeritual/buff/lesserendurance
 	name = "lesser vitalized endurance"
 	buff = /datum/status_effect/buff/magicendurance/lesser
 	blacklisted = FALSE
-	required_atoms = list(/obj/item/magic/obsidian = 2, /obj/item/magic/fairydust = 2)
+	required_atoms = list(/obj/item/magic/obsidian = 2, /obj/item/magic/fae/dust = 2)
 
 /datum/runeritual/buff/nightvision
 	name = "darksight"
 	buff = /datum/status_effect/buff/darkvision
 	blacklisted = FALSE
-	required_atoms = list(/obj/item/magic/manacrystal = 2, /obj/item/magic/iridescentscale = 1, /obj/item/magic/elementalshard = 1)
+	required_atoms = list(/obj/item/magic/manacrystal = 2, /obj/item/magic/fae/scale = 1, /obj/item/magic/elemental/shard = 1)
