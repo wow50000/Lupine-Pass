@@ -40,6 +40,9 @@
 	skin_tone_wording = "Origin City-State"
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
+	allowed_taur_types = list(
+		/obj/item/bodypart/taur/spider,
+	)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = 1
 	disliked_food = NONE
@@ -57,7 +60,7 @@
 		OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1), OFFSET_HANDS = list(0,0), \
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \
 		OFFSET_FACE = list(0,0), OFFSET_BELT_F = list(0,0), OFFSET_BACK = list(0,0), \
-		OFFSET_NECK = list(0,0), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,1), \
+		OFFSET_NECK = list(0,0), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_UNDIES = list(0,1),\
 		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
@@ -89,6 +92,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/ears/elf,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
@@ -133,6 +137,9 @@
 		"Llurth Dreir" = SKIN_COLOR_LLURTH_DREIR,
 		"Tafravma" = SKIN_COLOR_TAFRAVMA,
 		"Yuethindrynn" = SKIN_COLOR_YUETHINDRYNN,
+		"Koredynn" = SKIN_COLOR_KOREDYNN,
+		"Aiseedrynn" = SKIN_COLOR_AISEEDRYNN,
+		"Grenduskra" = SKIN_COLOR_GRENDUSKRA
 	)
 
 /datum/species/elf/dark/get_hairc_list()

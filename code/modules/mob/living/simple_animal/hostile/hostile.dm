@@ -498,13 +498,18 @@
 	for(var/obj/O in T.contents)
 		if(!O.Adjacent(targets_from))
 			continue
-		if((ismachinery(O) || isstructure(O)) && O.density && environment_smash >= ENVIRONMENT_SMASH_STRUCTURES && !O.IsObscured())
+		if((ismachinery(O) || isstructure(O)) && environment_smash >= ENVIRONMENT_SMASH_STRUCTURES && !O.IsObscured())
 			O.attack_animal(src)
 			return
 
 /mob/living/simple_animal/hostile/proc/DestroyPathToTarget()
 	var/dir_to_target = get_dir(targets_from, target)
 	if(environment_smash)
+		var/turf/V = get_turf(src)
+		for (var/obj/structure/O in V.contents)	//check for if a direction dense structure is on the same tile as the mob
+			if(isstructure(O))
+				O.attack_animal(src)
+				continue
 		EscapeConfinement()
 		var/dir_list = list()
 		if(dir_to_target in GLOB.diagonals) //it's diagonal, so we need two directions to hit
@@ -596,33 +601,17 @@
 		value = initial(search_objects)
 	search_objects = value
 
+/mob/living/simple_animal/process(delta_time)
+	consider_wakeup()
+
 /mob/living/simple_animal/hostile/consider_wakeup()
-	..()
-	var/turf/T = get_turf(src)
+	for(var/datum/spatial_grid_cell/grid as anything in our_cells.member_cells)
+		if(length(grid.client_contents))
+			toggle_ai(AI_ON)
+			testing("becomeidle [src]")
+			return TRUE
 
-	if (!T)
-		return
-
-//	if (!length(SSmobs.clients_by_zlevel[T.z])) // It's fine to use .len here but doesn't compile on 511
-//		toggle_ai(AI_Z_OFF)
-//		return
-
-//	var/cheap_search = isturf(T) && !is_station_level(T.z)
-//	if (cheap_search)
-//		tlist = ListTargetsLazy(T.z)
-//	else
-
-	if(world.time < next_seek)
-		return
-	next_seek = world.time + 3 SECONDS
-
-	var/list/tlist = ListTargets()
-
-	if(AIStatus == AI_IDLE && FindTarget(tlist, 1))
-//		if(cheap_search) //Try again with full effort
-//			FindTarget()
-		toggle_ai(AI_ON)
-		testing("becomeidle [src]")
+	return FALSE
 
 /mob/living/simple_animal/hostile/proc/ListTargetsLazy(_Z)//Step 1, find out what we can see
 	. = list()

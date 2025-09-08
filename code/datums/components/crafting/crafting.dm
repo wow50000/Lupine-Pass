@@ -170,6 +170,22 @@
 /datum/crafting_recipe/proc/TurfCheck(mob/user, turf/T)
 	return TRUE
 
+/atom/proc/SelectDiagDirection()
+	var/list/options = list("NORTHWEST", "SOUTHWEST", "SOUTHEAST", "NORTHEAST")
+	var/select = input(usr, "Please select a direction.", "", null) in options
+	if(!select)
+		return FALSE
+	switch(select)
+		if("NORTHWEST")
+			return NORTHWEST
+		if("SOUTHWEST")
+			return SOUTHWEST
+		if("SOUTHEAST")
+			return SOUTHEAST
+		if("NORTHEAST")
+			return NORTHEAST
+	return FALSE
+
 
 /datum/component/personal_crafting/proc/construct_item(mob/user, datum/crafting_recipe/R)
 	if (HAS_TRAIT(user, TRAIT_CURSE_MALUM))
@@ -180,6 +196,13 @@
 	var/list/contents = get_surroundings(user)
 //	var/send_feedback = 1
 	var/turf/T = get_step(user, user.dir)
+	var/obj/N
+	var/result_name
+	if(islist(R.result))
+		N = R.result[1]
+	else
+		N = R.result
+	result_name = N.name
 	if(isopenturf(T) && R.wallcraft)
 		to_chat(user, span_warning("Need to craft this on a wall."))
 		return
@@ -253,9 +276,9 @@
 					prob2craft = CLAMP(prob2craft, 0, 99)
 					if(!prob(prob2craft))
 						if(user.client?.prefs.showrolls)
-							to_chat(user, span_danger("I've failed to craft \the [R.name]... [prob2craft]%"))
+							to_chat(user, span_danger("I've failed to craft \the [result_name]... [prob2craft]%"))
 							continue
-						to_chat(user, span_danger("I've failed to craft \the [R.name]."))
+						to_chat(user, span_danger("I've failed to craft \the [result_name]."))
 						continue
 					var/list/parts = del_reqs(R, user)
 					if(islist(R.result))
@@ -276,10 +299,13 @@
 						else
 							var/atom/movable/I = new R.result (T)
 							I.CheckParts(parts, R)
-							I.OnCrafted(user.dir, user)
+							if(R.diagonal)
+								I.OnCrafted(I.SelectDiagDirection(), user)
+							else
+								I.OnCrafted(user.dir, user)
 							I.add_fingerprint(user)
-					user.visible_message(span_notice("[user] [R.verbage] \a [R.name]!"), \
-										span_notice("I [R.verbage_simple] \a [R.name]!"))
+					user.visible_message(span_notice("[user] [R.verbage] \a [result_name]!"), \
+										span_notice("I [R.verbage_simple] \a [result_name]!"))
 					if(user.mind && R.skillcraft)
 						if(isliving(user))
 							var/mob/living/L = user
@@ -392,8 +418,12 @@
 								B.update_bundle()
 								switch(B.amount)
 									if(1)
-										new B.stacktype(B.loc)
+										var/mob/living/carbon/old_loc = B.loc
 										qdel(B)
+										var/new_item = new B.stacktype(old_loc)
+										// Put in the person's hands if there were holding it.
+										if(ishuman(old_loc))
+											old_loc.put_in_hands(new_item)
 									if(0)
 										qdel(B)
 								amt = 0

@@ -40,12 +40,7 @@
 		/obj/item/storage/belt/rogue/leather/knifebelt/black/steel = 1,
 
 		// Money
-		/obj/item/roguecoin/copper = 5,
-		/obj/item/roguecoin/silver = 5,
-		/obj/item/roguecoin/gold = 5,
-		/obj/item/roguecoin/copper/pile = 3,
-		/obj/item/roguecoin/silver/pile = 2,
-		/obj/item/roguecoin/gold/pile = 1,
+		// has been removed
 
 		// Garbage and Miscellanous
 		/obj/item/rogue/instrument/flute = 3,
@@ -57,7 +52,7 @@
 		/obj/item/reagent_containers/glass/cup = 4,
 		/obj/item/reagent_containers/glass/cup/wooden = 4,
 		/obj/item/reagent_containers/glass/cup/steel = 3,
-		/obj/item/reagent_containers/glass/cup/golden = 1,
+		/obj/item/reagent_containers/glass/cup/golden/small = 1,
 		/obj/item/reagent_containers/glass/cup/skull = 1,
 		/obj/item/reagent_containers/glass/bucket = 3,
 		/obj/item/natural/feather = 4,
@@ -99,6 +94,7 @@
 		/obj/item/rogueweapon/sword/cutlass = 2,
 		/obj/item/rogueweapon/sword/long = 2,
 		/obj/item/rogueweapon/katar = 1,
+		/obj/item/rogueweapon/katar/punchdagger = 1,
 		/obj/item/rogueweapon/flail = 1,
 		/obj/item/rogueweapon/estoc = 1,
 		/obj/item/rogueweapon/greatsword/zwei = 1,
@@ -220,7 +216,7 @@
 		/obj/item/reagent_containers/glass/cup = 4,
 		/obj/item/reagent_containers/glass/cup/wooden = 4,
 		/obj/item/reagent_containers/glass/cup/steel = 3,
-		/obj/item/reagent_containers/glass/cup/golden = 1,
+		/obj/item/reagent_containers/glass/cup/golden/small = 1,
 		/obj/item/reagent_containers/glass/cup/skull = 1,
 		/obj/item/reagent_containers/glass/bucket = 3,
 		/obj/item/natural/feather = 4,
@@ -365,7 +361,6 @@
 		/obj/item/book/granter/spell/blackstone/message = 3,
 		/obj/item/book/granter/spell/blackstone/ensnare = 2,
 		/obj/item/book/granter/spell/blackstone/lightning = 2,
-		/obj/item/book/granter/spell/blackstone/blindness = 2,
 		/obj/item/book/granter/spell/blackstone/invisibility = 2,
 		/obj/item/book/granter/spell/blackstone/greaterfireball = 1
 	)

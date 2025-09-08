@@ -42,7 +42,7 @@
 	/// Cached old stats in case we get removed
 	var/STASTR
 	var/STACON
-	var/STAEND
+	var/STAWIL
 	/// Weapons we can give to the dreamer
 	var/static/list/possible_weapons = list(
 		/obj/item/rogueweapon/huntingknife/cleaver,
@@ -99,10 +99,10 @@
 				dreamer.adjust_skillrank(/datum/skill/misc/medicine, 3 - medicine_skill, TRUE)
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
-			STAEND = dreamer.STAEND
+			STAWIL = dreamer.STAWIL
 			dreamer.STASTR = 20
 			dreamer.STACON = 20
-			dreamer.STAEND = 20
+			dreamer.STAWIL = 20
 		for(var/trait in applied_traits)
 			ADD_TRAIT(owner.current, trait, "[type]")
 	LAZYINITLIST(owner.learned_recipes)
@@ -121,7 +121,7 @@
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.STASTR = STASTR
 			dreamer.STACON = STACON
-			dreamer.STAEND = STAEND
+			dreamer.STAWIL = STAWIL
 		for(var/trait in applied_traits)
 			REMOVE_TRAIT(owner.current, trait, "[type]")
 		for(var/trait in final_traits)
@@ -193,7 +193,7 @@
 		to_chat(trey_liam, span_deadsay("<span class='reallybig'>... WHERE AM I? ...</span>"))
 		sleep(1.5 SECONDS)
 		var/static/list/slop_lore = list(
-			span_deadsay("... Azure Peak? No ... It doesn't exist ..."),
+			span_deadsay("... Rotwood Vale? No ... It doesn't exist ..."),
 			span_deadsay("... My name is Trey. Trey Liam, Liamtific Troverseer ..."),
 			span_deadsay("... I'm on NT Liam, a self Treystaining ship, used to Treyserve what Liamains of roguemanity ..."),
 			span_deadsay("... Launched into the Grim Darkness, Fart Grimness preserves their grimness ... Their edge ..."),

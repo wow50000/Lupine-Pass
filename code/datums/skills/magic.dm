@@ -3,6 +3,8 @@
 	name = "Magic"
 	desc = ""
 	randomable_dream_xp = FALSE
+	color = "#9f74d6"
+	max_skillbook_level = 3
 
 /datum/skill/magic/holy
 	name = "Miracles"
@@ -23,3 +25,4 @@
 	name = "Druidic Trickery"
 	desc = "Currently only increases the tier of animals you are allowed to transform into - capping out at Tier 3."
 	expert_name = "Druid"
+	max_skillbook_level = 0

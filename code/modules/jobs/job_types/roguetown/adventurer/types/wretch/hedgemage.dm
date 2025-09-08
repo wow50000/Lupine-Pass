@@ -6,7 +6,14 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/hedgemage
 	category_tags = list(CTAG_WRETCH)
-	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_MAGEARMOR, TRAIT_OUTLAW, TRAIT_ARCYNE_T3, TRAIT_HERESIARCH)
+	traits_applied = list(TRAIT_MAGEARMOR, TRAIT_ARCYNE_T3)
+	// Same stat spread as necromancer, same reasoning
+	subclass_stats = list(
+		STATKEY_INT = 4,
+		STATKEY_PER = 2,
+		STATKEY_WIL = 1,
+		STATKEY_SPD = 1
+	)
 
 // Hedge Mage on purpose has nearly the same fit as a Adv Mage / Mage Associate who cast conjure armor roundstart. Call it meta disguise.
 /datum/outfit/job/roguetown/wretch/hedgemage/pre_equip(mob/living/carbon/human/H)
@@ -33,7 +40,8 @@
 		/obj/item/rope/chain = 1,
 		/obj/item/chalk = 1,
 		/obj/item/rogueweapon/huntingknife = 1,
-		/obj/item/rogueweapon/scabbard/sheath = 1
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1,	//Small health vial
 	)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -47,12 +55,15 @@
 	H.cmode_music = 'sound/music/combat_bandit_mage.ogg'
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
-		H?.mind.adjust_spellpoints(6)
-	H.change_stat("intelligence", 4) // Same stat spread as necromancer, same reasoning
-	H.change_stat("perception", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", 1)
+		H.mind?.adjust_spellpoints(6)
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-	H?.mind.adjust_spellpoints(27) // Unlike Rogue Mage, who gets 6 but DExpert, this one don't have DExpert but have more spell points than anyone but the CM. 
+	var/classes = list("Hedge Mage","Rogue Mage")
+	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
+	switch(classchoice)
+		if("Hedge Mage")
+			H?.mind.adjust_spellpoints(27)
+		if("Rogue Mage")
+			H?.mind.adjust_spellpoints(21)
+			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	wretch_select_bounty(H)

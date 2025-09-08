@@ -158,6 +158,8 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 			else
 				referred_gender = "Androgynous"
 		known_people[H.real_name]["FGENDER"] = referred_gender
+		if(H.dna && H.dna.species)
+			known_people[H.real_name]["FSPECIES"] = H.dna.species.name
 		known_people[H.real_name]["FAGE"] = H.age
 		if (ishuman(current))
 			var/mob/living/carbon/human/C = current
@@ -265,6 +267,19 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 
 	return language_holder
 
+/datum/mind/proc/set_current(mob/new_current)
+	if(new_current && QDELETED(new_current))
+		CRASH("Tried to set a mind's current var to a qdeleted mob, what the fuck")
+	if(current)
+		UnregisterSignal(src, COMSIG_QDELETING)
+	current = new_current
+	if(current)
+		RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_current))
+
+/datum/mind/proc/clear_current(datum/source)
+	SIGNAL_HANDLER
+	set_current(null)
+
 /datum/mind/proc/transfer_to(mob/new_character, force_key_move = 0)
 	if(current)	// remove ourself from our old body's mind variable
 		current.mind = null
@@ -300,6 +315,9 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	transfer_antag_huds(hud_to_transfer)				//inherit the antag HUD
 	transfer_actions(new_character)
 	transfer_martial_arts(new_character)
+	if(old_current.skills)
+		old_current.skills.set_current(new_character)
+
 	RegisterSignal(new_character, COMSIG_MOB_DEATH, PROC_REF(set_death_time))
 	if(active || force_key_move)
 		testing("dotransfer to [new_character]")
@@ -731,6 +749,12 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 /datum/mind/proc/RemoveAllSpells()
 	for(var/obj/effect/proc_holder/S in spell_list)
 		RemoveSpell(S)
+
+//removes spells that have miracle = true on them
+/datum/mind/proc/RemoveAllMiracles()
+	for(var/obj/effect/proc_holder/spell/spell in spell_list)
+		if(spell.miracle)
+			RemoveSpell(spell)
 
 /datum/mind/proc/transfer_martial_arts(mob/living/new_character)
 	if(!ishuman(new_character))

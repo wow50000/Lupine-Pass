@@ -6,15 +6,22 @@
 	id = "tabaxi"
 
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | SLIME_EXTRACT
+
 	desc = "<b>Tabaxi</b><br>\
-		Tabaxi are taller than most humans at six to seven feet. \
-		Their bodies are slender and covered in spotted or striped fur. \
-		Like most felines, Tabaxi have long tails and retractable claws. \
-		Tabaxi fur color ranges from light yellow to brownish red. \
-		Tabaxi eyes are slit-pupilled and usually green or yellow. \
-		Tabaxi are competent swimmers and climbers as well as speedy runners. \
-		They have a good sense of balance and an acute sense of smell.<br>\
-		(+1 Speed)"
+	Tabaxi are taller than most humans at six to seven feet. \
+	Their bodies are slender and covered in spotted or striped fur. \
+	Like most felines, Tabaxi have long tails and retractable claws.<br>\
+	(+1 Speed, Light Steps Trait)"
+
+	expanded_desc = "Tabaxi are taller than most humans at six to seven feet. \
+	Their bodies are slender and covered in spotted or striped fur. \
+	Like most felines, Tabaxi have long tails and retractable claws. \
+	Tabaxi fur color ranges from light yellow to brownish red. \
+	Tabaxi eyes are slit-pupilled and usually green or yellow. \
+	Tabaxi are competent swimmers and climbers as well as speedy runners. \
+	They have a good sense of balance and an acute sense of smell."
+
+
 	skin_tone_wording = "Fur Colors"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE, MUTCOLORS)
 	possible_ages = ALL_AGES_LIST
@@ -23,13 +30,13 @@
 	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 
-	soundpack_m = /datum/voicepack/male
-	soundpack_f = /datum/voicepack/female
+	soundpack_m = /datum/voicepack/male/tabaxi
+	soundpack_f = /datum/voicepack/female/tabaxi
 	offset_features = list(
 		OFFSET_ID = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
 		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
+		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
 		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
@@ -37,6 +44,7 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1)
 		)
+	inherent_traits = list(TRAIT_LIGHT_STEP)
 	race_bonus = list(STAT_SPEED = 1)
 	enflamed_icon = "widefire"
 	organs = list(
@@ -67,6 +75,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/snout/tabaxi,
 		/datum/customizer/organ/tail/tabaxi,
 		/datum/customizer/organ/neck_feature/anthro,
@@ -81,6 +90,7 @@
 		/datum/body_marking_set/bellysocks,
 		/datum/body_marking_set/bellysockstertiary,
 		/datum/body_marking_set/belly,
+		/datum/body_marking_set/gradient,
 	)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
@@ -88,7 +98,6 @@
 		/datum/body_marking/plain,
 		/datum/body_marking/tiger,
 		/datum/body_marking/tiger/dark,
-		/datum/body_marking_set/gradient,
 		/datum/body_marking/sock,
 		/datum/body_marking/socklonger,
 		/datum/body_marking/tips,
@@ -106,6 +115,7 @@
 		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	languages = list(
 		/datum/language/common

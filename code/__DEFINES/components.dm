@@ -246,17 +246,20 @@
 #define COMSIG_MOB_EXAMINATE "mob_examinate"					//from base of /mob/verb/examinate(): (atom/target)
 #define COMSIG_MOB_UPDATE_SIGHT "mob_update_sight"				//from base of /mob/update_sight(): ()
 #define COMSIG_MOB_SAY "mob_say" // from /mob/living/say(): ()
+#define COMSIG_MOB_SAY_POSTPROCESS "mob_say_postprocess"
 	#define COMPONENT_UPPERCASE_SPEECH 1
 	// used to access COMSIG_MOB_SAY argslist
 	#define SPEECH_MESSAGE 1
 	// #define SPEECH_BUBBLE_TYPE 2
 	#define SPEECH_SPANS 3
-	/* #define SPEECH_SANITIZE 4
+	// #define SPEECH_SANITIZE 4
 	#define SPEECH_LANGUAGE 5
-	#define SPEECH_IGNORE_SPAM 6
+	/* #define SPEECH_IGNORE_SPAM 6
 	#define SPEECH_FORCED 7 */
+	#define SPEECH_MODE 8
 #define COMSIG_MOB_DEADSAY "mob_deadsay" // from /mob/say_dead(): (mob/speaker, message)
 	#define MOB_DEADSAY_SIGNAL_INTERCEPT 1
+#define COMSIG_MOB_EMOTE "mob_emote"
 // /mob/living signals
 #define COMSIG_LIVING_SET_RESTING "comsig_set_resting"
 #define COMSIG_LIVING_RESIST "living_resist"					//from base of mob/living/resist() (/mob/living)
@@ -268,6 +271,8 @@
 #define COMSIG_PROCESS_BORGCHARGER_OCCUPANT "living_charge"		//sent from borg recharge stations: (amount, repairs)
 #define COMSIG_MOB_CLIENT_LOGIN "comsig_mob_client_login"		//sent when a mob/login() finishes: (client)
 #define COMSIG_BORG_SAFE_DECONSTRUCT "borg_safe_decon"			//sent from borg mobs to itself, for tools to catch an upcoming destroy() due to safe decon (rather than detonation)
+
+#define COMSIG_LIVING_ATTACKED_BY "living_attacked_by"
 
 //ALL OF THESE DO NOT TAKE INTO ACCOUNT WHETHER AMOUNT IS 0 OR LOWER AND ARE SENT REGARDLESS!
 #define COMSIG_LIVING_STATUS_OFFBALANCED "living_offbalanced"
@@ -305,6 +310,7 @@
 
 // /obj/item signals
 #define COMSIG_ITEM_ATTACK "item_attack"						//from base of obj/item/attack(): (/mob/living/target, /mob/living/user)
+#define COMSIG_ITEM_ATTACK_SUCCESS "item_attack_success"		//from base of obj/item/attack(): (/mob/living/target, /mob/living/user) upon successful attacking
 #define COMSIG_ITEM_ATTACK_SELF "item_attack_self"				//from base of obj/item/attack_self(): (/mob)
 	#define COMPONENT_NO_INTERACT 1
 #define COMSIG_ITEM_ATTACK_OBJ "item_attack_obj"				//from base of obj/item/attack_obj(): (/obj, /mob)
@@ -315,6 +321,7 @@
 #define COMSIG_ITEM_ATTACK_QDELETED "item_attack_qdeleted"		//from base of obj/item/attack_qdeleted(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_EQUIPPED "item_equip"						//from base of obj/item/equipped(): (/mob/equipper, slot)
 #define COMSIG_ITEM_DROPPED "item_drop"							//from base of obj/item/dropped(): (mob/user)
+#define COMSIG_ITEM_BROKEN "item_broken"                        //from base of /obj/proc/obj_break(damage_flag)
 #define COMSIG_ITEM_PICKUP "item_pickup"						//from base of obj/item/pickup(): (/mob/taker)
 #define COMSIG_OBJ_TAKE_DAMAGE "obj_take_damage"				//from base of obj/take_damage() (damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armor_penetration)
 #define COMSIG_ITEM_ATTACK_ZONE "item_attack_zone"				//from base of mob/living/carbon/attacked_by(): (mob/living/carbon/target, mob/living/user, hit_zone)
@@ -327,10 +334,10 @@
 #define COMSIG_ITEM_ATTACK_TURF "item_attack_turf"
 
 // /obj/item/clothing signals
-#define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/clothing/shoes/proc/step_action(): ()
+#define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/proc/step_action(): ()
 
-// /obj/item/rogueweapon signals
-#define COMSIG_ROGUEWEAPON_OBJFIX "rogueweapon_fix"				//from base of obj/item/rogueweapon/obj_fix()
+// /obj/item/ signals
+#define COMSIG_ITEM_OBJFIX "rogueweapon_fix"				//from base of obj/item/obj_fix()
 
 // /obj/item/implant signals
 #define COMSIG_IMPLANT_ACTIVATED "implant_activated"			//from base of /obj/item/implant/proc/activate(): ()

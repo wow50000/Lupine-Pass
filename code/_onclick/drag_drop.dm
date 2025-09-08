@@ -115,6 +115,25 @@
 
 
 	var/list/L = params2list(params)
+	if (L["middle"]) //start charging a spell or readying a mmb intent
+		if(mob.next_move > world.time)
+			return
+		mob.atkswinging = "middle"
+		if(mob.mmb_intent)
+			mob.used_intent = mob.mmb_intent
+			if(mob.used_intent.type == INTENT_SPELL && mob.ranged_ability)
+				var/obj/effect/proc_holder/spell/S = mob.ranged_ability
+				if(!S.cast_check(TRUE,mob))
+					return
+		if(!mob.mmb_intent)
+			mouse_pointer_icon = 'icons/effects/mousemice/human_looking.dmi'
+		else
+			if(mob.mmb_intent.get_chargetime() && !AD.blockscharging)
+				updateprogbar()
+			else
+				mouse_pointer_icon = mob.mmb_intent.pointer
+		return
+
 	if (L["right"])
 		mob.face_atom(object, location, control, params)
 		if(L["left"])
@@ -136,24 +155,7 @@
 		else
 			mouse_pointer_icon = 'icons/effects/mousemice/human_looking.dmi'
 			return
-	if (L["middle"]) //start charging a spell or readying a mmb intent
-		if(mob.next_move > world.time)
-			return
-		mob.atkswinging = "middle"
-		if(mob.mmb_intent)
-			mob.used_intent = mob.mmb_intent
-			if(mob.used_intent.type == INTENT_SPELL && mob.ranged_ability)
-				var/obj/effect/proc_holder/spell/S = mob.ranged_ability
-				if(!S.cast_check(TRUE,mob))
-					return
-		if(!mob.mmb_intent)
-			mouse_pointer_icon = 'icons/effects/mousemice/human_looking.dmi'
-		else
-			if(mob.mmb_intent.get_chargetime() && !AD.blockscharging)
-				updateprogbar()
-			else
-				mouse_pointer_icon = mob.mmb_intent.pointer
-		return
+
 	if (L["left"]) //start charging a lmb intent
 		if(!L["shift"] || mob.BehindAtom(AD, mob.dir))
 			mob.face_atom(AD, location, control, params)
@@ -247,13 +249,13 @@
 	L.used_intent.prewarning()
 
 	if(!charging) //This is for spell charging
-		charging = 1 
+		charging = 1
 		L.used_intent.on_charge_start()
 		L.update_charging_movespeed(L.used_intent)
 //		L.update_warning(L.used_intent)
-		progress = 0 
+		progress = 0
 
-//		if(L.used_intent.charge_invocation) 
+//		if(L.used_intent.charge_invocation)
 //			sections = 100/L.used_intent.charge_invocation.len
 //		else
 //			sections = null
@@ -263,7 +265,6 @@
 		lastplayed = 0
 		doneset = 0
 		chargedprog = 0
-		mouse_pointer_icon = 'icons/effects/mousemice/swang/acharging.dmi'
 		START_PROCESSING(SSmousecharge, src)
 
 /client/Destroy()
@@ -285,23 +286,26 @@
 		if(progress < goal)
 			progress++
 			chargedprog = text2num("[((progress / goal) * 100)]")
-	//		mouseprog = round(text2num("[((progress / goal) * 20)]"), 1)
-	//		mouse_pointer_icon = GLOB.mouseicons_human[mouseprog]
-	//		testing("mouse[mouseprog]")
-//			if(sections && chargedprog > lastplayed) //used for changing icon based on action progress
-//				L.say(L.used_intent.charge_invocation[part])
-//				part++
-//				lastplayed = sections * part
+// Here we start changing the mouse_pointer_icon
+			if(!(mob.used_intent.charge_pointer & mob.used_intent.charged_pointer))
+				var/mouseprog = clamp(round(((progress / goal)*100),5), 0, 100)
+				mouse_pointer_icon = file("icons/effects/mousemice/charge/default/[mouseprog].dmi")
+			else
+				mouse_pointer_icon = mob.used_intent.charge_pointer
 		else //Fully charged spell
-			if(!doneset) 
+			if(!doneset)
 				doneset = 1
+				chargedprog = 100
+				if(!(mob.used_intent.charge_pointer & mob.used_intent.charged_pointer))
+					mouse_pointer_icon = 'icons/effects/mousemice/charge/default/100.dmi'
+				else
+					mouse_pointer_icon = mob.used_intent.charged_pointer
+// Now we are done messing with the mouse_pointer_icon
 //				if(sections)
 //					L.say(L.used_intent.charge_invocation[L.used_intent.charge_invocation.len])
 				if(L.curplaying && !L.used_intent.keep_looping)
 					playsound(L, 'sound/magic/charged.ogg', 100, TRUE)
 					L.curplaying.on_mouse_up()
-				chargedprog = 100
-				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
 			else
 				if(!L.stamina_add(L.used_intent.chargedrain))
 					L.stop_attack()

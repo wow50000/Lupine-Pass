@@ -39,10 +39,7 @@
 		/obj/item/clothing/shoes/roguetown/boots = 4,
 		/obj/item/clothing/shoes/roguetown/boots/leather = 4,
 		//money
-		/obj/item/roguecoin/copper = 10,
-		/obj/item/roguecoin/silver = 5,
-		/obj/item/roguecoin/copper/pile = 3,
-		/obj/item/roguecoin/silver/pile = 1,
+		//has been removed
 		//junk
 		/obj/item/rogue/instrument/flute = 3,
 		/obj/item/ash = 5,
@@ -87,11 +84,11 @@
 		/obj/item/rogueweapon/huntingknife/idagger = 3,
 		/obj/item/rogueweapon/woodstaff = 3,
 		/obj/item/rogueweapon/sword/short = 2,
-		/obj/item/rogueweapon/sword/iron/short/chipped = 2,
+		/obj/item/rogueweapon/sword/short/iron/chipped = 2,
 		/obj/item/rogueweapon/sword/short/pashortsword = 2,
 		/obj/item/rogueweapon/sword/stone = 3,
 		/obj/item/rogueweapon/sword/iron = 1,
-		/obj/item/rogueweapon/sword/iron/messer/copper = 1,
+		/obj/item/rogueweapon/sword/short/messer/copper = 1,
 		/obj/item/rogueweapon/sword/falchion/militia = 1,
 		/obj/item/rogueweapon/sword/sabre/alloy = 1,
 		/obj/item/rogueweapon/katar = 1,
@@ -182,10 +179,7 @@
 		/obj/item/clothing/shoes/roguetown/boots/nobleboot = 4,
 		/obj/item/clothing/shoes/roguetown/ridingboots = 1,
 		//money
-		/obj/item/roguecoin/copper = 10,
-		/obj/item/roguecoin/silver = 5,
-		/obj/item/roguecoin/copper/pile = 3,
-		/obj/item/roguecoin/silver/pile = 1,
+		//has been removed
 		//junk
 		/obj/item/rogue/instrument/flute = 3,
 		/obj/item/ash = 5,
@@ -239,7 +233,7 @@
 		/obj/item/rogueweapon/sword/short/pashortsword = 2,
 		/obj/item/rogueweapon/sword/stone = 3,
 		/obj/item/rogueweapon/sword/iron = 1,
-		/obj/item/rogueweapon/sword/iron/messer/copper = 1,
+		/obj/item/rogueweapon/sword/short/messer/copper = 1,
 		/obj/item/rogueweapon/sword/falchion/militia = 1,
 		/obj/item/rogueweapon/katar = 1,
 		/obj/item/rogueweapon/spear = 2,
@@ -325,12 +319,9 @@
 		/obj/item/clothing/shoes/roguetown/boots/nobleboot = 1,
 		/obj/item/clothing/shoes/roguetown/ridingboots = 1,
 		//money
-		/obj/item/roguecoin/gold = 10,
-		/obj/item/roguecoin/silver = 10,
-		/obj/item/roguecoin/gold/pile = 3,
-		/obj/item/roguecoin/silver/pile = 6,
+		//has been removed
 		//junk
-		/obj/item/reagent_containers/glass/cup/golden = 1,
+		/obj/item/reagent_containers/glass/cup/golden/small = 1,
 		/obj/item/reagent_containers/glass/cup/skull = 1,
 		/obj/item/mundane/puzzlebox/medium = 1,
 		/obj/item/mundane/puzzlebox/impossible = 1,
@@ -361,7 +352,7 @@
 		/obj/item/rogueweapon/sword = 2,
 		/obj/item/rogueweapon/sword/long = 2,
 		/obj/item/rogueweapon/sword/falx = 2,
-		/obj/item/rogueweapon/sword/falchion = 2,
+		/obj/item/rogueweapon/sword/short/falchion = 2,
 		/obj/item/rogueweapon/sword/sabre = 2,
 		/obj/item/rogueweapon/sword/rapier = 1,
 		/obj/item/rogueweapon/sword/sabre/elf = 1,

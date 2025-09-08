@@ -5,12 +5,20 @@
 	name = "Sissean"
 	id = "lizardfolk"
 	desc = "<b>Sissean</b><br>\
-	Sisseans are semi-aquatic reptilian humanoids. \
-	Their flesh is covered in scales varying in color from dark green to shades of brown and gray. \
-	Taller than humans and powerfully built, sisseans are often between 6 and 7 feet tall. \
-	Sisseans have non-prehensile muscular tails that grow to three or four feet in length, and these are used for balance. \
-	They also have sharp claws and teeth.<br>\
-	(+1 Constitution, +1 Endurance)"
+	Sissean are hardy, reptilian people that share a unique bond among their kind due to being the target \
+	of oppression and enslavement by other races, particularly by Humans and Drakians. They take pride in \
+	their resilience and adaptability, and they can be found all over the world for one reason or another.<br>\
+	(+1 Constitution, +1 Endurance, Wild Eater Trait)"
+	expanded_desc = "Sissean are hardy, reptilian people that share a unique bond among their kind due to being the target of oppression \
+	and enslavement by other races, particularly by Humans and Drakians. They take pride in their resilience and adaptability,\
+	and they can be found all over the world for one reason or another. Once a nomadic, tribal people, Sissean are often forced \
+	to hide and settle in deserts, swamps, bogs, and other typically inhospitable lands. Their appearance changes based on the lands \
+	they adapt to, allowing for crocodilian appearance if from the swamp to lizard-like appearances if from the desert. \
+	<br><br> \
+	They can also be found in large, bustling cities, particularly slave cities where their strength, toughness, and endurance \
+	makes them particularly valuable. Sissean often despise weakness and instead find solace in suffering. They tend to be \
+	highly religious, although of course, no race is monolithic. In fact, some Sissean have become successful with some rising to \
+	the rank of nobility in many different kingdoms despite all adversity, but this often makes them targets of their jealous peers."
 	skin_tone_wording = "Skin Colors"
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS)
 	possible_ages = ALL_AGES_LIST
@@ -25,7 +33,7 @@
 		OFFSET_ID = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
 		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
+		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
 		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
@@ -33,6 +41,7 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
+	inherent_traits = list(TRAIT_WILD_EATER)
 	race_bonus = list(STAT_CONSTITUTION = 1, STAT_ENDURANCE = 1)
 	enflamed_icon = "widefire"
 	attack_verb = "slash"
@@ -65,6 +74,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/tail/lizard,
 		/datum/customizer/organ/tail_feature/lizard_spines,
 		/datum/customizer/organ/snout/lizard,
@@ -86,10 +96,14 @@
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
 		/datum/body_marking/eyeliner,
+		/datum/body_marking/plain,
 		/datum/body_marking/bellyscale,
 		/datum/body_marking/bellyscaleslim,
 		/datum/body_marking/bellyscaleslimsmooth,
 		/datum/body_marking/buttscale,
+		/datum/body_marking/tie,
+		/datum/body_marking/tiesmall,
+		/datum/body_marking/front,
 		/datum/body_marking/tiger,
 		/datum/body_marking/tiger/dark,
 		/datum/body_marking/drake_eyes,
@@ -97,6 +111,8 @@
 		/datum/body_marking/nose,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
+		/datum/body_marking/tips,
 	)
 	languages = list(
 		/datum/language/common,

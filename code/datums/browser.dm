@@ -143,6 +143,9 @@
 
 	var/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 	common_asset.send(user)
+	var/datum/asset/simple/roguefonts/roguefonts = get_asset_datum(/datum/asset/simple/roguefonts)
+	roguefonts.send(user)
+	
 	if (length(stylesheets))
 		SSassets.transport.send_assets(user, stylesheets)
 	if (length(scripts))

@@ -12,7 +12,10 @@
 	maximum_possible_slots = 1
 	pickprob = 5
 	category_tags = list(CTAG_TOWNER)
-
+	subclass_stats = list(
+		STATKEY_INT = 3,
+		STATKEY_CON = 2,
+	)
 
 /datum/outfit/job/roguetown/adventurer/masterchef/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -37,8 +40,6 @@
 	mouth = /obj/item/rogueweapon/huntingknife/cleaver
 	beltl = /obj/item/flint
 	r_hand = /obj/item/flashlight/flare/torch
-	H.change_stat("intelligence", 3)
-	H.change_stat("constitution", 2)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	var/packcontents = pickweight(list("Honey" = 1, "Truffles" = 1, "Bacon" = 1)) // What is our special ingredient? Honey, truffles, or BACON?
@@ -51,7 +52,8 @@
 				/obj/item/natural/cloth = 1,
 				/obj/item/reagent_containers/peppermill = 1,
 				/obj/item/reagent_containers/powder/flour = 2,
-				/obj/item/reagent_containers/food/snacks/rogue/honey/spider = 2,
+				/obj/item/reagent_containers/food/snacks/rogue/honey/spider = 1,
+				/obj/item/reagent_containers/food/snacks/rogue/honey = 1,
 				/obj/item/reagent_containers/powder/salt = 1,
 				/obj/item/reagent_containers/food/snacks/butter = 1,
 				/obj/item/reagent_containers/food/snacks/rogue/meat/salami = 1,

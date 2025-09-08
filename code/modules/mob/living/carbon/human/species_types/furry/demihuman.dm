@@ -4,11 +4,33 @@
 /datum/species/demihuman
 	name = "Half-Kin"
 	id = "demihuman"
-	desc = "The inevitable union between wildkin and some form of humanity or another. While they also experience animalistic tendencies akin to their full-blooded ancestors, their intermingling with others has stemmed the severity of such primordial impulses. (Half-kin are not a template race to play your own custom race. If you play a half-kin, you are expected to roleplay to the setting and the race's lore.)<br>\
+	desc = "<b>Half-kin</b><br>\
+	Half-kins are a highly diversified people. Half-kins are primarily \
+	a consequence of Beastling races mixing with a Humens and Elves, although some have \
+	acquired their Beastling traits due to magical curses or blessings from a god, typically \
+	Dendor. Half-kins can reproduce with one another, and their children will inherit features \
+	from both parents. Half-kin genes are dominant when mixing with Humens or Elves.<br>\
 	(+1 Endurance, +1 Perception)"
+
+	expanded_desc = "Half-kins are a highly diversified people. Half-kins are primarily \
+	a consequence of Beastling races mixing with a Humens and Elves, although some have \
+	acquired their Beastling traits due to magical curses or blessings from a god, typically \
+	Dendor. Half-kins can reproduce with one another, and their children will inherit features \
+	from both parents. Half-kin genes are dominant when mixing with Humens or Elves. \
+	<br><br> \
+	Half-kins have an easier time being accepted into societies depending on what Beastling features \
+	they have, but it is highly dependent on both their appearance and attitude. However, due to both \
+	historic and ongoing discrimination of mixed bloods they are usually not fully accepted by either \
+	of their parent races. Hence, Half-kins tend to share a strong sense of kinship with similar Half-kins. \
+	Yet, their shared traits with respectable races do mean that Half-kins are more widely accepted into \
+	societies that they share blood ties with than other Beastling races."
 	skin_tone_wording = "Ancestry"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY,MUTCOLORS_PARTSONLY)
+	allowed_taur_types = list(
+		/obj/item/bodypart/taur/spider,
+		/obj/item/bodypart/taur/horse,
+	)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
 	possible_ages = ALL_AGES_LIST
@@ -25,7 +47,7 @@
 		OFFSET_ID = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
 		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
+		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
 		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
@@ -33,7 +55,7 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_PERCEPTION = 1, STAT_ENDURANCE = 1)
+	race_bonus = list(STAT_PERCEPTION = 1, STAT_WILLPOWER = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
@@ -57,6 +79,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/ears/demihuman,
 		/datum/customizer/organ/horns/demihuman,
 		/datum/customizer/organ/tail/demihuman,
@@ -65,6 +88,7 @@
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/animal,
 		/datum/customizer/organ/vagina/animal,
+		/datum/customizer/organ/horns/tusks,
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,
@@ -83,6 +107,7 @@
 		/datum/body_marking/nose,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -97,7 +122,7 @@
 		/datum/descriptor_choice/prominent_three_wild,
 		/datum/descriptor_choice/prominent_four_wild,
 	)
-	
+
 /datum/species/demihuman/check_roundstart_eligible()
 	return TRUE
 

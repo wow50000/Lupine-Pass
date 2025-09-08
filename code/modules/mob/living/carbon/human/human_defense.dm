@@ -20,29 +20,22 @@
 	if(isbodypart(def_zone))
 		var/obj/item/bodypart/CBP = def_zone
 		def_zone = CBP.body_zone
-	var/protection = 0
 	var/obj/item/clothing/used
-	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
-	for(var/bp in body_parts)
-		if(!bp)
-			continue
-		if(bp && istype(bp , /obj/item/clothing))
-			var/obj/item/clothing/C = bp
-			if(zone2covered(def_zone, C.body_parts_covered_dynamic))
-				if(C.max_integrity)
-					if(C.obj_integrity <= 0)
-						continue
-				var/val = C.armor.getRating(d_type)
-				if(val > 0)
-					if(val > protection)
-						protection = val
-						used = C
+	var/protection = 0
+	used = get_best_worn_armor(def_zone, d_type)
 	if(used)
+		protection = used.armor.getRating(d_type)
 		if(!blade_dulling)
 			blade_dulling = BCLASS_BLUNT
+		if(blade_dulling == BCLASS_PEEL)	//Peel shouldn't be dealing any damage through armor, or to armor itself.
+			used.peel_coverage(def_zone, peeldivisor, src)
+			damage = 0
 		if(used.blocksound)
 			playsound(loc, get_armor_sound(used.blocksound, blade_dulling), 100)
 		var/intdamage = damage
+		// Penetrative damage deals significantly less to the armor. Tentative.
+		if((damage + armor_penetration) > protection)
+			intdamage = (damage + armor_penetration) - protection
 		if(intdamfactor != 1)
 			intdamage *= intdamfactor
 		if(d_type == "blunt")
@@ -50,9 +43,6 @@
 				var/bluntrating = used.armor.getRating("blunt")
 				intdamage -= intdamage * ((bluntrating / 2) / 100)	//Half of the blunt rating reduces blunt damage taken by %-age.
 		used.take_damage(intdamage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
-		if(damage)
-			if(blade_dulling == BCLASS_PEEL)
-				used.peel_coverage(def_zone, peeldivisor)
 	if(physiology)
 		protection += physiology.armor.getRating(d_type)
 	return protection
@@ -74,28 +64,6 @@
 					if(d_type in C.prevent_crits)
 						return TRUE
 
-//This proc returns obj/item/clothing, the armor that has "soaked" the crit. Using it for dismemberment check
-/mob/living/carbon/human/proc/checkcritarmorreference(def_zone, bclass)
-	if(!bclass)
-		return null
-	var/obj/item/clothing/best_armor = null
-	if(isbodypart(def_zone))
-		var/obj/item/bodypart/CBP = def_zone
-		def_zone = CBP.body_zone
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, s_store, glasses, ears, wear_ring)
-	for(var/bp in body_parts)
-		if(!bp)
-			continue
-		if(bp && istype(bp , /obj/item/clothing))
-			var/obj/item/clothing/C = bp
-			if(zone2covered(def_zone, C.body_parts_covered_dynamic))
-				if(C.obj_integrity > 1)
-					if(bclass in C.prevent_crits)
-						if(!best_armor)
-							best_armor = C
-						else if (round(((best_armor.obj_integrity / best_armor.max_integrity) * 100), 1) < round(((C.obj_integrity / C.max_integrity) * 100), 1)) //We want the armor with highest % integrity 
-							best_armor = C
-	return best_armor
 /*
 /mob/proc/checkwornweight()
 	return 0
@@ -707,7 +675,7 @@
 		examination += bodypart.check_for_injuries(user, deep_examination)
 
 	examination += "ø ------------ ø</span>"
-	if(infected)
+	if(has_status_effect(/datum/status_effect/zombie_infection) || infected)
 		examination += span_boldwarning("[m1] slowly rotting away.")
 
 	if(!silent)
@@ -799,3 +767,26 @@
 
 	for(var/obj/item/I in torn_items)
 		I.take_damage(damage_amount, damage_type, damage_flag, 0)
+
+/// Helper proc that returns the worn item ref that has the highest rating covering the def_zone (targeted zone) for the d_type (damage type)
+/mob/living/carbon/human/proc/get_best_worn_armor(def_zone, d_type)
+	var/protection = 0
+	var/obj/item/clothing/used
+	if(def_zone == BODY_ZONE_TAUR)
+		def_zone = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	for(var/bp in body_parts)
+		if(!bp)
+			continue
+		if(bp && istype(bp, /obj/item/clothing))
+			var/obj/item/clothing/C = bp
+			if(zone2covered(def_zone, C.body_parts_covered_dynamic))
+				if(C.max_integrity)
+					if(C.obj_integrity <= 0)
+						continue
+				var/val = C.armor.getRating(d_type)
+				if(val > 0)
+					if(val > protection)
+						protection = val
+						used = C
+	return used

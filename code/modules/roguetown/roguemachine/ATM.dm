@@ -1,6 +1,6 @@
 /obj/structure/roguemachine/atm
 	name = "MEISTER"
-	desc = "Stores and withdraws currency for accounts managed by the Grand Duchy of Azuria."
+	desc = "Stores and withdraws currency for accounts managed by the Grand Duchy of the vale."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "atm"
 	density = FALSE
@@ -11,7 +11,7 @@
 	var/drilled = FALSE
 	var/has_reported = FALSE
 	var/location_tag
-	
+
 /obj/structure/roguemachine/atm/attack_hand(mob/user)
 	if(!ishuman(user))
 		return
@@ -19,6 +19,15 @@
 	if(HAS_TRAIT(user, TRAIT_OUTLAW))
 		to_chat(H, span_warning("The machine rejects you, sensing your status as an outlaw in these lands."))
 		return
+//Remove the comment on the below block to re-enable outsiders and such not having access.
+//Mind that this makes it impossible for adventurers and the like to engage with quests.
+/*
+	if(HAS_TRAIT(user, TRAIT_OUTLANDER) && !HAS_TRAIT(user, TRAIT_NOBLE) && !HAS_TRAIT(user, TRAIT_INQUISITION))
+		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+		loc.visible_message(span_warning("The meister turns its nose up at [user]'s hand."))
+		to_chat(user, span_danger("The machine spits on your ignoble foreign blood."))
+		return
+*/
 	if(drilled)
 		if(HAS_TRAIT(H, TRAIT_NOBLE))
 			if(!HAS_TRAIT(H, TRAIT_COMMIE))
@@ -32,7 +41,7 @@
 				spawn(5)
 				say("Blueblood for the Freefolk!")
 				playsound(src, 'sound/vo/mobs/ghost/laugh (5).ogg', 100, TRUE)
-				return	
+				return
 	if(H in SStreasury.bank_accounts)
 		var/amt = SStreasury.bank_accounts[H]
 		if(!amt)
@@ -95,6 +104,12 @@
 
 /obj/structure/roguemachine/atm/attackby(obj/item/P, mob/user, params)
 	if(ishuman(user))
+		if(istype(P, /obj/item/roguecoin/aalloy))
+			return
+
+		if(istype(P, /obj/item/roguecoin/inqcoin))
+			return
+
 		if(istype(P, /obj/item/roguecoin))
 			var/mob/living/carbon/human/H = user
 			if(H in SStreasury.bank_accounts)
@@ -109,6 +124,7 @@
 				qdel(P)
 				playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 				return
+
 		if(istype(P, /obj/item/coveter))
 			var/mob/living/carbon/human/H = user
 			if(!HAS_TRAIT(H, TRAIT_COMMIE))
@@ -159,7 +175,7 @@
 		drilling = FALSE
 		has_reported = FALSE
 		return
-	if(mammonsiphoned >199) // The cap variable for siphoning. 
+	if(mammonsiphoned >199) // The cap variable for siphoning.
 		new /obj/item/coveter(loc)
 		loc.visible_message(span_warning("Maximum withdrawal reached! The meister weeps."))
 		playsound(src, 'sound/misc/DrillDone.ogg', 70, TRUE)
@@ -198,7 +214,7 @@
 
 /obj/item/coveter
 	name = "Covetous Crown"
-	desc = "A Crown which craves the brow of meisters. The Covetous Crab"
+	desc = "A Crown which craves the brow of miesters and the vault's jawbank; it could be also be mounted upon a restrained person's head to drain their miester account in a pinch."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "crown_object"
 	force = 10

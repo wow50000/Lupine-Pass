@@ -24,6 +24,12 @@
 	round_contrib_points = 2
 	advjob_examine = TRUE
 	cmode_music = 'sound/music/cmode/towner/combat_towner.ogg'
+	job_traits = list(TRAIT_EMPATH, TRAIT_GOODLOVER)
+	job_subclasses = list(
+		/datum/advclass/nightmaiden,
+		/datum/advclass/nightmaiden/concubine,
+		/datum/advclass/nightmaiden/courtesan
+	)
 
 /datum/job/roguetown/nightmaiden/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	. = ..()
@@ -42,11 +48,17 @@
 	tutorial = "A fresh initiate, most would decry the humble bath maid as a desperate fool tempting others into bedsheets for money--only sometimes, you say! You work underneath your betters in the communal bathhouse, keeping it and the guests in turn as tidy as they please. Wash laundry, tend mild wounds, and deftly wash your patrons with soap, for this is your craft."
 	outfit = /datum/outfit/job/roguetown/nightmaiden/attendant
 	category_tags = list(CTAG_NIGHTMAIDEN)
+	traits_applied = list(TRAIT_NUTCRACKER, TRAIT_CICERONE)
+	subclass_stats = list(
+		STATKEY_CON = 3,
+		STATKEY_WIL = 2,
+		STATKEY_STR = 1
+	)
 
 /datum/outfit/job/roguetown/nightmaiden/attendant/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/armingcap
-	neck = /obj/item/clothing/neck/roguetown/collar
+	neck = /obj/item/clothing/neck/roguetown/collar/leather
 	beltl = /obj/item/roguekey/nightmaiden
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backl = /obj/item/storage/backpack/rogue/satchel
@@ -78,23 +90,22 @@
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
 
-	H.change_stat("constitution", 3)
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 2)
-	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
-
 /datum/advclass/nightmaiden/concubine
 	name = "Concubine"
 	tutorial = "Unlike your fellow bath attendants who maintain a professional facade, you have abandoned all pretense. You are a prized possession of the nobility, adorned in exotic silks and gold. Your role is to provide companionship, entertainment, and pleasure. Working underneath the finespun courtesans, you're a step above the bath attendants in your craft."
 	outfit = /datum/outfit/job/roguetown/nightmaiden/concubine
 	category_tags = list(CTAG_NIGHTMAIDEN)
+	traits_applied = list(TRAIT_LIGHT_STEP, TRAIT_BEAUTIFUL)
+	subclass_stats = list(
+		STATKEY_PER = 3,
+		STATKEY_WIL = 2,
+		STATKEY_STR = 1
+	)
 
 /datum/outfit/job/roguetown/nightmaiden/concubine/pre_equip(mob/living/carbon/human/H)
 	..()
 	beltl = /obj/item/roguekey/nightmaiden
+	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/rope = 1,
@@ -104,14 +115,13 @@
 	)
 	if(should_wear_femme_clothes(H))
 		mask = /obj/item/clothing/mask/rogue/exoticsilkmask
-		neck = /obj/item/clothing/neck/roguetown/collar
+		neck = /obj/item/clothing/neck/roguetown/collar/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk
 		shoes = /obj/item/clothing/shoes/roguetown/anklets
 		belt = /obj/item/storage/belt/rogue/leather/exoticsilkbelt
 	else
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
-		neck = /obj/item/clothing/neck/roguetown/collar/bell_collar
+		neck = /obj/item/clothing/neck/roguetown/collar/catbell
 		pants = /obj/item/clothing/under/roguetown/trou/leathertights
 		belt = /obj/item/storage/belt/rogue/leather/black
 		shoes = /obj/item/clothing/shoes/roguetown/sandals
@@ -127,15 +137,8 @@
 	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-	H.change_stat("perception", 3)
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 2)
-	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 
-	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman","Flute")
+	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman","Flute","Trumpet")
 	var/weapon_choice = input("Choose your instrument.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
@@ -155,12 +158,21 @@
 			backr = /obj/item/rogue/instrument/vocals
 		if("Flute")
 			backr = /obj/item/rogue/instrument/flute
+		if("Trumpet")
+			backr = /obj/item/rogue/instrument/trumpet
+
 
 /datum/advclass/nightmaiden/courtesan
 	name = "Courtesan"
 	tutorial = "Overcoming mind games, deceit and competition, you came into your own as one of the bathhouse's most prized moneymakers and socialites. Dressed in lavish gifts left behind by your patrons, not just anyone can have you. Under the matron, you do most of the social heavylifting and provide entertainment of all forms - behind a heavy price tag. "
 	outfit = /datum/outfit/job/roguetown/nightmaiden/courtesan
 	category_tags = list(CTAG_NIGHTMAIDEN)
+	traits_applied = list(TRAIT_KEENEARS, TRAIT_BEAUTIFUL)
+	subclass_stats = list(
+		STATKEY_SPD = 3,
+		STATKEY_WIL = 2,
+		STATKEY_PER = 1
+	)
 
 /datum/outfit/job/roguetown/nightmaiden/courtesan/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -212,15 +224,8 @@
 	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.change_stat("speed", 3)
-	H.change_stat("endurance", 2)
-	H.change_stat("perception", 1)
-	ADD_TRAIT(H, TRAIT_KEENEARS, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 
-	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman","Flute")
+	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman","Flute","Trumpet")
 	var/weapon_choice = input("Choose your instrument.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
@@ -240,6 +245,8 @@
 			backr = /obj/item/rogue/instrument/vocals
 		if("Flute")
 			backr = /obj/item/rogue/instrument/flute
+		if("Trumpet")
+			backr = /obj/item/rogue/instrument/trumpet
 
 /obj/item/soap/bath
 	name = "herbal soap"

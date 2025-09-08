@@ -17,7 +17,7 @@
 	movement_interrupt = FALSE
 	antimagic_allowed = FALSE //can you use it if you are antimagicked?
 	spell_tier = 2
-	invocation = "Tabificus!"
+	invocations = list("Tabificus!")
 	invocation_type = "shout"
 	glow_color = GLOW_COLOR_ARCANE
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -41,7 +41,7 @@
 	damage_type = BURN
 	flag = "magic"
 	range = 15
-	speed = 5 //higher is slower
+	speed = 1
 	var/aoe_range = 1
 
 /obj/projectile/magic/acidsplash/on_hit(atom/target, blocked = FALSE)

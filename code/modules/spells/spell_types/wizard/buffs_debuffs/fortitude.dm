@@ -13,7 +13,7 @@
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	spell_tier = 2
-	invocation = "Tenax"
+	invocations = list("Tenax")
 	invocation_type = "whisper"
 	glow_color = GLOW_COLOR_BUFF
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -50,10 +50,10 @@
 	var/outline_colour ="#008000" // Forest green to avoid le sparkle mage
 	id = "fortitude"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/fortitude
-	duration = 1 MINUTES
+	duration = 1.5 MINUTES
 
 /datum/status_effect/buff/fortitude/other
-	duration = 2 MINUTES
+	duration = 3 MINUTES
 
 /datum/status_effect/buff/fortitude/on_apply()
 	. = ..()

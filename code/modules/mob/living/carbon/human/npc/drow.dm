@@ -12,8 +12,9 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 	var/is_silent = FALSE /// Determines whether or not we will scream our funny lines at people.
 
 /mob/living/carbon/human/species/elf/dark/drowraider/ambush
-	aggressive=1
-	wander = TRUE
+	aggressive = 1
+	mode = NPC_AI_IDLE
+	wander = FALSE
 
 /mob/living/carbon/human/species/elf/dark/drowraider/retaliate(mob/living/L)
 	var/newtarg = target
@@ -42,6 +43,7 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 	job = "Drow Raider"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_LEECHIMMUNE, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_INFINITE_ENERGY, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/roguetown/human/species/elf/dark/drowraider)
@@ -55,10 +57,11 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 						/datum/sprite_accessory/hair/head/countryponytailalt, 
 						/datum/sprite_accessory/hair/head/stacy, 
 						/datum/sprite_accessory/hair/head/kusanagi_alt))
-	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailwitcher, 
+	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailyeager, 
 						/datum/sprite_accessory/hair/head/dave, 
 						/datum/sprite_accessory/hair/head/emo, 
-						/datum/sprite_accessory/hair/head/sabitsuki))
+						/datum/sprite_accessory/hair/head/sabitsuki,
+						/datum/sprite_accessory/hair/head/sabitsuki_ponytail))
 
 	var/datum/bodypart_feature/hair/head/new_hair = new()
 
@@ -98,15 +101,9 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 	if(world.time < next_idle)
 		return
 	next_idle = world.time + rand(30, 70)
-	if((mobility_flags & MOBILITY_MOVE) && isturf(loc) && wander)
-		if(prob(20))
-			var/turf/T = get_step(loc,pick(GLOB.cardinals))
-			if(!istype(T, /turf/open/transparent/openspace))
-				Move(T)
-		else
-			face_atom(get_step(src,pick(GLOB.cardinals)))
-	if(!wander && prob(10))
-		face_atom(get_step(src,pick(GLOB.cardinals)))
+
+	if(prob(10))
+		face_atom(get_step(src, pick(GLOB.cardinals)))
 
 /mob/living/carbon/human/species/elf/dark/drowraider/handle_combat()
 	if(mode == NPC_AI_HUNT)
@@ -115,35 +112,32 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 	. = ..()
 
 /datum/outfit/job/roguetown/human/species/elf/dark/drowraider/pre_equip(mob/living/carbon/human/H)
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/iron
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	if(prob(50))
-		wrists = /obj/item/clothing/wrists/roguetown/bracers
-	mask = /obj/item/clothing/mask/rogue/facemask/steel
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/iron
 	if(prob(50))
 		mask = /obj/item/clothing/mask/rogue/ragmask/black
-	head = /obj/item/clothing/head/roguetown/roguehood/black
+	head = /obj/item/clothing/head/roguetown/helmet/sallet/visored/iron
 	if(prob(50))
-		head = /obj/item/clothing/head/roguetown/helmet/kettle
-	neck = /obj/item/clothing/neck/roguetown/bevor
+		head = /obj/item/clothing/head/roguetown/helmet/kettle/iron
+	neck = /obj/item/clothing/neck/roguetown/bevor/iron
 	if(prob(50))
 		neck = /obj/item/clothing/neck/roguetown/gorget
-	gloves = /obj/item/clothing/gloves/roguetown/chain/blk
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+	gloves = /obj/item/clothing/gloves/roguetown/chain/iron
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	H.STASTR = 14 // 8 Points
 	H.STASPD = 11 // +1 - Drow
 	H.STACON = 14 // 4 points
-	H.STAEND = 12 // 2 points - 14 points spread. Equal to 1 more than a KC accounting for Statpack.
+	H.STAWIL = 12 // 2 points - 14 points spread. Equal to 1 more than a KC accounting for Statpack.
 	H.STAPER = 10
 	H.STAINT = 10  
 	if(prob(50))
 		r_hand = /obj/item/rogueweapon/sword/falx
 		l_hand = /obj/item/rogueweapon/shield/tower
 	else
-		r_hand = /obj/item/rogueweapon/halberd/glaive
+		r_hand = /obj/item/rogueweapon/halberd/bardiche
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)

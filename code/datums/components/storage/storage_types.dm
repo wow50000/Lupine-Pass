@@ -19,11 +19,11 @@
 /datum/component/storage/concrete/roguetown/surgery_bag/New(datum/P, ...)
 	. = ..()
 	can_hold = typecacheof(list(
-	/obj/item/rogueweapon/surgery, 
-	/obj/item/needle, 
-	/obj/item/natural/worms/leech, 
+	/obj/item/rogueweapon/surgery,
+	/obj/item/needle,
+	/obj/item/natural/worms/leech,
 	/obj/item/reagent_containers/lux,
-	/obj/item/natural/bundle/cloth, 
+	/obj/item/natural/bundle/cloth,
 	/obj/item/natural/cloth))
 
 /datum/component/storage/concrete/roguetown/messkit
@@ -148,7 +148,7 @@
 	set_holdable(list(
 		/obj/item/magic/infernalash,
 		/obj/item/magic/hellhoundfang,
-		/obj/item/magic/infernalash,
+		/obj/item/magic/infernalcore,
 		/obj/item/magic/abyssalflame,
 		/obj/item/magic/fairydust,
 		/obj/item/magic/iridescentscale,
@@ -163,6 +163,22 @@
 		/obj/item/reagent_containers/food/snacks/grown/manabloom,
 		/obj/item/magic/manacrystal,
 		/obj/item/ash,
+		/obj/item/magic/artifact,
+		/obj/item/alch/atropa,
+		/obj/item/alch/matricaria,
+		/obj/item/alch/symphitum,
+		/obj/item/alch/taraxacum,
+		/obj/item/alch/euphrasia,
+		/obj/item/alch/paris,
+		/obj/item/alch/calendula,
+		/obj/item/alch/mentha,
+		/obj/item/alch/urtica,
+		/obj/item/alch/salvia,
+		/obj/item/alch/hypericum,
+		/obj/item/alch/benedictus,
+		/obj/item/alch/valeriana,
+		/obj/item/alch/artemisia,
+		/obj/item/alch/rosa
 		))
 
 /datum/component/storage/concrete/roguetown/saddle

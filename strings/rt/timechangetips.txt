@@ -34,10 +34,10 @@ Ravox stands for justice, not murder.
 Heretical tomes suggest Xylix shares a fondness for Graggar, a former slave who broke free of his chains. Others propose a fondness for Matthios, who played a trick on the gods themselves.
 The Rontz is said to be Matthios' hardened blood, weeping from his burns as he clutched Astrata's fire between his fingers. This dissuades few people- it is worth a lot of money, after all.
 Coins are often buried with the dead to pay for the Carriageman's services.
-Sissean tails are said to bring good luck if burned and scattered as powder. 
+Zardmen tails are said to bring good luck if burned and scattered as powder. 
 Lux from a tiefling is thought to be toxic. It is often purified with silver before transplantation.
 Pestrans oft suffer bad relations with the rest of the Church, as their fixation on rot and decay is looked on increasingly with distrust in the new era of necromancy. Sects of physickers keep increasingly to themselves.
-Malum used to carry a divine hammer that gave life to all material things Azure Peak was built upon. It is now lost to history.
+Malum used to carry a divine hammer that gave life to all material things the vale was built upon. It is now lost to history.
 Carrion-beasts, cheeles, and nagas are sacred to Pestra. Those who slay them are often punished with terrible plagues.
 Eora stands for far more than familial love, but frowns upon those who break matrimony.
 What better trick than stealing fire from Astrata herself?
@@ -47,7 +47,7 @@ Black cats are symbols of death, and sacred to Necra. They stare at souls only t
 Trolls are thought to have once guarded Dendor's realm. Druids often seek them out. Few return.
 Drow mushroom wines are said to be delicious as long as they are paired with the right antidote.
 Servants of Xylix are often capricious and untrustworthy, but all share in their god's hatred for slave-taking. 
-Azure Peak used to belong to the once-great Celestial Empire, which was fractured by ZIZO's ambition and cunning. It is a shadow of its former self.
+The vale used to belong to the once-great Celestial Empire, which was fractured by ZIZO's ambition and cunning. It is a shadow of its former self.
 Graggar was given power as Ravox's champion; and with it, he clawed a hole through the crumbling firmament to divinity.
 The Gods are listening. To utter the name of ZIZO is to attract her attention, and your damnation.
 The Inhumen have many names. In the frozen, forsaken north, they are revered as sacred animals—the moose, the leopard, the bear, and the volf.
@@ -62,7 +62,7 @@ When Dendor first clawed free of Abyssor's skull, he shed parts of himself like 
 ZIZO stole the souls of all snow elves in Her ascension. They serve eternally in her undead armies, forever freed from Necra's grasp.
 The land of Naledi is unique among its beliefs for holding that the Inhumen are created from mortal desire and were crafted by PSYDON. This heresy saw their warscholars purged by the Holy See.
 Most citizens of Grenzelhoft cannot remember a time the empire was not at war. Many turn to mercenary work to escape the crushing poverty of the lower class. Others turn to banditry.
-The firmament is weakest in Azurea, where the COMET SYON landed, and the dark-star Graggar thrashes, entombed underneath the earth. More gods have bled here than anywhere else in the mortal world.
+The firmament is weakest in the vale, where the COMET SYON landed, and the dark-star Graggar thrashes, entombed underneath the earth. More gods have bled here than anywhere else in the mortal world.
 It is said that Astrata once took the form of a mortal, having fallen in love with a prince named Antero, and ultimately sacrificed Her mortal form to protect her child from Necra's clutches. It did not work.
 The sprawling tundra of Aavnr is the homeland of the graggarspawn Orc race. Few travel there willingly. 
 Vampyres are sun-cursed creechers spawned from Astrata's ill-fated attempt at a family. She has forgiven none of the Pantheon for this. Not Noc, not Xylix, and not Necra.
@@ -70,7 +70,7 @@ A comet capable of rending all the enemies of humanity apart; oh, how graceful H
 Dragons are holy symbols of Matthios—incarnations of greed and stolen sunfyre. To slay one is a holy, and often suicidal, task.
 Merchants and the rich are often viewed with suspicion of Matthiosite heresy by the Inquisition. Except, of course, for nobility, who have divine right to wealth.
 The Ten will have you think He is powerless, and the Four that he is dead; but all He asks of you is for your faith to ENDURE.
-The powerful nation of Otava is home to a radical denomination that venerates PSYDON above all, seeing the TEN as mere fragments of True Divinity. Azure Peak is home to a small enclave of this Psydonian Order.
+The powerful nation of Otava is home to a radical denomination that venerates PSYDON above all, seeing the TEN as mere fragments of True Divinity. The vale is home to a small enclave of this Psydonian Order.
 The land of Naledi is now but a smouldering ruin of rot and feces; sand runs through with daemonic taint. The warscholars flee their home, weeping as He does.
 I AM OLDER THAN AEON. I AM SIN, FATHER OF LIES. I HAVE GONE BY MANY NAMES. SAY THEM AND WEEP, FOR I AM ALL THAT THEY ARE.
 Working yourself to death is considered an act worthy of veneration for Malumites—so long as you finish your creation.
@@ -80,11 +80,11 @@ The Sovereignty of Otava is a lush wet country home to the best stoneworkers on 
 A traditional Psydonic greeting or farewell is 'Purity afloat.' The psycross is often held over the chest during this ritual.
 Blacksteel is a pale imitation of the Zizo-blessed Darksteel, which is gifted to Her followers in Her benevolence.
 Blacksteel is a blessed alloy of pure silver and steel. Its recipe was stolen by Zizite heretics and perverted into Darksteel.
-The Gronn Highlands is a mountainous region known for its jagged peaks and terrible blizzards. It is home to a hardy, brutal people who struggle to survive against the land, building fortified stone villages that cling to cliffsides. 
+The Gronn Highlands are a mountainous region known for its jagged peaks and terrible blizzards. It is home to a hardy, brutal people who struggle to survive against the land, building fortified stone villages that cling to cliffsides. 
 Dwarves are renowned for their artifice and craftsmanship, having been least affected by the collapse of the Celestial Empire. They are only mostly dead.
 The Raneshan Empire is a vast dry region primarily made up of sprawling forests and arid lands. It is famous for its rich silks, splendorous gold, and expansive slave trade.
 Most Dwarves hail from Hammerhold, either from above or below. Confusing a surface-dwarf and an underground-dwarf is likely to get you kicked in the shin.
-The Isles of Etrusca is a sun-kissed archipelago nestled in sparkling blue waters. Known for their rich maritime culture, the Etruscans are masterful sailors and traders, navigating the seas with swift, ornate galleons adorned with colorful sails.
+The Isles of Etrusca are a sun-kissed archipelago nestled in sparkling blue waters. Known for their rich maritime culture, the Etruscans are masterful sailors and traders, navigating the seas with swift, ornate galleons adorned with colorful sails.
 ZIZO. ZIZO. ZIZO.
 To seek progress is to paint with your blood. The greater the work, the harsher the price.
 Scent of rot and shit; my feet find fetid ground. A corpse—I am living on a corpse. And then the world is normal again.
@@ -103,3 +103,23 @@ ASTRATA is a VILE TYRANT and must be CONSUMED AND SUBSUMED.
 ASTRATA is law made manifest and must be respected, lest society fall into chaos.
 No pursuit was too perilous, no sacrifice too great. Until, well...
 Under the Heavens and the Many Stars, there are darker things than men may dream of.
+Lupians make exceptional zealots. Ask the Otavan Inquisition.
+Stories tell that Noc stole Dendor's curse to create Humen of his own, and thus Lupians came to be. A poor imitation.
+Stories tell that Noc stole Dendor's blessing to create Humen of his own, and thus Lupians came to be. An honest attempt.
+Solitary Lupians who suffer from gigantism are often mistaken for werevolves and shot without question, so they travel in packs - be it with their own or other peoples.
+Drakian... Fluvian... Lupian... They're all wildkin, why do we bother giving them names?
+The bog be a dangerous place full of chittering fiends. That dendorite may be covered in leaves and mud, at least they make for a good guide.
+With the care they put into their work, it is said that the food made by Eora's faithful energize the soul like no other dish.
+Pomegranate arils are boons sent to mortals by Eora to test whether they're dedicated enough to care for something precious.
+The mythical ashen aril is coveted by thieves, heretics and all manner of ruffians. For it is said to yield unimaginable power.
+The pauper never had much, but his worship for Abyssor led the faithful to mend his broken frame with ancient strength.
+To trust an Abyssorite is to believe in Xylix. Since the first communion, his followers frequently fall to madness.
+The winds tell tales of Astratan devout turning flesh to flame and flame to blades. Beware her fury.
+Shal'ghur is a city only known by this name, denoted affectionately by creatures that dwell in Abyssor's dream. The shades of winding streets full of the damned reflected in his realm. A cautionary tale on the dangers of dream incursions.
+The mast buckles, as the ship is led through treacherous waters by Abyssorite under Astrata's gaze. Sleeping eyes giving way for the faithful of Noc, who continue their toil at night.
+To dream is to commune with Abyssor. Coffee is a sin, but a bit of Camomille tea never goes amiss.
+The righteous cult of Abyssor seeks to keep the old one asleep. His Sentinels and Acolytes often find employ within cities and the Holy See. it is immessurably expensive to scrawl down so many glimpses of dreams, yet the faithful do not care that most of it is gibberish.
+Heretical Abyssorites are despised by many, even their own ilk often think twice of associating with them. Whether it's fear of the destruction wrought by a waking Abyssor, or to condemn the time wasted by their attempts.
+One does not need to be devout, even those unbelieving can get caught by the predaceous dream of Abyssor. It consumes them, unable to tell his realm apart from their own. Yet suddenly, everything seems possible.
+SANCROGENESIS: the creation of holy life, as if touched by PSYDON Himself. It was a mere shard of the power that He held. ...but it is said to have been a considerable haul for the God of Thieves and Capital, nonetheless.
+...and so, it is said Matthios took his sword and cut a hole in the boundary. Before it closed, and the river of life dried, the unmoving earth-maw clawed from its basalt-amniotic womb and roared their first breath into the sky. THE SECOND TRANSACTION.

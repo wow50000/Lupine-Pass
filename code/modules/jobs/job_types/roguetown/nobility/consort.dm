@@ -46,14 +46,13 @@
 		belt = /obj/item/storage/belt/rogue/leather/cloth/lady
 		head = /obj/item/clothing/head/roguetown/nyle/consortcrown
 		shirt = /obj/item/clothing/suit/roguetown/armor/armordress/winterdress/monarch
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random
 		id = /obj/item/scomstone/garrison
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	else if(should_wear_masc_clothes(H))
 		head = /obj/item/clothing/head/roguetown/nyle/consortcrown
 		pants = /obj/item/clothing/under/roguetown/tights
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
+		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/royal
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/keyring/royal
@@ -69,11 +68,11 @@
 	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-	H.change_stat("intelligence", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("speed", 2)
-	H.change_stat("perception", 2)
-	H.change_stat("fortune", 5)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_WIL, 3)
+	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_LCK, 5)
 
 /obj/effect/proc_holder/spell/self/convertrole/servant
 	name = "Recruit Servant"

@@ -90,6 +90,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	// Tgui Topic middleware
 	if(tgui_Topic(href_list))
 		return
+	if(href_list["reload_tguipanel"])
+		nuke_chat()
 	//Logs all hrefs, except chat pings
 	if(!(href_list["_src_"] == "chat" && href_list["proc"] == "ping" && LAZYLEN(href_list) == 2))
 		log_href("[src] (usr:[usr]\[[COORD(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
@@ -139,6 +141,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		answer_schizohelp(locate(href_list["schizohelp"]))
 		return
 
+	if(href_list["view_species_info"])
+		view_species_info(href_list["view_species_info"])
+
 	switch(href_list["_src_"])
 		if("holder")
 			hsrc = holder
@@ -153,8 +158,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			return
 		if("vars")
 			return view_var_Topic(href,href_list,hsrc)
-		if("chat")
-			return chatOutput.Topic(href, href_list)
 
 	switch(href_list["action"])
 		if("openLink")
@@ -257,7 +260,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	// Centered container with left-aligned content
 	data += "<div style='text-align: center;'>"
 	data += "<div style='display: inline-block; text-align: left; margin-left: auto; margin-right: auto;'>"
-	
+
 	var/stat_is_object = GLOB.featured_stats[current_featured]["object_stat"]
 	var/has_entries = length(GLOB.featured_stats[current_featured]["entries"])
 
@@ -268,7 +271,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			data += format_top_ten(current_featured)
 	else
 		data += "<div style='margin-top: 20px;'>[stat_is_object ? "None" : "Nobody"]</div>"
-	
+
 	data += "</div>"
 	data += "</div>"
 	data += "</div>"
@@ -311,6 +314,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#af2323'><span class='bold'>Organs Eaten:</span></font> [GLOB.azure_round_stats[STATS_ORGANS_EATEN]]<br>"
 	data += "<font color='#afa623'><span class='bold'>Locks Picked:</span></font> [GLOB.azure_round_stats[STATS_LOCKS_PICKED]]<br>"
 	data += "<font color='#af2379'><span class='bold'>Kisses Made:</span></font> [GLOB.azure_round_stats[STATS_KISSES_MADE]]<br>"
+	data += "<font color='#af232f'><span class='bold'>Knots Tied:</span></font> [GLOB.azure_round_stats[STATS_KNOTTED]]<br>"
 	data += "</div>"
 	data += "</div></div>"
 	data += "</div>"
@@ -352,8 +356,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#CD853F'><span class='bold'>Kobolds & Verminvolk:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_KOBOLDS] + GLOB.azure_round_stats[STATS_ALIVE_VERMINFOLK]]<br>"
 	data += "<font color='#FFD700'><span class='bold'>Sisseans & Dracon:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_LIZARDS] + GLOB.azure_round_stats[STATS_ALIVE_DRACON]]<br>"
 	data += "<font color='#d49d7c'><span class='bold'>Half & Wildkins:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_HALFKIN] + GLOB.azure_round_stats[STATS_ALIVE_WILDKIN]]<br>"
-	data += "<font color='#99dfd5'><span class='bold'>Lupians, Vulpkin & Tabaxi:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_LUPIANS] + GLOB.azure_round_stats[STATS_ALIVE_VULPS] + GLOB.azure_round_stats[STATS_ALIVE_TABAXI]]<br>"
-	data += "<font color='#c0c6c7'><span class='bold'>Constructs:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_CONSTRUCTS]]<br>"
+	data += "<font color='#99dfd5'><span class='bold'>Lupians/Venardines & Tabaxi:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_LUPIANS] + GLOB.azure_round_stats[STATS_ALIVE_VULPS] + GLOB.azure_round_stats[STATS_ALIVE_TABAXI]]<br>"
+	data += "<font color='#c0c6c7'><span class='bold'>Constructs & Dolls:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_CONSTRUCTS]]<br>"
 	data += "<font color='#9ACD32'><span class='bold'>Fluvian & Axians:</span></font> [GLOB.azure_round_stats[STATS_ALIVE_MOTHS] + GLOB.azure_round_stats[STATS_ALIVE_AXIAN]]<br>"
 	data += "</div>"
 
@@ -409,7 +413,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 				break
 	var/apostasy_followers = GLOB.patron_follower_counts["Godless"] || 0
 	var/psydonite_monarch = GLOB.azure_round_stats[STATS_MONARCH_PATRON] == "Psydon" ? TRUE : FALSE
-	var/psydon_influence = (psydon_followers * 20) + (GLOB.confessors.len * 20) + (GLOB.azure_round_stats[STATS_HUMEN_DEATHS] * -10) + (GLOB.azure_round_stats[STATS_ALIVE_TIEFLINGS] * -20) + (psydonite_monarch ? (psydonite_monarch * 500) : -250) + (largest_religion? (largest_religion * 500) : -250) + (GLOB.azure_round_stats[STATS_PSYCROSS_USERS] * 10) + (apostasy_followers * -20) + (GLOB.azure_round_stats[STATS_LUX_HARVESTED] * -50) + (psydonite_user ? 10000 : -10000)
+	var/psydon_influence = (psydon_followers * 20) + (GLOB.confessors.len * 20) + (GLOB.accused.len * 15) + (GLOB.indexed.len * 5) + (GLOB.azure_round_stats[STATS_HUMEN_DEATHS] * -10) + (psydonite_monarch ? (psydonite_monarch * 500) : -250) + (largest_religion? (largest_religion * 500) : -250) + (GLOB.azure_round_stats[STATS_PSYCROSS_USERS] * 10) + (GLOB.azure_round_stats[STATS_MARQUES_MADE] * 1) + (apostasy_followers * -20) + (GLOB.azure_round_stats[STATS_LUX_HARVESTED] * -50) + (psydonite_user ? 10000 : -10000)
 
 
 	data += "<div style='width: 42.5%; margin: 0 auto 30px; border: 2px solid #2f6c7a; background: #1d4a54; color: #d0d0d0; max-height: 420px;'>"
@@ -422,15 +426,17 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "Number of followers: [psydon_followers] ([get_colored_influence_value(psydon_followers * 20)])<br>"
 	data += "People wearing psycross: [GLOB.azure_round_stats[STATS_PSYCROSS_USERS]] ([get_colored_influence_value(GLOB.azure_round_stats[STATS_PSYCROSS_USERS] * 10)])<br>"
 	data += "Number of confessions: [GLOB.confessors.len] ([get_colored_influence_value(GLOB.confessors.len * 20)])<br>"
-	data += "Largest faith: [largest_religion ? "YES" : "NO"] ([get_colored_influence_value(largest_religion ? 500 : -250)])<br>"
+	data += "Number of accusations: [GLOB.accused.len] ([get_colored_influence_value(GLOB.accused.len * 15)])<br>"
+	data += "People INDEXED: [GLOB.indexed.len] ([get_colored_influence_value(GLOB.indexed.len * 5)])<br>"
 	data += "Psydonite monarch: [psydonite_monarch ? "YES" : "NO"] ([get_colored_influence_value((psydonite_monarch ? (psydonite_monarch * 500) : -250))])<br>"
 	data += "</div>"
 
 	data += "<div style='flex: 1; padding-left: 60px;'>"
 	data += "Number of apostates: [apostasy_followers] ([get_colored_influence_value(apostasy_followers * -20)])<br>"
 	data += "Humen deaths: [GLOB.azure_round_stats[STATS_HUMEN_DEATHS]] ([get_colored_influence_value(GLOB.azure_round_stats[STATS_HUMEN_DEATHS] * -10)])<br>"
+	data += "Largest faith: [largest_religion ? "YES" : "NO"] ([get_colored_influence_value(largest_religion ? 500 : -250)])<br>"
 	data += "Lux harvested: [GLOB.azure_round_stats[STATS_LUX_HARVESTED]] ([get_colored_influence_value(GLOB.azure_round_stats[STATS_LUX_HARVESTED] * -50)])<br>"
-	data += "Number of demonspawns: [GLOB.azure_round_stats[STATS_ALIVE_TIEFLINGS]] ([get_colored_influence_value(GLOB.azure_round_stats[STATS_ALIVE_TIEFLINGS] * -20)])<br>"
+	data += "Marques made: [GLOB.azure_round_stats[STATS_MARQUES_MADE]] ([get_colored_influence_value(GLOB.azure_round_stats[STATS_MARQUES_MADE] * 1)])<br>"
 	data += "God's status: [psydonite_user ? "ALIVE" : "DEAD"] ([get_colored_influence_value(psydonite_user ? 10000 : -10000)])<br>"
 	data += "</div>"
 
@@ -441,16 +447,17 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div></div>"
 
 	// The Ten Section
-	var/astrata_followers = GLOB.patron_follower_counts["Astrata"] || 0
-	var/noc_followers = GLOB.patron_follower_counts["Noc"] || 0
-	var/necra_followers = GLOB.patron_follower_counts["Necra"] || 0
-	var/pestra_followers = GLOB.patron_follower_counts["Pestra"] || 0
-	var/dendor_followers = GLOB.patron_follower_counts["Dendor"] || 0
-	var/ravox_followers = GLOB.patron_follower_counts["Ravox"] || 0
-	var/xylix_followers = GLOB.patron_follower_counts["Xylix"] || 0
-	var/malum_followers = GLOB.patron_follower_counts["Malum"] || 0
-	var/abyssor_followers = GLOB.patron_follower_counts["Abyssor"] || 0
-	var/eora_followers = GLOB.patron_follower_counts["Eora"] || 0
+	var/undivided_followers = GLOB.patron_follower_counts["The Ten Undivided"] || 0 // counts towards all of the Ten influences
+	var/astrata_followers = GLOB.patron_follower_counts["Astrata"] +undivided_followers || 0
+	var/noc_followers = GLOB.patron_follower_counts["Noc"] +undivided_followers || 0
+	var/necra_followers = GLOB.patron_follower_counts["Necra"] +undivided_followers || 0
+	var/pestra_followers = GLOB.patron_follower_counts["Pestra"] +undivided_followers || 0
+	var/dendor_followers = GLOB.patron_follower_counts["Dendor"] +undivided_followers || 0
+	var/ravox_followers = GLOB.patron_follower_counts["Ravox"] +undivided_followers || 0
+	var/xylix_followers = GLOB.patron_follower_counts["Xylix"] +undivided_followers || 0
+	var/malum_followers = GLOB.patron_follower_counts["Malum"] +undivided_followers || 0
+	var/abyssor_followers = GLOB.patron_follower_counts["Abyssor"] +undivided_followers || 0
+	var/eora_followers = GLOB.patron_follower_counts["Eora"] +undivided_followers || 0
 
 	var/astrata_storyteller = /datum/storyteller/astrata
 	var/noc_storyteller = /datum/storyteller/noc
@@ -597,7 +604,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		Drugs snorted: [GLOB.azure_round_stats[STATS_DRUGS_SNORTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_DRUGS_SNORTED))])<br>\
 		Alcohol consumed: [GLOB.azure_round_stats[STATS_ALCOHOL_CONSUMED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_ALCOHOL_CONSUMED))])<br>\
 		Number of alcoholics: [GLOB.azure_round_stats[STATS_ALCOHOLICS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_ALCOHOLICS))])<br>\
-		Number of junkies: [GLOB.azure_round_stats[STATS_JUNKIES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_JUNKIES))])", baotha_storyteller)
+		Number of junkies: [GLOB.azure_round_stats[STATS_JUNKIES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_JUNKIES))])<br>\
+		Number of knottings: [GLOB.azure_round_stats[STATS_KNOTTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_KNOTTED))])", baotha_storyteller)
 
 	// Matthios
 	data += god_ui_block("MATTHIOS", "#3d1301", "#ddbb99", "\
@@ -730,7 +738,6 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 /client/New(TopicData)
 	var/tdata = TopicData //save this for later use
-	chatOutput = new /datum/chatOutput(src)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
 	if(connection != "seeker" && connection != "web")//Invalid connection type.
@@ -783,9 +790,8 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	fps = prefs.clientfps
 
-	if(prefs.prefer_old_chat == FALSE)
-		spawn() // Goonchat does some non-instant checks in start()
-			chatOutput.start()
+	// Instantiate tgui panel
+	tgui_panel = new(src, "browseroutput")
 
 	if(fexists(roundend_report_file()))
 		verbs += /client/proc/show_previous_roundend_report
@@ -862,6 +868,8 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		spawn()
 			alert(mob, "You have logged in already with another key this round, please log out of this one NOW or risk being banned!")
 
+	tgui_panel.initialize()
+
 	connection_time = world.time
 	connection_realtime = world.realtime
 	connection_timeofday = world.timeofday
@@ -913,10 +921,16 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		add_admin_verbs()
 		to_chat(src, get_message_output("memo"))
 		adminGreet()
-	if (mob && reconnecting)
+	if(mob && reconnecting)
 		var/area/joined_area = get_area(mob.loc)
 		if(joined_area)
 			joined_area.reconnect_game(mob)
+	else if(!BC_IsKeyAllowedToConnect(ckey))
+		src << "Sorry, but the server is currently only accepting whitelisted players.  Please see the discord to be whitelisted."
+		message_admins("[ckey] was denied a connection due to not being whitelisted.")
+		log_admin("[ckey] was denied a connection due to not being whitelisted.")
+		qdel(src)
+		return 0
 
 	add_verbs_from_config()
 	var/cached_player_age = set_client_age_from_db(tdata) //we have to cache this because other shit may change it and we need it's current value now down below.
@@ -972,6 +986,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		convert_notes_sql(ckey)
 
 	add_patreon_verbs()
+	is_donator = is_donator(ckey)
 	to_chat(src, get_message_output("message", ckey))
 
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
@@ -1046,7 +1061,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	GLOB.ahelp_tickets.ClientLogout(src)
 	GLOB.directory -= ckey
 	GLOB.clients -= src
-	QDEL_NULL(chatOutput)
+	QDEL_NULL(tgui_panel)
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	if(movingmob != null)
 		movingmob.client_mobs_in_contents -= mob
@@ -1058,6 +1073,8 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	. = ..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
 	QDEL_NULL(droning_sound)
 	last_droning_sound = null
+	if(mob)
+		mob.become_uncliented()
 	return QDEL_HINT_HARDDEL_NOW
 
 /client/proc/set_client_age_from_db(connectiontopic)
@@ -1102,8 +1119,14 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if(!query_client_in_db.Execute())
 		qdel(query_client_in_db)
 		return
+	if (CONFIG_GET(flag/whitelist_bunker) && !holder && !GLOB.deadmins[ckey] && !entry_whitelist_check())
+		log_access("Failed Login: [key] - Unwhitelisted account attempting to connect during whitelist bunker")
+		message_admins(span_adminnotice("Failed Login: [key] - Unwhitelisted account attempting to connect during whitelist bunker"))
+		to_chat(src, CONFIG_GET(string/whitelist_bunker_message))
+		qdel(src)
+		return
 	if(!query_client_in_db.NextRow())
-		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !bunker_bypass_check())
+		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !entry_whitelist_check())
 			log_access("Failed Login: [key] - New account attempting to connect during panic bunker")
 			message_admins(span_adminnotice("Failed Login: [key] - New account attempting to connect during panic bunker"))
 			to_chat(src, CONFIG_GET(string/panic_bunker_message))
@@ -1464,9 +1487,17 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if (CONFIG_GET(flag/asset_simple_preload))
 			addtimer(CALLBACK(SSassets.transport, TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
 
-		#if (PRELOAD_RSC == 0)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/client, preload_vox)), 1 MINUTES)
-		#endif
+// 		#if (PRELOAD_RSC == 0)
+// 		addtimer(CALLBACK(src, TYPE_PROC_REF(/client, preload_vox)), 1 MINUTES)
+// 		#endif
+
+// #if (PRELOAD_RSC == 0)
+// /client/proc/preload_vox()
+// 	for (var/name in GLOB.vox_sounds)
+// 		var/file = GLOB.vox_sounds[name]
+// 		Export("##action=load_rsc", file)
+// 		stoplag()
+// #endif
 
 //Hook, override it to run code when dir changes
 //Like for /atoms, but clients are their own snowflake FUCK
@@ -1542,6 +1573,18 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 /client/proc/show_character_previews(mutable_appearance/MA)
 	var/pos = 0
+
+	var/atom/movable/screen/char_preview/background = LAZYACCESS(char_render_holders, "bg")
+	if(background)
+		screen -= background
+		char_render_holders -= background
+		qdel(background)
+	background = new()
+	LAZYSET(char_render_holders, "bg", background)
+	screen += background
+	background.screen_loc = "character_preview_map:0,0 to 3,3"
+
+	// not cardinal anymore, makes taurs more clear
 	for(var/D in GLOB.cardinals)
 		pos++
 		var/atom/movable/screen/char_preview/O = LAZYACCESS(char_render_holders, "[D]")
@@ -1556,13 +1599,13 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		O.dir = D
 		switch(pos)
 			if(1)
-				O.screen_loc = "character_preview_map:1:2,2:-18"
+				O.screen_loc = "character_preview_map:2,2"
 			if(2)
-				O.screen_loc = "character_preview_map:0:2,2:-18"
+				O.screen_loc = "character_preview_map:1,2"
 			if(3)
-				O.screen_loc = "character_preview_map:1:2,0:10"
+				O.screen_loc = "character_preview_map:1,1"
 			if(4)
-				O.screen_loc = "character_preview_map:0:2,0:10"
+				O.screen_loc = "character_preview_map:2,1"
 
 /client/proc/clear_character_previews()
 	for(var/atom/movable/screen/S in char_render_holders)

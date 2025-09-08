@@ -5,9 +5,15 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/necromancer
 	category_tags = list(CTAG_WRETCH)
-	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_ZOMBIE_IMMUNE, TRAIT_MAGEARMOR, TRAIT_GRAVEROBBER, TRAIT_OUTLAW, TRAIT_ARCYNE_T3, TRAIT_HERESIARCH)
+	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_ZOMBIE_IMMUNE, TRAIT_MAGEARMOR, TRAIT_GRAVEROBBER, TRAIT_OUTLAW, TRAIT_ARCYNE_T3, TRAIT_HERESIARCH, TRAIT_RITUALIST,)
 	maximum_possible_slots = 3 //Onutsio said 2 was stupid
-
+	// Necromancer get the most +4 Int, +2 Perception just like Sorc (Adv Mage), and a bit of endurance / speed
+	subclass_stats = list(
+		STATKEY_INT = 4,
+		STATKEY_PER = 2,
+		STATKEY_WIL = 1,
+		STATKEY_SPD = 1
+	)
 
 /datum/outfit/job/roguetown/wretch/necromancer/pre_equip(mob/living/carbon/human/H)
 	H.mind.current.faction += "[H.name]_faction"
@@ -30,7 +36,9 @@
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
 		/obj/item/necro_relics/necro_crystal = 2,
-		/obj/item/rogueweapon/scabbard/sheath = 1
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1,	//Small health vial
+		/obj/item/ritechalk = 1
 		)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -44,11 +52,7 @@
 	H.cmode_music = 'sound/music/combat_heretic.ogg'
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
-		H?.mind.adjust_spellpoints(6)
-	H.change_stat("intelligence", 4) // Necromancer get the most +4 Int, +2 Perception just like Sorc (Adv Mage), and a bit of endurance / speed
-	H.change_stat("perception", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", 1)
+		H.mind?.adjust_spellpoints(6)
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/eyebite)
@@ -56,5 +60,6 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/raise_lesser_undead/necromancer)
-	H?.mind.adjust_spellpoints(18)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/convert_heretic)
+		H.mind.adjust_spellpoints(18)
 	wretch_select_bounty(H)

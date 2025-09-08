@@ -317,8 +317,15 @@
 
 /datum/config_entry/flag/panic_bunker	// prevents people the server hasn't seen before from connecting
 
+/datum/config_entry/number/border_control // If border control is enabled
+
 /datum/config_entry/string/panic_bunker_message
 	config_entry_value = "Sorry but the server is currently not accepting connections from never before seen players."
+
+/datum/config_entry/flag/whitelist_bunker
+
+/datum/config_entry/string/whitelist_bunker_message
+	config_entry_value = "Sorry but the server is currently not accepting connections from unwhitelisted players."
 
 /datum/config_entry/number/notify_new_player_age	// how long do we notify admins of a new player
 	min_val = -1
@@ -438,6 +445,10 @@
 
 
 /datum/config_entry/string/channel_announce_new_game_message
+	default = null
+
+/// ID роли дискорда для пингов о запуске сервера
+/datum/config_entry/string/game_alert_role_id
 	default = null
 
 /datum/config_entry/flag/debug_admin_hrefs

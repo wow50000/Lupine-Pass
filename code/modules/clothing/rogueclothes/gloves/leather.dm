@@ -78,6 +78,14 @@
 	item_state = "inqgloves"
 	salvage_result = /obj/item/natural/hide/cured
 
+/obj/item/clothing/gloves/roguetown/otavan/psygloves
+	name = "psydonian leather gloves"
+	desc = "Made with Otava's Finest leather, these gloves are fashioned to last."
+	icon_state = "psydongloves"
+	item_state = "psydongloves"
+	salvage_result = /obj/item/natural/hide/cured	
+	allowed_race = ALL_RACES_TYPES
+
 // Eastern gloves
 /obj/item/clothing/gloves/roguetown/eastgloves1
 	name = "black gloves"
@@ -108,3 +116,15 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+
+/obj/item/clothing/gloves/roguetown/harms
+	name = "arm harness"
+	desc = "Reinforced leather bindings for the arms."
+	icon_state = "harms"
+	item_state = "harms"
+	body_parts_covered = HANDS
+	max_integrity = 400
+	armor = list("blunt" = 60, "slash" = 90, "stab" = 60, "piercing" = 60, "fire" = 0, "acid" = 0)
+	armor_class = ARMOR_CLASS_LIGHT
+	sewrepair = TRUE
+	sleeved = FALSE

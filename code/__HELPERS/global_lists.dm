@@ -26,16 +26,19 @@
 
 	init_subtypes(/datum/crafting_recipe, GLOB.crafting_recipes)
 
-	init_subtypes(/datum/anvil_recipe, GLOB.anvil_recipes)
-
 	init_subtypes(/datum/alch_grind_recipe, GLOB.alch_grind_recipes)
 
 	init_subtypes(/datum/alch_cauldron_recipe, GLOB.alch_cauldron_recipes)
 
 	init_subtypes(/datum/stew_recipe, GLOB.stew_recipes)
 
-	for(var/i in 0 to 20)
-		GLOB.mouseicons_human += file("icons/effects/mousemice/swang/[i * 5].dmi")
+	// Anvil recipes
+	for(var/path in subtypesof(/datum/anvil_recipe))
+		var/datum/anvil_recipe/recipe = new path()	
+		if(istype(recipe) && recipe.name && recipe.i_type)
+			GLOB.anvil_recipes += recipe
+		else
+			qdel(recipe)
 
 	// Faiths
 	for(var/path in subtypesof(/datum/faith))
@@ -67,6 +70,22 @@
 	for (var/path in subtypesof(/datum/loadout_item))
 		var/datum/loadout_item/loadout_item = new path()
 		GLOB.loadout_items[path] = loadout_item
+
+
+	// Combat Music Overrides
+	for (var/path in subtypesof(/datum/combat_music))
+		var/datum/combat_music/combat_music = new path()
+		GLOB.cmode_tracks_by_type[path] = combat_music
+
+	for (var/path in GLOB.cmode_tracks_by_type)
+		var/datum/combat_music/trackref = GLOB.cmode_tracks_by_type[path]
+		cmode_track_to_namelist(trackref)
+
+	// Inquisition Hermes list
+	for (var/path in subtypesof(/datum/inqports))
+		var/datum/inqports/inqports = new path()
+		GLOB.inqsupplies[path] = inqports
+
 
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.

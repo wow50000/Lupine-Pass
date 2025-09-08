@@ -6,6 +6,11 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/witch
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	traits_applied = list(TRAIT_DEATHSIGHT, TRAIT_WITCH, TRAIT_ARCYNE_T1)
+	subclass_stats = list(
+		STATKEY_INT = 3,
+		STATKEY_SPD = 2,
+		STATKEY_LCK = 1
+	)
 
 /datum/outfit/job/roguetown/adventurer/witch/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -34,6 +39,7 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt)
+		H.mind.adjust_spellpoints(6)
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/suit/roguetown/armor/corset
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
@@ -47,19 +53,21 @@
 	H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/carpentry, 2, TRUE)
-	H?.mind.adjust_spellpoints(6)
-	H.change_stat("intelligence", 3)
-	H.change_stat("speed", 2)
-	H.change_stat("fortune", 1)
 	if(H.age == AGE_OLD)
-		H.change_stat("speed", -1)
-		H.change_stat("intelligence", 1)
-		H.change_stat("fortune", 1)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_LCK, 1)
 		
 	switch(H.patron?.type)
-		if(/datum/patron/inhumen/zizo,
-	  		/datum/patron/inhumen/matthios,
-	   		/datum/patron/inhumen/graggar,
-	   		/datum/patron/inhumen/baotha)
+		if(/datum/patron/inhumen/zizo)
 			H.cmode_music = 'sound/music/combat_heretic.ogg'
+			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
+		if(/datum/patron/inhumen/matthios)
+			H.cmode_music = 'sound/music/combat_matthios.ogg'
+			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
+		if(/datum/patron/inhumen/graggar)
+			H.cmode_music = 'sound/music/combat_graggar.ogg'
+			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
+		if(/datum/patron/inhumen/baotha)
+			H.cmode_music = 'sound/music/combat_baotha.ogg'
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)

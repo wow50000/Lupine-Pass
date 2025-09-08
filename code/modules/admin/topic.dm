@@ -487,10 +487,9 @@
 		if(!M.client)
 			to_chat(usr, span_warning("[M] doesn't seem to have an active client."))
 			return
-		var/datum/job/mob_job = SSjob.GetJob(M.mind.assigned_role)
 		var/target_job = SSrole_class_handler.get_advclass_by_name(M.advjob)
 		if(M.mind)
-			mob_job = SSjob.GetJob(M.mind.assigned_role)
+			var/datum/job/mob_job = SSjob.GetJob(M.mind.assigned_role)
 			if(mob_job)
 				mob_job.current_positions = max(0, mob_job.current_positions - 1)
 			if(target_job)
@@ -505,6 +504,9 @@
 		GLOB.chosen_names -= M.real_name
 		LAZYREMOVE(GLOB.actors_list, M.mobid)
 		LAZYREMOVE(GLOB.roleplay_ads, M.mobid)
+		SSdroning.kill_droning(M.client)
+		SSdroning.kill_loop(M.client)
+		SSdroning.kill_rain(M.client)
 
 		var/mob/dead/new_player/NP = new()
 		NP.ckey = M.ckey
@@ -1009,16 +1011,10 @@
 
 		if (number == 1)
 			log_admin("[key_name(usr)] created a [english_list(paths)]")
-			for(var/path in paths)
-				if(ispath(path, /mob))
-					message_admins("[key_name_admin(usr)] created a [english_list(paths)]")
-					break
+			spawn_message_admins("[key_name_admin(usr)] created a [english_list(paths)]")
 		else
 			log_admin("[key_name(usr)] created [number]ea [english_list(paths)]")
-			for(var/path in paths)
-				if(ispath(path, /mob))
-					message_admins("[key_name_admin(usr)] created [number]ea [english_list(paths)]")
-					break
+			spawn_message_admins("[key_name_admin(usr)] created [number]ea [english_list(paths)]")
 		return
 
 	else if(href_list["secrets"])

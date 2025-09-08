@@ -26,7 +26,7 @@
 	var/STASPD
 	var/STAINT
 	var/STACON
-	var/STAEND
+	var/STAWIL
 	var/cmode_music
 	var/list/base_intents
 
@@ -131,7 +131,7 @@
 	src.STASPD = zombie.STASPD
 	src.STAINT = zombie.STAINT
 	src.STACON = zombie.STACON
-	src.STAEND = zombie.STAEND
+	src.STAWIL = zombie.STAWIL
 	cmode_music = zombie.cmode_music
 
 	//Special because deadite status is latent as opposed to the others. 
@@ -171,7 +171,7 @@
 		zombie.STASPD = src.STASPD
 		zombie.STAINT = src.STAINT
 		zombie.STACON = src.STACON
-		zombie.STAEND = src.STAEND
+		zombie.STAWIL = src.STAWIL
 
 
 
@@ -335,44 +335,6 @@
 /datum/antagonist/zombie/greet()
 	to_chat(owner.current, span_userdanger("Death is not the end..."))
 	return ..()
-
-/*
-	Check for zombie infection post bite
-		Bite chance is checked here
-		Wound chance is checked in zombie_wound_infection.dm
-*/
-/mob/living/carbon/human/proc/attempt_zombie_infection(mob/living/carbon/human/source, infection_type, wake_delay = 0)
-	var/mob/living/carbon/human/victim = src
-	if (QDELETED(src) || stat >= DEAD)
-		return FALSE
-
-	var/datum/antagonist/zombie/victim_zombie = victim.mind?.has_antag_datum(/datum/antagonist/zombie)
-	if (victim_zombie) //Check that the victim isn't already a zombie or on the way to becoming one
-		return FALSE
-
-	var/datum/antagonist/zombie/zombie_antag = source.mind?.has_antag_datum(/datum/antagonist/zombie)
-	if (!zombie_antag || !zombie_antag.has_turned) //Check that the zombie who bit us is real
-		return FALSE
-	victim.infected = TRUE //They are being infected
-
-	//How did the victim get infected
-	switch (infection_type)
-		if ("bite")
-			if (!prob(ZOMBIE_FIRST_BITE_CHANCE)) // Chance to infect via first bite (rare)
-				return FALSE
-			to_chat(victim, span_danger("A growing cold seeps into my body. I feel horrible... REALLY horrible..."))
-			mob_timers["puke"] = world.time
-			vomit(1, blood = TRUE, stun = FALSE)
-
-		if ("wound")	//Chance to infect via chewing to open wound
-			flash_fullscreen("redflash3")
-			to_chat(victim, span_danger("Ow! It hurts. I feel horrible... REALLY horrible..."))
-
-	victim.zombie_check_can_convert() //They are given zombie antag mind here unless they're already an antag.
-
-//Delay on waking up as a zombie. /proc/wake_zombie(mob/living/carbon/zombie, infected_wake = FALSE, converted = FALSE)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(wake_zombie), victim, FALSE, TRUE), wake_delay, TIMER_STOPPABLE)
-	return zombie_antag
 
 /*
 	Proc for our newly infected to wake up as a zombie

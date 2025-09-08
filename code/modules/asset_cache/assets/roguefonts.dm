@@ -2,6 +2,8 @@
 	keep_local_name = TRUE
 	assets = list(
 		"pterra.ttf" = 'interface/fonts/pterra.ttf',
+		"newrocker.ttf" = 'interface/fonts/newrocker.ttf',
+		"nosfer.ttf" = 'interface/fonts/nosfer.ttf',
 		"chiseld.ttf" = 'interface/fonts/chiseld.ttf',
 		"blackmoor.ttf" = 'interface/fonts/blackmoor.ttf',
 		"handwrite.ttf" = 'interface/fonts/handwrite.ttf',
@@ -14,10 +16,12 @@
 		"hell.ttf" = 'interface/fonts/languages/hell.ttf',
 		"orc.ttf" = 'interface/fonts/languages/orc.ttf',
 		"sand.ttf" = 'interface/fonts/languages/sand.ttf',
+		"algaib.ttf" = 'interface/fonts/languages/algaib.otf',
 		"undead.ttf" = 'interface/fonts/languages/undead.ttf',
 		"draconic.ttf" = 'interface/fonts/languages/draconic.ttf',
 		"grenzelhoftian.ttf" = 'interface/fonts/languages/grenzelhoftian.ttf',
 		"kazengunese.ttf" = 'interface/fonts/languages/kazengunese.ttf',
+		"kazengunaccent.ttf" = 'interface/fonts/languages/kazengunaccent.ttf',
 		"otavan.ttf" = 'interface/fonts/languages/otavan.ttf',
 		"etruscan.ttf" = 'interface/fonts/languages/etruscan.ttf',
 		"gronnic.ttf" = 'interface/fonts/languages/gronnic.ttf',

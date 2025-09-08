@@ -101,8 +101,9 @@
 #define INIT_ORDER_TITLE			100
 #define INIT_ORDER_GARBAGE			99
 #define INIT_ORDER_DBCORE			95
-#define INIT_ORDER_BLACKBOX			94
-#define INIT_ORDER_SERVER_MAINT		93
+#define INIT_ORDER_WHITELIST		94
+#define INIT_ORDER_BLACKBOX			93
+#define INIT_ORDER_SERVER_MAINT		92
 #define INIT_ORDER_INPUT			85
 #define INIT_ORDER_MATURITY_GUARD	84  // RATWOOD EDIT
 #define INIT_ORDER_VIS				80
@@ -147,11 +148,11 @@
 // Subsystem fire priority, from lowest to highest priority
 // If the subsystem isn't listed here it's either DEFAULT or PROCESS (if it's a processing subsystem child)
 
+#define FIRE_PRIORITY_IDLE_NPC		5
 #define FIRE_PRIORITY_ROLE_CLASS_HANDLER 10
 #define FIRE_PRIORITY_PING			10
 #define FIRE_PRIORITY_WET_FLOORS	10
 #define FIRE_PRIORITY_WATER_LEVEL	10
-#define FIRE_PRIORITY_IDLE_NPC		10
 #define FIRE_PRIORITY_SERVER_MAINT	10
 #define FIRE_PRIORITY_RESEARCH		10
 #define FIRE_PRIORITY_VIS			10

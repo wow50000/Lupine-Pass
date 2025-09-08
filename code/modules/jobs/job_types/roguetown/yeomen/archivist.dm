@@ -18,11 +18,37 @@
 	max_pq = null
 	round_contrib_points = 3
 
-/datum/outfit/job/roguetown/archivist/pre_equip(mob/living/carbon/human/H)
+	job_traits = list(TRAIT_ARCYNE_T2, TRAIT_MAGEARMOR, TRAIT_INTELLECTUAL, TRAIT_SEEPRICES_SHITTY, TRAIT_GOODWRITER)
+	advclass_cat_rolls = list(CTAG_ARCHIVIST = 2)
+	job_subclasses = list(
+		/datum/advclass/archivist
+	)
+
+/datum/job/roguetown/archivist/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		H.advsetup = 1
+		H.invisibility = INVISIBILITY_MAXIMUM
+		H.become_blind("advsetup")
+
+/datum/advclass/archivist
+	name = "Archivist"
+	tutorial = "The Archivist meticulously preserves and organizes ancient scrolls and tomes, safeguarding the collective knowledge of the realm for generations to come. Nobles and Peasants alike often seek your expertise on matters of history and fact, and your keenly-kept records on the events of this week will likely stand a testament to your Duke's benevolence and their realm's prosperity...or not. After all, you hold the true power: \
+	The power to dictate how the future generations will look back on these coming days."
+	outfit = /datum/outfit/job/roguetown/archivist/basic
+	category_tags = list(CTAG_ARCHIVIST)
+	subclass_stats = list(
+		STATKEY_INT = 4,
+		STATKEY_CON = -1,
+		STATKEY_STR = -1
+	)
+
+/datum/outfit/job/roguetown/archivist/basic/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.adjust_blindness(-3)
 	if(should_wear_femme_clothes(H))
 		shirt = /obj/item/clothing/suit/roguetown/shirt/robe/archivist
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/black
 		head  = /obj/item/clothing/head/roguetown/roguehood/black
 	else
 		shirt = /obj/item/clothing/suit/roguetown/shirt/robe/archivist
@@ -37,7 +63,13 @@
 	mask = /obj/item/clothing/mask/rogue/spectacles
 	id = /obj/item/scomstone/bad
 	backpack_contents = list(
-		/obj/item/recipe_book/alchemy
+		/obj/item/recipe_book/alchemy,
+		/obj/item/skillbook/unfinished, //give the book man a starter book, enough paper for 3 pages, and a writing instrument to get him started
+		/obj/item/natural/feather,
+		/obj/item/paper,
+		/obj/item/paper,
+		/obj/item/paper
+
 	)
 
 	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
@@ -49,7 +81,6 @@
 	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
-	H?.mind.adjust_spellpoints(12)
 	H.grant_language(/datum/language/elvish)
 	H.grant_language(/datum/language/dwarvish)
 	H.grant_language(/datum/language/celestial)
@@ -62,24 +93,18 @@
 	H.grant_language(/datum/language/kazengunese)
 	H.grant_language(/datum/language/draconic)
 	H.grant_language(/datum/language/aavnic) // All but beast, which is associated with werewolves.
-	ADD_TRAIT(H, TRAIT_SEEPRICES_SHITTY, "[type]")
-	ADD_TRAIT(H, TRAIT_INTELLECTUAL, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_ARCYNE_T2, TRAIT_GENERIC)
-	H.change_stat("strength", -1)
-	H.change_stat("constitution", -1)
-	H.change_stat("intelligence", 4)
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/teach)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/learn)
 	if(H.age == AGE_OLD)
-		H.change_stat("speed", -1)
-		H.change_stat("intelligence", 1)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_INT, 1)
 
 
 //A spell to teach other characters new skills
 /obj/effect/proc_holder/spell/invoked/teach
 	name = "The Tutor's Calling"
-	overlay_state = "book3"
+	overlay_state = "knowledge"
 	releasedrain = 50
 	chargedrain = 0
 	chargetime = 0
@@ -184,7 +209,7 @@
 							user.visible_message("<font color='yellow'>[user] teaches [L] a lesson.</font>")
 							to_chat(usr, span_notice("My student Learns the language [item.name]!"))
 							L.grant_language(item)
-							ADD_TRAIT(L, TRAIT_STUDENT, "[type]")
+							ADD_TRAIT(L, TRAIT_STUDENT, TRAIT_GENERIC)
 						else
 							to_chat(usr, span_warning("[L] got distracted and wandered off!"))
 							to_chat(L, span_warning("I must be more focused on my studies!"))
@@ -197,7 +222,7 @@
 								user.visible_message("<font color='yellow'>[user] teaches [L] a lesson.</font>")
 								to_chat(usr, span_notice("My student grows a lot more proficient in [item.name]!"))
 								L.adjust_skillrank(item, 2, FALSE)
-								ADD_TRAIT(L, TRAIT_STUDENT, "[type]")
+								ADD_TRAIT(L, TRAIT_STUDENT, TRAIT_GENERIC)
 							else
 								to_chat(usr, span_warning("[L] got distracted and wandered off!"))
 								to_chat(L, span_warning("I must be more focused on my studies!"))
@@ -207,13 +232,97 @@
 								user.visible_message("<font color='yellow'>[user] teaches [L] a lesson.</font>")
 								to_chat(usr, span_notice("My student grows more proficient in [item.name]!"))
 								L.adjust_skillrank(item, 1, FALSE)
-								ADD_TRAIT(L, TRAIT_STUDENT, "[type]")
+								ADD_TRAIT(L, TRAIT_STUDENT, TRAIT_GENERIC)
 							else
 								to_chat(usr, span_warning("[L] got distracted and wandered off!"))
 								to_chat(L, span_warning("I must be more focused on my studies!"))
 								return
 			else
 				to_chat(usr, span_warning("My student can barely hear me from there."))
+				return
+	else
+		revert_cast()
+		return FALSE
+
+/obj/effect/proc_holder/spell/invoked/learn
+	name = "Learn From Another"
+	overlay_state = "knowledge"
+	releasedrain = 50
+	chargedrain = 0
+	chargetime = 0
+	recharge_time = 30 SECONDS
+	antimagic_allowed = TRUE
+
+/obj/effect/proc_holder/spell/invoked/learn/cast(list/targets, mob/user = usr)
+	. = ..()
+	if(isliving(targets[1]))
+		var/mob/living/teacher = targets[1]
+		if(teacher == user)
+			to_chat(user, span_warning("In teaching myself, I become both the question and the answer."))
+			revert_cast()
+			return
+		if(HAS_TRAIT(user, TRAIT_STUDENT))
+			to_chat(user, span_warning("I've learned all I can for the time being."))
+			revert_cast()
+			return
+		if(teacher.cmode)//to hopefully stop you from trolling someone with a dialogue box during combat
+			to_chat(user, span_warning("[teacher] is in combat!"))
+			to_chat(teacher, span_warning("[user] wants to learn from you, but you're in combat."))//notify them since they might not ACTUALLY be in combat, just have cmode on
+			revert_cast()
+			return
+		if(teacher in range(2, user))
+			to_chat(usr, span_notice("I ask [teacher] to teach me one of [teacher.p_their()] skills."))
+			if(alert(teacher, "Teach [user] one of your skills?", "Teaching", "Yes", "No") == "Yes")
+				to_chat(user, span_nicegreen("[teacher] has decided to teach you. Stay close and let them decide what they will reveal..."))
+
+				var/list/known_skills = list()
+				var/list/skill_names = list()//we use this in the user input window for the names of the skills
+				if(teacher.mind)
+					var/teacher_skill = 0
+					var/user_skill = 0
+					for(var/skill_type in SSskills.all_skills)
+						var/datum/skill/skill = GetSkillRef(skill_type)
+						if(skill in teacher.skills?.known_skills)
+							teacher_skill = teacher.get_skill_level(skill_type)
+							user_skill = user.get_skill_level(skill_type)
+							if(teacher_skill > user_skill)//only add it to the list of teachable stuff if the spellcaster can gain skill in it
+								LAZYADD(skill_names, skill)
+								LAZYADD(known_skills,skill_type)
+
+					if(!length(known_skills))
+						to_chat(teacher, span_warning("[user] already knows everything I can teach."))
+						to_chat(user, span_warning("[teacher] can't teach me anything."))
+						revert_cast()
+						return
+					var/skill_choice = input(teacher, "Choose a skill to teach","Skills") as null|anything in skill_names
+					if(skill_choice)
+						for(var/real_skill in known_skills)//real_skill is the actual datum for the skill rather than the "Skill" string
+							if(skill_choice == GetSkillRef(real_skill))//if skill_choice (the name string) is equal to real_skill's name ref, essentially
+								if(!(teacher in range(2, user)))
+									to_chat(teacher, span_warning("I moved too far away from [user]."))
+									to_chat(user, span_warning("[teacher] moved too far away from me."))
+									revert_cast()
+									return
+								teacher.visible_message(("[teacher] begins teaching [user] about [skill_choice]."), ("I begin teaching [user] about [skill_choice]."))
+								if(!do_mob(user, teacher, 100))
+									to_chat(teacher, span_warning("I moved too far away from [user]."))
+									to_chat(user, span_warning("[teacher] moved too far away from me."))
+									revert_cast()
+									return
+
+								teacher_skill = teacher.get_skill_level(real_skill)
+								user_skill = user.get_skill_level(real_skill)
+								if(teacher_skill - user_skill > 2) //if the teacher has over two levels over the user, add 2 levels of skill to the user
+									user.adjust_skillrank(real_skill, 2, FALSE)
+									user.visible_message(span_notice("[teacher] teaches [user] about [skill_choice]."), span_notice("I grow much more proficient in [skill_choice]!"))
+								else //if the teacher has 2 or 1 levels over the user, only add 1 level
+									user.adjust_skillrank(real_skill, 1, FALSE)
+									user.visible_message(span_notice("[teacher] teaches [user] about [skill_choice]."), span_notice("I grow more proficient in [skill_choice]!"))
+								ADD_TRAIT(user, TRAIT_STUDENT, TRAIT_GENERIC)
+
+			else
+				to_chat(user, span_warning("[teacher] has decided to keep [teacher.p_their()] knowledge private."))
+				revert_cast()
 				return
 	else
 		revert_cast()

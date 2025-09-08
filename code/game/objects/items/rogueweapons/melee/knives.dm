@@ -33,7 +33,7 @@
 	icon_state = "inpick"
 	attack_verb = list("stabs", "impales")
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
-	penfactor = 80
+	penfactor = 75
 	clickcd = 14
 	swingdelay = 12
 	damfactor = 1.1
@@ -90,7 +90,7 @@
 	wlength = WLENGTH_SHORT
 	w_class = WEIGHT_CLASS_SMALL
 	parrysound = list('sound/combat/parry/bladed/bladedsmall (1).ogg','sound/combat/parry/bladed/bladedsmall (2).ogg','sound/combat/parry/bladed/bladedsmall (3).ogg')
-	max_blade_int = 100
+	max_blade_int = 200
 	max_integrity = 175
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	associated_skill = /datum/skill/combat/knives
@@ -264,21 +264,23 @@
 	icon_state = "idagger"
 	sheathe_icon = "idagger"
 	smeltresult = /obj/item/ingot/iron
-	blade_dulling = DULLING_SHAFT_REINFORCED
 
 /obj/item/rogueweapon/huntingknife/idagger/adagger
 	name = "decrepit dagger"
-	desc = "an incredibly withered daggered. Aeon's grasp is upon its form."
+	desc = "A short blade, wrought from frayed bronze and tanged within a rotwooden grip. Pieces of a former legionnaire's scabbard cling to the glimmerless alloy."
 	force = 12
 	max_integrity = 75
 	icon_state = "adagger"
 	sheathe_icon = "adagger"
-	smeltresult = /obj/item/ingot/aalloy
 	blade_dulling = DULLING_SHAFT_CONJURED
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
+	randomize_blade_int_on_init = TRUE
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/padagger
 	name = "ancient dagger"
-	desc = "A dagger made of ancient alloys. Aeon's grasp has been lifted from its form."
+	desc = "A short blade, forged from polished gilbranze. It is violence that shepherds progress, and it is progress that will free this world from mortality's chains. Zizo, Zizo, Zizo - I call upon thee; bring forth the undying, so that your works may yet be done!"
 	icon_state = "adagger"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -291,6 +293,16 @@
 	max_integrity = 150
 	smeltresult = /obj/item/ingot/steel
 
+/obj/item/rogueweapon/huntingknife/idagger/steel/corroded
+	name = "corroded dagger"
+	desc = "While this is a dagger made of solid steel it has become discolored; the leftovers of the poisons used on this blade.."
+	icon_state = "pdagger"
+	sheathe_icon = "pdagger"
+
+/obj/item/rogueweapon/huntingknife/idagger/steel/corroded/Initialize()
+	. = ..()
+	AddElement(/datum/element/tipped_item)	//Lets you tip your weapon in poison
+
 /obj/item/rogueweapon/huntingknife/idagger/steel/holysee
 	name = "eclipsum dagger"
 	desc = "A blade forged from the Holy metals of the twinned gods Noc and Astrata, Silver and Gold fused under an Eclipse and blessed, these daggers are very grudgingly given out by the Grenzelhoftian See to ordained Priests of the Ten."
@@ -299,17 +311,16 @@
 	icon_state = "gsdagger"
 	sheathe_icon = "gsdagger"
 
-
 /obj/item/rogueweapon/huntingknife/idagger/steel/pestrasickle
 	name ="plaguebringer sickle"
 	desc = "A wicked edge brings feculent delights."
 	icon_state = "pestrasickle"
+	force = 22 // 10% - This is a 8 clickCD weapon
 	max_integrity = 200
 
-/*
-	name = "facón"
-	desc = "An ornate traditional Etruscan knife inlaid with silver, passed down through generations of farmhands and warlords alike."
-	icon_state = "facon" */
+/obj/item/rogueweapon/huntingknife/idagger/steel/pestrasickle/Initialize()
+	. = ..()
+	AddElement(/datum/element/tipped_item)	//Lets you tip your weapon in poison
 
 /obj/item/rogueweapon/huntingknife/idagger/dtace
 	name = "'De Tace'"
@@ -326,6 +337,7 @@
 	throwforce = 12
 	desc = "This is a parrying dagger made of solid steel, used to catch opponent's weapons in the handguard. It's a bit more dull, however."
 	sheathe_icon = "spdagger"
+	max_integrity = 175
 	wdefense = 8		//This way with expert dagger skill you'd have ~12 defense. 1 higher than a kiteshield, but no arrow protection.
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/parrying/vaquero
@@ -333,6 +345,7 @@
 	force = 15
 	throwforce = 15
 	desc = "An exceptionally protective parrying dagger popular in the Etruscan Isles, this dagger features a plain metal guard in the shape of a ship's sail."
+	max_integrity = 200
 	wdefense = 9		//This way with expert dagger skill you'd have ~13 defense. 2 higher than a kiteshield, but no arrow protection.
 	icon_state = "sail_dagger"
 
@@ -345,6 +358,7 @@
 	desc = "A steel dagger imported from the Kazengunese archipelago. A sturdy blade bears a subtle curve, set into a decorated circular crossguard. A waxed \
 	wrapping of twisted cordage provides a secure grip."
 	icon_state = "eastdagger"
+	sheathe_icon = "tanto"
 
 /obj/item/rogueweapon/huntingknife/idagger/silver
 	name = "silver dagger"
@@ -365,7 +379,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger/ComponentInitialize()
 	. = ..()				//It's preblessed with silver only. Mostly redundant, but safely prevents double-blessing.
-	AddComponent(/datum/component/psyblessed, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE)
+	add_psyblessed_component(is_preblessed = TRUE, bonus_force = 0, bonus_sharpness = 0, bonus_integrity = 0, bonus_wdef = 0, make_silver = TRUE)
 	sellprice += 200
 
 /obj/item/rogueweapon/huntingknife/idagger/silver/pickup(mob/user)
@@ -502,7 +516,7 @@
 	icon_state = "stone_knife"
 	smeltresult = null
 	max_integrity = 50
-	max_blade_int = 50
+	max_blade_int = 100
 	wdefense = 1
 	resistance_flags = FLAMMABLE
 
@@ -545,6 +559,9 @@
 		attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 		sharpness = IS_SHARP
 		playsound(user, 'sound/items/knife_open.ogg', 100, TRUE)
+		equip_delay_self = initial(equip_delay_self)
+		unequip_delay_self = initial(unequip_delay_self)
+		inv_storage_delay = initial(inv_storage_delay)
 	else
 		force = 5
 		w_class = WEIGHT_CLASS_SMALL
@@ -553,6 +570,9 @@
 		attack_verb = list("stubbed", "poked")
 		sharpness = IS_BLUNT
 		wdefense = 2
+		equip_delay_self = 0 SECONDS
+		unequip_delay_self = 0 SECONDS
+		inv_storage_delay = 0 SECONDS
 
 /obj/item/rogueweapon/huntingknife/throwingknife
 	name = "iron tossblade"
@@ -588,10 +608,12 @@
 
 /obj/item/rogueweapon/huntingknife/throwingknife/aalloy
 	name = "decrepit tossblade"
-	desc = "A decrepit old tossblade. You ought to throw cutlery instead."
+	desc = "Chunks of frayed bronze, crudely sharpened into throwing daggers. You might be better off chucking the silverware at them, at this rate."
 	icon_state = "throw_knifea"
+	color = "#bb9696"
 	force = 7
 	throwforce = 16
+	randomize_blade_int_on_init = TRUE
 
 /obj/item/rogueweapon/huntingknife/throwingknife/steel
 	name = "steel tossblade"
@@ -606,7 +628,7 @@
 
 /obj/item/rogueweapon/huntingknife/throwingknife/steel/palloy
 	name = "ancient alloy tossblade"
-	desc = "A tossblade crafted of ancient alloy. Aeon's grasp has been lifted from its form."
+	desc = "A sliver of polished gilbranze, delicately carved into a throwing dagger. A favorite amongst Zizo's undying cabal, and especially amongst Her assassins; what better-a-tool to slip through another's neck?"
 	icon_state = "throw_knifea"
 
 /obj/item/rogueweapon/huntingknife/throwingknife/psydon

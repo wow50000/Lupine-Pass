@@ -4,8 +4,21 @@
 /datum/species/moth
 	name = "Fluvian"
 	id = "moth"
-	desc = "Many comparisons have been made to the common moths in an attempt to describe this unique species. From the appetite for clothing to the disconcertingly insectoid appearance, the name 'Moth' is forever stamped onto the common vocabulary. The comparison, however, falls short on the matter of flight.<br>\
+	desc = "<b>Fluvian</b><br> \
+    Fluvians are a diverse race of moth-like creechers that live in sparse, nomadic communities across Grimoria. \
+    Aside from their obsession with the concept of their propensity with esoteric and seemingly inhumen rites and \
+	rituals, not much is known about the moth-kin. These so-called \"mystics\" are rarely seen within humen and \
+	beastkin settlements, but those that find themselves in civilisation are oft ascended to nobility.<br>\
 	(+1 Speed)"
+
+	expanded_desc = "Fluvians are a diverse race of moth-like creechers that live in sparse, nomadic communities across Grimoria. \
+    Aside from their obsession with the concept of their propensity with esoteric and seemingly inhumen rites and rituals, not much \
+	is known about the moth-kin.\ These so-called \"mystics\" are rarely seen within humen and beastkin settlements. \
+	<br><br> \
+	Scholars frequently argue about the patron god of the Fluvian race, erring towards either the twin of Astrata, Noc, or the God-Head \
+	Herself, Zizo. In truth however, the moth-kin forsake the paths of the Ten and the Inhumen, worshipping instead the whims of fate. \
+	As such, they oft find themselves as fortune tellers, mystics and spirit mediums, being the origin of mysticism in Grimoria as a whole."
+
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS,HAIR)
 	possible_ages = ALL_AGES_LIST
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
@@ -19,7 +32,7 @@
 		OFFSET_ID = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
 		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
+		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
 		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
@@ -61,6 +74,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/wings/moth,
 		/datum/customizer/organ/antennas/moth,
 		/datum/customizer/organ/neck_feature/moth_fluff,

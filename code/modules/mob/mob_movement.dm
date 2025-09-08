@@ -111,6 +111,8 @@
 		return FALSE
 	else if(mob.is_shifted)
 		mob.unpixel_shift()
+	
+	mob.last_client_interact = world.time
 
 	var/mob/living/L = mob  //Already checked for isliving earlier
 	if(L.incorporeal_move)	//Move though walls
@@ -244,6 +246,8 @@
 		if (L.incapacitated())
 			return FALSE
 		if (M.grab_state > GRAB_PASSIVE)
+			return FALSE
+		if (L.compliance)
 			return FALSE
 		move_delay = world.time + 10
 		to_chat(src, span_warning("[L] still has footing! I need a stronger grip!"))
@@ -460,6 +464,8 @@
 	switch(mob.zone_selected)
 		if(BODY_ZONE_HEAD)
 			next_in_line = BODY_ZONE_PRECISE_NECK
+		if(BODY_ZONE_PRECISE_NECK)
+			next_in_line = BODY_ZONE_PRECISE_SKULL
 		else
 			next_in_line = BODY_ZONE_HEAD
 
@@ -823,38 +829,8 @@
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
 		eyet.update_icon(src)
 	playsound_local(src, 'sound/misc/click.ogg', 100)
-
-/client/proc/hearallasghost()
-	set category = "Prefs - Admin"
-	set name = "HearAllAsAdmin"
-	if(!holder)
-		return
-	if(!prefs)
-		return
-	prefs.chat_toggles ^= CHAT_GHOSTEARS
-//	prefs.chat_toggles ^= CHAT_GHOSTSIGHT
-	prefs.chat_toggles ^= CHAT_GHOSTWHISPER
-	prefs.save_preferences()
-	if(prefs.chat_toggles & CHAT_GHOSTEARS)
-		to_chat(src, span_notice("I will hear all now."))
-	else
-		to_chat(src, span_info("I will hear like a mortal."))
-
-/client/proc/hearglobalLOOC()
-	set category = "Prefs - Admin"
-	set name = "Show/Hide Global LOOC"
-	if(!holder)
-		return
-	if(!prefs)
-		return
-	prefs.chat_toggles ^= CHAT_ADMINLOOC
-	prefs.save_preferences()
-	if(prefs.chat_toggles & CHAT_ADMINLOOC)
-		to_chat(src, span_notice("I will now hear all LOOC chatter."))
-	else
-		to_chat(src, span_info("I will now only hear LOOC chatter around me."))
-
 ///Moves a mob upwards in z level
+
 /mob/proc/ghost_up()
 	if(zMove(UP, TRUE))
 		to_chat(src, span_notice("I move upwards."))

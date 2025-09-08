@@ -6,6 +6,10 @@ on:
 jobs:
   triage:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     steps:
       - uses: mschilde/auto-label-merge-conflicts@master
         with:

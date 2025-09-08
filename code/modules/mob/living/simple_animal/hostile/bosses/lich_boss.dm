@@ -30,7 +30,7 @@
 	STAPER = 20
 	STAINT = 18
 	STACON = 20
-	STAEND = 20
+	STAWIL = 20
 	STASPD = 15
 	STALUC = 15
 	loot = list(/obj/effect/temp_visual/lich_dying)
@@ -65,7 +65,7 @@
 	blink.player_lock = 0
 	blink.inner_tele_radius = 5
 	blink.outer_tele_radius = 6
-	blink.invocation = pick(taunt)
+	blink.invocations += pick(taunt)
 	blink.invocation_type = "shout"
 	AddSpell(blink)
 	REMOVE_TRAIT(src, TRAIT_SIMPLE_WOUNDS, TRAIT_GENERIC)
@@ -106,7 +106,7 @@
 	if(target && next_cast < world.time && next_blink < world.time) //Triggers a blink spell
 		if(blink.cast_check(0,src))
 			blink.choose_targets(src)
-			blink.invocation = pick(taunt)
+			blink.invocations += pick(taunt)
 			next_cast = world.time + 20
 			next_blink = world.time + 120
 			return .
@@ -338,19 +338,23 @@
 
 /datum/outfit/job/roguetown/npc/skeleton/dungeon/lich/pre_equip(mob/living/carbon/human/H)
 	..()
+	H.set_patron(/datum/patron/inhumen/zizo)
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	gloves = /obj/item/clothing/gloves/roguetown/plate/blk/death
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/blkknight/death
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blkknight/death
-	pants = /obj/item/clothing/under/roguetown/platelegs/blk/death
 	neck = /obj/item/clothing/neck/roguetown/bevor
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
+	pants = /obj/item/clothing/under/roguetown/platelegs/zizo
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/zizo
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/full/zizo // unremovable darksteel; as opposed to giving them lootable blacksteel
+	gloves = /obj/item/clothing/gloves/roguetown/plate/zizo
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/zizo
 	belt = /obj/item/storage/belt/rogue/leather/black
+	r_hand = /obj/item/rogueweapon/sword/long/zizo
+	l_hand = null
 	H.STASTR = 20
 	H.STAPER = 20
 	H.STASPD = 10
 	H.STACON = 20
-	H.STAEND = 20
+	H.STAWIL = 20
 	H.STAINT = 1
 	H.faction = list("lich")
 	H.wander = FALSE
@@ -382,13 +386,6 @@
 	/datum/rmb_intent/weak)
 	H.swap_rmb_intent(num=1)
 
-	if(prob(50))
-		r_hand = /obj/item/rogueweapon/eaglebeak/lucerne
-		l_hand = null
-	else
-		r_hand = /obj/item/rogueweapon/greatsword/zwei
-		l_hand = null
-
 /obj/effect/oneway
 	name = "one way effect"
 	desc = ""
@@ -398,6 +395,8 @@
 	anchored = TRUE
 
 /obj/effect/oneway/CanPass(atom/movable/mover, turf/target)
+	if(!(ismob(mover))) //Fixes cart exploit that broke one way boss arena doors. Only mobs can pass through now.
+		return ..() && 0
 	var/turf/T = get_turf(src)
 	var/turf/MT = get_turf(mover)
 	return ..() && (T == MT || get_dir(MT,T) == dir)
@@ -435,8 +434,6 @@
 	school = "abjuration"
 	recharge_time = 20
 	clothes_req = FALSE
-	invocation = "none"
-	invocation_type = "none"
 	range = -1
 	include_user = TRUE
 	cooldown_min = 5 //4 deciseconds reduction per rank

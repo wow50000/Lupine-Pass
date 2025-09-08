@@ -1,10 +1,15 @@
 /datum/advclass/vagabond_excommunicated
 	name = "Excommunicated"
-	tutorial = "The Church has found you bereft of mercy, and you walk the lands of Azure with nothing but the tattered shreds of the faith you cling to."
+	tutorial = "The Church has found you bereft of mercy, and you walk the lands of the vale with nothing but the tattered shreds of the faith you cling to."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/vagabond/excommunicated
 	category_tags = list(CTAG_VAGABOND)
+	subclass_stats = list(
+		STATKEY_PER = 2,
+		STATKEY_CON = -1,
+		STATKEY_WIL = -1
+	)
 
 /datum/outfit/job/roguetown/vagabond/excommunicated/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -21,7 +26,7 @@
 	if(prob(33))
 		cloak = /obj/item/clothing/cloak/half/brown
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless
-	
+
 	r_hand = /obj/item/rogueweapon/woodstaff
 
 	if (H.mind)
@@ -30,9 +35,6 @@
 		H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.change_stat("perception", 2)
-		H.change_stat("constitution", -1)
-		H.change_stat("endurance", -1)
 
 		var/datum/devotion/C = new /datum/devotion(H, H.patron)
 		C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR)	//Minor regen, can level up to T4.

@@ -1,12 +1,12 @@
 /obj/effect/proc_holder/spell/self/message
 	name = "Message"
 	desc = "Latch onto the mind of one who is familiar to you, whispering a message into their head."
-	cost = 2 // Message is quite powefrful so 1 cost is too low
+	cost = 2
 	xp_gain = TRUE
 	releasedrain = 30
 	recharge_time = 60 SECONDS
 	warnie = "spellwarning"
-	spell_tier = 1
+	spell_tier = 2
 	associated_skill = /datum/skill/magic/arcane
 	overlay_state = "message"
 	var/identify_difficulty = 15 //the stat threshold needed to pass the identify check

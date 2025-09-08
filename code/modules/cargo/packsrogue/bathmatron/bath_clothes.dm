@@ -27,27 +27,58 @@
 /datum/supply_pack/rogue/bath_clothes/silkstockings
 	name = "Stockings, Silk"
 	cost = 20
-	contains = list(/obj/item/clothing/under/roguetown/tights/stockings/silk/white)
+	contains = list(/obj/item/legwears/silk/white)
 
 /datum/supply_pack/rogue/bath_clothes/fishnetstockings
 	name = "Stockings, Fishnet"
 	cost = 10
-	contains = list(/obj/item/clothing/under/roguetown/tights/stockings/fishnet/white)
+	contains = list(/obj/item/legwears/fishnet/white)
 
 /datum/supply_pack/rogue/bath_clothes/stockings_normal
 	name = "Stockings"
 	cost = 10
-	contains = list(/obj/item/clothing/under/roguetown/tights/stockings/white)
+	contains = list(/obj/item/legwears/white)
+
+/datum/supply_pack/rogue/bath_clothes/briefs
+	name = "Briefs"
+	cost = 10
+	contains = list(/obj/item/undies)
+
+/datum/supply_pack/rogue/bath_clothes/bikini
+	name = "Bikini"
+	cost = 10
+	contains = list(/obj/item/undies/bikini)
+
+/datum/supply_pack/rogue/bath_clothes/panties
+	name = "Panties"
+	cost = 10
+	contains = list(/obj/item/undies/panties)
+
+/datum/supply_pack/rogue/bath_clothes/leotard
+	name = "Leotard"
+	cost = 10
+	contains = list(/obj/item/undies/leotard)
+
+/datum/supply_pack/rogue/bath_clothes/athletic_leotard
+	name = "Athletic Leotard"
+	cost = 10
+	contains = list(/obj/item/undies/athletic_leotard)
+
+/datum/supply_pack/rogue/bath_clothes/braies
+	name = "Braies"
+	cost = 10
+	contains = list(/obj/item/undies/braies)
 
 /datum/supply_pack/rogue/bath_clothes/collar
 	name = "Collar"
 	cost = 10
-	contains = list(/obj/item/clothing/neck/roguetown/collar)
+	contains = list(/obj/item/clothing/neck/roguetown/collar/leather)
 
-/datum/supply_pack/rogue/bath_clothes/bell_collar
-	name = "Bell Collar"
+/datum/supply_pack/rogue/bath_clothes/cowbell_collar
+	name = "Cowbell Collar"
 	cost = 20
-	contains = list(/obj/item/clothing/neck/roguetown/collar/bell_collar)
+	contains = list(/obj/item/clothing/neck/roguetown/collar/catbell, /obj/item/clothing/neck/roguetown/collar/cowbell)
+
 
 /datum/supply_pack/rogue/bath_clothes/loincloth
 	name = "Loincloth"

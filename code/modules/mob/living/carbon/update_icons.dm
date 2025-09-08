@@ -313,7 +313,7 @@
 /mob/living/carbon/update_inv_handcuffed()
 	remove_overlay(HANDCUFF_LAYER)
 	if(handcuffed)
-		var/mutable_appearance/inhand_overlay = mutable_appearance('icons/roguetown/mob/bodies/cuffed.dmi', "[handcuffed.name]up", -HANDCUFF_LAYER)
+		var/mutable_appearance/inhand_overlay = mutable_appearance('icons/roguetown/mob/bodies/cuffed.dmi', "[handcuffed.icon_state]up", -HANDCUFF_LAYER)
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
 			if(H.dna && H.dna.species.sexes)
@@ -399,10 +399,10 @@
 	. = list()
 
 
-/mob/living/carbon/update_body()
-	update_body_parts()
+/mob/living/carbon/update_body(redraw = FALSE)
+	update_body_parts(redraw)
 
-/mob/living/carbon/proc/update_body_parts()
+/mob/living/carbon/proc/update_body_parts(redraw)
 	//CHECK FOR UPDATE
 	var/oldkey = icon_render_key
 	icon_render_key = generate_icon_render_key()

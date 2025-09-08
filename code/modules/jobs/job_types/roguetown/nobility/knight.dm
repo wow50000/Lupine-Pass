@@ -14,7 +14,7 @@
 	whitelist_req = TRUE
 	outfit = /datum/outfit/job/roguetown/knight
 	advclass_cat_rolls = list(CTAG_ROYALGUARD = 20)
-
+	job_traits = list(TRAIT_NOBLE, TRAIT_STEELHEARTED, TRAIT_GOODTRAINER, TRAIT_GUARDSMAN)
 	give_bank_account = 22
 	noble_income = 10
 	min_pq = 8
@@ -22,6 +22,13 @@
 	round_contrib_points = 2
 
 	cmode_music = 'sound/music/combat_knight.ogg'
+
+	job_subclasses = list(
+		/datum/advclass/knight/heavy,
+		/datum/advclass/knight/footknight,
+		/datum/advclass/knight/mountedknight,
+		/datum/advclass/knight/irregularknight
+		)
 
 /datum/outfit/job/roguetown/knight
 	job_bitflag = BITFLAG_GARRISON
@@ -65,15 +72,9 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	id = /obj/item/scomstone/bad/garrison
 	backpack_contents = list(
-		/obj/item/storage/keyring/guardknight = 1
+		/obj/item/storage/keyring/guardknight = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1,
 	)
-
-/datum/outfit/job/roguetown/knight/pre_equip(mob/living/carbon/human/H)
-	..()
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GUARDSMAN, TRAIT_GENERIC) 
-	ADD_TRAIT(H, TRAIT_GOODTRAINER, TRAIT_GENERIC)
 
 /datum/advclass/knight/heavy
 	name = "Heavy Knight"
@@ -81,6 +82,13 @@
 	outfit = /datum/outfit/job/roguetown/knight/heavy
 
 	category_tags = list(CTAG_ROYALGUARD)
+	traits_applied = list(TRAIT_HEAVYARMOR)
+	subclass_stats = list(
+		STATKEY_STR = 3,//Heavy hitters. Less con/end, high strength.
+		STATKEY_INT = 3,
+		STATKEY_CON = 1,
+		STATKEY_WIL = 1,
+		STATKEY_SPD = -1)
 
 /datum/outfit/job/roguetown/knight/heavy/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -90,22 +98,15 @@
 	H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)	//Too heavy for horses.
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()	
 	H.verbs |= /mob/proc/haltyell
-
-
-	H.change_stat("strength", 3) //Heavy hitters. Less con/end, high strength.
-	H.change_stat("intelligence", 3)
-	H.change_stat("constitution", 1)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", -1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Great Mace","Battle Axe","Greataxe","Estoc","Lucerne", "Partizan")
@@ -114,23 +115,23 @@
 	switch(weapon_choice)
 		if("Zweihander")
 			r_hand = /obj/item/rogueweapon/greatsword/zwei
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 		if("Great Mace")
 			r_hand = /obj/item/rogueweapon/mace/goden/steel
 		if("Battle Axe")
 			r_hand = /obj/item/rogueweapon/stoneaxe/battle
 		if("Greataxe")
 			r_hand = /obj/item/rogueweapon/greataxe/steel
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 		if("Estoc")
 			r_hand = /obj/item/rogueweapon/estoc
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 		if("Lucerne")
 			r_hand = /obj/item/rogueweapon/eaglebeak/lucerne
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 		if("Partizan")
 			r_hand = /obj/item/rogueweapon/spear/partizan
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	pants = /obj/item/clothing/under/roguetown/chainlegs
@@ -173,6 +174,12 @@
 	outfit = /datum/outfit/job/roguetown/knight/footknight
 
 	category_tags = list(CTAG_ROYALGUARD)
+	traits_applied = list(TRAIT_HEAVYARMOR)
+	subclass_stats = list(
+		STATKEY_STR = 1,//Tanky, less strength, but high con/end.
+		STATKEY_INT = 1,
+		STATKEY_CON = 3,
+		STATKEY_WIL = 3,)
 
 /datum/outfit/job/roguetown/knight/footknight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -182,20 +189,15 @@
 	H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)	
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
-
-	H.change_stat("strength", 1) //Tanky, less strength, but high con/end.
-	H.change_stat("constitution", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Longsword","Flail","Warhammer","Sabre")
@@ -257,6 +259,15 @@
 
 	category_tags = list(CTAG_ROYALGUARD)
 
+	traits_applied = list(TRAIT_HEAVYARMOR)
+	//Decent all-around stats. Nothing spectacular. Ranged/melee hybrid class on horseback.
+	subclass_stats = list(
+		STATKEY_STR = 2,
+		STATKEY_INT = 1,
+		STATKEY_CON = 1,
+		STATKEY_WIL = 1,
+		STATKEY_PER = 2)
+
 /datum/outfit/job/roguetown/knight/mountedknight/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
@@ -266,21 +277,15 @@
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
-
-	H.change_stat("strength", 2) //Decent all-around stats. Nothing spectacular. Ranged/melee hybrid class on horseback.
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 1)
-	H.change_stat("perception", 2)
-	H.change_stat("intelligence", 1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list(
@@ -300,7 +305,7 @@
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 		if("Billhook + Recurve Bow")
 			r_hand = /obj/item/rogueweapon/spear/billhook
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 			beltr = /obj/item/quiver/arrows
 			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 		if("Grand Mace + Longbow")
@@ -358,7 +363,14 @@
 	tutorial = "Your skillset is abnormal for a knight. Your swift maneuvers and masterful technique impress both lords and ladies alike, and you have a preference for quicker, more elegant blades. While you are an effective fighting force in medium armor, your evasive skills will only truly shine if you don even lighter protection."
 	outfit = /datum/outfit/job/roguetown/knight/irregularknight
 
+	traits_applied = list(TRAIT_MEDIUMARMOR, TRAIT_DODGEEXPERT)
 	category_tags = list(CTAG_ROYALGUARD)
+	subclass_stats = list(
+		STATKEY_STR = 1,
+		STATKEY_INT = 1,
+		STATKEY_WIL = 2,
+		STATKEY_SPD = 2)
+
 
 /datum/outfit/job/roguetown/knight/irregularknight/pre_equip(mob/living/carbon/human/H)
 	..()	
@@ -372,19 +384,13 @@
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)		
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
-
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 2)
-	H.change_stat("speed", 2)
-	H.change_stat("intelligence", 1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Rapier + Longbow","Estoc + Recurve Bow","Sabre + Buckler","Whip + Crossbow","Greataxe + Sling")
@@ -401,7 +407,7 @@
 
 		if("Estoc + Recurve Bow")
 			r_hand = /obj/item/rogueweapon/estoc
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 			beltr = /obj/item/quiver/arrows
 			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 		
@@ -419,7 +425,7 @@
 			H.adjust_skillrank(/datum/skill/combat/slings, 4, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/combat/axes, 4, TRUE)
 			r_hand = /obj/item/rogueweapon/greataxe/steel
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 			beltr = /obj/item/quiver/sling/iron
 			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/sling
 	

@@ -1,12 +1,19 @@
 /datum/advclass/homesteader
 	name = "Homesteader"
-	tutorial = "Azure population's tendency to take up arms and become unwashed beastslayers had forced you to take up jobs, small and large of most professions.\n A jack of all trades, what will you be known as this week?"
+	tutorial = "Rotwood population's tendency to take up arms and become unwashed beastslayers had forced you to take up jobs, small and large of most professions.\n A jack of all trades, what will you be known as this week?"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/homesteader
 	traits_applied = list(TRAIT_JACKOFALLTRADES)
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	adaptive_name = TRUE
+	subclass_stats = list(
+		STATKEY_INT = 3,	//This guy's here to grind = baby.
+		STATKEY_STR = 1,
+		STATKEY_WIL = 1,
+		STATKEY_PER = 1,
+		STATKEY_LCK = 1,	
+	)
 
 /datum/outfit/job/roguetown/homesteader/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -90,7 +97,7 @@
 						/obj/item/hair_dye_cream = 3,
 						/obj/item/rogueweapon/chisel = 1,
 						/obj/item/natural/clay = 3,
-						/obj/item/natural/clay/glassbatch = 1, 
+						/obj/item/natural/clay/glassbatch = 1,
 						/obj/item/rogueore/coal = 1,
 						/obj/item/roguegear = 1,
 	)
@@ -108,8 +115,3 @@
 		H.mind.special_items["Pan for Frying"] = /obj/item/cooking/pan
 
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 1)
-	H.change_stat("intelligence", 3)	//This guy's here to grind, baby.
-	H.change_stat("perception", 1)
-	H.change_stat("fortune", 1)

@@ -50,13 +50,13 @@
 /datum/status_effect/buff/ashen_aril/on_apply()
 	// Apply stat boosts to all attributes
 	effectedstats = list(
-		"strength" = current_boost,
-		"endurance" = current_boost,
-		"constitution" = current_boost,
-		"intelligence" = current_boost,
-		"perception" = current_boost,
-		"fortune" = current_boost,
-		"speed" = current_boost
+		STATKEY_STR = current_boost,
+		STATKEY_WIL = current_boost,
+		STATKEY_CON = current_boost,
+		STATKEY_INT = current_boost,
+		STATKEY_PER = current_boost,
+		STATKEY_LCK = current_boost,
+		STATKEY_SPD = current_boost
 	)
 	//Apply Uncapped STR as long as it's still positive.
 	if(current_boost > 0)
@@ -168,12 +168,13 @@
 
 		new /obj/effect/temp_visual/heal(get_turf(M), "#8A2BE2")
 
-		if (M.mind)
-			waiting_for_prompt = TRUE
-			if(alert(M, "Are you ready to face the world, once more?", "Revival", "I must go on", "Let me rest") != "I must go on")
-				M.visible_message(span_warning("[M]'s body shudders but falls still again."))
-				M.remove_status_effect(src)
-				return
+		var/mob/dead/observer/spirit = M.get_spirit()
+		//GET OVER HERE!
+		if(spirit)
+			var/mob/dead/observer/ghost = spirit.ghostize()
+			qdel(spirit)
+			ghost.mind.transfer_to(M, TRUE)
+		M.grab_ghost(force = FALSE)
 
 		M.adjustOxyLoss(-M.getOxyLoss()) // Full oxygen healing
 		if(!M.revive(full_heal = FALSE))
@@ -218,8 +219,8 @@
 		perc_change = -2
 
 	effectedstats = list(
-		"strength" = str_change,
-		"perception" = perc_change
+		STATKEY_STR = str_change,
+		STATKEY_PER = perc_change
 	)
 
 	return ..()

@@ -18,8 +18,8 @@
 	butcher_results = list()
 	faction = list("elemental")
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	health = 240
-	maxHealth = 240
+	health = 340
+	maxHealth = 340
 	melee_damage_lower = 15
 	melee_damage_upper = 17
 	vision_range = 7
@@ -43,11 +43,12 @@
 	aggressive = 1
 
 	STACON = 15
-	STAEND = 15
+	STAWIL = 15
 	STASTR = 10
 	STASPD = 6
 
 /mob/living/simple_animal/hostile/retaliate/rogue/elemental/warden/Initialize()
+	src.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	. = ..()
 
 /mob/living/simple_animal/hostile/retaliate/rogue/elemental/warden/death(gibbed)

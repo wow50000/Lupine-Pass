@@ -1,6 +1,7 @@
 /turf/closed
 	name = ""
 	layer = CLOSED_TURF_LAYER
+	plane = WALL_PLANE
 	opacity = 1
 	density = TRUE
 	blocks_air = TRUE
@@ -23,6 +24,14 @@
 		if(L.mobility_flags & MOBILITY_MOVE)
 			wallpress(L)
 			return
+			
+/turf/closed/proc/feel_turf(mob/living/user)
+	to_chat(user, span_notice("I start feeling around [src]"))
+	if(!do_after(user, 1.5 SECONDS, src))
+		return
+
+	for(var/obj/structure/lever/hidden/lever in contents)
+		lever.feel_button(user)
 
 /turf/closed/proc/wallpress(mob/living/user)
 	if(user.wallpressed)

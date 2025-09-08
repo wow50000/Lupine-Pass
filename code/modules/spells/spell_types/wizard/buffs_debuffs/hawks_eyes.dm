@@ -11,7 +11,7 @@
 	warnie = "spellwarning"
 	school = "transmutation"
 	spell_tier = 2
-	invocation = "Oculi Accipitris." // Oculi - Eyes. Accipitris - Hawk, singular.
+	invocations = list("Oculi Accipitris.") // Oculi - Eyes. Accipitris - Hawk, singular.
 	invocation_type = "whisper"
 	glow_color = GLOW_COLOR_BUFF
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -51,11 +51,11 @@
 	var/outline_colour ="#ffff00" // Same color as perception potion
 	id = "hawkseyes"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/hawks_eyes
-	effectedstats = list("perception" = 5)
-	duration = 1 MINUTES
+	effectedstats = list(STATKEY_PER = 5)
+	duration = 1.5 MINUTES
 
 /datum/status_effect/buff/hawks_eyes/other
-	duration = 2 MINUTES
+	duration = 3 MINUTES
 
 /datum/status_effect/buff/hawks_eyes/on_apply()
 	. = ..()

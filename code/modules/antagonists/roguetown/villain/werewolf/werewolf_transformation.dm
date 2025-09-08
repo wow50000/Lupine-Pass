@@ -103,6 +103,8 @@
 	W.stored_language.copy_known_languages_from(src)
 	W.stored_skills = ensure_skills().known_skills.Copy()
 	W.stored_experience = ensure_skills().skill_experience.Copy()
+	W.cmode_music_override = cmode_music_override
+	W.cmode_music_override_name = cmode_music_override_name
 	mind.transfer_to(W)
 	skills?.known_skills = list()
 	skills?.skill_experience = list()
@@ -114,19 +116,30 @@
 	to_chat(W, span_userdanger("I transform into a horrible beast!"))
 	W.emote("rage")
 
+	if(getorganslot(ORGAN_SLOT_PENIS))
+		W.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/knotted/big
+	if(getorganslot(ORGAN_SLOT_TESTICLES))
+		W.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/testicles
+	if(getorganslot(ORGAN_SLOT_BREASTS))
+		W.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/breasts
+	if(getorganslot(ORGAN_SLOT_VAGINA))
+		W.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/vagina
+
 	W.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 	W.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
 	W.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
+	W.adjust_skillrank(/datum/skill/misc/swimming, 5, TRUE)
 
 	W.STASTR = 20
 	W.STACON = 20
-	W.STAEND = 20
+	W.STAWIL = 20
 
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/howl)
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/claws)
+	W.AddSpell(new /obj/effect/proc_holder/spell/targeted/woundlick)
 
 	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
-
+	ADD_TRAIT(W, TRAIT_GRABIMMUNE, TRAIT_GENERIC) // THIS IS THE CORRECT PLACE FOR WEREWOLF TRAITS. GOD. 
 	ADD_TRAIT(W, TRAIT_STRONGBITE, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_ZJUMP, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
@@ -147,9 +160,9 @@
 	ADD_TRAIT(W, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_STRENGTH_UNCAPPED, TRAIT_GENERIC)
+	ADD_TRAIT(W, TRAIT_GRABIMMUNE, TRAIT_GENERIC)
 
 	invisibility = oldinv
-
 
 /mob/living/carbon/human/proc/werewolf_untransform(dead,gibbed)
 	if(!stored_mob)
@@ -181,7 +194,7 @@
 
 	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/howl)
 	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/claws)
-
+	W.RemoveSpell(new /obj/effect/proc_holder/spell/targeted/woundlick)
 	W.regenerate_icons()
 
 	to_chat(W, span_userdanger("I return to my facade."))

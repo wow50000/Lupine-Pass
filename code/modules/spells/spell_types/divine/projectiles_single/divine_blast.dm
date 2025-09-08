@@ -1,7 +1,8 @@
 /obj/effect/proc_holder/spell/invoked/projectile/divineblast
 	name = "Divine Blast"
 	desc = "Shoot out a blast of divine power! Deals more damage to heretics(Psydonians/Inhumen) and Undead! \n\
-	Damage is increased by 100% versus simple-minded creechurs."
+	Damage is increased by 100% versus simple-minded creechurs.\n\
+	Can be fired in an arc over an ally's head with a mage's staff, spellbook or psicross on arc intent. It will deals 25% less damage that way."
 	clothes_req = FALSE
 	range = 12
 	projectile_type = /obj/projectile/energy/divineblast
@@ -15,7 +16,7 @@
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
-	invocation = "Goettlichen macht!"
+	invocations = list("Goettlichen macht!")
 	invocation_type = "shout"
 	glow_color = GLOW_COLOR_LIGHTNING
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -25,6 +26,15 @@
 	miracle = TRUE
 	devotion_cost = 25
 
+/obj/effect/proc_holder/spell/invoked/projectile/divineblast/cast(list/targets, mob/user = user)
+	var/mob/living/carbon/human/H = user
+	var/datum/intent/a_intent = H.a_intent
+	if(istype(a_intent, /datum/intent/special/magicarc))
+		projectile_type = /obj/projectile/energy/divineblast/arc
+	else
+		projectile_type = /obj/projectile/energy/divineblast
+	. = ..()
+
 
 /obj/projectile/energy/divineblast
 	name = "Divine Blast"
@@ -32,15 +42,20 @@
 	damage = 20 // wont do much to a divine worshipper
 	woundclass = BCLASS_STAB // divine blade!
 	nodamage = FALSE
-	npc_damage_mult = 2 // The Simple Skele Gibber
+	npc_simple_damage_mult = 2 // The Simple Skele Gibber
 	hitsound = 'sound/magic/churn.ogg'
 	speed = 1
+
+/obj/projectile/energy/divineblast/arc
+	name = "Arced Divine Blast"
+	damage = 15 // Slightly lower base damage and barely matter due to low to hit but not a problem on acolyte / cleric.
+	arcshot = TRUE
 
 /obj/projectile/energy/divineblast/on_hit(target)
 	. = ..()
 	if(isliving(target))
 		var/mob/living/H = target
-		if((H.job in list("Templar", "Acolyte", "Priest", "Priestess", "Martyr")))
+		if((H.job in list("Templar", "Acolyte", "Bishop", "Martyr")))
 			visible_message(span_warning("[src]'s power brushes off of [H] with no harm!"))
 			playsound(get_turf(H), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
@@ -84,6 +99,8 @@
 		if (ishuman(firer))
 			caster = firer
 			switch(caster.patron.type)
+				if(/datum/patron/divine/undivided)
+					damage += 15 // just more raw damage. As mentioned in UNDIVIDED. Our generics are better as a trade off of not having higher tier uniques.
 				if(/datum/patron/divine/astrata)
 					H.adjust_fire_stacks(2)
 					H.IgniteMob()
@@ -92,8 +109,7 @@
 					H.Dizzy(5)
 					H.emote("drown")
 				if(/datum/patron/divine/dendor)
-					H.Immobilize(10)
-					H.OffBalance(10)
+					H.Slowdown(2) // Shared with Ravox cuz immobilize + offbal is 2 strong
 					H.visible_message(span_warning("Roots coil around [H]'s legs!"), span_warning("Roots tangle around my legs!"))
 				if(/datum/patron/divine/necra)
 					if(H.mob_biotypes & MOB_UNDEAD)

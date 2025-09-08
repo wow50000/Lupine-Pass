@@ -51,6 +51,8 @@
 			recipient.mind?.special_items["Pestra Psycross"] = /obj/item/clothing/neck/roguetown/psicross/pestra
 		if(/datum/patron/divine/eora) 
 			recipient.mind?.special_items["Eora Psycross"] = /obj/item/clothing/neck/roguetown/psicross/eora
+		if(/datum/patron/divine/xylix) 
+			recipient.mind?.special_items["Xylix Psycross"] = /obj/item/clothing/neck/roguetown/psicross/xylix
 		if(/datum/patron/divine/noc)
 			recipient.mind?.special_items["Noc Psycross"] = /obj/item/clothing/neck/roguetown/psicross/noc
 		if(/datum/patron/divine/ravox)
@@ -58,13 +60,14 @@
 		if(/datum/patron/divine/malum)
 			recipient.mind?.special_items["Malum Psycross"] = /obj/item/clothing/neck/roguetown/psicross/malum
 		if(/datum/patron/old_god)
+			ADD_TRAIT(recipient, TRAIT_PSYDONITE, TRAIT_GENERIC)
 			recipient.mind?.special_items["Psydon Psycross"] = /obj/item/clothing/neck/roguetown/psicross
 
 /datum/virtue/combat/duelist
 	name = "Duelist's Apprentice"
 	desc = "I have trained under a duelist of considerable skill, and always have my swift hunting sword close at hand."
 	custom_text = "+1 to Swords and Knives, Up to Journeyman, Minimum Apprentice."
-	added_stashed_items = list("Duelist's Hunting Sword" = /obj/item/rogueweapon/sword/iron/messer/virtue)
+	added_stashed_items = list("Duelist's Hunting Sword" = /obj/item/rogueweapon/sword/short/messer/iron/virtue)
 
 /datum/virtue/combat/duelist/apply_to_human(mob/living/carbon/human/recipient)
 	if(recipient.get_skill_level(/datum/skill/combat/swords) < SKILL_LEVEL_APPRENTICE)
@@ -78,9 +81,9 @@
 
 /datum/virtue/combat/executioner
 	name = "Dungeoneer's Apprentice"
-	desc = "I was set to be a dungeoneer some time ago, and I was taught by one. I have an axe stashed away if the need arises."
+	desc = "I was set to be a dungeoneer some time ago, and I was taught by one. I have a whip stashed away if the need arises."
 	custom_text = "+1 to Axes and Whips/Flails, Up to Journeyman, Minimum Apprentice."
-	added_stashed_items = list("Iron Axe" = /obj/item/rogueweapon/stoneaxe/woodcut)
+	added_stashed_items = list("Leather Whip" = /obj/item/rogueweapon/whip)
 
 /datum/virtue/combat/executioner/apply_to_human(mob/living/carbon/human/recipient)
 	if(recipient.get_skill_level(/datum/skill/combat/whipsflails) < SKILL_LEVEL_APPRENTICE)
@@ -173,3 +176,12 @@
 	desc = "Whether it's by having an annoying sibling that kept prodding me with a stick, or years of study and observation, I've become adept at both parrying and dodging stronger opponents, by learning their moves and studying them."
 	added_traits = list(TRAIT_SENTINELOFWITS)
 
+/datum/virtue/combat/combat_aware
+	name = "Combat Aware"
+	desc = "The opponent's flick of their wrist. The sound of maille snapping. The desperate breath as the opponent's stamina wanes. All of this is made more clear to you through intuition or experience."
+	custom_text = "Shows a lot more combat information via floating text. +1 PER. Has a toggle."
+	added_traits = list(TRAIT_COMBAT_AWARE)
+
+/datum/virtue/combat/combat_aware/apply_to_human(mob/living/carbon/human/recipient)
+	recipient.change_stat(STATKEY_PER, 1)
+	recipient.verbs += /mob/living/carbon/human/proc/togglecombatawareness

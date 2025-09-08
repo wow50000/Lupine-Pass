@@ -45,6 +45,7 @@
 	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
 	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_FLW(follower)] prays: [span_info(prayer)]")
 	user.log_message("(follower of [patron]) prays: [prayer]", LOG_GAME)
+	GLOB.azure_round_stats[STATS_PRAYERS_MADE]++
 
 	follower.whisper(prayer)
 
@@ -258,7 +259,7 @@
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/L = user
-		if(L.get_complex_pain() > (L.STACON * 9))
+		if(L.get_complex_pain() > (L.STAWIL * 9))
 			L.setDir(2)
 			L.SetUnconscious(200)
 		else
@@ -485,6 +486,14 @@
 				message_param = "kisses %t on the brow."
 			else if(H.zone_selected == BODY_ZONE_PRECISE_SKULL)
 				message_param = "kisses %t on the forehead."
+			else if(H.zone_selected == BODY_ZONE_HEAD)
+				message_param = "kisses %t on the cheek."
+			else if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
+				message_param = "kisses %t between the legs."
+				var/mob/living/carbon/human/L = target
+				if(isliving(L))
+					if(!L.cmode)
+						to_chat(target, span_love("It somewhat stimulating..."))
 			else
 				message_param = "kisses %t on \the [parse_zone(H.zone_selected)]."
 	playsound(target.loc, pick('sound/vo/kiss (1).ogg','sound/vo/kiss (2).ogg'), 100, FALSE, -1)
@@ -546,7 +555,7 @@
 	if(!user || !target)
 		return
 	if(ishuman(target))
-		playsound(target.loc, pick('sound/vo/hug.ogg'), 100, FALSE, -1)
+		playsound(target.loc, pick('sound/body/hug.ogg'), 100, FALSE, -1)
 		if(user.mind)
 			GLOB.azure_round_stats[STATS_HUGS_MADE]++
 			SEND_SIGNAL(user, COMSIG_MOB_HUGGED, target)
@@ -601,6 +610,8 @@
 			message_param = "slaps %t's head!"
 		else if(H.zone_selected == BODY_ZONE_PRECISE_L_HAND || H.zone_selected == BODY_ZONE_PRECISE_R_HAND)
 			message_param = "slaps %t's hand!"
+		else if(H.zone_selected == BODY_ZONE_CHEST)
+			message_param = "slaps %t's chest!"
 	..()
 
 /mob/living/carbon/human/verb/emote_slap()
@@ -1440,6 +1451,10 @@
 		set name = "Hiss"
 		set category = "Noises"
 		emote("hiss", intentional = TRUE, animal = TRUE)
+	else if (istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/lizard))
+		set name = "Hiss"
+		set category = "Noises"
+		emote("hiss", intentional = TRUE, animal = TRUE)
 	else
 		to_chat(usr, span_warning("Your tongue doesn't do that"))
 		return
@@ -1459,6 +1474,10 @@
 		set name = "PHiss"
 		set category = "Noises"
 		emote("phiss", intentional = TRUE, animal = TRUE)
+	else if (istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/lizard))
+		set name = "PHiss"
+		set category = "Noises"
+		emote("hiss", intentional = TRUE, animal = TRUE)
 	else
 		to_chat(usr, span_warning("Your tongue doesn't do that"))
 		return
@@ -1719,6 +1738,10 @@
 		set name = "Chitter"
 		set category = "Noises"
 		emote("chitter", intentional = TRUE, animal = TRUE)
+	else if (istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
+		set name = "Chitter"
+		set category = "Noises"
+		emote("chitter", intentional = TRUE, animal = TRUE)
 	else
 		to_chat(usr, span_warning("Your tongue doesn't do that"))
 		return
@@ -1748,7 +1771,7 @@
 
 /datum/emote/living/fsalute/run_emote(mob/living/user, params, type_override, intentional, targetted, animal)
 	. = ..()
-	if(. && !isnull(user.patron) && !HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS))	//Guarded doesn't show an icon to anyone.
+	if(. && !isnull(user.patron))
 		user.play_overhead_indicator('icons/mob/overhead_effects.dmi', "stress", 15, MUTATIONS_LAYER, private = user.patron.type, soundin = 'sound/magic/holyshield.ogg', y_offset = 32)
 
 /mob/living/carbon/human/verb/emote_fsalute()
@@ -1773,3 +1796,59 @@
 	set category = "Emotes"
 
 	emote("ffsalute", intentional =  TRUE)
+
+/datum/emote/living/yip
+	key = "yip"
+	key_third_person = "yips"
+	message = "yips!"
+	emote_type = EMOTE_AUDIBLE
+	message_muffled = "makes a muffled yip!"
+	is_animal = TRUE
+	show_runechat = FALSE
+
+/mob/living/carbon/human/verb/yip()
+	set name = "Yip"
+	set category = "Noises"
+
+	emote("yip", intentional = TRUE)
+	
+/datum/emote/living/praysuicide
+    key = "praysuicide"
+    key_third_person = "utters their last words"
+    message = ""                   
+    emote_type = EMOTE_AUDIBLE
+    stat_allowed = UNCONSCIOUS      
+    show_runechat = FALSE
+
+/mob/living/carbon/human/verb/emote_praysuicide()
+    set name = "Pray for suicide"
+    set category = "Emotes"
+    emote("praysuicide", intentional = TRUE)
+
+/datum/emote/living/praysuicide/run_emote(mob/user, params, type_override, intentional)
+    if(!user)
+        return FALSE
+
+    var/mob/living/L = user
+
+
+    to_chat(L, span_danger("I pray to my patron for my death... and I am heard."))
+
+
+    var/lastmsg = params
+    if(!lastmsg)
+        lastmsg = input("Whisper your final words:", "Last Words") as text|null
+    if(!lastmsg)
+        return FALSE
+
+    L.whisper(lastmsg)
+
+    if(iscarbon(L))
+        var/mob/living/carbon/C = L
+        C.adjustOxyLoss(200)
+    else if(isliving(L))
+        L.death()
+    else
+        to_chat(L, span_warning("Nothing happens."))
+
+    return TRUE   

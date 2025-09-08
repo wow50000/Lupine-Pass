@@ -23,6 +23,7 @@
 	var/debuff_type = /datum/status_effect/debuff/revived
 	var/structure_range = 1
 	var/harms_undead = TRUE
+	priest_excluded = TRUE
 
 /obj/effect/proc_holder/spell/invoked/resurrect/cast(list/targets, mob/living/user)
 	. = ..()
@@ -160,6 +161,7 @@
 
 /obj/effect/proc_holder/spell/invoked/resurrect/abyssor
 	name = "Abyssal Revival"
+	desc = "Revive the target at a cost, cast on yourself to check.<br>a dreamfiend will stalk the target and sap their stats until confronted by them."
 	sound = 'sound/magic/whale.ogg'
 	//A medley of common ocean fish, totalling 10
 	required_items = list(
@@ -191,11 +193,11 @@
 	dreamfiend_type = pickweight(dreamfiend_types)
 
 	effectedstats = list(
-		"strength" = 1,
-		"intelligence" = -5,
-		"fortune" = -5,
-		"speed" = -2,
-		"perception" = -5
+		STATKEY_STR = 1,
+		STATKEY_INT = -5,
+		STATKEY_LCK = -5,
+		STATKEY_SPD = -2,
+		STATKEY_PER = -5
 	)
 
 	// Add summoning spell to the victim
@@ -228,7 +230,7 @@
 	desc = "Summon the dreamfiend haunting you to confront it directly"
 	overlay_state = "terrors"
 	chargetime = 0
-	invocation = "Face me daemon!"
+	invocations = list("Face me daemon!")
 	invocation_type = "shout"
 	sound = 'modular_azurepeak/sound/mobs/abyssal/abyssal_teleport.ogg'
 	/// Type of dreamfiend to summon
@@ -260,6 +262,7 @@
 
 /obj/effect/proc_holder/spell/invoked/resurrect/pestra
 	name = "Putrid Revival"
+	desc = "Revive the target by consuming extracted Lux."
 	sound = 'sound/magic/slimesquish.ogg'
 	required_items = list(
 		/obj/item/reagent_containers/lux = 1
@@ -269,6 +272,7 @@
 /obj/effect/proc_holder/spell/invoked/resurrect/eora
 	//Does heartfelt even exist?
 	name = "Heartfelt Revival"
+	desc = "Revive the target at a cost, cast on yourself to check.<br>The target will get hungry faster for a time."
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/rogue/breadslice/toast = 5
 	)
@@ -303,7 +307,7 @@
 
 /datum/status_effect/debuff/metabolic_acceleration/on_creation(mob/living/new_owner)
 	effectedstats = list(
-		"constitution" = -5
+		STATKEY_CON = -5
 	)
 
 	return ..()
@@ -311,6 +315,7 @@
 /obj/effect/proc_holder/spell/invoked/resurrect/xylix
 	//Cheap, but wildly unpretictable with possibly far worse effects than other methods.
 	name = "Anastasis?"
+	desc = "Revives the target? Grants them a random debuff from other revivals, small change to be worse or better."
 	debuff_type = /datum/status_effect/debuff/random_revival
 
 /datum/status_effect/debuff/random_revival
@@ -403,8 +408,8 @@
 
 /datum/status_effect/debuff/malum_revival/on_creation(mob/living/new_owner)
 	effectedstats = list(
-		"endurance" = -5,
-		"strength" = -2
+		STATKEY_WIL = -5,
+		STATKEY_STR = -2
 	)
 	return ..()
 
@@ -420,8 +425,8 @@
 
 /datum/status_effect/debuff/ravox_revival/on_creation(mob/living/new_owner)
 	effectedstats = list(
-		"strength" = -5,
-		"speed" = -2
+		STATKEY_STR = -5,
+		STATKEY_SPD = -2
 	)
 	return ..()
 
@@ -437,8 +442,8 @@
 
 /datum/status_effect/debuff/dendor_revival/on_creation(mob/living/new_owner)
 	effectedstats = list(
-		"speed" = -5,
-		"constitution" = -2
+		STATKEY_SPD = -5,
+		STATKEY_CON = -2
 	)
 	return ..()
 
@@ -460,7 +465,7 @@
 	)
 
 /datum/status_effect/debuff/noc_revival/on_creation(mob/living/new_owner)
-	effectedstats = list("intelligence" = -5)
+	effectedstats = list(STATKEY_INT = -5)
 	return ..()
 
 /datum/status_effect/debuff/noc_revival/tick()
@@ -510,6 +515,7 @@
 
 /obj/effect/proc_holder/spell/invoked/resurrect/malum
 	name = "Diligent Revival"
+	desc = "Revive the target at a cost, cast on yourself to check.<br>Targets willpower and strenght will be sapped for a time."
 	required_items = list(
 		/obj/item/ingot/iron = 3
 	)
@@ -518,6 +524,7 @@
 
 /obj/effect/proc_holder/spell/invoked/resurrect/ravox
 	name = "Just Revival"
+	desc = "Revive the target at a cost, cast on yourself to check.<br>Targets strenght and speed will be sapped for a time."
 	// The items here are somewhat hard to pick as it still has to be something a ravox acolyte would reasonably obtain.
 	// Bones insinuate that mayhaps, they went out there to delete some skeletons for justice?
 	required_items = list(
@@ -527,6 +534,7 @@
 
 /obj/effect/proc_holder/spell/invoked/resurrect/dendor
 	name = "Wild Revival"
+	desc = "Revive the target at a cost, cast on yourself to check.<br>Targets speed and constitution will be sapped for a time."
 	//Herbs that have to do with intelligence mostly. Easier to remember.
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 3,
@@ -539,9 +547,20 @@
 
 /obj/effect/proc_holder/spell/invoked/resurrect/noc
 	name = "Moonlit Revival"
+	desc = "Revive the target at a cost, cast on yourself to check.<br>Targets intelligence will be sapped for a time, in addition they will be burned by moonlight."
 	required_items = list(
 		/obj/item/paper/scroll = 15
 	)
 	debuff_type = /datum/status_effect/debuff/noc_revival
 	overlay_state = "noc_revive"
 	sound = 'sound/magic/owlhoot.ogg'
+
+
+/obj/effect/proc_holder/spell/invoked/resurrect/undivided
+	name = "Decagram Revival"
+	desc = "Revive the target at a cost, cast on yourself to check."
+	required_items = list(
+		/obj/item/rogueore/gold = 1 // Was thinking Eclipsum combo of gold/silver but that'd probably be *too* expensive. Probably the costliest revival, while having a anastasis equal debuff.
+	)
+	debuff_type = /datum/status_effect/debuff/revived
+	sound = 'sound/magic/revive.ogg'

@@ -60,7 +60,7 @@
 	color = "#b8252c"
 	icon_state = "shalal"
 	item_state = "shalal"
-	flags_inv = HIDEHAIR|HIDEFACIALHAIR|HIDEFACE|HIDEEARS
+	flags_inv = HIDEHAIR|HIDEFACIALHAIR
 	sleevetype = null
 	sleeved = null
 	icon = 'icons/roguetown/clothing/head.dmi'
@@ -73,15 +73,32 @@
 	edelay_type = 1
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
-	hidesnoutADJ = TRUE
 	blocksound = SOFTHIT
 	max_integrity = 100
 	sewrepair = TRUE
 	mask_override = TRUE
 	overarmor = FALSE
 
+/obj/item/clothing/head/roguetown/roguehood/shalal/AdjustClothes(mob/user)
+	if(loc == user)
+		if(adjustable == CAN_CADJUST)
+			adjustable = CADJUSTED
+			icon_state = "shalal_t"
+			body_parts_covered = HEAD|EARS|HAIR|NECK|NOSE|MOUTH
+			flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+			flags_cover = null
+			if(ishuman(user))
+				var/mob/living/carbon/H = user
+				H.update_inv_head()
+			block2add = null
+		else if(adjustable == CADJUSTED)
+			ResetAdjust(user)
+
 /obj/item/clothing/head/roguetown/roguehood/shalal/black
 	color = CLOTHING_BLACK
+
+/obj/item/clothing/head/roguetown/roguehood/shalal/purple
+	color = CLOTHING_PURPLE
 
 /obj/item/clothing/head/roguetown/roguehood/shalal/hijab
 	name = "hijab"
@@ -110,6 +127,11 @@
 	icon_state = "heavyhood"
 	hidesnoutADJ = FALSE
 
+/obj/item/clothing/head/roguetown/roguehood/shalal/hijab/yoruku
+	name = "shadowed hood"
+	desc = "It sits just so, obscuring the face just enough to spoil recognition."
+	color = CLOTHING_BLACK
+
 // Holy Hoods
 
 /obj/item/clothing/head/roguetown/roguehood/astrata
@@ -126,6 +148,7 @@
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	max_integrity = 100
+	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/head/roguetown/roguehood/abyssor
 	name = "depths hood"
@@ -177,16 +200,36 @@
 	icon_state = "psydonhood"
 	item_state = "psydonhood"
 	color = null
-	body_parts_covered = NECK
+	blocksound = SOFTHIT
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	body_parts_covered = NECK | HEAD | HAIR
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
-	max_integrity = 100
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	armor = ARMOR_HEAD_PSYDON
 	dynamic_hair_suffix = ""
 	edelay_type = 1
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
-	max_integrity = 100
+	max_integrity = 200
+
+/obj/item/clothing/head/roguetown/roguehood/psydon/confessor
+	name = "confessional hood"
+	desc = "A loose-fitting piece of leatherwear that can be tightened on the move. Keeps rain, blood, and the tears of the sullied away."
+	icon_state = "confessorhood"
+	item_state = "confessorhood"
+	color = null
+	body_parts_covered = NECK | HEAD | HAIR
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = ARMOR_HEAD_PSYDON
+	dynamic_hair_suffix = ""
+	edelay_type = 1
+	adjustable = CAN_CADJUST
+	toggle_icon_state = TRUE
+	max_integrity = 200
 
 /obj/item/clothing/head/roguetown/roguehood/hierophant
 	name = "hierophant's pashmina"

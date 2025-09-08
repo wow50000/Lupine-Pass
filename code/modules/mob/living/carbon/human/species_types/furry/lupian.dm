@@ -9,10 +9,22 @@
 	They are resilient, cunning and fight ready creachures capable of surviving the north thanks to their rugged pelts, \
 	sharp teeth and deep-rooted spirit of community. They are very dutiful individuals and make fantastic and fearsome \
 	warriors to those who earn their loyalty. Thanks to their pack minded nature they are slow to trust the other races \
-	but form deep connections with those they do. In recent years they have been driven from the forests by unrest and pressed \
-	into cohabitation with races they'd deem lesser.<br>\
-	(+1 Constitution, +1 Intelligence)"
-	skin_tone_wording = "Pack"
+	but form deep connections with those they do. In recent years they have been driven from the forests by unrest and the \
+	inevitable spread of the rot and pressed into cohabitation with races they'd deem lesser.<br>\
+	(+1 Constitution, +1 Intelligence, Sleuth Trait)"
+	expanded_desc = "Lupians live under elective monarchies, forms of feudalism where the king of a pack is chosen from, and by, the military council. \
+	The leader of the pack is a philosopher king, a paragon of virtue and one who should inspire awe and loyalty among the population \
+	while the real power is held by the military leadership. Should a king fail his people it is not uncommon for the entire kingdom \
+	to fall into disarray as law and order begin to break down, for many Lupians see it a disgrace to themselves to follow a king who \
+	appears weak. Similarly, most Lupians uphold an image of pride and toughness, it is only in the presence of someone who appears \
+	stronger do they bend the knee. To become a leader is a constant challenge to maintain. \
+	<br><br> \
+	Vakran was once the largest of the pack-nations, the capital of Lupian civilization. After the King sequestered himself away under \
+	insurmountable stress and went into hiding, it was revealed weeks later that he was poisoned by one of his sons. This plunged the \
+	nation states under the Vakran name into chaos. Vassals left, either becoming free or aligning themselves with the neighboring \
+	Frostfell or Felsaad, while others faced internal strife, civils wars between those who believed the Vakran name still held strong, \
+	and those who saw the crown tainted, even the military council decimated itself between duels and the pitting of coups."
+	skin_tone_wording = "Ascendance"
 	species_traits = list(
 		MUTCOLORS,
 		EYECOLOR,
@@ -35,7 +47,7 @@
 		OFFSET_ID = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
 		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
+		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
 		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
@@ -43,6 +55,7 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
+	inherent_traits = list(TRAIT_SLEUTH)
 	race_bonus = list(STAT_INTELLIGENCE = 1, STAT_CONSTITUTION = 1)
 	enflamed_icon = "widefire"
 	organs = list(
@@ -73,6 +86,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/tail/lupian,
 		/datum/customizer/organ/snout/lupian,
 		/datum/customizer/organ/ears/lupian,
@@ -108,6 +122,7 @@
 		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -140,20 +155,15 @@
 	. = ..()
 	UnregisterSignal(C, COMSIG_MOB_SAY)
 
-/datum/species/lupian/get_skin_list()
+/datum/species/lupian/get_skin_list()		//This is completely, utterly deprecated as far as I know.
 	return list(
-		"Vakran" = "271f1b",
-		"Lanarain" = "271f1c",
-		"Frostfell" = "271f1d",
-		"Varghelm" = "271f1e",
-		"Dawnbreak" = "271f1f",
-		"Bloodmoon" = "271f2a",
-		"Felsaad" = "271f2b",
-		"Hizmut" = "271f2c",
-		"Langqan" = "271f2d",
-		"a tangled lineage" = "271f2e",
-		"disputed" = "271f2f",
-		"bastardized" = "271f3a"
+		"Forester" = "271f1b",
+		"Arctic" = "271f1c",
+		"Desert-dweller" = "271f1d",
+		"City Cur" = "271f1e",
+		"Coaster" = "271f1f",
+		"Islander" = "271f2a",
+		"Bastard" = "271f2b"
 	) // This is a dirty hack that stops me using mob defines, the colors do not do anything, it just a var that relates to their pack name on examine
 
 /datum/species/lupian/get_random_features()

@@ -11,7 +11,7 @@
 	outfit = /datum/outfit/job/roguetown/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	display_order = JDO_HAND
-	tutorial = "You owe everything to your liege. Once, you were just a humble friend--now you are one of the most important people within the duchy itself. You have played spymaster and confidant to the Noble-Family for so long that you are a veritable vault of intrigue, something you exploit with potent conviction at every opportunity. Let no man ever forget into whose ear you whisper. You've killed more men with those lips than any blademaster could ever claim to."
+	tutorial = "Whether by outstanding merit or petty favoritism, you are the Archduke’s most trusted representative and advisor. Your authority is second only to the Archduke themselves. The weight of your words can shape policy, stir conflict, or silence dissent. Let none forget whose will you carry, and do not fail your benefactor."
 	whitelist_req = TRUE
 	give_bank_account = 44
 	noble_income = 22
@@ -19,6 +19,12 @@
 	max_pq = null
 	round_contrib_points = 3
 	cmode_music = 'sound/music/cmode/nobility/combat_spymaster.ogg'
+	job_traits = list(TRAIT_NOBLE)
+	job_subclasses = list(
+		/datum/advclass/hand/hand,
+		/datum/advclass/hand/spymaster,
+		/datum/advclass/hand/advisor
+	)
 
 /datum/outfit/job/roguetown/hand
 	shoes = /obj/item/clothing/shoes/roguetown/boots
@@ -49,10 +55,16 @@
 
 /datum/advclass/hand/hand
 	name = "Hand"
-	tutorial = " You have played blademaster and strategist to the Noble-Family for so long that you are a master tactician, something you exploit with potent conviction. Let no man ever forget whose ear you whisper into. You've killed more men with swords than any spymaster could ever claim to."
+	tutorial = "You serve as both soldier and strategist to the Noble-Family, wielding steel and intrigue with potent ability. Let no man forget whose ear you whisper into, your stratagems have claimed more lives than any spymaster's plots ever could."
 	outfit = /datum/outfit/job/roguetown/hand/handclassic
 
 	category_tags = list(CTAG_HAND)
+	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_HEAVYARMOR)
+	subclass_stats = list(
+		STATKEY_PER = 3,
+		STATKEY_INT = 3,
+		STATKEY_STR = 2
+	)
 
 //Classical hand start - same as before, nothing changed. 
 /datum/outfit/job/roguetown/hand/handclassic/pre_equip(mob/living/carbon/human/H)
@@ -78,19 +90,20 @@
 	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 1, TRUE)
-	H.change_stat("strength", 2)
-	H.change_stat("perception", 3)
-	H.change_stat("intelligence", 3)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
 /datum/advclass/hand/spymaster
 	name = "Spymaster"
-	tutorial = " You have played spymaster and confidant to the Noble-Family for so long that you are a vault of intrigue, something you exploit with potent conviction. Let no man ever forget whose ear you whisper into. You've killed more men with those lips than any blademaster could ever claim to."
+	tutorial = "You serve as both spymaster and confidant to the Noble-Family, wielding cloak and dagger schemes with potent ability. Let no man forget whose ear you whisper into, your plots have claimed more lives than any strategist's steel ever could."
 	outfit = /datum/outfit/job/roguetown/hand/spymaster
 
 	category_tags = list(CTAG_HAND)
+	traits_applied = list(TRAIT_MEDIUMARMOR, TRAIT_DODGEEXPERT, TRAIT_PERFECT_TRACKER)
+	subclass_stats = list(
+		STATKEY_SPD = 3,
+		STATKEY_PER = 2,
+		STATKEY_INT = 2,
+		STATKEY_STR = -1,
+	)
 
 //Spymaster start. More similar to the rogue adventurer - loses heavy armor and sword skills for more sneaky stuff. 
 /datum/outfit/job/roguetown/hand/spymaster/pre_equip(mob/living/carbon/human/H)
@@ -131,22 +144,19 @@
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE) // not like they're gonna break into the vault.
-	H.change_stat("strength", -1)
-	H.change_stat("perception", 2)
-	H.change_stat("speed", 3)
-	H.change_stat("intelligence", 2)
 	H.grant_language(/datum/language/thievescant)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 
 /datum/advclass/hand/advisor
 	name = "Advisor"
-	tutorial = " You have played researcher and confidant to the Noble-Family for so long that you are a vault of knowledge, something you exploit with potent conviction. Let no man ever forget the knowledge you wield. You've read more books than any blademaster or spymaster could ever claim to."
+	tutorial = "You serve as both scholar and advisor to the Noble-Family, wielding knowledge and magicks with potent ability. Let no man forget whose ear you whisper into, your sage advice has saved more lives than any strategist’s orders or spymaster’s schemes could ever claim to."
 	outfit = /datum/outfit/job/roguetown/hand/advisor
 
 	category_tags = list(CTAG_HAND)
+	traits_applied = list(TRAIT_MAGEARMOR, TRAIT_ARCYNE_T2)
+	subclass_stats = list(
+		STATKEY_INT = 4,
+		STATKEY_PER = 3,
+	)
 
 //Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors. 
 /datum/outfit/job/roguetown/hand/advisor/pre_equip(mob/living/carbon/human/H)
@@ -174,19 +184,14 @@
 	H.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
-	H.change_stat("intelligence", 4)
-	H.change_stat("perception", 3)
-	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_ARCYNE_T2, TRAIT_GENERIC)
 	if(H.mind)
-		H?.mind.adjust_spellpoints(15)
+		H.mind.adjust_spellpoints(15)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	if(H.age == AGE_OLD)
-		H.change_stat("speed", -1)
-		H.change_stat("strength", -1)
-		H.change_stat("intelligence", 1)
-		H.change_stat("perception", 1)
-		H?.mind.adjust_spellpoints(3)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_STR, -1)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_PER, 1)
+		H.mind?.adjust_spellpoints(3)
 
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 

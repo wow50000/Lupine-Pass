@@ -15,9 +15,10 @@
 	sewrepair = TRUE
 	flags_inv = HIDEBOOB
 	experimental_inhand = FALSE
-	
+	salvage_amount = 2
+
 	grid_width = 64
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt
 	name = "shirt"
@@ -34,6 +35,7 @@
 	icon_state = "priestunder"
 	item_state = "priestunder"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	allowed_sex = list(MALE, FEMALE)
@@ -133,12 +135,18 @@
 /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 	name = "fancy coat"
 	desc = "A fancy tunic and coat combo. How elegant."
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	icon_state = "noblecoat"
+	item_state = "noblecoat"
 	sleevetype = "noblecoat"
 	detail_tag = "_detail"
 	detail_color = CLOTHING_AZURE
 	color = CLOTHING_WHITE
 	boobed = TRUE
+	detail_tag = "_detail"
+	detail_color = CLOTHING_BLACK
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	name = "tinker suit"
@@ -205,6 +213,21 @@
 	detail_color = CLOTHING_MAGENTA
 
 // End royal clothes
+
+/obj/item/clothing/suit/roguetown/shirt/dress/winterdress_light
+	name = "cold dress"
+	icon = 'icons/roguetown/clothing/shirts_royalty.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts_royalty.dmi'
+	desc = "A thick and comfortable dress popular amongst nobility during winter."
+	body_parts_covered = COVERAGE_FULL
+	icon_state = "winterdress"
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts_royalty.dmi'
+	boobed = TRUE
+	detail_tag = "_detail"
+	detail_color = CLOTHING_BLACK
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkydress
 	name = "silky dress"
@@ -321,12 +344,10 @@
 	name = "tribalrag"
 	desc = ""
 	body_parts_covered = CHEST|VITALS
-	boobed = TRUE
 	icon_state = "tribalrag"
 	item_state = "tribalrag"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
-	flags_inv = HIDECROTCH|HIDEBOOB
 
 /obj/item/clothing/suit/roguetown/shirt/robe/archivist
 	name = "archivist's robe"
@@ -336,7 +357,6 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
-	boobed = TRUE
 	flags_inv = HIDECROTCH|HIDEBOOB
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
@@ -421,6 +441,8 @@
 	icon_state = "silkdress"
 	item_state = "silkdress"
 	color = "#e6e5e5"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
+	flags_inv = HIDECROTCH|HIDEBOOB
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/princess
 	color = CLOTHING_WHITE
@@ -544,10 +566,57 @@
 	icon_state = "exoticsilkbra"
 	item_state = "exoticsilkbra"
 	body_parts_covered = CHEST
-	boobed = TRUE
 	sewrepair = TRUE
 	flags_inv = null
 	slot_flags = ITEM_SLOT_SHIRT
+
+//................ Noble Dress ............... //
+/obj/item/clothing/suit/roguetown/shirt/dress/noble
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	icon = 'icons/roguetown/clothing/shirts.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
+	name = "noble dress"
+	desc = "An elegant dress fit for nobility, crafted with the finest materials and adorned with intricate details."
+	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	icon_state = "nobledress"
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
+
+
+/obj/item/clothing/suit/roguetown/shirt/dress/noble/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/suit/roguetown/shirt/dress/noble/lordcolor(primary,secondary)
+	detail_color = primary
+	update_icon()
+
+/obj/item/clothing/suit/roguetown/shirt/dress/noble/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/suit/roguetown/shirt/dress/noble/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+//................ Velvet Dress ............... //
+/obj/item/clothing/suit/roguetown/shirt/dress/velvet
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	icon = 'icons/roguetown/clothing/shirts.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
+	name = "velvet dress"
+	desc = "A luxurious dress made of the finest velvet, soft to the touch and rich in appearance."
+	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	icon_state = "velvetdress"
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
+
 
 //kazengite content
 /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt1
@@ -583,8 +652,8 @@
 //tattoo code
 /obj/item/clothing/suit/roguetown/shirt/undershirt/easttats/Initialize(mapload)
 	. = ..()
-	name = "lenticular tattoos"
-	desc = "It's styled into the shapes of clouds. You shudder as the ink moves and condenses into areas where the skin is struck."
+	name = "bouhoi bujeog tattoos"
+	desc = "A mystic style of tattoos adopted by the Ruma Clan, emulating a practice performed by warrior monks of the Xinyi Dynasty. They are your way of identifying fellow clan members, an sign of companionship and secretive brotherhood. These are styled into the shape of clouds, created by a mystical ink which shifts and moves in ripples like a pond to harden where your skin is struck. It's movement causes you to shudder."
 	resistance_flags = FIRE_PROOF
 	icon_state = "easttats"
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR

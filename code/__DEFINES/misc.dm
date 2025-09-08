@@ -15,6 +15,7 @@
 #define ISDIAGONALDIR(d) (d&(d-1))
 
 //Human Overlays Indexes/////////
+
 #define MUTATIONS_LAYER			50		//mutations. Tk headglows, cold resistance glow, etc
 #define CLOAK_BEHIND_LAYER		49
 #define HANDS_BEHIND_LAYER		48
@@ -28,11 +29,11 @@
 #define FRONT_MUTATIONS_LAYER	40		//mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
 #define DAMAGE_LAYER			39		//damage indicators (cuts and burns)
 #define LEG_PART_LAYER			38
-#define PANTS_LAYER				37
-#define SHOES_LAYER				36
-#define LEG_DAMAGE_LAYER		35
-#define LEGSLEEVE_LAYER			34
-#define SHOESLEEVE_LAYER		33
+#define LEGWEAR_LAYER			37
+#define PANTS_LAYER				36
+#define SHOES_LAYER				35
+#define LEG_DAMAGE_LAYER		34
+#define LEGSLEEVE_LAYER			33
 #define SHIRT_LAYER				32
 #define WRISTS_LAYER			31
 #define ARMOR_LAYER				30
@@ -308,12 +309,6 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 #define SHELTER_DEPLOY_BAD_AREA "bad area"
 #define SHELTER_DEPLOY_ANCHORED_OBJECTS "anchored objects"
 
-//debug printing macros
-#define debug_world(msg) if (GLOB.Debug2) to_chat(world, "DEBUG: [msg]")
-#define debug_usr(msg) if (GLOB.Debug2&&usr) to_chat(usr, "DEBUG: [msg]")
-#define debug_admins(msg) if (GLOB.Debug2) to_chat(GLOB.admins, "DEBUG: [msg]")
-#define debug_world_log(msg) if (GLOB.Debug2) log_world("DEBUG: [msg]")
-
 #define INCREMENT_TALLY(L, stat) if(L[stat]){L[stat]++}else{L[stat] = 1}
 
 //TODO Move to a pref
@@ -453,7 +448,9 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 #define PDAIMG(what) {"<span class="pda16x16 [#what]"></span>"}
 
 //Filters
-#define AMBIENT_OCCLUSION filter(type="drop_shadow", x=0, y=-0, size=1, offset = 0, color="#04080FAA")
+#define AMBIENT_OCCLUSION filter(type="drop_shadow", x=0, y=-2, size=3, offset=1, color="#04080f96")
+#define AMBIENT_OCCLUSION_WALLS filter(type="drop_shadow", x=0, y=-2, size=8, offset=4, color="#000000ff")
+
 #define GAUSSIAN_BLUR(filter_size) filter(type="blur", size=filter_size)
 
 #define STANDARD_GRAVITY 1 //Anything above this is high gravity, anything below no grav

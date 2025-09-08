@@ -33,15 +33,17 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/aalloy
 	name = "decrepit half-plate"
-	desc = "Worn out and decrepit halfplate. Aeon's grasp is upon it."
+	desc = "Frayed bronze layers, bolted into plate armor. Once, the hauberk of a rising champion; now, nothing more than a fool's tomb."
 	icon_state = "ancientplate"
 	item_state = "ancientplate"
 	max_integrity = ARMOR_INT_CHEST_PLATE_DECREPIT
-	smeltresult = /obj/item/ingot/aalloy
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 /obj/item/clothing/suit/roguetown/armor/plate/paalloy
 	name = "ancient half-plate"
-	desc = "Plate formed out of ancient alloys. Aeon's grasp has been lifted from it."
+	desc = "Polished gilbronze layers, magewelded into plate armor. Let none impede the march of progress, and let Her champions bring the unenlightened masses to kneel."
 	icon_state = "ancientplate"
 	item_state = "ancientplate"
 	smeltresult = /obj/item/ingot/aaslag
@@ -66,13 +68,9 @@
 	icon_state = "graggarplate"
 	armor = ARMOR_CUIRASS
 
-/obj/item/clothing/suit/roguetown/armor/plate/fluted/graggar/pickup(mob/living/user)
-	if(!HAS_TRAIT(user, TRAIT_HORDE))
-		to_chat(user, "<font color='red'>UNWORTHY HANDS TOUCHING THIS ARMOR, CEASE OR BE RENDED ASUNDER!</font>")
-		user.adjust_fire_stacks(5)
-		user.IgniteMob()
-		user.Stun(40)
-	..()
+/obj/item/clothing/suit/roguetown/armor/plate/fluted/graggar/Initialize()
+	. = ..()
+	AddComponent(/datum/component/cursed_item, TRAIT_HORDE, "ARMOR", "RENDERED ASUNDER")
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate
 	name = "psydonian half-plate"
@@ -140,6 +138,12 @@
 	if(istype(user) && user?.wear_armor == src)
 		user.remove_status_effect(/datum/status_effect/buff/psydonic_endurance)
 
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/ordinator
+	name = "inquisitorial ordinator's plate"
+	desc = "A relic that is said to have survived the Grenzelhoft-Otavan war, refurbished and repurposed to slay the arch-enemy in the name of Psydon. <br> A fluted cuirass that has been reinforced with thick padding and an additional shoulder piece. You will endure."
+	icon_state = "ordinatorplate"	
+
 /obj/item/clothing/suit/roguetown/armor/plate/full/matthios
 	name = "gilded fullplate"
 	desc = "Often, you have heard that told,"
@@ -158,7 +162,7 @@
 	qdel(src)
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/zizo
-	name = "darksteel fullplate"
+	name = "avantyne fullplate"
 	desc = "Full plate. Called forth from the edge of what should be known. In Her name."
 	icon_state = "zizoplate"
 	max_integrity = ARMOR_INT_CHEST_PLATE_ANTAG
@@ -306,23 +310,32 @@
 /obj/item/clothing/suit/roguetown/armor/plate/half/fencer
 	name = "fencer's cuirass"
 	desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
-	armor = ARMOR_LIGHTCUIRASS
+	armor = ARMOR_CUIRASS		// Experimental.
 	armor_class = ARMOR_CLASS_LIGHT
-	max_integrity = ARMOR_INT_CHEST_FENCER_STEEL
+	max_integrity = ARMOR_INT_CHEST_LIGHT_STEEL
 	smelt_bar_num = 1
 	icon_state = "fencercuirass"
 	item_state = "fencercuirass"
 
+/obj/item/clothing/suit/roguetown/armor/plate/half/fencer/psydon
+	name = "psydonian chestplate"
+	desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
+	smelt_bar_num = 1
+	icon_state = "ornatechestplate"
+	item_state = "ornatechestplate"
+
 /obj/item/clothing/suit/roguetown/armor/plate/half/aalloy
 	name = "decrepit cuirass"
-	desc = "A withered cuirass. Aeon's grasp is upon its form."
+	desc = "Frayed bronze, pounded into a breastplate. It feels more like a corset than a cuirass; there's barely enough width to let those aching lungs breathe."
 	icon_state = "ancientcuirass"
-	smeltresult = /obj/item/ingot/aalloy
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_DECREPIT
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/paalloy
 	name = "ancient cuirass"
-	desc = "A cuirass of ancient alloys. Aeon's grasp lifted from its form."
+	desc = "Polished gilbranze, curved into a breastplate. It is not for the heart that beats no more, but for the spirit that flows through luxless marrow; one of Her many gifts."
 	icon_state = "ancientcuirass"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -372,7 +385,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "lamellar"
-	max_integrity = ARMOR_INT_CHEST_MEDIUM_SCALE
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
@@ -380,21 +393,64 @@
 	smelt_bar_num = 2
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/steppe
-	name = "steel steppesman hatanga"
-	desc = "A set of steel-scaled hatanga armor hailing from the southern steppes."
+	name = "steel heavy lamellar"
+	desc = "A chestpiece of Aavnic make composed of easily-replaced small rectangular plates of layered steel laced together in rows with wire. Malleable and protective, perfect for cavalrymen."
 	icon_state = "hudesutu"
-	max_integrity = ARMOR_INT_CHEST_MEDIUM_HATANGA		//Grenzel gets 100+ integrity, I don't see why not give a +50 here.
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL + 50
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
+	slot_flags = ITEM_SLOT_ARMOR
+	slot_flags = ITEM_SLOT_ARMOR
 	name = "inquisitorial duster"
-	desc = "Metal plates reinforce this heavy coat; only the finest for the inquisition."
+	desc = "A heavy coat lined with thin metal plates; only the finest for the inquisition, complete with space to fit a Psydonian Cuirass."
 	body_parts_covered = COVERAGE_FULL
+	allowed_sex = list(MALE, FEMALE)
+	allowed_sex = list(MALE, FEMALE)
 	icon_state = "inqcoat"
 	item_state = "inqcoat"
 	sleevetype = "shirt"
-	smelt_bar_num = 2
+	max_integrity = 300
+	sewrepair = TRUE
+	equip_delay_self = 4 SECONDS
+	armor_class = ARMOR_CLASS_LIGHT
+	armor = ARMOR_LEATHER_STUDDED
 	blocksound = SOFTHIT
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/ComponentInitialize()	//No movement rustle component.
 	return
- 
+
+/obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/attackby(obj/item/W, mob/living/user, params)
+	..()
+	if(istype(W, /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate))
+		user.visible_message(span_warning("[user] starts to fit [W] inside the [src]."))
+		if(do_after(user, 12 SECONDS))
+			var/obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/armored/P = new /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/armored(get_turf(src.loc))
+			if(user.is_holding(src))
+				user.dropItemToGround(src)
+			user.put_in_hands(P)
+			P.obj_integrity = src.obj_integrity
+			qdel(src)
+			qdel(W)
+		else
+			user.visible_message(span_warning("[user] stops fitting [W] inside the [src]."))
+		return
+
+
+/obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/armored
+	slot_flags = ITEM_SLOT_ARMOR
+	name = "armored inquisitorial duster"
+	desc = "Metal plates reinforce this heavy coat, worn over the top of the finest Psydonian plate."
+	smeltresult = /obj/item/ingot/steel 
+	icon_state = "inqcoata"
+	item_state = "inqcoata"
+	equip_delay_self = 4 SECONDS
+	max_integrity = 300
+	armor_class = ARMOR_CLASS_MEDIUM
+	armor = ARMOR_CUIRASS
+	smelt_bar_num = 2
+	smeltresult = /obj/item/ingot/steel
+	blocksound = PLATEHIT	
+
+/obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/armored/ComponentInitialize()
+	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP)
+	return

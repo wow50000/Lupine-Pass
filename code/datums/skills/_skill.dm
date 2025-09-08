@@ -10,6 +10,14 @@
 	var/list/dreams
 	var/randomable_dream_xp = TRUE
 	var/expert_name
+	var/color = null
+
+	/// Any skill levelling restrictions based on traits. If the trait is present, it can level past the level.
+	var/list/trait_restrictions
+	//Example:
+	//list(TRAIT_EXAMPLE = SKILL_LEVEL_MAXIMUM_WITHOUT_THE_TRAIT)
+	//Feel free to refactor it to work more sanely, it was concepted for a specific case. - F
+	var/max_skillbook_level = 6
 
 /datum/skill/proc/get_skill_speed_modifier(level)
 	return

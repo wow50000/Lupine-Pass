@@ -5,6 +5,12 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/vagabond/scholar
 	category_tags = list(CTAG_VAGABOND)
+	traits_applied = list(TRAIT_INTELLECTUAL, TRAIT_CICERONE, TRAIT_SEEDKNOW)
+	subclass_stats = list(
+		STATKEY_INT = 2,
+		STATKEY_CON = -1,
+		STATKEY_WIL = -1
+	)
 
 /datum/outfit/job/roguetown/vagabond/scholar/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -28,10 +34,7 @@
 	if (H.mind)
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-		H.change_stat("intelligence", 2)
-		H.change_stat("constitution", -1)
-		H.change_stat("endurance", -1)

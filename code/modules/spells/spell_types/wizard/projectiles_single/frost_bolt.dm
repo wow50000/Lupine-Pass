@@ -18,7 +18,7 @@
 	antimagic_allowed = FALSE //can you use it if you are antimagicked?
 	charging_slowdown = 3
 	spell_tier = 2
-	invocation = "Sagitta Glaciei!"
+	invocations = list("Sagitta Glaciei!")
 	invocation_type = "shout"
 	glow_color = GLOW_COLOR_ICE
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -41,7 +41,7 @@
 	damage_type = BURN
 	flag = "magic"
 	range = 10
-	speed = 10 //higher is slower
+	speed = 1
 	var/aoe_range = 0
 
 /obj/projectile/magic/frostbolt/on_hit(target)

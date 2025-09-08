@@ -2,6 +2,35 @@
 	name = null
 	associated_faith = /datum/faith/divine
 
+/datum/patron/divine/undivided
+	name = "Undivided"
+	domain = "The Sun, the Moon, Earth, Justice, Freedom, the Seas, Creation, Inspiration, Death, Decay, Love, Healing, and Life."
+	desc = "A United Pantheon, Stalwart against the Darkness. The Ten grant lessons and boons to mortals. The primary form of worship being a generalist approach to worshipping all Ten, and taking lessons from all. This is the primary theology of the Grenzelhoft Holy See."
+	worshippers = "Holy See Clergymen. Pragmatists of the Ten."
+	mob_traits = list(TRAIT_UNDIVIDED)
+	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI, // ONLY Lower miracles of other lists. A much more varied utility miracle list, and a much wider selection. Also, our generic miracles(Lesser heal + Divine blast for acolytes) are better. But no specialization makes a lower level list. We're going to exclude Abyssor.
+					/obj/effect/proc_holder/spell/self/astrata_gaze				= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/darkvision/miracle	= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/bless_food            = CLERIC_T1,
+					/obj/effect/proc_holder/spell/self/divine_strike			= CLERIC_T2,
+					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/avert					= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/infestation			= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/mockery				= CLERIC_T3, // you'll have to be a real xylix templar to get this pretty decent combat debuff, sorry.
+					/obj/effect/proc_holder/spell/invoked/conjure_tool			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/resurrect/undivided	= CLERIC_T4
+	)
+	confess_lines = list(
+		"THE HOLY DECAGRAM SHALL SHIELD MY SOUL!",
+		"I SERVE THE PANTHEON RESPLENDENT!",
+		"THE TEN ETERNAL, FOREVERMORE!",
+	)
+	storyteller = /datum/storyteller/astrata // no unique storyteller for this one, since its so broad. No real reason to have a unique storyteller - Undivided contributes to ecah of the Ten's follower count.
+
+
 /datum/patron/divine/astrata
 	name = "Astrata"
 	domain = "Twinned Goddess of the Sun, Day, and Order"
@@ -12,9 +41,12 @@
 					/obj/effect/proc_holder/spell/invoked/ignition				= CLERIC_T0,
 					/obj/effect/proc_holder/spell/self/astrata_gaze				= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/projectile/lightningbolt/sacred_flame_rogue	= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heal					= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/revive				= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/immolation			= CLERIC_T4,
 	)
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
@@ -31,11 +63,13 @@
 	mob_traits = list(TRAIT_NIGHT_OWL)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/noc_sight				= CLERIC_T0,
-					/obj/effect/proc_holder/spell/targeted/touch/darkvision/miracle	= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/darkvision/miracle	= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/invisibility/miracle	= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/blindness				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/self/noc_spell_bundle			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/noc			= CLERIC_T4,
 	)
 	confess_lines = list(
@@ -56,7 +90,10 @@
 					/obj/effect/proc_holder/spell/invoked/spiderspeak 			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/targeted/wildshape			= CLERIC_T2,
+					/obj/effect/proc_holder/spell/targeted/beasttame			= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/targeted/conjure_glowshroom	= CLERIC_T3,
 					/obj/effect/proc_holder/spell/self/howl/call_of_the_moon	= CLERIC_T4,
 					/obj/effect/proc_holder/spell/invoked/resurrect/dendor		= CLERIC_T4,
@@ -79,10 +116,12 @@
 					/obj/effect/proc_holder/spell/self/abyssor_wind				= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssor_bends			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssor_undertow		= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/abyssheal				= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/call_mossback			= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/call_dreamfiend		= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/call_dreamfiend		= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/abyssal_infusion		= CLERIC_T4,
 					/obj/effect/proc_holder/spell/invoked/resurrect/abyssor		= CLERIC_T4,
 	)
@@ -103,9 +142,12 @@
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/tug_of_war			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/divine_strike			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/self/call_to_arms				= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/challenge				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/persistence			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/ravox		= CLERIC_T4,
 	)
 	confess_lines = list(
@@ -123,10 +165,15 @@
 	mob_traits = list(TRAIT_SOUL_EXAMINE, TRAIT_NOSTINK)	//No stink is generic but they deal with dead bodies so.. makes sense, I suppose?
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/necras_sight			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/targeted/burialrite			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/avert					= CLERIC_T1,
-					/obj/effect/proc_holder/spell/invoked/deaths_door			= CLERIC_T1,
+					// /obj/effect/proc_holder/spell/invoked/deaths_door			= CLERIC_T1, // DO NOT RE-ENABLE UNTIL THIS IS FIXED. IT CRASHES CLIENTS.
 					/obj/effect/proc_holder/spell/targeted/abrogation			= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/raise_spirits_vengeance = CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/speakwithdead		= CLERIC_T3,
 	)
 	confess_lines = list(
 		"ALL SOULS FIND THEIR WAY TO NECRA!",
@@ -143,10 +190,13 @@
 	mob_traits = list(TRAIT_XYLIX)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/self/xylixslip				= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/xylixlian_luck        = CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/wheel					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/mockery				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/mastersillusion		= CLERIC_T2,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/xylix		= CLERIC_T4,
 	)
 	confess_lines = list(
@@ -178,10 +228,12 @@
 					/obj/effect/proc_holder/spell/invoked/diagnose				= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/pestra_leech			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heal					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/infestation			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/attach_bodypart		= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/cure_rot				= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/pestra		= CLERIC_T4,
 	)
 	confess_lines = list(
@@ -200,10 +252,12 @@
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/malum_flame_rogue 	= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/conjure_tool			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/vigorousexchange		= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heatmetal				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/hammerfall			= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/craftercovenant		= CLERIC_T4,
 					/obj/effect/proc_holder/spell/invoked/resurrect/malum		= CLERIC_T4,
 	)
@@ -225,10 +279,12 @@
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/eora_blessing			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/blood_heal			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/bless_food            = CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/bud					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heartweave			= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/eoracurse				= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/pomegranate			= CLERIC_T4,
 					/obj/effect/proc_holder/spell/invoked/resurrect/eora		= CLERIC_T4,
 	)
@@ -243,6 +299,20 @@
 /////////////////////////////////
 // Does God Hear Your Prayer ? //
 /////////////////////////////////
+
+/datum/patron/divine/undivided/can_pray(mob/living/follower)
+	. = ..()
+	// Undivided - More restricted, needs to be within range of a pantheon cross or the church itself.
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
+		return TRUE
+	// Allows prayer in the church
+	if(istype(get_area(follower), /area/rogue/indoors/town/church))
+		return TRUE
+
+
 
 // Astrata - In daylight, church, cross, or ritual chalk.
 /datum/patron/divine/astrata/can_pray(mob/living/follower)
@@ -285,7 +355,7 @@
 	return FALSE
 
 
-// Dendor - In grove, bog, cross, or ritual chalk 
+// Dendor - In grove, bog, cross, or ritual chalk
 // Yes, he is NOT calling the master cus he's unique. Whole bog is his prayer zone. Druids exist for a reason instead of in the church.
 /datum/patron/divine/dendor/can_pray(mob/living/follower)
 	. = ..()

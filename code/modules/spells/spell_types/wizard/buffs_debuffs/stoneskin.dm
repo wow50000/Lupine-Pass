@@ -12,7 +12,7 @@
 	warnie = "spellwarning"
 	school = "transmutation"
 	spell_tier = 2
-	invocation = "Perstare Sicut Saxum." // Endure like Stone 
+	invocations = list("Perstare Sicut Saxum.") // Endure like Stone
 	invocation_type = "whisper"
 	glow_color = GLOW_COLOR_BUFF
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -52,12 +52,12 @@
 	var/outline_colour ="#808080" // Granite Grey
 	id = "stoneskin"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/stoneskin
-	effectedstats = list("constitution" = 5)
+	effectedstats = list(STATKEY_CON = 5)
 	var/hadcritres = FALSE
-	duration = 1 MINUTES
+	duration = 1.5 MINUTES
 
 /datum/status_effect/buff/stoneskin/other
-	duration = 2 MINUTES
+	duration = 3 MINUTES
 
 /datum/status_effect/buff/stoneskin/on_apply()
 	. = ..()

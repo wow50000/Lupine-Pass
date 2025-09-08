@@ -9,7 +9,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_NO_CONSTRUCT
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)
-	tutorial = "You are a noble from a foreign court who has travelled to Azure Peak in order to win the hand of Azuria's most eligible bachelor and secure a political ally for your house. Competition is fierce, and it seems you're not the only one vying for the duke's favor..."
+	tutorial = "You are a noble from a foreign court who has travelled to Rotwood Vale in order to win the hand of the Vale's most eligible bachelor and secure a political ally for your house. Competition is fierce, and it seems you're not the only one vying for the duke's favor..."
 
 	outfit = /datum/outfit/job/roguetown/suitor
 
@@ -49,7 +49,6 @@
 		backl = /obj/item/rogue/instrument/harp
 		beltl = /obj/item/flashlight/flare/torch/lantern
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random
 		backr = /obj/item/storage/backpack/rogue/satchel
 		id = /obj/item/clothing/ring/signet
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
@@ -76,11 +75,11 @@
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-	H.change_stat("intelligence", 3)
-	H.change_stat("perception", 3)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", 1)
-	H.change_stat("fortune", 1)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_PER, 3)
+	H.change_stat(STATKEY_WIL, 1)
+	H.change_stat(STATKEY_SPD, 1)
+	H.change_stat(STATKEY_LCK, 1)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
@@ -109,11 +108,11 @@
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
-	H.change_stat("intelligence", 1)
-	H.change_stat("perception", 1)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", 3)
-	H.change_stat("fortune", 1)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_WIL, 1)
+	H.change_stat(STATKEY_SPD, 3)
+	H.change_stat(STATKEY_LCK, 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OUTLANDER, TRAIT_GENERIC)
 	head = /obj/item/clothing/head/roguetown/nyle/consortcrown
@@ -156,13 +155,13 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-	H.change_stat("strength", 1)
-	H.change_stat("intelligence", 2)
-	H.change_stat("perception", 1)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_PER, 1)
 	H.change_stat("constutition", 1)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", 1)
-	H.change_stat("fortune", 1)
+	H.change_stat(STATKEY_WIL, 1)
+	H.change_stat(STATKEY_SPD, 1)
+	H.change_stat(STATKEY_LCK, 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OUTLANDER, TRAIT_GENERIC)

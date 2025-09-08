@@ -50,7 +50,7 @@
 	loadmaplist(CONFIG_MAPS_FILE)
 	LoadMOTD()
 	LoadPolicy()
-	LoadChatFilter()
+	// LoadChatFilter()
 
 	if(Master)
 		Master.OnConfigLoad()
@@ -285,7 +285,9 @@ Example config:
 
 		switch (command)
 			if ("map")
-				currentmap = load_map_config("_maps/[data].json")
+				currentmap = load_map_config("_maps/[data].json", error_if_missing = FALSE)
+				if(currentmap.defaulted)
+					currentmap = load_map_config("secrets/_maps/[data].json", error_if_missing = FALSE)
 				if(currentmap.defaulted)
 					log_config("Failed to load map config for [data]!")
 					currentmap = null
@@ -308,24 +310,24 @@ Example config:
 			else
 				log_config("Unknown command in map vote config: '[command]'")
 
-/datum/controller/configuration/proc/LoadChatFilter()
-	var/list/in_character_filter = list()
+// /datum/controller/configuration/proc/LoadChatFilter()
+// 	var/list/in_character_filter = list()
 
-	if(!fexists("[directory]/in_character_filter.txt"))
-		return
+// 	if(!fexists("[directory]/in_character_filter.txt"))
+// 		return
 
-	log_config("Loading config file in_character_filter.txt...")
+// 	log_config("Loading config file in_character_filter.txt...")
 
-	for(var/line in world.file2list("[directory]/in_character_filter.txt"))
-		if(!line)
-			continue
-		if(findtextEx(line,"#",1,2))
-			continue
-		in_character_filter += REGEX_QUOTE(line)
+// 	for(var/line in world.file2list("[directory]/in_character_filter.txt"))
+// 		if(!line)
+// 			continue
+// 		if(findtextEx(line,"#",1,2))
+// 			continue
+// 		in_character_filter += REGEX_QUOTE(line)
 
-	ic_filter_regex = in_character_filter.len ? regex("\\b([jointext(in_character_filter, "|")])\\b", "i") : null
+// 	ic_filter_regex = in_character_filter.len ? regex("\\b([jointext(in_character_filter, "|")])\\b", "i") : null
 
-	syncChatRegexes()
+// 	syncChatRegexes()
 
 //Message admins when you can.
 /datum/controller/configuration/proc/DelayedMessageAdmins(text)

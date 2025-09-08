@@ -24,6 +24,9 @@
 	icon_state = "insmash"
 	item_d_type = "blunt"
 
+/datum/intent/mace/smash/flataxe
+	damfactor = 1.2
+	clickcd = 10
 
 /datum/intent/mace/rangedthrust
 	name = "thrust"
@@ -32,7 +35,7 @@
 	animname = "stab"
 	icon_state = "instab"
 	reach = 2
-	chargetime = 1
+	clickcd = CLICK_CD_CHARGED
 	recovery = 30
 	warnie = "mobwarning"
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
@@ -67,7 +70,6 @@
 	minstr = 7
 	wdefense = 2
 	wbalance = WBALANCE_HEAVY
-	blade_dulling = DULLING_SHAFT_METAL
 	intdamage_factor = 1.35
 	icon_angle_wielded = 50
 
@@ -85,13 +87,15 @@
 
 /obj/item/rogueweapon/mace/alloy
 	name = "decrepit mace"
-	desc = "A decrepit old mace. Aeon's grasp is upon it."
+	desc = "Frayed bronze, perched atop a rotwooden shaft. His sacrifice had drowned Old Syon, and - in its wake - left Man bereft of all it had accomplished. With all other prayers falling upon deaf ears, Man had crafted this idol in tribute to its new God; violence."
 	icon_state = "amace"
-	smeltresult = /obj/item/ingot/aalloy
 	force = 17
 	force_wielded = 21
 	max_integrity = 180
 	blade_dulling = DULLING_SHAFT_CONJURED
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 
 /obj/item/rogueweapon/mace/church
@@ -117,7 +121,7 @@
 
 /obj/item/rogueweapon/mace/steel/palloy
 	name = "ancient alloy mace"
-	desc = "A ancient mace. Aeon's grasp has been lifted from it."
+	desc = "Polished gilbranze, perched atop a reinforced shaft. Break the unenlightened into naught-but-giblets; like a potter's vessels, dashed against the rocks."
 	icon_state = "amace"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -159,7 +163,6 @@
 	gripped_intents = list(/datum/intent/mace/strike/wood, /datum/intent/mace/smash/wood)
 	smeltresult = /obj/item/ash
 	anvilrepair = /datum/skill/craft/carpentry
-	blade_dulling = DULLING_SHAFT_WOOD
 	minstr = 7
 	resistance_flags = FLAMMABLE
 
@@ -193,9 +196,34 @@
 	minstr = 7
 	wdefense = 1
 	resistance_flags = FLAMMABLE
-	blade_dulling = DULLING_SHAFT_WOOD
 	grid_width = 32
 	grid_height = 96
+
+/obj/item/rogueweapon/mace/cudgel/psy
+	name = "psydonian handmace"
+	desc = "A shorthanded mace, a convenient sleeping aid, or a means to root out heresy. It's all in the wrist."
+	wbalance = WBALANCE_SWIFT
+	resistance_flags = FIRE_PROOF
+	icon_state = "psyflangedmace"
+	wdefense = 2
+
+/obj/item/rogueweapon/mace/cudgel/psy/ComponentInitialize()
+	add_psyblessed_component(is_preblessed = FALSE, bonus_force = 3, bonus_sharpness = 100, bonus_integrity = 50, bonus_wdef = 1, make_silver = TRUE)
+
+/obj/item/rogueweapon/mace/cudgel/psy/preblessed
+
+/obj/item/rogueweapon/mace/cudgel/psy/preblessed/ComponentInitialize()
+	add_psyblessed_component(is_preblessed = TRUE, bonus_force = 3, bonus_sharpness = 100, bonus_integrity = 50, bonus_wdef = 1, make_silver = TRUE)	
+
+/obj/item/rogueweapon/mace/cudgel/psy/old
+	name = "old psydonian handmace"
+	desc = "A shorthanded mace and convenient sleeping aid, its grown harder to swing with age, though it hasn't lost reliability."
+	force = 20
+	wbalance = WBALANCE_NORMAL
+	icon_state = "opsyflangedmace"
+
+/obj/item/rogueweapon/mace/cudgel/psy/old/ComponentInitialize()
+	return	
 
 /obj/item/rogueweapon/mace/cudgel/copper
 	name = "copper bludgeon"
@@ -216,8 +244,8 @@
 	smeltresult = /obj/item/ingot/steel
 	wlength = WLENGTH_SHORT
 	w_class = WEIGHT_CLASS_NORMAL
-	blade_dulling = DULLING_SHAFT_REINFORCED
 	wbalance = WBALANCE_SWIFT
+	resistance_flags = FIRE_PROOF
 	minstr = 7
 	wdefense = 5
 
@@ -245,7 +273,6 @@
 	wbalance = WBALANCE_NORMAL
 	associated_skill = /datum/skill/combat/swords
 	anvilrepair = /datum/skill/craft/carpentry
-	blade_dulling = DULLING_SHAFT_REINFORCED
 	resistance_flags = FLAMMABLE
 
 
@@ -323,7 +350,6 @@
 	pixel_x = -16
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	blade_dulling = DULLING_SHAFT_WOOD
 	dropshrink = 0.6
 	bigboy = TRUE
 	gripsprite = TRUE
@@ -341,12 +367,14 @@
 
 /obj/item/rogueweapon/mace/goden/aalloy
 	name = "decrepit grand mace"
-	desc = "A decrepit old grand mace. Aeon's grasp is upon it."
+	desc = "Good nite, sire."
 	force = 12
 	force_wielded = 22
 	icon_state = "ancient_supermace"
-	smeltresult = /obj/item/ingot/aalloy
 	blade_dulling = DULLING_SHAFT_CONJURED
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 /obj/item/rogueweapon/mace/goden/steel
 	name = "grand mace"
@@ -355,12 +383,13 @@
 	force = 15
 	force_wielded = 35
 	smeltresult = /obj/item/ingot/steel
-	blade_dulling = DULLING_SHAFT_METAL
 	smelt_bar_num = 2
+	intdamage_factor = 1
+	wdefense_wbonus = 5
 
 /obj/item/rogueweapon/mace/goden/steel/paalloy
 	name = "ancient grand mace"
-	desc = "A grand mace formed out of ancient alloys. Aeon's grasp lifted from its form."
+	desc = "A twisting polehammer, forged in polished gilbranze. What did you think this was all about? This destruction, this war, this sacrifice; it was all to prepare Man for its true ascension."
 	icon_state = "ancient_supermace"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -381,8 +410,8 @@
 	name = "duel settler"
 	desc = "The tenets of ravoxian duels are enscribed upon the head of this maul."
 	icon_state = "ravoxhammer"
-	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)
-
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze) // It loses the Goden stab so I give it daze
+	max_integrity = 350 // I am reluctant to give a steel goden more force as it breaks weapon so durability it is.
 
 /obj/item/rogueweapon/mace/goden/psymace
 	name = "psydonian mace"
@@ -392,12 +421,11 @@
 	force_wielded = 32
 	wbalance = WBALANCE_HEAVY
 	dropshrink = 0.75
-	slot_flags = ITEM_SLOT_BACK //Looks better on back
 	smelt_bar_num = 2
 
 /obj/item/rogueweapon/mace/goden/psymace/ComponentInitialize()
-	. = ..()								//+3 force, +50 int, +1 def, make silver
-	AddComponent(/datum/component/psyblessed, FALSE, 3, FALSE, 50, 1, TRUE)
+	. = ..()
+	add_psyblessed_component(is_preblessed = FALSE, bonus_force = 3, bonus_sharpness = 0, bonus_integrity = 50, bonus_wdef = 1, make_silver = TRUE)
 
 /obj/item/rogueweapon/mace/spiked
 	icon_state = "spiked_club"
@@ -414,18 +442,19 @@
 	icon_state = "iwarhammer"
 	wbalance = WBALANCE_HEAVY
 	smeltresult = /obj/item/ingot/iron
-	blade_dulling = DULLING_SHAFT_REINFORCED
 	wdefense = 3
 	intdamage_factor = 1.2
 
 /obj/item/rogueweapon/mace/warhammer/alloy
 	name = "decrepit warhammer"
-	desc = "A decrepit old warhammer. Aeon's grasp is upon it."
+	desc = "A macehead of frayed bronze, spiked and perched atop a thin shaft. To see such a knightly implement abandoned to decay and neglect; that wounds the heart greater than any well-poised strike."
 	icon_state = "awarhammer"
-	smeltresult = /obj/item/ingot/aalloy
 	force = 17
 	max_integrity = 180
 	blade_dulling = DULLING_SHAFT_CONJURED
+	color = "#bb9696"
+	smeltresult = /obj/item/ingot/aaslag
+	anvilrepair = null
 
 /obj/item/rogueweapon/mace/warhammer/steel
 	force = 25
@@ -434,7 +463,6 @@
 	desc = "A fine steel warhammer, makes a satisfying sound when paired with a knight's helm."
 	icon_state = "swarhammer"
 	smeltresult = /obj/item/ingot/steel
-	blade_dulling = DULLING_SHAFT_METAL
 	wdefense = 4
 
 /obj/item/rogueweapon/mace/warhammer/getonmobprop(tag)
@@ -450,7 +478,7 @@
 
 /obj/item/rogueweapon/mace/warhammer/steel/paalloy
 	name = "ancient alloy warhammer"
-	desc = "A warhammer crafted of ancient alloys. Aeon's grasp has been lifted from it."
+	desc = "A macehead of polished gilbranze, spiked and perched atop a reinforced shaft. An elegant weapon from a more civilized age; when Man lived in harmony with one-another, and when 'the undying' was nothing more than a nitemare's thought."
 	icon_state = "awarhammer"
 	smeltresult = /obj/item/ingot/aaslag
 

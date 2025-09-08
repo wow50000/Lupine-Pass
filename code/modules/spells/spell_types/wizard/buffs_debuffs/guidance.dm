@@ -11,7 +11,7 @@
 	warnie = "spellwarning"
 	school = "transmutation"
 	spell_tier = 2
-	invocation = "Ducere"
+	invocations = list("Ducere")
 	invocation_type = "whisper"
 	glow_color = GLOW_COLOR_BUFF
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -50,10 +50,10 @@
 	var/outline_colour ="#f58e2d"
 	id = "guidance"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/guidance
-	duration = 1 MINUTES
+	duration = 1.5 MINUTES
 
 /datum/status_effect/buff/guidance/other
-	duration = 2 MINUTES
+	duration = 3 MINUTES
 
 /datum/status_effect/buff/guidance/on_apply()
 	. = ..()

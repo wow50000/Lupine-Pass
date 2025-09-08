@@ -4,18 +4,14 @@
 	color = null
 	icon_state = "priesthead"
 	item_state = "priesthead"
+	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
 
-/obj/item/clothing/head/roguetown/priestmask/pickup(mob/living/user)
-	..()
-	if(!HAS_TRAIT(user, TRAIT_CHOSEN))
-		to_chat(user, "<font color='yellow'>UNWORTHY HANDS TOUCH THE VISAGE, CEASE OR BE PUNISHED</font>")
-		spawn(30)
-			if(loc == user)
-				user.adjust_fire_stacks(5)
-				user.IgniteMob()
+/obj/item/clothing/head/roguetown/priestmask/Initialize()
+	. = ..()
+	AddComponent(/datum/component/cursed_item, TRAIT_CHOSEN, "VISAGE")
 
 //Eora content from Stonekeep
 

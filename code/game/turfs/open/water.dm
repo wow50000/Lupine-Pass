@@ -82,9 +82,14 @@
 
 /turf/open/water/proc/get_stamina_drain(mob/living/swimmer, travel_dir)
 	var/const/BASE_STAM_DRAIN = 15
-	var/const/MIN_STAM_DRAIN = 1
+	var/const/MIN_STAM_DRAIN = 2
 	var/const/STAM_PER_LEVEL = 5
 	var/const/UNSKILLED_ARMOR_PENALTY = 40
+	var/const/HEAVY_ARMOR_PENALTY = 30
+	var/const/MEDIUM_ARMOR_PENALTY = 20
+	var/const/BASE_XP_GAIN = 0.5
+	var/const/HEAVY_XP_GAIN = 0.01
+	var/const/MEDIUM_XP_GAIN = 0.05
 	if(!isliving(swimmer))
 		return 0
 	if(!swim_skill)
@@ -95,15 +100,30 @@
 		return 0 // going with the flow
 	if(swimmer.buckled)
 		return 0
+	if(!ishuman(swimmer))
+		return 0
+	var/mob/living/carbon/human/H = swimmer
+	var/ac = H.highest_ac_worn(check_hands = TRUE)
+	var/xpmod = BASE_XP_GAIN
+	var/base_drain = BASE_STAM_DRAIN
+
+	switch(ac)
+		if(ARMOR_CLASS_HEAVY)
+			xpmod = HEAVY_XP_GAIN
+			base_drain = HEAVY_ARMOR_PENALTY
+		if(ARMOR_CLASS_MEDIUM)
+			xpmod = MEDIUM_XP_GAIN
+			base_drain = MEDIUM_ARMOR_PENALTY
+
 	var/abyssor_swim_bonus = HAS_TRAIT(swimmer, TRAIT_ABYSSOR_SWIM) ? 5 : 0
 	var/swimming_skill_level = swimmer.get_skill_level(/datum/skill/misc/swimming) 
-	. = max(BASE_STAM_DRAIN - (swimming_skill_level * STAM_PER_LEVEL) - abyssor_swim_bonus, MIN_STAM_DRAIN)
+	. = max(base_drain - (swimming_skill_level * STAM_PER_LEVEL) - abyssor_swim_bonus, MIN_STAM_DRAIN)
 	if(swimmer.mind)
-		swimmer.mind.add_sleep_experience(/datum/skill/misc/swimming, swimmer.STAINT * 0.5)
+		swimmer.mind.add_sleep_experience(/datum/skill/misc/swimming, swimmer.STAINT * xpmod)
 //	. += (swimmer.checkwornweight()*2)
 	if(!swimmer.check_armor_skill())
 		. += UNSKILLED_ARMOR_PENALTY
-	if(.) // this check is expensive so we only run it if we do expect to use stamina	
+	if(.) // this check is expensive so we only run it if we do expect to use stamina
 		for(var/obj/structure/S in src)
 			if(S.obj_flags & BLOCK_Z_OUT_DOWN)
 				return 0
@@ -172,12 +192,12 @@
 				playsound(AM, pick('sound/foley/watermove (1).ogg','sound/foley/watermove (2).ogg'), 100, FALSE)
 			if(istype(oldLoc, type) && (get_dir(src, oldLoc) != SOUTH))
 				water_overlay.layer = ABOVE_MOB_LAYER
-				water_overlay.plane = GAME_PLANE_UPPER
+				water_overlay.plane = GAME_PLANE_HIGHEST
 			else
 				spawn(6)
 					if(AM.loc == src)
 						water_overlay.layer = ABOVE_MOB_LAYER
-						water_overlay.plane = GAME_PLANE_UPPER
+						water_overlay.plane = GAME_PLANE_HIGHEST
 		if(!istype(L, /mob/living/carbon/human/species/skeleton))
 			return
 		if(!istype(src, /turf/open/water/sewer))
@@ -277,7 +297,18 @@
 /turf/open/water/get_slowdown(mob/user)
 	var/returned = slowdown
 	returned = returned - (user.get_skill_level(/datum/skill/misc/swimming))
-	return max(returned, 0)
+	if(ishuman(user))
+		returned = max(returned, 0.5)
+		var/mob/living/carbon/human/H = user
+		var/ac = H.highest_ac_worn()
+		switch(ac)
+			if(ARMOR_CLASS_HEAVY)
+				returned += 1.5
+			if(ARMOR_CLASS_MEDIUM)
+				returned += 1
+		if(HAS_TRAIT(user, TRAIT_ABYSSOR_SWIM))
+			returned -= 1
+	return max(returned, 0.5)
 
 //turf/open/water/Initialize()
 //	dir = pick(NORTH,SOUTH,WEST,EAST)
@@ -440,6 +471,18 @@
 	var/river_processing
 	swimdir = TRUE
 
+/turf/open/water/river/flow
+	icon_state = "rockwd"
+
+/turf/open/water/river/flow/west
+	dir = 8
+
+/turf/open/water/river/flow/east
+	dir = 4
+
+/turf/open/water/river/flow/north
+	dir = 1
+
 /turf/open/water/river/update_icon()
 	if(water_overlay)
 		water_overlay.color = water_color
@@ -517,3 +560,40 @@
 	swim_skill = TRUE
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water
+
+//Healing springs.
+//Intended for deep dungeon / hidden areas.
+/turf/open/water/ocean/deep/thermalwater
+	name = "healing hot spring"
+	desc = "A warm spring with gentle ripples. Standing here soothes your body."
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "together"
+	water_color = "#23b9df"
+	water_reagent = /datum/reagent/water
+	var/heal_interval = 5 SECONDS
+	var/heal_amount = 20
+	var/last_heal = 0
+
+/turf/open/water/ocean/deep/thermalwater/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/turf/open/water/ocean/deep/thermalwater/process()
+	if(world.time < last_heal + heal_interval)
+		return
+
+	for(var/mob/living/carbon/M in src)
+		if(M.stat == DEAD) continue
+
+		if(M.getBruteLoss())
+			M.adjustBruteLoss(-heal_amount)
+		if(M.getFireLoss())
+			M.adjustFireLoss(-heal_amount)
+		if(M.getToxLoss())
+			M.adjustToxLoss(-heal_amount)
+		if(M.getOxyLoss())
+			M.adjustOxyLoss(-heal_amount*2)
+
+		M.visible_message(span_notice("[M] looks a bit better after soaking in the spring."))
+
+	last_heal = world.time

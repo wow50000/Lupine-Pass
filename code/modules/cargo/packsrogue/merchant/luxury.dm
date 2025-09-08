@@ -10,6 +10,11 @@
 	cost = 3
 	contains = list(/obj/item/clothing/mask/cigarette/rollie/nicotine)
 
+/datum/supply_pack/rogue/luxury/msigs
+	name = "Mentha Zig"
+	cost = 4
+	contains = list(/obj/item/clothing/mask/cigarette/rollie/mentha)
+
 /datum/supply_pack/rogue/luxury/ozium
 	name = "Ozium"
 	cost = 5
@@ -112,3 +117,33 @@
 			/obj/item/magic/manacrystal,
 			/obj/item/magic/manacrystal,
 			)
+
+/datum/supply_pack/rogue/luxury/merctoken
+	name = "Writ of Commendation"
+	cost = 80
+	contains = list(/obj/item/merctoken)
+
+/datum/supply_pack/rogue/luxury/canvas
+	name = "Canvas"
+	cost = 30
+	contains = list(/obj/item/canvas)
+
+/datum/supply_pack/rogue/luxury/easel
+	name = "Easel"
+	cost = 80
+	contains = list(/obj/structure/easel)
+
+/datum/supply_pack/rogue/luxury/paintbrush
+	name = "Paint brush"
+	cost = 15
+	contains = list(/obj/item/paint_brush)
+
+/datum/supply_pack/rogue/luxury/paintpalette
+	name = "Paint palette"
+	cost = 15
+	contains = list(/obj/item/paint_palette)
+
+/datum/supply_pack/rogue/luxury/swatchbook
+	name = "Tailor's Swatchbook"
+	cost = 20
+	contains = list(/obj/item/book/rogue/swatchbook)

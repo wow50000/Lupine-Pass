@@ -1,9 +1,10 @@
 /datum/mob_descriptor/voice
 	abstract_type = /datum/mob_descriptor/voice
 	slot = MOB_DESCRIPTOR_SLOT_VOICE
-	verbage = "speaks with"
+	verbage = "%SPEAK%"
 	prefix = "a"
 	suffix = "voice"
+	show_obscured = TRUE
 
 /datum/mob_descriptor/voice/ordinary
 	name = "Ordinary"

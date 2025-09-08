@@ -6,12 +6,17 @@
 	outfit = /datum/outfit/job/roguetown/bandit/sellsword
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_cutpurse.ogg' // cutpurse or deadly shadows...?
+	traits_applied = list(TRAIT_MEDIUMARMOR)
+	subclass_stats = list(
+		STATKEY_STR = 2,
+		STATKEY_WIL = 2,
+		STATKEY_SPD = 2,
+		STATKEY_CON = 1,
+		STATKEY_LCK = 1
+	)
 
 /datum/outfit/job/roguetown/bandit/sellsword/pre_equip(mob/living/carbon/human/H)
 	..()
-	if (!(istype(H.patron, /datum/patron/inhumen/zizo) || istype(H.patron, /datum/patron/inhumen/matthios) || istype(H.patron, /datum/patron/inhumen/graggar) || istype(H.patron, /datum/patron/inhumen/baotha)))
-		to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
-		H.set_patron(/datum/patron/inhumen/matthios)	//We allow other heretics into the cool-kids club, but if you are a tennite/psydonian it sets you to matthiosan.
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
@@ -30,6 +35,7 @@
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	belt = /obj/item/storage/belt/rogue/leather
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
@@ -44,12 +50,6 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 	id = /obj/item/mattcoin
-	H.change_stat("strength", 2)
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 1)
-	H.change_stat("speed", 2)
-	H.change_stat("fortune", 1)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.adjust_blindness(-3)
 	var/weapons = list("Spear & Crossbow","Sword & Buckler")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
@@ -65,3 +65,9 @@
 			beltr = /obj/item/rogueweapon/sword //steel sword like literally every adventurer gets
 			beltl = /obj/item/rogueweapon/scabbard/sword
 			head = /obj/item/clothing/head/roguetown/helmet/sallet
+
+	if(!istype(H.patron, /datum/patron/inhumen/matthios))
+		var/inputty = input(H, "Would you like to change your patron to Matthios?", "The Transactor calls", "No") as anything in list("Yes", "No")
+		if(inputty == "Yes")
+			to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
+			H.set_patron(/datum/patron/inhumen/matthios)

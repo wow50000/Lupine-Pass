@@ -57,7 +57,7 @@
 	if( istype(src, /mob/living/carbon/human/species/skeleton)) //SPOOKY BONES
 		return real_name
 	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_HEAD)
-	if( !O || (HAS_TRAIT(src, TRAIT_DISFIGURED)) || !real_name || (O.skeletonized && !mind?.has_antag_datum(/datum/antagonist/lich)))	//disfigured. use id-name if possible
+	if( !O || (HAS_TRAIT(src, TRAIT_DISFIGURED)) || !real_name || (O.skeletonized && !ritual_skeletonization && !mind?.has_antag_datum(/datum/antagonist/lich)))	//disfigured. use id-name if possible
 		return if_no_face
 	return real_name
 
@@ -144,3 +144,10 @@
 	. = ..()
 	if(dna?.species?.is_floor_hazard_immune(src))
 		return TRUE
+
+
+/mob/living/carbon/human/proc/do_invisibility(timeinvis)
+	animate(src, alpha = 0, time = 0 SECONDS, easing = EASE_IN)
+	src.mob_timers[MT_INVISIBILITY] = world.time + timeinvis
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living/carbon/human, update_sneak_invis), TRUE), timeinvis)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[src] fades back into view."), span_notice("You become visible again.")), timeinvis)

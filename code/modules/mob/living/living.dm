@@ -38,6 +38,8 @@
 		S.sharerDies(FALSE)
 		S.removeSoulsharer(src) //If a sharer is destroy()'d, they are simply removed
 	sharedSoullinks = null
+	if(craftingthing)
+		QDEL_NULL(craftingthing)
 	return ..()
 
 /mob/living/onZImpact(turf/T, levels)
@@ -173,7 +175,8 @@
 			var/sprint_distance = sprinted_tiles
 			var/instafail = FALSE
 			toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
-
+			if(HAS_TRAIT(src, TRAIT_PACIFISM)) // No Con-Checking if you're a pacifist. You aren't MEAN!!!
+				return FALSE
 			var/mob/living/L = M
 
 			var/self_points = FLOOR((STACON + STASTR)/2, 1)
@@ -403,34 +406,56 @@
 	update_pull_hud_icon()
 
 	if(isliving(AM))
-		var/mob/living/M = AM
-		log_combat(src, M, "grabbed", addition="passive grab")
+		var/mob/living/target = AM
+		log_combat(src, target, "grabbed", addition="passive grab")
 		if(!iscarbon(src))
-			M.LAssailant = null
+			target.LAssailant = null
 		else
-			M.LAssailant = usr
+			target.LAssailant = usr
 
-		M.update_damage_hud()
+		target.update_damage_hud()
 
-		if(HAS_TRAIT(M, TRAIT_GRABIMMUNE) && M.stat == CONSCIOUS) // Grab immunity check
-			if(M.cmode)
-				M.visible_message(span_warning("[M] breaks from [src]'s grip effortlessly!"), \
-						span_warning("I breaks from [src]'s grab effortlesly!"))
-				log_combat(src, M, "tried grabbing", addition="passive grab")
+		if(target.has_status_effect(/datum/status_effect/buff/oiled))
+			// Determine which limb we're trying to grab
+			var/target_zone = zone_selected
+			if(!target_zone)
+				target_zone = "chest" // Default if no zone selected
+
+			// Check if the target limb is covered by clothing
+			var/is_covered = FALSE
+			if(iscarbon(target))
+				var/mob/living/carbon/carbon_target = target
+				var/obj/item/bodypart/target_limb = carbon_target.get_bodypart(check_zone(target_zone))
+				if(target_limb)
+					is_covered = carbon_target.is_limb_covered(target_limb)
+
+			// If limb is not covered and oiled, chance to slip away
+			if(!is_covered)
+				if(prob(50)) // 35% chance to slip away from grab attempt
+					visible_message(span_warning("[target] slips away from [src]'s oily grasp!"), \
+							span_warning("[target.name] slips away from my grip - they're too oily!"))
+					log_combat(src, target, "failed to grab due to oil", addition="oiled skin")
+					return FALSE // Grab attempt fails
+
+		if(HAS_TRAIT(target, TRAIT_GRABIMMUNE) && target.stat == CONSCIOUS) // Grab immunity check
+			if(target.cmode)
+				target.visible_message(span_warning("[target] breaks from [src]'s grip effortlessly!"), \
+						span_warning("I break from [src]'s grab effortlessly!"))
+				log_combat(src, target, "tried grabbing", addition="passive grab")
 				stop_pulling()
 				return
-
+		
 		// Makes it so people who recently broke out of grabs cannot be grabbed again
-		if(TIMER_COOLDOWN_RUNNING(M, "broke_free") && M.stat == CONSCIOUS)
-			M.visible_message(span_warning("[M] slips from [src]'s grip."), \
+		if(TIMER_COOLDOWN_RUNNING(target, "broke_free") && target.stat == CONSCIOUS)
+			target.visible_message(span_warning("[target] slips from [src]'s grip."), \
 					span_warning("I slip from [src]'s grab."))
-			log_combat(src, M, "tried grabbing", addition="passive grab")
+			log_combat(src, target, "tried grabbing", addition="passive grab")
 			return
 
-		log_combat(src, M, "grabbed", addition="passive grab")
+		log_combat(src, target, "grabbed", addition="passive grab")
 		playsound(src.loc, 'sound/combat/shove.ogg', 50, TRUE, -1)
-		if(iscarbon(M))
-			var/mob/living/carbon/C = M
+		if(iscarbon(target))
+			var/mob/living/carbon/C = target
 			var/obj/item/grabbing/O = new()
 			var/used_limb = C.find_used_grab_limb(src)
 			O.name = "[C]'s [parse_zone(used_limb)]"
@@ -450,26 +475,26 @@
 				supress_message = TRUE
 				C.grippedby(src)
 			if(!supress_message)
-				send_pull_message(M)
+				send_pull_message(target)
 		else
 			var/obj/item/grabbing/O = new()
-			O.name = "[M.name]"
-			O.grabbed = M
+			O.name = "[target.name]"
+			O.grabbed = target
 			O.grabbee = src
 			if(item_override)
 				O.sublimb_grabbed = item_override
 			else
-				O.sublimb_grabbed = M.simple_limb_hit(zone_selected)
+				O.sublimb_grabbed = target.simple_limb_hit(zone_selected)
 			put_in_hands(O)
 			O.update_hands(src)
 			if(HAS_TRAIT(src, TRAIT_STRONG_GRABBER) || item_override)
 				supress_message = TRUE
-				M.grippedby(src)
+				target.grippedby(src)
 			if(!supress_message)
-				send_pull_message(M)
+				send_pull_message(target)
 
 		update_pull_movespeed()
-		set_pull_offsets(M, state)
+		set_pull_offsets(target, state)
 	else
 		if(!supress_message)
 			var/sound_to_play = 'sound/combat/shove.ogg'
@@ -481,6 +506,23 @@
 		src.put_in_hands(O)
 		O.update_hands(src)
 		update_grab_intents()
+
+	if(isliving(AM))
+		var/mob/living/M = AM
+		if(M.mind)
+			if(M.cmode && M.stat == CONSCIOUS && !M.restrained(ignore_grab = TRUE))
+				if(M.get_skill_level(/datum/skill/combat/wrestling) > 4 || src.get_skill_level(/datum/skill/combat/wrestling) < 5) //Grabber skill less than Master OR grabbed skill at Master or above.
+					M.resist_grab(freeresist = TRUE) //Automatically attempt to break a passive grab if defender's combat mode is on. Anti-grabspam measure.
+
+/mob/living/proc/is_limb_covered(obj/item/bodypart/limb)
+	if(!limb)
+		return FALSE
+
+	// Check for clothing covering this limb
+	for(var/obj/item/clothing/C in src.get_equipped_items())
+		if(C.body_parts_covered & limb.body_part)
+			return TRUE
+	return FALSE
 
 /mob/living/proc/send_pull_message(mob/living/target)
 	target.visible_message(span_warning("[src] grabs [target]."), \
@@ -561,6 +603,11 @@
 			var/mob/living/M = pulling
 			M.reset_offsets("pulledby")
 			reset_pull_offsets(pulling)
+			if(HAS_TRAIT(M, TRAIT_GARROTED))
+				var/obj/item/inqarticles/garrote/gcord = src.get_active_held_item()
+				if(!gcord)
+					gcord = src.get_inactive_held_item()
+				gcord.wipeslate(src)	
 
 		if(forced) //if false, called by the grab item itself, no reason to drop it again
 			if(istype(get_active_held_item(), /obj/item/grabbing))
@@ -869,6 +916,8 @@
 	if(H)
 		if(H.rotted || H.skeletonized || H.brainkill)
 			return FALSE
+	else
+		return FALSE
 
 
 /mob/living/proc/update_damage_overlays()
@@ -950,8 +999,6 @@
 	..()
 	if(olddir != dir)
 		stop_looking()
-		if(doing)
-			doing = 0
 		if(client)
 			update_vision_cone()
 
@@ -1007,14 +1054,13 @@
 	if(!can_resist() || surrendering)
 		return
 
-	changeNext_move(CLICK_CD_RESIST)
-
 	if(atkswinging)
 		stop_attack(FALSE)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_RESIST, src)
 	//resisting grabs (as if it helps anyone...)
 	if(pulledby)
+		changeNext_move(8)
 		var/mob/living/P
 		if(isliving(pulledby))
 			P = pulledby
@@ -1029,18 +1075,38 @@
 
 	//unbuckling yourself
 	if(buckled && last_special <= world.time)
+		changeNext_move(CLICK_CD_RESIST)
 		resist_buckle()
+		return
 
 	//Breaking out of a container (Locker, sleeper, cryo...)
-	else if(isobj(loc))
+	if(isobj(loc))
+		changeNext_move(CLICK_CD_RESIST)
 		var/obj/C = loc
 		C.container_resist(src)
+		return
 
-	else if(mobility_flags & MOBILITY_MOVE)
+	if(mobility_flags & MOBILITY_MOVE)
 		if(on_fire)
 			resist_fire() //stop, drop, and roll
-		else if(last_special <= world.time)
+			changeNext_move(CLICK_CD_RESIST)
+			return
+		if(has_status_effect(/datum/status_effect/leash_pet))
+			if(istype(src, /mob/living/carbon))
+				src:resist_leash()
+				changeNext_move(CLICK_CD_RESIST)
+				return
+		if(last_special <= world.time)
 			resist_restraints() //trying to remove cuffs.
+			if(restrained() && !prob(5))
+				changeNext_move(CLICK_CD_RESIST)
+				return
+			var/datum/component/riding/human/riding_datum = GetComponent(/datum/component/riding/human)
+			if(HAS_TRAIT(src, TRAIT_PONYGIRL_RIDEABLE) && riding_datum)
+				for(var/mob/M in buckled_mobs)
+					riding_datum.force_dismount(M)
+			changeNext_move(CLICK_CD_RESIST)
+			return
 
 /mob/living/proc/submit(var/instant = FALSE)
 	set name = "Yield"
@@ -1115,7 +1181,7 @@
 /mob/proc/resist_grab(moving_resist)
 	return TRUE //returning 0 means we successfully broke free
 
-/mob/living/resist_grab(moving_resist)
+/mob/living/resist_grab(moving_resist, freeresist = FALSE)
 	. = TRUE
 
 	var/wrestling_diff = 0
@@ -1140,10 +1206,20 @@
 	else if(!cmode && L.cmode)
 		combat_modifier -= 0.3
 	if(agg_grab)
-		combat_modifier -= 0.3
+		if(!HAS_TRAIT(src, TRAIT_GARROTED))
+			combat_modifier -= 0.3
+		else
+			if(HAS_TRAIT(L, TRAIT_BLACKBAGGER))
+				combat_modifier -= 0.3	
+	for(var/obj/item/grabbing/G in grabbedby)
+		if(G.chokehold == TRUE)
+			combat_modifier -= 0.15
 
 	resist_chance += max((wrestling_diff * 10), -20)
-	resist_chance += (STACON - (agg_grab ? L.STASTR : L.STAEND)) * 5
+	if(HAS_TRAIT(src, TRAIT_GARROTED))
+		resist_chance += (STACON - L.STASPD) * 5
+	else
+		resist_chance += (STACON - (agg_grab ? L.STASTR : L.STAWIL)) * 5
 	resist_chance *= combat_modifier
 	resist_chance = clamp(resist_chance, 5, 95)
 
@@ -1152,21 +1228,49 @@
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
-	stamina_add(rand(5,15))
+	if(!freeresist)
+		stamina_add(rand(5,15))
 
 	if(!prob(resist_chance))
 		var/rchance = ""
 		if(client?.prefs.showrolls)
 			rchance = " ([resist_chance]%)"
-		visible_message(span_warning("[src] struggles to break free from [L]'s grip!"), \
+		if(HAS_TRAIT(src, TRAIT_GARROTED))
+			var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+			if(!gcord)
+				gcord = L.get_inactive_held_item()
+			to_chat(pulledby, span_warning("[src] struggles against the [gcord]!"))
+			gcord.take_damage(25)
+		if(!HAS_TRAIT(src, TRAIT_GARROTED))	
+			visible_message(span_warning("[src] struggles to break free from [L]'s grip!"), \
 						span_warning("I struggle against [L]'s grip![rchance]"), null, null, L)
+		else
+			var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+			if(!gcord)
+				gcord = L.get_inactive_held_item()
+			visible_message(span_warning("[src] struggles to break free from [L]'s [gcord]!"), \
+						span_warning("I struggle against [L]'s [gcord]![rchance]"), null, null, L)					
 		playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
-		to_chat(pulledby, span_warning("[src] struggles against my grip!"))
+		if(!HAS_TRAIT(src, TRAIT_GARROTED))
+			to_chat(pulledby, span_warning("[src] struggles against my grip!"))
 		return FALSE
-
-	visible_message(span_warning("[src] breaks free of [L]'s grip!"), \
-					span_notice("I break free of [L]'s grip!"), null, null, L)
-	to_chat(L, span_danger("[src] breaks free of my grip!"))
+	if(!HAS_TRAIT(src, TRAIT_GARROTED))
+		visible_message(span_warning("[src] breaks free of [L]'s grip!"), \
+						span_notice("I break free of [L]'s grip!"), null, null, L)
+		to_chat(L, span_danger("[src] breaks free of my grip!"))
+	else
+		var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+		if(!gcord)
+			gcord = L.get_inactive_held_item()	
+		visible_message(span_warning("[src] breaks free of [L]'s [gcord]!"), \
+						span_notice("I break free of [L]'s [gcord]!"), null, null, L)
+		to_chat(L, span_danger("[src] breaks free from my [gcord]!"))
+	if(HAS_TRAIT(src, TRAIT_GARROTED))
+		var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
+		if(!gcord)
+			gcord = L.get_inactive_held_item()
+		gcord.take_damage(gcord.max_integrity)
+		gcord.wipeslate(src)	
 	log_combat(L, src, "broke grab")
 	L.changeNext_move(agg_grab ? CLICK_CD_GRABBING : CLICK_CD_GRABBING + 1 SECONDS)
 	playsound(src.loc, 'sound/combat/grabbreak.ogg', 50, TRUE, -1)
@@ -1983,9 +2087,7 @@
 	hide_cone()
 	var/ttime = 11
 	if(STAPER > 5)
-		ttime = 10 - (STAPER - 5)
-		if(ttime < 0)
-			ttime = 1
+		ttime = max(10 - (STAPER - 5), 5)
 	if(STAPER <= 10)
 		var/offset = (10 - STAPER) * 2
 		if(STAPER == 10)
@@ -2069,6 +2171,19 @@
 	if(client)
 		client.pixel_x = 0
 		client.pixel_y = 0
+
+	if(isdullahan(src))
+		var/mob/living/carbon/human/human = src
+		var/obj/item/organ/dullahan_vision/vision = human.getorganslot(ORGAN_SLOT_HUD)
+		var/datum/species/dullahan/species = human.dna.species
+		if(species.headless && vision.viewing_head)
+			var/obj/item/bodypart/head/dullahan/head = species.my_head
+			reset_perspective(head)
+			update_cone_show()
+			return
 	reset_perspective()
 	update_cone_show()
 //	UnregisterSignal(src, COMSIG_MOVABLE_PRE_MOVE)
+
+/mob/living/proc/resist_leash()
+	return

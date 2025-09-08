@@ -191,7 +191,7 @@
 	contains = list(/obj/item/reagent_containers/glass/bottle/alchemical/conpot)
 
 /datum/supply_pack/rogue/Sawbones/endpot
-	name = "Endurance Potion"
+	name = "Willpower Potion"
 	cost = 10
 	contains = list(/obj/item/reagent_containers/glass/bottle/alchemical/endpot)
 
@@ -210,10 +210,10 @@
 	cost = 10
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/strong_antidote)
 
-/datum/supply_pack/rogue/Sawbones/poison
-	name = "High-Potency poison"
-	cost = 100
-	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/poison)
+/datum/supply_pack/rogue/Sawbones/emberwine
+	name = "Emberwine"
+	cost = 50
+	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/emberwine)
 
 /////////////////
 // PROSTHETICS //

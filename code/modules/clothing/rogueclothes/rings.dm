@@ -22,9 +22,9 @@
 
 /obj/item/clothing/ring/aalloy
 	name = "decrepit ring"
-	desc = "A decrepit old ring"
+	desc = "A coil of frayed bronze."
 	icon_state = "ring_a"
-	sellprice = 5
+	sellprice = 11
 
 
 /obj/item/clothing/ring/gold
@@ -132,9 +132,34 @@
 
 /obj/item/clothing/ring/signet
 	name = "Signet Ring"
+	name = "signet ring"
+	icon_state = "signet"
 	icon_state = "signet"
 	desc = "A large golden ring engraved with the Symbol of Psydon."
+	desc = "A large golden signet ring engraved with the Symbol of Psydon."
 	sellprice = 135
+	sellprice = 135
+	var/tallowed = FALSE
+
+/obj/item/clothing/ring/signet/silver
+	name = "silver signet ring"
+	icon_state = "signet_silver"
+	desc = "A ring of blessed silver, bearing the Archbishop's symbol. By dipping it in melted redtallow, it can seal writs of religious importance."
+	sellprice = 90
+
+/obj/item/clothing/ring/signet/attack_right(mob/user)
+	. = ..()
+	if(tallowed)
+		if(alert(user, "SCRAPE THE TALLOW OFF?", "SIGNET RING", "YES", "NO") != "NO")
+			tallowed = FALSE
+			update_icon()
+	
+/obj/item/clothing/ring/signet/update_icon()
+	. = ..()
+	if(tallowed)
+		icon_state = "[icon_state]_stamp"
+	else
+		icon_state = initial(icon_state)
 
 //silver rings
 /obj/item/clothing/ring/emeralds
@@ -181,18 +206,18 @@
 	else if(slot == SLOT_RING)
 		active_item = TRUE
 		to_chat(user, span_notice("Here be dragons."))
-		user.change_stat("strength", 2)
-		user.change_stat("constitution", 2)
-		user.change_stat("endurance", 2)
+		user.change_stat(STATKEY_STR, 2)
+		user.change_stat(STATKEY_CON, 2)
+		user.change_stat(STATKEY_WIL, 2)
 	return
 
 /obj/item/clothing/ring/dragon_ring/dropped(mob/living/user)
 	..()
 	if(active_item)
 		to_chat(user, span_notice("Gone is thy hoard."))
-		user.change_stat("strength", -2)
-		user.change_stat("constitution", -2)
-		user.change_stat("endurance", -2)
+		user.change_stat(STATKEY_STR, -2)
+		user.change_stat(STATKEY_CON, -2)
+		user.change_stat(STATKEY_WIL, -2)
 		active_item = FALSE
 	return
 

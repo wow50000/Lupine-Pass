@@ -65,11 +65,15 @@
 
 /obj/structure/underworld/carriage_normal
 	name = "Carriage"
-	desc = "Azure Peak awaits."
+	desc = "The vale awaits."
 	icon = 'icons/roguetown/underworld/enigma_carriage.dmi'
 	icon_state = "carriage_normal"
 	anchored = TRUE
 	density = TRUE
+
+/obj/structure/underworld/carriage_normal/Initialize()
+	. = ..()
+	set_light(5, 3, 30, l_color = LIGHT_COLOR_WHITE)
 
 /obj/structure/underworld/carriage
 	name = "Carriage"

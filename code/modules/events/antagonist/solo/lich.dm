@@ -14,8 +14,8 @@
 	base_antags = 1
 	maximum_antags = 2
 
-	weight = 2	//i hate you
-	max_occurrences = 1 // mashallah
+	weight = 3	//i love you
+	max_occurrences = 0 //temp back to migrant wave only
 
 	earliest_start = 0 SECONDS
 
@@ -31,7 +31,7 @@
 		"Men-at-arms",
 		"Marshal",
 		"Merchant",
-		"Priest",
+		"Bishop",
 		"Acolyte",
 		"Martyr",
 		"Templar",
@@ -49,6 +49,7 @@
 		"Court Magician",
 		"Inquisitor",
 		"Orthodoxist",
+		"Absolver",
 		"Warden",
 		"Squire",
 		"Veteran",

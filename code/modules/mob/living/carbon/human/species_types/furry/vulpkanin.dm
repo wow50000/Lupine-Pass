@@ -1,11 +1,37 @@
 /mob/living/carbon/human/species/vulpkanin
 	race = /datum/species/vulpkanin
 
-/datum/species/vulpkanin
-	name = "Vulpkian"
+/datum/species/vulpkanin		//These should technically not exist, but completely exploding people's savefiles is too high a price to pay for some minor race bloat.
+	name = "Venardine"
 	id = "vulpkanin"
-	desc = "Foxy creatures known for their cleverness and mischief. In ancient history they were Dendor's original champions, but as His madness grew the connect became frey and forgotten, leaving them to their own devices. Or, at least, that's what they say.<br>\
-	(+1 Intelligence, +1 Perception)"
+	desc = "<b>Venardine</b> <br>\
+	Venardine are a fox-like Beastling race with the majority hailing from the Kingdom \
+	of Vulpkheim, which borders Hammerhold. However, there are a few Venardine tribes that \
+	originate elsewhere but are still considered Venardine, despite not hailing from Vulpkheim. \
+	Venardine are a crafty, cunning, and perceptive people. Many Venardine have used their nature \
+	to take advantage of other races, causing them to be known for their wit and charm at the expense \
+	of a reputation as cheats, frauds, tricksters, and thieves.<br>\
+	(+1 Perception, +1 Intelligence)"
+
+	expanded_desc = "Venardine are a fox-like Beastling race with the majority hailing from the Kingdom \
+	of Vulpkheim, which borders Hammerhold. However, there are a few Venardine tribes that \
+	originate elsewhere but are still considered Venardine, despite not hailing from Vulpkheim. \
+	Venardine are a crafty, cunning, and perceptive people. Many Venardine have used their nature \
+	to take advantage of other races, causing them to be known for their wit and charm at the expense \
+	of a reputation as cheats, frauds, tricksters, and thieves. \
+	<br><br> \
+	Due to their nature and their reputation, Xylix often patronizes Venardine and their descendants. \
+	These traits, combined with the fact that the average Venardine pregnancy consists of twins, triplets, \
+	or even quadruplets, have allowed the Venardine tribes to dominate the other Beastling tribes within the \
+	great forest of Vargheim. This ultimately led to establishment of the Kingdom of Vulpkheim, which \
+	the Venardine rule and politically dominate. \
+	<br><br> \
+	Many Venardine suffer from wanderlust and set off upon reaching adulthood to explore the world, with \
+	most beginning their journey in Hammerhold. This has led to Venardine being widely accepted in the lands \
+	of Hammerhold. However, their fox-like features often leave people in foreign lands wary, as many \
+	Hammerhold raiders bear fox-like features due to the strong relationship between the two peoples and their \
+	kingdoms. Consequently, they are often looked upon with suspicion and fear in lands under threat by Hammerhold sea raiders."
+
 	default_color = "444"
 	species_traits = list(
 		MUTCOLORS,
@@ -26,7 +52,7 @@
 		OFFSET_ID = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
 		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
+		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
 		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
@@ -64,6 +90,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/tail/vulpkanin,
 		/datum/customizer/organ/snout/vulpkanin,
 		/datum/customizer/organ/ears/vulpkanin,
@@ -82,15 +109,22 @@
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
 		/datum/body_marking/eyeliner,
+		/datum/body_marking/plain,
 		/datum/body_marking/belly,
 		/datum/body_marking/bellyslim,
 		/datum/body_marking/butt,
+		/datum/body_marking/sock,
+		/datum/body_marking/socklonger,
+		/datum/body_marking/tips,
+		/datum/body_marking/backspots,
+		/datum/body_marking/front,
 		/datum/body_marking/tonage,
 		/datum/body_marking/nose,
 		/datum/body_marking/harlequin,
 		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,

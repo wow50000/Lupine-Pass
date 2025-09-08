@@ -1,6 +1,6 @@
 /datum/migrant_role/heartfelt/lord
 	name = "Lord of Heartfelt"
-	greet_text = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to the Peak, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
+	greet_text = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to the vale, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
 	outfit = /datum/outfit/job/roguetown/heartfelt/lord
 	allowed_races = RACES_NO_CONSTRUCT
 	grant_lit_torch = TRUE
@@ -37,12 +37,12 @@
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-	H.change_stat("strength", 2)
-	H.change_stat("intelligence", 2)
-	H.change_stat("endurance", 2)
-	H.change_stat("speed", 1)
-	H.change_stat("perception", 2)
-	H.change_stat("fortune", 5)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_WIL, 2)
+	H.change_stat(STATKEY_SPD, 1)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_LCK, 5)
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -50,7 +50,7 @@
 
 /datum/migrant_role/heartfelt/lady
 	name = "Lady of Heartfelt"
-	greet_text = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to the Peak, hoping to find new purpose or refuge amidst the chaos."
+	greet_text = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to the vale, hoping to find new purpose or refuge amidst the chaos."
 	outfit = /datum/outfit/job/roguetown/heartfelt/lady
 	allowed_sexes = list(FEMALE)
 	allowed_races = RACES_NO_CONSTRUCT
@@ -83,18 +83,18 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.change_stat("intelligence", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("speed", 2)
-	H.change_stat("perception", 2)
-	H.change_stat("fortune", 5)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_WIL, 3)
+	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_LCK, 5)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 
 /datum/migrant_role/heartfelt/hand
 	name = "Hand of Heartfelt"
-	greet_text = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to the Peak, determined to fulfill your duties."
+	greet_text = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to the vale, determined to fulfill your duties."
 	outfit = /datum/outfit/job/roguetown/heartfelt/hand
 	allowed_races = RACES_ALL_KINDS
 	grant_lit_torch = TRUE
@@ -127,16 +127,16 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-	H.change_stat("strength", 2)
-	H.change_stat("perception", 3)
-	H.change_stat("intelligence", 3)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_PER, 3)
+	H.change_stat(STATKEY_INT, 3)
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 
 /datum/migrant_role/heartfelt/knight
 	name = "Knight of Heartfelt"
-	greet_text = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to the Peak, resolved to ensure their safe arrival."
+	greet_text = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to the vale, resolved to ensure their safe arrival."
 	outfit = /datum/outfit/job/roguetown/heartfelt/knight
 	allowed_races = RACES_NO_CONSTRUCT
 	grant_lit_torch = TRUE
@@ -165,19 +165,19 @@
 	H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-	H.change_stat("strength", 3)
-	H.change_stat("perception", 1)
-	H.change_stat("intelligence", 2)
-	H.change_stat("constitution", 2)
-	H.change_stat("endurance", 2)
-	H.change_stat("speed", -1)
+	H.change_stat(STATKEY_STR, 3)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_WIL, 2)
+	H.change_stat(STATKEY_SPD, -1)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -199,7 +199,7 @@
 			S.name = "knight tabard ([index])"
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
-		var/honorary = "Sir"
+		var/honorary = "Ser"
 		if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 			honorary = "Dame"
 		H.real_name = "[honorary] [prev_real_name]"
@@ -207,7 +207,7 @@
 
 /datum/migrant_role/heartfelt/magos
 	name = "Magos of Heartfelt"
-	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to the Peak, you seek answers and perhaps a new purpose in the wake of destruction."
+	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to the vale, you seek answers and perhaps a new purpose in the wake of destruction."
 	outfit = /datum/outfit/job/roguetown/heartfelt/magos
 	allowed_races = RACES_NO_CONSTRUCT
 	grant_lit_torch = TRUE
@@ -249,17 +249,17 @@
 	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-	H.change_stat("strength", -1)
-	H.change_stat("constitution", -1)
-	H.change_stat("intelligence", 4)
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_CON, -1)
+	H.change_stat(STATKEY_INT, 4)
 	if(H.mind)
 		H?.mind.adjust_spellpoints(36)
 	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
-		H.change_stat("speed", -1)
-		H.change_stat("intelligence", 1)
-		H.change_stat("perception", 1)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_PER, 1)
 	if(H.mind)
 		H?.mind.adjust_spellpoints(6)
 	if(ishumannorthern(H))
@@ -274,7 +274,7 @@
 
 /datum/migrant_role/heartfelt/prior
 	name = "Prior of Heartfelt"
-	greet_text = "The Prior of Heartfelt, you were destined for ascension within the Church, but fate intervened with the barony's downfall, delaying it indefinitely. Still guided by the blessings of Astrata, you journey to the Peak, determined to offer what aid and solace you can."
+	greet_text = "The Prior of Heartfelt, you were destined for ascension within the Church, but fate intervened with the barony's downfall, delaying it indefinitely. Still guided by the blessings of Astrata, you journey to the vale, determined to offer what aid and solace you can."
 	outfit = /datum/outfit/job/roguetown/heartfelt/prior
 	allowed_races = RACES_NO_CONSTRUCT
 	grant_lit_torch = TRUE
@@ -297,7 +297,7 @@
 	)
 	ADD_TRAIT(H, TRAIT_CHOSEN, TRAIT_GENERIC)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
@@ -305,10 +305,10 @@
 	H.adjust_skillrank(/datum/skill/magic/holy, 4, TRUE)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
-	H.change_stat("strength", -1)
-	H.change_stat("intelligence", 3)
-	H.change_stat("constitution", -1)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", -1)
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_CON, -1)
+	H.change_stat(STATKEY_WIL, 1)
+	H.change_stat(STATKEY_SPD, -1)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.

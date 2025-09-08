@@ -18,17 +18,41 @@
 	name = "Sharp"
 	icon_state = "sharp"
 
+/datum/sprite_accessory/snout/sharpdualcolor
+	name = "Sharp - Dual Color"
+	icon_state = "m_snout_sharp"
+	color_keys = 2
+	color_key_names = list("Snout", "Jaw")
+
 /datum/sprite_accessory/snout/round
 	name = "Round"
 	icon_state = "round"
+
+/datum/sprite_accessory/snout/rounddualcolor
+	name = "Round - Dual Color"
+	icon_state = "m_snout_round"
+	color_keys = 2
+	color_key_names = list("Snout", "Jaw")
 
 /datum/sprite_accessory/snout/sharplight
 	name = "Sharp + Light"
 	icon_state = "sharplight"
 
+/datum/sprite_accessory/snout/sharplightdualcolor
+	name = "Sharp + Light - Dual Color"
+	icon_state = "m_snout_sharplight"
+	color_keys = 2
+	color_key_names = list("Snout", "Jaw")
+
 /datum/sprite_accessory/snout/roundlight
 	name = "Round + Light"
 	icon_state = "roundlight"
+
+/datum/sprite_accessory/snout/roundlightdualcolor
+	name = "Round + Light - Dual Color"
+	icon_state = "m_snout_roundlight"
+	color_keys = 2
+	color_key_names = list("Snout", "Jaw")
 
 /datum/sprite_accessory/snout/vulp
 	name = "Vulp Two-shade"
@@ -466,3 +490,56 @@
 	icon_state = "stubbyalt"
 	color_keys = 2
 	color_key_names = list("Snout", "Nose")
+
+///CONSTRUCT-GOLEM ACCESORIES, MADE OF METAL///
+/datum/sprite_accessory/snout/front/malum1
+	name = "malum1"
+	icon_state = "malum1"
+
+/datum/sprite_accessory/snout/front/malum2
+	name = "malum2"
+	icon_state = "malum2"
+
+/datum/sprite_accessory/snout/front/necran
+	name = "necran"
+	icon_state = "necran"
+
+/datum/sprite_accessory/snout/front/abbysorian
+	name = "abbysorian"
+	icon_state = "abbysorian"
+
+/datum/sprite_accessory/snout/front/dendorite
+	name = "dendorite"
+	icon_state = "dendorite"
+
+/datum/sprite_accessory/snout/front/pestran
+	name = "pestran"
+	icon_state = "pestran"
+
+/datum/sprite_accessory/snout/front/ravoxian
+	name = "ravoxian"
+	icon_state = "ravoxian"
+
+/datum/sprite_accessory/snout/front/eoran
+	name = "eoran"
+	icon_state = "eoran"
+
+/datum/sprite_accessory/snout/front/comedy1
+	name = "comedy1"
+	icon_state = "comedy1"
+
+/datum/sprite_accessory/snout/front/comedy2
+	name = "comedy2"
+	icon_state = "comedy2"
+
+/datum/sprite_accessory/snout/front/drama1
+	name = "drama1"
+	icon_state = "drama1"
+
+/datum/sprite_accessory/snout/front/drama2
+	name = "drama2"
+	icon_state = "drama2"
+
+/datum/sprite_accessory/snout/front/noccite
+	name = "noccite"
+	icon_state = "noccite"

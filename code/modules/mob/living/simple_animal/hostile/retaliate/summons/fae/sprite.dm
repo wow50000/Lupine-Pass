@@ -24,14 +24,14 @@
 	melee_damage_upper = 20
 	vision_range = 8
 	aggro_vision_range = 11
-	environment_smash = ENVIRONMENT_SMASH_NONE
+	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	simple_detect_bonus = 20
 	retreat_distance = 3
 	minimum_distance = 0
 	food_type = list()
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	pooptype = null
-	STAEND = 6
+	STAWIL = 6
 	STACON = 6
 	STASTR = 2
 	STASPD = 17
@@ -50,11 +50,15 @@
 
 
 /mob/living/simple_animal/hostile/retaliate/rogue/fae/sprite/Initialize()
+	src.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	. = ..()
 
 /mob/living/simple_animal/hostile/retaliate/rogue/fae/sprite/death(gibbed)
 	..()
 	var/turf/deathspot = get_turf(src)
+	new /obj/item/magic/fairydust(deathspot)
+	new /obj/item/magic/fairydust(deathspot)
+	new /obj/item/magic/fairydust(deathspot)
 	new /obj/item/magic/fairydust(deathspot)
 	new /obj/item/magic/fairydust(deathspot)
 	new /obj/item/magic/fairydust(deathspot)

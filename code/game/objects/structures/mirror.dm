@@ -30,11 +30,21 @@
 
 	var/mob/living/carbon/human/H = user
 	
+	if(obj_broken || !Adjacent(user))
+		return
+
 	if(!HAS_TRAIT(H, TRAIT_MIRROR_MAGIC))
 		to_chat(H, span_warning("You look into the mirror but see only your normal reflection."))
-		return
-	
-	if(obj_broken || !Adjacent(user))
+		if(HAS_TRAIT(user, TRAIT_BEAUTIFUL))
+			H.add_stress(/datum/stressevent/beautiful)
+			to_chat(H, span_smallgreen("I look great!"))
+			// Apply Xylix buff when examining someone with the beautiful trait
+			if(HAS_TRAIT(H, TRAIT_XYLIX) && !H.has_status_effect(/datum/status_effect/buff/xylix_joy))
+				H.apply_status_effect(/datum/status_effect/buff/xylix_joy)
+				to_chat(H, span_info("My beauty brings a smile to my face, and fortune to my steps!"))
+		if(HAS_TRAIT(H, TRAIT_UNSEEMLY))
+			to_chat(H, span_warning("Another reminder of my own horrid visage."))
+			H.add_stress(/datum/stressevent/unseemly)
 		return
 
 	var/should_update = FALSE
@@ -469,26 +479,34 @@
 					should_update = TRUE
 
 		if("breast size")
-			var/list/breast_sizes = list("flat", "very small", "small", "average", "large", "enormous")
+			var/list/breast_sizes = list("Flat", "Slight", "Small", "Moderate", "Large", "Generous", "Heavy", "Massive", "Heaping", "Obscene")
 			var/new_size = input(user, "Choose your breast size", "Breast Size") as null|anything in breast_sizes
 			if(new_size)
 				var/obj/item/organ/breasts/breasts = H.getorganslot(ORGAN_SLOT_BREASTS)
 				if(breasts)
 					var/size_num
 					switch(new_size)
-						if("flat")
+						if("Flat")
 							size_num = 0
-						if("very small")
+						if("Slight")
 							size_num = 1
-						if("small")
+						if("Small")
 							size_num = 2
-						if("average")
+						if("Moderate")
 							size_num = 3
-						if("large")
+						if("Large")
 							size_num = 4
-						if("enormous")
+						if("Generous")
 							size_num = 5
-					
+						if("Heavy")
+							size_num = 6
+						if("Massive")
+							size_num = 7
+						if("Heaping")
+							size_num = 8
+						if("Obscene")
+							size_num = 9
+
 					breasts.breast_size = size_num
 					H.update_body()
 					should_update = TRUE
@@ -823,3 +841,32 @@
 
 /obj/structure/mirror/magic/proc/curse(mob/living/user)
 	return
+
+/obj/item/handmirror
+	name = "hand mirror"
+	desc = "Mirror, mirror, in my hand, who's the fairest in the land?"
+	icon = 'icons/roguetown/items/misc.dmi'
+	icon_state = "handmirror"
+	grid_width = 32
+	grid_height = 64
+	dropshrink = 0.8
+
+/obj/item/handmirror/attack_self(mob/user)
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+
+	if(HAS_TRAIT(H, TRAIT_MIRROR_MAGIC))
+		to_chat(H, span_notice("This mirror isn't large enough for me to use mirror magic."))
+	to_chat(H, span_warning("You look into [src] but see only your normal reflection."))
+	if(HAS_TRAIT(user, TRAIT_BEAUTIFUL))
+		H.add_stress(/datum/stressevent/beautiful)
+		H.visible_message(span_notice("[H] admires [H.p_their()] reflection in [src]."), span_smallgreen("I look great!"))
+		// Apply Xylix buff when examining someone with the beautiful trait
+		if(HAS_TRAIT(H, TRAIT_XYLIX) && !H.has_status_effect(/datum/status_effect/buff/xylix_joy))
+			H.apply_status_effect(/datum/status_effect/buff/xylix_joy)
+			to_chat(H, span_info("My beauty brings a smile to my face, and fortune to my steps!"))
+	if(HAS_TRAIT(H, TRAIT_UNSEEMLY))
+		to_chat(H, span_warning("Another reminder of my own horrid visage."))
+		H.add_stress(/datum/stressevent/unseemly)

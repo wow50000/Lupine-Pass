@@ -28,7 +28,9 @@
 	wander = FALSE
 
 /mob/living/carbon/human/species/goblin/npc/ambush
-	wander = TRUE
+	aggressive = 1
+	mode = NPC_AI_IDLE
+	wander = FALSE
 	attack_speed = 2
 
 /mob/living/carbon/human/species/goblin/hell
@@ -115,7 +117,7 @@
 	name = "goblin"
 	id = "goblin"
 	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
-	inherent_traits = list(TRAIT_RESISTCOLD, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTLOWPRESSURE, TRAIT_RADIMMUNE, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER)
+	inherent_traits = list(TRAIT_RESISTCOLD, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTLOWPRESSURE, TRAIT_RADIMMUNE, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE)
 	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_S_STORE)
 	nojumpsuit = 1
 	sexes = 1
@@ -139,7 +141,7 @@
 	H.update_transform()
 	return TRUE
 
-/mob/living/carbon/human/species/goblin/update_body()
+/mob/living/carbon/human/species/goblin/update_body(redraw = FALSE)
 	remove_overlay(BODY_LAYER)
 	if(!dna || !dna.species)
 		return
@@ -304,7 +306,7 @@
 		H.tree_climber = TRUE
 		H.find_targets_above = TRUE // so they can taunt
 	H.STACON = 6
-	H.STAEND = 15
+	H.STAWIL = 15
 	if(is_species(H, /datum/species/goblin/moon))
 		H.STAINT = 8
 	else

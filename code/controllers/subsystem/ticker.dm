@@ -137,7 +137,9 @@ SUBSYSTEM_DEF(ticker)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
 
-	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg')
+	// login_music = pick('sound/music/title.ogg','sound/music/title2.ogg')
+	// TODO: Make music map dependent
+	login_music = 'sound/music/title.ogg'
 
 	if(!GLOB.syndicate_code_phrase)
 		GLOB.syndicate_code_phrase	= generate_code_phrase(return_list=TRUE)
@@ -185,7 +187,7 @@ SUBSYSTEM_DEF(ticker)
 				var/mob/dead/new_player/player = i
 				if(player.ready == PLAYER_READY_TO_PLAY)
 					++totalPlayersReady
-			
+
 			if(!gamemode_voted)
 				SSvote.initiate_vote("storyteller", "Psydon", timeLeft/2)
 				gamemode_voted = TRUE
@@ -303,7 +305,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/setup()
 	message_admins(span_boldannounce("Starting game..."))
 	var/init_start = world.timeofday
-		
+
 
 	CHECK_TICK
 	//Configure mode and assign player to special mode stuff
@@ -402,12 +404,18 @@ SUBSYSTEM_DEF(ticker)
 	SSgamemode.current_storyteller?.process(STORYTELLER_WAIT_TIME * 0.1) // we want this asap
 	SSgamemode.current_storyteller?.round_started = TRUE
 
+	world.TgsAnnounceRoundStart()
+
 	setup_done = TRUE
 
 	job_change_locked = FALSE
 
 //	setup_hell()
 	SStriumphs.fire_on_PostSetup()
+
+	// Reset the found_lords list for the new round
+	reset_found_lords()
+
 	for(var/i in GLOB.start_landmarks_list)
 		var/obj/effect/landmark/start/S = i
 		if(istype(S))							//we can not runtime here. not in this important of a proc.
@@ -448,10 +456,10 @@ SUBSYSTEM_DEF(ticker)
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
 		if(!player)
-			message_admins("THERES A FUCKING NULL IN THE NEW_PLAYER_LIST, REPORT IT TO AZURE DEVELOPMENT STAFF NOW!")
+			message_admins("THERES A FUCKING NULL IN THE NEW_PLAYER_LIST, REPORT IT TO RATWOOD DEVELOPMENT STAFF NOW!")
 			continue
 		if(!player.mind)
-			message_admins("THERES A MIND LACKING PLAYER IN THE NEW_PLAYER_LIST, REPORT IT TO AZURE DEVELOPMENT STAFF NOW!")
+			message_admins("THERES A MIND LACKING PLAYER IN THE NEW_PLAYER_LIST, REPORT IT TO RATWOOD DEVELOPMENT STAFF NOW!")
 			continue
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			GLOB.joined_player_list += player.ckey

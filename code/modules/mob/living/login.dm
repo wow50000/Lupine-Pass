@@ -11,6 +11,7 @@
 //	update_tod_hud()
 	update_spd()
 
+	update_sight()
 //	if (client && (stat == DEAD))
 //		client.ghostize()
 
@@ -24,7 +25,7 @@
 
 	if(ranged_ability)
 		ranged_ability.deactivate()
-
+	
 	set_ssd_indicator(FALSE)
 
 /mob/living/proc/login_fade()

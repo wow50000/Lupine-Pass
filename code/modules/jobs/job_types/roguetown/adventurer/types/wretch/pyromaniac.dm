@@ -1,14 +1,19 @@
 /datum/advclass/wretch/pyromaniac
 	name = "Pyromaniac"
-	tutorial = "A notorious arsonist with a penchant for fire, you wield your own personal vendetta against the chaotic forces within Azuria. Bring mayhem and destruction with flame and misfortune! Just... try not to hit yourself with your explosives - you aren't fireproof, after all."
+	tutorial = "A notorious arsonist with a penchant for fire, you wield your own personal vendetta against the chaotic forces within the vale. Bring mayhem and destruction with flame and misfortune! Just... try not to hit yourself with your explosives - you aren't fireproof, after all."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/pyromaniac
 	category_tags = list(CTAG_WRETCH)
-	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_MEDIUMARMOR, TRAIT_HERESIARCH)
+	traits_applied = list(TRAIT_MEDIUMARMOR)
+	subclass_stats = list(
+		STATKEY_WIL = 3,
+		STATKEY_CON = 3,
+		STATKEY_INT = 3
+	)
 
 /datum/outfit/job/roguetown/wretch/pyromaniac/pre_equip(mob/living/carbon/human/H)
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/sheriff //wear protection :) 
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/sheriff //wear protection :)
 	mask = /obj/item/clothing/mask/rogue/facemask/
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/full //Protect your head!
 	pants = /obj/item/clothing/under/roguetown/splintlegs
@@ -27,6 +32,7 @@
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
 		/obj/item/flint = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1,	//Small health vial
 		)
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
@@ -42,9 +48,6 @@
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
-	H.change_stat("endurance", 3)
-	H.change_stat("constitution", 3)
-	H.change_stat("intelligence", 3)
 	wretch_select_bounty(H)
 	H.cmode_music = 'sound/music/Iconoclast.ogg'
 	var/weapons = list("Archery", "Crossbows", "LET THERE BE FLAME!!!")

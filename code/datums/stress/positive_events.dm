@@ -3,6 +3,11 @@
 	stressadd = -2
 	desc = span_green("The Gods smile upon me.")
 
+/datum/stressevent/seeblessed
+	timer = 30 MINUTES
+	stressadd = -2
+	desc = span_green("Regular visits to Church center my spirit.")
+
 /datum/stressevent/viewsinpunish
 	timer = 5 MINUTES
 	stressadd = -2
@@ -37,6 +42,11 @@
 	timer = 1 MINUTES
 	stressadd = -2
 	desc = list(span_green("A relaxing smoke."),span_green("A flavorful smoke."))
+
+/datum/stressevent/menthasmoke
+	timer = 1 MINUTES
+	stressadd = -1
+	desc = list(span_blue("A cooling feeling in my throat."))
 
 /datum/stressevent/weed
 	timer = 5 MINUTES
@@ -232,7 +242,22 @@
 	desc = span_info("A Devout Eoran shone their brightness upon me.")
 	timer = 10 MINUTES
 
+/datum/stressevent/guillotinekill
+	stressadd = -5
+	desc = span_green("A nice modern entertainmant.")
+	timer = 10 MINUTES
+
+/datum/stressevent/gazeuponme
+	stressadd = -5
+	desc = span_green("I am a heretic under Ten's gaze... My patron is proud of me!")
+	timer = 999 MINUTES
+
 /datum/stressevent/sermon
 	stressadd = -5
 	desc = span_green("I feel inspired by the sermon.")
 	timer = 20 MINUTES
+
+/datum/stressevent/goodloving
+	timer = 5 MINUTES
+	stressadd = -3
+	desc = "<span class='green'>I got some love, and it was wonderful!</span>"

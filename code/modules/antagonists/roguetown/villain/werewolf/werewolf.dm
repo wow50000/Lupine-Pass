@@ -1,9 +1,9 @@
 /datum/antagonist/werewolf
-	name = "Verewolf"
+	name = "Verevolf"
 	roundend_category = "Werewolves"
 	antagpanel_category = "Werewolf"
 	job_rank = ROLE_WEREWOLF
-	var/list/inherent_traits = list(TRAIT_NOPAIN, TRAIT_NOPAINSTUN, TRAIT_CRITICAL_RESISTANCE, TRAIT_NOFALLDAMAGE1, TRAIT_KNEESTINGER_IMMUNITY, TRAIT_SHOCKIMMUNE, TRAIT_GRABIMMUNE)
+	var/list/inherent_traits = list(TRAIT_NOPAIN, TRAIT_NOPAINSTUN, TRAIT_CRITICAL_RESISTANCE, TRAIT_NOFALLDAMAGE1, TRAIT_KNEESTINGER_IMMUNITY, TRAIT_SHOCKIMMUNE) // this doesn't do anything. that's pretty funny.
 	confess_lines = list(
 		"THE BEAST INSIDE ME!",
 		"BEWARE THE BEAST!",
@@ -14,10 +14,10 @@
 	var/transformed
 	var/transforming
 	var/untransforming
-	var/wolfname = "Verewolf"
+	var/wolfname = "Verevolf"
 
 /datum/antagonist/werewolf/lesser
-	name = "Lesser Verewolf"
+	name = "Lesser Verevolf"
 	increase_votepwr = FALSE
 
 /datum/antagonist/werewolf/lesser/roundend_report()
@@ -128,7 +128,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/skin_armor/werewolf_skin
 	slot_flags = null
-	name = "verewolf's skin"
+	name = "verevolf's skin"
 	desc = ""
 	icon_state = null
 	body_parts_covered = FULL_BODY
@@ -167,7 +167,6 @@
 	force = 25
 	block_chance = 0
 	wdefense = 2
-	blade_dulling = DULLING_SHAFT_GRAND
 	armor_penetration = 15
 	associated_skill = /datum/skill/combat/unarmed
 	wlength = WLENGTH_NORMAL

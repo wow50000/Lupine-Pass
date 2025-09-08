@@ -63,7 +63,7 @@
 	if(HAS_TRAIT(src, TRAIT_NOPAIN))
 		return
 	if(!stat)
-		var/pain_threshold = STACON * 10
+		var/pain_threshold = HAS_TRAIT(src, TRAIT_ADRENALINE_RUSH) ? ((STAWIL + 5) * 10) : (STAWIL * 10)
 		if(has_flaw(/datum/charflaw/masochist)) // Masochists handle pain better by about 1 endurance point
 			pain_threshold += 10
 		var/painpercent = get_complex_pain() / pain_threshold
@@ -71,17 +71,17 @@
 
 		if(world.time > mob_timers["painstun"])
 			mob_timers["painstun"] = world.time + 100
-			var/probby = 40 - (STACON * 2)
+			var/probby = 40 - (STAWIL * 2)
 			probby = max(probby, 10)
 			if(lying || IsKnockdown())
 				if(prob(3) && (painpercent >= 80) )
 					emote("painmoan")
 			else
 				if(painpercent >= 100)
-					if(HAS_TRAIT(src, TRAIT_PSYDONITE) || STACON >= 15)
+					if(HAS_TRAIT(src, TRAIT_PSYDONIAN_GRIT) || STAWIL >= 15)
 						if(prob(25)) // PSYDONIC WEIGHTED COINFLIP. TWEAK THIS AS THOU WILT. DON'T LET THEM BE BROKEN, PSYDON WILLING. THROW CON-MAXXERS A BONE, TOO.
 							Immobilize(15) // EAT A MICROSTUN. YOU'RE AVOIDING A PAINCRIT.
-							if(HAS_TRAIT(src, TRAIT_PSYDONITE))
+							if(HAS_TRAIT(src, TRAIT_PSYDONIAN_GRIT))
 								visible_message(span_info("[src] audibly grits their teeth. ENDURING through their pain."), span_info("Through my faith in HIM, I ENDURE."))
 							else
 								visible_message(span_info("[src] trembled for a moment, but they remain stood."), span_info("My strong constitution keeps me upright."))
@@ -129,12 +129,14 @@
 				next_smell = world.time + 30 SECONDS
 				T.pollution.smell_act(src)
 
-/mob/living/proc/handle_inwater()
+/mob/living/proc/handle_inwater(turf/onturf, extinguish = TRUE, force_drown = FALSE)
+	if(!extinguish)
+		return
 	ExtinguishMob()
 
-/mob/living/carbon/handle_inwater()
+/mob/living/carbon/handle_inwater(turf/onturf, extinguish = TRUE, force_drown = FALSE)
 	..()
-	if(!(mobility_flags & MOBILITY_STAND))
+	if(!(mobility_flags & MOBILITY_STAND) || force_drown)
 		if(HAS_TRAIT(src, TRAIT_NOBREATH) || HAS_TRAIT(src, TRAIT_WATERBREATHING))
 			return TRUE
 		if(stat == DEAD && client)
@@ -143,15 +145,15 @@
 		adjustOxyLoss(drown_damage)
 		emote("drown")
 
-/mob/living/carbon/human/handle_inwater()
+/mob/living/carbon/human/handle_inwater(turf/onturf, extinguish = TRUE, force_drown = FALSE)
 	. = ..()
-	if(istype(loc, /turf/open/water/bath))
+	if(istype(onturf, /turf/open/water/bath))
 		if(!wear_armor && !wear_shirt && !wear_pants)
 			add_stress(/datum/stressevent/bathwater)
 
-/mob/living/carbon/human/handle_inwater()
+/mob/living/carbon/human/handle_inwater(turf/onturf, extinguish = TRUE, force_drown = FALSE)
 	. = ..()
-	if(istype(loc, /turf/open/water/sewer))
+	if(istype(onturf, /turf/open/water/sewer) && !HAS_TRAIT(src, TRAIT_NOSTINK))
 		add_stress(/datum/stressevent/sewertouched)
 
 /mob/living/carbon/proc/get_complex_pain()
@@ -160,9 +162,11 @@
 		if(limb.status == BODYPART_ROBOTIC || limb.skeletonized)
 			continue
 		var/bodypart_pain = ((limb.brute_dam + limb.burn_dam) / limb.max_damage) * limb.max_pain_damage
-		for(var/datum/wound/wound as anything in limb.wounds)
+		for(var/datum/wound/wound in limb.wounds)
 			bodypart_pain += wound.woundpain
 		bodypart_pain = min(bodypart_pain, limb.max_pain_damage)
+		if(HAS_TRAIT(src, TRAIT_ADRENALINE_RUSH))
+			bodypart_pain = bodypart_pain * 0.5
 		. += bodypart_pain
 	.
 
@@ -583,18 +587,25 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		if(hydration > 0 || yess)
 			if(!bleed_rate)
 				blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
-			for(var/obj/item/bodypart/affecting as anything in bodyparts)
-				//for context, it takes 5 small cuts (0.2 x 5) or 3 normal cuts (0.4 x 3) for a bodypart to not be able to heal itself
-				if(affecting.get_bleed_rate() >= 1)
+			for (var/obj/item/bodypart/affecting in bodyparts)
+				if (!affecting)
 					continue
-				if(affecting.heal_damage(sleepy_mod, sleepy_mod, required_status = BODYPART_ORGANIC))
+
+				if (affecting.get_bleed_rate() >= 1)
+					continue
+
+				if (affecting.heal_damage(sleepy_mod, sleepy_mod, required_status = BODYPART_ORGANIC))
 					src.update_damage_overlays()
-				for(var/datum/wound/wound as anything in affecting.wounds)
-					if(!wound.sleep_healing)
-						continue
-					wound.heal_wound(wound.sleep_healing * sleepy_mod)
+
+				var/list/wlist = affecting.wounds
+				if (islist(wlist))
+					for (var/datum/wound/W in wlist)
+						var/sh = W?.sleep_healing
+						if (sh) 
+							W.heal_wound(sh * sleepy_mod)
 			adjustToxLoss(-sleepy_mod)
 			if(eyesclosed && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+				teleport_to_dream(src, 10000, 2)
 				Sleeping(300)
 	else if(!IsSleeping() && !HAS_TRAIT(src, TRAIT_NOSLEEP))
 		// Resting on a bed or something
@@ -629,6 +640,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 					if(HAS_TRAIT(src, TRAIT_FASTSLEEP))
 						fallingas++
 					if(fallingas > 15)
+						teleport_to_dream(src, 10000, 2)
 						Sleeping(300)
 			else
 				energy_add(sleepy_mod * 10)
@@ -652,6 +664,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 					if(HAS_TRAIT(src, TRAIT_FASTSLEEP))
 						fallingas++
 					if(fallingas > 25)
+						teleport_to_dream(src, 10000, 2)
 						Sleeping(300)
 			else
 				energy_add(10)

@@ -22,6 +22,10 @@
 	min_pq = 6
 	max_pq = null
 	cmode_music = 'sound/music/combat_ManAtArms.ogg'
+	job_traits = list(TRAIT_GUARDSMAN, TRAIT_STEELHEARTED, TRAIT_MEDIUMARMOR)
+	job_subclasses = list(
+		/datum/advclass/sergeant/sergeant
+	)
 
 /datum/outfit/job/roguetown/sergeant
 	job_bitflag = BITFLAG_GARRISON
@@ -64,6 +68,13 @@
 	outfit = /datum/outfit/job/roguetown/sergeant/sergeant
 
 	category_tags = list(CTAG_SERGEANT)
+	subclass_stats = list(
+		STATKEY_STR = 2,
+		STATKEY_INT = 1,
+		STATKEY_CON = 1,
+		STATKEY_PER = 1, //Gets bow-skills, so give a SMALL tad of perception to aid in bow draw.
+		STATKEY_WIL = 1,
+	)
 
 /datum/outfit/job/roguetown/sergeant/sergeant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -77,21 +88,13 @@
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)	
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)	// We are basically identical to a regular MAA, except having better athletics to help us manage our order usage better
 	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)	//Decent tracking akin to Skirmisher.
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GUARDSMAN, TRAIT_GENERIC) //+1 spd, con, end, +3 per in town
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.change_stat("strength", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 1)
-	H.change_stat("perception", 1)		//Gets bow-skills, so give a SMALL tad of perception to aid in bow draw.
-	H.change_stat("endurance", 1)
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/movemovemove)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/takeaim)
@@ -104,7 +107,8 @@
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		/obj/item/rope/chain = 1,
 		/obj/item/storage/keyring/guardsergeant = 1,
-		/obj/item/rogueweapon/scabbard/sheath = 1
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1,
 		)
 	H.adjust_blindness(-3)
 	var/weapons = list("Rhomphaia","Flail & Shield","Halberd","Sabre & Crossbow")	//Bit more unique than footsman, you are a jack-of-all-trades + slightly more 'elite'.
@@ -120,7 +124,7 @@
 			backl = /obj/item/rogueweapon/shield/tower
 		if("Halberd")			//Halberd - basically exact same as MAA. It's a really valid build. Spear thrust + sword chop + bash.
 			r_hand = /obj/item/rogueweapon/halberd
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/scabbard/gwstrap
 			beltr = /obj/item/rogueweapon/mace/cudgel
 		if("Sabre & Crossbow")	//Versetile skirmisher class. Considered other swords but sabre felt best without being too strong. (This one gets no cudgel, no space.)
 			beltr = /obj/item/quiver/bolts
@@ -151,6 +155,7 @@
 
 /obj/effect/proc_holder/spell/invoked/order/movemovemove
 	name = "Move! Move! Move!"
+	desc = "Orders your underlings to move faster. +5 Speed."
 	overlay_state = "movemovemove"
 
 /obj/effect/proc_holder/spell/invoked/order/movemovemove/cast(list/targets, mob/living/user)
@@ -184,7 +189,7 @@
 /datum/status_effect/buff/order/movemovemove
 	id = "movemovemove"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/order/movemovemove
-	effectedstats = list("speed" = 5)
+	effectedstats = list(STATKEY_SPD = 5)
 	duration = 1 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/order/movemovemove
@@ -198,12 +203,13 @@
 
 /obj/effect/proc_holder/spell/invoked/order/takeaim
 	name = "Take aim!"
+	desc = "Orders your underlings to be more precise. +5 Perception."
 	overlay_state = "takeaim"
 
 /datum/status_effect/buff/order/takeaim
 	id = "takeaim"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/order/takeaim
-	effectedstats = list("perception" = 5)
+	effectedstats = list(STATKEY_PER = 5)
 	duration = 1 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/order/takeaim
@@ -244,6 +250,7 @@
 
 /obj/effect/proc_holder/spell/invoked/order/onfeet
 	name = "On your feet!"
+	desc = "Orders your underlings to stand up."
 	overlay_state = "onfeet"
 
 /obj/effect/proc_holder/spell/invoked/order/onfeet/cast(list/targets, mob/living/user)
@@ -301,6 +308,7 @@
 
 /obj/effect/proc_holder/spell/invoked/order/hold
 	name = "Hold!"
+	desc = "Orders your underlings to Endure. +2 Willpower and Constitution."
 	overlay_state = "hold"
 
 
@@ -333,7 +341,7 @@
 /datum/status_effect/buff/order/hold
 	id = "hold"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/order/hold
-	effectedstats = list("endurance" = 2, "constitution" = 2)
+	effectedstats = list(STATKEY_WIL = 2, STATKEY_CON = 2)
 	duration = 1 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/order/hold
@@ -349,6 +357,7 @@
 
 /obj/effect/proc_holder/spell/invoked/order/focustarget
 	name = "Focus target!"
+	desc = "Tells your underlings to target a vulnerable spot on the enemy. Applies Crit vulnerability on enemy and gives them -2 Fortune."
 	overlay_state = "focustarget"
 
 
@@ -375,7 +384,7 @@
 /datum/status_effect/debuff/order/focustarget
 	id = "focustarget"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/order/focustarget
-	effectedstats = list("fortune" = -2)
+	effectedstats = list(STATKEY_LCK = -2)
 	duration = 1 MINUTES
 	var/outline_colour = "#69050a"
 

@@ -39,7 +39,7 @@
 	name = "avali tail"
 
 /obj/item/organ/tail/vulpkanin
-	name = "vulpkian tail"
+	name = "venardine tail"
 	accessory_type = /datum/sprite_accessory/tail/fox
 	accessory_colors = "#fc8803#fff8f0"
 
@@ -58,6 +58,10 @@
 /obj/item/organ/tail/tiefling
 	name = "tiefling tail"
 	accessory_type =  /datum/sprite_accessory/tail/tiefling
+
+/obj/item/organ/tail/dullahan
+	name = "dullahan tail"
+	accessory_type =  /datum/sprite_accessory/tail/dullahan
 
 /obj/item/organ/tail/akula
 	name = "axian tail"

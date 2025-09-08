@@ -13,6 +13,7 @@
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
+	color = "#ad977d"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	armor_class = ARMOR_CLASS_LIGHT
@@ -48,6 +49,9 @@
 	armor = ARMOR_PADDED_GOOD
 	sellprice = 25
 	color = "#976E6B"
+	sewrepair = TRUE
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
 	var/shiftable = TRUE
 	var/shifted = FALSE
 
@@ -79,6 +83,44 @@
 					H.update_inv_armor()
 			return
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/royal
+	name = "royal gambeson"
+	desc = "A fancy gambeson for royalty. Adorned with extra details and padded for extra protection."
+	icon_state = "royalgamb"
+	color = "#FFFFFF"
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	sellprice = 50
+	boobed = TRUE
+	nodismemsleeves = TRUE
+	sleeved_detail = TRUE
+	boobed_detail = FALSE
+	detail_tag = "_detail"
+	detail_color = "#e2ab32"
+	max_integrity = 250 //Same as grenzelshirt
+	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/royal/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	GLOB.lordcolor += src
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/royal/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/royal/lordcolor(primary,secondary)
+	color = primary
+	detail_color = secondary
+	update_icon()
+	if(ismob(loc))
+		var/mob/L = loc
+		L.update_inv_armor()
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
 	name = "fencing gambeson"
@@ -87,6 +129,7 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	color = "#5058c1"
 	detail_color = "#e98738"
+	detail_tag = "_detail"
 	shiftable = FALSE
 	sellprice = 30
 	var/picked = FALSE
@@ -105,6 +148,10 @@
 			H.update_inv_shirt()
 			H.update_icon()
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan/Initialize()
+	. = ..()		
+	update_icon()
+
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
@@ -116,36 +163,17 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/freifechter
 	name = "padded fencing shirt"
-	desc = "A strong quilted shirt that places little weight on the arms, it's worn underneath a strong leather vest. It won't cover your legs."
+	desc = "A strong loosely worn quilted shirt that places little weight on the arms, usually worn underneath a strong leather vest. It won't cover your legs."
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
-	detail_tag = "_detail"
-	altdetail_tag = "_detailalt"
-	color = "#FFFFFF"
-	detail_color = "#3b2b29"
-	altdetail_color = "#c29057"
 	icon_state = "fencingshirt"
-
-/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/freifechter/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
-
-	if(get_altdetail_tag())
-		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
-		pic2.appearance_flags = RESET_COLOR
-		if(get_altdetail_color())
-			pic2.color = get_altdetail_color()
-		add_overlay(pic2)
+	color = "#FFFFFF"
+	shiftable = FALSE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/chargah
-	name = "steppesman chargah robe"
-	desc = "A light yet thick robe padded with fine silks and cloth, acting as a mix of traditional gambeson and imported silks of the east. Popular among Aavnr steppesmen."
+	name = "padded caftan"
+	desc = "A long overcoat commonly worn in Naledi, Kazengun, and Aavnr - but mostly associated with steppesmen. This specific kind rivals a gambeson in protection."
 	icon_state = "chargah"
-	color = "#864a4a"
+	color = "#ffffff"
 	boobed = TRUE
 	shiftable = FALSE
 
@@ -211,3 +239,13 @@
 	item_state = "monkleather"
 	desc = "Tight boiled leathers that stretch and fit to one's frame perfectly."
 	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/inq
+	name = "inquisitorial leather tunic"
+	desc = "The finest leather tunic. Made to ENDURE, Made to Inquire, come heretic or hellfire."
+	icon_state = "leathertunic"
+	color = null
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_CHOP)
+	armor = ARMOR_PADDED
+	shiftable = FALSE
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS

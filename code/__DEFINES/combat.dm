@@ -59,6 +59,8 @@
 #define CLICK_CD_EXHAUSTED 60
 #define CLICK_CD_TRACKING 30
 #define CLICK_CD_SLEUTH 10
+#define CLICK_CD_HEAVY 16
+#define CLICK_CD_CHARGED 14
 #define CLICK_CD_MELEE 12
 #define CLICK_CD_FAST 8
 #define CLICK_CD_INTENTCAP 6
@@ -164,6 +166,7 @@
 #define SPEAR_CAST          /datum/intent/spear/cast
 #define PARTIZAN_REND		/datum/intent/rend/reach/partizan
 #define PARTIZAN_PEEL		/datum/intent/partizan/peel
+#define PARTIZAN_PEEL_BAD	/datum/intent/partizan/peel/nag
 
 #define MESSER_CHOP			/datum/intent/sword/chop/messer
 
@@ -177,6 +180,7 @@
 
 #define MACE_SMASH			/datum/intent/mace/smash
 #define MACE_STRIKE			/datum/intent/mace/strike
+#define AXE_SMASH			/datum/intent/mace/smash/flataxe
 
 #define DAGGER_CUT			/datum/intent/dagger/cut
 #define DAGGER_THRUST		/datum/intent/dagger/thrust
@@ -195,6 +199,7 @@
 
 #define INTENT_SPLASH		/datum/intent/splash
 #define INTENT_POUR			/datum/intent/pour
+#define INTENT_FILL			/datum/intent/fill
 
 //Intent blade class for dismember class
 #define BCLASS_BLUNT		"blunt"
@@ -210,6 +215,7 @@
 #define BCLASS_BITE			"bite"
 #define BCLASS_BURN			"charring"
 #define BCLASS_PEEL			"peel"
+#define BCLASS_PUNISH		"punish"
 #define BCLASS_EFFECT		"effect"
 
 //Material class (what material is striking)
@@ -356,5 +362,10 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 
 //Weapon values
 #define BLUNT_DEFAULT_PENFACTOR		-100
+#define INTEG_PARRY_DECAY			1	//Default integrity decay on parry.
+#define INTEG_PARRY_DECAY_NOSHARP	5	//Integrity decay on parry for weapons with no sharpness OR for off-hand parries.
+#define SHARPNESS_ONHIT_DECAY		3	//Sharpness decay on parry.
+#define SHARPNESS_TIER1_THRESHOLD	0.8	//%-age threshold when damage starts to fall off -- mainly damfactor and STR factor. NOT base damage value.
+#define SHARPNESS_TIER2_THRESHOLD	0.25//%-age threshold when damage *really* falls off. Base damage value included.
 
 #define UNARMED_DAMAGE_DEFAULT		12

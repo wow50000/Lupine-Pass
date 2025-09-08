@@ -1,6 +1,7 @@
 // Necrite
 /obj/effect/proc_holder/spell/targeted/burialrite
 	name = "Burial Rites"
+	desc = "Consecrate a coffin or a grave. Sending any spirits within to Necras realm."
 	range = 5
 	overlay_state = "consecrateburial"
 	releasedrain = 30
@@ -10,7 +11,7 @@
 	cast_without_targets = TRUE
 	sound = 'sound/magic/churn.ogg'
 	associated_skill = /datum/skill/magic/holy
-	invocation = "Undermaiden grant thee passage forth and spare the trials of the forgotten."
+	invocations = list("Undermaiden grant thee passage forth and spare the trials of the forgotten.")
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 5 //very weak spell, you can just make a grave marker with a literal stick
@@ -32,6 +33,7 @@
 
 /obj/effect/proc_holder/spell/targeted/churn
 	name = "Churn Undead"
+	desc = "Stuns and explodes undead."
 	range = 4	//Way lower, halved.
 	overlay_state = "necra"
 	releasedrain = 30
@@ -42,7 +44,7 @@
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/churn.ogg'
 	associated_skill = /datum/skill/magic/holy
-	invocation = "The Undermaiden rebukes!"
+	invocations = list("The Undermaiden rebukes!")
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 50
@@ -91,16 +93,17 @@
 
 /obj/effect/proc_holder/spell/invoked/deaths_door
 	name = "Death's Door"
+	desc = "Opens a portal into a realm between lyfe and death, People can be dragged into the portal to be put into stasis, though undead will never return. Casting the portal again while people are trapped inside spits them out of the gates. <br>Necras domain will only hold people for five minutes at a time."
 	range = 7
 	no_early_release = TRUE
 	charging_slowdown = 1
 	releasedrain = 20
 	chargedrain = 0
-	overlay_state = "speakwithdead"
+	overlay_state = "deathdoor"
 	chargetime = 2 SECONDS
 	chargedloop = null
 	sound = 'sound/misc/deadbell.ogg'
-	invocation = "Necra, show me my destination!"
+	invocations = list("Necra, show me my destination!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -118,6 +121,7 @@
 		return FALSE
 	for (var/obj/structure/underworld_portal/e_portal in user.contents) // checks if the portal exists, and shits them out
 		if(istype(e_portal))
+			e_portal.dispelled = FALSE //we are recasting after dispelling, its safe to set this as false.
 			e_portal.spitout_mob(user, T)
 			return TRUE
 	if(!locate(/obj/structure/underworld_portal) in T)
@@ -130,7 +134,7 @@
 	name = "underworld portal"
 	desc = null // see examine
 	icon = 'icons/roguetown/misc/structure.dmi'
-	icon_state = "shitportal" //get a better sprite for this
+	icon_state = "underworldportal"
 	max_integrity = 50
 	move_resist = MOVE_FORCE_EXTREMELY_STRONG
 	anchored = TRUE
@@ -138,6 +142,7 @@
 	var/mob/living/caster // stores the caster. obviously.
 	var/mob/living/trapped // stores the trapped.
 	var/time_id
+	var/dispelled = FALSE //Safety check
 
 
 /obj/structure/underworld_portal/examine(mob/living/carbon/user)
@@ -147,7 +152,7 @@
 		. += "A temporary gateway to the underworld. [span_warning("Faintly, you can see clutching fingers in the dark, reaching for you. If you go through, you won't come back.")]"
 	else
 		. += "A temporary gateway to the underworld. You can hear faint whispers through it. [span_warning("It might be possible to step through.")]"
-	
+
 	. += "[span_notice("As the caster, click on GRAB to store the portal, provided there are souls inside. Use HARM to destroy the portal.")]"
 	if(trapped)
 		. += "[span_notice("Right-click on the portal to pull trapped souls out.")]"
@@ -181,9 +186,10 @@
 
 
 /obj/structure/underworld_portal/Destroy()
-	visible_message(span_revenwarning("The portal collapses with an angry hiss."))
-	spitout_mob(caster, loc)
-
+	if(dispelled == FALSE)	//Only do this if we DON'T close it ourselves,that means something ELSE -FUNNY- happend.
+							//As we are already calling qdel on:Right click, if you do not have this is gonna to call spitout mob TWICE
+		spitout_mob(caster, loc)
+	visible_message(span_revenwarning("The portal collapses with an angry hiss."))//will keep this outside the if though, its coo
 	..()
 
 /obj/structure/underworld_portal/attack_right(mob/living/carbon/user, list/modifiers)
@@ -250,21 +256,24 @@
 
 	return TRUE
 
-
 /obj/structure/underworld_portal/proc/spitout_mob(mob/living/carbon/user, turf/T)
-	if(loc == user)
+	if(src.loc == user)
 		forceMove(T ? T : user.loc)
 		user.contents.Remove(src)
 
 	if(trapped)
-		trapped.forceMove(loc)
-		contents.Remove(trapped)
-		trapped.remove_client_colour(/datum/client_colour/monochrome)
-		REMOVE_TRAIT(trapped, TRAIT_BLOODLOSS_IMMUNE, STATUS_EFFECT_TRAIT)
-		REMOVE_TRAIT(trapped, TRAIT_NOBREATH, STATUS_EFFECT_TRAIT)
+		if(dispelled == TRUE)//dispelled at the caster, this is the case of we do not recast out dispelled portal and its been five minutes.
+			user.forceMove(caster.loc)//has to be user i tried doing it as trapped before but the TIMER calls user so that can trip it up.
+			dispelled = FALSE
+		else
+			user.forceMove(src.loc)
+		contents.Remove(user)
+		user.remove_client_colour(/datum/client_colour/monochrome)
+		REMOVE_TRAIT(user, TRAIT_BLOODLOSS_IMMUNE, STATUS_EFFECT_TRAIT)
+		REMOVE_TRAIT(user, TRAIT_NOBREATH, STATUS_EFFECT_TRAIT)
 		trapped = null
 
-		trapped.visible_message(
+		user.visible_message(
 			span_revenwarning("[trapped] slips out from the whispering portal. Shadow roils off their form like smoke."),
 			span_purple("I am pulled from Necra's realm. Air fills my lungs, my heart starts beating- I live.")
 		)
@@ -290,12 +299,126 @@
 		return
 	spitout_mob(user)
 
+// Speak with dead
+
+/obj/effect/proc_holder/spell/invoked/speakwithdead
+    name = "Speak with Dead"
+    range = 5
+    overlay_state = "speakwithdead"
+    releasedrain = 30
+    recharge_time = 30 SECONDS
+    req_items = list(/obj/item/clothing/neck/roguetown/psicross)
+    sound = 'sound/magic/churn.ogg'
+    associated_skill = /datum/skill/magic/holy
+    invocations = list("The echoes of the departed stir, speak, O fallen one.")
+    invocation_type = "whisper"
+    miracle = TRUE
+    devotion_cost = 30
+
+/obj/effect/proc_holder/spell/invoked/speakwithdead/cast(list/targets, mob/user = usr)
+    if(!targets || !length(targets))
+        to_chat(user, "<font color='red'>To perform a miracle, you are supposed to stay next to their fallen body. If there no soul in the body, there will be no responce.</font>")
+        return FALSE
+
+    var/mob/living/target = targets[1]
+
+    if(isliving(target) && target.stat == DEAD)
+        return speakwithdead(user, target)
+    else
+        to_chat(user, "<font color='red'>They are not dead. Yet.</font>")
+        return FALSE
+
+/proc/speakwithdead(mob/user, mob/living/target)
+    if(target.stat == DEAD && target.mind)
+        var/message = input(user, "You speak to the spirit of [target.real_name]. What will you say?", "Speak with the Dead") as text|null
+
+        if(message)
+            if(target.mind.current)
+                to_chat(target.mind.current, "<span style='color:gold'><b>[user.real_name]</b> says: \"[message]\"</span>")
+
+            var/mob/dead/observer/ghost = null
+
+            for (var/mob/dead/observer/G in world)
+                if (G.mind == target.mind)
+                    ghost = G
+                    break
+
+            if (!ghost && target.mind && target.mind.key)
+                var/expected_ckey = ckey(target.mind.key)
+                for (var/mob/dead/observer/G2 in world)
+                    if (G2.client && ckey(G2.key) == expected_ckey)
+                        ghost = G2
+                        break
+
+            if (ghost && ghost != target.mind.current)
+                to_chat(ghost, "<span style='color:gold'><b>[user.real_name]</b> says: \"[message]\"</span>")
+
+            to_chat(user, "<span style='color:gold'>You say to the spirit: \"[message]\"</span>")
+
+            var/mob/replier = null
+            if (ghost && ghost.client)
+                replier = ghost
+            else if (target.mind.current && target.mind.current.client)
+                replier = target.mind.current
+
+            if(replier)
+                var/spirit_message = input(replier, "An acolyte of Necra named [user.real_name] seeks your attention. What is your reply?", "Spirit's Response") as text|null
+                if(spirit_message)
+                    to_chat(user, "<span style='color:silver'><i>The spirit whispers:</i> \"[spirit_message]\"</span>")
+                else
+                    to_chat(user, "<span style='color:#aaaaaa'><i>The spirit chooses to remain silent...</i></span>")
+            else
+                to_chat(user, "<span style='color:#aaaaaa'><i>The spirit cannot answer right now...</i></span>")
+        else
+            to_chat(user, "<span style='color:#aaaaaa'><i>You choose not to speak.</i></span>")
+    else
+        to_chat(user, "<span style='color:#aaaaaa'><i>No spirit answers your call.</i></span>")
+
+// BODY INTO COIN
+
+/obj/effect/proc_holder/spell/invoked/fieldburials
+	name = "Collect Coins"
+	overlay_state = "consecrateburial"
+	antimagic_allowed = TRUE
+	devotion_cost = 10
+	miracle = TRUE
+	invocation_type = "whisper"
+
+/obj/effect/proc_holder/spell/invoked/fieldburials/cast(list/targets, mob/living/user)
+    . = ..()
+
+    if(!isliving(targets[1]))
+        revert_cast()
+        return FALSE
+
+    var/mob/living/target = targets[1]
+    if(target.stat < DEAD)
+        to_chat(user, span_warning("They're still alive!"))
+        revert_cast()
+        return FALSE
+
+    if(world.time <= target.mob_timers["lastdied"] + 15 MINUTES)
+        to_chat(user, span_warning("The body is too fresh for the rite."))
+        revert_cast()
+        return FALSE
+
+    var/obj/item/roguecoin/silver/C = new(get_turf(target))
+    C.pixel_x = rand(-6, 6)
+    C.pixel_y = rand(-6, 6)
+
+    to_chat(user, span_notice("You gather coins from [target.real_name]'s remains."))
+    to_chat(target, span_danger("Your worldly wealth slips away with the rite..."))
+
+    qdel(target)
+
+    return TRUE
 
 /*
-	SOUL SPEAK
+	SOUL SPEAK OLD LEGACY
+	Not used anymore, but kept for reference.
 */
 
-
+/*
 /obj/effect/proc_holder/spell/targeted/soulspeak
 	name = "Speak with Soul"
 	range = 5
@@ -307,7 +430,7 @@
 	cast_without_targets = TRUE
 	sound = 'sound/magic/churn.ogg'
 	associated_skill = /datum/skill/magic/holy
-	invocation = "She-Below brooks thee respite, be heard, wanderer."
+	invocations = list("She-Below brooks thee respite, be heard, wanderer.")
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 30
@@ -373,4 +496,4 @@
 	soul.fully_heal(FALSE)
 	soul.invisibility = initial(soul.invisibility)
 	soul.status_flags &= ~GODMODE
-	soul.density = initial(soul.density)
+	soul.density = initial(soul.density) */

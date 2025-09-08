@@ -11,7 +11,7 @@
 	school = "transmutation"
 	overlay_state = "haste" // Temporary icon from RW
 	spell_tier = 2
-	invocation = "Festinatio!"
+	invocations = list("Festinatio!")
 	invocation_type = "shout" // I mean, it is fast
 	glow_color = GLOW_COLOR_BUFF
 	glow_intensity = GLOW_INTENSITY_MEDIUM
@@ -39,7 +39,7 @@
 		spelltarget.apply_status_effect(/datum/status_effect/buff/haste, 1 MINUTES)
 
 	return TRUE
-	
+
 /atom/movable/screen/alert/status_effect/buff/haste
 	name = "Haste"
 	desc = "I am magically hastened."
@@ -51,11 +51,11 @@
 	var/outline_colour ="#F0E68C" // Hopefully not TOO yellow
 	id = "haste"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/haste
-	effectedstats = list("speed" = 5)
-	duration = 1 MINUTES
+	effectedstats = list(STATKEY_SPD = 5)
+	duration = 1.5 MINUTES
 
 /datum/status_effect/buff/haste/other
-	duration = 2 MINUTES
+	duration = 3 MINUTES
 
 /datum/status_effect/buff/haste/on_creation(mob/living/new_owner, var/new_duration = null)
 	if(new_duration)
