@@ -1417,15 +1417,6 @@
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
-"ds" = (
-/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt{
-	pixel_y = -16
-	},
-/obj/structure/curtain/red,
-/turf/open/floor/rogue/herringbone,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
 "dt" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 8
@@ -3532,7 +3523,7 @@
 	pixel_y = 7;
 	color = "#a32121"
 	},
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/carpet/inn,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -3669,7 +3660,10 @@
 	dir = 1;
 	color = "#a32121"
 	},
-/turf/open/floor/rogue/herringbone,
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt{
+	pixel_y = -16
+	},
+/turf/open/floor/carpet/inn,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -11213,7 +11207,7 @@ dN
 cp
 dz
 cP
-ds
+cP
 dz
 cp
 vQ
@@ -11474,7 +11468,7 @@ cp
 Av
 cd
 YO
-NG
+cd
 Yt
 cp
 vQ
@@ -11604,7 +11598,7 @@ cp
 he
 cd
 jW
-NG
+cd
 Rr
 WB
 vQ
