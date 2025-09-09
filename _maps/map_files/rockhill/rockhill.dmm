@@ -22821,7 +22821,7 @@
 /area/rogue/outdoors/beach)
 "hJp" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves{
@@ -25698,10 +25698,10 @@
 /area/rogue/indoors/town/bath)
 "iIl" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves{
@@ -36416,13 +36416,13 @@
 "mzE" = (
 /obj/structure/closet/crate/drawer,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors{
@@ -45872,7 +45872,7 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/shop)
@@ -50048,16 +50048,16 @@
 "rAa" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -59905,10 +59905,10 @@
 /obj/structure/table/vtable/v2,
 /obj/structure/fluff/railing/border,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/physician{
@@ -65462,7 +65462,7 @@
 	})
 "xac" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cavewet/bogcaves{
