@@ -126,6 +126,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/shelter/mountains
 	icon_state = "mountains"
 	droning_sound = 'sound/music/area/caves.ogg'
+	droning_sound_dusk = 'sound/music/area/caves.ogg'
+	droning_sound_night = 'sound/music/area/caves.ogg'
 
 /area/rogue/outdoors/mountains/deception
 	name = "deception"
