@@ -9,6 +9,16 @@
 	converted_type = /area/rogue/under/lake
 	first_time_text = "CENTRAL COAST"
 
+/area/rogue/outdoors/beach/harbor
+	name = "harbor"
+	icon_state = "harbor"
+	warden_area = TRUE
+	ambientsounds = AMB_BEACH
+	ambientnight = AMB_BEACH
+	droning_sound = 'sound/music/area/harbor.ogg'
+	converted_type = /area/rogue/under/lake
+	first_time_text = "Rockhill Harbor"
+
 /area/rogue/outdoors/beach/north
 	name = "Northern Coast"
 	ambush_mobs = list(

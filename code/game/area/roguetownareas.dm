@@ -125,9 +125,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/indoors/shelter/mountains
 	icon_state = "mountains"
-	droning_sound = 'sound/music/area/townstreets.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	droning_sound = 'sound/music/area/caves.ogg'
 
 /area/rogue/outdoors/mountains/deception
 	name = "deception"
@@ -505,7 +503,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/town/physician
 	name = "Physician"
 	icon_state = "physician"
-	droning_sound = 'sound/music/area/shop.ogg'
+	droning_sound = 'sound/music/area/academy.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+
+/area/rogue/indoors/town/Academy
+	name = "Academy"
+	icon_state = "academy"
+	droning_sound = 'sound/music/area/academy.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 
