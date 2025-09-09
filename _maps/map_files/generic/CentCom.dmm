@@ -1351,7 +1351,9 @@
 	dir = 1;
 	icon_state = "stairs"
 	},
-/turf/closed,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
