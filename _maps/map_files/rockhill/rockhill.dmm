@@ -13548,10 +13548,6 @@
 /obj/item/clothing/suit/roguetown/armor/gambeson/light,
 /obj/item/clothing/suit/roguetown/armor/gambeson/light,
 /obj/item/clothing/suit/roguetown/armor/gambeson/light,
-/obj/item/clothing/head/roguetown/helmet/citywatch,
-/obj/item/clothing/suit/roguetown/armor/citywatch,
-/obj/item/clothing/suit/roguetown/armor/citywatch,
-/obj/item/clothing/head/roguetown/helmet/citywatch,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/garrison)
 "esi" = (
@@ -15942,8 +15938,6 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/royal,
 /obj/item/clothing/wrists/roguetown/royalsleeves,
 /obj/item/clothing/cloak/lordcloak/ladycloak,
-/obj/item/clothing/suit/roguetown/armor/leather/duchess,
-/obj/item/clothing/head/roguetown/duchess_hood,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -19258,12 +19252,6 @@
 	pixel_y = 0
 	},
 /turf/open/water/bath,
-/area/rogue/indoors/town/manor{
-	first_time_text = "Rockhill Keep"
-	})
-"glm" = (
-/obj/item/clothing/suit/roguetown/armor/leather/steward,
-/turf/closed/wall/mineral/rogue/wooddark/horizontal,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -23092,7 +23080,6 @@
 	},
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/steward,
 /obj/item/clothing/suit/roguetown/shirt/tunic/silktunic,
-/obj/item/clothing/suit/roguetown/armor/leather/steward,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -23741,7 +23728,7 @@
 	})
 "hJp" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves)
@@ -26725,10 +26712,10 @@
 	})
 "iIl" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves)
@@ -31545,12 +31532,6 @@
 	first_time_text = "THE TOWN OF ROCKHILL";
 	droning_sound = 'sound/music/area/townstreetsold.ogg';
 	droning_sound_night = 'sound/music/area/sleepingold.ogg'
-	})
-"kqK" = (
-/obj/item/clothing/suit/roguetown/armor/leather/steward,
-/turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/indoors/town/manor{
-	first_time_text = "Rockhill Keep"
 	})
 "kqN" = (
 /obj/structure/bookcase/random,
@@ -37896,13 +37877,13 @@
 "mzE" = (
 /obj/structure/closet/crate/drawer,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors{
@@ -40649,11 +40630,6 @@
 /obj/item/clothing/suit/roguetown/armor/gambeson,
 /obj/item/clothing/suit/roguetown/armor/gambeson,
 /obj/item/clothing/suit/roguetown/armor/gambeson,
-/obj/item/clothing/cloak/citywatch,
-/obj/item/clothing/cloak/citywatch,
-/obj/item/clothing/cloak/citywatch,
-/obj/item/clothing/cloak/citywatch,
-/obj/item/clothing/cloak/citywatch,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/garrison)
 "nBE" = (
@@ -41265,7 +41241,6 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess,
 /obj/item/clothing/wrists/roguetown/royalsleeves,
 /obj/item/clothing/wrists/roguetown/royalsleeves,
-/obj/item/clothing/suit/roguetown/armor/leather/heiress,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -41443,7 +41418,6 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/black,
 /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman,
 /obj/item/clothing/suit/roguetown/shirt/tunic,
-/obj/item/clothing/suit/roguetown/armor/councillor,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -43548,12 +43522,6 @@
 	droning_sound = 'sound/music/area/caves.ogg';
 	droning_sound_night = 'sound/music/area/caves.ogg';
 	droning_sound_dusk = 'sound/music/area/caves.ogg'
-	})
-"oxd" = (
-/obj/item/clothing/suit/roguetown/armor/leather/steward,
-/turf/open/transparent/openspace,
-/area/rogue/indoors/town/manor{
-	first_time_text = "Rockhill Keep"
 	})
 "oxE" = (
 /obj/structure/chair/stool/rogue,
@@ -47756,7 +47724,7 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/shop)
@@ -52088,16 +52056,16 @@
 "rAa" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -59433,7 +59401,6 @@
 	lockid = "hand"
 	},
 /obj/item/clothing/suit/roguetown/armor/leather/vest/hand,
-/obj/item/clothing/suit/roguetown/armor/leather/hand,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -62364,10 +62331,10 @@
 /obj/structure/table/vtable/v2,
 /obj/structure/fluff/railing/border,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/physician{
@@ -65956,7 +65923,6 @@
 /obj/item/clothing/suit/roguetown/shirt/robe/wizard,
 /obj/item/clothing/head/roguetown/wizhat/gen,
 /obj/item/clothing/head/roguetown/wizhat,
-/obj/item/clothing/suit/roguetown/armor/leather/magos,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician)
 "woZ" = (
@@ -68191,7 +68157,7 @@
 	})
 "xac" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1,/obj/item/reagent_containers/glass/bottle/rogue/lesserhealthpot=2)
+	loot = list(/obj/item/needle = 6, /obj/item/natural/cloth = 5, /obj/item/natural/bundle/cloth = 3),/obj/item/reagent_containers/powder/ozium=2,obj/item/reagent_containers/glass/bottle/rogue/healthpot=1)
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cavewet/bogcaves)
@@ -68305,7 +68271,6 @@
 	},
 /obj/item/clothing/cloak/lordcloak,
 /obj/item/clothing/shoes/roguetown/boots/nobleboot,
-/obj/item/clothing/suit/roguetown/armor/leather/duke,
 /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat,
 /obj/item/clothing/suit/roguetown/shirt/tunic/purple,
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/royal,
@@ -69314,7 +69279,6 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince,
 /obj/item/clothing/cloak/half,
 /obj/item/clothing/cloak/half/red,
-/obj/item/clothing/suit/roguetown/armor/leather/heir,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -70105,7 +70069,6 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/black,
 /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman,
 /obj/item/clothing/suit/roguetown/shirt/tunic,
-/obj/item/clothing/suit/roguetown/armor/councillor,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -581778,7 +581741,7 @@ iur
 iur
 uOL
 iur
-oxd
+iur
 qvB
 ged
 xlm
@@ -582210,7 +582173,7 @@ iur
 iur
 iur
 iur
-oxd
+iur
 qvB
 ged
 xlm
@@ -582642,8 +582605,8 @@ iur
 iur
 iur
 iur
-oxd
-kqK
+iur
+jTP
 hEV
 xlm
 xlm
@@ -583075,7 +583038,7 @@ iur
 iur
 iur
 iur
-glm
+qvB
 ged
 xlm
 xlm
@@ -583507,7 +583470,7 @@ iur
 uOL
 iur
 iur
-glm
+qvB
 ged
 xlm
 xlm
