@@ -783,10 +783,10 @@
 	droning_sound = 'sound/music/area/forestold.ogg'
 	})
 "bJ" = (
-/obj/structure/chair/wood/rogue{
-	dir = 8
+/obj/effect/decal/carpet,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
 	},
-/turf/open/floor/rogue/tile,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1263,7 +1263,7 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "cW" = (
-/obj/structure/chair/wood/rogue/fancy,
+/obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -1418,20 +1418,19 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "ds" = (
-/obj/structure/fluff/railing/border{
-	dir = 4;
-	icon_state = "border"
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt{
+	pixel_y = -16
 	},
+/obj/structure/curtain/red,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "dt" = (
-/obj/machinery/light/rogue/hearth{
-	pixel_y = 3
+/obj/structure/chair/wood/rogue/fancy{
+	dir = 8
 	},
-/obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1473,23 +1472,24 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "dz" = (
-/obj/structure/fluff/railing/border{
-	dir = 5
+/obj/structure/roguewindow/harem3{
+	opacity = 1;
+	max_integrity = 800;
+	name = "frosted glass window";
+	plane = -3
 	},
-/turf/open/floor/rogue/herringbone,
+/turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "dB" = (
-/obj/structure/table/wood{
-	dir = 10;
-	icon_state = "largetable"
+/obj/machinery/light/rogue/wallfire{
+	pixel_x = 32;
+	pixel_y = 7
 	},
-/obj/item/reagent_containers/powder/salt,
-/obj/item/reagent_containers/powder/salt,
-/obj/item/reagent_containers/food/snacks/butter,
-/obj/item/reagent_containers/food/snacks/butter,
-/obj/machinery/light/rogue/wallfire/candle/l,
+/obj/machinery/light/rogue/hearth{
+	pixel_y = 5
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -1548,12 +1548,8 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "dL" = (
-/obj/structure/table/wood{
-	dir = 6;
-	icon_state = "largetable"
-	},
-/obj/item/storage/roguebag,
-/turf/open/floor/rogue/tile,
+/obj/structure/bookcase/random,
+/turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1571,6 +1567,10 @@
 "dO" = (
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/machinery/light/rogue/torchholder/l,
+/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -1593,10 +1593,8 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "dR" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood3"
-	},
-/obj/item/candle/skull/lit,
+/obj/structure/fluff/railing/border,
+/obj/machinery/light/rogue/wallfire/candle/floorcandle,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -1821,11 +1819,16 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
 "gD" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood3"
+/obj/structure/rack/rogue,
+/obj/item/grown/log/tree/small,
+/obj/item/grown/log/tree/small,
+/obj/item/grown/log/tree/small,
+/obj/item/grown/log/tree/small,
+/obj/item/grown/log/tree/small,
+/obj/structure/fluff/railing/border{
+	dir = 1
 	},
-/obj/machinery/light/rogue/oven/south,
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1843,6 +1846,24 @@
 /obj/structure/fluff/statue/knight/r,
 /turf/open/water/pond,
 /area/rogue/indoors/ravoxarena)
+"ha" = (
+/obj/structure/chair/wood/rogue/fancy{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
+"he" = (
+/obj/structure/chair/bench/couchablack/r,
+/obj/structure/bookcase/random{
+	pixel_y = 22;
+	density = 0
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "hr" = (
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/dirt/road,
@@ -1985,6 +2006,15 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
 	droning_sound = 'sound/music/area/forestold.ogg'
+	})
+"jW" = (
+/obj/structure/table/vtable/v2{
+	pixel_y = 8
+	},
+/obj/structure/shisha/hookah,
+/turf/open/floor/carpet/inn,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "jZ" = (
 /turf/open/water/cleanshallow,
@@ -2178,9 +2208,11 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "ni" = (
-/obj/item/cooking/pan,
-/obj/structure/fluff/railing/border,
-/turf/open/floor/rogue/tile,
+/obj/structure/fluff/pillow/magenta{
+	dir = 8;
+	color = "#a32121"
+	},
+/turf/open/floor/carpet/inn,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -2503,6 +2535,14 @@
 "rK" = (
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/indoors/eventarea)
+"rL" = (
+/obj/structure/bookcase/random{
+	pixel_y = 8
+	},
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "rN" = (
 /obj/machinery/light/rogue/oven/south,
 /turf/open/floor/rogue/tile{
@@ -2723,12 +2763,16 @@
 /turf/open/water/cleanshallow,
 /area/rogue/under/cave/inhumen)
 "uV" = (
-/obj/structure/table/wood{
-	dir = 9;
-	icon_state = "largetable"
+/obj/structure/fluff/pillow/magenta{
+	dir = 1;
+	pixel_y = 7;
+	color = "#a32121"
 	},
-/obj/item/reagent_containers/food/condiment/peppermill,
-/turf/open/floor/rogue/herringbone,
+/obj/structure/fluff/railing/border{
+	dir = 6;
+	icon_state = "border"
+	},
+/turf/open/floor/carpet/inn,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -3132,8 +3176,10 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "Av" = (
-/obj/structure/chair/wood/rogue{
-	dir = 8
+/obj/structure/chair/bench/couchablack,
+/obj/structure/bookcase/random{
+	pixel_y = 22;
+	density = 0
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
@@ -3270,11 +3316,8 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
 "Co" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "tablewood1"
-	},
-/turf/open/floor/rogue/herringbone,
+/obj/machinery/light/rogue/wallfire/candle,
+/turf/open/floor/rogue/tile,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -3439,6 +3482,16 @@
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
+"Eu" = (
+/obj/machinery/light/rogue/wallfire/candle/floorcandle,
+/obj/structure/bookcase/random{
+	pixel_y = 22;
+	density = 0
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "Ev" = (
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/ruinedwood{
@@ -3462,12 +3515,24 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
+"EL" = (
+/obj/structure/chair/wood/rogue/fancy{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "EO" = (
 /obj/structure/fluff/railing/border{
-	dir = 6;
-	icon_state = "border"
+	dir = 5
 	},
-/turf/open/floor/rogue/tile,
+/obj/structure/fluff/pillow/magenta{
+	pixel_x = -10;
+	pixel_y = 7;
+	color = "#a32121"
+	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -3600,9 +3665,9 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
 "GK" = (
-/obj/structure/closet/crate/chest,
-/obj/structure/fluff/railing/border{
-	dir = 1
+/obj/structure/fluff/pillow/magenta{
+	dir = 1;
+	color = "#a32121"
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
@@ -3866,6 +3931,15 @@
 /obj/structure/chair/bench/church/r,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
+"KL" = (
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	icon_state = "border"
+	},
+/turf/open/floor/carpet/inn,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "KZ" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/hexstone,
@@ -4064,11 +4138,12 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "OQ" = (
-/obj/item/reagent_containers/powder/salt,
-/obj/item/reagent_containers/powder/salt,
-/obj/item/reagent_containers/powder/salt,
-/obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/tile,
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt,
+/obj/structure/bookcase/random{
+	pixel_y = 22;
+	density = 0
+	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -4248,10 +4323,7 @@
 /turf/open/floor/rogue/rooftop/west,
 /area/rogue/indoors/eventarea)
 "Rr" = (
-/obj/structure/chair/wood/rogue{
-	dir = 4;
-	pixel_x = -7
-	},
+/obj/structure/table/wood/poor,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -4458,6 +4530,14 @@
 	icon_state = "chess"
 	},
 /area/rogue/indoors/banditcamp)
+"UH" = (
+/obj/structure/closet/crate/coffin/vampire{
+	pixel_y = 10
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "UK" = (
 /turf/open/floor/rogue/grasscold,
 /area/rogue/indoors/eventarea)
@@ -4780,13 +4860,19 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
-"Yt" = (
-/obj/structure/table/wood{
-	dir = 5;
-	icon_state = "largetable"
+"Yq" = (
+/obj/structure/closet/crate/coffin/vampire{
+	pixel_y = 11
 	},
-/obj/item/reagent_containers/glass/bottle/rogue/wine,
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
+"Yt" = (
+/obj/structure/chair/wood/rogue/fancy{
+	dir = 4
+	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -4813,6 +4899,17 @@
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
+"YO" = (
+/obj/structure/table/vtable{
+	pixel_y = 8
+	},
+/obj/item/candle/skull/lit{
+	pixel_y = 21
+	},
+/turf/open/floor/carpet/inn,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "YQ" = (
 /obj/machinery/light/rogue/hearth,
 /obj/machinery/light/rogue/oven/east,
@@ -10594,9 +10691,9 @@ cS
 cp
 cp
 cp
-dR
-uV
-dB
+oa
+NG
+dy
 cp
 cp
 Te
@@ -10719,15 +10816,15 @@ NG
 NG
 NG
 cp
-dN
+dL
 dN
 cW
-db
-cp
-dr
-Yt
 dL
-dr
+cp
+Co
+cb
+cb
+cb
 cp
 cp
 vQ
@@ -10852,14 +10949,14 @@ cP
 dN
 cT
 cT
-dc
+dL
 cp
-dr
-dr
+rL
+cb
 bJ
-dr
+cb
 Rr
-cp
+WB
 vQ
 dD
 vQ
@@ -10985,11 +11082,11 @@ cT
 dN
 Pu
 dr
-dr
-dr
-dr
-Co
-WB
+cb
+cb
+cb
+cp
+cp
 vQ
 dD
 Te
@@ -11114,12 +11211,12 @@ cT
 cT
 dN
 cp
-gD
-EO
+dz
+cP
 ds
 dz
-Av
 cp
+vQ
 vQ
 vQ
 Te
@@ -11242,11 +11339,11 @@ cp
 cF
 cT
 cT
-db
+EL
 cp
 OQ
 ni
-dt
+cd
 GK
 cp
 cp
@@ -11372,14 +11469,14 @@ cp
 cG
 cT
 cT
-dc
+db
 cp
+Av
+cd
+YO
+NG
+Yt
 cp
-cp
-cp
-cp
-cp
-vQ
 vQ
 dD
 Te
@@ -11502,14 +11599,14 @@ cp
 QP
 cT
 cT
-dN
-up
+dc
 cp
-oa
-cp
-dy
-cp
-cp
+he
+cd
+jW
+NG
+Rr
+WB
 vQ
 dD
 Te
@@ -11632,14 +11729,14 @@ cp
 cI
 cT
 cT
-dN
-up
+ha
 cp
-NG
-bV
-NG
-NG
-WB
+Eu
+uV
+KL
+EO
+dt
+cp
 vQ
 dD
 Te
@@ -11763,11 +11860,11 @@ cJ
 cT
 cT
 dN
-dN
 nZ
 NG
-NG
-NG
+dR
+dB
+gD
 cp
 cp
 vQ
@@ -11892,7 +11989,7 @@ cp
 cp
 up
 dN
-dN
+dL
 cp
 cp
 cp
@@ -13058,7 +13155,7 @@ bQ
 cC
 cD
 cp
-bE
+Yq
 cP
 de
 bR
@@ -13318,7 +13415,7 @@ cb
 cb
 cb
 cp
-bE
+UH
 cP
 de
 de
