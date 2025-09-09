@@ -742,9 +742,10 @@
 	droning_sound = 'sound/music/area/forestold.ogg'
 	})
 "bC" = (
-/turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/outdoors/woods{
-	droning_sound = 'sound/music/area/forestold.ogg'
+/obj/structure/flora/roguetree,
+/turf/open/floor/rogue/dirt,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "bD" = (
 /obj/structure/bars/cemetery,
@@ -906,6 +907,14 @@
 	icon_state = "largetable"
 	},
 /obj/item/reagent_containers/glass/cup/golden,
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_y = 6;
+	pixel_x = -12
+	},
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_y = -7;
+	pixel_x = -10
+	},
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -1152,6 +1161,10 @@
 	})
 "cH" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
+/obj/structure/fermentation_keg/water{
+	pixel_x = -6;
+	pixel_y = -7
+	},
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -1562,6 +1575,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/bowl,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -2003,6 +2019,21 @@
 	pixel_y = 8
 	},
 /obj/structure/shisha/hookah,
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_y = 22;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_y = 17;
+	pixel_x = -13
+	},
+/obj/item/reagent_containers/glass/cup/skull{
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/cup/skull{
+	pixel_y = 13;
+	pixel_x = 7
+	},
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -2245,7 +2276,6 @@
 "nZ" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
-	locked = 1;
 	lockid = "mansionvampire"
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -2427,6 +2457,12 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
+"qb" = (
+/obj/item/reagent_containers/glass/bowl,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "qh" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/border{
@@ -4176,7 +4212,6 @@
 "Pu" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
-	locked = 1;
 	lockid = "mansionvampire"
 	},
 /turf/open/floor/rogue/tile,
@@ -4414,6 +4449,12 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
+"Tm" = (
+/obj/item/reagent_containers/glass/bowl,
+/turf/open/floor/rogue/dirt,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "Tp" = (
 /obj/item/roguecoin/gold/pile,
 /obj/item/roguestatue/gold,
@@ -4991,6 +5032,12 @@
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
+"ZS" = (
+/obj/machinery/light/rogue/torchholder/c,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "ZZ" = (
 /turf/open/floor/rogue/greenstone/glyph4,
 /area/rogue/indoors/eventarea)
@@ -12137,12 +12184,12 @@ Te
 Te
 Te
 Te
+cp
+cp
+dp
+cp
+cn
 bC
-bC
-vQ
-bC
-Te
-bz
 kB
 "}
 (56,1,1) = {"
@@ -12643,7 +12690,7 @@ cp
 dC
 dE
 cp
-dp
+ZS
 kV
 dp
 vE
@@ -12658,7 +12705,7 @@ kV
 cn
 kV
 cp
-dp
+ZS
 bN
 dp
 dp
@@ -12787,12 +12834,12 @@ Te
 Te
 Te
 Te
+cp
+cp
+dp
+cp
+cn
 bC
-bC
-vQ
-bC
-Te
-bz
 kB
 "}
 (61,1,1) = {"
@@ -13027,7 +13074,7 @@ cb
 cH
 da
 cn
-cn
+Tm
 sX
 QA
 cp
@@ -13546,7 +13593,7 @@ cp
 cP
 cp
 cp
-NG
+qb
 dx
 QA
 cp

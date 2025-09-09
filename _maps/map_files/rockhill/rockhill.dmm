@@ -3471,10 +3471,14 @@
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/outdoors/beach)
 "bjv" = (
-/obj/structure/chair/stool/rogue,
-/obj/item/clothing/suit/roguetown/shirt/robe/abyssor,
+/obj/structure/table/church/m,
+/obj/item/rogueweapon/pitchfork/aalloy{
+	name = "trident"
+	},
 /turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "bjz" = (
 /turf/closed/wall/mineral/rogue/pipe,
 /area/rogue/indoors/town/bath)
@@ -4181,17 +4185,12 @@
 	})
 "bwH" = (
 /obj/effect/decal/cobbleedge{
-	dir = 8;
-	pixel_y = 1
-	},
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 1
-	},
-/obj/structure/glowshroom{
-	icon_state = "glowshroom2"
+	icon_state = "cobbleedge-sread"
 	},
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "bwN" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/rogue/cobblerock,
@@ -9018,10 +9017,12 @@
 /area/rogue/outdoors/beach)
 "dbl" = (
 /obj/effect/decal/cobbleedge{
-	dir = 10
+	dir = 5
 	},
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "dbr" = (
 /obj/structure/fluff/railing/wood{
 	pixel_y = -4
@@ -10650,10 +10651,10 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church)
 "dFZ" = (
-/obj/effect/decal/cobbleedge{
-	dir = 10
+/obj/structure/stairs{
+	dir = 4
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/rogue/AzureSand,
 /area/rogue/outdoors/beach)
 "dGl" = (
 /obj/structure/roguemachine/scomm{
@@ -10724,7 +10725,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "dHd" = (
-/obj/effect/landmark/travel_tile_location,
+/obj/structure/fluff/traveltile/bandit{
+	aportalgoesto = "banditin2";
+	aportalid = "banditexit2"
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet)
 "dHo" = (
@@ -10735,9 +10739,16 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/bath)
 "dHr" = (
-/obj/effect/landmark/travel_spawn_point,
+/obj/effect/decal/cobbleedge{
+	dir = 9
+	},
+/obj/structure/stairs{
+	dir = 4
+	},
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cavewet)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "dHz" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grassyel,
@@ -13172,17 +13183,14 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "exO" = (
-/obj/effect/decal/cobbleedge{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 8
-	},
-/obj/structure/glowshroom{
-	icon_state = "glowshroom2"
+/obj/structure/fluff/traveltile/vampire{
+	aportalgoesto = "vampin";
+	aportalid = "vampexit"
 	},
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "exZ" = (
 /obj/item/needle,
 /obj/item/needle,
@@ -16832,11 +16840,12 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church)
 "fIj" = (
-/obj/effect/decal/cobbleedge{
-	dir = 4
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/obj/structure/chair/stool/rogue,
+/obj/item/clothing/cloak/abyssortabard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "fIk" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 1
@@ -19849,12 +19858,12 @@
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
 "gJF" = (
-/obj/effect/decal/cobbleedge{
-	dir = 5;
-	pixel_x = -6
-	},
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/obj/item/clothing/suit/roguetown/shirt/robe/abyssor,
+/obj/structure/chair/stool/rogue,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "gJG" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/town/roofs{
@@ -21245,9 +21254,14 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/bog)
 "hgp" = (
-/obj/structure/table/church/end,
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/obj/structure/flora/hotspring_rocks,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "hgt" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -23663,6 +23677,12 @@
 	droning_sound_night = 'sound/music/area/sleepingold.ogg';
 	droning_sound = 'sound/music/area/towngenold.ogg'
 	})
+"hXC" = (
+/obj/structure/ritualcircle/abyssor_alt,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "hXK" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -25060,7 +25080,7 @@
 	first_time_text = "Rockhill Keep"
 	})
 "iyq" = (
-/obj/structure/fluff/psycross/crafted,
+/obj/structure/fluff/psycross/zizocross,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -32126,10 +32146,12 @@
 /area/rogue/outdoors/beach)
 "kZA" = (
 /obj/effect/decal/cobbleedge{
-	dir = 5
+	dir = 10
 	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "kZF" = (
 /obj/structure/closet/crate/chest{
 	lockid = "garrison"
@@ -34911,8 +34933,7 @@
 	droning_sound = 'sound/music/area/towngenold.ogg'
 	})
 "mad" = (
-/obj/effect/landmark/travel_spawn_point,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
@@ -35148,12 +35169,11 @@
 /turf/open/floor/rogue/tile/tilerg,
 /area/rogue/under/town/basement)
 "mdC" = (
-/obj/structure/table/church/m,
-/obj/item/rogueweapon/pitchfork/aalloy{
-	name = "trident"
-	},
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/water/ocean,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "mdN" = (
 /obj/structure/chair/wood{
 	dir = 1
@@ -36654,9 +36674,10 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/town/basement)
 "mEL" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/turf/open/water/ocean,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "mEO" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -37352,9 +37373,20 @@
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
 "mTu" = (
-/obj/machinery/light/rogue/wallfire/candle/blue,
-/turf/open/water/ocean,
-/area/rogue/outdoors/beach)
+/obj/effect/decal/cobbleedge{
+	dir = 8;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/obj/structure/glowshroom{
+	icon_state = "glowshroom2"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "mTw" = (
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors/town/physician{
@@ -39973,9 +40005,10 @@
 	droning_sound = 'sound/music/area/towngenold.ogg'
 	})
 "nSc" = (
-/obj/structure/flora/hotspring_rocks,
 /turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/beach)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "nSm" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -40944,11 +40977,11 @@
 	droning_sound = 'sound/music/area/towngenold.ogg'
 	})
 "oiV" = (
-/obj/effect/decal/cobbleedge{
-	icon_state = "cobbleedge-sread"
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/obj/structure/flora/roguegrass/water,
+/turf/open/water/ocean,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "oiZ" = (
 /obj/structure/closet/crate/chest{
 	pixel_x = 5
@@ -43761,11 +43794,11 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/town/sewer)
 "phK" = (
-/obj/effect/decal/cobbleedge{
-	dir = 9
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/obj/structure/fluff/statue/abyssor,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "phS" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -48147,10 +48180,12 @@
 	droning_sound_night = 'sound/music/area/sleepingold.ogg'
 	})
 "qPw" = (
+/obj/item/clothing/head/roguetown/roguehood/abyssor,
 /obj/structure/chair/stool/rogue,
-/obj/item/clothing/cloak/abyssortabard,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/beach)
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "qPy" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/effect/decal/cobbleedge{
@@ -48824,9 +48859,13 @@
 	},
 /area/rogue/indoors/town/bath)
 "rcR" = (
-/obj/structure/table/church,
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "rdd" = (
 /obj/item/reagent_containers/powder/salt,
 /obj/item/reagent_containers/powder/salt,
@@ -54506,9 +54545,11 @@
 	droning_sound_night = null
 	})
 "teD" = (
-/obj/structure/ritualcircle/abyssor_alt,
+/obj/structure/table/church,
 /turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "teE" = (
 /turf/closed/wall/mineral/rogue/decostone/cand,
 /area/rogue/indoors/town/dwarfin)
@@ -56940,11 +56981,10 @@
 	})
 "tUr" = (
 /obj/structure/flora/hotspring_rocks,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 8
-	},
 /turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/beach)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "tUs" = (
 /obj/structure/chair/wood/rogue/chair3{
 	dir = 4
@@ -58016,6 +58056,12 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
+"urJ" = (
+/obj/structure/table/church/end,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "urX" = (
 /obj/structure/fluff/railing/border{
 	dir = 5;
@@ -60556,9 +60602,18 @@
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
 "vro" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/obj/effect/decal/cobbleedge{
+	dir = 5;
+	pixel_x = -10
+	},
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/structure/glowshroom{
+	icon_state = "glowshroom2"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "vrs" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/shelter/mountains{
@@ -61331,8 +61386,13 @@
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/bath)
 "vGj" = (
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/obj/effect/decal/cobbleedge{
+	dir = 4
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "vGE" = (
 /obj/structure/fluff/railing/wood{
 	pixel_y = -4
@@ -63289,9 +63349,10 @@
 	})
 "woJ" = (
 /obj/structure/chair/stool/rogue,
-/obj/item/clothing/head/roguetown/roguehood/abyssor,
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "woN" = (
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/blocks,
@@ -66343,7 +66404,10 @@
 	droning_sound_night = null
 	})
 "xoX" = (
-/obj/effect/landmark/travel_tile_location,
+/obj/structure/fluff/traveltile/bandit{
+	aportalgoesto = "banditin";
+	aportalid = "banditexit"
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
@@ -66891,15 +66955,12 @@
 	})
 "xzn" = (
 /obj/effect/decal/cobbleedge{
-	dir = 5;
-	pixel_x = -10
-	},
-/obj/effect/decal/cleanable/dirt/cobweb,
-/obj/structure/glowshroom{
-	icon_state = "glowshroom2"
+	dir = 6
 	},
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "xzp" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -67724,10 +67785,13 @@
 	})
 "xNq" = (
 /obj/effect/decal/cobbleedge{
-	dir = 6
+	dir = 5;
+	pixel_x = -6
 	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/beach)
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "xNw" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/cobble/mossy,
@@ -68468,9 +68532,19 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/basement)
 "xZO" = (
-/obj/structure/fluff/statue/abyssor,
-/turf/open/floor/rogue/churchmarble,
-/area/rogue/outdoors/beach)
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/obj/structure/glowshroom{
+	icon_state = "glowshroom2"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "yar" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/naturalstone,
@@ -95721,7 +95795,7 @@ huj
 huj
 huj
 huj
-dVO
+ufI
 dVO
 dVO
 dVO
@@ -96152,7 +96226,7 @@ huj
 huj
 huj
 huj
-ufI
+dVO
 dVO
 dVO
 dVO
@@ -104801,10 +104875,10 @@ huj
 xaf
 xaf
 xaf
+huj
 xaf
 xaf
-xaf
-xaf
+huj
 xaf
 huj
 huj
@@ -105229,15 +105303,15 @@ huj
 huj
 xaf
 xaf
+huj
+xaf
+xaf
+huj
 xaf
 xaf
 xaf
-xaf
-xaf
-xaf
-xaf
-xaf
-xaf
+huj
+huj
 xaf
 huj
 huj
@@ -105660,17 +105734,17 @@ xaf
 huj
 huj
 xaf
+huj
+huj
+xaf
+huj
+huj
 xaf
 xaf
 xaf
 xaf
-xaf
-xaf
-xaf
-xaf
-xaf
-xaf
-xaf
+huj
+huj
 xaf
 xaf
 xaf
@@ -106095,7 +106169,7 @@ xaf
 xaf
 xaf
 xaf
-xaf
+huj
 xaf
 dpP
 dpP
@@ -106525,13 +106599,13 @@ xaf
 xaf
 xaf
 xaf
+xaf
+xaf
 dpP
-dpP
-dpP
-dpP
-dpP
-dpP
-dpP
+xaf
+xaf
+xaf
+xaf
 xaf
 dpP
 xaf
@@ -106956,15 +107030,15 @@ xaf
 xaf
 xaf
 dpP
+xaf
+xaf
+xaf
+xaf
 dpP
 dpP
 dpP
-dpP
-dpP
-dpP
-dpP
-dpP
-dpP
+xaf
+xaf
 xaf
 xaf
 xaf
@@ -107388,16 +107462,16 @@ xaf
 xaf
 dpP
 xaf
+xaf
+xaf
+xaf
 dpP
-dpP
-dpP
-dpP
-dpP
-dpP
-dpP
+xaf
+xaf
+xaf
 whb
-dpP
-whb
+xaf
+xaf
 xaf
 xaf
 xaf
@@ -107819,12 +107893,12 @@ xaf
 xaf
 dpP
 xaf
-dpP
-dpP
-dpP
-dpP
-dpP
-dpP
+xaf
+xaf
+xaf
+xaf
+xaf
+xaf
 dpP
 dpP
 dpP
@@ -108250,12 +108324,12 @@ xaf
 xaf
 dpP
 xaf
+xaf
+xaf
 dpP
 dpP
-dpP
-dpP
-dpP
-dpP
+xaf
+xaf
 dpP
 dpP
 dpP
@@ -108680,13 +108754,13 @@ xaf
 xaf
 xaf
 xaf
-dpP
-dpP
+xaf
+xaf
+xaf
 xaf
 dpP
 dpP
-dpP
-dpP
+xaf
 dpP
 dpP
 dpP
@@ -109111,10 +109185,10 @@ xaf
 xaf
 whb
 dpP
+xaf
 dpP
-dpP
-dpP
-dpP
+xaf
+xaf
 dpP
 dpP
 dpP
@@ -109542,8 +109616,8 @@ xaf
 xaf
 whb
 whb
-whb
-dpP
+xaf
+xaf
 dpP
 dpP
 dpP
@@ -170193,13 +170267,13 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+fyc
+fyc
+fyc
+fyc
+fyc
 whb
 whb
 whb
@@ -170624,14 +170698,14 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+vro
+nSc
+nSc
+nSc
+tUr
+fyc
 whb
 whb
 whb
@@ -171056,15 +171130,15 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+dVO
+nSc
+fyc
+fIj
+vGj
+fyc
+fyc
 whb
 whb
 whb
@@ -171487,16 +171561,16 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+mEL
+bwH
+nSc
+nSc
+nSc
+xzn
+woJ
+fyc
 whb
 whb
 whb
@@ -171919,16 +171993,16 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+oiV
+oiV
+oiV
+mad
+teD
+xNq
+mad
+gJF
+fyc
 whb
 whb
 whb
@@ -172351,16 +172425,16 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+mdC
+phK
+hXC
+mad
+bjv
+mad
+mad
+woJ
+fyc
 whb
 whb
 whb
@@ -172783,16 +172857,16 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+oiV
+oiV
+oiV
+mad
+urJ
+kZA
+mad
+qPw
+fyc
 whb
 whb
 whb
@@ -173215,16 +173289,16 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+mEL
+nSc
+vGj
+nSc
+xzn
+dVO
+woJ
+fyc
 whb
 whb
 whb
@@ -173648,15 +173722,15 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+xzn
+fyc
+dbl
+woJ
+dVO
+fyc
+fyc
 whb
 whb
 whb
@@ -174080,15 +174154,15 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+rcR
+dVO
+dHr
+nSc
+xZO
+fyc
+fyc
 whb
 whb
 whb
@@ -174512,14 +174586,14 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+fyc
+mTu
+fyc
+hgp
+fyc
+fyc
 whb
 whb
 whb
@@ -174946,12 +175020,12 @@ whb
 whb
 whb
 whb
-whb
-whb
-whb
-whb
-whb
-whb
+fyc
+fyc
+fyc
+fyc
+fyc
+fyc
 whb
 whb
 whb
@@ -280787,11 +280861,11 @@ qmr
 qmr
 xKo
 xKo
-xzn
-oME
-oME
-oME
-nSc
+luB
+luB
+luB
+luB
+luB
 xKo
 xKo
 byt
@@ -281219,11 +281293,11 @@ qmr
 bIW
 xKo
 xKo
-jAW
+luB
+euP
 xKo
-oME
-qPw
-fIj
+euP
+luB
 xKo
 xKo
 ttG
@@ -281650,12 +281724,12 @@ oIT
 qmr
 xKo
 xKo
-qmr
-oiV
-oME
-oME
-oME
-mEL
+luB
+luB
+euP
+euP
+euP
+euP
 xKo
 eJx
 sYW
@@ -282081,13 +282155,13 @@ oIT
 oIT
 qmr
 xKo
-bIW
-bIW
-bIW
-vGj
-rcR
-gJF
-bjv
+luB
+luB
+euP
+euP
+euP
+euP
+euP
 xKo
 bBY
 byt
@@ -282513,13 +282587,13 @@ oIT
 oIT
 qmr
 xKo
-mTu
-xZO
-teD
-vGj
-mdC
-vGj
-vro
+luB
+euP
+euP
+euP
+euP
+euP
+euP
 xKo
 bBY
 byt
@@ -282945,13 +283019,13 @@ oIT
 oIT
 qmr
 xKo
-bIW
-bIW
-bIW
-vGj
-hgp
-dbl
-woJ
+luB
+euP
+euP
+euP
+euP
+euP
+euP
 xKo
 vql
 lWF
@@ -283377,13 +283451,13 @@ oIT
 oIT
 qmr
 xKo
-xKo
-qmr
-oME
-fIj
-oME
-xNq
-mEL
+luB
+euP
+euP
+euP
+euP
+euP
+euP
 xKo
 xKo
 byt
@@ -283809,13 +283883,13 @@ oIT
 oIT
 qmr
 xKo
+luB
+luB
+euP
 xKo
-xKo
-xNq
-xKo
-kZA
-mEL
-jAW
+euP
+euP
+luB
 xKo
 xKo
 xKo
@@ -284243,11 +284317,11 @@ qmr
 bIW
 xKo
 xKo
-dFZ
-jAW
-phK
-oME
-exO
+luB
+euP
+euP
+euP
+luB
 xKo
 xKo
 iRX
@@ -284673,13 +284747,13 @@ oIT
 oIT
 oIT
 qmr
-qmr
 xKo
 xKo
-bwH
-oME
-tUr
+luB
 xKo
+dFZ
+xKo
+luB
 xKo
 xKo
 iRX
@@ -290689,10 +290763,10 @@ gxt
 gxt
 gxt
 gxt
-xoX
-xoX
-xoX
-xoX
+exO
+exO
+exO
+exO
 gxt
 gxt
 gxt
@@ -291123,7 +291197,7 @@ gxt
 dVO
 dVO
 dVO
-mad
+dVO
 dVO
 gxt
 gxt
@@ -328719,7 +328793,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 gxt
 fyc
 fyc
@@ -329151,7 +329225,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 dVO
 fyc
 fyc
@@ -329582,8 +329656,8 @@ uuE
 uuE
 uuE
 uuE
-dVO
-dVO
+gxt
+gxt
 dVO
 fyc
 fyc
@@ -330014,7 +330088,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 dVO
 dVO
 fyc
@@ -330446,7 +330520,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 dVO
 dVO
 fyc
@@ -330878,7 +330952,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 dVO
 dVO
 fyc
@@ -332608,7 +332682,7 @@ uuE
 uuE
 gxt
 dVO
-xoX
+dVO
 fyc
 fyc
 "}
@@ -333039,8 +333113,8 @@ uuE
 uuE
 uuE
 gxt
-mad
-xoX
+dVO
+dVO
 fyc
 fyc
 "}
@@ -333472,7 +333546,7 @@ uuE
 uuE
 gxt
 pEm
-xoX
+dVO
 fyc
 fyc
 "}
@@ -361982,7 +362056,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 gxt
 gxt
 fyc
@@ -362414,9 +362488,9 @@ uuE
 uuE
 uuE
 uuE
+gxt
 dVO
 dVO
-xoX
 fyc
 fyc
 "}
@@ -362846,9 +362920,9 @@ uuE
 uuE
 uuE
 uuE
+gxt
 dVO
-mad
-xoX
+dVO
 fyc
 fyc
 "}
@@ -363278,9 +363352,9 @@ uuE
 uuE
 uuE
 gxt
+gxt
 dVO
 dVO
-xoX
 fyc
 fyc
 "}
@@ -379693,7 +379767,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 gxt
 gxt
 gxt
@@ -380125,10 +380199,10 @@ uuE
 uuE
 uuE
 uuE
+gxt
 dVO
 dVO
 dVO
-xoX
 fyc
 fyc
 "}
@@ -380557,10 +380631,10 @@ uuE
 uuE
 uuE
 uuE
+gxt
 dVO
 dVO
-mad
-xoX
+dVO
 fyc
 fyc
 "}
@@ -380989,10 +381063,10 @@ uuE
 uuE
 uuE
 uuE
+gxt
 dVO
 dVO
 dVO
-xoX
 fyc
 fyc
 "}
@@ -381421,7 +381495,7 @@ uuE
 uuE
 uuE
 uuE
-dVO
+gxt
 dVO
 pEm
 gxt
@@ -401185,7 +401259,7 @@ aaf
 aaf
 aaf
 aaf
-dHr
+aaf
 aaf
 aad
 uuE
@@ -508379,7 +508453,7 @@ gxt
 dVO
 dVO
 dVO
-mad
+dVO
 dVO
 dVO
 gxt
@@ -508809,7 +508883,7 @@ gxt
 gxt
 gxt
 gxt
-dVO
+xoX
 xoX
 xoX
 xoX
