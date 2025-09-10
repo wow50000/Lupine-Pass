@@ -11,24 +11,22 @@
 	name = "decrepit fork"
 	icon_state = "afork"
 	color = "#bb9696"
-	sellprice = 0
+	sellprice = 5
 
 /obj/item/kitchen/fork/iron
 	name = "iron fork"
 	icon_state = "fork_iron"
-	sellprice = 6
 
 /obj/item/kitchen/fork/tin
-	name = "tin fork"
-	icon_state = "fork_tin"
-	sellprice = 6
+	name = "pewter fork"
+	icon_state = "fork_iron"
 
 /obj/item/kitchen/fork/gold
 	name = "gold fork"
 	icon_state = "fork_gold"
-	sellprice = 30
+	sellprice = 10
 
 /obj/item/kitchen/fork/silver
 	name = "silver fork"
 	icon_state = "fork_silver"
-	sellprice = 24
+	sellprice = 20
