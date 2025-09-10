@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/steppesman
 	name = "Steppesman"
-	tutorial = "Once serving a Hetmen from the frontiers, you have been rented out as a mercenary in the distant realm of Azuria to bring coin home. There are three things you value most; saigas, freedom, and money."
+	tutorial = "Once serving a Hetmen from the frontiers, you have been rented out as a mercenary in the distant realm of the vale to bring coin home. There are three things you value most; saigas, freedom, and money."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/mercenary/steppesman
@@ -69,7 +69,7 @@
 			H.change_stat(STATKEY_CON, 2)
 			H.change_stat(STATKEY_SPD, 1)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/evil() 	//Fits in my head all too well.
 			var/masks = list(
 			"Humen" 	= /obj/item/clothing/mask/rogue/facemask/steel/steppesman,
@@ -144,9 +144,9 @@
 			H.change_stat(STATKEY_PER, 3)
 			H.change_stat(STATKEY_WIL, 2)
 			H.change_stat(STATKEY_SPD, 2)
-			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-		if("Kozak - Light Infantry")		//Tl;dr - Old Steppesman whip build, light armor, be the glass canon you always wanted to be. Live your life, king. 
+		if("Kozak - Light Infantry")		//Tl;dr - Old Steppesman whip build, light armor, be the glass canon you always wanted to be. Live your life, king.
 			H.set_blindness(0)
 			to_chat(H, span_warning("Being a Kozak is not a title one earns, nor is born with. It's a way of life. Known to be eccentric, living life on the edge - but living as free as possible. Skilled with whips, these madmen are the bane of civilized warriors."))
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
@@ -173,10 +173,10 @@
 			H.change_stat(STATKEY_PER, 2)
 			H.change_stat(STATKEY_WIL, 1)
 			H.change_stat(STATKEY_SPD, 2)
-			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_OUTDOORSMAN, TRAIT_GENERIC)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()		//Semi-crazed warrior vibe.
-		
+
 	H.grant_language(/datum/language/aavnic)
 	H.merctype = 11
