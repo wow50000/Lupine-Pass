@@ -58,6 +58,7 @@
 	M.adjust_drugginess(1)
 //Fluff text and emote.
 	if(prob(10))
-		M.emote("agony")
 		to_chat(M, span_warning("My flesh burns!"))
+		if(prob(1))
+			M.emote("agony")
 	return ..()
