@@ -26,7 +26,7 @@
 
 	job_traits = list(TRAIT_TRAINED_SMITH, TRAIT_SEEPRICES)
 
-	advclass_cat_rolls = list(CTAG_GUILDMASTER = 2)
+	advclass_cat_rolls = list(CTAG_GUILDSMASTER = 2)
 	job_subclasses = list(
 		/datum/advclass/guildmaster
 	)
@@ -41,8 +41,8 @@
 
 /datum/advclass/guildmaster
 	name = "Guildmaster"
-	tutorial = "You are the leader of the Azure Peak Guild of Crafts. You represents the interests of all of the craftsmen underneath you - including the Tailor\
-	the Blacksmiths, the Artificers and the Architects. Other townspeople may look to you for guidance, but they are not under your control. You are an experienced smith and artificer, and can do their work easily. Protect the craftsmen's interests."  
+	tutorial = "You are the leader of the Vale's Guild of Crafts. You represents the interests of all of the craftsmen underneath you - including the Tailor\
+	the Blacksmiths, the Artificers and the Architects. Other townspeople may look to you for guidance, but they are not under your control. You are an experienced smith and artificer, and can do their work easily. Protect the craftsmen's interests."
 	outfit = /datum/outfit/job/roguetown/guildmaster/basic
 	category_tags = list(CTAG_GUILDSMASTER)
 	subclass_stats = list(
@@ -96,7 +96,7 @@
 			/obj/item/rogueweapon/hammer/iron = 1,
 			/obj/item/rogueweapon/tongs = 1,
 			/obj/item/recipe_book/blacksmithing = 1,
-			/obj/item/clothing/mask/rogue/spectacles/golden = 1, 
+			/obj/item/clothing/mask/rogue/spectacles/golden = 1,
 			/obj/item/contraption/linker/master = 1,
 			)
 		belt = /obj/item/storage/belt/rogue/leather
