@@ -2007,13 +2007,6 @@
 /area/rogue/outdoors/town{
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
-"aOb" = (
-/obj/structure/flora/roguegrass/bush,
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town{
-	first_time_text = "THE TOWN OF ROCKHILL"
-	})
 "aOm" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -3395,11 +3388,6 @@
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
-"bnX" = (
-/turf/open/floor/rogue/rooftop/green{
-	dir = 4
-	},
-/area/rogue/indoors/shelter/mountains)
 "boa" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/sewer)
@@ -7439,12 +7427,6 @@
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
-"cKY" = (
-/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/rtfield{
-	first_time_text = "Rockhill Basin"
-	})
 "cLm" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -9316,11 +9298,15 @@
 	first_time_text = "Rockhill Keep"
 	})
 "dxC" = (
-/obj/structure/flora/roguegrass/bush/wall/tall,
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town{
-	first_time_text = "THE TOWN OF ROCKHILL"
+/obj/effect/landmark/mapGenerator/rogue/roguetownfield{
+	endTurfY = 400;
+	endTurfX = 255;
+	startTurfY = 150;
+	startTurfX = 45
+	},
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
 	})
 "dxS" = (
 /obj/machinery/light/rogue/wallfire/candle{
@@ -19768,11 +19754,6 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
-"hni" = (
-/turf/open/floor/rogue/rooftop{
-	icon_state = "roofg"
-	},
-/area/rogue/indoors/shelter/mountains)
 "hno" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /obj/structure/fluff/walldeco/church/line{
@@ -31840,11 +31821,11 @@
 	first_time_text = "Rockhill Keep"
 	})
 "lXZ" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt)
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/outdoors/town/roofs{
+	first_time_text = null
+	})
 "lYf" = (
 /obj/structure/pillory/reinforced,
 /turf/open/floor/rogue/cobble/mossy,
@@ -50236,6 +50217,11 @@
 /obj/structure/chair/stool/rogue{
 	pixel_y = -2
 	},
+/obj/machinery/light/rogue/wallfire/candle/floorcandle{
+	pixel_y = 4;
+	pixel_x = 2;
+	layer = 1
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/bath)
 "thQ" = (
@@ -55721,7 +55707,10 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/obj/structure/bed/rogue/inn/wool,
+/obj/structure/bed/rogue/inn/wool{
+	pixel_y = 5;
+	pixel_x = 6
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
@@ -61123,6 +61112,12 @@
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
+"xtK" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bograt)
 "xtQ" = (
 /obj/item/organ/heart,
 /obj/item/organ/liver,
@@ -174401,7 +174396,7 @@ fyc
 fyc
 fyc
 fyc
-fyc
+dxC
 "}
 (3,1,2) = {"
 sYw
@@ -201034,7 +201029,7 @@ gxt
 gxt
 gxt
 sYx
-lXZ
+xtK
 uuE
 sYx
 wLx
@@ -201466,7 +201461,7 @@ kDc
 sYx
 sYx
 sYx
-lXZ
+xtK
 uuE
 sYx
 sYx
@@ -234249,7 +234244,7 @@ uaL
 qvR
 uaL
 qvR
-cKY
+uaL
 qbG
 qbG
 qbG
@@ -255014,7 +255009,7 @@ kgp
 kgp
 hHI
 hHI
-lXZ
+xtK
 wGD
 sYx
 sYx
@@ -255446,7 +255441,7 @@ kgp
 wsm
 hHI
 hHI
-lXZ
+xtK
 wGD
 sYx
 odi
@@ -377095,8 +377090,8 @@ mwE
 aOv
 aOv
 ekQ
-aOb
-dxC
+ekQ
+hOh
 ekQ
 hOh
 jqq
@@ -587088,8 +587083,8 @@ rZi
 rZi
 rZi
 rZi
-hni
-bnX
+rZi
+jqs
 fZe
 vIa
 vIa
@@ -587503,7 +587498,7 @@ lHE
 jqs
 nbz
 col
-vwM
+lXZ
 vwM
 vwM
 rls
@@ -587521,7 +587516,7 @@ rZi
 rZi
 rZi
 rZi
-bnX
+jqs
 fZe
 fZe
 fZe
@@ -588367,7 +588362,7 @@ lHE
 jqs
 jqs
 col
-vwM
+lXZ
 vwM
 rls
 hQJ
