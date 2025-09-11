@@ -20877,9 +20877,7 @@
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/outdoors/beach/harbor)
 "hJp" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
@@ -23558,12 +23556,8 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/bath)
 "iIl" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
@@ -33401,15 +33395,9 @@
 	})
 "mzE" = (
 /obj/structure/closet/crate/drawer,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "mzM" = (
@@ -42094,9 +42082,7 @@
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/shop)
 "pTj" = (
@@ -45912,18 +45898,10 @@
 /area/rogue/outdoors/beach/harbor)
 "rAa" = (
 /obj/structure/rack/rogue,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -54942,12 +54920,8 @@
 "ven" = (
 /obj/structure/table/vtable/v2,
 /obj/structure/fluff/railing/border,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/physician)
 "ver" = (
@@ -60055,9 +60029,7 @@
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
 "xac" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
-	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
