@@ -116,7 +116,7 @@
 			base_drain = MEDIUM_ARMOR_PENALTY
 
 	var/abyssor_swim_bonus = HAS_TRAIT(swimmer, TRAIT_ABYSSOR_SWIM) ? 5 : 0
-	var/swimming_skill_level = swimmer.get_skill_level(/datum/skill/misc/swimming) 
+	var/swimming_skill_level = swimmer.get_skill_level(/datum/skill/misc/swimming)
 	. = max(base_drain - (swimming_skill_level * STAM_PER_LEVEL) - abyssor_swim_bonus, MIN_STAM_DRAIN)
 	if(swimmer.mind)
 		swimmer.mind.add_sleep_experience(/datum/skill/misc/swimming, swimmer.STAINT * xpmod)
@@ -594,6 +594,7 @@
 		if(M.getOxyLoss())
 			M.adjustOxyLoss(-heal_amount*2)
 
-		M.visible_message(span_notice("[M] looks a bit better after soaking in the spring."))
+//Someone else can put this on a timer. I can't be bothered.
+//		M.visible_message(span_notice("[M] looks a bit better after soaking in the spring."))
 
 	last_heal = world.time
