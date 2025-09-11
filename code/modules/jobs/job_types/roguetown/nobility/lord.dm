@@ -95,8 +95,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/duke
-		shoes = /obj/item/clothing/shoes/roguetown/nobleboot
-	if(H.wear_mask)
+		shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
+		
 		if(istype(H.wear_mask, /obj/item/clothing/mask/rogue/eyepatch))
 			qdel(H.wear_mask)
 			mask = /obj/item/clothing/mask/rogue/lordmask
