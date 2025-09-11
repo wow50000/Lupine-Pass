@@ -65,6 +65,14 @@
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
+"aaG" = (
+/obj/structure/bed/rogue/inn,
+/obj/item/bedsheet/rogue/pelt,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/under/town/basement)
 "aaI" = (
 /obj/structure/fluff/walldeco/painting{
 	pixel_y = 32
@@ -1911,6 +1919,13 @@
 /obj/item/clothing/head/roguetown/helmet/skullcap,
 /obj/structure/rack/rogue/shelf/biggest,
 /turf/open/floor/rogue/concrete,
+/area/rogue/under/town/basement)
+"aMw" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "aMG" = (
 /obj/structure/fluff/railing/border{
@@ -6129,6 +6144,13 @@
 /area/rogue/outdoors/rtfield{
 	first_time_text = "Rockhill Basin"
 	})
+"coE" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/town/basement)
 "coJ" = (
 /obj/structure/mineral_door/wood/violet{
 	locked = 1;
@@ -10595,6 +10617,13 @@
 /obj/structure/fluff/walldeco/mageguild,
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/magician)
+"dUZ" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/spider,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/town/basement)
 "dVa" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/woodturned,
@@ -10834,6 +10863,12 @@
 /area/rogue/outdoors/town{
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
+"dYZ" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/sewer)
 "dZj" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/dirt/road,
@@ -13334,6 +13369,10 @@
 /area/rogue/outdoors/town{
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
+"eUp" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/sewer)
 "eUz" = (
 /obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/herringbone,
@@ -13779,6 +13818,12 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/bath)
+"fcv" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement)
 "fcw" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -15173,6 +15218,10 @@
 /area/rogue/outdoors/rtfield{
 	first_time_text = "Rockhill Basin"
 	})
+"fCE" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/town/basement)
 "fCT" = (
 /obj/structure/stairs{
 	dir = 1
@@ -17681,6 +17730,7 @@
 /obj/structure/fluff/statue/gargoyle/candles{
 	pixel_y = 20
 	},
+/obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/blocks/green,
 /area/rogue/under/town/basement)
 "gzp" = (
@@ -20877,7 +20927,9 @@
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/outdoors/beach/harbor)
 "hJp" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
@@ -21475,6 +21527,13 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"hUb" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/sewer)
 "hUc" = (
 /obj/structure/roguerock{
 	pixel_x = -5
@@ -21645,6 +21704,7 @@
 /area/rogue/indoors/town/church)
 "hWx" = (
 /obj/structure/rack/rogue,
+/obj/item/clothing/suit/roguetown/armor/gambeson,
 /obj/item/clothing/suit/roguetown/armor/gambeson,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement)
@@ -23556,8 +23616,12 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/bath)
 "iIl" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
@@ -26979,6 +27043,12 @@
 "kbY" = (
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/outdoors/beach/harbor)
+"kbZ" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/sewer)
 "kce" = (
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/grass,
@@ -28190,6 +28260,9 @@
 "kyy" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/sewers,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/town/basement)
 "kyJ" = (
@@ -28321,6 +28394,13 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
+"kBt" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement)
 "kBu" = (
 /obj/structure/chair/wood/rogue/throne,
 /obj/effect/landmark/start/prince,
@@ -31814,6 +31894,12 @@
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
+"lXG" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/town/basement)
 "lXZ" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -33395,9 +33481,15 @@
 	})
 "mzE" = (
 /obj/structure/closet/crate/drawer,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "mzM" = (
@@ -35003,6 +35095,13 @@
 	dir = 1
 	},
 /area/rogue/indoors/town/magician)
+"nhc" = (
+/obj/structure/rack/rogue,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/town/basement)
 "nhq" = (
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/grass,
@@ -35115,6 +35214,14 @@
 /area/rogue/outdoors/town{
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
+"njt" = (
+/obj/structure/bed/rogue/inn,
+/obj/item/bedsheet/rogue/pelt,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/under/town/basement)
 "nju" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -39527,6 +39634,7 @@
 /obj/item/candle/yellow,
 /obj/item/candle/yellow,
 /obj/item/candle/yellow,
+/obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "oVu" = (
@@ -42082,7 +42190,9 @@
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/shop)
 "pTj" = (
@@ -45898,10 +46008,18 @@
 /area/rogue/outdoors/beach/harbor)
 "rAa" = (
 /obj/structure/rack/rogue,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -49727,6 +49845,12 @@
 	},
 /obj/item/natural/cloth,
 /obj/item/reagent_containers/glass/bottle,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "sZC" = (
@@ -52206,6 +52330,12 @@
 /area/rogue/outdoors/town{
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
+"tTN" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement)
 "tTX" = (
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/wood,
@@ -54473,6 +54603,12 @@
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors)
+"uTj" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/town/basement)
 "uTt" = (
 /obj/structure/mineral_door/swing_door,
 /turf/open/floor/rogue/grass,
@@ -54920,8 +55056,12 @@
 "ven" = (
 /obj/structure/table/vtable/v2,
 /obj/structure/fluff/railing/border,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/physician)
 "ver" = (
@@ -58425,6 +58565,17 @@
 /obj/structure/fluff/walldeco/mageguild2,
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/magician)
+"wwz" = (
+/obj/structure/closet/crate/drawer{
+	keylock = 1;
+	lockid = "bog_gatehouse"
+	},
+/obj/item/natural/cloth,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement)
 "wwC" = (
 /mob/living/carbon/human/species/human/northern/bum/ambush,
 /turf/open/floor/rogue/greenstone,
@@ -58960,6 +59111,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/beach/harbor)
+"wGo" = (
+/obj/structure/bed/rogue/inn,
+/obj/item/bedsheet/rogue/pelt,
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement)
 "wGs" = (
 /obj/structure/bars/passage/steel{
 	redstone_id = "gate_churchcell"
@@ -60029,7 +60186,9 @@
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
 "xac" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/medical{
+	loot = list(/obj/item/needle = 9, /obj/item/natural/cloth = 8, /obj/item/natural/bundle/cloth = 5, /obj/item/reagent_containers/powder/ozium = 2, obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
@@ -61905,6 +62064,7 @@
 /area/rogue/indoors/town/garrison)
 "xKF" = (
 /obj/item/roguestatue/iron,
+/obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/blocks/green,
 /area/rogue/under/town/basement)
 "xKL" = (
@@ -239292,14 +239452,14 @@ rSC
 rSC
 lrs
 scn
-wPN
+wGo
 lOO
 pCT
 cTA
-cBf
+kBt
 ylC
 ylC
-cBf
+aMw
 ylC
 oVi
 cBf
@@ -240588,7 +240748,7 @@ lrs
 lrs
 lrs
 scn
-aVQ
+wwz
 wHU
 wHU
 cTA
@@ -241021,7 +241181,7 @@ lrs
 lrs
 scn
 scn
-xjd
+njt
 tuM
 cTA
 taV
@@ -241030,7 +241190,7 @@ qng
 wNF
 cTA
 cBf
-xjd
+aaG
 cTA
 jyI
 qbG
@@ -242323,7 +242483,7 @@ mEB
 gUu
 nvb
 nvb
-nvb
+fcv
 cTA
 ylC
 ylC
@@ -243164,7 +243324,7 @@ uTy
 tCr
 wVI
 uJF
-gLf
+eUp
 gLf
 gLf
 gLf
@@ -243178,7 +243338,7 @@ gLf
 gLf
 gLf
 gLf
-gLf
+kbZ
 rRb
 lrs
 cTA
@@ -244042,7 +244202,7 @@ gLf
 uEX
 gLf
 aRj
-gLf
+dYZ
 rRb
 lrs
 rDV
@@ -245326,7 +245486,7 @@ gLf
 gLf
 gLf
 iCS
-iCS
+hUb
 kxN
 xAU
 xAU
@@ -245781,7 +245941,7 @@ nvb
 gUu
 mEB
 iTw
-gUu
+tTN
 cTA
 jyI
 qbG
@@ -246205,7 +246365,7 @@ rRb
 lrs
 cTA
 cTA
-yfk
+fCE
 nvb
 nvb
 nvb
@@ -246214,7 +246374,7 @@ gUu
 gUu
 gUu
 gUu
-gUu
+tTN
 cTA
 jyI
 qbG
@@ -246647,7 +246807,7 @@ nvb
 nvb
 gUu
 gUu
-gUu
+tTN
 jyI
 qbG
 qbG
@@ -247076,7 +247236,7 @@ nvb
 yfk
 eWS
 nvb
-eWS
+skc
 nvb
 gUu
 gUu
@@ -247506,7 +247666,7 @@ nvb
 eWS
 nvb
 eWS
-eWS
+skc
 nvb
 yfk
 nvb
@@ -247932,10 +248092,10 @@ gLf
 rRb
 lrs
 cTA
-eWS
+nhc
 nvb
 nvb
-eWS
+skc
 nvb
 yfk
 qxV
@@ -248365,7 +248525,7 @@ rRb
 lrs
 nXf
 cTA
-yfk
+coE
 nvb
 yfk
 nvb
@@ -248374,7 +248534,7 @@ yfk
 nvb
 pAR
 nvb
-yfk
+lXG
 cTA
 jyI
 qbG
@@ -248798,14 +248958,14 @@ lrs
 qAU
 jyI
 cTA
-yfk
+uTj
 yfk
 yfk
 yfk
 jIm
 yfk
 yfk
-jIm
+dUZ
 cTA
 jyI
 qbG
