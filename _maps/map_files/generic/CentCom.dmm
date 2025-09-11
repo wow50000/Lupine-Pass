@@ -829,7 +829,9 @@
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
 "bQ" = (
-/obj/structure/bookcase,
+/obj/structure/bookcase{
+	pixel_x = -4
+	},
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -838,9 +840,7 @@
 	})
 "bR" = (
 /obj/structure/table/vtable,
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -856,6 +856,8 @@
 	})
 "bT" = (
 /obj/structure/closet/crate/roguecloset/inn,
+/obj/item/reagent_containers/glass/bottle/rogue/redwine,
+/obj/item/reagent_containers/glass/bottle/rogue/redwine,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -879,10 +881,6 @@
 	dir = 9;
 	icon_state = "largetable"
 	},
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
 /obj/item/paper,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors{
@@ -1117,7 +1115,9 @@
 	})
 "cC" = (
 /obj/structure/fluff/railing/wood,
-/obj/structure/closet/crate/roguecloset/inn/chest,
+/obj/structure/closet/crate/roguecloset/inn/chest{
+	pixel_y = 10
+	},
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
@@ -1225,6 +1225,7 @@
 "cO" = (
 /obj/structure/bars,
 /obj/structure/roguewindow,
+/obj/structure/curtain/black,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -1611,7 +1612,7 @@
 	locked = 1;
 	lockid = "mansionvampire"
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1642,9 +1643,7 @@
 	})
 "dX" = (
 /obj/structure/table/vtable/v2,
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -2101,6 +2100,22 @@
 /obj/item/rogueweapon/greatsword,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
+"kG" = (
+/obj/structure/closet/crate/roguecloset/dark,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "kJ" = (
 /obj/structure/roguemachine/Hoardmaster{
 	pixel_x = -16
@@ -2160,6 +2175,15 @@
 "mg" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/eventarea)
+"mo" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "largetable_mid"
+	},
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "ms" = (
 /obj/structure/arcyne_wall{
 	max_integrity = 9999;
@@ -2278,7 +2302,7 @@
 	icon_state = "wcv";
 	lockid = "mansionvampire"
 	},
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -2613,6 +2637,17 @@
 /obj/structure/noose,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/banditcamp)
+"sy" = (
+/obj/structure/fluff/walldeco/maidendrape,
+/obj/structure/bookcase{
+	pixel_x = -4
+	},
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "sz" = (
 /obj/effect/landmark/events/testportal{
 	aportalloc = "bandit"
@@ -3022,6 +3057,7 @@
 "xJ" = (
 /obj/structure/roguewindow,
 /obj/structure/bars,
+/obj/structure/curtain/black,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -3344,6 +3380,9 @@
 /area/rogue/indoors/banditcamp)
 "Co" = (
 /obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/closet/crate/roguecloset{
+	pixel_y = 5
+	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -3671,9 +3710,18 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/eventarea)
 "Gz" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
+/obj/structure/closet/crate/roguecloset{
+	pixel_y = 5
 	},
+/obj/item/clothing/cloak/raincloak/mortus,
+/obj/item/clothing/cloak/raincloak/mortus,
+/obj/item/clothing/cloak/raincloak/mortus,
+/obj/item/clothing/mask/rogue/ragmask/black,
+/obj/item/clothing/mask/rogue/ragmask/black,
+/obj/item/clothing/mask/rogue/ragmask/black,
+/obj/item/clothing/mask/rogue/skullmask,
+/obj/item/clothing/mask/rogue/skullmask,
+/obj/item/clothing/mask/rogue/skullmask,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -4451,7 +4499,7 @@
 /area/rogue/under/cave/inhumen)
 "Tm" = (
 /obj/item/reagent_containers/glass/bowl,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -4854,12 +4902,10 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "XR" = (
-/obj/structure/closet/crate/roguecloset/inn/chest,
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+/obj/machinery/light/rogue/torchholder/c,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/woods{
+	droning_sound = 'sound/music/area/forestold.ogg'
 	})
 "XV" = (
 /turf/closed/mineral/random/rogue/high,
@@ -10732,9 +10778,9 @@ cS
 cp
 cp
 cp
-oa
-NG
 dy
+NG
+oa
 cp
 cp
 Te
@@ -11536,7 +11582,7 @@ Te
 Te
 Te
 Te
-Te
+bz
 Te
 Te
 bz
@@ -11798,7 +11844,7 @@ bB
 Te
 Te
 Te
-Te
+bz
 bz
 kB
 "}
@@ -12147,7 +12193,7 @@ dk
 dk
 dk
 cp
-NG
+kG
 NG
 bV
 NG
@@ -12170,7 +12216,7 @@ cp
 dC
 dE
 cp
-Te
+XR
 Te
 Te
 vQ
@@ -12315,7 +12361,7 @@ kV
 cn
 kV
 cp
-dp
+ZS
 bN
 bN
 dp
@@ -12542,7 +12588,7 @@ bY
 ch
 ch
 ch
-ch
+mo
 cy
 cd
 NG
@@ -13069,7 +13115,7 @@ cp
 cp
 cp
 cX
-XR
+cb
 cb
 cH
 da
@@ -13190,7 +13236,7 @@ dk
 dk
 cp
 cp
-bQ
+sy
 cs
 bQ
 cC
@@ -13203,9 +13249,9 @@ bR
 cb
 cb
 dS
+dp
 cn
-cn
-cn
+dp
 NG
 xJ
 Te
@@ -13334,7 +13380,7 @@ cb
 cb
 da
 cn
-cn
+dp
 sX
 NG
 cp
@@ -13454,7 +13500,7 @@ cc
 cD
 cb
 cb
-cb
+cp
 cp
 UH
 cP
@@ -13463,7 +13509,7 @@ de
 de
 dQ
 da
-cn
+dp
 sX
 sX
 cp
