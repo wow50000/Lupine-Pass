@@ -241,8 +241,8 @@
 		//medical
 		/obj/item/needle = 4,
 		/obj/item/natural/cloth = 5,
-		/obj/item/natural/bundle/cloth = 3
-	)
+		/obj/item/natural/bundle/cloth = 3,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 	lootcount = 2
 
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons
@@ -291,7 +291,11 @@
 		/obj/item/rogueweapon/stoneaxe = 3,
 		/obj/item/rogueweapon/hammer/stone = 3,
 		/obj/item/rogueweapon/tongs = 3,
-		/obj/item/rogueweapon/pick = 3
+		/obj/item/rogueweapon/pick = 3,
+		/obj/item/rogueweapon/sickle = 3,
+		/obj/item/rogueweapon/huntingknife = 3,
+		/obj/item/rogueweapon/huntingknife/scissors = 3,
+		/obj/item/rogueweapon/hoe = 3
 	)
 	lootcount = 1
 
