@@ -43,7 +43,7 @@
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
 		var/title = "Brother"
-		if(H.gender == FEMALE)
+		if(H.gender == FEMALE)//Might want to swap it to presented, instead?
 			title = "Sister"
 		H.real_name = "[title] [prev_real_name]"
 		H.name = "[title] [prev_name]"
