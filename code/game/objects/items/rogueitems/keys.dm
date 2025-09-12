@@ -503,7 +503,7 @@
 	icon_state = "greenkey"
 	lockid = "physician"
 
-/obj/item/roguekey/cphysician
+/obj/item/roguekey/courtphysician
 	name = "court physician key"
 	desc = "The key smells of herbs, feeling soothing to the touch. This one is especially prestigious"
 	icon_state = "greenkey"
