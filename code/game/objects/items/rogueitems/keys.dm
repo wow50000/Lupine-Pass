@@ -505,7 +505,7 @@
 
 /obj/item/roguekey/Cphysician
 	name = "court physician key"
-	desc = "The key smells of herbs, feeling soothing to the touch. This one is especially special"
+	desc = "The key smells of herbs, feeling soothing to the touch. This one is especially prestigious"
 	icon_state = "greenkey"
 	lockid = "Cphysician"
 
