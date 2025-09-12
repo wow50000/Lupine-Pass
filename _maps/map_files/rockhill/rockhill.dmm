@@ -1256,6 +1256,7 @@
 	name = "Street Shop Key";
 	desc = "This old key opens the peddler for the hightown street shop."
 	},
+/obj/item/roguekey/Cphysician,
 /turf/open/floor/rogue/tile/tilerg,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -3078,6 +3079,11 @@
 /area/rogue/indoors)
 "bhr" = (
 /obj/machinery/light/rogue/cauldron,
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
+	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -4542,6 +4548,25 @@
 /obj/structure/flora/roguegrass/water,
 /turf/open/water/ocean,
 /area/rogue/outdoors/beach/harbor)
+"bJc" = (
+/obj/structure/closet/crate/drawer{
+	lockid = "Cphysician";
+	pixel_y = 5;
+	keylock = 1
+	},
+/obj/item/roguekey/Cphysician,
+/obj/item/roguekey/physician,
+/obj/item/roguekey/physician,
+/obj/item/roguekey/physician,
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
+	},
+/turf/open/floor/rogue/tile/harem1,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "bJl" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -5573,7 +5598,7 @@
 "cco" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
-	lockid = "physician"
+	lockid = "Cphysician"
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor{
@@ -8933,6 +8958,11 @@
 	pixel_y = -32
 	},
 /obj/structure/table/vtable/v2,
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
+	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -11153,6 +11183,11 @@
 /obj/item/reagent_containers/glass/mortar{
 	pixel_x = 7;
 	pixel_y = 5
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
 	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/manor{
@@ -22461,7 +22496,6 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/garrison)
 "ieM" = (
-/obj/machinery/light/rogue/wallfire/candle/r,
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/mask/rogue/physician,
 /obj/item/clothing/neck/roguetown/psicross/pestra,
@@ -22470,6 +22504,11 @@
 /obj/item/clothing/suit/roguetown/shirt/tunic/red,
 /obj/item/clothing/under/roguetown/trou/leather/mourning,
 /obj/item/clothing/shoes/roguetown/armor,
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
+	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -22585,7 +22624,7 @@
 	},
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
-	lockid = "physician";
+	lockid = "Cphysician";
 	name = "Reanimation Chamber"
 	},
 /turf/open/floor/rogue/tile/brownbrick,
@@ -36659,6 +36698,16 @@
 /area/rogue/outdoors/rtfield{
 	first_time_text = "Rockhill Basin"
 	})
+"nEA" = (
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
+	},
+/turf/open/floor/rogue/churchbrick,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "nEC" = (
 /obj/item/bedsheet/rogue/cloth{
 	pixel_x = 8
@@ -37933,6 +37982,11 @@
 /obj/structure/bed/rogue/inn/wool,
 /obj/item/bedsheet/rogue/fabric,
 /obj/effect/landmark/start/physician,
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
+	},
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -45945,7 +45999,7 @@
 "rkp" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
-	lockid = "physician";
+	lockid = "Cphysician";
 	name = "Physician's Office"
 	},
 /turf/open/floor/rogue/churchbrick,
@@ -47634,6 +47688,11 @@
 /obj/machinery/light/rogue/wallfire/candle/r,
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/item/herbseed/manabloom,
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
+	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -51921,7 +51980,7 @@
 "tvm" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
-	lockid = "physician";
+	lockid = "Cphysician";
 	name = "Physician's Bedroom"
 	},
 /turf/open/floor/rogue/churchbrick,
@@ -54675,6 +54734,11 @@
 	dir = 4
 	},
 /obj/structure/roguemachine/scomm,
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall";
+	pixel_y = 6
+	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -56647,7 +56711,7 @@
 "vry" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
-	lockid = "physician";
+	lockid = "Cphysician";
 	name = "Physician's Office"
 	},
 /turf/open/floor/rogue/church,
@@ -58940,6 +59004,11 @@
 /obj/item/rogueweapon/huntingknife/chefknife{
 	pixel_x = -3;
 	pixel_y = 8
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "borderfall";
+	pixel_x = 8
 	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/manor{
@@ -579549,8 +579618,8 @@ gzN
 kUR
 tvm
 aFk
-tpQ
 fhY
+tpQ
 wtF
 gnq
 cud
@@ -579982,7 +580051,7 @@ kUR
 wtF
 ieM
 ocu
-tpQ
+bJc
 wtF
 dxv
 dxv
@@ -582138,7 +582207,7 @@ vIa
 vIa
 wtF
 rSI
-iNJ
+nEA
 ead
 wjP
 bhr
