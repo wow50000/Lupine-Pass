@@ -125,6 +125,8 @@ Necra's Censer
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	item_state = "necra_censer"
 	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 64
 	throw_speed = 3
 	throw_range = 7
 	throwforce = 4
