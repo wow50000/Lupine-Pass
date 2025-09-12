@@ -239,11 +239,12 @@
 	icon_state = "medical"
 	loot = list(
 		//medical
-		/obj/item/needle = 4,
-		/obj/item/natural/cloth = 4,
-		/obj/item/natural/bundle/cloth = 2,
+		/obj/item/needle = 6,
+		/obj/item/natural/cloth = 6,
+		/obj/item/natural/bundle/cloth = 3,
+		/obj/item/reagent_containers/powder/ozium = 1,
 		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
-	lootcount = 2
+	lootcount = 1
 
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons
 	icon_state = "weapon"
