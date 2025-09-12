@@ -515,9 +515,9 @@
 		if(/datum/patron/divine/xylix) // no longer random, rejoice my fellow xylixians!
 			neck = /obj/item/clothing/neck/roguetown/psicross/xylix
 		if(/datum/patron/inhumen/zizo,
-	  		/datum/patron/inhumen/matthios,
-	   		/datum/patron/inhumen/graggar,
-	   		/datum/patron/inhumen/baotha)
+			/datum/patron/inhumen/matthios,
+			/datum/patron/inhumen/graggar,
+			/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
 		if(/datum/patron/inhumen/matthios)
