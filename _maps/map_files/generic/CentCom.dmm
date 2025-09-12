@@ -1109,7 +1109,7 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/rogue/wood,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1154,6 +1154,9 @@
 "cG" = (
 /obj/structure/table/church{
 	icon_state = "churchtable_mid"
+	},
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 6
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors{
@@ -1216,7 +1219,12 @@
 	})
 "cN" = (
 /obj/structure/vampire/scryingorb{
-	pixel_x = -16
+	pixel_x = -16;
+	pixel_y = 10
+	},
+/obj/machinery/light/rogue/firebowl/church/off{
+	layer = 2;
+	pixel_y = -2
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors{
@@ -1348,7 +1356,7 @@
 /obj/item/roguekey/vampire,
 /obj/item/roguekey/vampire,
 /obj/item/roguekey/vampire,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/rogue/wood,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1753,8 +1761,12 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "ft" = (
-/obj/item/candle/skull,
-/turf/open/floor/rogue/herringbone,
+/obj/effect/wisp/prestidigitation{
+	desc = "A small, fiery ball of light made up of mystical energy.";
+	name = "Will-o'-the-wisp";
+	pixel_x = 0
+	},
+/turf/open/water/cleanshallow,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -1856,6 +1868,9 @@
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 8
 	},
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_y = -32
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -1864,7 +1879,8 @@
 /obj/structure/chair/bench/couchablack/r,
 /obj/structure/bookcase/random{
 	pixel_y = 22;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
@@ -1881,6 +1897,10 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
+"hB" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/banditcamp)
 "hK" = (
 /obj/effect/solid_invisible_barrier,
 /turf/open/floor/rogue/underworld/space/quiet,
@@ -2415,7 +2435,14 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "pc" = (
-/obj/machinery/light/rogue/firebowl/standing,
+/obj/machinery/light/rogue/firebowl/standing{
+	density = 0;
+	pixel_y = 24;
+	pixel_x = 10
+	},
+/obj/structure/chair/wood/rogue/fancy{
+	dir = 4
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
@@ -3009,6 +3036,14 @@
 "wZ" = (
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/eventarea)
+"xe" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "xg" = (
 /turf/open/floor/rogue/rooftop/green,
 /area/rogue/indoors/eventarea)
@@ -3229,6 +3264,14 @@
 /obj/item/roguecoin/gold/pile,
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/banditcamp)
+"Aq" = (
+/obj/machinery/light/rogue/firebowl/standing/green{
+	pixel_x = 17
+	},
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "As" = (
 /obj/item/rogueore/coal,
 /obj/item/rogueore/coal,
@@ -3242,7 +3285,8 @@
 /obj/structure/chair/bench/couchablack,
 /obj/structure/bookcase/random{
 	pixel_y = 22;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
@@ -3460,7 +3504,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
 "Dy" = (
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/rogue/wood,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -3552,7 +3596,8 @@
 /obj/machinery/light/rogue/wallfire/candle/floorcandle,
 /obj/structure/bookcase/random{
 	pixel_y = 22;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
@@ -3798,6 +3843,20 @@
 	icon_state = "chess"
 	},
 /area/rogue/indoors/banditcamp)
+"HG" = (
+/obj/structure/table/wood/poor,
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_y = 10;
+	pixel_x = -13
+	},
+/obj/item/reagent_containers/glass/cup/skull{
+	pixel_y = -1;
+	pixel_x = 7
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "HH" = (
 /obj/effect/landmark/start/bandit{
 	dir = 4;
@@ -4219,7 +4278,8 @@
 /obj/machinery/light/rogue/wallfire/candle/floorcandle/alt,
 /obj/structure/bookcase/random{
 	pixel_y = 22;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors{
@@ -4289,9 +4349,11 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
 "Qi" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/indoors/banditcamp)
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/carpet/inn,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "Ql" = (
 /obj/item/grown/log/tree/small,
 /turf/open/floor/rogue/dirt,
@@ -4500,6 +4562,12 @@
 "Tm" = (
 /obj/item/reagent_containers/glass/bowl,
 /turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
+"To" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/turf/open/floor/rogue/wood,
 /area/rogue/indoors{
 	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
 	})
@@ -4889,7 +4957,7 @@
 	color = "grey"
 	},
 /obj/structure/curtain{
-	color = "#bda588"
+	color = "#ad885c"
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/banditcamp)
@@ -5056,6 +5124,14 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/banditcamp)
+"ZA" = (
+/obj/machinery/light/rogue/firebowl/standing/green{
+	pixel_x = -15
+	},
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/indoors{
+	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
+	})
 "ZC" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/hexstone,
@@ -5824,10 +5900,10 @@ WW
 vU
 DW
 vp
+hB
 Hi
 Hi
-Hi
-Hi
+rr
 Hi
 DR
 sQ
@@ -6087,7 +6163,7 @@ vp
 dq
 Hi
 Hi
-Hi
+sd
 Hi
 DR
 sQ
@@ -7118,7 +7194,7 @@ ky
 vp
 vp
 wU
-Qi
+vp
 vp
 ky
 ky
@@ -7248,7 +7324,7 @@ jg
 ky
 ky
 jg
-jg
+FO
 jg
 jg
 jg
@@ -10770,8 +10846,8 @@ cp
 cp
 cp
 pc
-NG
-ft
+Rr
+Yt
 cp
 cp
 cS
@@ -10911,7 +10987,7 @@ cp
 Co
 cb
 cb
-cb
+cU
 cp
 cp
 vQ
@@ -11042,7 +11118,7 @@ rL
 cb
 bJ
 cb
-Rr
+HG
 WB
 vQ
 dD
@@ -11296,7 +11372,7 @@ cp
 dN
 cT
 cT
-dN
+xe
 cp
 dz
 cP
@@ -11545,7 +11621,7 @@ dk
 Yk
 ck
 cp
-jZ
+ft
 pA
 jZ
 jZ
@@ -11680,7 +11756,7 @@ bL
 dV
 cQ
 cp
-Dy
+To
 df
 cp
 QP
@@ -11935,7 +12011,7 @@ dk
 dk
 dk
 cp
-jZ
+ft
 CM
 jZ
 jZ
@@ -13500,7 +13576,7 @@ cc
 cD
 cb
 cb
-cp
+Aq
 cp
 UH
 cP
@@ -13760,7 +13836,7 @@ Ym
 cd
 dh
 dj
-cp
+ZA
 cp
 cp
 bE
@@ -13885,9 +13961,9 @@ dk
 dk
 cp
 bT
-cd
+Qi
 cl
-cd
+Qi
 cp
 cp
 cp
