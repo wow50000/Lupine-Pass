@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 		guy.apply_status_effect(/datum/status_effect/buff/dungeoneerbuff)
 	if((src.holy_area == TRUE) && HAS_TRAIT(guy, TRAIT_UNDIVIDED)) // get a long-lingering mood buff so long as we visit the church daily as Undivided.
 		guy.add_stress(/datum/stressevent/seeblessed)
-	if((src.holy_area == TRUE) && HAS_TRAIT(guy, TRAIT_OVERTHERETIC))//Heretics are punished for walking around on hallowed ground, if wearing ritual armour.
+	if((src.holy_area == TRUE) && HAS_TRAIT(guy, TRAIT_OVERTHERETIC))//Heretics are punished for walking in the Church with rites buffs. For now, just rite armour.
 		guy.apply_status_effect(/datum/status_effect/debuff/overt_punishment)
 
 /area/rogue/indoors
