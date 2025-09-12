@@ -210,6 +210,7 @@
 #define TRAIT_MONK_ROBE	"Holy Vestatures"
 #define TRAIT_RACISMISBAD "Heritage Vision"
 #define TRAIT_VENOMOUS "Venomous"
+#define TRAIT_OVERTHERETIC "Overt Heretic"//Have they used the rites to obtain armour?
 
 // If you want description to show up you gotta have the trait name defined BEFORE this lol
 
