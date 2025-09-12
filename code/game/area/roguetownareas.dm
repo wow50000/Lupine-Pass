@@ -626,6 +626,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "The Inquisition's Basement"
 	icon_state = "chapel"
 	ceiling_protected = TRUE
+	droning_sound = 'sound/music/area/catacombs.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
 
 /area/rogue/indoors/town/warehouse/can_craft_here()
 	return FALSE
