@@ -518,6 +518,17 @@
         to_chat(user, "<span class='notice'>You finish packing up the Nerve Master!</span>")
         del(src)
 
+/datum/crafting_recipe/roguetown/structure/scomm/byos
+	name = "SCOMM - (rat, iron ingot, cog; EXPERT)"
+	result = /obj/structure/roguemachine/scomm/byos
+	reqs = list(/obj/item/reagent_containers/food/snacks/smallrat = 1,
+				/obj/item/ingot/iron = 1,
+				/obj/item/roguegear/bronze = 1)
+	verbage = "engineers"
+	skillcraft = /datum/skill/craft/engineering
+	offset = TRUE
+	wallcraft = TRUE
+	skill_level = 4
 
 #undef TAB_MAIN
 #undef TAB_BANK
