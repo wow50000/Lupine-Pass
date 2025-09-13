@@ -106,7 +106,7 @@
 				to_chat(user, span_warning("This [I] is obsolete."))
 				return
 			else
-		upgrade = I
+				upgrade = I
 				upgrade_level = cog.ulevel
 				maximum_capacity = cog.cart_capacity
 				qdel(cog)
