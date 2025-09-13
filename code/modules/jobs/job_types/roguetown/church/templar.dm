@@ -43,7 +43,7 @@
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
 //Default fallback title.
-		var/title = "Devotee"
+		var/title = "Votary"
 //Actual titles now, based on pronouns.
 		switch(H.pronouns)
 			if(SHE_HER)
