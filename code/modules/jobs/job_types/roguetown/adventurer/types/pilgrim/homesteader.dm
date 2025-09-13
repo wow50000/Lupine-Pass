@@ -5,14 +5,14 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/homesteader
 	traits_applied = list(TRAIT_JACKOFALLTRADES)
-	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
+	category_tags = list(CTAG_DISABLED)
 	adaptive_name = TRUE
 	subclass_stats = list(
 		STATKEY_INT = 3,	//This guy's here to grind = baby.
 		STATKEY_STR = 1,
 		STATKEY_WIL = 1,
 		STATKEY_PER = 1,
-		STATKEY_LCK = 1,	
+		STATKEY_LCK = 1,
 	)
 
 /datum/outfit/job/roguetown/homesteader/pre_equip(mob/living/carbon/human/H)
