@@ -611,9 +611,8 @@
 	if (affecting.bandage)
 		to_chat(user, "There is already a bandage.")
 		return
-	var/used_time = 100
-	if (H.mind)
-		used_time -= (H.mind.get_skill_level(/datum/skill/misc/medicine) * 10)
+	var/used_time = 70
+	used_time -= (H.get_skill_level(/datum/skill/misc/medicine) * 10)
 	playsound(loc, 'sound/foley/bandage.ogg', 100, FALSE)
 	if (!do_mob(user, M, used_time)) return
 	playsound(loc, 'sound/foley/bandage.ogg', 100, FALSE)
