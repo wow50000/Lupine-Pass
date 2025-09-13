@@ -643,7 +643,7 @@
 	force = 0
 	throwforce = 0
 	maxamount = 3
-	firefuel = 15 MINUTES
+	firefuel = 10 MINUTES
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_TINY
 	stacktype = /obj/item/natural/cloth/bandage
@@ -658,6 +658,6 @@
 /obj/item/natural/bundle/cloth/bandage/full
 	icon_state = "bandageroll2"
 	amount = 3
-	firefuel = 60 MINUTES
+	firefuel = 15 MINUTES
 
 
