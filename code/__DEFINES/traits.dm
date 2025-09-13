@@ -210,7 +210,7 @@
 #define TRAIT_MONK_ROBE	"Holy Vestatures"
 #define TRAIT_RACISMISBAD "Heritage Vision"
 #define TRAIT_VENOMOUS "Venomous"
-#define TRAIT_OVERTHERETIC "Overt Heretic"//Applied on someone who has rites buffs. It's just Gilded/Vicious/Darksteel armour for now.
+#define TRAIT_OVERTHERETIC "Overt Heretic"//Applied on someone who has rites buffs. Armour, rituos, etc.
 
 // If you want description to show up you gotta have the trait name defined BEFORE this lol
 
