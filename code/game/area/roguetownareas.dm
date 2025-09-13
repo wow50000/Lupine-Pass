@@ -654,6 +654,16 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 
+/area/rogue/indoors/town/grove
+	name = "grove"
+	icon_state = "outdoors"
+	droning_sound = 'sound/music/area/druid.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	droning_sound_dawn = 'sound/music/area/forest.ogg'
+	converted_type = /area/rogue/indoors/shelter/woods
+	deathsight_message = "A sacred place of dendor, beneath the tree of Aeons.."
+
 ///// outside
 
 /area/rogue/outdoors/town
@@ -727,6 +737,16 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/shelter/town/dwarf
 	icon_state = "dwarf"
 	droning_sound = 'sound/music/area/dwarf.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+
+/area/rogue/outdoors/town/grove
+	icon_state = "outdoors"
+	droning_sound = 'sound/music/area/druid.ogg'	
+	holy_area = TRUE
+	droning_sound_dawn = 'sound/music/area/forest.ogg'
+	converted_type = /area/rogue/indoors/town/grove
+	deathsight_message = "A sacred place of dendor, near the tree of Aeons.."
 	droning_sound_dusk = null
 	droning_sound_night = null
 
