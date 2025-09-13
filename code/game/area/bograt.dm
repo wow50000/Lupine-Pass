@@ -39,3 +39,14 @@
 	droning_sound_night = null
 	threat_region = THREAT_REGION_TERRORBOG
 
+/area/rogue/outdoors/bograt/north
+	name = "Northern Terrorbog"
+
+/area/rogue/outdoors/bograt/east
+	name = "Eastern Terrorbog"
+	
+/area/rogue/outdoors/bograt/south
+	name = "Southern Terrorbog"
+
+/area/rogue/outdoors/bograt/west
+	name = "Western Terrorbog"
