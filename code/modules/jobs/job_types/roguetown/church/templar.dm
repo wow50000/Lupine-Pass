@@ -39,12 +39,22 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
-//Name stuff.
+//Title stuff. This is super sloppy.
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
-		var/title = "Brother"
-		if(H.gender == FEMALE)//Might want to swap it to presented, instead?
-			title = "Sister"
+//Default fallback title.
+		var/title = "Devotee"
+//Actual titles now, based on pronouns.
+		switch(H.pronouns)
+			if(SHE_HER)
+				title = "Sister"
+			if(SHE_HER_M)
+				title = "Sister"
+			if(HE_HIM)
+				title = "Brother"
+			if(HE_HIM_F)
+				title = "Brother"
+//Now apply the actual title.
 		H.real_name = "[title] [prev_real_name]"
 		H.name = "[title] [prev_name]"
 
