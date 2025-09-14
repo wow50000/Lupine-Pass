@@ -51,6 +51,14 @@
 	icon_state = "insmash"
 	item_d_type = "blunt"
 
+//Knuckle utility. Use it to line up strikes. -2PER, -1LCK.
+//Open up a feint window with it. 10 seconds duration.
+/datum/intent/effect/daze/unarmed
+	attack_verb = list("strikes")
+	damfactor = 0.8
+	swingdelay = 8//Same as smash.
+	intent_effect = /datum/status_effect/debuff/dazed/unarmed
+
 /// INTENT DATUMS	^
 
 /obj/item/rogueweapon/katar
@@ -112,7 +120,6 @@
 	max_integrity = 120		//Steel dagger -30
 	force = 15		//Steel dagger -5
 	throwforce = 8
-	wdefense = 0	//Hell no!
 	thrown_bclass = BCLASS_STAB
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/thrust/pick)
 	icon_state = "plug"
@@ -128,7 +135,7 @@
 	name = "steel knuckles"
 	desc = "A mean looking pair of steel knuckles."
 	force = 21
-	possible_item_intents = list(/datum/intent/knuckles/strike,/datum/intent/knuckles/smash)
+	possible_item_intents = list(/datum/intent/knuckles/strike, /datum/intent/knuckles/smash, /datum/intent/effect/daze/unarmed)
 	icon = 'icons/roguetown/weapons/32.dmi'
 	icon_state = "steelknuckle"
 	gripsprite = FALSE
@@ -160,23 +167,10 @@
 /obj/item/rogueweapon/knuckles/bronzeknuckles
 	name = "bronze knuckles"
 	desc = "A mean looking pair of bronze knuckles. Mildly heavier than it's steel counterpart."
-	force = 18
-	possible_item_intents = list(/datum/intent/knuckles/strike,/datum/intent/knuckles/smash)
-	icon = 'icons/roguetown/weapons/32.dmi'
 	icon_state = "bronzeknuckle"
-	gripsprite = FALSE
-	wlength = WLENGTH_SHORT
-	w_class = WEIGHT_CLASS_SMALL
-	slot_flags = ITEM_SLOT_HIP
-	parrysound = list('sound/combat/parry/pugilism/unarmparry (1).ogg','sound/combat/parry/pugilism/unarmparry (2).ogg','sound/combat/parry/pugilism/unarmparry (3).ogg')
-	sharpness = IS_BLUNT
+	force = 18
 	max_integrity = 200
-	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
-	associated_skill = /datum/skill/combat/unarmed
-	throwforce = 12
-	wdefense = 0	//Meant to be used with bracers
 	wbalance = WBALANCE_HEAVY
-	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/bronze
 
 /obj/item/rogueweapon/knuckles/aknuckles
@@ -185,7 +179,6 @@
 	icon_state = "aknuckle"
 	force = 12
 	max_integrity = 100
-	wdefense = 4
 	smeltresult = /obj/item/ingot/aalloy
 	blade_dulling = DULLING_SHAFT_CONJURED
 

@@ -391,6 +391,10 @@
 	effectedstats = list(STATKEY_PER = -3, STATKEY_LCK = -1)
 	duration = 8 SECONDS
 
+/datum/status_effect/debuff/dazed/unarmed
+	effectedstats = list(STATKEY_INT = -2, STATKEY_LCK = -1)
+	duration = 10 SECONDS
+
 /atom/movable/screen/alert/status_effect/debuff/dazed
 	name = "Dazed"
 	desc = "You've been smacked on the head very hard. Which way is left, again?"
