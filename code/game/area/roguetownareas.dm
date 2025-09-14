@@ -57,6 +57,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
 	droning_sound_night = 'sound/music/area/banditcamp.ogg'
 
+/area/rogue/indoors/vampiremanor
+	name = "vampire manor"
+	droning_sound = 'sound/music/area/banditcamp.ogg'
+	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
+	droning_sound_night = 'sound/music/area/banditcamp.ogg'
+	first_time_text = "The House of Blood"
+
 
 /area/rogue/indoors/ravoxarena
 	name = "ravox arena"
@@ -96,6 +103,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/banditcamp.ogg'
 	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
 	droning_sound_night = 'sound/music/area/banditcamp.ogg'
+	first_time_text = "A Gathering of Thieves"
 
 /area/rogue/outdoors/banditcamp/exterior // Only use these around traveltiles - Constantine
 	name = "bandit camp outdoors"
