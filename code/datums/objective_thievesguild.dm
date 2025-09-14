@@ -15,7 +15,7 @@
     var/list/items
     items = list(
         list("Staff of the Shepherd", /obj/item/rogueweapon/woodstaff/aries),
-        list("Crown of Scarlet Reach", /obj/item/clothing/head/roguetown/crown/serpcrown),
+        list("Crown of Rotwood Vale", /obj/item/clothing/head/roguetown/crown/serpcrown),
         list("Bell Ringer", /obj/item/rogueweapon/mace/church),
         list("Pepper Mill", /obj/item/reagent_containers/food/condiment/peppermill),
         list("Sword of the Mad Duke", /obj/item/rogueweapon/sword/rapier/lord),
@@ -55,9 +55,9 @@
     for(var/client/C in GLOB.clients)
         var/mob/living/carbon/human/H
         H = C.mob
-        if(!istype(H, /mob/living/carbon/human/)) 
+        if(!istype(H, /mob/living/carbon/human/))
             continue
-        if(!H.mind || !H.mind.assigned_role) 
+        if(!H.mind || !H.mind.assigned_role)
             continue
         var/assigned_role = H.mind.assigned_role
         var/role_name = get_role_name(assigned_role)
@@ -169,10 +169,10 @@
 		for(var/obj/item/I in get_all_mob_items(owner.current))
 			if(istype(I, target_item_path))
 				return TRUE
-	return FALSE 
+	return FALSE
 
 /proc/get_role_name(var/role)
 	if(istype(role, /datum/job))
 		var/datum/job/J = role
 		return J.title
-	return "[role]" 
+	return "[role]"
