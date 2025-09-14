@@ -5291,13 +5291,12 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/chapel)
 "bUq" = (
-/obj/structure/closet/crate/roguecloset{
-	keylock = 1;
-	locked = 1;
-	lockid = "graveyard"
+/obj/structure/bed/rogue/inn/wool{
+	dir = 1
 	},
-/obj/item/burial_shroud,
-/obj/item/burial_shroud,
+/obj/item/bedsheet/rogue/cloth{
+	dir = 1
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
 "bUA" = (
@@ -20984,6 +20983,24 @@
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
+"hyr" = (
+/obj/structure/table/wood{
+	dir = 10;
+	icon_state = "tablewood2";
+	pixel_y = 7
+	},
+/obj/item/necra_censer{
+	pixel_y = 26
+	},
+/obj/item/clothing/neck/roguetown/psicross/necra{
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/obj/machinery/light/rogue/wallfire/candle/floorcandle{
+	pixel_y = 5
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/town/church)
 "hyz" = (
 /obj/structure/flora/ausbushes/reedbush,
 /obj/machinery/light/rogue/wallfire/candle/l,
@@ -21943,6 +21960,12 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/beach/harbor)
+"hQu" = (
+/obj/machinery/light/rogue/wallfire/candle/blue{
+	pixel_x = 14
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/town/church)
 "hQz" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -27599,6 +27622,18 @@
 "jWa" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/garrison)
+"jWr" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/obj/structure/closet/crate/roguecloset{
+	keylock = 1;
+	locked = 1;
+	lockid = "graveyard"
+	},
+/obj/item/burial_shroud,
+/obj/item/burial_shroud,
+/obj/item/burial_shroud,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/town/church)
 "jWu" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/closed/wall/mineral/rogue/stone,
@@ -38614,6 +38649,12 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"oep" = (
+/obj/machinery/light/rogue/wallfire/candle/blue{
+	pixel_x = -14
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/town/church)
 "oeu" = (
 /obj/structure/closet/crate/roguecloset{
 	keylock = 1;
@@ -57574,11 +57615,6 @@
 	},
 /area/rogue/under/town/basement/keep)
 "vsf" = (
-/obj/structure/table/wood{
-	dir = 10;
-	icon_state = "tablewood2"
-	},
-/obj/item/clothing/neck/roguetown/psicross/necra,
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
@@ -138090,7 +138126,7 @@ wmY
 wmY
 mUI
 mUI
-mUI
+whb
 whb
 whb
 whb
@@ -138953,7 +138989,7 @@ wmY
 wmY
 mUI
 mUI
-mUI
+whb
 whb
 whb
 whb
@@ -139384,8 +139420,8 @@ wmY
 wmY
 mUI
 mUI
-mUI
-mUI
+whb
+whb
 whb
 whb
 whb
@@ -139816,7 +139852,7 @@ wmY
 mUI
 mUI
 mUI
-mUI
+whb
 whb
 whb
 whb
@@ -140248,7 +140284,7 @@ mUI
 mUI
 mUI
 mUI
-mUI
+whb
 whb
 whb
 whb
@@ -140680,7 +140716,7 @@ mUI
 mUI
 mUI
 mUI
-mUI
+whb
 whb
 whb
 whb
@@ -141102,7 +141138,7 @@ qBf
 qBf
 qBf
 qfz
-iTH
+qfz
 iTH
 efz
 efz
@@ -141534,7 +141570,7 @@ czk
 czk
 czk
 czk
-efz
+czk
 efz
 efz
 mUI
@@ -141966,7 +142002,7 @@ czk
 czk
 czk
 czk
-efz
+czk
 efz
 efz
 efz
@@ -254768,19 +254804,19 @@ wLx
 wLx
 wLx
 wLx
-wLx
-wLx
+smf
+smf
 smf
 smf
 qYw
 uRH
-xQW
-wLx
-wLx
-amU
-amU
-amU
-wLx
+uRH
+smf
+smf
+qCt
+qCt
+qCt
+smf
 wLx
 wLx
 uWK
@@ -255198,9 +255234,9 @@ wLx
 wLx
 wLx
 wLx
-wLx
-wLx
-wLx
+smf
+smf
+smf
 smf
 smf
 rfA
@@ -255210,10 +255246,10 @@ qYw
 smf
 smf
 smf
-wLx
-wLx
-wEg
-wLx
+smf
+smf
+aOf
+smf
 qrc
 qrc
 uWK
@@ -255629,9 +255665,9 @@ wLx
 wLx
 amU
 amU
-amU
-amU
-wLx
+qCt
+qCt
+smf
 smf
 smf
 ujL
@@ -256060,9 +256096,9 @@ wLx
 wLx
 amU
 amU
-amU
-amU
-amU
+qCt
+qCt
+qCt
 qCt
 smf
 smf
@@ -256491,9 +256527,9 @@ wLx
 wLx
 amU
 amU
-amU
-amU
-amU
+qCt
+qCt
+qCt
 qCt
 qCt
 smf
@@ -256923,8 +256959,8 @@ wLx
 amU
 amU
 amU
-amU
-amU
+qCt
+qCt
 qCt
 qCt
 qCt
@@ -257354,7 +257390,7 @@ wEg
 wLx
 amU
 amU
-amU
+qCt
 qCt
 qCt
 qCt
@@ -257776,15 +257812,15 @@ ujL
 uRH
 smf
 ujL
-qrc
-qrc
-uWK
-qrc
-wLx
-wLx
-wLx
-wLx
-amU
+ujL
+ujL
+rfA
+ujL
+smf
+smf
+smf
+smf
+qCt
 qCt
 qCt
 qCt
@@ -258209,12 +258245,12 @@ ujL
 ujL
 ujL
 ujL
-qrc
-uWK
-wLx
-wLx
-wLx
-wLx
+ujL
+rfA
+smf
+smf
+smf
+smf
 qCt
 qCt
 qCt
@@ -381499,7 +381535,7 @@ tML
 ift
 fLC
 eBN
-fLC
+jWr
 qPA
 eCn
 eCn
@@ -382790,7 +382826,7 @@ kIf
 eFG
 vHK
 rfx
-rfx
+qPA
 tML
 noB
 qwt
@@ -383222,9 +383258,9 @@ hMv
 hMv
 vHK
 jEY
-jEY
 oWN
-eBN
+hQu
+hjt
 eBN
 bUq
 qPA
@@ -383654,11 +383690,11 @@ vHK
 vHK
 vHK
 jEY
-jEY
 qPA
+hyr
+hjt
 eBN
-eBN
-eBN
+qPA
 qPA
 tML
 pHA
@@ -384086,9 +384122,9 @@ jEY
 jEY
 jEY
 jEY
-jEY
 oWN
-iUs
+oep
+hjt
 vsf
 iUs
 qPA
@@ -384518,9 +384554,9 @@ jEY
 jEY
 jEY
 jEY
-jEY
 qPA
 qPA
+noB
 noB
 qPA
 qPA
