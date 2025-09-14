@@ -2141,6 +2141,7 @@
 #include "code\modules\roguetown\mapgen\mountains.dm"
 #include "code\modules\roguetown\mapgen\rogueoutdoors.dm"
 #include "code\modules\roguetown\mapgen\underdark.dm"
+#include "code\modules\roguetown\mapgen\underdarkrat.dm"
 #include "code\modules\roguetown\roguecrafting\alchemy.dm"
 #include "code\modules\roguetown\roguecrafting\carpentry.dm"
 #include "code\modules\roguetown\roguecrafting\ceramics.dm"
