@@ -493,7 +493,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	mineralType = /obj/item/rogueore/coal
 
 /obj/item/natural/rock/elementalmote
-	mineralType = /obj/item/magic/elementalmote
+	mineralType = /obj/item/magic/elemental/mote
 
 /obj/item/natural/rock/cinnabar
 	mineralType = /obj/item/rogueore/cinnabar

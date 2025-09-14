@@ -9,7 +9,7 @@
     Aside from their obsession with the concept of their propensity with esoteric and seemingly inhumen rites and \
 	rituals, not much is known about the moth-kin. These so-called \"mystics\" are rarely seen within humen and \
 	beastkin settlements, but those that find themselves in civilisation are oft ascended to nobility.<br>\
-	(+1 Speed)"
+	(+1 Speed, Blackleg Trait)"
 
 	expanded_desc = "Fluvians are a diverse race of moth-like creechers that live in sparse, nomadic communities across Grimoria. \
     Aside from their obsession with the concept of their propensity with esoteric and seemingly inhumen rites and rituals, not much \
@@ -40,7 +40,8 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_SPEED = 1)
+	inherent_traits = list(TRAIT_BLACKLEG)
+	race_bonus = list(STAT_SPEED = 1)//This should include fortune. RAAAAAA
 	enflamed_icon = "widefire"
 	attack_verb = "slash"
 	attack_sound = 'sound/blank.ogg'

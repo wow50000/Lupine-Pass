@@ -35,7 +35,7 @@
 	desc = "Provides light!"
 	blacklisted = FALSE
 	tier = 1
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elementalmote = 2)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elemental/mote = 2)
 	result_atoms = list(/obj/item/enchantmentscroll/light)
 
 /datum/runeritual/enchanting/holding
@@ -43,7 +43,7 @@
 	desc = "Makes things hold more!"
 	blacklisted = FALSE
 	tier = 1
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernalash = 2, /obj/item/magic/fairydust = 2)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernal/ash = 2, /obj/item/magic/fae/dust = 2)
 	result_atoms = list(/obj/item/enchantmentscroll/holding)
 
 /datum/runeritual/enchanting/revealing
@@ -51,7 +51,7 @@
 	desc = "Doubles brightness!"
 	blacklisted = FALSE
 	tier = 1
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1, /obj/item/magic/fairydust = 2)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1, /obj/item/magic/fae/dust = 2)
 	result_atoms = list(/obj/item/enchantmentscroll/revealing)
 
 //T2 Below here
@@ -62,7 +62,7 @@
 	desc = "Provides dark sight!"
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/iridescentscale = 1, /obj/item/magic/manacrystal = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/fae/scale = 1, /obj/item/magic/manacrystal = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/nightvision)
 
 /datum/runeritual/enchanting/unbreaking
@@ -70,7 +70,7 @@
 	desc = "Provides extra integrity!"
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/artifact = 1, /obj/item/magic/elementalshard = 1, /obj/item/magic/manacrystal = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/artifact = 1, /obj/item/magic/elemental/shard = 1, /obj/item/magic/manacrystal = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/unbreaking)
 
 /datum/runeritual/enchanting/featherstep
@@ -78,7 +78,7 @@
 	desc = "Makes your step lighter and speedier!"
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/iridescentscale = 1, /obj/item/magic/fairydust = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/fae/scale = 1, /obj/item/magic/fae/dust = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/featherstep)
 
 /datum/runeritual/enchanting/fireresist
@@ -86,7 +86,7 @@
 	desc = "Provides resistance from fire!"
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/hellhoundfang = 1, /obj/item/magic/infernalash = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernal/fang = 1, /obj/item/magic/infernal/ash = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/fireresist)
 
 /datum/runeritual/enchanting/climbing
@@ -94,7 +94,7 @@
 	desc = "Better climbing!"
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elementalshard = 1, /obj/item/magic/infernalash = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elemental/shard = 1, /obj/item/magic/infernal/ash = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/climbing)
 
 /datum/runeritual/enchanting/thievery
@@ -102,7 +102,7 @@
 	desc = "Better pickpocketting and lockpicks!"
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/hellhoundfang = 1, /obj/item/magic/obsidian = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernal/fang = 1, /obj/item/magic/obsidian = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/thievery)
 
 /datum/runeritual/enchanting/trekk
@@ -110,7 +110,7 @@
 	desc = "Provides easy movement through rough terrain."
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elementalshard = 1, /obj/item/magic/artifact = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elemental/shard = 1, /obj/item/magic/artifact = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/trekk)
 
 /datum/runeritual/enchanting/smithing
@@ -118,7 +118,7 @@
 	desc = "Better smithing."
 	blacklisted = FALSE
 	tier = 2
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elementalshard = 1, /obj/item/magic/elementalmote = 1, /obj/item/magic/melded/t1 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elemental/shard = 1, /obj/item/magic/elemental/mote = 1, /obj/item/magic/melded/t1 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/smithing)
 
 //T3 below here
@@ -128,7 +128,7 @@
 	desc = "Steals health from foes."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/heartwoodcore = 1, /obj/item/magic/hellhoundfang = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/fae/core = 1, /obj/item/magic/infernal/fang = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/lifesteal)
 
 /datum/runeritual/enchanting/lightning
@@ -136,7 +136,7 @@
 	desc = "Shocks foes."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernalcore = 1, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernal/core = 1, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/lightning)
 
 /datum/runeritual/enchanting/voidtouched
@@ -144,7 +144,7 @@
 	desc = "Teleports the target nearby."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1, /obj/item/magic/heartwoodcore = 1, /obj/item/magic/voidstone = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1, /obj/item/magic/fae/core = 1, /obj/item/magic/voidstone = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/voidtouched)
 
 /datum/runeritual/enchanting/frostveil	//armor enchantment
@@ -152,7 +152,7 @@
 	desc = "Chills foes."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elementalfragment = 1, /obj/item/magic/elementalshard = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elemental/fragment = 1, /obj/item/magic/elemental/shard = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/frostveil)
 
 /datum/runeritual/enchanting/phoenixguard	//armor enchantment
@@ -160,7 +160,7 @@
 	desc = "Sets foes on fire"
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernalcore = 1, /obj/item/magic/hellhoundfang = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernal/core = 1, /obj/item/magic/infernal/fang = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/phoenixguard)
 
 /datum/runeritual/enchanting/returningweapon
@@ -168,7 +168,7 @@
 	desc = "Summons weapons."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elementalfragment = 1, /obj/item/magic/fairydust = 2, /obj/item/magic/elementalmote = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elemental/fragment = 1, /obj/item/magic/fae/dust = 2, /obj/item/magic/elemental/mote = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/returningweapon)
 
 /datum/runeritual/enchanting/woundclosing
@@ -176,7 +176,7 @@
 	desc = "Closes wounds."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/heartwoodcore = 1, /obj/item/magic/iridescentscale = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/fae/core = 1, /obj/item/magic/fae/scale = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/woundclosing)
 
 /datum/runeritual/enchanting/archery
@@ -184,7 +184,7 @@
 	desc = "Of bowmanship."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/hellhoundfang = 2, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernal/fang = 2, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/archery)
 
 
@@ -196,7 +196,7 @@
 	desc = "Harder hitting weapons at a cost."
 	blacklisted = FALSE
 	tier = 4
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/sylvanessence = 1, /obj/item/magic/heartwoodcore = 2, /obj/item/magic/melded/t3 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/fae/essence = 1, /obj/item/magic/fae/core = 2, /obj/item/magic/melded/t3 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/briars)
 
 /datum/runeritual/enchanting/infernalflame	//weapon enchantment
@@ -204,7 +204,7 @@
 	desc = "Sets foes aflame."
 	blacklisted = FALSE
 	tier = 4
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/abyssalflame = 1, /obj/item/magic/obsidian = 4, /obj/item/magic/melded/t3 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/infernal/flame = 1, /obj/item/magic/obsidian = 4, /obj/item/magic/melded/t3 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/infernalflame)
 
 
@@ -213,7 +213,7 @@
 	desc = "Freezes Foes into cubes of ice."
 	blacklisted = FALSE
 	tier = 4
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/sylvanessence = 1, /obj/item/magic/infernalcore = 2, /obj/item/magic/melded/t3 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/fae/essence = 1, /obj/item/magic/infernal/core = 2, /obj/item/magic/melded/t3 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/freeze)
 
 
@@ -222,7 +222,7 @@
 	desc = "Rewinds time."
 	blacklisted = FALSE
 	tier = 4
-	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elementalrelic = 1, /obj/item/magic/heartwoodcore = 2,  /obj/item/magic/melded/t3 = 1)
+	required_atoms = list(/obj/item/rogueore/cinnabar = 1,/obj/item/paper/scroll = 1,/obj/item/magic/elemental/relic = 1, /obj/item/magic/fae/core = 2,  /obj/item/magic/melded/t3 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/rewind)
 
 /datum/runeritual/enchanting/chaosstorm

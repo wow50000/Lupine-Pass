@@ -79,6 +79,7 @@
 	var/list/beam_parts = list()
 	summon_primer = "You are ancient. A construct built in an age before men, a time of dragons. Your builders don't seem to be around anymore, and time has past with you in standby. How you respond, is up to you."
 	summon_tier = 3
+	inherent_spells = list(/obj/effect/proc_holder/spell/invoked/fire_obelisk_beam)
 
 /datum/intent/simple/slam
 	name = "slam"
@@ -261,3 +262,19 @@
 	animate(src, time = 0.5 SECONDS, alpha = 0)
 	QDEL_IN(src, 0.5 SECONDS)
 
+/obj/effect/proc_holder/spell/invoked/fire_obelisk_beam
+	name = "Fire Beam"
+	recharge_time = 20 SECONDS //voidstone obelisk's beam is different than other mob spells since the cooldown actually begins one the beam is finished, we'll just eyeball it
+	overlay_state = "regression"
+	chargetime = 0
+	range = 10
+	antimagic_allowed = TRUE //the magic is coming from inside the house
+
+/obj/effect/proc_holder/spell/invoked/fire_obelisk_beam/cast(list/targets, mob/living/user = usr)
+	if(istype(user, /mob/living/simple_animal/hostile/retaliate/rogue/voidstoneobelisk))
+		var/mob/living/simple_animal/hostile/retaliate/rogue/voidstoneobelisk/obby = user
+		if(world.time <= obby.beam_cooldown)
+			to_chat(user,span_warning("Too soon!"))
+			revert_cast()
+			return FALSE
+		obby.Activate(targets[1])

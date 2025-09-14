@@ -1,7 +1,7 @@
 /mob/living/carbon/human/species/vulpkanin
 	race = /datum/species/vulpkanin
 
-/datum/species/vulpkanin		//These should technically not exist, but completely exploding people's savefiles is too high a price to pay for some minor race bloat.
+/datum/species/vulpkanin
 	name = "Venardine"
 	id = "vulpkanin"
 	desc = "<b>Venardine</b> <br>\
@@ -11,7 +11,7 @@
 	Venardine are a crafty, cunning, and perceptive people. Many Venardine have used their nature \
 	to take advantage of other races, causing them to be known for their wit and charm at the expense \
 	of a reputation as cheats, frauds, tricksters, and thieves.<br>\
-	(+1 Perception, +1 Intelligence)"
+	(+1 Perception, +1 Intelligence, Sleuth Trait)"
 
 	expanded_desc = "Venardine are a fox-like Beastling race with the majority hailing from the Kingdom \
 	of Vulpkheim, which borders Hammerhold. However, there are a few Venardine tribes that \
@@ -60,6 +60,7 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
+	inherent_traits = list(TRAIT_SLEUTH)
 	race_bonus = list(STAT_PERCEPTION = 1, STAT_INTELLIGENCE = 1)
 	enflamed_icon = "widefire"
 	organs = list(

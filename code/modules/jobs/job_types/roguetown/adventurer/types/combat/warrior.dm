@@ -441,7 +441,7 @@
 /datum/advclass/sfighter/amazon
 	name = "Amazon"
 	tutorial = "Fierce warrior women from distant lands, Amazons choose their armor based on their preferred fighting style - from light and agile to heavily protected."
-	outfit = /datum/outfit/job/roguetown/adventurer/ironclad
+	outfit = /datum/outfit/job/roguetown/adventurer/amazon
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_HEAVYARMOR)
 	subclass_stats = list(
 		STATKEY_STR = 2,
@@ -449,7 +449,7 @@
 		STATKEY_CON = 1,
 	)
 
-/datum/outfit/job/roguetown/adventurer/ironclad/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/roguetown/adventurer/amazon/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
 	to_chat(H, span_warning("Fierce warrior women from distant lands, Amazons choose their armor based on their preferred fighting style - from light and agile to heavily protected."))
 	var/armor_styles = list("Leather Kini","Hide Armor Kini","Studded Leather Kini","Half Plate Kini","Plate Kini")
@@ -612,7 +612,7 @@
 			H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)			
+			H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -659,7 +659,7 @@
 			H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)			
+			H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
