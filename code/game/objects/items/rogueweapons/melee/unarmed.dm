@@ -202,3 +202,19 @@
 /obj/item/rogueweapon/knuckles/psydon/ComponentInitialize()
 	. = ..()							//+3 force, +50 int, +1 def, make silver
 	add_psyblessed_component(is_preblessed = FALSE, bonus_force = 3, bonus_sharpness = 0, bonus_integrity = 50, bonus_wdef = 1, make_silver = TRUE)
+
+//This had 11 WD. No, thanks.
+/obj/item/rogueweapon/knuckles/bronzeknuckles/zizoconstruct
+	name = "construct knuckles"
+	desc = "A vicous pair of bronze knuckles designed specifically for constructs. There is a terrifying, hollow spike in the center of the grip. There doesn't seem to be a way to wield it without impaling yourself."
+	color = "#5f1414"
+	max_integrity = 500
+	anvilrepair = /datum/skill/craft/engineering
+
+/obj/item/rogueweapon/knuckles/bronzeknuckles/zizoconstruct/pickup(mob/living/user)
+	if(!HAS_TRAIT(user, TRAIT_BLOODLOSS_IMMUNE))
+		to_chat(user, "<font color='purple'> You attempt to wield the knuckles. The spike sinks deeply into your hand, piercing it and drinking deep of your vital energies!</font>")
+		user.adjustBruteLoss(15)
+		user.Stun(40)
+		playsound(get_turf(user), 'sound/misc/drink_blood.ogg', 100)
+	..()
