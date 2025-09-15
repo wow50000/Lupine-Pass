@@ -160,10 +160,10 @@
 	beltl = /obj/item/rogueweapon/whip
 	backl = /obj/item/storage/backpack/rogue/satchel
 	head = /obj/item/clothing/head/roguetown/menacing
+	neck = /obj/item/roguekey/nightmaiden
 	backpack_contents = list(
 		/obj/item/rope = 1,
 		/obj/item/clothing/mask/rogue/blindfold = 1,
-		/obj/item/roguekey/nightmaiden,
 		/obj/item/clothing/neck/roguetown/collar/catbell,
 		/obj/item/leash/leather,
 	)
