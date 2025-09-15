@@ -1,5 +1,5 @@
 /obj/structure/roguemachine/atm
-	name = "Nervelock"
+	name = "nervelock"
 	desc = "Stores and withdraws currency for accounts managed by the Grand Duchy of the vale."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "atm"
