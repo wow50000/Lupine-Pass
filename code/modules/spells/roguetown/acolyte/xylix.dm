@@ -12,13 +12,13 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	recharge_time = 5 MINUTES
-	
+
 /obj/effect/proc_holder/spell/invoked/wheel/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
 			return FALSE
-		target.apply_status_effect(/datum/status_effect/wheel)		
+		target.apply_status_effect(/datum/status_effect/wheel)
 		return TRUE
 	revert_cast()
 	return FALSE
@@ -84,7 +84,7 @@
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living/simple_animal, death), TRUE), 7 SECONDS)
 	icon = I
 	name = copycat.name
-	
+
 
 /obj/effect/proc_holder/spell/invoked/mockery
 	name = "Vicious Mockery"
@@ -167,7 +167,7 @@
 	miracle = TRUE
 	var/leap_dist = 4	//3 tiles (+1 to account for origin tile)
 	var/static/list/sounds = list('sound/magic/xylix_slip1.ogg','sound/magic/xylix_slip2.ogg','sound/magic/xylix_slip3.ogg','sound/magic/xylix_slip4.ogg')
-	
+
 /obj/effect/proc_holder/spell/self/xylixslip/cast(list/targets, mob/user = usr)
 	. = ..()
 	if(!ishuman(user))
@@ -258,7 +258,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/astrata_favor
 
 /datum/status_effect/astrata_favor/on_apply()
-	effectedstats = list("constitution" = 5, "endurance" = 5)
+	effectedstats = list("constitution" = 5, "willpower" = 5)
 	ADD_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE, XYLIX_LUCK_TRAIT)
 	ADD_TRAIT(owner, TRAIT_NOPAINSTUN, XYLIX_LUCK_TRAIT)
 	ADD_TRAIT(owner, TRAIT_STEELHEARTED, XYLIX_LUCK_TRAIT)
@@ -309,7 +309,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/zizo_unfavor
 
 /datum/status_effect/zizo_unfavor/on_apply()
-	effectedstats = list("strength" = -3, "perception" = -3, "intelligence" = -3, "constitution" = -3, "endurance" = -3, "speed" = -3)
+	effectedstats = list("strength" = -3, "perception" = -3, "intelligence" = -3, "constitution" = -3, "willpower" = -3, "speed" = -3)
 	. = ..()
 
 /atom/movable/screen/alert/status_effect/buff/zizo_unfavor
@@ -325,7 +325,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/ravox_favor
 
 /datum/status_effect/ravox_favor/on_apply()
-	effectedstats = list("strength" = 3, "speed" = 3, "endurance" = 3)
+	effectedstats = list("strength" = 3, "speed" = 3, "willpower" = 3)
 	. = ..()
 
 /atom/movable/screen/alert/status_effect/buff/ravox_favor
@@ -390,7 +390,7 @@
 /obj/effect/proc_holder/spell/invoked/xylixlian_luck/Initialize()
 	. = ..()
 
-	last_used = world.time	
+	last_used = world.time
 
 /obj/effect/proc_holder/spell/invoked/xylixlian_luck/cast(list/targets,mob/living/carbon/human/user = usr)
 	user.play_overhead_indicator('modular_twilight_axis/icons/mob/overhead_effects.dmi', "xylix_fortune", 30, MUTATIONS_LAYER, soundin = 'modular_twilight_axis/sound/slotmachine.ogg', y_offset = 24)
@@ -400,9 +400,9 @@
 	luck_bonus -= used_times * 5
 	luck_bonus += 1.9444 * ((world.time - last_used) / bonus_luck_threshould)
 	var/list/patronChances = list(
-								XYLIX = 100 - luck_bonus,			RAVOX = 60 -luck_bonus/2, 
-								EORA = 70 - luck_bonus/2,			NOTHING = 80 - luck_bonus, 
-								MALUM = 50 - luck_bonus/2,			NOC = 50 - luck_bonus, 
+								XYLIX = 100 - luck_bonus,			RAVOX = 60 -luck_bonus/2,
+								EORA = 70 - luck_bonus/2,			NOTHING = 80 - luck_bonus,
+								MALUM = 50 - luck_bonus/2,			NOC = 50 - luck_bonus,
 								ASTRATA = 15 + luck_bonus * 1.5,	ZIZO = ceil(10-luck_bonus)
 								)
 
