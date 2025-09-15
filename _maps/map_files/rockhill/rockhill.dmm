@@ -804,6 +804,25 @@
 	icon_state = "wooden_floor2"
 	},
 /area/rogue/outdoors/beach/harbor)
+"aqi" = (
+/obj/structure/fluff/railing/border{
+	pixel_y = -8
+	},
+/obj/structure/fluff/railing/border{
+	dir = 9;
+	pixel_x = 32;
+	pixel_y = -32
+	},
+/obj/structure/closet/crate/drawer{
+	keylock = 1;
+	lockid = "guestroom3";
+	pixel_y = 2
+	},
+/obj/item/roguekey/manor,
+/turf/open/floor/rogue/tile/harem1,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "aqz" = (
 /obj/machinery/light/rogue/campfire,
 /turf/open/floor/rogue/cobble,
@@ -1156,17 +1175,13 @@
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
 "axQ" = (
-/obj/structure/table/wood{
-	dir = 6;
-	icon_state = "largetable"
+/obj/structure/roguemachine/scomm,
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall";
+	pixel_y = 8
 	},
-/obj/item/candle/gold/lit,
-/obj/item/roguekey/manor{
-	lockid = "guestroom3";
-	name = "Manor Guestroom III Key";
-	desc = "This key will open a Manor guest room."
-	},
-/turf/open/floor/rogue/tile/masonic/inverted,
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -3082,8 +3097,12 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach/harbor)
 "bfS" = (
-/obj/structure/mannequin/male,
-/turf/open/floor/rogue/blocks/stonered,
+/obj/effect/decal/carpet/kover_black{
+	dir = 1;
+	pixel_x = -19;
+	pixel_y = -5
+	},
+/turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -4822,10 +4841,8 @@
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
 "bMD" = (
-/obj/structure/fluff/railing/border{
-	pixel_y = -8
-	},
-/turf/open/floor/rogue/tile/bath,
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -7373,18 +7390,7 @@
 /obj/structure/fluff/railing/border{
 	pixel_y = -8
 	},
-/obj/structure/fluff/railing/border{
-	dir = 9;
-	pixel_x = 32;
-	pixel_y = -32
-	},
-/obj/structure/closet/crate/drawer{
-	keylock = 1;
-	lockid = "guestroom3";
-	pixel_y = 2
-	},
-/obj/item/roguekey/manor,
-/turf/open/floor/rogue/tile/masonic/inverted,
+/turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -7424,10 +7430,18 @@
 	droning_sound_night = null
 	})
 "cHe" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
+/obj/structure/fluff/railing/border{
+	pixel_y = -8
 	},
-/turf/open/floor/rogue/tile/bath,
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -7919,10 +7933,15 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors)
 "cQd" = (
-/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt/pink{
-	icon_state = "floorcandlee0"
+/obj/structure/fluff/walldeco/rpainting{
+	pixel_y = 32
 	},
-/turf/open/floor/rogue/tile/bath,
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall";
+	pixel_y = 8
+	},
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -8156,10 +8175,9 @@
 /turf/closed/wall/mineral/rogue/wooddark/window,
 /area/rogue/indoors)
 "cUh" = (
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = -6
-	},
-/turf/open/floor/rogue/carpet/lord/left,
+/obj/structure/closet/crate/roguecloset,
+/obj/item/clothing/suit/roguetown/armor/gambeson,
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -12709,6 +12727,19 @@
 "ezT" = (
 /turf/closed/wall/mineral/rogue/stone/blue_moss,
 /area/rogue/indoors)
+"ezU" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 8
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall";
+	pixel_y = 8
+	},
+/turf/open/floor/rogue/carpet/lord/right,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "eAg" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -13516,13 +13547,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/town/sewer)
 "eOj" = (
-/obj/structure/table/wood{
-	icon_state = "map6"
-	},
-/obj/structure/fluff/wallclock{
-	pixel_x = 28;
-	pixel_y = 0
-	},
+/obj/structure/chair/wood/rogue/fancy,
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -14723,14 +14748,14 @@
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/town/dwarfin)
 "fkm" = (
-/obj/structure/table/wood{
-	icon_state = "map3"
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt/pink{
+	icon_state = "floorcandlee0"
 	},
-/obj/item/natural/feather,
-/obj/structure/fluff/walldeco/painting/queen{
-	pixel_x = 30
+/obj/machinery/light/rogue/wallfire/candle/blue{
+	pixel_x = 32;
+	pixel_y = 0
 	},
-/turf/open/floor/rogue/carpet/lord/right,
+/turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -15078,12 +15103,17 @@
 /turf/open/water/swamp,
 /area/rogue/under/town/sewer)
 "fqr" = (
-/obj/effect/decal/carpet/kover_purple{
-	pixel_x = 12;
-	pixel_y = 3;
-	dir = 4
+/obj/structure/table/wood{
+	dir = 6;
+	icon_state = "largetable"
 	},
-/turf/open/floor/rogue/tile/masonic/inverted,
+/obj/item/candle/gold/lit,
+/obj/item/roguekey/manor{
+	lockid = "guestroom3";
+	name = "Manor Guestroom III Key";
+	desc = "This key will open a Manor guest room."
+	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -17501,9 +17531,16 @@
 	first_time_text = null
 	})
 "glL" = (
-/obj/structure/chair/wood/rogue/fancy,
-/obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/rogue/carpet/lord/right,
+/obj/item/candle/yellow,
+/obj/item/natural/feather,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/structure/closet/crate/roguecloset/dark,
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -23142,10 +23179,8 @@
 	first_time_text = "The Undersea"
 	})
 "ilE" = (
-/obj/structure/roguemachine/scomm{
-	pixel_y = -32
-	},
-/turf/open/floor/carpet/royalblack,
+/obj/structure/curtain/magenta,
+/turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -23977,8 +24012,12 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
 "iAU" = (
-/obj/structure/closet/crate/roguecloset/dark,
-/turf/open/floor/rogue/tile/harem2,
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall";
+	pixel_y = 8
+	},
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -24417,8 +24456,9 @@
 	first_time_text = "Rockhill Basin"
 	})
 "iIR" = (
-/obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/rogue/tile/harem2,
+/obj/structure/chair/wood/rogue/fancy,
+/obj/machinery/light/rogue/wallfire/candle/l,
+/turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -24875,17 +24915,8 @@
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
 "iSt" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/obj/machinery/light/rogue/wallfire/candle/blue{
-	pixel_x = 32;
-	pixel_y = 0
-	},
 /turf/closed/wall/mineral/rogue/stonebrick,
-/area/rogue/indoors/town/manor{
-	first_time_text = "Rockhill Keep"
-	})
+/area/rogue/indoors/shelter/mountains)
 "iSF" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town/roofs{
@@ -26040,14 +26071,20 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/obj/structure/curtain,
+/obj/structure/curtain/blue{
+	color = "#415e96"
+	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
 "jqg" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/rogue/herringbone,
+/obj/structure/table/wood{
+	dir = 10;
+	icon_state = "largetable"
+	},
+/turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -27602,6 +27639,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors)
+"jVL" = (
+/obj/structure/zizo_bane,
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "jVQ" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border/east,
@@ -27832,9 +27873,10 @@
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
 "jZZ" = (
-/obj/structure/bed/rogue/inn/double,
-/obj/item/bedsheet/rogue/fabric_double,
-/turf/closed,
+/obj/structure/fluff/railing/border{
+	pixel_y = -8
+	},
+/turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -29444,11 +29486,8 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/garrison)
 "kEH" = (
-/obj/structure/chair/wood,
-/turf/open/floor/rogue/tile/masonic/inverted,
-/area/rogue/indoors/town/manor{
-	first_time_text = "Rockhill Keep"
-	})
+/turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue/indoors/shelter/mountains)
 "kEI" = (
 /obj/structure/chair/wood/rogue{
 	dir = 4
@@ -29525,13 +29564,15 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors)
 "kGz" = (
-/obj/structure/roguemachine/mail/r{
-	mailtag = "Counsellor's Office"
+/obj/structure/fluff/walldeco/bigpainting/lake{
+	pixel_y = 31
 	},
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = 8
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall";
+	pixel_y = 8
 	},
-/turf/open/floor/rogue/carpet/lord/right,
+/turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -32036,8 +32077,10 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town)
 "lFG" = (
-/obj/structure/roguemachine/scomm/r,
-/turf/open/floor/rogue/dirt,
+/obj/structure/roguewindow/openclose{
+	dir = 1
+	},
+/turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -34582,6 +34625,14 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
+"mzL" = (
+/obj/structure/table/wood{
+	icon_state = "map6"
+	},
+/turf/open/floor/rogue/carpet/lord/right,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "mzM" = (
 /obj/structure/rack/rogue/shelf/big,
 /obj/structure/rack/rogue/shelf/big,
@@ -39893,8 +39944,10 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/town/basement/keep)
 "oBH" = (
-/obj/structure/chair/wood/rogue/fancy,
-/turf/open/floor/rogue/carpet/lord/left,
+/obj/structure/roguewindow/openclose{
+	dir = 1
+	},
+/turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -40819,6 +40872,15 @@
 "oTD" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town)
+"oTF" = (
+/obj/structure/chair/wood/rogue/fancy{
+	dir = 1
+	},
+/obj/structure/fluff/wallclock/l,
+/turf/open/floor/rogue/carpet/lord/left,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "oTM" = (
 /obj/structure/stairs{
 	dir = 4
@@ -42238,11 +42300,13 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician)
 "pvG" = (
-/obj/structure/fluff/walldeco/rpainting{
-	pixel_y = 32
+/obj/structure/fluff/railing/border{
+	dir = 10
 	},
-/obj/structure/bookcase/random,
-/turf/open/floor/carpet/royalblack,
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -47199,6 +47263,16 @@
 /obj/structure/plasticflaps,
 /turf/open/water/cleanshallow,
 /area/rogue/under/town/sewer)
+"rub" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4;
+	pixel_x = 2
+	},
+/obj/structure/closet/crate/roguecloset/dark,
+/turf/open/floor/rogue/tile/harem2,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "ruj" = (
 /obj/item/natural/rock{
 	pixel_x = -5;
@@ -48009,8 +48083,6 @@
 /obj/machinery/light/rogue/wallfire{
 	pixel_x = 32
 	},
-/obj/structure/closet/crate/roguecloset,
-/obj/item/clothing/suit/roguetown/armor/gambeson,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -48412,6 +48484,10 @@
 	icon_state = "borderfall";
 	pixel_x = 8
 	},
+/obj/item/reagent_containers/powder/sleep_powder,
+/obj/item/reagent_containers/powder/sleep_powder,
+/obj/item/reagent_containers/powder/sleep_powder,
+/obj/item/reagent_containers/powder/sleep_powder,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
@@ -48771,20 +48847,10 @@
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
 "rZP" = (
-/obj/item/candle/yellow,
-/obj/item/natural/feather,
-/obj/structure/closet/crate/roguecloset/dark,
-/obj/effect/decal/cobbleedge{
-	dir = 1;
-	icon_state = "borderfall"
+/obj/structure/fluff/walldeco/painting/queen{
+	pixel_x = -32
 	},
-/obj/item/paper/scroll,
-/obj/item/paper/scroll,
-/obj/item/paper/scroll,
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
-/turf/open/floor/carpet/royalblack,
+/turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -49944,17 +50010,18 @@
 	first_time_text = "THE TOWN OF ROCKHILL"
 	})
 "svG" = (
-/obj/structure/chair/stool/rogue{
-	pixel_y = 5
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = -6
 	},
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -5
+/obj/structure/roguemachine/mail/l{
+	mailtag = "Counsellor's Office"
 	},
-/obj/item/natural/cloth{
-	pixel_x = -5
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall";
+	pixel_y = 8
 	},
-/obj/item/soap/bath,
-/turf/open/floor/rogue/tile/harem2,
+/turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -54670,13 +54737,8 @@
 /turf/closed/wall/mineral/rogue/decostone/mossy/blue,
 /area/rogue/indoors/town/church/chapel)
 "uiW" = (
-/obj/structure/fluff/walldeco/bigpainting/lake{
-	pixel_y = 31
-	},
-/turf/open/floor/rogue/carpet/lord/center,
-/area/rogue/indoors/town/manor{
-	first_time_text = "Rockhill Keep"
-	})
+/turf/closed,
+/area/rogue/indoors/shelter/mountains)
 "ujc" = (
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/rogue/church,
@@ -57534,6 +57596,14 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach/harbor)
+"vrd" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
+	})
 "vrf" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -58205,15 +58275,10 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
 "vEM" = (
-/obj/structure/fluff/railing/border{
-	pixel_y = -8
+/obj/structure/chair/stool/rogue{
+	pixel_y = 5
 	},
-/obj/structure/fluff/railing/border{
-	dir = 5;
-	pixel_x = -32;
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/tile/masonic/inverted,
+/turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -59697,6 +59762,13 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town{
 	first_time_text = "THE TOWN OF ROCKHILL"
+	})
+"wfV" = (
+/obj/structure/bed/rogue/inn/double,
+/obj/item/bedsheet/rogue/fabric_double,
+/turf/open/floor/rogue/tile/harem1,
+/area/rogue/indoors/town/manor{
+	first_time_text = "Rockhill Keep"
 	})
 "wgg" = (
 /turf/open/floor/rogue/blocks/stonered/tiny,
@@ -61249,10 +61321,15 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors)
 "wJo" = (
-/obj/structure/chair/wood/rogue/fancy{
-	dir = 1
+/obj/structure/fluff/walldeco/church/line,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -5
 	},
-/turf/open/floor/rogue/carpet/lord/left,
+/obj/item/natural/cloth{
+	pixel_x = -5
+	},
+/obj/item/soap/bath,
+/turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
 	})
@@ -147203,7 +147280,7 @@ mUI
 wmY
 jkR
 jkR
-wmY
+jVL
 dZi
 dZi
 wmY
@@ -357710,7 +357787,7 @@ vIa
 sHm
 fuu
 wrR
-xlm
+cUh
 sHm
 uOL
 uOL
@@ -359006,7 +359083,7 @@ euP
 sHm
 riE
 rKW
-bfS
+qjD
 eAu
 tqT
 nKx
@@ -463578,7 +463655,7 @@ nBW
 lJq
 nBW
 esq
-wtF
+oBH
 fZJ
 fZJ
 fZJ
@@ -469193,7 +469270,7 @@ los
 bFU
 gsV
 xdI
-wtF
+oBH
 fZJ
 fZJ
 fZJ
@@ -563767,15 +563844,15 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+iSt
+iSt
+iSt
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
 vIa
 vIa
 vIa
@@ -564199,15 +564276,15 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+iSt
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
 vIa
 vIa
 vIa
@@ -564631,15 +564708,15 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+kEH
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
 vIa
 vIa
 vIa
@@ -565063,15 +565140,15 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+iSt
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
 vIa
 vIa
 vIa
@@ -565495,15 +565572,15 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+iSt
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
 vIa
 vIa
 vIa
@@ -565927,15 +566004,15 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+kEH
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
 vIa
 vIa
 vIa
@@ -566359,15 +566436,15 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+iSt
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
+uiW
 vIa
 vIa
 vIa
@@ -566791,11 +566868,11 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+iSt
+uiW
+uiW
+uiW
+iSt
 vIa
 vIa
 vIa
@@ -567223,11 +567300,11 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+iSt
+iSt
+uiW
+iSt
+iSt
 vIa
 vIa
 vIa
@@ -568548,8 +568625,8 @@ iPu
 hQS
 yei
 yei
-yei
-yei
+iFz
+iFz
 yei
 yei
 yei
@@ -568980,11 +569057,11 @@ foJ
 wtF
 wtF
 wtF
+ilE
+ilE
 wtF
-jxy
 wtF
 wtF
-jxy
 wtF
 xMp
 esF
@@ -569412,11 +569489,11 @@ tgZ
 wtF
 svG
 iIR
-bbA
-vEg
-bbA
-bbA
-vEg
+fRh
+duQ
+oTF
+rZP
+ged
 wtF
 xMp
 esF
@@ -569841,14 +569918,14 @@ tkS
 fDD
 vKN
 adE
-jxy
-dxu
-fAH
-bbA
-bbA
-bbA
-bbA
-bbA
+wtF
+kGz
+nlX
+vZV
+cHH
+kLJ
+wxB
+ged
 wtF
 xMp
 esF
@@ -570274,13 +570351,13 @@ naI
 jTP
 jds
 wtF
-jOv
-fAH
-bbA
-bbA
-eFU
-bbA
-bbA
+ezU
+eOj
+mzL
+pNf
+oNG
+omr
+ged
 wtF
 xMp
 esF
@@ -570706,13 +570783,13 @@ dxv
 lNH
 dxv
 wtF
-rVm
-fAH
-bbA
-bbA
-bbA
-bbA
-bbA
+axQ
+tpQ
+tpQ
+tpQ
+tpQ
+atV
+wtF
 wtF
 xMp
 esF
@@ -571137,15 +571214,15 @@ rco
 rco
 rco
 nKx
-jxy
-gbx
-fAH
-bbA
-bbA
-bbA
-bbA
-glg
+sBu
+xlm
+tpQ
+tpQ
+tpQ
+tpQ
+glL
 wtF
+jZx
 xMp
 esF
 xAt
@@ -571571,13 +571648,13 @@ fio
 rQb
 wtF
 cQd
-xdI
-cHe
-iSt
+bfS
+tpQ
+ged
+ged
+ged
 wtF
-wtF
-jxy
-wtF
+jZx
 xMp
 esF
 xAt
@@ -572002,10 +572079,10 @@ kNJ
 ezJ
 jYm
 wtF
-sYr
-sYr
 iAU
-wtF
+xlm
+ged
+ged
 jZx
 uKS
 aCU
@@ -572434,8 +572511,8 @@ naI
 naI
 jTP
 wtF
+sBu
 wtF
-bLc
 wtF
 wtF
 uKS
@@ -573301,8 +573378,8 @@ nBW
 nBW
 nBW
 gsV
-bMD
-xMp
+xdI
+lFG
 sXz
 sXz
 iVj
@@ -577190,8 +577267,8 @@ xlm
 xlm
 rCn
 sGe
-fkZ
-lVJ
+rCn
+rdP
 rdP
 pZe
 esF
@@ -577622,9 +577699,9 @@ xlm
 xlm
 dce
 naI
-vvm
-iQL
-stM
+fkZ
+lVJ
+aUu
 xMp
 esF
 xAt
@@ -578053,10 +578130,10 @@ vCQ
 xlm
 xlm
 dce
-jTP
 naI
-naI
-naI
+vvm
+iQL
+stM
 xMp
 esF
 xAt
@@ -578485,10 +578562,10 @@ xlm
 xlm
 xlm
 qJW
+jTP
 naI
-kEH
-axQ
-vEM
+naI
+naI
 xMp
 esF
 xAt
@@ -578918,9 +578995,9 @@ wxB
 wxB
 rCn
 hLq
-rCn
+bMD
 fqr
-rdP
+cHe
 pZe
 esF
 xAt
@@ -579349,10 +579426,10 @@ wxB
 wxB
 uvz
 wtF
-naI
+jTP
+pvG
 rCn
-rdP
-aUu
+jZZ
 xMp
 esF
 xAt
@@ -579782,8 +579859,8 @@ wxB
 wxB
 wtF
 gzD
-jqg
-jZZ
+tpQ
+tpQ
 cGF
 xMp
 esF
@@ -580206,17 +580283,17 @@ wtF
 wtF
 uoM
 wtF
-wtF
 uoM
 wtF
 wtF
 wtF
-sBu
+bLc
 wtF
 wtF
 wtF
-wtF
-wtF
+jqg
+wfV
+aqi
 xMp
 esF
 xAt
@@ -580639,15 +580716,15 @@ gnq
 cud
 cud
 cud
-cud
 gnq
 wtF
-ged
-tpQ
-ged
-ged
-ged
-rZP
+vEM
+sYr
+rub
+jxy
+wtF
+wtF
+jxy
 wtF
 xMp
 esF
@@ -581072,14 +581149,14 @@ dxv
 dxv
 dxv
 dxv
-dxv
 wtF
-pvG
-tpQ
-xlm
-xlm
-xlm
-ilE
+dxu
+fAH
+bbA
+vEg
+bbA
+bbA
+vEg
 wtF
 xMp
 esF
@@ -581503,15 +581580,15 @@ jJN
 cud
 cud
 cud
-cud
 dxv
 wtF
-ged
-tpQ
-tpQ
-tpQ
-tpQ
-atV
+jOv
+fAH
+bbA
+bbA
+bbA
+bbA
+bbA
 wtF
 xMp
 esF
@@ -581936,14 +582013,14 @@ dxv
 dxv
 dxv
 dxv
-dxv
 wtF
-wtF
-cUh
-oBH
-fRh
-duQ
-wJo
+rVm
+fAH
+bbA
+bbA
+eFU
+bbA
+bbA
 wtF
 xMp
 esF
@@ -582367,15 +582444,15 @@ dxv
 cud
 cud
 cud
-cud
 dxv
 wtF
-wtF
-uiW
-nlX
-vZV
-cHH
-kLJ
+gbx
+fAH
+bbA
+bbA
+bbA
+bbA
+bbA
 wtF
 xMp
 esF
@@ -582800,14 +582877,14 @@ dxv
 dxv
 dxv
 dxv
-dxv
 wtF
-wtF
-kGz
-glL
-eOj
 fkm
-oNG
+wJo
+bbA
+glg
+bbA
+bbA
+glg
 wtF
 xMp
 esF
@@ -583229,17 +583306,17 @@ dlL
 wtF
 bcr
 dxv
-lFG
 cud
-dxv
+cud
 vcN
 wtF
+jxy
 wtF
 wtF
+vrd
 wtF
 wtF
-wtF
-wtF
+jxy
 wtF
 xMp
 esF
@@ -583662,10 +583739,10 @@ wtF
 wtF
 uoM
 wtF
-wtF
-wtF
 uoM
 wtF
+wtF
+aCU
 aCU
 aCU
 aCU
