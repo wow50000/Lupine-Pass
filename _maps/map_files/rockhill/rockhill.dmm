@@ -12250,6 +12250,7 @@
 	name = "Toy Shop";
 	redstone_id = "gambleaccess"
 	},
+/obj/structure/bell_common,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/bath)
 "eqp" = (
@@ -13214,6 +13215,16 @@
 "eIx" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/grass,
+/area/rogue/outdoors/rtfield{
+	first_time_text = "Rockhill Basin"
+	})
+"eIy" = (
+/obj/structure/bell_common{
+	dir = 8;
+	pixel_y = 12;
+	pixel_x = 10
+	},
+/turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/rtfield{
 	first_time_text = "Rockhill Basin"
 	})
@@ -15301,6 +15312,13 @@
 	dir = 1;
 	icon_state = "vertw"
 	},
+/area/rogue/indoors)
+"fvH" = (
+/obj/structure/bell_common{
+	pixel_y = -12;
+	pixel_x = -10
+	},
+/turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
 "fvK" = (
 /obj/item/natural/stone{
@@ -22977,6 +22995,16 @@
 /turf/open/floor/rogue/tile/brownbrick,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Rockhill Keep"
+	})
+"ihk" = (
+/obj/structure/bell_common{
+	dir = 8;
+	pixel_y = 7;
+	pixel_x = 10
+	},
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/rtfield{
+	first_time_text = "Rockhill Basin"
 	})
 "ihl" = (
 /obj/structure/roguewindow/openclose{
@@ -45740,6 +45768,11 @@
 	dir = 4
 	},
 /obj/structure/fluff/walldeco/flower,
+/obj/structure/bell_common{
+	dir = 4;
+	pixel_x = -10;
+	pixel_y = -8
+	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/town/sewer)
 "qMT" = (
@@ -65070,6 +65103,20 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
+"xWy" = (
+/obj/structure/fluff/canopy/side{
+	dir = 1;
+	pixel_x = 10
+	},
+/obj/structure/bell_common{
+	dir = 8;
+	pixel_y = -14;
+	pixel_x = 10
+	},
+/turf/open/floor/rogue/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/shop)
 "xWz" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -232763,7 +232810,7 @@ hHI
 pAV
 dlR
 wIl
-wsY
+fvH
 pkW
 cox
 ezu
@@ -240975,7 +241022,7 @@ qvR
 sjP
 sXm
 sXm
-fxx
+eIy
 uaL
 bHH
 qvR
@@ -245284,7 +245331,7 @@ qvR
 qvR
 qvR
 qvR
-qvR
+ihk
 uaL
 uaL
 wgV
@@ -357085,7 +357132,7 @@ nZU
 cif
 jSQ
 jSQ
-jSQ
+xWy
 lYG
 grW
 wVI
