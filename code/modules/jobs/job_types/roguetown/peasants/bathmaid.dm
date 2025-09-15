@@ -28,7 +28,8 @@
 	job_subclasses = list(
 		/datum/advclass/nightmaiden,
 		/datum/advclass/nightmaiden/concubine,
-		/datum/advclass/nightmaiden/courtesan
+		/datum/advclass/nightmaiden/courtesan,
+		/datum/advclass/nightmaiden/dominatrix
 	)
 
 /datum/job/roguetown/nightmaiden/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
@@ -138,28 +139,52 @@
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 
-	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman","Flute","Trumpet")
-	var/weapon_choice = input("Choose your instrument.", "TAKE UP ARMS") as anything in weapons
-	H.set_blindness(0)
-	switch(weapon_choice)
-		if("Harp")
-			backr = /obj/item/rogue/instrument/harp
-		if("Lute")
-			backr = /obj/item/rogue/instrument/lute
-		if("Accordion")
-			backr = /obj/item/rogue/instrument/accord
-		if("Guitar")
-			backr = /obj/item/rogue/instrument/guitar
-		if("Hurdy-Gurdy")
-			backr = /obj/item/rogue/instrument/hurdygurdy
-		if("Viola")
-			backr = /obj/item/rogue/instrument/viola
-		if("Vocal Talisman")
-			backr = /obj/item/rogue/instrument/vocals
-		if("Flute")
-			backr = /obj/item/rogue/instrument/flute
-		if("Trumpet")
-			backr = /obj/item/rogue/instrument/trumpet
+/datum/advclass/nightmaiden/dominatrix
+	name = "Tickler"
+	tutorial = "There is a thin, blurred line where pain meets pleasure. You cater to a specific kind of client, the kind who like to walk that line. You have practiced the art of pain and domination and made it your own. Still, you will always be the whore and they the client. What power do you really have?"
+	outfit = /datum/outfit/job/roguetown/nightmaiden/dominatrix
+	//maximum_possible_slots = 1 //It could be funny to have a gang of them, probably fine
+	category_tags = list(CTAG_NIGHTMAIDEN)
+	traits_applied = list(TRAIT_NUTCRACKER, TRAIT_NOPAINSTUN) //might be a bit much but given their profession I imagine they'd be able to handle a bit of pain.
+	subclass_stats = list(
+		STATKEY_STR = 2,
+		STATKEY_WIL = 2,
+		STATKEY_INT = -1,
+		STATKEY_CON = 1
+	)
+
+/datum/outfit/job/roguetown/nightmaiden/dominatrix/pre_equip(mob/living/carbon/human/H)
+	..()
+	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
+	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
+	beltl = /obj/item/rogueweapon/whip
+	backl = /obj/item/storage/backpack/rogue/satchel
+	head = /obj/item/clothing/head/roguetown/menacing
+	backpack_contents = list(
+		/obj/item/rope = 1,
+		/obj/item/clothing/mask/rogue/blindfold = 1,
+		/obj/item/roguekey/nightmaiden,
+		/obj/item/clothing/neck/roguetown/collar/catbell,
+		/obj/item/leash/leather,
+	)
+	if(should_wear_femme_clothes(H))
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/bikini
+		belt = /obj/item/storage/belt/rogue/leather/black
+	else
+		pants =	/obj/item/clothing/under/roguetown/trou/beltpants
+		belt = /obj/item/storage/belt/rogue/leather/black
+		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE) //3 in their preferred combat skills seems to be in line for towner-y roles
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE) //can't be an amateur at this sort of thing
+	H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE) //for caning purposes
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)//worse than the other whores but still a bit tricksy
+	H.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) //tempted to make it 3. Need to provide aftercare yknow
 
 
 /datum/advclass/nightmaiden/courtesan
