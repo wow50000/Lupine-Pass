@@ -43,7 +43,7 @@
 			H.change_stat("constitution", 3)
 			H.change_stat("speed", -1)
 			H.change_stat("intelligence", -1)
-			var/options = list("Frypan", "Knuckles", "Navaja", "Bare Hands", "Whatever I Can Find")
+			var/options = list("Frypan", "Knuckles", "Navaja", "Bare Hands",) //"Whatever I Can Find") THIS OPTION IS TOTALLY BROKEN!
 			var/option_choice = input("Choose your means.", "TAKE UP ARMS") as anything in options
 			switch(option_choice)
 				if("Frypan")
@@ -58,11 +58,11 @@
 				if("Bare Hands")
 					H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 					ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
-				if("Whatever I Can Find") // random weapon from the dungeon table; could be a wooden club, could be a halberd
-					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-					H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
-					H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
-					r_hand = /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons
+				//if("Whatever I Can Find") // random weapon from the dungeon table; could be a wooden club, could be a halberd
+				//	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+				//	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+				//	H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+				//	r_hand = /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons
 		if("Wise Guy")
 			H.set_blindness(0)
 			to_chat(H, span_warning("You're smarter than the rest, by a stone's throw - and you know better than to get up close and personal. Unlike most others, you can read."))
