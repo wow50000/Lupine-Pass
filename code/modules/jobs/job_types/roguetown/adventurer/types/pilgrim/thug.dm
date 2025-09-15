@@ -120,7 +120,7 @@
 			H.change_stat("perception", -3)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_HARDDISMEMBER, TRAIT_GENERIC) // like a brick wall
-			var/options = list("Hands-On", "Big Stick ")
+			var/options = list("Hands-On", "Big Stick")
 			var/option_choice = input("Choose your means.", "TAKE UP ARMS") as anything in options
 			switch(option_choice) // you are big dumb guy, none of your options give you expert-level weapons skill
 				if("Hands-On")
@@ -128,7 +128,7 @@
 					ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 				if("Big Stick")
 					H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
-					/obj/item/rogueweapon/mace/cudgel // Less deadly than axes, more thematic
+					r_hand = /obj/item/rogueweapon/mace/cudgel // Less deadly than axes, more thematic
 			var/prev_real_name = H.real_name
 			var/prev_name = H.name
 			var/prefix = "Big" // if i see someone named "Boss" pick big man for this bit i will kill them
@@ -142,7 +142,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless
-	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+	armor = /obj/item/clothing/suit/roguetown/armor/leather
 
 	H.grant_language(/datum/language/thievescant)
