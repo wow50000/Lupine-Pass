@@ -1852,3 +1852,23 @@
         to_chat(L, span_warning("Nothing happens."))
 
     return TRUE   
+
+
+/* Vomit emote */
+/mob/living/carbon/human/verb/emote_vomit()
+	set name = "Vomit"
+	set category = "Emotes"
+
+	emote("vomit", intentional = TRUE)
+
+/datum/emote/living/vomit
+	key = "vomit"
+	nomsg = TRUE
+
+/datum/emote/living/vomit/run_emote(mob/user, params, type_override, intentional, targetted)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.vomit()
+		var/msg = "[key_name(H)] puked!"
+		message_admins(msg)
+		log_admin(msg)
