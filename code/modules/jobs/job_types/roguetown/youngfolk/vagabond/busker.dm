@@ -1,13 +1,12 @@
 /datum/advclass/busker
 	name = "Busker"
-	tutorial = "Nothing remains besides your instrument and your hope"
+	tutorial = "You've lost pretty much everything - everything but your instrument and an adequate ability to play it. Maybe a jaunty tune will send a few zennies your way - whether through pitied gratitute, or by distracting long enough for you to swipe a coinpurse."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/vagabond/busker
 	category_tags = list(CTAG_VAGABOND)
 	traits_applied = list(TRAIT_EMPATH)
 	subclass_stats = list(
-		STATKEY_PER = 2,
 		STATKEY_SPD = 2,
 		STATKEY_INT = 1,
 		STATKEY_CON = -2,
