@@ -120,7 +120,7 @@
 			H.change_stat("perception", -3)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_HARDDISMEMBER, TRAIT_GENERIC) // like a brick wall
-			var/options = list("Hands-On", "Big Axe")
+			var/options = list("Hands-On", "Big Stick ")
 			var/option_choice = input("Choose your means.", "TAKE UP ARMS") as anything in options
 			switch(option_choice) // you are big dumb guy, none of your options give you expert-level weapons skill
 				if("Hands-On")
