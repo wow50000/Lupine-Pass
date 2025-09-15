@@ -9,6 +9,19 @@
 	classes = list("Varangian" = "You are a Varangian of the Gronn Highlands. Warrior-Traders whose exploits into the Raneshen Empire will be forever remembered by historians.",
 					"Shaman" = "You are a Shaman of the Fjall, The Northern Empty. Savage combatants who commune with the Ecclesical Beast gods through ritualistic violence, rather than idle prayer.")
 
+/datum/advclass/mercenary/atgervi
+	name = "Atgervi Varangian"
+	tutorial = "You are a Varangian of the Gronn Highlands. Warrior-Traders whose exploits into the Raneshen Empire will be forever remembered by historians."
+	outfit = /datum/outfit/job/roguetown/mercenary/atgervi
+	traits_applied = list(TRAIT_MEDIUMARMOR)
+	subclass_stats = list(
+		STATKEY_WIL = 3,
+		STATKEY_CON = 3,
+		STATKEY_STR = 2,
+		STATKEY_PER = 1,
+		STATKEY_SPD = -1
+	)
+
 /datum/outfit/job/roguetown/mercenary/atgervi
 	allowed_patrons = ALL_INHUMEN_PATRONS
 
