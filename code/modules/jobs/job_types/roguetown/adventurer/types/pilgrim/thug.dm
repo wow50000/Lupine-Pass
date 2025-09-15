@@ -43,7 +43,7 @@
 			H.change_stat("constitution", 3)
 			H.change_stat("speed", -1)
 			H.change_stat("intelligence", -1)
-			var/options = list("Frypan", "Knuckles", "Navaja", "Bare Hands",) //"Whatever I Can Find") THIS OPTION IS TOTALLY BROKEN!
+			var/options = list("Frypan", "Knuckles", "Navaja", "Bare Hands",) //"Whatever I Can Find") THIS OPTION IS TOTALLY BUGGED!
 			var/option_choice = input("Choose your means.", "TAKE UP ARMS") as anything in options
 			switch(option_choice)
 				if("Frypan")
