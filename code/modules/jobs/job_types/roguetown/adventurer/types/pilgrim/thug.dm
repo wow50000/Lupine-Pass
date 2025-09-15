@@ -1,6 +1,6 @@
 /datum/advclass/thug
 	name = "Thug"
-	tutorial = "Maybe you've never been the smartest person in town, but you've gotten this far in lyfe- whether by finding odd-jobs around town carting shit for the soilers, being the meathead that somebody needs to stand behind them and look scary, or simply shaking down locals with the veiled-or-otherwise threat of a clobbering. You might've had some run-ins with the law for petty crimes here and there, but you're tolerated enough to have a home here."
+	tutorial = "Maybe you've never been the smartest person in town, but you've gotten this far - whether by finding odd-jobs around town carting shit for the soilers, being the meathead that somebody needs to stand behind them and look scary, or simply shaking down the weak with the veiled-or-otherwise threat of a clobbering. You might've had some run-ins with the law for petty crimes here and there, but you're tolerated enough to have a home here."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/thug
@@ -111,10 +111,10 @@
 			H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE) 
 			H.adjust_skillrank(/datum/skill/labor/mining, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE) 
 			H.change_stat("strength", 3)
 			H.change_stat("endurance", 2)
-			H.change_stat("constitution", 4) // fatass
+			H.change_stat("constitution", 5) // fatass
 			H.change_stat("speed", -4)
 			H.change_stat("intelligence", -6)
 			H.change_stat("perception", -3)
