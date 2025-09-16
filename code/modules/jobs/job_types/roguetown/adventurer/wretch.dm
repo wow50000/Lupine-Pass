@@ -63,6 +63,12 @@
 		H.change_stat("fortune", 1)
 
 
+		// Assign wretch antagonist datum so wretches appear in antag list
+		if(H.mind && !H.mind.has_antag_datum(/datum/antagonist/wretch))
+			var/datum/antagonist/new_antag = new /datum/antagonist/wretch()
+			H.mind.add_antag_datum(new_antag)
+
+
 		if(GLOB.adventurer_hugbox_duration)
 			addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
 
