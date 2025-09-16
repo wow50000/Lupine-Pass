@@ -385,7 +385,7 @@
 	icon_state = "psycross"
 	//dropshrink = 0.75
 	resistance_flags = FIRE_PROOF
-	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_MASK
+	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_RING|ITEM_SLOT_MASK
 	possible_item_intents = list(/datum/intent/use, /datum/intent/special/magicarc)
 	sellprice = 10
 	experimental_onhip = FALSE
@@ -397,6 +397,9 @@
 	..()
 
 	if(slot == SLOT_WRISTS)
+		mob_overlay_icon = 'icons/roguetown/clothing/onmob/wrists.dmi'
+		sleeved = 'icons/roguetown/clothing/onmob/wrists.dmi'
+	if(slot == SLOT_RING)
 		mob_overlay_icon = 'icons/roguetown/clothing/onmob/wrists.dmi'
 		sleeved = 'icons/roguetown/clothing/onmob/wrists.dmi'
 	if(slot == SLOT_NECK)
