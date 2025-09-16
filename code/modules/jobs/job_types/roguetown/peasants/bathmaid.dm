@@ -139,6 +139,29 @@
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 
+	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman","Flute","Trumpet")
+	var/weapon_choice = input("Choose your instrument.", "TAKE UP ARMS") as anything in weapons
+	H.set_blindness(0)
+	switch(weapon_choice)
+		if("Harp")
+			backr = /obj/item/rogue/instrument/harp
+		if("Lute")
+			backr = /obj/item/rogue/instrument/lute
+		if("Accordion")
+			backr = /obj/item/rogue/instrument/accord
+		if("Guitar")
+			backr = /obj/item/rogue/instrument/guitar
+		if("Hurdy-Gurdy")
+			backr = /obj/item/rogue/instrument/hurdygurdy
+		if("Viola")
+			backr = /obj/item/rogue/instrument/viola
+		if("Vocal Talisman")
+			backr = /obj/item/rogue/instrument/vocals
+		if("Flute")
+			backr = /obj/item/rogue/instrument/flute
+		if("Trumpet")
+			backr = /obj/item/rogue/instrument/trumpet
+
 /datum/advclass/nightmaiden/dominatrix
 	name = "Tickler"
 	tutorial = "There is a thin, blurred line where pain meets pleasure. You cater to a specific kind of client, the kind who like to walk that line. You have practiced the art of pain and domination and made it your own. Still, you will always be the whore and they the client. What power do you really have?"
