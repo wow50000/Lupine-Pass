@@ -745,9 +745,7 @@
 "bC" = (
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/dirt,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "bD" = (
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/woods{
@@ -796,9 +794,7 @@
 /area/rogue/outdoors/banditcamp)
 "bN" = (
 /turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "bO" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 1
@@ -957,18 +953,14 @@
 	})
 "cn" = (
 /turf/open/floor/rogue/dirt,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "co" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/vampiremanor)
 "cp" = (
 /turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "cq" = (
 /obj/structure/table/wood{
 	dir = 8;
@@ -1198,7 +1190,7 @@
 	},
 /area/rogue/indoors/vampiremanor)
 "cZ" = (
-/obj/structure/rack/rogue/shelf/biggest,
+/obj/structure/rack/rogue,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/vampiremanor)
 "da" = (
@@ -1290,9 +1282,7 @@
 /area/rogue)
 "dp" = (
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "dq" = (
 /obj/structure/mirror,
 /turf/open/floor/rogue/herringbone,
@@ -1352,9 +1342,7 @@
 "dC" = (
 /obj/structure/fluff/statue/gargoyle/moss,
 /turf/open/floor/rogue/dirt,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "dD" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
@@ -1364,9 +1352,7 @@
 "dE" = (
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "dF" = (
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/woods{
@@ -1396,15 +1382,11 @@
 "dJ" = (
 /obj/structure/fluff/walldeco/sparrowflag,
 /turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "dK" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "dL" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/ruinedwood,
@@ -1412,9 +1394,7 @@
 "dM" = (
 /obj/machinery/light/rogue/torchholder/c,
 /turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "dN" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/vampiremanor)
@@ -2063,9 +2043,7 @@
 "kV" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/dirt,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "kX" = (
 /turf/open/water/bloody,
 /area/rogue/under/cave/inhumen)
@@ -2141,6 +2119,7 @@
 /area/rogue/indoors/vampiremanor)
 "mr" = (
 /obj/structure/rack/rogue,
+/obj/structure/curtain/red,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
 "ms" = (
@@ -2615,9 +2594,7 @@
 	aportalid = "vampin"
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "sp" = (
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/eventarea)
@@ -2918,9 +2895,7 @@
 "vE" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "vF" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -2962,6 +2937,12 @@
 /obj/item/rogue/instrument/guitar,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
+"wa" = (
+/obj/structure/flora/roguetree/pine{
+	pixel_x = -2
+	},
+/turf/open/floor/rogue/snowrough,
+/area/rogue/outdoors/banditcamp)
 "wd" = (
 /obj/structure/stairs{
 	dir = 1
@@ -3886,6 +3867,16 @@
 /area/rogue/indoors/vampiremanor)
 "GC" = (
 /turf/open/water/cleanshallow,
+/area/rogue/outdoors/woods{
+	droning_sound = 'sound/music/area/forestold.ogg';
+	first_time_text = "Murder Pass";
+	name = "Bandit Woods"
+	})
+"GF" = (
+/obj/effect/particle_effect/smoke{
+	lifetime = 14400
+	},
+/turf/open/water/river/flow,
 /area/rogue/outdoors/woods{
 	droning_sound = 'sound/music/area/forestold.ogg';
 	first_time_text = "Murder Pass";
@@ -5140,6 +5131,7 @@
 "Wt" = (
 /obj/machinery/light/rogue/torchholder/r,
 /obj/structure/rack/rogue,
+/obj/structure/curtain/red,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
 "Wu" = (
@@ -5530,9 +5522,7 @@
 "ZS" = (
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/indoors{
-	droning_sound_night = 'sound/music/jukeboxes/gen/tavern1.ogg'
-	})
+/area/rogue/indoors)
 "ZY" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -5866,10 +5856,10 @@ vP
 bX
 bX
 bX
-vp
-vp
-vp
-vp
+Qa
+Qa
+Qa
+Qa
 vp
 bX
 bX
@@ -5996,7 +5986,7 @@ vP
 bX
 bX
 bX
-vp
+Qa
 CJ
 Yo
 Ig
@@ -6125,8 +6115,8 @@ hQ
 vP
 bX
 bX
-vp
-vp
+Qa
+Qa
 JL
 Hi
 Hi
@@ -6255,7 +6245,7 @@ Le
 vP
 bX
 bX
-vp
+Qa
 QS
 Nf
 Hi
@@ -6281,7 +6271,7 @@ rQ
 rQ
 rQ
 bX
-qh
+GF
 qh
 qh
 qh
@@ -6385,7 +6375,7 @@ hQ
 vP
 bX
 bX
-vp
+Qa
 sZ
 EP
 Hi
@@ -6412,7 +6402,7 @@ rQ
 rQ
 bX
 bI
-qh
+GF
 qh
 qh
 qh
@@ -6959,8 +6949,8 @@ cm
 vQ
 bI
 bI
-rQ
-rQ
+bI
+bI
 rQ
 rQ
 rQ
@@ -7035,7 +7025,7 @@ vP
 vP
 bX
 bX
-vp
+Qa
 Yo
 EP
 Hi
@@ -7087,10 +7077,10 @@ ek
 hr
 hr
 hr
+hr
+hr
 CL
 bI
-rQ
-rQ
 rQ
 rQ
 rQ
@@ -7217,10 +7207,10 @@ hr
 hr
 hr
 hr
+hr
+hr
 CL
 bI
-rQ
-rQ
 rQ
 rQ
 rQ
@@ -7312,7 +7302,7 @@ Hi
 wA
 vp
 vp
-bM
+wa
 Ax
 zD
 jg
@@ -7347,10 +7337,10 @@ hr
 hr
 hr
 hr
+hr
+hr
 CL
 bI
-rQ
-rQ
 rQ
 rQ
 rQ
@@ -7479,8 +7469,8 @@ cm
 XC
 bI
 bI
-rQ
-rQ
+bI
+bI
 rQ
 rQ
 rQ
@@ -7576,7 +7566,7 @@ XW
 XW
 jg
 jg
-XW
+jg
 XW
 XW
 Ax
@@ -9270,8 +9260,8 @@ yy
 iD
 Ax
 bM
-Ax
-Ax
+bM
+bM
 Ax
 xK
 FX
@@ -9912,7 +9902,7 @@ HJ
 HJ
 HJ
 HJ
-eS
+xK
 Ra
 eS
 eS
@@ -10041,8 +10031,8 @@ xK
 xK
 xK
 xK
-eS
-eS
+xK
+xK
 xK
 xK
 xK

@@ -75,8 +75,6 @@
 							/obj/structure/flora/roguetree/stump/log = 3,
 							/obj/structure/flora/roguetree/evil = 1)
 
-							
-
 /datum/mapGeneratorModule/bogratwater
 	clusterCheckFlags = CLUSTER_CHECK_NONE
 	allowed_turfs = list(/turf/open/water/swamp)

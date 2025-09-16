@@ -59,9 +59,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/indoors/vampiremanor
 	name = "vampire manor"
-	droning_sound = 'sound/music/area/banditcamp.ogg'
-	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
-	droning_sound_night = 'sound/music/area/banditcamp.ogg'
+	droning_sound = 'sound/music/area/underdark.ogg'
+	droning_sound_dusk = 'sound/music/area/underdark.ogg'
+	droning_sound_night = 'sound/music/area/underdark.ogg'
 	first_time_text = "The House of Blood"
 
 
