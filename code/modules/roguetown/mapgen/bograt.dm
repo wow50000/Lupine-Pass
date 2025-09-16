@@ -8,7 +8,7 @@
 
 
 /datum/mapGenerator/bograt
-	modules = list(/datum/mapGeneratorModule/ambushing,/datum/mapGeneratorModule/bogratgrassturf,/datum/mapGeneratorModule/bograt,/datum/mapGeneratorModule/bogratroad,/datum/mapGeneratorModule/bogratgrass)
+	modules = list(/datum/mapGeneratorModule/ambushing,/datum/mapGeneratorModule/bogratgrassturf,/datum/mapGeneratorModule/bograt,/datum/mapGeneratorModule/bogratroad,/datum/mapGeneratorModule/bogratgrass, /datum/mapGeneratorModule/bogratwater)
 
 
 /datum/mapGeneratorModule/bograt
@@ -74,3 +74,16 @@
 							/obj/item/grown/log/tree/stick = 3,
 							/obj/structure/flora/roguetree/stump/log = 3,
 							/obj/structure/flora/roguetree/evil = 1)
+
+							
+
+/datum/mapGeneratorModule/bogratwater
+	clusterCheckFlags = CLUSTER_CHECK_NONE
+	allowed_turfs = list(/turf/open/water/swamp)
+	excluded_turfs = list()
+	allowed_areas = list(/area/rogue/outdoors/bog)
+	spawnableAtoms = list(/obj/structure/glowshroom = 44,
+							/obj/item/restraints/legcuffs/beartrap/armed = 10,
+							/obj/structure/flora/roguetree/stump/log = 3,
+							/obj/structure/flora/ausbushes/reedbush = 60,
+							/obj/structure/zizo_bane = 2)
