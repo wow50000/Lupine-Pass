@@ -41,6 +41,7 @@
 
 /area/rogue/outdoors/bograt/north
 	name = "Northern Terrorbog"
+	//threat_region = THREAT_REGION_OUTER_GROVE //Might want to make it less dangerous than the areas further from town?
 
 /area/rogue/outdoors/bograt/east
 	name = "Eastern Terrorbog"
