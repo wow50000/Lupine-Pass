@@ -1056,13 +1056,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/vampiremanor)
-"cE" = (
-/obj/structure/fluff/traveltile/wretch{
-	aportalgoesto = "wretchout3";
-	aportalid = "wretchin3"
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cave/inhumen)
 "cF" = (
 /obj/structure/table/church,
 /obj/structure/fluff/walldeco/bigpainting,
@@ -15901,8 +15894,8 @@ wN
 wN
 wN
 wN
-cE
-cE
+wN
+wN
 wN
 xL
 Kv

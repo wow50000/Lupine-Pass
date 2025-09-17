@@ -244,10 +244,6 @@
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/rockhill)
-"adi" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/under/town/basement)
 "adq" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /obj/structure/flora/roguegrass,
@@ -342,6 +338,14 @@
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/shop)
+"agg" = (
+/obj/machinery/light/rogue/oven/south,
+/obj/machinery/light/rogue/hearth,
+/obj/item/cooking/pan,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "agj" = (
 /obj/structure/fluff/railing/border{
 	pixel_y = -7
@@ -454,6 +458,12 @@
 /obj/item/clothing/shoes/roguetown/boots,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors)
+"ajC" = (
+/obj/item/rogueweapon/huntingknife/stoneknife,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ajH" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -851,6 +861,12 @@
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
+"asS" = (
+/obj/structure/bearpelt,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "atb" = (
 /obj/structure/stairs{
 	dir = 1
@@ -972,6 +988,12 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"avz" = (
+/obj/item/natural/rock,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "avJ" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -1011,12 +1033,23 @@
 /area/rogue/indoors/town/shop)
 "awx" = (
 /obj/structure/mineral_door/bars{
-	lockdiff = 3;
 	locked = 1;
 	lockid = "armory"
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/garrison)
+"awC" = (
+/obj/item/bodypart/l_arm/devil,
+/obj/item/bodypart/r_arm/goblin,
+/obj/item/bodypart/r_arm,
+/obj/item/reagent_containers/food/snacks/zizo_bane,
+/obj/item/reagent_containers/food/snacks/zizo_bane,
+/obj/structure/closet/crate/roguecloset/inn/south,
+/obj/item/natural/cloth,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "awN" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grass,
@@ -1260,6 +1293,15 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"azW" = (
+/obj/structure/mineral_door/wood/donjon{
+	lockid = "gobbo";
+	name = "Barracks"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aAa" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -1325,6 +1367,13 @@
 /obj/item/reagent_containers/glass/cup,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/manor/rockhill)
+"aBs" = (
+/obj/machinery/light/rogue/wallfire/candle/l,
+/obj/item/trash/applecore,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aBz" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
@@ -1353,6 +1402,17 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/dwarfin/rockhill)
+"aCe" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 4;
+	locked = 1;
+	lockid = "gobbo";
+	name = "Smithery"
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aCg" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/ruinedwood{
@@ -1379,6 +1439,21 @@
 /obj/item/rogueweapon/mace/wsword,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town/rockhill)
+"aCo" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/closet/crate/chest,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
+"aCx" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aCU" = (
 /turf/closed/wall/mineral/rogue/roofwall/middle{
 	dir = 4
@@ -1387,8 +1462,7 @@
 "aCW" = (
 /obj/structure/chair/bench/couch,
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/rockhill)
@@ -1647,6 +1721,12 @@
 	dir = 8
 	},
 /area/rogue/indoors)
+"aGp" = (
+/obj/structure/bed/rogue/inn/hay,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aGD" = (
 /obj/structure/handcart,
 /turf/open/floor/rogue/ruinedwood,
@@ -1677,10 +1757,36 @@
 /turf/open/floor/rogue/dirt/road,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors)
+"aHn" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 4;
+	locked = 1;
+	lockid = "gobbo"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aHC" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/AzureSand,
 /area/rogue/outdoors/beach/harbor)
+"aHF" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/rogueweapon/surgery/hemostat/improv,
+/obj/item/rogueweapon/surgery/hemostat/improv{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/rogueweapon/huntingknife/stoneknife{
+	pixel_x = 8
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aHG" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/outdoors/bograt/west)
@@ -1779,6 +1885,12 @@
 /obj/machinery/light/rogue/campfire/densefire,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/town/sewer)
+"aKf" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "aKh" = (
 /obj/structure/closet/dirthole/closed,
 /obj/structure/flora/ausbushes/brflowers,
@@ -1822,6 +1934,10 @@
 /obj/structure/fermentation_keg,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
+"aKL" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bograt/safe)
 "aKP" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -1991,7 +2107,7 @@
 "aOo" = (
 /obj/structure/far_travel,
 /turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "aOs" = (
 /obj/structure/fluff/railing/border{
 	dir = 8;
@@ -2022,6 +2138,12 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/town/magician)
+"aON" = (
+/obj/item/roguecoin/copper/pile,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aOZ" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/dirt/road,
@@ -2385,6 +2507,12 @@
 	dir = 1
 	},
 /area/rogue/indoors)
+"aUV" = (
+/obj/item/rogueweapon/mace/woodclub,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "aUY" = (
 /obj/structure/fluff/statue/knightalt,
 /turf/open/floor/rogue/tile{
@@ -2723,6 +2851,12 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"bby" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bbA" = (
 /turf/closed/wall/mineral/rogue/roofwall/middle{
 	dir = 4
@@ -2937,10 +3071,28 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor/rockhill)
+"bgH" = (
+/obj/structure/chair/wood/rogue/chair3{
+	dir = 4
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bgI" = (
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
+"bgM" = (
+/obj/item/roguekey{
+	icon_state = "cheesekey";
+	lockid = "gobbo_chief";
+	name = "fancy goblin key"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bgS" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/grassred,
@@ -3116,6 +3268,14 @@
 "bjz" = (
 /turf/closed/wall/mineral/rogue/pipe,
 /area/rogue/indoors/town/bath)
+"bjL" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bjS" = (
 /obj/structure/lever/wall{
 	dir = 4;
@@ -3449,6 +3609,13 @@
 /obj/structure/flora/roguegrass/herb/atropa,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bograt/north)
+"brz" = (
+/obj/structure/glowshroom,
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "brB" = (
 /turf/closed/wall/mineral/rogue/decostone/end{
 	dir = 1
@@ -3581,6 +3748,16 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
+	})
+"btH" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "largetable"
+	},
+/obj/item/reagent_containers/glass/bowl,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "btK" = (
 /obj/effect/decal/cobbleedge{
@@ -3864,6 +4041,18 @@
 "byt" = (
 /turf/open/floor/rogue/AzureSand,
 /area/rogue/outdoors/beach/harbor)
+"byu" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "largetable"
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -5
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "byx" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -3887,6 +4076,20 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town/rockhill)
+"bza" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "gobbo";
+	name = "goblin key"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bzm" = (
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
@@ -3958,6 +4161,16 @@
 	icon_state = "vertw"
 	},
 /area/rogue/under/town/basement/keep)
+"bAP" = (
+/obj/structure/closet/crate/chest,
+/obj/item/leash/chain,
+/obj/item/leash/chain,
+/obj/item/clothing/neck/roguetown/collar/catbell,
+/obj/item/clothing/neck/roguetown/collar/catbell,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bAT" = (
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/indoors/town/physician)
@@ -4041,6 +4254,16 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church)
+"bCm" = (
+/obj/structure/bed/rogue/inn/wooldouble,
+/obj/item/bedsheet/rogue/double_pelt,
+/obj/item/clothing/head/roguetown/crown/surplus{
+	pixel_x = 10
+	},
+/turf/open/floor/carpet/red,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bCn" = (
 /obj/structure/roguemachine/mail{
 	mailtag = "Dungeoneer's Office"
@@ -4205,6 +4428,20 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
+"bFb" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "largetable"
+	},
+/obj/effect/decal/cleanable/food/egg_smudge,
+/obj/item/dice/d6{
+	pixel_x = 6;
+	pixel_y = -8
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bFe" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -4220,10 +4457,6 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/beach/harbor)
-"bFB" = (
-/obj/structure/far_travel,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
 "bFL" = (
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/church)
@@ -4282,6 +4515,11 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/rockhill)
+"bHo" = (
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bHz" = (
 /obj/structure/chair/wood/rogue{
 	dir = 4
@@ -4360,6 +4598,10 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"bIK" = (
+/obj/structure/glowshroom,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
 "bIQ" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -4649,6 +4891,17 @@
 "bNC" = (
 /turf/closed/mineral/random/rogue,
 /area/rogue/under/town/basement)
+"bNE" = (
+/obj/structure/well,
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "gobbo";
+	name = "goblin key"
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bNJ" = (
 /obj/structure/chair/stool/rogue{
 	pixel_x = -10
@@ -4684,10 +4937,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
-/obj/structure/closet/crate/chest/wicker,
+/obj/machinery/gear_painter,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/beach/harbor)
 "bOm" = (
@@ -4744,6 +4994,14 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/town/bath)
+"bPJ" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bPK" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -4763,13 +5021,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/rockhill)
-"bPS" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/woodturned,
-/area/rogue/outdoors/beach/harbor)
 "bQi" = (
 /obj/structure/bed/rogue/inn/double,
 /obj/item/bedsheet/rogue/fabric_double,
@@ -4826,6 +5077,12 @@
 /obj/item/clothing/wrists/roguetown/bracers/leather,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
+"bQG" = (
+/obj/structure/bars,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bQK" = (
 /obj/item/reagent_containers/glass/bowl,
 /turf/open/floor/rogue/hexstone,
@@ -4833,8 +5090,7 @@
 "bQS" = (
 /obj/structure/chair/bench/couchablack,
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/rockhill)
@@ -4904,6 +5160,12 @@
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
+	})
+"bSh" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "bSm" = (
 /turf/open/water/river{
@@ -5051,6 +5313,12 @@
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors/town/bath)
+"bUT" = (
+/obj/structure/fluff/statue/gargoyle,
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bUY" = (
 /obj/structure/chair/bench/church/mid{
 	dir = 4
@@ -5092,6 +5360,16 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/manor/rockhill)
+"bVS" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/closet/crate/chest/wicker,
+/turf/open/floor/rogue/woodturned,
+/area/rogue/outdoors/beach/harbor)
 "bVW" = (
 /obj/structure/flora/roguegrass/bush{
 	pixel_y = 4
@@ -5141,6 +5419,12 @@
 	},
 /turf/open/floor/rogue/tile/tilerg,
 /area/rogue/under/town/basement/keep)
+"bWp" = (
+/obj/structure/toilet,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "bWq" = (
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/reagent_containers/glass/cup/wooden,
@@ -5175,6 +5459,9 @@
 /obj/item/cooking/platter,
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/indoors)
+"bWx" = (
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bograt/safe)
 "bWV" = (
 /obj/structure/rack/rogue,
 /obj/item/reagent_containers/glass/bucket,
@@ -5250,6 +5537,10 @@
 /obj/structure/fluff/statue,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/manor/rockhill)
+"bYs" = (
+/obj/structure/flora/roguegrass/bush,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "bYA" = (
 /obj/structure/stairs{
 	dir = 8
@@ -5488,6 +5779,19 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/underdark)
+"cem" = (
+/obj/machinery/light/rogue/firebowl,
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "gobbo";
+	name = "goblin key";
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cep" = (
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/cobble,
@@ -5788,6 +6092,12 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"ckM" = (
+/obj/machinery/anvil,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ckQ" = (
 /obj/structure/flora/roguegrass/herb/salvia,
 /turf/open/water/cleanshallow,
@@ -5968,6 +6278,17 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town/rockhill)
+"cnN" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cod" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -6432,7 +6753,7 @@
 /area/rogue/indoors/town/church/chapel)
 "cwt" = (
 /turf/closed/mineral/rogue,
-/area/rogue/outdoors/bograt/south)
+/area/rogue/outdoors/bograt/safe)
 "cwA" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/closed/wall/mineral/rogue/wooddark,
@@ -6483,6 +6804,9 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"cxe" = (
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/sewer)
 "cxg" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "counsil1";
@@ -6542,6 +6866,10 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
+"cya" = (
+/obj/effect/decal/remains/bigrat,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
 "cyg" = (
 /obj/structure/stairs/stone,
 /obj/structure/fluff/railing/border{
@@ -6557,6 +6885,14 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/chapel)
+"cyD" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cyJ" = (
 /obj/machinery/light/rogue/torchholder{
 	pixel_x = -1;
@@ -6576,7 +6912,7 @@
 "czb" = (
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "czd" = (
 /turf/closed/wall/mineral/rogue/decostone/center,
 /area/rogue/indoors/town/church)
@@ -6805,6 +7141,12 @@
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
+"cCa" = (
+/obj/item/grown/log/tree,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cCg" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood3"
@@ -6932,7 +7274,7 @@
 /area/rogue/indoors/town/garrison)
 "cEl" = (
 /turf/open/water/ocean/deep/thermalwater,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "cEt" = (
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/indoors/shelter/woods{
@@ -7140,7 +7482,7 @@
 "cIu" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "cIv" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -7409,6 +7751,12 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"cNn" = (
+/obj/item/roguecoin/copper,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cNs" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/reagent_containers/glass/bucket/pot,
@@ -7467,6 +7815,12 @@
 "cOa" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/beach/harbor)
+"cOi" = (
+/mob/living/carbon/human/species/goblin/npc/cave,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cOs" = (
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/blocks/stonered,
@@ -7566,9 +7920,19 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"cPx" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cPV" = (
 /obj/structure/mineral_door/wood{
-	lockdiff = 1;
 	locked = 1;
 	lockid = "tailor";
 	name = "Tailors Quarters"
@@ -7753,6 +8117,11 @@
 /obj/item/natural/feather,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/bograt/south)
+"cSU" = (
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cSV" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/rogue/cobble,
@@ -7813,6 +8182,15 @@
 /obj/structure/chair/wood/rogue/fancy,
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor/rockhill)
+"cUl" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/flashlight/flare/torch/lantern,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cUp" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -7968,7 +8346,7 @@
 "cXi" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/grassred,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "cXk" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -8020,7 +8398,7 @@
 "cYA" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "cYN" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/blocks/green,
@@ -8066,6 +8444,14 @@
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/town/rockhill)
+"cZI" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "cZQ" = (
 /obj/structure/fermentation_keg/random,
 /turf/open/floor/rogue/naturalstone,
@@ -8234,6 +8620,14 @@
 	icon_state = "vertw"
 	},
 /area/rogue/indoors)
+"dcs" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 4
+	},
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dcN" = (
 /obj/machinery/light/rogue/torchholder{
 	pixel_y = 26
@@ -8293,6 +8687,12 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
+	})
+"des" = (
+/obj/structure/bars,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "det" = (
 /obj/structure/fluff/railing/wood{
@@ -8473,7 +8873,9 @@
 	},
 /obj/effect/landmark/start/wretchlate,
 /turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "dhO" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -8563,6 +8965,14 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town/rockhill)
+"dkp" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dkq" = (
 /obj/structure/bed/rogue/inn/wooldouble,
 /obj/item/bedsheet/rogue/double_pelt,
@@ -8635,6 +9045,10 @@
 /obj/item/book/rogue/necra,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/Academy)
+"dlo" = (
+/obj/structure/bars,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "dlp" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	lockid = "church"
@@ -8688,6 +9102,15 @@
 "dma" = (
 /turf/open/lava,
 /area/rogue/under/cave)
+"dmc" = (
+/obj/machinery/light/rogue/wallfire/candle/blue{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dmw" = (
 /obj/structure/mirror/fancy,
 /turf/open/floor/rogue/carpet/lord/center,
@@ -8696,6 +9119,16 @@
 /obj/structure/fluff/statue/knight/r,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/church/chapel)
+"dmF" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dmH" = (
 /turf/open/floor/rogue/rooftop/green/corner1{
 	dir = 1
@@ -8732,6 +9165,14 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/inq)
+"dnx" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dnC" = (
 /obj/structure/flora/newleaf,
 /obj/structure/vine,
@@ -9102,6 +9543,12 @@
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/dungeon1)
+"dvy" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dvS" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/wood,
@@ -9133,6 +9580,15 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town/rockhill)
+"dwv" = (
+/obj/structure/closet/crate/chest,
+/obj/item/restraints/legcuffs/beartrap,
+/obj/item/restraints/legcuffs/beartrap,
+/obj/item/restraints/legcuffs/beartrap,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dwA" = (
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/rogue/dirt/road,
@@ -9145,6 +9601,10 @@
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/town/rockhill)
+"dwG" = (
+/obj/item/natural/rock,
+/turf/open/water/swamp,
+/area/rogue/under/underdark)
 "dwH" = (
 /obj/machinery/light/rogue/torchholder{
 	pixel_x = -1;
@@ -9207,6 +9667,12 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
+	})
+"dxH" = (
+/obj/structure/flora/rogueshroom,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "dxS" = (
 /obj/machinery/light/rogue/wallfire/candle{
@@ -9279,6 +9745,12 @@
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/bath)
+"dzg" = (
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dzn" = (
 /obj/structure/roguemachine/vendor/bathhouse,
 /turf/closed/wall/mineral/rogue/decostone/mossy/blue/end{
@@ -9888,6 +10360,13 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"dIO" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/pick,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dIQ" = (
 /obj/structure/noose/gallows,
 /turf/open/floor/rogue/wood,
@@ -10159,10 +10638,6 @@
 /obj/effect/landmark/quest_spawner/hard,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bograt/south)
-"dNX" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/south)
 "dOe" = (
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/rogue/cobble/mossy,
@@ -10201,6 +10676,14 @@
 /obj/item/clothing/neck/roguetown/psicross/noc,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors)
+"dOr" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dOH" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -10283,6 +10766,15 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/manor/rockhill)
+"dQs" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/rogueweapon/tongs,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dQv" = (
 /obj/structure/roguemachine/vendor{
 	keycontrol = "towner_blacksmith"
@@ -10404,6 +10896,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/physician)
+"dSg" = (
+/obj/machinery/gear_painter,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bograt/safe)
 "dSl" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab,
 /turf/open/floor/rogue/dirt/road,
@@ -10466,8 +10962,7 @@
 	pixel_x = 2
 	},
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/tile{
 	icon_state = "bfloorz"
@@ -10743,6 +11238,17 @@
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town/rockhill)
+"dYg" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dYh" = (
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/Academy)
@@ -10781,6 +11287,16 @@
 	},
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/town/sewer)
+"dZd" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/item/clothing/suit/roguetown/armor/plate/half/iron,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "dZi" = (
 /turf/open/floor/rogue/grasscold,
 /area/rogue/under/underdark)
@@ -10902,6 +11418,16 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/manor/rockhill)
+"eaF" = (
+/obj/item/roguekey{
+	icon_state = "cheesekey";
+	lockid = "gobbo_chief";
+	name = "fancy goblin key"
+	},
+/turf/open/floor/rogue/blocks/stonered,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eaG" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -10941,6 +11467,14 @@
 	icon_state = "vertw"
 	},
 /area/rogue/indoors)
+"ebd" = (
+/obj/structure/pillory/double,
+/turf/open/floor/rogue/blocks{
+	icon_state = "paving"
+	},
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ebe" = (
 /obj/structure/curtain/red,
 /turf/open/floor/rogue/herringbone,
@@ -11025,6 +11559,14 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/shop)
+"ecu" = (
+/obj/structure/chair/wood/rogue/chair3{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ecC" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/dirt/road,
@@ -11142,6 +11684,12 @@
 /obj/item/paper/scroll,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
+"eec" = (
+/obj/structure/fluff/walldeco/chains,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eee" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/dirt,
@@ -11397,9 +11945,9 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/bath)
 "eiD" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/town/basement/keep)
+/obj/structure/roguemachine/noticeboard,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/outdoors/rtfield/rockhill)
 "eiF" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6;
@@ -11485,6 +12033,14 @@
 /obj/item/candle/gold/lit,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement/keep)
+"elg" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ell" = (
 /obj/structure/stairs/stone,
 /obj/structure/stairs/stone{
@@ -11735,6 +12291,12 @@
 /obj/machinery/gear_painter,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
+"eqt" = (
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eqB" = (
 /obj/item/natural/dirtclod,
 /turf/open/floor/rogue/cobblerock,
@@ -11856,6 +12418,25 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
+"esP" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/reagent_containers/food/snacks/grown/rogue/pipeweeddry,
+/obj/item/reagent_containers/food/snacks/grown/rogue/pipeweeddry{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/snacks/grown/rogue/pipeweeddry{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/snacks/grown/berries/rogue/poison{
+	pixel_x = 8
+	},
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "esR" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/outdoors/town/rockhill)
@@ -11878,6 +12459,14 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/manor/rockhill)
+"etG" = (
+/obj/machinery/light/rogue/torchholder{
+	pixel_y = 26
+	},
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "etQ" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/dirt/road,
@@ -11906,10 +12495,16 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"eum" = (
+/obj/item/roguecoin/copper/pile,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "euG" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grassred,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "euP" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach/harbor)
@@ -12207,6 +12802,14 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/manor/rockhill)
+"eAF" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eAK" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -12285,7 +12888,11 @@
 "eCg" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
+"eCl" = (
+/obj/structure/flora/newtree,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bograt/safe)
 "eCn" = (
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/church)
@@ -12312,6 +12919,12 @@
 	icon_state = "bathtileratwood"
 	},
 /area/rogue/under/town/basement/keep)
+"eCA" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eCE" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/roguegrass,
@@ -12393,6 +13006,12 @@
 /obj/item/rope/chain,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
+"eEi" = (
+/obj/effect/decal/cleanable/food/flour,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eEo" = (
 /obj/effect/landmark/start/villager,
 /turf/open/floor/rogue/cobble,
@@ -12548,10 +13167,6 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/town/rockhill)
-"eGX" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/west)
 "eGZ" = (
 /obj/structure/table/wood/poor,
 /obj/item/roguekey{
@@ -12781,6 +13396,10 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
+"eKG" = (
+/obj/effect/decal/remains/human,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/bograt/safe)
 "eKK" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4;
@@ -12907,7 +13526,7 @@
 	},
 /obj/effect/landmark/start/wretchlate,
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "eMX" = (
 /obj/structure/bookcase/random/adult,
 /obj/structure/fluff/railing/border{
@@ -12978,7 +13597,7 @@
 	icon_state = "signwrote"
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/south)
+/area/rogue/outdoors/bograt/safe)
 "eOw" = (
 /turf/open/water/river{
 	icon_state = "rockwd";
@@ -13122,6 +13741,17 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors)
+"eRS" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 8;
+	locked = 1;
+	lockid = "gobbo_guards";
+	name = "Bad Room"
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eSc" = (
 /obj/item/roguebin/water,
 /turf/open/floor/rogue/tile{
@@ -13146,6 +13776,18 @@
 	icon_state = "bfloorz"
 	},
 /area/rogue/indoors/town/manor/rockhill)
+"eSi" = (
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_x = 3
+	},
+/obj/structure/chair/wood/rogue/chair3{
+	dir = 1
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "eSk" = (
 /obj/structure/roguewindow/openclose{
 	dir = 4
@@ -13730,6 +14372,14 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"fdA" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fdJ" = (
 /obj/structure/table/wood,
 /obj/machinery/light/rogue/wallfire/candle,
@@ -14180,6 +14830,16 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/town/rockhill)
+"fmF" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 4
+	},
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/mace/goden,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fmK" = (
 /obj/structure/fluff/railing/border{
 	dir = 10;
@@ -14439,6 +15099,12 @@
 /obj/structure/fluff/walldeco/stone,
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/physician)
+"fqK" = (
+/obj/structure/roguetent,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fqM" = (
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/bath)
@@ -14932,6 +15598,15 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bograt/west)
+"fzO" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/mob/living/carbon/human/species/goblin/npc/cave,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fzQ" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors)
@@ -15364,6 +16039,23 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
+"fJd" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/huntingknife/scissors{
+	pixel_x = 8;
+	pixel_y = -4
+	},
+/obj/item/clothing/suit/roguetown/armor/leather/hide/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/hide/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/hide/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/hide/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/hide/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/hide/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/hide/goblin,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fJh" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -15429,6 +16121,19 @@
 "fJX" = (
 /turf/closed/wall/mineral/rogue/stone/blue_moss,
 /area/rogue/indoors/town/bath)
+"fJY" = (
+/obj/structure/closet/crate/chest,
+/obj/item/roguekey{
+	icon_state = "spikekey";
+	lockid = "gobbo_guards";
+	name = "mean goblin key";
+	desc = "This old key opens the peddler for the hightown street shop."
+	},
+/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fKf" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	STACON = 13;
@@ -15577,6 +16282,14 @@
 /obj/item/rogueweapon/shovel,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church)
+"fNb" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/axe{
+	faction = list("neutral")
+	},
+/turf/open/floor/carpet/red,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fNe" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6
@@ -15693,10 +16406,12 @@
 	},
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/town/sewer)
-"fOZ" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
+"fPa" = (
+/obj/structure/chair/wood/rogue/chair3,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "fPd" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bograt/north)
@@ -15895,6 +16610,15 @@
 	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/church/chapel)
+"fSH" = (
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchin2";
+	aportalid = "wretchout2"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "fSM" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -16159,6 +16883,10 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church)
+"fYF" = (
+/obj/structure/flora/roguegrass/herb/random,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bograt/safe)
 "fYH" = (
 /obj/machinery/light/roguestreet/orange{
 	dir = 1;
@@ -16257,6 +16985,9 @@
 /obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors)
+"gaH" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "gaL" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/natural/cloth,
@@ -16443,6 +17174,15 @@
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/bograt/north)
+"gfo" = (
+/obj/structure/table/wood{
+	icon_state = "largetable"
+	},
+/obj/item/reagent_containers/glass/bowl,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gfr" = (
 /obj/structure/table/wood,
 /obj/item/roguebin/water{
@@ -16863,6 +17603,16 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/physician)
+"gnE" = (
+/obj/item/rogueore/gold,
+/obj/structure/closet/crate/chest/gold{
+	locked = 1;
+	lockid = "gobbo_chief"
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gnI" = (
 /obj/structure/chair/wood/rogue{
 	dir = 8;
@@ -16911,6 +17661,11 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"gou" = (
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "goJ" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/cobble,
@@ -17157,6 +17912,16 @@
 	icon_state = "iron_line"
 	},
 /area/rogue/indoors/town/bath)
+"gtl" = (
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_x = 3
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gts" = (
 /obj/structure/table/wood{
 	icon_state = "longtable";
@@ -17182,6 +17947,17 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/steward,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor/rockhill)
+"gtG" = (
+/obj/structure/mineral_door/wood/donjon/stone{
+	locked = 1;
+	lockid = "gobbo_chief";
+	name = "Chief's Room"
+	},
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gtJ" = (
 /obj/structure/fluff/walldeco/psybanner/red,
 /turf/closed/wall/mineral/rogue/wood,
@@ -17527,7 +18303,7 @@
 "gzW" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "gAc" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/rtfield/rockhill)
@@ -17735,8 +18511,7 @@
 /area/rogue/outdoors/rtfield/rockhill)
 "gDM" = (
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin/rockhill)
@@ -17762,6 +18537,15 @@
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor/rockhill)
+"gEh" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gEi" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt,
@@ -17910,6 +18694,10 @@
 /obj/structure/vine,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/rtfield/rockhill)
+"gHW" = (
+/obj/item/grown/log/tree,
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "gIc" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -17923,7 +18711,7 @@
 "gIh" = (
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "gIk" = (
 /obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/woodturned,
@@ -18133,6 +18921,14 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"gMw" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gME" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/carpet/red,
@@ -18307,6 +19103,17 @@
 	icon_state = "linoleum"
 	},
 /area/rogue/under/town/basement/keep)
+"gPt" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/closed/wall/mineral/rogue/stone/window,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gPy" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/manor/rockhill)
@@ -18338,6 +19145,12 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
+"gPN" = (
+/obj/item/roguebin/water/gross,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gPP" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -18882,6 +19695,12 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"gYY" = (
+/obj/structure/closet/crate/chest,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "gYZ" = (
 /obj/structure/stairs{
 	dir = 4
@@ -19058,10 +19877,26 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/church/chapel)
+"hbP" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	locked = 1
+	},
+/obj/structure/stairs/stone,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hcg" = (
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/rtfield/rockhill)
+"hco" = (
+/obj/structure/fluff/nest,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hcx" = (
 /turf/closed/wall/mineral/rogue/decostone/long{
 	dir = 1
@@ -19081,7 +19916,7 @@
 /area/rogue/indoors)
 "hcP" = (
 /turf/open/floor/rogue/grassred,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "hcW" = (
 /turf/closed/mineral/rogue,
 /area/rogue/indoors/shelter/rtfield)
@@ -19146,6 +19981,13 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"hek" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun2c";
+	aportalid = "gobdun1c"
+	},
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "heq" = (
 /obj/structure/rack/rogue,
 /obj/machinery/light/rogue/torchholder/l,
@@ -19446,6 +20288,11 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/rtfield/rockhill)
+"hlI" = (
+/turf/closed/mineral/random/rogue/med,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hlM" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/wood,
@@ -19490,8 +20337,7 @@
 	},
 /obj/structure/roguemachine/scomm/l,
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/rockhill)
@@ -19512,6 +20358,12 @@
 /obj/machinery/light/rogue/wallfire/candle/floorcandle,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/church/chapel)
+"hmR" = (
+/obj/structure/fluff/statue/gargoyle,
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hmS" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -19567,6 +20419,10 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
+"hok" = (
+/obj/structure/pillory/double,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/town/sewer)
 "hot" = (
 /obj/structure/fluff/railing/border{
 	dir = 1;
@@ -19897,6 +20753,13 @@
 "htF" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors)
+"htK" = (
+/turf/open/floor/rogue/blocks{
+	icon_state = "paving"
+	},
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "htL" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -19989,6 +20852,22 @@
 	icon_state = "wooden_floor2"
 	},
 /area/rogue/indoors)
+"hvs" = (
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
+"hvv" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 4
+	},
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hvB" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/swamp,
@@ -20071,6 +20950,14 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors)
+"hyd" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hyk" = (
 /obj/structure/closet/crate/drawer/inn,
 /obj/item/flint,
@@ -20231,10 +21118,6 @@
 	lockid = "street_smithshop01"
 	},
 /turf/open/floor/rogue/tile,
-/area/rogue/indoors)
-"hBt" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
 "hBy" = (
 /obj/structure/roguewindow/openclose{
@@ -20398,6 +21281,22 @@
 /obj/structure/chair/wood/rogue/fancy,
 /turf/open/floor/rogue/tile/masonic,
 /area/rogue/indoors/town/manor/rockhill)
+"hDW" = (
+/obj/structure/mineral_door/wood/deadbolt,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
+"hEb" = (
+/obj/structure/mineral_door/wood/donjon/stone{
+	locked = 1;
+	lockid = "gobbo_chief";
+	name = "Shaman's Room"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hEc" = (
 /turf/open/floor/rogue/rooftop/green/corner1{
 	dir = 5
@@ -20446,6 +21345,14 @@
 /obj/structure/handcart,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/dwarfin/rockhill)
+"hFq" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 4
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hFt" = (
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/tile,
@@ -20502,6 +21409,10 @@
 /obj/structure/chair/bench,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/rtfield/rockhill)
+"hGx" = (
+/obj/structure/stairs/stone,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/town/sewer)
 "hGA" = (
 /obj/structure/chair/bench/couch{
 	icon_state = "redcouch2";
@@ -21127,6 +22038,15 @@
 	dir = 1
 	},
 /area/rogue/outdoors/town/rockhill)
+"hSr" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/rogueweapon/hammer/iron,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hSv" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -21525,6 +22445,12 @@
 /obj/structure/shisha/hookah,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/bath)
+"hZy" = (
+/obj/structure/chair/wood/rogue/chair3,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "hZI" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/wood,
@@ -22221,6 +23147,13 @@
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/inq/basement)
+"inB" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "inK" = (
 /obj/structure/chair/wood/rogue/chair3{
 	dir = 8
@@ -22702,7 +23635,7 @@
 	icon_state = "signwrote"
 	},
 /turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "iwK" = (
 /obj/structure/table/wood/large_table/north_west,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -23023,6 +23956,14 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town/rockhill)
+"iCA" = (
+/obj/structure/rack/rogue,
+/obj/item/clothing/head/roguetown/helmet/leather/goblin,
+/obj/item/clothing/head/roguetown/helmet/leather/goblin,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "iCS" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/greenstone,
@@ -23154,6 +24095,10 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"iFs" = (
+/obj/structure/flora/roguegrass/water/reeds,
+/turf/open/water/swamp,
+/area/rogue/under/underdark)
 "iFw" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/river{
@@ -23323,6 +24268,11 @@
 /obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/church)
+"iIv" = (
+/turf/closed/wall/mineral/rogue/stone/window/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "iIw" = (
 /obj/item/candle/skull,
 /obj/structure/table/wood/poor,
@@ -23415,6 +24365,14 @@
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"iKD" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "iKS" = (
 /obj/structure/closet/crate/roguecloset/lord,
 /obj/item/clothing/head/roguetown/helmet/heavy/blkknight,
@@ -23839,6 +24797,12 @@
 "iTH" = (
 /turf/closed/mineral/random/rogue/boglava/med,
 /area/rogue/under/underdark)
+"iTJ" = (
+/obj/machinery/light/rogue/wallfire/candle/l,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "iTT" = (
 /obj/structure/bed/rogue/inn/wool,
 /turf/open/floor/rogue/tile/bfloorz,
@@ -24241,6 +25205,12 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"jbT" = (
+/obj/structure/stairs,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jbX" = (
 /obj/structure/fluff/littlebanners/bluewhite{
 	pixel_y = -6
@@ -24250,6 +25220,14 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/town/rockhill)
+"jbY" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jcb" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/cobblerock,
@@ -24258,6 +25236,12 @@
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
+"jcj" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jcm" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/cobble/mossy,
@@ -24856,6 +25840,14 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
+"joR" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "joZ" = (
 /obj/structure/roguemachine/scomm/r,
 /turf/open/floor/rogue/wood,
@@ -25029,6 +26021,10 @@
 /obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/rockhill)
+"jrW" = (
+/obj/structure/flora/roguegrass,
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "jrZ" = (
 /obj/structure/floordoor/gatehatch/inner,
 /obj/structure/fluff/railing/border{
@@ -25055,6 +26051,16 @@
 	droning_sound = 'sound/music/area/druid.ogg';
 	droning_sound_dusk = null;
 	droning_sound_night = null
+	})
+"jso" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/huntingknife/stoneknife,
+/obj/item/rogueweapon/huntingknife/stoneknife,
+/obj/item/rogueweapon/huntingknife/stoneknife,
+/obj/item/rogueweapon/huntingknife/stoneknife,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "jsq" = (
 /obj/structure/fluff/railing/border{
@@ -25174,6 +26180,13 @@
 "jvj" = (
 /turf/open/water/bath,
 /area/rogue/indoors/town/church)
+"jvm" = (
+/obj/structure/closet/crate/roguecloset/inn/south,
+/obj/item/clothing/cloak/lordcloak,
+/turf/open/floor/rogue/blocks/stonered,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jvt" = (
 /obj/effect/landmark/start/wapprentice,
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
@@ -25244,7 +26257,7 @@
 /area/rogue/under/town/sewer)
 "jxe" = (
 /turf/closed/mineral/rogue/bedrock,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "jxn" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -25276,6 +26289,13 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/bath)
+"jyb" = (
+/obj/structure/rack/rogue,
+/obj/item/reagent_containers/food/snacks/rogue/bread,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jyg" = (
 /obj/item/natural/stone,
 /turf/open/floor/rogue/AzureSand,
@@ -25702,6 +26722,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
+"jGJ" = (
+/obj/item/clothing/head/roguetown/helmet/leather/goblin,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jHd" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -25853,6 +26879,16 @@
 	droning_sound = 'sound/music/area/druid.ogg';
 	droning_sound_dusk = null;
 	droning_sound_night = null
+	})
+"jKN" = (
+/obj/structure/fluff/nest,
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/obj/item/rogueweapon/mace/woodclub,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "jKT" = (
 /obj/machinery/light/rogue/wallfire,
@@ -26398,6 +27434,12 @@
 "jUq" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/bograt/west)
+"jUt" = (
+/obj/item/reagent_containers/glass/bucket,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jVg" = (
 /obj/structure/bars,
 /turf/open/floor/rogue/churchmarble,
@@ -26569,6 +27611,12 @@
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/manor/rockhill)
+"jYs" = (
+/obj/structure/fluff/statue/tdummy,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "jYx" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/shelter/woods{
@@ -26738,6 +27786,12 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/church/chapel)
+"kbQ" = (
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kbY" = (
 /turf/open/floor/rogue/ruinedwood/platform,
 /area/rogue/outdoors/beach/harbor)
@@ -26860,6 +27914,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark)
+"kea" = (
+/obj/structure/flora/roguegrass/herb/random,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/bograt/safe)
 "keb" = (
 /obj/item/natural/poo/cow,
 /turf/open/floor/rogue/greenstone,
@@ -27047,9 +28105,9 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors)
 "kgA" = (
-/obj/structure/fluff/traveltile/wretch{
-	aportalgoesto = "wretchin3";
-	aportalid = "wretchout3"
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun1c";
+	aportalid = "gobdun2c"
 	},
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/town/sewer)
@@ -27095,6 +28153,15 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
+"kgY" = (
+/obj/machinery/light/rogue/firebowl,
+/obj/structure/lever/wall{
+	pixel_x = -3;
+	redstone_id = "goblingate";
+	dir = 8
+	},
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/sewer)
 "kha" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/tile/checkeralt,
@@ -27182,6 +28249,13 @@
 /obj/structure/bars/grille,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/manor/rockhill)
+"kjb" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/rogueweapon/shovel/small,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kjo" = (
 /obj/structure/table/wood/large_table/middle_west,
 /obj/item/candle/candlestick/gold/lit,
@@ -27268,6 +28342,14 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/manor/rockhill)
+"klI" = (
+/obj/structure/rack/rogue,
+/obj/item/clothing/suit/roguetown/armor/plate/half/iron/goblin,
+/obj/item/clothing/suit/roguetown/armor/plate/half/iron/goblin,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "klJ" = (
 /obj/item/clothing/suit/roguetown/shirt/robe/dendor{
 	pixel_y = 8
@@ -27415,6 +28497,13 @@
 	icon_state = "bfloorz"
 	},
 /area/rogue/indoors/town/bath)
+"kna" = (
+/obj/item/roguecoin/copper,
+/obj/item/roguecoin/gold,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "knA" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /obj/structure/fluff/statue/gargoyle{
@@ -27775,6 +28864,13 @@
 	},
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors/town)
+"kvp" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun2";
+	aportalid = "gobdun1"
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/sewer)
 "kvr" = (
 /obj/structure/curtain/brown,
 /turf/closed/wall/mineral/rogue/stone/window,
@@ -28103,6 +29199,12 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
+"kCa" = (
+/obj/structure/pillory/double,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kCe" = (
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/beach/harbor)
@@ -28151,6 +29253,19 @@
 /obj/structure/fluff/statue/gargoyle/moss/candles,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/dungeon1)
+"kDM" = (
+/obj/structure/toilet,
+/obj/item/natural/poo/horse,
+/mob/living/carbon/human/species/goblin/npc/cave,
+/obj/item/roguekey{
+	icon_state = "cheesekey";
+	lockid = "gobbo_chief";
+	name = "fancy goblin key"
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kDO" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -28237,6 +29352,15 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician)
+"kFC" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kFL" = (
 /obj/structure/chair/wood/rogue{
 	dir = 8
@@ -28328,6 +29452,15 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/under/town/basement/keep)
+"kHp" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
+	},
+/obj/structure/flora/roguegrass/water,
+/turf/open/water/swamp/deep,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kHz" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 8
@@ -28431,12 +29564,6 @@
 "kIT" = (
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/basement)
-"kJb" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/dirt,
-/area/rogue/under/cavewet/bogcaves{
-	first_time_text = "The Undersea"
-	})
 "kJe" = (
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
@@ -28697,6 +29824,11 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/rockhill)
+"kOz" = (
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kON" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9
@@ -28722,6 +29854,12 @@
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/rtfield/rockhill)
+"kPR" = (
+/obj/structure/flora/roguegrass/water,
+/turf/open/water/swamp/deep,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kQa" = (
 /obj/structure/bed/rogue/shit,
 /obj/effect/landmark/start/prisonerb,
@@ -28828,6 +29966,15 @@
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/swamp,
 /area/rogue/outdoors/rtfield/rockhill)
+"kSw" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/mob/living/carbon/human/species/goblin/npc/cave,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kSP" = (
 /obj/machinery/light/rogue/wallfire/candle/floorcandle{
 	pixel_y = -14
@@ -28920,6 +30067,14 @@
 "kUR" = (
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor/rockhill)
+"kUY" = (
+/obj/machinery/light/rogue/firebowl,
+/turf/open/floor/rogue/blocks{
+	icon_state = "paving"
+	},
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kUZ" = (
 /obj/structure/bed/rogue/inn,
 /obj/effect/decal/cobbleedge{
@@ -28955,6 +30110,18 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/inq/basement)
+"kVq" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 8
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
+"kVV" = (
+/obj/machinery/gear_painter,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement)
 "kWa" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town/roofs{
@@ -29206,6 +30373,16 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/garrison)
+"kZJ" = (
+/obj/structure/lever/wall{
+	pixel_x = 18;
+	redstone_id = "goblingate"
+	},
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "kZP" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -29342,6 +30519,15 @@
 "lbP" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/outdoors/beach/harbor)
+"lbQ" = (
+/obj/effect/decal/cleanable/food/egg_smudge,
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "lbV" = (
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/manor/rockhill)
@@ -29365,6 +30551,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/town/sewer)
+"lcv" = (
+/obj/structure/bed/rogue/inn/hay,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "lcD" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -29448,6 +30640,14 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church/chapel)
+"lfh" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/closed/wall/mineral/rogue/stone/window,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "lfk" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -29684,6 +30884,11 @@
 /obj/structure/mannequin/male,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
+"llf" = (
+/turf/open/floor/carpet/red,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "llm" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -29723,6 +30928,14 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors)
+"lmd" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "lmf" = (
 /obj/structure/stairs/stone,
 /obj/structure/fluff/railing/border{
@@ -29748,7 +30961,7 @@
 	icon_state = "signwrote"
 	},
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "lmm" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle{
@@ -30032,6 +31245,10 @@
 	dir = 1
 	},
 /area/rogue/outdoors/rtfield/rockhill)
+"lqC" = (
+/obj/structure/flora/rogueshroom/happy/random,
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "lqF" = (
 /obj/structure/chair/bench,
 /obj/effect/landmark/start/villager,
@@ -30067,6 +31284,13 @@
 /obj/item/rogueweapon/pick,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/town/basement)
+"lsH" = (
+/obj/structure/flora/roguegrass/water,
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "lsK" = (
 /obj/structure/table/church{
 	icon_state = "churchtable_alt"
@@ -30196,6 +31420,15 @@
 /obj/structure/roguewindow/openclose,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
+"lvn" = (
+/obj/machinery/light/rogue/torchholder{
+	pixel_y = 26
+	},
+/obj/machinery/light/rogue/smelter,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "lvq" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/cobblerock,
@@ -30752,6 +31985,13 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/town/bath)
+"lGh" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "lGl" = (
 /obj/structure/glowshroom,
 /turf/open/floor/rogue/naturalstone,
@@ -30800,6 +32040,12 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"lHx" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
 "lHB" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -31335,6 +32581,14 @@
 /obj/structure/stairs,
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town/rockhill)
+"lSa" = (
+/obj/machinery/light/rogue/campfire{
+	pixel_y = 5
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "lSN" = (
 /obj/structure/flora/rogueshroom{
 	pixel_y = -5
@@ -31541,6 +32795,10 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/rockhill)
+"lXB" = (
+/obj/machinery/gear_painter,
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors)
 "lXG" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -31608,8 +32866,7 @@
 "lYR" = (
 /obj/structure/fermentation_keg/water,
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/physician)
@@ -31946,12 +33203,10 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/shelter/mountains)
 "mcS" = (
-/obj/effect/landmark/start/adventurerlate{
-	dir = 1
-	},
-/obj/effect/landmark/start/wretchlate,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/west)
+/turf/closed/mineral/random/rogue,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mdl" = (
 /obj/structure/closet/crate/chest{
 	pixel_x = 4;
@@ -32209,6 +33464,14 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark)
+"mhm" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mhr" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/herringbone,
@@ -32299,8 +33562,7 @@
 	dir = 10
 	},
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/rockhill)
@@ -32327,6 +33589,13 @@
 /obj/item/candle/gold/lit,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/rockhill)
+"mjo" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/mace/spiked,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mjq" = (
 /obj/effect/landmark/quest_spawner/hard,
 /turf/open/water/swamp,
@@ -32565,6 +33834,12 @@
 /obj/structure/fluff/canopy,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin/rockhill)
+"mmT" = (
+/obj/structure/fluff/railing/border,
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mmV" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -32734,6 +34009,12 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin/rockhill)
+"mqg" = (
+/obj/machinery/light/rogue/hearth,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mqh" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -32741,6 +34022,13 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor/rockhill)
+"mqn" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun2b";
+	aportalid = "gobdun1b"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/town/sewer)
 "mqF" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -32855,6 +34143,11 @@
 /obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
+"msZ" = (
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mtd" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
@@ -32964,6 +34257,14 @@
 	},
 /turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors/town/manor/rockhill)
+"mvH" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mvO" = (
 /turf/closed/wall/mineral/rogue/decostone/end,
 /area/rogue/indoors/town/manor/rockhill)
@@ -33159,6 +34460,11 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor/rockhill)
+"mzA" = (
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mzE" = (
 /obj/structure/closet/crate/drawer,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/medical,
@@ -33272,6 +34578,14 @@
 "mCM" = (
 /turf/closed/wall/mineral/rogue/roofwall/outercorner,
 /area/rogue/indoors)
+"mCP" = (
+/obj/machinery/light/rogue/wallfire/candle/l{
+	pixel_x = 32
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mCU" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -33299,6 +34613,13 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor/rockhill)
+"mDh" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mDi" = (
 /obj/structure/curtain/red,
 /obj/structure/table/wood/poor,
@@ -33353,6 +34674,13 @@
 	},
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor/rockhill)
+"mDV" = (
+/obj/structure/closet/crate/chest,
+/obj/item/roguegem/green,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mDW" = (
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/indoors/town/Academy)
@@ -33394,6 +34722,14 @@
 	},
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/shop)
+"mEt" = (
+/obj/structure/chair/wood/rogue/chair3{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mEB" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/cobble/mossy,
@@ -33610,6 +34946,16 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/rtfield/rockhill)
+"mII" = (
+/obj/structure/closet/crate/roguecloset/inn/chest,
+/obj/effect/spawner/lootdrop/potion_ingredient/herb,
+/obj/effect/spawner/lootdrop/potion_ingredient/herb,
+/obj/effect/spawner/lootdrop/potion_ingredient/herb,
+/obj/effect/spawner/lootdrop/potion_ingredient/herb,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mIP" = (
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/cobble/mossy,
@@ -33696,6 +35042,11 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
+"mKn" = (
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "mKs" = (
 /obj/structure/table/wood{
 	dir = 10;
@@ -34158,10 +35509,6 @@
 /obj/structure/roguewindow/stained/silver,
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/indoors/inq)
-"mWm" = (
-/obj/structure/roguemachine/noticeboard,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rtfield/rockhill)
 "mWs" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -34355,13 +35702,12 @@
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/shop)
 "nau" = (
-/obj/effect/landmark/start/adventurerlate{
-	dir = 1
-	},
-/obj/effect/landmark/start/wretchlate,
-/obj/effect/landmark/start/courtagent,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/west)
+/obj/effect/decal/cleanable/food/egg_smudge,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "naA" = (
 /obj/item/roguekey/garrison,
 /obj/item/roguekey/garrison,
@@ -34440,6 +35786,10 @@
 /obj/structure/ladder,
 /turf/open/floor/rogue/rooftop/green,
 /area/rogue/outdoors/town/rockhill)
+"nbI" = (
+/obj/item/natural/rock,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/sewer)
 "ncb" = (
 /obj/machinery/light/rogue/lanternpost{
 	dir = 1
@@ -34568,6 +35918,13 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/rockhill)
+"ndH" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/spear,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ndL" = (
 /obj/structure/bed/rogue/inn/wool{
 	pixel_y = 8
@@ -34664,6 +36021,16 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
+"nfs" = (
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	lockid = "gobbo_guards";
+	name = "Holding Cell"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nfO" = (
 /obj/effect/landmark/quest_spawner/hard,
 /turf/open/water/swamp,
@@ -34734,6 +36101,14 @@
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave)
+"ngF" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ngN" = (
 /obj/structure/bed/rogue/inn/wool,
 /obj/item/bedsheet/rogue/pelt,
@@ -34960,6 +36335,15 @@
 /obj/structure/ladder,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/town/rockhill)
+"nln" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/rogueweapon/surgery/saw/improv,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nlt" = (
 /obj/item/grown/log/tree/small,
 /turf/open/floor/rogue/cobble,
@@ -35039,6 +36423,14 @@
 	droning_sound = 'sound/music/area/druid.ogg';
 	droning_sound_dusk = null;
 	droning_sound_night = null
+	})
+"nnW" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/closed/wall/mineral/rogue/stone/window,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "nnZ" = (
 /obj/structure/closet/crate/chest{
@@ -35164,6 +36556,14 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield/rockhill)
+"nrC" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nrV" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/rtfield/rockhill)
@@ -35685,9 +37085,10 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor/rockhill)
 "nCc" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/south)
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nCd" = (
 /obj/machinery/light/rogue/torchholder/r,
 /obj/structure/fermentation_keg,
@@ -35702,7 +37103,7 @@
 "nCu" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "nCE" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/structure/chair/bench/church/smallbench{
@@ -35943,6 +37344,13 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/dwarfin/rockhill)
+"nJe" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun2c";
+	aportalid = "gobdun1c"
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/sewer)
 "nJf" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -36053,6 +37461,12 @@
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
+"nKE" = (
+/obj/item/natural/poo/horse,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nKP" = (
 /obj/machinery/light/rogue/torchholder,
 /turf/closed/mineral/random/rogue/med,
@@ -36394,6 +37808,12 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/office)
+"nRe" = (
+/obj/structure/fluff/grindwheel,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nRf" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /turf/open/floor/rogue/cobble,
@@ -36762,6 +38182,10 @@
 "nWS" = (
 /turf/closed/wall/mineral/rogue/stone/window/moss,
 /area/rogue/under/cave/dungeon1)
+"nWV" = (
+/obj/structure/flora/roguegrass/herb/random,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bograt/safe)
 "nXd" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -36834,10 +38258,26 @@
 /obj/item/rogueweapon/sword/long/exe/cloth,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement)
+"nYy" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nYz" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement/keep)
+"nYD" = (
+/obj/structure/bed/rogue/shit,
+/obj/effect/decal/cleanable/blood,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/mob/living/carbon/human/species/goblin/npc/moon,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "nYK" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/dirt/road,
@@ -36914,6 +38354,10 @@
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
+"oaa" = (
+/obj/machinery/gear_painter,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bograt/safe)
 "oah" = (
 /obj/effect/landmark/quest_spawner/hard,
 /turf/open/floor/rogue/naturalstone,
@@ -37329,6 +38773,15 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/town/rockhill)
+"oiz" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/rogueweapon/surgery/retractor/improv,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oiU" = (
 /obj/structure/table/wood/poor,
 /obj/structure/fluff/railing/border,
@@ -37374,6 +38827,17 @@
 /obj/structure/fluff/railing/border,
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/bath)
+"ojg" = (
+/obj/structure/mineral_door/wood/donjon{
+	armor = list(blunt=90, slash=90, stab=90, bullet=0, laser=0, energy=100, bomb=10, bio=100, rad=100, fire=50, acid=50);
+	locked = 1;
+	lockid = "gobbo_chief";
+	name = "Riches"
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ojj" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -37445,6 +38909,14 @@
 /obj/structure/flora/roguegrass,
 /turf/open/water/swamp,
 /area/rogue/under/cave)
+"okV" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "okW" = (
 /obj/effect/landmark/quest_spawner/hard,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -37809,6 +39281,10 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
+"orp" = (
+/obj/machinery/gear_painter,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/bograt/safe)
 "orr" = (
 /obj/structure/bearpelt{
 	pixel_x = 15;
@@ -37851,7 +39327,7 @@
 "osl" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "oso" = (
 /obj/item/bedroll,
 /turf/open/floor/rogue/concrete,
@@ -37973,6 +39449,15 @@
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/bath)
+"otT" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/shield/wood,
+/obj/item/rogueweapon/shield/wood,
+/obj/item/rogueweapon/shield/wood,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "otW" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/wood{
@@ -38209,6 +39694,15 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"ozs" = (
+/obj/structure/fluff/nest,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ozu" = (
 /obj/effect/landmark/quest_spawner/medium,
 /turf/open/floor/rogue/dirt,
@@ -38317,6 +39811,11 @@
 	},
 /turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors/town/manor/rockhill)
+"oBO" = (
+/turf/closed/wall/mineral/rogue/stone/window,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oBU" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -38484,6 +39983,10 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/bath)
+"oFs" = (
+/obj/machinery/gear_painter,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors)
 "oFy" = (
 /turf/open/floor/carpet/red,
 /area/rogue/outdoors/beach/harbor)
@@ -38491,7 +39994,6 @@
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
 	lockid = "merc";
-	masterkey = 0;
 	name = "Mercenary's Den";
 	dir = 1
 	},
@@ -38586,6 +40088,14 @@
 /obj/structure/stairs,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
+"oHH" = (
+/obj/structure/table/wood{
+	icon_state = "largetable"
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oHI" = (
 /obj/structure/well/fountain{
 	pixel_x = -14;
@@ -38593,6 +40103,20 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/rockhill)
+"oHT" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/natural/feather,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper/scroll,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oIb" = (
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/rogue/cobblerock,
@@ -38616,7 +40140,7 @@
 "oIE" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grassred,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "oII" = (
 /obj/structure/fluff/railing/border{
 	pixel_x = 4
@@ -38696,6 +40220,15 @@
 	icon_state = "bfloorz"
 	},
 /area/rogue/indoors/town/manor/rockhill)
+"oJx" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 8;
+	lockid = "gobbo"
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oJz" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -38856,6 +40389,12 @@
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement)
+"oNd" = (
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oNx" = (
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/dirt/road,
@@ -39003,6 +40542,18 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq)
+"oQl" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1;
+	locked = 1
+	},
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oQo" = (
 /obj/structure/bars,
 /turf/open/floor/rogue/greenstone,
@@ -39136,6 +40687,17 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors)
+"oSN" = (
+/obj/structure/rack/rogue/shelf/big,
+/obj/item/storage/bag/tray,
+/obj/item/storage/bag/tray,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oSS" = (
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/grass,
@@ -39190,6 +40752,13 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
+"oUo" = (
+/obj/structure/flora/roguegrass/maneater/real,
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "oUP" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -39224,6 +40793,16 @@
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
+"oVo" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 8;
+	lockid = "gobbo";
+	name = "Barracks"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oVu" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -39428,6 +41007,30 @@
 "oXL" = (
 /turf/closed/mineral/rogue/salt,
 /area/rogue/outdoors/bograt/west)
+"oXO" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 6
+	},
+/obj/item/roguekey{
+	icon_state = "spikekey";
+	lockid = "gobbo_guards";
+	name = "mean goblin key";
+	desc = "This old key opens the peddler for the hightown street shop."
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "oXR" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/carpet/royalblack,
@@ -39747,10 +41350,6 @@
 "pfp" = (
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/manor/rockhill)
-"pfx" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors)
 "pfA" = (
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/shop)
@@ -39828,6 +41427,13 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/town/rockhill)
+"pgJ" = (
+/obj/structure/fluff/nest,
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "pgT" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -39966,6 +41572,15 @@
 /obj/structure/flora/newtree,
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bograt/south)
+"pkv" = (
+/obj/structure/closet/crate/chest,
+/obj/item/rope/chain,
+/obj/item/rope/chain,
+/obj/item/rope/chain,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "pkz" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	STACON = 13;
@@ -40338,6 +41953,12 @@
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
+"prw" = (
+/obj/structure/fluff/nest,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "prO" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -40373,7 +41994,10 @@
 "psc" = (
 /obj/structure/fluff/walldeco/customflag,
 /turf/closed/mineral/rogue,
-/area/rogue/outdoors/bograt/south)
+/area/rogue/outdoors/bograt/safe)
+"psr" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bograt/safe)
 "psH" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -40447,6 +42071,14 @@
 "ptE" = (
 /turf/closed/mineral/rogue,
 /area/rogue/under/town/basement/keep)
+"ptP" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ptQ" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave/dungeon1)
@@ -40949,6 +42581,15 @@
 /obj/item/flint,
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/bath)
+"pCv" = (
+/obj/item/natural/rock,
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "pCw" = (
 /obj/effect/landmark/start/veteran{
 	dir = 1
@@ -41290,6 +42931,17 @@
 /obj/effect/landmark/start/absolver,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq)
+"pIl" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
+"pIm" = (
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "pIr" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5;
@@ -41394,6 +43046,12 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/bograt/north)
+"pKE" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/open/water/swamp/deep,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "pKR" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/grass,
@@ -41843,6 +43501,30 @@
 	},
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor/rockhill)
+"pUd" = (
+/obj/item/storage/roguebag,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/structure/closet/crate/chest{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/roguekey{
+	icon_state = "brownkey";
+	lockid = "gobbo";
+	name = "goblin key"
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "pUl" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -41862,7 +43544,7 @@
 "pUz" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "pUD" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -41972,8 +43654,7 @@
 /area/rogue/indoors/town/bath)
 "pXB" = (
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/rockhill)
@@ -42258,6 +43939,16 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"qeS" = (
+/obj/structure/flora/roguegrass/bush,
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "qeY" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/wood,
@@ -42373,6 +44064,11 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/manor/rockhill)
+"qik" = (
+/turf/open/floor/rogue/blocks/stonered,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "qil" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/under/roguetown/trou,
@@ -42420,6 +44116,14 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
+	})
+"qju" = (
+/obj/item/rope/chain,
+/obj/item/rope/chain,
+/obj/item/rope/chain,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "qjD" = (
 /turf/open/floor/rogue/blocks/stonered,
@@ -42604,6 +44308,10 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/Academy)
+"qoe" = (
+/obj/structure/flora/roguegrass/bush,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
 "qoh" = (
 /obj/structure/table/wood/poor,
 /obj/item/paper/scroll,
@@ -42819,6 +44527,14 @@
 "qrc" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bograt/south)
+"qrm" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "qrn" = (
 /turf/open/floor/rogue/metal,
 /area/rogue/indoors)
@@ -42834,6 +44550,15 @@
 /obj/structure/stairs,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/rockhill)
+"qsc" = (
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchin3";
+	aportalid = "wretchout3"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "qsx" = (
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/town/roofs{
@@ -42948,7 +44673,7 @@
 "quC" = (
 /obj/structure/far_travel,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "quF" = (
 /obj/item/clothing/wrists/roguetown/nocwrappings,
 /obj/machinery/light/rogue/wallfire/candle/blue,
@@ -43330,6 +45055,13 @@
 /obj/effect/landmark/start/vagrant,
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/town/sewer)
+"qDu" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun2";
+	aportalid = "gobdun1"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/sewer)
 "qDH" = (
 /obj/structure/roguewindow/stained/silver,
 /turf/open/floor/rogue/hexstone,
@@ -43414,9 +45146,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
 "qEP" = (
-/obj/structure/fluff/traveltile/wretch{
-	aportalgoesto = "wretchin1";
-	aportalid = "wretchout1"
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun1b";
+	aportalid = "gobdun2b"
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/shelter/mountains)
@@ -43568,6 +45300,13 @@
 	},
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/beach/harbor)
+"qHv" = (
+/obj/structure/closet/crate/chest,
+/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "qHz" = (
 /obj/structure/roguemachine/scomm,
 /obj/effect/decal/cobbleedge{
@@ -43674,6 +45413,15 @@
 /obj/structure/ladder,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"qKE" = (
+/obj/item/roguekey{
+	icon_state = "spikekey";
+	lockid = "gobbo_guards";
+	name = "mean goblin key";
+	desc = "This old key opens the peddler for the hightown street shop."
+	},
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "qKU" = (
 /obj/structure/bars/steel,
 /turf/open/floor/rogue/cobblerock,
@@ -43723,6 +45471,18 @@
 	},
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
+	})
+"qLE" = (
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "qLP" = (
 /obj/structure/fluff/statue/gargoyle/moss/candles,
@@ -43787,6 +45547,12 @@
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors/town/shop)
+"qNR" = (
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "qOe" = (
 /obj/structure/fluff/walldeco/chains{
 	pixel_x = -1
@@ -43802,6 +45568,9 @@
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
+"qOA" = (
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/bograt/safe)
 "qOH" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/water/bath,
@@ -43896,6 +45665,14 @@
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
+"qRv" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 5
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "qRD" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/woodturned,
@@ -43905,6 +45682,10 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor/rockhill)
+"qRH" = (
+/obj/structure/flora/roguegrass/water,
+/turf/open/water/swamp,
+/area/rogue/under/underdark)
 "qRI" = (
 /obj/structure/closet/crate/chest{
 	lockid = "mage"
@@ -44204,6 +45985,16 @@
 	dir = 1
 	},
 /area/rogue/indoors/town/bath)
+"qYZ" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/fluff/nest,
+/obj/item/trash/applecore,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "qZb" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/structure/bars/grille,
@@ -44494,6 +46285,12 @@
 	},
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/shop)
+"reh" = (
+/mob/living/carbon/human/species/goblin/npc/cave,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rep" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -44521,6 +46318,12 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"reC" = (
+/obj/structure/pillory/double,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "reE" = (
 /obj/structure/bed/rogue/inn/wool,
 /obj/item/bedsheet/rogue/pelt,
@@ -44536,6 +46339,17 @@
 /obj/item/natural/feather,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
+"reR" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/structure/stairs/stone{
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rfk" = (
 /obj/structure/rack/rogue/shelf/big,
 /obj/structure/fluff/railing/border{
@@ -44843,6 +46657,15 @@
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church)
+"rml" = (
+/obj/structure/table/wood{
+	icon_state = "largetable"
+	},
+/obj/item/trash/candle,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rmv" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -45049,6 +46872,17 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/manor/rockhill)
+"rpS" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 4;
+	locked = 1;
+	lockid = "gobbo";
+	name = "Storage"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rpW" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /obj/structure/rack/rogue,
@@ -45215,6 +47049,13 @@
 	icon_state = "wooden_floor2"
 	},
 /area/rogue/outdoors/beach/harbor)
+"rtg" = (
+/obj/effect/landmark/start/adventurerlate{
+	dir = 1
+	},
+/obj/effect/landmark/start/wretchlate,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/bograt/safe)
 "rtv" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
@@ -45274,6 +47115,9 @@
 /obj/structure/plasticflaps,
 /turf/open/water/cleanshallow,
 /area/rogue/under/town/sewer)
+"ruh" = (
+/turf/open/water/swamp/deep,
+/area/rogue/outdoors/bograt/safe)
 "ruj" = (
 /obj/item/natural/rock{
 	pixel_x = -5;
@@ -45322,6 +47166,14 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
+"rvr" = (
+/obj/structure/rack/rogue,
+/obj/item/clothing/head/roguetown/helmet/goblin,
+/obj/item/clothing/head/roguetown/helmet/goblin,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rvw" = (
 /obj/effect/wisp/prestidigitation{
 	desc = "A small, fiery ball of light made up of mystical energy.";
@@ -45421,13 +47273,18 @@
 "rwz" = (
 /turf/closed/wall/mineral/rogue/roofwall/middle,
 /area/rogue/indoors/inq)
+"rwD" = (
+/obj/structure/fluff/nest,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rwF" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
 	},
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/manor/rockhill)
@@ -45937,7 +47794,6 @@
 /area/rogue/indoors/town/church)
 "rIK" = (
 /obj/item/reagent_containers/powder/salt,
-/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
 "rIU" = (
@@ -46020,6 +47876,13 @@
 "rJN" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/bograt/north)
+"rJQ" = (
+/obj/structure/flora/roguegrass,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "rKk" = (
 /obj/structure/bars{
 	icon_state = "barsbent";
@@ -46051,6 +47914,11 @@
 	},
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors)
+"rKN" = (
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rKW" = (
 /obj/machinery/light/rogue/wallfire{
 	pixel_x = 32
@@ -46060,7 +47928,7 @@
 "rLb" = (
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "rLn" = (
 /obj/structure/chair/bench/church/r{
 	dir = 4
@@ -46233,6 +48101,13 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/rtfield/rockhill)
+"rNU" = (
+/obj/structure/fluff/nest,
+/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rOb" = (
 /obj/structure/roguewindow/openclose{
 	dir = 1
@@ -46279,6 +48154,14 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bograt/west)
+"rPs" = (
+/obj/machinery/light/rogue/oven/south,
+/obj/machinery/light/rogue/hearth,
+/obj/item/reagent_containers/glass/bucket/pot,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rPJ" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/carpet/royalblack,
@@ -46289,6 +48172,16 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church)
+"rPO" = (
+/obj/structure/fluff/nest,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rQb" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 1
@@ -46463,6 +48356,12 @@
 "rSM" = (
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/town/dwarfin/rockhill)
+"rSQ" = (
+/obj/item/trash/candle,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rTl" = (
 /obj/structure/fluff/nest,
 /turf/open/floor/rogue/concrete,
@@ -46537,6 +48436,13 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/bograt/north)
+"rUJ" = (
+/obj/structure/bed/rogue/inn/wool,
+/obj/item/bedsheet/rogue/pelt,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rUK" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -46579,6 +48485,12 @@
 	icon_state = "rockwd"
 	},
 /area/rogue/outdoors/beach/harbor)
+"rVB" = (
+/obj/structure/mineral_door/wood/fancywood,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "rVH" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/river{
@@ -46681,8 +48593,10 @@
 /area/rogue/outdoors/rtfield/rockhill)
 "rXL" = (
 /obj/machinery/gear_painter,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/west)
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "rXQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -46697,6 +48611,10 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"rYe" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/open/water/swamp,
+/area/rogue/under/underdark)
 "rYk" = (
 /obj/structure/handcart,
 /turf/open/floor/rogue/ruinedwood{
@@ -47245,6 +49163,14 @@
 	icon_state = "vertw"
 	},
 /area/rogue/indoors)
+"shf" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "shj" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/fluff/railing/wood{
@@ -47292,6 +49218,12 @@
 "siL" = (
 /turf/open/floor/carpet/red,
 /area/rogue/indoors)
+"siQ" = (
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "siS" = (
 /obj/structure/mineral_door/wood/towner/generic,
 /turf/open/floor/rogue/ruinedwood{
@@ -47302,6 +49234,11 @@
 /obj/item/natural/poo/horse,
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/town/sewer)
+"sjh" = (
+/turf/closed/mineral/random/rogue/high,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sjj" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4;
@@ -47312,6 +49249,10 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor/rockhill)
+"sjl" = (
+/obj/structure/flora/rogueshroom,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "sju" = (
 /obj/structure/fluff/railing/border{
 	dir = 6;
@@ -47444,6 +49385,10 @@
 "smf" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bograt/west)
+"smD" = (
+/obj/structure/far_travel,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bograt/safe)
 "smJ" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -47617,6 +49562,12 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"sqo" = (
+/obj/item/roguebin/water,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sqq" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -47702,6 +49653,15 @@
 	},
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/outdoors/town/rockhill)
+"srX" = (
+/obj/machinery/light/rogue/hearth,
+/obj/machinery/light/rogue/cauldron{
+	pixel_y = 5
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "srZ" = (
 /obj/structure/chair/wood/rogue{
 	dir = 4
@@ -47764,8 +49724,7 @@
 	pixel_x = -6
 	},
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/rooftop{
 	icon_state = "roofg"
@@ -48026,6 +49985,10 @@
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
+"sxu" = (
+/obj/structure/glowshroom,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/underdark)
 "sxv" = (
 /turf/open/water/river{
 	dir = 1;
@@ -48072,6 +50035,10 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
+"syC" = (
+/obj/structure/flora/rogueshroom,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
 "syY" = (
 /obj/effect/landmark/start/manorguardsman{
 	dir = 4
@@ -48557,6 +50524,10 @@
 "sIR" = (
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/bath)
+"sJf" = (
+/obj/item/natural/poo/cow,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
 "sJh" = (
 /obj/item/grown/log/tree,
 /turf/open/floor/rogue/naturalstone,
@@ -48590,7 +50561,7 @@
 "sJZ" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "sKd" = (
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
@@ -48614,6 +50585,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church/chapel)
+"sKF" = (
+/obj/structure/fluff/walldeco/chains,
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sKL" = (
 /obj/structure/chair/wood/rogue{
 	dir = 1
@@ -48718,6 +50695,11 @@
 	},
 /turf/open/floor/rogue/tile/tilerg,
 /area/rogue/under/town/basement/keep)
+"sMy" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sMA" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -48858,6 +50840,12 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"sOU" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sOV" = (
 /obj/structure/closet/crate/chest{
 	lockid = "clinic"
@@ -49215,6 +51203,14 @@
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
+"sVJ" = (
+/obj/structure/fluff/nest,
+/obj/effect/decal/cleanable/blood,
+/mob/living/carbon/human/species/goblin/npc/moon,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sVK" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -49305,6 +51301,17 @@
 "sXz" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/town/rockhill)
+"sXQ" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sXU" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -49408,6 +51415,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter/mountains)
+"sZu" = (
+/obj/structure/chair/wood/rogue/throne,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "sZw" = (
 /obj/structure/closet/crate/drawer{
 	keylock = 1;
@@ -49472,6 +51485,15 @@
 /obj/structure/mannequin/male,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
+"taX" = (
+/obj/structure/rack/rogue,
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow,
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow,
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "tbi" = (
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/cobble,
@@ -49846,6 +51868,10 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"thz" = (
+/obj/structure/flora/newtree,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bograt/safe)
 "thA" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/rogue/naturalstone,
@@ -50548,14 +52574,19 @@
 /area/rogue/indoors/town/manor{
 	first_time_text = null
 	})
+"ttz" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ttG" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab,
 /turf/open/floor/rogue/AzureSand,
 /area/rogue/outdoors/beach/harbor)
 "ttV" = (
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/shop)
@@ -50806,7 +52837,7 @@
 "txY" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grassred,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "txZ" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/structure/chair/bench/church{
@@ -51061,6 +53092,10 @@
 /area/rogue/outdoors/town/roofs{
 	first_time_text = null
 	})
+"tDQ" = (
+/obj/machinery/light/rogue/firebowl,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/sewer)
 "tEb" = (
 /obj/effect/landmark/start/watchman{
 	dir = 8
@@ -51075,8 +53110,7 @@
 /area/rogue/indoors/town/dwarfin/rockhill)
 "tEr" = (
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark)
@@ -51384,6 +53418,9 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/town/church/chapel)
+"tIq" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue/under/town/sewer)
 "tIz" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -51481,6 +53518,15 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/rockhill)
+"tLx" = (
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "tLz" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -51552,6 +53598,13 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors)
+"tMt" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "tMu" = (
 /obj/structure/roguewindow/stained/silver,
 /turf/open/floor/rogue/woodturned,
@@ -51753,7 +53806,7 @@
 /obj/effect/landmark/start/wretchlate,
 /obj/effect/landmark/start/courtagent,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/south)
+/area/rogue/outdoors/bograt/safe)
 "tRA" = (
 /obj/structure/fluff/railing/border,
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled,
@@ -51947,9 +54000,11 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach/harbor)
 "tVT" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/bograt/south)
+/obj/machinery/light/rogue/smelter,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "tVZ" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -52061,6 +54116,10 @@
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors)
+"uae" = (
+/obj/item/natural/rock,
+/turf/closed/mineral/random/rogue,
+/area/rogue/under/underdark)
 "uao" = (
 /obj/structure/closet/dirthole/closed,
 /obj/item/trash/candle,
@@ -52351,6 +54410,15 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach/harbor)
+"ugw" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/pick,
+/obj/item/ingot/iron,
+/obj/item/ingot/iron,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "ugy" = (
 /obj/structure/fluff/railing/border,
 /turf/closed/wall/mineral/rogue/stone/moss,
@@ -52630,6 +54698,14 @@
 /obj/item/reagent_containers/glass/bottle,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/town/sewer)
+"uni" = (
+/obj/machinery/light/rogue/wallfire/candle/l{
+	pixel_x = 32
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "unk" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -52850,6 +54926,12 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"urr" = (
+/obj/structure/chair/wood/rogue/chair3,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "urD" = (
 /obj/item/clothing/suit/roguetown/shirt/robe/noc,
 /turf/open/floor/rogue/cobble,
@@ -52890,7 +54972,7 @@
 "usu" = (
 /obj/structure/flora/roguetree,
 /turf/open/water/swamp,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "usw" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/cobblerock,
@@ -53275,6 +55357,12 @@
 	},
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/outdoors/beach/harbor)
+"uBg" = (
+/obj/structure/table/wood,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "uBG" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -53329,10 +55417,28 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/bath)
+"uCW" = (
+/obj/structure/mineral_door/wood/donjon{
+	locked = 1;
+	lockid = "gobbo_guards";
+	name = "Guard's Quarters"
+	},
+/obj/structure/stairs/stone,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "uCZ" = (
 /obj/structure/far_travel,
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach/harbor)
+"uDr" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/fluff/statue/tdummy,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "uDx" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/herringbone,
@@ -53652,6 +55758,15 @@
 "uLU" = (
 /turf/open/floor/rogue/twig,
 /area/rogue/under/cave)
+"uLY" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "largetable"
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "uMa" = (
 /obj/structure/chair/wood/rogue{
 	dir = 8;
@@ -54041,7 +56156,7 @@
 	icon_state = "signwrote"
 	},
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "uSk" = (
 /obj/structure/fluff/statue/knight{
 	dir = 3;
@@ -54192,9 +56307,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/inq)
 "uUU" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/bograt/south)
+/turf/open/water/swamp,
+/area/rogue/outdoors/bograt/safe)
 "uVn" = (
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/naturalstone,
@@ -54255,6 +56369,12 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
+	})
+"uWm" = (
+/obj/structure/bed/rogue/inn/hay,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "uWt" = (
 /obj/structure/fluff/railing/wood{
@@ -54394,6 +56514,10 @@
 	},
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/shop)
+"val" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/sewer)
 "vat" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -54820,6 +56944,9 @@
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/bath)
+"vkv" = (
+/turf/closed/wall/mineral/rogue/wooddark,
+/area/rogue/outdoors/bograt/safe)
 "vkO" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -54889,6 +57016,11 @@
 	},
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/outdoors/beach/harbor)
+"vlt" = (
+/turf/open/floor/carpet/purple,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vlU" = (
 /obj/structure/bell_common{
 	pixel_x = -10;
@@ -54970,7 +57102,6 @@
 "vnp" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
-	lockdiff = 3;
 	locked = 1;
 	lockid = "armory"
 	},
@@ -55153,6 +57284,14 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
+"vqX" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vra" = (
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
@@ -55392,6 +57531,12 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/shelter/mountains)
+"vut" = (
+/obj/structure/closet/crate/chest,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vuC" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/cobble/mossy,
@@ -55854,6 +57999,14 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/rtfield/rockhill)
+"vEZ" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/toilet,
+/obj/item/natural/poo/horse,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vFf" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -55874,7 +58027,7 @@
 	},
 /obj/effect/landmark/start/wretchlate,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/bograt/south)
+/area/rogue/outdoors/bograt/safe)
 "vFF" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/ruinedwood{
@@ -56114,6 +58267,10 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/tile/masonic/spiral,
 /area/rogue/indoors/town/church)
+"vJC" = (
+/obj/structure/flora/roguegrass/water,
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "vJE" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/shelter/woods{
@@ -56532,6 +58689,12 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/bath)
+"vQU" = (
+/mob/living/carbon/human/species/goblin/npc/cave,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vQW" = (
 /obj/structure/bars/grille{
 	dir = 8
@@ -56545,6 +58708,17 @@
 "vRu" = (
 /turf/closed/mineral/rogue,
 /area/rogue/under/cave)
+"vRE" = (
+/obj/structure/fluff/nest,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
+"vRO" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/obj/structure/flora/roguegrass,
+/turf/open/floor/rogue/grasspurple,
+/area/rogue/under/underdark)
 "vRQ" = (
 /obj/structure/fluff/railing/border,
 /turf/open/water/cleanshallow,
@@ -56667,6 +58841,14 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/beach/harbor)
+"vTZ" = (
+/obj/structure/bars/passage{
+	redstone_id = "goblingate"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vUd" = (
 /obj/structure/table/wood/poor,
 /obj/machinery/light/rogue/wallfire/candle,
@@ -56714,8 +58896,7 @@
 	dir = 8;
 	locked = 1;
 	lockid = "inquisition";
-	name = "Inquisition Cell";
-	opacity = 0
+	name = "Inquisition Cell"
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/inq/basement)
@@ -56762,8 +58943,7 @@
 	pixel_x = 6
 	},
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 8;
-	light_range = -1
+	dir = 8
 	},
 /turf/open/floor/rogue/rooftop/green/corner1{
 	dir = 10
@@ -56786,6 +58966,11 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors)
+"vWY" = (
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vXe" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -56914,6 +59099,12 @@
 	},
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/town/bath)
+"vZB" = (
+/obj/item/rogue/instrument/drum,
+/turf/open/floor/carpet/red,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "vZG" = (
 /obj/structure/table/wood/poor,
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -57036,6 +59227,14 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
+"waU" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "waZ" = (
 /obj/structure/closet/crate/chest{
 	lockid = "clinic"
@@ -57091,6 +59290,16 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin/rockhill)
+"wbY" = (
+/obj/structure/mineral_door/wood/donjon{
+	locked = 1;
+	lockid = "gobbo_guards";
+	name = "Armory"
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wck" = (
 /obj/item/roguebin/water{
 	pixel_y = 6
@@ -57186,6 +59395,17 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town/rockhill)
+"wdQ" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 8;
+	locked = 1;
+	lockid = "gobbo";
+	name = "Outside"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wdT" = (
 /obj/structure/fluff/railing/border{
 	pixel_y = -7
@@ -57206,6 +59426,10 @@
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
+"weh" = (
+/obj/structure/flora/roguegrass,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
 "weo" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/carpet/royalblack,
@@ -57232,6 +59456,17 @@
 /obj/item/seeds/cabbage,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"wfh" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -5
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wfr" = (
 /obj/structure/chair/bench/church{
 	dir = 1
@@ -57359,6 +59594,15 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
+"whk" = (
+/obj/structure/table/wood{
+	dir = 5;
+	icon_state = "largetable"
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "whl" = (
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/tales1,
@@ -57573,9 +59817,9 @@
 	droning_sound_night = null
 	})
 "wle" = (
-/obj/structure/fluff/traveltile/wretch{
-	aportalgoesto = "wretchin2";
-	aportalid = "wretchout2"
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "gobdun1";
+	aportalid = "gobdun2"
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/town/sewer)
@@ -57678,6 +59922,24 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
+	})
+"wnI" = (
+/obj/item/natural/rock,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/underdark)
+"wnO" = (
+/obj/machinery/light/rogue/forge,
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
+"wnQ" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "wnR" = (
 /obj/structure/fluff/railing/wood{
@@ -58117,6 +60379,12 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"wvO" = (
+/obj/structure/pillory/double,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wvV" = (
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/woodturned,
@@ -58226,8 +60494,7 @@
 /obj/structure/rack/rogue,
 /obj/item/storage/roguebag,
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/manor/rockhill)
@@ -58296,6 +60563,12 @@
 "wyq" = (
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/church)
+"wyL" = (
+/obj/item/natural/rock,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wyQ" = (
 /obj/structure/stairs{
 	dir = 4
@@ -58388,6 +60661,17 @@
 /obj/structure/stairs,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/manor/rockhill)
+"wAG" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/food/snacks/rogue/meat/poultry,
+/obj/item/reagent_containers/food/snacks/rogue/dough,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wAL" = (
 /obj/structure/closet/crate/chest{
 	lockid = "manor"
@@ -58423,6 +60707,12 @@
 /obj/effect/wisp/prestidigitation,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/rockhill)
+"wBh" = (
+/obj/structure/fluff/statue/tdummy,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wBC" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -58634,7 +60924,6 @@
 "wFu" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
-	lockdiff = 3;
 	locked = 1;
 	lockid = "sergeant"
 	},
@@ -58745,6 +61034,10 @@
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
+"wGR" = (
+/obj/structure/fluff/statue/gargoyle,
+/turf/closed/wall/mineral/rogue/stonebrick,
+/area/rogue/under/town/sewer)
 "wHa" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
@@ -58793,6 +61086,10 @@
 /obj/item/clothing/gloves/roguetown/leather,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors)
+"wID" = (
+/obj/structure/flora/newtree,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/bograt/safe)
 "wJo" = (
 /obj/structure/curtain/magenta,
 /obj/structure/chair/stool/rogue{
@@ -58859,6 +61156,15 @@
 /obj/structure/bed/rogue/inn,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
+"wKX" = (
+/obj/structure/rack/rogue,
+/obj/item/clothing/suit/roguetown/armor/leather/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/goblin,
+/obj/item/clothing/suit/roguetown/armor/leather/goblin,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wLx" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bograt/south)
@@ -59377,10 +61683,25 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/shelter/mountains)
+"wTk" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 8
+	},
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/stoneaxe,
+/obj/item/rogueweapon/stoneaxe,
+/obj/item/rogueweapon/stoneaxe,
+/obj/item/rogueweapon/mace/woodclub,
+/obj/item/rogueweapon/mace/woodclub,
+/obj/item/rogueweapon/mace/woodclub,
+/obj/item/rogueweapon/mace/woodclub,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "wTx" = (
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4;
-	light_range = -1
+	dir = 4
 	},
 /turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors/town/manor/rockhill)
@@ -59925,6 +62246,12 @@
 "xdI" = (
 /turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town/manor/rockhill)
+"xdP" = (
+/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xdS" = (
 /obj/structure/roguemachine/mail{
 	mailtag = "Throne Room";
@@ -59991,6 +62318,11 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
+	})
+"xeN" = (
+/turf/open/floor/rogue/metal,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "xeP" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
@@ -60099,6 +62431,14 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/church)
+"xhT" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 8
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xif" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -60123,6 +62463,12 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town/rockhill)
+"xiG" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xiH" = (
 /obj/structure/mineral_door/wood/violet{
 	chat_color_name = "room";
@@ -60496,6 +62842,14 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/rockhill)
+"xot" = (
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xou" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
@@ -60504,6 +62858,12 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement/keep)
+"xoA" = (
+/obj/structure/fluff/statue/tdummy,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xoE" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -60962,6 +63322,20 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/bath)
+"xxX" = (
+/obj/structure/closet/crate/chest,
+/obj/item/reagent_containers/food/snacks/grown/apple,
+/obj/item/reagent_containers/food/snacks/grown/apple,
+/obj/item/reagent_containers/food/snacks/grown/apple,
+/obj/item/reagent_containers/food/snacks/grown/apple,
+/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
+/obj/item/reagent_containers/food/snacks/butter,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/food,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/food,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xyn" = (
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/ruinedwood,
@@ -61022,6 +63396,14 @@
 	},
 /turf/open/water/bath,
 /area/rogue/indoors/town/church/chapel)
+"xyZ" = (
+/obj/machinery/light/rogue/torchholder{
+	pixel_y = 26
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xzd" = (
 /obj/structure/chair/wood/rogue{
 	dir = 1
@@ -61092,6 +63474,12 @@
 /obj/machinery/gear_painter,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/rockhill)
+"xAo" = (
+/obj/machinery/light/rogue/wallfire/candle/l,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xAt" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/rockhill)
@@ -61363,8 +63751,7 @@
 	pixel_x = 6
 	},
 /obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 8;
-	light_range = -1
+	dir = 8
 	},
 /turf/open/floor/rogue/rooftop{
 	icon_state = "roofg"
@@ -61601,6 +63988,14 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/rtfield/rockhill)
+"xKt" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xKx" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -61663,7 +64058,7 @@
 /area/rogue/indoors/town/manor/rockhill)
 "xLA" = (
 /turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/bograt/west)
+/area/rogue/outdoors/bograt/safe)
 "xLM" = (
 /obj/structure/table/wood/poor,
 /obj/structure/fluff/walldeco/rpainting{
@@ -61898,6 +64293,14 @@
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
+"xPF" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xPJ" = (
 /obj/machinery/light/rogue/torchholder{
 	pixel_y = 26
@@ -62005,6 +64408,12 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/rockhill)
+"xRL" = (
+/obj/structure/handcart,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xRQ" = (
 /obj/structure/closet/crate/chest{
 	locked = 1;
@@ -62292,6 +64701,13 @@
 /obj/item/pestle,
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/Academy)
+"xWk" = (
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/obj/item/roguestatue/iron,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xWl" = (
 /obj/structure/fluff/railing/border{
 	dir = 5;
@@ -62319,6 +64735,17 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/tavern{
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
+	})
+"xWO" = (
+/obj/structure/closet/crate/drawer,
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/obj/item/rogueweapon/whip,
+/obj/item/reagent_containers/powder/spice{
+	pixel_y = 14
+	},
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "xWU" = (
 /obj/structure/stairs{
@@ -62450,6 +64877,15 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors)
+"xZK" = (
+/obj/structure/table/wood{
+	icon_state = "largetable"
+	},
+/obj/item/dice,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "xZM" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/basement)
@@ -62464,6 +64900,15 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
+	})
+"yas" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/rogueweapon/huntingknife/cleaver,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "yaG" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
@@ -62672,6 +65117,16 @@
 	dir = 8
 	},
 /area/rogue/indoors/town/manor/rockhill)
+"yeu" = (
+/obj/structure/table/wood{
+	dir = 6;
+	icon_state = "largetable"
+	},
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "yeD" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/roguegrass/bush/wall/tall,
@@ -62841,6 +65296,14 @@
 "yht" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town/rockhill)
+"yhy" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "yhQ" = (
 /obj/effect/landmark/quest_spawner/easy,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -62862,6 +65325,12 @@
 "yhZ" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/manor/rockhill)
+"yin" = (
+/obj/machinery/light/rogue/wallfire/candle/r,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "yit" = (
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
@@ -62907,6 +65376,25 @@
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
+"yjD" = (
+/obj/structure/mirror,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/clothing/mask/cigarette/pipe/crafted,
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	layer = 2.05
+	},
+/obj/effect/spawner/lootdrop/potion_stats,
+/obj/effect/spawner/lootdrop/potion_stats,
+/obj/effect/spawner/lootdrop/potion_poisons,
+/obj/effect/spawner/lootdrop/potion_vitals,
+/obj/effect/spawner/lootdrop/potion_poisons,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/town/basement{
+	droning_sound = 'sound/music/area/gobcamp.ogg'
+	})
 "yjJ" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -121109,7 +123597,7 @@ wQk
 pBZ
 bzm
 bzm
-pfx
+lXB
 dlR
 whb
 whb
@@ -121510,7 +123998,7 @@ whb
 whb
 gxt
 cTA
-adi
+kVV
 cEK
 rqd
 dLG
@@ -173875,9 +176363,9 @@ jFq
 fyc
 tHz
 fyc
-lWt
-lWt
-lWt
+rLb
+rLb
+rLb
 fyc
 fyc
 fyc
@@ -174306,32 +176794,32 @@ wGD
 wGD
 kIO
 aOo
-dhN
-ujL
+rtg
+qOA
 nCu
 rLb
-smf
+uUU
 rLb
 rLb
-rfA
-ujL
-rfA
-rfA
-hbo
-hbo
-hbo
-hbo
-rfA
-smf
-rfA
-qYw
-uRH
+bWx
+qOA
+bWx
+bWx
+cwt
+cwt
+cwt
+cwt
+bWx
+uUU
+bWx
+eCl
+wID
 rLb
-rfA
-rfA
-hbo
-hbo
-hbo
+bWx
+bWx
+cwt
+cwt
+cwt
 gxt
 gxt
 gxt
@@ -174414,31 +176902,31 @@ qCt
 qCt
 qCt
 smf
-smf
-smf
-smf
-rfA
-ujL
-ujL
-rfA
+uUU
+uUU
+uUU
+bWx
+qOA
+qOA
+bWx
 jxe
 jxe
-hbo
-hbo
-hbo
-hbo
-aHG
+cwt
+cwt
+cwt
+cwt
+vkv
 quC
 quC
 quC
-aHG
-hbo
-hbo
-hbo
-hbo
-hbo
-rfA
-rfA
+vkv
+cwt
+cwt
+cwt
+cwt
+cwt
+bWx
+bWx
 gxt
 gxt
 gxt
@@ -174738,33 +177226,33 @@ fyc
 odi
 nju
 quC
-nau
-lxs
-ujL
+tRv
+psr
+qOA
 iwJ
-smf
-smf
-ujL
-rfA
-ujL
+uUU
+uUU
+qOA
+bWx
+qOA
 czb
-rfA
-ujL
-rfA
-rfA
-ujL
-rfA
-ujL
-ujL
-ujL
-rfA
-rfA
-smf
-ujL
-rfA
-rfA
-hbo
-smf
+bWx
+qOA
+bWx
+bWx
+qOA
+bWx
+qOA
+qOA
+qOA
+bWx
+bWx
+uUU
+qOA
+bWx
+bWx
+cwt
+uUU
 gxt
 gxt
 gxt
@@ -174846,33 +177334,33 @@ qCt
 smf
 smf
 smf
-smf
-rfA
-ujL
-ujL
-ujL
-ujL
-smf
-rfA
-hbo
-hbo
+uUU
+bWx
+qOA
+qOA
+qOA
+qOA
+uUU
+bWx
+cwt
+cwt
 czb
 czb
-hbo
+cwt
 cIu
-mcS
-nau
-mcS
+vFB
+tRv
+vFB
 cIu
-hbo
-hbo
-hbo
-rfA
-ujL
-ujL
-ujL
-rfA
-rfA
+cwt
+cwt
+cwt
+bWx
+qOA
+qOA
+qOA
+bWx
+bWx
 gxt
 gxt
 gxt
@@ -175169,34 +177657,34 @@ whb
 fyc
 wGD
 fZY
-bFB
+smD
 eMT
-lxs
-lxs
-lxs
-lxs
-lxs
-lxs
-lxs
-ujL
-lxs
-lxs
-lxs
-lxs
-lxs
-ujL
-ujL
-ujL
-ujL
-ujL
-lxs
-lxs
-rfA
-rfA
-qYw
-ujL
-rfA
-smf
+psr
+psr
+psr
+psr
+psr
+psr
+psr
+qOA
+psr
+psr
+psr
+psr
+psr
+qOA
+qOA
+qOA
+qOA
+qOA
+psr
+psr
+bWx
+bWx
+eCl
+qOA
+bWx
+uUU
 gxt
 gxt
 gxt
@@ -175279,32 +177767,32 @@ smf
 smf
 smf
 ujL
-ujL
-rfA
-ujL
-ujL
-smf
-rfA
-ujL
-ujL
-ujL
-ujL
-ujL
-smf
+qOA
+bWx
+qOA
+qOA
+uUU
+bWx
+qOA
+qOA
+qOA
+qOA
+qOA
+uUU
 czb
 uSg
-lxs
-ujL
+psr
+qOA
 czb
-hbo
-smf
-rfA
-rfA
-qYw
-rfA
-rfA
-rfA
-rfA
+cwt
+uUU
+bWx
+bWx
+eCl
+bWx
+bWx
+bWx
+bWx
 smf
 rfA
 ujL
@@ -175603,32 +178091,32 @@ fyc
 fyc
 tHz
 pUz
-smf
-ujL
-rfA
-ujL
-ujL
-rfA
-rfA
-ujL
-ujL
-ujL
+uUU
+qOA
+bWx
+qOA
+qOA
+bWx
+bWx
+qOA
+qOA
+qOA
 sJZ
-lNj
-ujL
-ujL
-ujL
+kea
+qOA
+qOA
+qOA
 czb
-ujL
-ujL
-ujL
-ujL
-lxs
-rfA
-rfA
-rfA
-ujL
-rfA
+qOA
+qOA
+qOA
+qOA
+psr
+bWx
+bWx
+bWx
+qOA
+bWx
 gxt
 gxt
 gxt
@@ -175711,32 +178199,32 @@ smf
 rfA
 rfA
 ujL
-rfA
-rfA
-ujL
-rfA
-rfA
-ujL
-rfA
-rfA
-rfA
+bWx
+bWx
+qOA
+bWx
+bWx
+qOA
+bWx
+bWx
+bWx
 usu
-smf
-ujL
-ujL
-ujL
-lxs
-ujL
-smf
-smf
-ujL
-rfA
-ujL
-ujL
-ujL
-rfA
-ujL
-smf
+uUU
+qOA
+qOA
+qOA
+psr
+qOA
+uUU
+uUU
+qOA
+bWx
+qOA
+qOA
+qOA
+bWx
+qOA
+uUU
 smf
 ujL
 ujL
@@ -176036,30 +178524,30 @@ gxt
 gxt
 nKr
 czb
-rXL
-ujL
+orp
+qOA
 czb
 pUz
-rfA
+bWx
 czb
-ujL
-ujL
-rfA
-rfA
-ujL
-smf
-smf
-smf
-smf
-smf
-smf
-uRH
-ujL
-ujL
-ujL
-ujL
-ujL
-ujL
+qOA
+qOA
+bWx
+bWx
+qOA
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+wID
+qOA
+qOA
+qOA
+qOA
+qOA
+qOA
 qYw
 rfA
 rfA
@@ -176143,31 +178631,31 @@ ujL
 ujL
 rfA
 rfA
-ujL
-ujL
-uRH
-uRH
-ujL
-ujL
-rfA
-rfA
-smf
-smf
-smf
-smf
-fOZ
-qYw
-ujL
-rfA
-rfA
+qOA
+qOA
+wID
+wID
+qOA
+qOA
+bWx
+bWx
+uUU
+uUU
+uUU
+uUU
+oaa
+eCl
+qOA
+bWx
+bWx
 czb
-uRH
-rfA
-rfA
-ujL
-ujL
-ujL
-smf
+wID
+bWx
+bWx
+qOA
+qOA
+qOA
+uUU
 rfA
 smf
 ujL
@@ -176469,29 +178957,29 @@ gxt
 gxt
 gxt
 rLb
-rfA
-ujL
-rfA
-ujL
-ujL
-lNj
-ujL
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-smf
+bWx
+qOA
+bWx
+qOA
+qOA
+kea
+qOA
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
 czb
-ujL
-rfA
-rfA
+qOA
+bWx
+bWx
 lxs
 lxs
 rfA
@@ -176575,30 +179063,30 @@ uRH
 rfA
 rfA
 rfA
-ujL
-smf
-smf
-ujL
-ujL
-rfA
-rfA
-smf
-smf
-aOf
-smf
-smf
-smf
-smf
-lxs
-rfA
-ujL
-ujL
-ujL
-rfA
-smf
-smf
-rfA
-rfA
+qOA
+uUU
+uUU
+qOA
+qOA
+bWx
+bWx
+uUU
+uUU
+aKL
+uUU
+uUU
+uUU
+uUU
+psr
+bWx
+qOA
+qOA
+qOA
+bWx
+uUU
+uUU
+bWx
+bWx
 jMz
 rfA
 ujL
@@ -176902,27 +179390,27 @@ gxt
 gxt
 czb
 rLb
-smf
-smf
-smf
-rfA
-rfA
-smf
-smf
-smf
-smf
-qCt
-qCt
-qCt
-qCt
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-jMz
+uUU
+uUU
+uUU
+bWx
+bWx
+uUU
+uUU
+uUU
+uUU
+ruh
+ruh
+ruh
+ruh
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+nWV
 ujL
 uRH
 rfA
@@ -177007,29 +179495,29 @@ rfA
 ujL
 ujL
 uRH
-rfA
-ujL
-smf
-smf
-ujL
-ujL
-ujL
-ujL
-smf
-smf
-smf
-smf
-smf
-ujL
-lxs
-ujL
-rfA
-ujL
-smf
-smf
-smf
-smf
-smf
+bWx
+qOA
+uUU
+uUU
+qOA
+qOA
+qOA
+qOA
+uUU
+uUU
+uUU
+uUU
+uUU
+qOA
+psr
+qOA
+bWx
+qOA
+uUU
+uUU
+uUU
+uUU
+uUU
 rfA
 ujL
 ujL
@@ -177333,22 +179821,22 @@ gxt
 gxt
 gxt
 gxt
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-smf
-qCt
-qCt
-qCt
-qCt
-qCt
-qCt
-qCt
-qCt
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+uUU
+ruh
+ruh
+ruh
+ruh
+ruh
+ruh
+ruh
+ruh
 qCt
 smf
 qCt
@@ -177439,28 +179927,28 @@ ujL
 ujL
 ujL
 smf
-ujL
-rfA
-smf
-aOf
-ujL
-ujL
-ujL
-ujL
-ujL
-smf
-smf
-aOf
-smf
-lxs
-lxs
-ujL
-ujL
-rfA
-smf
-smf
-khC
-khC
+qOA
+bWx
+uUU
+aKL
+qOA
+qOA
+qOA
+qOA
+qOA
+uUU
+uUU
+aKL
+uUU
+psr
+psr
+qOA
+qOA
+bWx
+uUU
+uUU
+thz
+thz
 smf
 rfA
 ujL
@@ -177872,26 +180360,26 @@ ujL
 ujL
 rfA
 uRH
-rfA
-ujL
-ujL
-ujL
-ujL
-ujL
-ujL
-ujL
-ujL
-smf
-smf
-ujL
-lxs
-rfA
-rfA
-smf
-smf
-smf
-khC
-smf
+bWx
+qOA
+qOA
+qOA
+qOA
+qOA
+qOA
+qOA
+qOA
+uUU
+uUU
+qOA
+psr
+bWx
+bWx
+uUU
+uUU
+uUU
+thz
+uUU
 smf
 rfA
 ujL
@@ -178304,25 +180792,25 @@ smf
 smf
 smf
 smf
-rfA
-rfA
-ujL
-rfA
-uRH
-ujL
-ujL
-lNj
-ujL
-rfA
-ujL
-ujL
-ujL
-rfA
-smf
-smf
-smf
-smf
-smf
+bWx
+bWx
+qOA
+bWx
+wID
+qOA
+qOA
+kea
+qOA
+bWx
+qOA
+qOA
+qOA
+bWx
+uUU
+uUU
+uUU
+uUU
+uUU
 smf
 smf
 rfA
@@ -178736,24 +181224,24 @@ smf
 smf
 smf
 aOf
-smf
-smf
-ujL
-rfA
-ujL
-ujL
-rfA
-ujL
-ujL
-ujL
-rfA
-rfA
-rfA
-smf
-smf
-smf
-smf
-smf
+uUU
+uUU
+qOA
+bWx
+qOA
+qOA
+bWx
+qOA
+qOA
+qOA
+bWx
+bWx
+bWx
+uUU
+uUU
+uUU
+uUU
+uUU
 smf
 smf
 smf
@@ -179169,20 +181657,20 @@ smf
 smf
 smf
 smf
-smf
-smf
-ujL
-lNj
-rfA
-uNw
-smf
-ujL
-uRH
-ujL
-ujL
-smf
-smf
-smf
+uUU
+uUU
+qOA
+kea
+bWx
+fYF
+uUU
+qOA
+wID
+qOA
+qOA
+uUU
+uUU
+uUU
 smf
 smf
 smf
@@ -179603,17 +182091,17 @@ smf
 smf
 smf
 smf
-ujL
-ujL
-ujL
-ujL
-smf
-smf
-smf
-ujL
-rfA
-rfA
-aOf
+qOA
+qOA
+qOA
+qOA
+uUU
+uUU
+uUU
+qOA
+bWx
+bWx
+aKL
 smf
 smf
 khC
@@ -189985,7 +192473,7 @@ khC
 smf
 ujL
 rfA
-ujL
+lxs
 ujL
 ujL
 uWK
@@ -190417,10 +192905,10 @@ uRH
 smf
 smf
 rfA
+lxs
+lxs
 ujL
-rfA
-ujL
-qrc
+wfu
 uWK
 uWK
 qrc
@@ -190437,9 +192925,9 @@ uWK
 uWK
 uWK
 uWK
-qrc
-uWK
-tVT
+qOA
+bWx
+czb
 gxt
 gxt
 gxt
@@ -190853,8 +193341,8 @@ rfA
 rfA
 rfA
 qrc
-uWK
-uWK
+wfu
+wfu
 qrc
 qrc
 qrc
@@ -190868,10 +193356,10 @@ qrc
 qrc
 uWK
 qrc
-qrc
-uWK
-uWK
-tVT
+qOA
+bWx
+bWx
+czb
 gxt
 gxt
 gxt
@@ -191286,23 +193774,23 @@ smf
 smf
 wLx
 uWK
-uWK
-uWK
-wLx
-uWK
-qrc
-uWK
-qrc
-qrc
-qrc
-uWK
-qrc
-wLx
-uWK
+wfu
 uWK
 wLx
 uWK
-tVT
+qrc
+uWK
+qrc
+qrc
+qrc
+uWK
+qrc
+wLx
+bWx
+bWx
+uUU
+bWx
+czb
 gxt
 gxt
 gxt
@@ -191729,12 +194217,12 @@ qrc
 qrc
 wLx
 wLx
-wLx
-wLx
-wfu
-nCc
-uWK
-qrc
+uUU
+uUU
+psr
+gIh
+bWx
+qOA
 rqt
 lTL
 gxt
@@ -192160,13 +194648,13 @@ uWK
 uWK
 wLx
 xFg
-wLx
-wLx
-wEg
-uWK
-wfu
-wfu
-uWK
+uUU
+uUU
+aKL
+bWx
+psr
+psr
+bWx
 gBA
 gBA
 rqt
@@ -192591,15 +195079,15 @@ qrc
 wLx
 wLx
 wLx
-wLx
-wLx
-wLx
-wLx
-qrc
-uWK
-wLx
-wfu
-wfu
+uUU
+uUU
+uUU
+uUU
+qOA
+psr
+uUU
+psr
+psr
 gBA
 gBA
 stn
@@ -193021,17 +195509,17 @@ qrc
 uWK
 uWK
 uWK
-wLx
-wLx
-xFg
-wLx
-xFg
-uWK
-qrc
-qrc
-uWK
-wfu
-vCh
+uUU
+uUU
+thz
+uUU
+thz
+bWx
+psr
+psr
+bWx
+psr
+rLb
 rqt
 gxi
 wOQ
@@ -193453,16 +195941,16 @@ qrc
 uWK
 qrc
 qrc
-qrc
-xQW
-xFg
-wLx
-uWK
-qrc
-uWK
-xQW
-xQW
-qrc
+qOA
+wID
+thz
+uUU
+bWx
+psr
+psr
+wID
+wID
+qOA
 gxt
 rqt
 rqt
@@ -193883,22 +196371,22 @@ qrc
 qrc
 qrc
 uWK
-uWK
+wfu
 qrc
-uWK
-qrc
-wLx
-qrc
-qrc
-uWK
-uWK
-qrc
-uWK
-qrc
+bWx
+qOA
+uUU
+qOA
+qOA
+psr
+bWx
+qOA
+bWx
+qOA
 gxt
 gxt
 uIa
-kJb
+rXL
 gxt
 fyc
 fyc
@@ -194315,19 +196803,19 @@ uWK
 uWK
 uWK
 uWK
-uWK
-uWK
-hDr
-qrc
-qrc
-uWK
-qrc
-uWK
-uWK
-uWK
-uWK
-uWK
-vCh
+wfu
+wfu
+kea
+qOA
+qOA
+bWx
+psr
+bWx
+bWx
+bWx
+bWx
+bWx
+rLb
 gxt
 gxt
 gxt
@@ -194749,18 +197237,18 @@ wLx
 qrc
 qrc
 qrc
-uWK
-uWK
-uWK
-uWK
-qrc
-uWK
-wLx
-qrc
-gDP
-wLx
-uWK
-tVT
+bWx
+bWx
+bWx
+psr
+psr
+bWx
+uUU
+qOA
+eCl
+uUU
+bWx
+czb
 gxt
 gxt
 gxt
@@ -195181,18 +197669,18 @@ wLx
 qrc
 uWK
 uWK
-uWK
-qrc
-uWK
-uWK
-uWK
-uWK
-uWK
-xQW
-gDP
-wLx
-wLx
-qrc
+psr
+psr
+psr
+psr
+bWx
+bWx
+bWx
+wID
+eCl
+uUU
+uUU
+qOA
 gxt
 gxt
 gxt
@@ -195614,18 +198102,18 @@ gDP
 uWK
 uWK
 uWK
-qrc
-uWK
-uWK
-uWK
-qrc
-uWK
-gDP
-uWK
-wLx
-wLx
-qrc
-uWK
+qOA
+bWx
+bWx
+bWx
+qOA
+bWx
+eCl
+bWx
+uUU
+uUU
+qOA
+bWx
 gxt
 gxt
 fyc
@@ -196044,20 +198532,20 @@ qrc
 qrc
 uWK
 qrc
-uWK
+wfu
 qrc
 uWK
-uWK
-uWK
-qrc
-qrc
-qrc
-uWK
-uWK
-qrc
-wLx
-qrc
-uWK
+bWx
+bWx
+qOA
+qOA
+qOA
+bWx
+bWx
+qOA
+uUU
+qOA
+bWx
 gxt
 gxt
 fyc
@@ -196475,7 +198963,7 @@ uWK
 qrc
 uWK
 xQW
-qrc
+wfu
 uWK
 qrc
 uWK
@@ -196906,7 +199394,7 @@ qrc
 qrc
 qrc
 qrc
-qrc
+wfu
 qrc
 qrc
 qrc
@@ -236011,7 +238499,7 @@ lYn
 qvR
 uaL
 fxx
-fxx
+eiD
 qvR
 fxx
 sjP
@@ -236444,7 +238932,7 @@ xvN
 qvR
 fxx
 fxx
-mWm
+qvR
 sjP
 qOp
 sjP
@@ -237091,13 +239579,13 @@ uWK
 uWK
 qrc
 qrc
-qrc
-qrc
-wLx
-qrc
-uWK
-wLx
-uWK
+qOA
+qOA
+uUU
+qOA
+bWx
+uUU
+bWx
 gxt
 gxt
 fyc
@@ -237523,13 +240011,13 @@ qrc
 uWK
 uWK
 qrc
-uWK
-hDr
-qrc
-qrc
-uWK
-uWK
-qrc
+bWx
+kea
+qOA
+qOA
+bWx
+bWx
+qOA
 gxt
 gxt
 fyc
@@ -237953,14 +240441,14 @@ uWK
 uWK
 qrc
 qrc
-xQW
-uWK
-qrc
-qrc
-qrc
-qrc
-uWK
-qrc
+wID
+bWx
+qOA
+qOA
+qOA
+qOA
+bWx
+qOA
 cwt
 gxt
 gxt
@@ -238385,14 +240873,14 @@ gDP
 gDP
 qrc
 qrc
-xQW
-qrc
-qrc
-qrc
-qrc
-wLx
-uWK
-vCh
+wID
+qOA
+qOA
+qOA
+qOA
+uUU
+bWx
+rLb
 cwt
 gxt
 gxt
@@ -238816,15 +241304,15 @@ wLx
 qrc
 qrc
 wLx
-uWK
-uWK
-qrc
-qrc
-qrc
-qrc
-qrc
-uWK
-vCh
+bWx
+bWx
+qOA
+qOA
+qOA
+qOA
+qOA
+bWx
+rLb
 cwt
 gxt
 gxt
@@ -239248,16 +241736,16 @@ wLx
 wLx
 qrc
 qrc
-wLx
-qrc
-qrc
-qrc
-uWK
-qrc
-uWK
-uWK
-uWK
-tVT
+uUU
+qOA
+qOA
+qOA
+bWx
+qOA
+bWx
+bWx
+bWx
+czb
 cwt
 gxt
 fyc
@@ -239680,16 +242168,16 @@ qrc
 wLx
 wLx
 qrc
-uWK
-wLx
-qrc
-xQW
-qrc
-qrc
-wLx
-uWK
-uWK
-vCh
+bWx
+uUU
+qOA
+wID
+qOA
+qOA
+uUU
+bWx
+bWx
+rLb
 psc
 gxt
 gxt
@@ -240112,17 +242600,17 @@ uWK
 uWK
 wLx
 uWK
-qrc
-qrc
-xQW
-qrc
-uWK
-qrc
-wLx
-wLx
-uWK
-wLx
+qOA
+qOA
+wID
+qOA
+bWx
+qOA
 uUU
+uUU
+bWx
+uUU
+pUz
 tHz
 gxt
 fyc
@@ -240544,16 +243032,16 @@ qrc
 uWK
 uWK
 qrc
-qrc
-qrc
-xQW
-wLx
-wLx
-uWK
-qrc
-wLx
-vCh
-wLx
+qOA
+qOA
+wID
+uUU
+uUU
+bWx
+qOA
+uUU
+rLb
+uUU
 vFB
 nZt
 kIO
@@ -240976,16 +243464,16 @@ uWK
 uWK
 uWK
 qrc
-qrc
-qrc
-qrc
-qrc
-qrc
-uWK
-uWK
-qrc
-uWK
-wfu
+qOA
+qOA
+qOA
+qOA
+qOA
+bWx
+bWx
+qOA
+psr
+psr
 tRv
 nZt
 vgW
@@ -241396,8 +243884,8 @@ xQW
 qrc
 uWK
 uWK
-uWK
-qrc
+wfu
+wfu
 uWK
 uWK
 qrc
@@ -241408,16 +243896,16 @@ uWK
 wLx
 uWK
 qrc
-qrc
-qrc
-uWK
-qrc
-qrc
-uWK
-vCh
-wfu
-wfu
-qrc
+qOA
+psr
+psr
+qOA
+psr
+psr
+psr
+psr
+psr
+qOA
 vFB
 nZt
 kIO
@@ -241830,27 +244318,27 @@ wLx
 uWK
 qrc
 uWK
+wfu
+wfu
+wfu
+wfu
+qrc
+wfu
+wfu
+uWK
 uWK
 qrc
-qrc
-qrc
-qrc
-uWK
-uWK
-uWK
-uWK
-qrc
-qrc
-qrc
-qrc
-uWK
-qrc
-qrc
-qrc
-wLx
-dNX
-eOv
+qOA
+qOA
+qOA
+bWx
+qOA
+czb
+qOA
 uUU
+oaa
+eOv
+pUz
 tHz
 gxt
 fyc
@@ -242265,23 +244753,23 @@ uWK
 uWK
 uWK
 uWK
-uWK
-qrc
+wfu
+wfu
 qrc
 uWK
 qrc
 gDP
 uWK
-uWK
-xFg
-gDP
-qrc
-qrc
-wLx
-wLx
-wLx
-uWK
-tVT
+bWx
+thz
+eCl
+qOA
+qOA
+uUU
+uUU
+uUU
+bWx
+czb
 cwt
 gxt
 gxt
@@ -242685,8 +245173,8 @@ gDP
 gDP
 qrc
 uWK
-qrc
-uWK
+wfu
+wfu
 uWK
 uWK
 qrc
@@ -242704,16 +245192,16 @@ qrc
 uWK
 xQW
 qrc
-qrc
-wLx
-uWK
-uWK
-qrc
-xFg
-qrc
-uWK
-qrc
-vCh
+qOA
+uUU
+bWx
+bWx
+qOA
+thz
+qOA
+bWx
+qOA
+rLb
 cwt
 gxt
 fyc
@@ -243115,8 +245603,8 @@ uWK
 qrc
 xQW
 uWK
-uWK
-qrc
+wfu
+wfu
 qrc
 uWK
 wLx
@@ -243136,15 +245624,15 @@ qrc
 qrc
 uWK
 qrc
-uWK
-xQW
-xQW
-uWK
-uWK
-gDP
-uWK
-uWK
-tVT
+bWx
+wID
+wID
+bWx
+bWx
+eCl
+bWx
+bWx
+czb
 cwt
 gxt
 gxt
@@ -243547,7 +246035,7 @@ wLx
 qrc
 qrc
 qrc
-uWK
+wfu
 qrc
 uWK
 qrc
@@ -243569,14 +246057,14 @@ qrc
 uWK
 qrc
 wLx
-qrc
-qrc
-uWK
-qrc
-uWK
-uWK
-wLx
-vCh
+qOA
+qOA
+bWx
+qOA
+bWx
+bWx
+uUU
+rLb
 cwt
 gxt
 gxt
@@ -243646,7 +246134,7 @@ efT
 ykp
 sYi
 sYi
-eiD
+eyf
 lYm
 lYm
 ngi
@@ -244002,13 +246490,13 @@ qrc
 uWK
 wLx
 uWK
-uWK
-qrc
-uWK
-qrc
-uWK
-wLx
-uWK
+bWx
+qOA
+bWx
+qOA
+bWx
+uUU
+bWx
 cwt
 gxt
 gxt
@@ -244079,7 +246567,7 @@ vFg
 sYi
 eyf
 rIK
-lYm
+sYi
 lYm
 nCd
 bnj
@@ -244435,13 +246923,13 @@ wLx
 wLx
 qrc
 uWK
-uWK
-uWK
-qrc
-qrc
-uWK
-qrc
-uWK
+bWx
+bWx
+qOA
+qOA
+bWx
+qOA
+bWx
 gxt
 gxt
 fyc
@@ -244511,8 +246999,8 @@ nqW
 nqW
 xDf
 sYi
-lYm
-eiD
+sYi
+eyf
 xDf
 eyf
 efT
@@ -262420,7 +264908,7 @@ goV
 sYx
 fPd
 nqU
-hBt
+oFs
 tWR
 xou
 nqU
@@ -269484,11 +271972,11 @@ rfA
 rfA
 rfA
 ujL
-rfA
-rfA
-smf
-ujL
-rfA
+bWx
+bWx
+uUU
+qOA
+bWx
 smf
 ujL
 ujL
@@ -269914,16 +272402,16 @@ rfA
 ujL
 ujL
 rfA
-qYw
-ujL
-lNj
-ujL
-rfA
-rfA
-ujL
-smf
-rfA
-ujL
+eCl
+qOA
+kea
+qOA
+bWx
+bWx
+qOA
+uUU
+bWx
+qOA
 ujL
 rfA
 rfA
@@ -270345,17 +272833,17 @@ rfA
 rfA
 smf
 ujL
-rfA
-smf
-ujL
-rfA
-smf
+bWx
+uUU
+qOA
+bWx
+uUU
 osl
-ujL
-rfA
-rfA
-rfA
-rfA
+qOA
+bWx
+bWx
+bWx
+bWx
 ujL
 ujL
 rfA
@@ -270777,18 +273265,18 @@ smf
 smf
 ujL
 rfA
-rfA
-ujL
-ujL
+bWx
+qOA
+qOA
 xLA
 cYA
 osl
 txY
-rfA
-rfA
-uRH
-smf
-ujL
+bWx
+bWx
+wID
+uUU
+qOA
 rfA
 ujL
 rfA
@@ -271209,18 +273697,18 @@ ujL
 ujL
 ujL
 ujL
-ujL
-ujL
-aDE
+qOA
+qOA
+eKG
 osl
 cEl
 cEl
 cYA
 hcP
-qYw
-uRH
-rfA
-ujL
+eCl
+wID
+bWx
+qOA
 rfA
 rfA
 rfA
@@ -271641,18 +274129,18 @@ rfA
 rfA
 uRH
 uRH
-rfA
-rfA
-rfA
+bWx
+bWx
+bWx
 cYA
 cEl
 cEl
 cEl
 osl
 euG
-ujL
-rfA
-rfA
+qOA
+bWx
+bWx
 ujL
 qYw
 rfA
@@ -272073,8 +274561,8 @@ uRH
 qYw
 uRH
 smf
-smf
-rfA
+uUU
+bWx
 osl
 osl
 cEl
@@ -272083,8 +274571,8 @@ cEl
 cEl
 cXi
 hcP
-rfA
-rfA
+bWx
+bWx
 rfA
 ujL
 smf
@@ -272505,9 +274993,9 @@ khC
 rfA
 smf
 smf
-smf
-rfA
-jMz
+uUU
+bWx
+nWV
 osl
 cEl
 cEl
@@ -272515,8 +275003,8 @@ cEl
 cEl
 osl
 hcP
-lNj
-rfA
+kea
+bWx
 rfA
 rfA
 smf
@@ -272937,9 +275425,9 @@ ujL
 rfA
 rfA
 smf
-smf
-rfA
-jMz
+uUU
+bWx
+nWV
 hcP
 osl
 cEl
@@ -272947,8 +275435,8 @@ cEl
 cEl
 cEl
 cYA
-uRH
-ujL
+wID
+qOA
 ujL
 rfA
 rfA
@@ -273369,19 +275857,19 @@ ujL
 ujL
 rfA
 rfA
-ujL
-ujL
-ujL
-smf
+qOA
+qOA
+qOA
+uUU
 hcP
 cEl
 cEl
 cEl
 cEl
 osl
-ujL
-lNj
-rfA
+qOA
+kea
+bWx
 rfA
 rfA
 rfA
@@ -273801,10 +276289,10 @@ ujL
 rfA
 ujL
 ujL
-ujL
-rfA
-ujL
-rfA
+qOA
+bWx
+qOA
+bWx
 hcP
 euG
 cEl
@@ -273812,8 +276300,8 @@ cEl
 cEl
 hcP
 eCg
-rfA
-rfA
+bWx
+bWx
 rfA
 ujL
 rfA
@@ -274233,19 +276721,19 @@ rfA
 ujL
 ujL
 jMz
-rfA
-ujL
-ujL
-jMz
-ujL
+bWx
+qOA
+qOA
+nWV
+qOA
 gzW
 cEl
 cEl
 cEl
 osl
-rfA
-lNj
-ujL
+bWx
+kea
+qOA
 rfA
 rfA
 rfA
@@ -274666,17 +277154,17 @@ smf
 rfA
 rfA
 rfA
-rfA
-ujL
-ujL
-rfA
-rfA
+bWx
+qOA
+qOA
+bWx
+bWx
 oIE
 oIE
-qYw
+eCl
 hcP
-ujL
-ujL
+qOA
+qOA
 rfA
 rfA
 rfA
@@ -274771,8 +277259,8 @@ xRS
 xRS
 xRS
 xRS
+bVS
 bOg
-bPS
 idK
 tFo
 tFo
@@ -275098,17 +277586,17 @@ ujL
 rfA
 ujL
 ujL
-smf
-ujL
-rfA
-ujL
-smf
-rfA
-ujL
+uUU
+qOA
+bWx
+qOA
+uUU
+bWx
+qOA
 hcP
-ujL
-uRH
-rfA
+qOA
+wID
+bWx
 ujL
 rfA
 ujL
@@ -275531,16 +278019,16 @@ rfA
 ujL
 qYw
 rfA
-rfA
-rfA
-rfA
-ujL
-ujL
-rfA
-uRH
-qYw
-rfA
-ujL
+bWx
+bWx
+bWx
+qOA
+qOA
+bWx
+wID
+eCl
+bWx
+qOA
 ujL
 smf
 rfA
@@ -275965,15 +278453,15 @@ rfA
 rfA
 ujL
 rfA
-rfA
-smf
-ujL
-ujL
-smf
-rfA
-rfA
-ujL
-rfA
+bWx
+uUU
+qOA
+qOA
+uUU
+bWx
+bWx
+qOA
+bWx
 smf
 ujL
 rfA
@@ -276399,15 +278887,15 @@ rfA
 ujL
 ujL
 rfA
-rfA
-ujL
-ujL
-ujL
-rfA
-ujL
-ujL
-rfA
-rfA
+bWx
+qOA
+qOA
+qOA
+bWx
+qOA
+qOA
+bWx
+bWx
 lNj
 rfA
 ujL
@@ -276722,12 +279210,12 @@ rfA
 rfA
 rfA
 qYw
-rfA
-ujL
-ujL
-rfA
-rfA
-ujL
+bWx
+qOA
+qOA
+bWx
+bWx
+qOA
 uRH
 uRH
 uRH
@@ -276832,15 +279320,15 @@ ujL
 rfA
 smf
 smf
-khC
-qYw
-rfA
-ujL
-ujL
-qYw
-ujL
-rfA
-ujL
+thz
+eCl
+bWx
+qOA
+qOA
+eCl
+qOA
+bWx
+qOA
 ujL
 gxt
 gxt
@@ -277153,15 +279641,15 @@ rfA
 rfA
 rfA
 ujL
-qYw
-rfA
-rfA
-rfA
-ujL
-ujL
-ujL
-rfA
-uRH
+eCl
+bWx
+bWx
+bWx
+qOA
+qOA
+qOA
+bWx
+wID
 uRH
 ujL
 uRH
@@ -277264,16 +279752,16 @@ rfA
 smf
 ujL
 rfA
-qYw
-ujL
-ujL
-ujL
-rfA
-ujL
-ujL
-rfA
-rfA
-rfA
+eCl
+qOA
+qOA
+qOA
+bWx
+qOA
+qOA
+bWx
+bWx
+bWx
 gxt
 gxt
 fyc
@@ -277581,19 +280069,19 @@ ujL
 ujL
 ujL
 rfA
-ujL
-ujL
-qYw
-rfA
-rfA
-rfA
-ujL
-ujL
-ujL
-ujL
-rfA
-ujL
-qYw
+qOA
+qOA
+eCl
+bWx
+bWx
+bWx
+qOA
+qOA
+qOA
+qOA
+bWx
+qOA
+eCl
 ujL
 ujL
 ujL
@@ -277696,16 +280184,16 @@ ujL
 ujL
 ujL
 ujL
-ujL
-rfA
-ujL
-ujL
-ujL
-rfA
-ujL
-rfA
-ujL
-rfA
+qOA
+bWx
+qOA
+qOA
+qOA
+bWx
+qOA
+bWx
+qOA
+bWx
 gxt
 gxt
 fyc
@@ -278012,20 +280500,20 @@ ujL
 rfA
 rfA
 bfG
-ujL
-rfA
-rfA
-ujL
-ujL
-ujL
-rfA
-ujL
-ujL
-ujL
-rfA
-uRH
-uRH
-rfA
+qOA
+bWx
+bWx
+qOA
+qOA
+qOA
+bWx
+qOA
+qOA
+qOA
+bWx
+wID
+wID
+bWx
 rfA
 rfA
 rfA
@@ -278128,14 +280616,14 @@ rfA
 uRH
 smf
 uRH
-ujL
-rfA
-ujL
-uRH
-ujL
-ujL
-ujL
-ujL
+qOA
+bWx
+qOA
+wID
+qOA
+qOA
+qOA
+qOA
 rLb
 gxt
 gxt
@@ -278442,23 +280930,23 @@ ujL
 ujL
 rfA
 rfA
-ujL
-rfA
-rfA
-ujL
-lxs
-ujL
-ujL
-qYw
-ujL
-ujL
-uRH
-qYw
-ujL
-ujL
-rfA
-uRH
-rfA
+qOA
+bWx
+bWx
+qOA
+psr
+qOA
+qOA
+eCl
+qOA
+qOA
+wID
+eCl
+qOA
+qOA
+bWx
+wID
+bWx
 rfA
 ujL
 ujL
@@ -278559,15 +281047,15 @@ ujL
 ujL
 khC
 smf
-ujL
-ujL
-ujL
-lxs
-ujL
-ujL
+qOA
+qOA
+qOA
+psr
+qOA
+qOA
 czb
-rfA
-rfA
+bWx
+bWx
 czb
 gxt
 gxt
@@ -278872,26 +281360,26 @@ rfA
 rfA
 qYw
 qYw
-qYw
-rfA
-rfA
-ujL
-qYw
-rfA
-lxs
-rfA
-rfA
-qYw
-qYw
-qYw
-rfA
-rfA
-ujL
-ujL
-rfA
-qYw
-rfA
-rfA
+eCl
+bWx
+bWx
+qOA
+eCl
+bWx
+psr
+bWx
+bWx
+eCl
+eCl
+eCl
+bWx
+bWx
+qOA
+qOA
+bWx
+eCl
+bWx
+bWx
 rfA
 rfA
 rfA
@@ -278991,14 +281479,14 @@ rfA
 ujL
 ujL
 ujL
-ujL
-ujL
-uRH
-rfA
-rfA
-ujL
-ujL
-rfA
+qOA
+qOA
+wID
+bWx
+bWx
+qOA
+qOA
+bWx
 gIh
 gxt
 gxt
@@ -279303,27 +281791,27 @@ rfA
 rfA
 ujL
 ujL
-rfA
-ujL
-qYw
-uRH
-ujL
-rfA
-rfA
-lxs
-rfA
-uRH
-uRH
-ujL
-rfA
-rfA
-ujL
-rfA
-rfA
-rfA
-ujL
-ujL
-ujL
+bWx
+qOA
+eCl
+wID
+qOA
+bWx
+bWx
+psr
+bWx
+wID
+wID
+qOA
+bWx
+bWx
+qOA
+bWx
+bWx
+bWx
+qOA
+qOA
+qOA
 rfA
 rfA
 ujL
@@ -279424,13 +281912,13 @@ ujL
 uRH
 rfA
 ujL
-uRH
-ujL
-rfA
-ujL
-lxs
-ujL
-lxs
+wID
+qOA
+bWx
+qOA
+psr
+qOA
+psr
 gIh
 gxt
 gxt
@@ -279735,28 +282223,28 @@ rfA
 ujL
 jMz
 lNj
-ujL
-rfA
-rfA
-rfA
-uRH
-rfA
-ujL
-rfA
-lxs
-lxs
-ujL
-rfA
-rfA
-uRH
-ujL
-ujL
-ujL
-ujL
-ujL
-ujL
-ujL
-uRH
+qOA
+bWx
+bWx
+bWx
+wID
+bWx
+qOA
+bWx
+psr
+psr
+qOA
+bWx
+bWx
+wID
+qOA
+qOA
+qOA
+qOA
+qOA
+qOA
+qOA
+wID
 rfA
 qYw
 rfA
@@ -279856,13 +282344,13 @@ ujL
 ujL
 ujL
 rfA
-ujL
-ujL
-ujL
-rfA
-lxs
-ujL
-ujL
+qOA
+qOA
+qOA
+bWx
+psr
+qOA
+qOA
 gBA
 gxt
 gxt
@@ -280166,29 +282654,29 @@ ujL
 ujL
 rfA
 rfA
-rfA
-rfA
-ujL
-ujL
-rfA
-ujL
-ujL
-rfA
-rfA
-ujL
-ujL
+bWx
+bWx
+qOA
+qOA
+bWx
+qOA
+qOA
+bWx
+bWx
+qOA
+qOA
 czb
-rfA
-lxs
-rfA
-rfA
-ujL
-rfA
-ujL
-rfA
-rfA
-ujL
-rfA
+bWx
+psr
+bWx
+bWx
+qOA
+bWx
+qOA
+bWx
+bWx
+qOA
+bWx
 rfA
 ujL
 ujL
@@ -280288,9 +282776,9 @@ rfA
 rfA
 ujL
 ujL
-rfA
-rfA
-ujL
+bWx
+bWx
+qOA
 pUz
 rLb
 rLb
@@ -280598,29 +283086,29 @@ rfA
 rfA
 rfA
 rfA
-rfA
-ujL
-ujL
-rfA
-rfA
-rfA
-ujL
+bWx
+qOA
+qOA
+bWx
+bWx
+bWx
+qOA
 czb
-ujL
-lxs
-lxs
-ujL
-lxs
-lxs
-ujL
-ujL
-rfA
-ujL
+qOA
+psr
+psr
+qOA
+psr
+psr
+qOA
+qOA
+bWx
+qOA
 czb
-rfA
-ujL
-rfA
-rfA
+bWx
+qOA
+bWx
+bWx
 gxt
 gxt
 gxt
@@ -280721,7 +283209,7 @@ rfA
 rfA
 rfA
 ujL
-rfA
+bWx
 rLb
 czb
 gxt
@@ -281030,25 +283518,25 @@ rfA
 rfA
 rfA
 ujL
-ujL
-rfA
-rfA
-rfA
-rfA
-rfA
-rfA
-rfA
-ujL
+qOA
+bWx
+bWx
+bWx
+bWx
+bWx
+bWx
+bWx
+qOA
 czb
-eGX
-ujL
-lxs
+dSg
+qOA
+psr
 gIh
-rfA
-ujL
-rfA
-ujL
-rfA
+bWx
+qOA
+bWx
+qOA
+bWx
 czb
 gxt
 gxt
@@ -281468,16 +283956,16 @@ gxt
 gxt
 gxt
 gxt
-rfA
+bWx
 czb
-hbo
-aHG
+cwt
+vkv
 czb
 lml
-lxs
-ujL
-rfA
-aHG
+psr
+qOA
+bWx
+vkv
 rLb
 rLb
 gxt
@@ -281590,7 +284078,7 @@ gxt
 gxt
 gxt
 gxt
-kJb
+rXL
 rqt
 sSN
 ixm
@@ -281906,9 +284394,9 @@ gxt
 gxi
 tBb
 dhN
-nau
+stn
 dhN
-pUz
+uIa
 gxt
 gxt
 gxt
@@ -293287,40 +295775,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -293719,40 +296207,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+mcS
+mcS
+sjh
+mcS
+mcS
+hlI
+mcS
+hlI
+hlI
+sjh
+sjh
+mcS
+mcS
+mcS
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -294151,40 +296639,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+gou
+oBO
+kOz
+kOz
+oBO
+gou
+gou
+gou
+nCc
+nCc
+nCc
+nCc
+nCc
+mcS
+hlI
+sjh
+mcS
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+mcS
+mcS
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -294583,40 +297071,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+kOz
+awC
+eec
+uBg
+vWY
+bQG
+nYD
+oBO
+nCc
+nCc
+nCc
+nCc
+nCc
+mcS
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -295015,40 +297503,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+sKF
+aHF
+vWY
+dvy
+vWY
+nfs
+bgM
+kOz
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+mcS
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+aUc
 vIa
 vIa
 vIa
@@ -295447,40 +297935,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+kOz
+oiz
+inB
+vQU
+xiG
+des
+des
+kOz
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+mcS
+mcS
+mcS
+mcS
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+mcS
+hlI
+aUc
 vIa
 vIa
 vIa
@@ -295879,40 +298367,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+kOz
+nln
+mzA
+waU
+mzA
+jcj
+mzA
+gou
+nCc
+nCc
+nCc
+gou
+gou
+oBO
+gou
+gou
+gou
+mcS
+mcS
+mcS
+mcS
+mcS
+sMy
+mcS
+hlI
+hlI
+hlI
+hlI
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -296311,40 +298799,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+kOz
+kOz
+gou
+gou
+eRS
+gou
+gou
+kOz
+nCc
+nCc
+gou
+gou
+gPN
+hSr
+dQs
+hvv
+gou
+oBO
+gou
+sMy
+mcS
+sMy
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -296743,40 +299231,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+gou
+vut
+vWY
+vWY
+gou
+nCc
+nCc
+nCc
+kOz
+tVT
+xeN
+mzA
+reh
+xeN
+cCa
+ptP
+gou
+sMy
+sMy
+sMy
+mcS
+mcS
+hlI
+hlI
+hlI
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -297175,40 +299663,40 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+cZI
+lfh
+ngF
+lfh
+oBO
+mzA
+mKn
+vWY
+oBO
+lfh
+qrm
+qrm
+gMw
+lvn
+mzA
+ckM
+wnO
+mzA
+mzA
+mzA
+xeN
+sMy
+sMy
+mcS
+mcS
+mcS
+mcS
+mcS
+mcS
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -297596,51 +300084,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+mmT
+vRE
+nYy
+msZ
+hbP
+vWY
+cOi
+vWY
+oQl
+msZ
+msZ
+rNU
+shf
+xRL
+mKn
+mzA
+wyL
+mzA
+dIO
+mzA
+jbY
+sMy
+sMy
+sMy
+sMy
+sMy
+sMy
+mcS
+mcS
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -298028,51 +300516,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+kOz
+kOz
+gou
+sXQ
+gPt
+cPx
+gPt
+oBO
+xyZ
+mKn
+tLx
+oBO
+gPt
+cPx
+cPx
+cnN
+mzA
+mKn
+dZd
+dmF
+mKn
+ugw
+mzA
+jbY
+sMy
+sMy
+sMy
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -298460,51 +300948,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+kOz
+kOz
+esP
+dcs
+mmT
+pgJ
+nKE
+vWY
+hbP
+vWY
+mKn
+mzA
+oQl
+ttz
+msZ
+sVJ
+cyD
+mzA
+reh
+mKn
+reh
+mKn
+oNd
+mzA
+jbY
+siQ
+sMy
+mcS
+hlI
+mcS
+mcS
+mcS
+mcS
+hlI
+hlI
+aUc
 vIa
 vIa
 vIa
@@ -298892,51 +301380,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+kOz
+yjD
+eSi
+pIm
+xot
+dnx
+dnx
+dnx
+gou
+vQU
+mDh
+mzA
+oBO
+nnW
+nrC
+nnW
+yhy
+etG
+mzA
+mKn
+mKn
+mKn
+mzA
+mzA
+xeN
+mcS
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+aUc
 vIa
 vIa
 vIa
@@ -299324,51 +301812,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+gou
+srX
+kSw
+bHo
+dxH
+kPR
+pKE
+kHp
+gou
+mzA
+mKn
+mzA
+kOz
+gYY
+pIm
+xdP
+kOz
+oBO
+avz
+mzA
+eCA
+mKn
+mzA
+pCv
+gou
+mcS
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+hlI
+hlI
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -299756,51 +302244,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+gou
+ozs
+hyd
+pIm
+pIm
+qik
+qik
+qik
+hEb
+mzA
+mzA
+mzA
+gou
+aCo
+xdP
+xdP
+fJY
+oBO
+cUl
+mzA
+mzA
+kVq
+nRe
+gou
+gou
+mcS
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+hlI
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -300188,51 +302676,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+gou
+gou
+gou
+gou
+kOz
+kOz
+kOz
+gou
+gou
+rUJ
+mII
+pIm
+pKE
+kPR
+qik
+gou
+vWY
+vWY
+mKn
+kOz
+xdP
+xdP
+pIm
+qHv
+kOz
+xeN
+mKn
+mKn
+gou
+gou
+gou
+mcS
+mcS
+mcS
+mcS
+hlI
+hlI
+hlI
+hlI
+mcS
+mcS
+mcS
+aUc
 vIa
 vIa
 vIa
@@ -300620,51 +303108,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+gou
+bAP
+aON
+gnE
+aCx
+kOz
+mzA
+mzA
+gou
+gou
+gou
+kOz
+kOz
+kOz
+hEb
+kOz
+oBO
+kOz
+aHn
+kOz
+iIv
+kOz
+rpS
+kOz
+gou
+gou
+aCe
+gou
+gou
+mcS
+kOz
+kOz
+kOz
+kOz
+gou
+mcS
+hlI
+mcS
+mcS
+mcS
+mcS
+sjh
+aUc
 vIa
 vIa
 vIa
@@ -301052,51 +303540,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+gou
+aON
+kna
+eum
+eAF
+gou
+jvm
+eaF
+qik
+bUT
+oHT
+dmc
+dOr
+dOr
+cSU
+bUT
+cem
+wfh
+vWY
+vWY
+hco
+jYs
+mvH
+vWY
+aBs
+vWY
+vWY
+gou
+gou
+mcS
+kOz
+bjL
+xPF
+xxX
+kOz
+gou
+gou
+mUI
+mUI
+mUI
+sTW
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -301484,51 +303972,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+gou
+xWk
+eum
+mKn
+cNn
+ojg
+rKN
+rKN
+qik
+gou
+gou
+gtG
+gou
+gou
+fqK
+gou
+kCa
+okV
+mzA
+mzA
+reh
+mzA
+mvH
+mzA
+mzA
+bgH
+mKn
+rwD
+gou
+mcS
+kOz
+agg
+lbQ
+mzA
+jUt
+sqo
+gou
+mUI
+mUI
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -301916,51 +304404,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+gou
+mDV
+cNn
+cNn
+mKn
+gou
+xWO
+fNb
+qik
+asS
+mzA
+mzA
+hmR
+llf
+htK
+xeN
+xeN
+okV
+wvO
+mzA
+msZ
+mzA
+mvH
+urr
+uLY
+gfo
+mKn
+nau
+gou
+mcS
+kOz
+rPs
+fdA
+bSh
+cOi
+jyb
+gou
+mUI
+mUI
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -302348,51 +304836,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+gou
+gou
+gou
+gou
+gou
+kOz
+bCm
+llf
+qik
+mzA
+hZy
+gEh
+kOz
+rKN
+vlt
+htK
+xKt
+lmd
+mKn
+mzA
+mKn
+mzA
+jbT
+fPa
+btH
+oHH
+msZ
+vWY
+gou
+gou
+kOz
+pUd
+bPJ
+yas
+eEi
+jyb
+oBO
+oUo
+sjl
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -302780,51 +305268,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+kOz
+kOz
+rVB
+kOz
+kOz
+kOz
+gou
+kOz
+sZu
+rKN
+htK
+elg
+reh
+mzA
+mzA
+mzA
+prw
+jbT
+mKn
+bFb
+xZK
+ecu
+vQU
+bNE
+gou
+mKn
+mzA
+reh
+bza
+urr
+wAG
+gou
+aKf
+wmY
+bIK
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -303212,51 +305700,51 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+kOz
+bWp
+kOz
+ndH
+fmF
+otT
+gou
+rKN
+llf
+htK
+elg
+gtl
+mzA
+mKn
+mKn
+mzA
+jbT
+fPa
+byu
+rml
+mEt
+vWY
+kOz
+kOz
+mzA
+mzA
+mKn
+reh
+mzA
+dYg
+oBO
+aKf
+gaH
+jkR
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -303651,44 +306139,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+kOz
+kOz
+kOz
+tMt
+mKn
+mjo
+hmR
+vZB
+htK
+htK
+htK
+vqX
+reC
+mKn
+cOi
+mzA
+okV
+mKn
+whk
+yeu
+vWY
+vWY
+hDW
+mzA
+mzA
+mzA
+uni
+mzA
+oSN
+gou
+gou
+brz
+jrW
+qoe
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -304083,44 +306571,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+kOz
+dwv
+mKn
+lGh
+gou
+kOz
+kOz
+kOz
+ebd
+vqX
+mzA
+aUV
+mzA
+mKn
+okV
+bby
+mzA
+eCA
+vWY
+gou
+gou
+kOz
+gou
+gou
+gou
+wdQ
+oBO
+gou
+qeS
+lsH
+vTo
+syC
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -304515,44 +307003,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+kOz
+pkv
+cOi
+ajC
+fJd
+iCA
+wKX
+hmR
+kUY
+qYZ
+uDr
+xhT
+mKn
+xhT
+mvH
+vWY
+yin
+rSQ
+xiG
+gou
+kFC
+uWm
+iTJ
+aGp
+kOz
+gaH
+rJQ
+lHx
+pIl
+gaH
+lqC
+dwG
+mUI
+rFu
+aUc
 vIa
 vIa
 vIa
@@ -304947,44 +307435,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+kOz
+qju
+mzA
+mzA
+jGJ
+mKn
+vWY
+gou
+gou
+kOz
+gou
+gou
+oJx
+gou
+gou
+oVo
+gou
+kOz
+kOz
+gou
+mKn
+mzA
+fzO
+iKD
+kOz
+bIK
+wmY
+vJC
+gaH
+rYe
+cya
+bIK
+mUI
+rFu
+aUc
 vIa
 vIa
 vIa
@@ -305379,44 +307867,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+gou
+tMt
+aUV
+mzA
+reh
+mzA
+mzA
+wbY
+bHo
+pIm
+xAo
+bHo
+pIm
+gou
+prw
+mhm
+iKD
+dkp
+rwD
+kOz
+mzA
+lcv
+kbQ
+mqg
+kOz
+wnI
+gHW
+qRH
+sxu
+qKE
+weh
+wnI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -305811,44 +308299,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+gou
+vWY
+wTk
+jso
+taX
+klI
+rvr
+gou
+bHo
+bHo
+bHo
+bHo
+bHo
+azW
+mzA
+qNR
+lSa
+okV
+vWY
+uCW
+mzA
+mzA
+hvs
+wnQ
+kOz
+bYs
+iFs
+rYe
+vRO
+wnI
+syC
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -306243,44 +308731,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+kOz
+kOz
+kOz
+oBO
+gou
+oBO
+oBO
+gou
+vEZ
+gou
+pIm
+bHo
+pIm
+kOz
+xoA
+jKN
+wnQ
+rPO
+xoA
+kOz
+mzA
+vWY
+reh
+oXO
+kOz
+wnI
+lqC
+wmY
+bYs
+jkR
+mUI
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -306675,44 +309163,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+gou
+gou
+gou
+dzg
+eqt
+kZJ
+gou
+kOz
+kOz
+kOz
+kOz
+kOz
+kOz
+vWY
+mCP
+joR
+wBh
+kOz
+nCc
+jkR
+syC
+sJf
+mUI
+mUI
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -307107,44 +309595,44 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+gou
+gou
+kOz
+qLE
+vTZ
+kOz
+gou
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+kOz
+kOz
+hFq
+kOz
+kOz
+nCc
+nCc
+mUI
+mUI
+uae
+mUI
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -307536,47 +310024,47 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+tIq
+gLf
+nbI
+gLf
+tcf
+kgY
+jQS
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+nCc
+kOz
+reR
+kOz
+kDM
+kOz
+nCc
+mUI
+mUI
+mUI
+mUI
+mUI
+mUI
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -307968,47 +310456,47 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+gLf
+gLf
+gLf
+gLf
+gLf
+gLf
+gLf
+gLf
+gLf
+oQo
+nJe
+gLf
+gLf
+cxe
+tcf
+tcf
+tcf
+tcf
+rRb
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+nCc
+kOz
+qRv
+sOU
+kjb
+kOz
+nCc
+mUI
+mUI
+mUI
+mUI
+rFu
+rFu
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -308400,47 +310888,47 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+rSC
+rSC
+rSC
+rSC
+rSC
+rSC
+rSC
+rSC
+rSC
+dlo
+hek
+rSC
+rSC
+tcf
+tcf
+hok
+tcf
+tcf
+hGx
+mqn
+tcf
+aUc
+aUc
+aUc
+aUc
+nCc
+kOz
+kOz
+kOz
+kOz
+kOz
+nCc
+mUI
+mUI
+mUI
+mUI
+mUI
+rFu
+mUI
+aUc
 vIa
 vIa
 vIa
@@ -308832,47 +311320,47 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+gLf
+gLf
+gLf
+gLf
+gLf
+gLf
+gLf
+gLf
+val
+oQo
+nJe
+cxe
+gLf
+ocN
+tcf
+tcf
+tcf
+tcf
+hGx
+mqn
+tcf
+aUc
+aUc
+aUc
+aUc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+nCc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -309264,47 +311752,47 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+tDQ
+ocN
+ocN
+tcf
+tcf
+tcf
+hGx
+mqn
+tcf
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -309696,47 +312184,47 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+wGR
+cQp
+ocN
+ocN
+wGR
+jQS
+iyZ
+jQS
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -310140,18 +312628,18 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+jQS
+tcf
+cQp
+tcf
+jQS
+jQS
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -310572,18 +313060,18 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+jQS
+kvp
+kvp
+qDu
+iyZ
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -311004,18 +313492,18 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+jQS
+iyZ
+jQS
+iyZ
+iyZ
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -311436,18 +313924,18 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -311868,18 +314356,18 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -312300,18 +314788,18 @@ vIa
 vIa
 vIa
 vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
-vIa
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
+aUc
 vIa
 vIa
 vIa
@@ -323067,8 +325555,8 @@ lGy
 lGy
 lGy
 lGy
-gxt
 dVO
+pEm
 fyc
 fyc
 "}
@@ -323498,8 +325986,8 @@ lGy
 lGy
 lGy
 lGy
-gxt
-gxt
+dVO
+dVO
 dVO
 fyc
 fyc
@@ -323930,7 +326418,7 @@ lGy
 lGy
 lGy
 lGy
-gxt
+dVO
 dVO
 dVO
 fyc
@@ -326523,9 +329011,9 @@ lGy
 lGy
 lGy
 gxt
+pEm
 dVO
-dVO
-fyc
+fSH
 fyc
 "}
 (101,1,3) = {"
@@ -326955,9 +329443,9 @@ lGy
 lGy
 lGy
 gxt
+gxt
 dVO
-dVO
-fyc
+fSH
 fyc
 "}
 (102,1,3) = {"
@@ -327387,9 +329875,9 @@ lGy
 lGy
 lGy
 gxt
-pEm
+gxt
 dVO
-fyc
+fSH
 fyc
 "}
 (103,1,3) = {"
@@ -374041,10 +376529,10 @@ iyP
 iyP
 iyP
 iyP
-gxt
 dVO
 dVO
 dVO
+qsc
 fyc
 fyc
 "}
@@ -374473,10 +376961,10 @@ iyP
 iyP
 iyP
 iyP
-gxt
 dVO
 dVO
 dVO
+qsc
 fyc
 fyc
 "}
@@ -374905,10 +377393,10 @@ iyP
 iyP
 iyP
 iyP
-gxt
 dVO
 dVO
 dVO
+qsc
 fyc
 fyc
 "}

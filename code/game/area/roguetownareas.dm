@@ -168,6 +168,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/outdoors/rtfield/rockhill
 	first_time_text = "Rockhill Basin"
+	threat_region = THREAT_REGION_ROCKHILL_BASIN
 
 /area/rogue/indoors/shelter/rtfield
 	icon_state = "rtfield"
