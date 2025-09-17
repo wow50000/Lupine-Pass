@@ -7,7 +7,7 @@
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_HEAVYARMOR, TRAIT_DISGRACED_NOBLE)
-	maximum_possible_slots = 2 //Ideal role for fraggers. Better to limit it. 
+	maximum_possible_slots = 1 //Ideal role for fraggers. Better to limit it. 
 	
 	cmode_music = 'sound/music/cmode/antag/combat_thewall.ogg' // same as new hedgeknight music
 	// Deserter are the knight-equivalence. They get a balanced, straightforward 2 2 3 statspread to endure and overcome.

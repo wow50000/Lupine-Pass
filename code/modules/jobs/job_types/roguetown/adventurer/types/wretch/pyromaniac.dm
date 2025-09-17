@@ -4,6 +4,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/pyromaniac
+	maximum_possible_slots = 1
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_MEDIUMARMOR)
 	subclass_stats = list(

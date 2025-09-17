@@ -5,6 +5,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/hedgemage
+	maximum_possible_slots = 1
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_MAGEARMOR, TRAIT_ARCYNE_T3)
 	// Same stat spread as necromancer, same reasoning
