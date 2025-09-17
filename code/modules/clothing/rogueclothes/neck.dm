@@ -405,9 +405,6 @@
 	if(slot == SLOT_NECK)
 		mob_overlay_icon = initial(mob_overlay_icon)
 		sleeved = initial(sleeved)
-	if(slot == SLOT_MASK)
-		mob_overlay_icon = initial(mob_overlay_icon)
-		sleeved = initial(sleeved)
 
 	return TRUE
 
