@@ -35,6 +35,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 		guy.apply_status_effect(/datum/status_effect/buff/dungeoneerbuff)
 	if((src.holy_area == TRUE) && HAS_TRAIT(guy, TRAIT_UNDIVIDED)) // get a long-lingering mood buff so long as we visit the church daily as Undivided.
 		guy.add_stress(/datum/stressevent/seeblessed)
+	if((src.holy_area == TRUE) && HAS_TRAIT(guy, TRAIT_OVERTHERETIC))//Heretics are punished for walking in the Church with rites buffs.
+		guy.apply_status_effect(/datum/status_effect/debuff/overt_punishment)
 
 /area/rogue/indoors
 	name = "indoors rt"
@@ -742,8 +744,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/outdoors/town/grove
 	icon_state = "outdoors"
-	droning_sound = 'sound/music/area/druid.ogg'	
-	holy_area = TRUE
+	droning_sound = 'sound/music/area/druid.ogg'
 	droning_sound_dawn = 'sound/music/area/forest.ogg'
 	converted_type = /area/rogue/indoors/town/grove
 	deathsight_message = "A sacred place of dendor, near the tree of Aeons.."
