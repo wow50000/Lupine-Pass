@@ -63,8 +63,9 @@
 
 		if(wear_neck)
 			if(mobility_flags & MOBILITY_STAND)
-				var/obj/item/clothing/N = wear_neck
-				N.step_action()
+				if(istype(wear_neck, /obj/item/clothing))
+					var/obj/item/clothing/N = wear_neck
+					N.step_action()
 
 		if(wear_shirt)
 			if(mobility_flags & MOBILITY_STAND)
@@ -97,7 +98,7 @@
 				//End bloody footprints
 				S.step_action()
 		if(mouth)
-		
+
 			if(mouth.spitoutmouth && prob(5))
 				visible_message(span_warning("[src] spits out [mouth]."))
 				dropItemToGround(mouth, silent = FALSE)
