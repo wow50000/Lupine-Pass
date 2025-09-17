@@ -39,6 +39,24 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+//Title stuff. This is super sloppy.
+		var/prev_real_name = H.real_name
+		var/prev_name = H.name
+//Default fallback title.
+		var/title = "Votary"
+//Actual titles now, based on pronouns.
+		switch(H.pronouns)
+			if(SHE_HER)
+				title = "Sister"
+			if(SHE_HER_M)
+				title = "Sister"
+			if(HE_HIM)
+				title = "Brother"
+			if(HE_HIM_F)
+				title = "Brother"
+//Now apply the actual title.
+		H.real_name = "[title] [prev_real_name]"
+		H.name = "[title] [prev_name]"
 
 /datum/advclass/templar/monk
 	name = "Monk"
@@ -392,7 +410,7 @@
 			H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
 		if("Decablade")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/long/undivided(H), TRUE)
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)	
+			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		if("Solar Judgement")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/long/exe/astrata(H), TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)

@@ -48,6 +48,12 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+//Name stuff.
+		var/prev_real_name = H.real_name
+		var/prev_name = H.name
+		var/title = "Prelate"
+		H.real_name = "[title] [prev_real_name]"
+		H.name = "[title] [prev_name]"
 
 /datum/advclass/bishop
 	name = "Bishop"
