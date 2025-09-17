@@ -21,10 +21,12 @@
 	overlay_state = "zad"
 	desc = ""
 	gesture_required = TRUE
-	chargetime = 5 SECONDS
+	chargetime = 500 SECONDS
 	recharge_time = 50
 	cooldown_min = 50
 	die_with_shapeshifted_form =  FALSE
-	do_gib = FALSE
+	do_gib = TRUE
 	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/bat/crow
 	sound = 'sound/vo/mobs/bird/birdfly.ogg'
+	invocations = list("Zad formus!")
+	invocation_type = "shout"
