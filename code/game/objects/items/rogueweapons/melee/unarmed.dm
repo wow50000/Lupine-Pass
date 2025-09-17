@@ -134,7 +134,7 @@
 /obj/item/rogueweapon/knuckles
 	name = "steel knuckles"
 	desc = "A mean looking pair of steel knuckles."
-	force = 21
+	force = 22
 	possible_item_intents = list(/datum/intent/knuckles/strike, /datum/intent/knuckles/smash, /datum/intent/effect/daze/unarmed)
 	icon = 'icons/roguetown/weapons/32.dmi'
 	icon_state = "steelknuckle"
@@ -148,7 +148,7 @@
 	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
 	throwforce = 12
-	wdefense = 0	//Meant to be used with bracers
+	wdefense = 4	//Meant to be used with bracers. Temp for now.
 	wbalance = WBALANCE_NORMAL
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -170,6 +170,7 @@
 	icon_state = "bronzeknuckle"
 	force = 18
 	max_integrity = 200
+	wdefense = 6	//Meant to be used with bracers. Temp for now.
 	wbalance = WBALANCE_HEAVY
 	smeltresult = /obj/item/ingot/bronze
 
@@ -191,7 +192,7 @@
 /obj/item/rogueweapon/knuckles/eora
 	name = "close caress"
 	desc = "Some times call for a more intimate approach."
-	force = 24
+	force = 25
 	icon_state = "eoraknuckle"
 
 /obj/item/rogueweapon/knuckles/psydon
@@ -203,12 +204,13 @@
 	. = ..()							//+3 force, +50 int, +1 def, make silver
 	add_psyblessed_component(is_preblessed = FALSE, bonus_force = 3, bonus_sharpness = 0, bonus_integrity = 50, bonus_wdef = 1, make_silver = TRUE)
 
-//This had 11 WD. No, thanks.
+//This has 11 WD. Eeeeugh....
 /obj/item/rogueweapon/knuckles/bronzeknuckles/zizoconstruct
 	name = "construct knuckles"
 	desc = "A vicous pair of bronze knuckles designed specifically for constructs. There is a terrifying, hollow spike in the center of the grip. There doesn't seem to be a way to wield it without impaling yourself."
 	color = "#5f1414"
 	max_integrity = 500
+	wdefense = 11	//Meant to be used with bracers. Temp for now.
 	anvilrepair = /datum/skill/craft/engineering
 
 /obj/item/rogueweapon/knuckles/bronzeknuckles/zizoconstruct/pickup(mob/living/user)
