@@ -164,6 +164,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	warden_area = TRUE
 	threat_region = THREAT_REGION_AZURE_BASIN
 
+/area/rogue/outdoors/rtfield/rockhill
+	first_time_text = "Rockhill Basin"
+
 /area/rogue/indoors/shelter/rtfield
 	icon_state = "rtfield"
 	droning_sound = 'sound/music/area/field.ogg'
@@ -474,6 +477,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	first_time_text = "THE KEEP OF ROTWOOD VALE"
 	keep_area = TRUE
 
+/area/rogue/indoors/town/manor/rockhill
+	first_time_text = "Rockhill Keep"
+
 /area/rogue/outdoors/exposed/manorgarri
 	icon_state = "manorgarri"
 	droning_sound = 'sound/music/area/manorgarri.ogg'
@@ -666,6 +672,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	first_time_text = "VALE GUILD OF CRAFT"
 	converted_type = /area/rogue/outdoors/exposed/dwarf
 
+/area/rogue/indoors/town/dwarfin/rockhill
+	first_time_text = "Rockhill Guild of Crafts"
+
 /area/rogue/outdoors/exposed/dwarf
 	icon_state = "dwarf"
 	droning_sound = 'sound/music/area/dwarf.ogg'
@@ -694,6 +703,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	converted_type = /area/rogue/indoors/shelter/town
 	first_time_text = "THE CITY OF ROTWOOD VALE"
 	town_area = TRUE
+
+/area/rogue/outdoors/town/rockhill
+	name = "outdoors rockhill"
+	first_time_text = "The Town of Rockhill"
 
 /area/rogue/indoors/shelter/town
 	icon_state = "town"
