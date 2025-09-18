@@ -526,9 +526,8 @@
 				/obj/item/roguegear/bronze = 1)
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
-	offset = TRUE
 	wallcraft = TRUE
-	skill_level = 4
+	craftdiff = 4
 
 #undef TAB_MAIN
 #undef TAB_BANK

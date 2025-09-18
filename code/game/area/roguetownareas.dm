@@ -166,6 +166,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	warden_area = TRUE
 	threat_region = THREAT_REGION_AZURE_BASIN
 
+/area/rogue/outdoors/rtfield/BYOSisland
+	first_time_text = "Somewhere Far Away"
+	threat_region = THREAT_REGION_ROCKHILL_BASIN
+
 /area/rogue/outdoors/rtfield/rockhill
 	first_time_text = "Rockhill Basin"
 	threat_region = THREAT_REGION_ROCKHILL_BASIN

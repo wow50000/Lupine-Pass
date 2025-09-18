@@ -553,7 +553,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
     name = "Cursed Lever"
     desc = "A lever radiating a sinister aura. Only those of a certain allegiance may touch it."
     icon = 'icons/roguetown/misc/structure.dmi'
-    icon_state = "leverwallred0"
+    icon_state = "leverwall0"
     var/allowed_factions = null // List of factions allowed to use this lever, e.g. list("orcs", "tribe")
 
 /obj/structure/lever/cursed/attack_hand(mob/user)
