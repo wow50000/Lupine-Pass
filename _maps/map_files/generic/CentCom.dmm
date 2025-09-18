@@ -1528,11 +1528,9 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/banditcamp)
 "eW" = (
-/obj/structure/flora/roguetree/pine{
-	pixel_x = -2
-	},
-/turf/open/floor/rogue/snowpatchy,
-/area/rogue/outdoors/banditcamp)
+/obj/structure/curtain/brown,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/banditcamp)
 "eX" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/stairs{
@@ -2112,7 +2110,10 @@
 /area/rogue/indoors/vampiremanor)
 "mr" = (
 /obj/structure/rack/rogue,
-/obj/structure/curtain/red,
+/obj/structure/curtain/red{
+	icon_state = "curtain-closed";
+	opacity = 1
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
 "ms" = (
@@ -2578,9 +2579,11 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
 "sj" = (
-/obj/structure/flora/roguegrass/bush,
-/turf/open/floor/rogue/snowpatchy,
-/area/rogue/outdoors/banditcamp)
+/obj/structure/bed/rogue{
+	dir = 1
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/banditcamp)
 "sk" = (
 /obj/structure/fluff/traveltile/vampire{
 	aportalgoesto = "vampexit";
@@ -3715,6 +3718,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
+"EF" = (
+/obj/structure/bed/rogue,
+/obj/structure/curtain/brown,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/banditcamp)
 "EL" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 4
@@ -4309,6 +4317,12 @@
 	droning_sound = 'sound/music/area/forestold.ogg';
 	first_time_text = "The Murderwood"
 	})
+"LZ" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/banditcamp)
 "Mi" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/banditcamp)
@@ -5124,7 +5138,10 @@
 "Wt" = (
 /obj/machinery/light/rogue/torchholder/r,
 /obj/structure/rack/rogue,
-/obj/structure/curtain/red,
+/obj/structure/curtain/red{
+	icon_state = "curtain-closed";
+	opacity = 1
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
 "Wu" = (
@@ -5725,7 +5742,7 @@ bX
 bX
 bX
 bX
-rQ
+bX
 bX
 vp
 vp
@@ -5735,8 +5752,8 @@ vp
 vp
 vp
 bX
-rQ
-rQ
+bX
+bX
 rQ
 rQ
 rQ
@@ -5847,25 +5864,25 @@ hQ
 xi
 vP
 bX
-bX
+rQ
 bX
 Qa
 Qa
 Qa
 Qa
 vp
-bX
-bX
-bX
+Qa
+Qa
+Qa
 vp
+sj
 sQ
 vp
 sQ
+sj
 vp
-sQ
 vp
-bX
-bX
+vp
 bX
 rQ
 rQ
@@ -5988,13 +6005,13 @@ vp
 vp
 vp
 vp
-DR
-vp
-DR
-vp
-DR
+eW
 vp
 vp
+vp
+eW
+vp
+sQ
 vp
 bX
 rQ
@@ -6120,11 +6137,11 @@ DW
 vp
 hB
 Hi
-Hi
 rr
 Hi
-DR
-sQ
+Hi
+eW
+sj
 vp
 bX
 rQ
@@ -6252,7 +6269,7 @@ Hi
 wS
 sQ
 eb
-Hi
+LZ
 vp
 vp
 vp
@@ -6380,11 +6397,11 @@ HH
 vp
 dq
 Hi
-Hi
 sd
 Hi
+Hi
+eW
 DR
-sQ
 vp
 bX
 rQ
@@ -6508,13 +6525,13 @@ eO
 Uc
 Qw
 vp
-DR
-vp
-DR
-vp
-DR
+EF
 vp
 vp
+vp
+eW
+vp
+sQ
 vp
 bX
 bX
@@ -6638,14 +6655,14 @@ Ie
 Ie
 Bt
 vp
+xC
 sQ
 vp
 sQ
+DR
 vp
-sQ
 vp
-eW
-sj
+vp
 xS
 Wg
 Wg
@@ -7157,7 +7174,7 @@ HB
 gc
 Hi
 sd
-Wv
+vp
 Hi
 Hi
 BZ
@@ -7176,10 +7193,10 @@ Zt
 Zt
 iD
 IH
-XW
+Ax
 Mk
 FO
-Zx
+FO
 MI
 FF
 gd
@@ -7305,7 +7322,7 @@ vb
 Ex
 vb
 iD
-XW
+Ax
 on
 Zk
 Uy
@@ -7945,7 +7962,7 @@ bc
 ky
 JM
 XW
-bM
+Ax
 bM
 Ax
 jg
@@ -10421,8 +10438,8 @@ Ql
 hr
 zK
 hr
-hr
-hr
+cm
+cm
 mO
 FI
 cm
