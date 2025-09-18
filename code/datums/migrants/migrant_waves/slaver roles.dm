@@ -41,7 +41,7 @@
 		H.change_stat("strength", 3)
 		H.change_stat("speed", 2)
 		H.change_stat("constitution", 2)
-		H.change_stat("endurance", 2)
+		H.change_stat("willpower", 2)
 		H.cmode_music = 'sound/music/combat_zybantine.ogg'
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
@@ -69,7 +69,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/sword/sabre/shamshir
-	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor 
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backpack_contents = list(/obj/item/rope/chain = 1, /obj/item/rogueweapon/huntingknife/idagger = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
@@ -93,7 +93,7 @@
 		H.change_stat("speed", 1)
 		H.change_stat("intelligence", 2)
 		H.change_stat("constitution", 1)
-		H.change_stat("endurance", 1)
+		H.change_stat("willpower", 1)
 		H.cmode_music = 'sound/music/combat_zybantine.ogg'
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
@@ -120,7 +120,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/rogueweapon/whip
-	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor 
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backpack_contents = list(/obj/item/rope/chain = 1, /obj/item/rogueweapon/huntingknife/idagger = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
@@ -144,7 +144,7 @@
 		H.change_stat("speed", 1)
 		H.change_stat("intelligence", 2)
 		H.change_stat("constitution", 1)
-		H.change_stat("endurance", 1)
+		H.change_stat("willpower", 1)
 		H.cmode_music = 'sound/music/combat_zybantine.ogg'
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
@@ -171,7 +171,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor 
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltr = /obj/item/quiver/bolts
 	backpack_contents = list(/obj/item/rope/chain = 1, /obj/item/rogueweapon/huntingknife/combat = 1, /obj/item/needle = 1)
 	if(H.mind)
@@ -195,7 +195,7 @@
 		H.change_stat("perception", 3)
 		H.change_stat("speed", 2)
 		H.change_stat("intelligence", 3)
-		H.change_stat("endurance", 2)
+		H.change_stat("willpower", 2)
 		H.cmode_music = 'sound/music/combat_zybantine.ogg'
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
@@ -210,9 +210,9 @@
 	grant_lit_torch = TRUE
 	show_wanderer_examine = FALSE
 
-/datum/outfit/job/roguetown/slaver/slavez/pre_equip(mob/living/carbon/human/H) 
+/datum/outfit/job/roguetown/slaver/slavez/pre_equip(mob/living/carbon/human/H)
 	..()
-	shirt = /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra 
+	shirt = /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra
 	neck = /obj/item/clothing/neck/roguetown/collar/leather
 	belt = /obj/item/storage/belt/rogue/leather/exoticsilkbelt
 	beltl = /obj/item/storage/belt/rogue/pouch
@@ -236,7 +236,7 @@
 		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.change_stat("strength", -3)
 		H.change_stat("constitution", -2)
-		H.change_stat("Endurance", 2) // they get whipped, they can endure some pain
+		H.change_stat("willpower", 2) // they get whipped, they can endure some pain
 		H.change_stat("intelligence", 3)
 		H.change_stat("speed", 1)
 		H.change_stat("fortune", -1)

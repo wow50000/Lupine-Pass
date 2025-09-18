@@ -353,12 +353,12 @@
 /datum/status_effect/buff/wardenbuff
 	id = "wardenbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/wardenbuff
-	effectedstats = list(STATKEY_SPD = 1, STATKEY_PER = 3) 
+	effectedstats = list(STATKEY_SPD = 1, STATKEY_PER = 3)
 
 /datum/status_effect/buff/barkeepbuff
 	id = "barkeepbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/barkeepbuff
-	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1, STATKEY_SPD = 1, STATKEY_STR = 3) 
+	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1, STATKEY_SPD = 1, STATKEY_STR = 3)
 
 /datum/status_effect/buff/barkeepbuff/process()
 
@@ -370,7 +370,7 @@
 /datum/status_effect/buff/guardbuffone
 	id = "guardbuffone"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/guardbuffone
-	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1, STATKEY_SPD = 1, STATKEY_PER = 2) 
+	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1, STATKEY_SPD = 1, STATKEY_PER = 2)
 
 /datum/status_effect/buff/dungeoneerbuff
 	id = "dungeoneerbuff"
@@ -1169,7 +1169,7 @@
 /datum/status_effect/buff/psydonic_endurance
 	id = "psydonic_endurance"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/psydonic_endurance
-	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1) 
+	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1)
 
 /datum/status_effect/buff/psydonic_endurance/on_apply()
 	. = ..()
@@ -1201,7 +1201,7 @@
 /datum/status_effect/buff/griefflower
 	id = "griefflower"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/griefflower
-	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1) 
+	effectedstats = list(STATKEY_CON = 1,STATKEY_WIL = 1)
 
 /datum/status_effect/buff/griefflower/on_apply()
 	. = ..()
@@ -1303,7 +1303,7 @@
 /datum/status_effect/buff/magicendurance
 	id = "endurance"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/endurance
-	effectedstats = list("endurance" = 3)
+	effectedstats = list("willpower" = 3)
 	duration = 20 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/endurance
@@ -1314,7 +1314,7 @@
 /datum/status_effect/buff/magicendurance/lesser
 	id = "lesser endurance"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/endurance/lesser
-	effectedstats = list("endurance" = 1)
+	effectedstats = list("willpower" = 1)
 	duration = 20 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/endurance/lesser
