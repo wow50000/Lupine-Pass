@@ -106,7 +106,7 @@ SUBSYSTEM_DEF(regionthreat)
 		new /datum/threat_region(
 			_region_name = THREAT_REGION_ROCKHILL_BOG_NORTH,
 			_latent_ambush = DANGER_DANGEROUS_LIMIT,
-			_min_ambush = DANGER_SAFE_FLOOR, // This is intended. A warden can engage in a long war to tame the terrorbog.
+			_min_ambush = DANGER_SAFE_FLOOR, //since there are four different bog areas it should be fine if parts of it can be tamed.
 			_max_ambush = DANGER_DIRE_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
@@ -114,7 +114,7 @@ SUBSYSTEM_DEF(regionthreat)
 		new /datum/threat_region(
 			_region_name = THREAT_REGION_ROCKHILL_BOG_EAST,
 			_latent_ambush = DANGER_DANGEROUS_LIMIT,
-			_min_ambush = DANGER_SAFE_FLOOR, // This is intended. A warden can engage in a long war to tame the terrorbog.
+			_min_ambush = DANGER_SAFE_FLOOR, 
 			_max_ambush = DANGER_DIRE_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
@@ -122,7 +122,7 @@ SUBSYSTEM_DEF(regionthreat)
 		new /datum/threat_region(
 			_region_name = THREAT_REGION_ROCKHILL_BOG_WEST,
 			_latent_ambush = DANGER_DANGEROUS_LIMIT,
-			_min_ambush = DANGER_SAFE_FLOOR, // This is intended. A warden can engage in a long war to tame the terrorbog.
+			_min_ambush = DANGER_SAFE_FLOOR, 
 			_max_ambush = DANGER_DIRE_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
@@ -130,7 +130,7 @@ SUBSYSTEM_DEF(regionthreat)
 		new /datum/threat_region(
 			_region_name = THREAT_REGION_ROCKHILL_BOG_SOUTH,
 			_latent_ambush = DANGER_DANGEROUS_LIMIT,
-			_min_ambush = DANGER_SAFE_FLOOR, // This is intended. A warden can engage in a long war to tame the terrorbog.
+			_min_ambush = DANGER_SAFE_FLOOR, 
 			_max_ambush = DANGER_DIRE_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
