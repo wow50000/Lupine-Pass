@@ -24,7 +24,7 @@
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant/l
 
 	if(prob(33))
-		cloak = /obj/item/clothing/cloak/half/brown
+		cloak = /obj/item/clothing/cloak/raincloak/brown
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless
 	
 	if(prob(10))

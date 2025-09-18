@@ -36,7 +36,7 @@
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backpack_contents = list(
-		/obj/item/flashlight/flare/torch = 1, 
+		/obj/item/flashlight/flare/torch = 1,
 		/obj/item/recipe_book/survival = 1,
 		)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
@@ -153,7 +153,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/chain
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backpack_contents = list(
-		/obj/item/flashlight/flare/torch = 1, 
+		/obj/item/flashlight/flare/torch = 1,
 		/obj/item/recipe_book/survival = 1,
 		)
 	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
@@ -288,7 +288,7 @@
 		STATKEY_WIL = 1,
 		STATKEY_SPD = 2,
 	)
-	
+
 /datum/outfit/job/roguetown/adventurer/cantor/pre_equip(mob/living/carbon/human/H)
 	to_chat(H, span_warning("You were a bard once - but you've found a new calling. Your eyes have been opened to the divine, now you wander from city to city singing songs and telling tales of your patron's greatness."))
 	head = /obj/item/clothing/head/roguetown/bardhat
@@ -319,7 +319,6 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.cmode_music = 'sound/music/cmode/church/combat_reckoning.ogg'
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 	switch(H.patron?.type)
 		if(/datum/patron/old_god)
 			cloak = /obj/item/clothing/cloak/templar/psydon
@@ -418,7 +417,7 @@
 		STATKEY_WIL = 1,
 		STATKEY_SPD = 1,
 	)
-	
+
 /datum/outfit/job/roguetown/adventurer/missionary/pre_equip(mob/living/carbon/human/H)
 	to_chat(H, span_warning("You are a devout worshipper of the divine with a strong connection to your patron god. You've spent years studying scriptures and serving your deity - now you wander into foreign lands, spreading the word of your faith."))
 	backl = /obj/item/storage/backpack/rogue/satchel
@@ -472,7 +471,7 @@
 		if (/datum/patron/divine/xylix)
 			cloak = /obj/item/clothing/cloak/templar/xylix
 		if(/datum/patron/inhumen/zizo)
-			cloak = /obj/item/clothing/suit/roguetown/shirt/robe 
+			cloak = /obj/item/clothing/suit/roguetown/shirt/robe
 			head = /obj/item/clothing/head/roguetown/roguehood
 			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
 			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
@@ -516,9 +515,9 @@
 		if(/datum/patron/divine/xylix) // no longer random, rejoice my fellow xylixians!
 			neck = /obj/item/clothing/neck/roguetown/psicross/xylix
 		if(/datum/patron/inhumen/zizo,
-	  		/datum/patron/inhumen/matthios,
-	   		/datum/patron/inhumen/graggar,
-	   		/datum/patron/inhumen/baotha)
+			/datum/patron/inhumen/matthios,
+			/datum/patron/inhumen/graggar,
+			/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
 		if(/datum/patron/inhumen/matthios)

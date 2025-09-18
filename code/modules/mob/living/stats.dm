@@ -1,4 +1,4 @@
-	
+
 
 /mob/living
 	var/STASTR = 10
@@ -346,7 +346,7 @@
 				new_amt = STACON - result_amt
 			STACON = new_amt
 
-		if("endurance")
+		if("willpower")
 			get_stat_level(STATKEY_WIL)
 			if(STAWIL < min_amt)
 				result_amt = min_amt - STAWIL
