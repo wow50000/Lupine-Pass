@@ -107,6 +107,11 @@
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town/rockhill)
+"abt" = (
+/obj/structure/roguemachine/bounty,
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors)
 "aby" = (
 /obj/structure/table/church/m,
 /obj/machinery/light/rogue/hearth{
@@ -11355,7 +11360,10 @@
 "dZK" = (
 /obj/structure/table/wood/poor,
 /obj/item/natural/feather,
-/obj/machinery/light/rogue/wallfire/candle,
+/obj/machinery/light/rogue/wallfire/candle/l,
+/obj/structure/roguemachine/bounty{
+	pixel_y = 31
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors)
 "dZO" = (
@@ -24004,6 +24012,12 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
+"iDw" = (
+/obj/structure/roguemachine/bounty{
+	pixel_y = 31
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/garrison)
 "iDA" = (
 /obj/structure/chair/wood/rogue{
 	dir = 1
@@ -35279,6 +35293,10 @@
 	icon_state = "iron_corner"
 	},
 /area/rogue/indoors/town/bath)
+"mQt" = (
+/obj/structure/chair/arrestchair,
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors)
 "mQH" = (
 /obj/structure/lever/wall{
 	dir = 4;
@@ -49294,8 +49312,10 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement)
 "skp" = (
-/obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/cobble,
+/obj/structure/closet/crate/chest/crate{
+	pixel_y = 8
+	},
+/turf/open/floor/rogue/concrete,
 /area/rogue/indoors)
 "sks" = (
 /obj/structure/closet/crate/chest{
@@ -243140,7 +243160,7 @@ soz
 eFJ
 soz
 eFJ
-scK
+rRb
 rRb
 uJF
 wbg
@@ -352966,8 +352986,8 @@ rDt
 pAV
 jIC
 skp
-mow
-wlD
+abt
+mQt
 jIC
 rDt
 rDt
@@ -368850,7 +368870,7 @@ tNj
 mgx
 mgx
 tNj
-hpj
+iDw
 edY
 lhz
 wbg
