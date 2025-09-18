@@ -145,7 +145,7 @@
 	add_overlay(M)
 	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
 		cut_overlays()
-	
+
 	update_icon()
 
 /obj/item/rogueweapon/shield/wood/getonmobprop(tag)
@@ -182,7 +182,7 @@
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 3
-	possible_item_intents = list(SHIELD_BASH_METAL, SHIELD_BLOCK, SHIELD_SMASH_METAL)	
+	possible_item_intents = list(SHIELD_BASH_METAL, SHIELD_BLOCK, SHIELD_SMASH_METAL)
 	wlength = WLENGTH_NORMAL
 	resistance_flags = null
 	flags_1 = CONDUCT_1
@@ -424,7 +424,7 @@
 
 /obj/item/rogueweapon/shield/capbuckler // unique, better buckler for knight captain
 	name = "'Order'"
-	desc = "A special buckler shield made out of blacksteel for the captain of the guard, adorned with the Scarlet Reach crest."
+	desc = "A special buckler shield made out of blacksteel for the captain of the guard, adorned with the vale's crest."
 	icon_state = "capbuckler"
 	icon = 'icons/roguetown/weapons/special/captain.dmi'
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK

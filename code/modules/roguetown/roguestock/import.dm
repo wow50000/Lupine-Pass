@@ -162,7 +162,7 @@
 
 /datum/roguestock/import/horsecrate
 	name = "Horse Crate"
-	desc = "A strange and unfamiliar mount in the Scarlet Reach. Horses, unlike saigas, have uniquely uncloven, single-toed hooves."
+	desc = "A strange and unfamiliar mount in the vale. Horses, unlike saigas, have uniquely uncloven, single-toed hooves."
 	item_type = /obj/structure/closet/crate/chest/steward/horsecrate
 	export_price = 500
 	importexport_amt = 1
@@ -334,7 +334,7 @@
 	new /obj/item/grown/log/tree/small(src)
 	new /obj/item/grown/log/tree/small(src)
 	new /obj/item/natural/bundle/fibers(src)
-	new /obj/item/grown/log/tree/stick(src)	
+	new /obj/item/grown/log/tree/stick(src)
 	new /obj/item/grown/log/tree/stick(src)
 
 /datum/roguestock/import/keyringsset

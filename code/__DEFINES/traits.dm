@@ -210,6 +210,7 @@
 #define TRAIT_MONK_ROBE	"Holy Vestatures"
 #define TRAIT_RACISMISBAD "Heritage Vision"
 #define TRAIT_VENOMOUS "Venomous"
+#define TRAIT_OVERTHERETIC "Overt Heretic"//Applied on someone who has rites buffs. Armour, rituos, etc.
 
 // If you want description to show up you gotta have the trait name defined BEFORE this lol
 
@@ -386,7 +387,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_VENOMOUS = span_necrosis("I am venomous. When chewing someone I've bitten, I will inject venom."),
 	TRAIT_COMBAT_AWARE = span_notice("My honed senses and intuition allow me to spot notable things in the midst of battle with ease."),
 	TRAIT_DREAMWALKER = span_warning("I walk the dream and reality at the same time. My mind frays, but my vision shall be reality."),
-	TRAIT_BLACKLEG = span_warning("My people have an inherent connection to Xylix. This grants me the ability to rig coin flips and dice rolls in my favour.")
+	TRAIT_BLACKLEG = span_warning("My people have an inherent connection to Xylix. This grants me the ability to rig coin flips and dice rolls in my favour."),
+	TRAIT_OVERTHERETIC = span_bloody("I've played my cards. Hallowed ground is now my bane.")
 ))
 
 // trait accessor defines
