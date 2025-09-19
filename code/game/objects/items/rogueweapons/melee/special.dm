@@ -111,7 +111,7 @@
 	gripped_intents = null
 	wlength = WLENGTH_NORMAL
 	w_class = WEIGHT_CLASS_NORMAL
-	possible_item_intents = list(/datum/intent/mace/strike/stunner, /datum/intent/mace/smash/stunner)	
+	possible_item_intents = list(/datum/intent/mace/strike/stunner, /datum/intent/mace/smash/stunner)
 	wbalance = WBALANCE_NORMAL
 	minstr = 5
 	wdefense = 0
@@ -159,7 +159,7 @@
 		if(target.stamina >= target.max_stamina)
 			target.electrocute_act(5, src)
 			charge -= 6
-		else/// TODO: Check target.STACON!!!!!!!!!!
+		else/// TODO: Check target.STACON!!!!!!!!!! - EDIT: I never did. Whoops!
 			target.energy_add(-10)
 			target.stamina_add(5)
 			charge -= 3
