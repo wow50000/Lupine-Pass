@@ -148,6 +148,7 @@
 
 //Old partizan peel, for the naginata.
 /datum/intent/partizan/peel/nag
+	attack_verb = list("<font color ='#e7e7e7'>peels</font>")
 	swingdelay = 5
 	peel_divisor = 4
 
