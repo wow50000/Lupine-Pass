@@ -2933,12 +2933,6 @@
 /obj/item/rogue/instrument/guitar,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
-"wa" = (
-/obj/structure/flora/roguetree/pine{
-	pixel_x = -2
-	},
-/turf/open/floor/rogue/snowrough,
-/area/rogue/outdoors/banditcamp)
 "wd" = (
 /obj/structure/stairs{
 	dir = 1
@@ -3719,10 +3713,11 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "EF" = (
-/obj/structure/bed/rogue,
-/obj/structure/curtain/brown,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/banditcamp)
+/obj/structure/flora/roguetree/pine{
+	pixel_x = -15
+	},
+/turf/open/floor/rogue/snowpatchy,
+/area/rogue/outdoors/banditcamp)
 "EL" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 4
@@ -6525,7 +6520,7 @@ eO
 Uc
 Qw
 vp
-EF
+eW
 vp
 vp
 vp
@@ -6655,7 +6650,7 @@ Ie
 Ie
 Bt
 vp
-xC
+DR
 sQ
 vp
 sQ
@@ -7312,8 +7307,8 @@ Hi
 wA
 vp
 vp
-wa
-Ax
+bM
+EF
 zD
 jg
 Ax
