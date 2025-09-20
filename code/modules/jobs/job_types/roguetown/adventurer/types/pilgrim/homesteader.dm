@@ -99,7 +99,7 @@
 						/obj/item/natural/clay = 3,
 						/obj/item/natural/clay/glassbatch = 1,
 						/obj/item/rogueore/coal = 1,
-						/obj/item/roguegear = 1,
+						/obj/item/roguegear/bronze = 1,
 	)
 	if(H.mind)
 		H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer/steel
