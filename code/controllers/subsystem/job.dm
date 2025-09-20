@@ -150,6 +150,10 @@ SUBSYSTEM_DEF(job)
 		if(job.plevel_req > player.client.patreonlevel())
 			JobDebug("FOC incompatible with PATREON LEVEL, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 			continue
+		if(!isnull(job.min_pq) && (get_playerquality(player.ckey) < job.min_pq))
+			continue
+		if(!isnull(job.max_pq) && (get_playerquality(player.ckey) > job.max_pq))
+			continue
 		if(!(player.client.prefs.gender in job.allowed_sexes))
 			JobDebug("FOC incompatible with sex, Player: [player], Job: [job.title]")
 			continue
@@ -235,6 +239,14 @@ SUBSYSTEM_DEF(job)
 
 		if(length(job.allowed_sexes) && !(player.client.prefs.gender in job.allowed_sexes))
 			JobDebug("GRJ incompatible with sex, Player: [player], Job: [job.title]")
+			continue
+
+		if(!isnull(job.min_pq) && (get_playerquality(player.ckey) < job.min_pq))
+			JobDebug("GRJ incompatible with minPQ, Player: [player], Job: [job.title]")
+			continue
+
+		if(!isnull(job.max_pq) && (get_playerquality(player.ckey) > job.max_pq))
+			JobDebug("GRJ incompatible with maxPQ, Player: [player], Job: [job.title]")
 			continue
 
 		if(check_blacklist(player.client.ckey) && !job.bypass_jobban)
@@ -463,6 +475,12 @@ SUBSYSTEM_DEF(job)
 					JobDebug("DO incompatible with PATREON LEVEL, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 					continue
 
+				if(!isnull(job.min_pq) && (get_playerquality(player.ckey) < job.min_pq))
+					continue
+
+				if(!isnull(job.max_pq) && (get_playerquality(player.ckey) > job.max_pq))
+					continue
+
 				if((player.client.prefs.lastclass == job.title) && (!job.bypass_lastclass))
 					continue
 
@@ -542,19 +560,22 @@ SUBSYSTEM_DEF(job)
 
 				if(length(job.allowed_races) && !(player.client.prefs.pref_species.type in job.allowed_races))
 					continue
-				
+
 				if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
 					continue
 
 				if(length(job.virtue_restrictions) && ((player.client.prefs.virtue.type in job.virtue_restrictions) || (player.client.prefs.virtuetwo?.type in job.virtue_restrictions)))
 					continue
-					
+
 				if(length(job.vice_restrictions) && (player.client.prefs.charflaw.type in job.vice_restrictions))
 					continue
 
 				if(job.plevel_req > player.client.patreonlevel())
 					continue
-					
+
+				if(!isnull(job.min_pq) && (get_playerquality(player.ckey) < job.min_pq) && level != JP_LOW) //since its required people on low can roll for it
+					continue
+
 				if((player.client.prefs.lastclass == job.title) && (!job.bypass_lastclass))
 					continue
 
