@@ -4,21 +4,34 @@
 	icon = 'modular/Smoker/icon/smokable.dmi'
 	icon_state = "smokebox"
 	item_state = "smokebox"
+	icon_type = "smoke"
+	
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
 	slot_flags = null
 	component_type = /datum/component/storage/concrete/grid/zigbox
+	populate_contents = list(
+		/obj/item/clothing/mask/cigarette/rollie/snek,
+		/obj/item/clothing/mask/cigarette/rollie/snek,
+		/obj/item/clothing/mask/cigarette/rollie/snek,
+		/obj/item/clothing/mask/cigarette/rollie/snek,
+		/obj/item/clothing/mask/cigarette/rollie/snek,
+		/obj/item/clothing/mask/cigarette/rollie/snek,
+	)
 
 /obj/item/storage/fancy/shhig/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 5
+	STR.max_items = 6
+	STR.set_holdable(list(/obj/item/clothing/mask/cigarette/rollie/snek))
+
 
 /obj/item/storage/fancy/shhig/attack_self(mob_user)
 	return
 
 /obj/item/clothing/mask/cigarette/rollie/snek
 	list_reagents = list(/datum/reagent/drug/nicotine = 30, /datum/reagent/consumable/honey = 3, /datum/reagent/toxin/venom = 10) //honey will give heal. it is NOT great 55% chance per unit tick to heal 1brute,burn,tox. high end perfect rolls 30hp. unlikely. degrades into sugar (chance) which has a chance to degrade into nutrients. simulates appetite surpressant effect.
+
 
 /obj/item/reagent_containers/hypospray/medipen/sty/snekbt
 	name = "Snake Bite"
@@ -27,14 +40,7 @@
 	amount_per_transfer_from_this = 10
 	list_reagents = list(/datum/reagent/drug/snekbt = 5, /datum/reagent/toxin/venom = 5)
 
-/obj/item/reagent_containers/hypospray/medipen/sty/nourish
-	name = "NOURISH"
-	desc = "A nutritional suppliment; normal people eat and drink, but true champions NOURISH."
-	volume = 85
-	amount_per_transfer_from_this = 85
-	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/water = 50) // as much water as a bottle. enough honey to IF good rng rolls get 30hp. 33% chance to decay into sugar, sugar has a 33% chance to decay into nutrients. so saturation varies.
-
-/datum/reagent/drug/snekbt
+/datum/reagent/drug/snekbt //Okay not gonna lie this all looks VERY complicated and I don't understand how it works
 	name = "Snake Bite"
 	description = "I'm not the one who's so far away..."
 	color = "#00FF00"
@@ -135,3 +141,19 @@
 	REMOVE_TRAIT(owner, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
 	. = ..()
 	. = 1
+
+/obj/item/reagent_containers/hypospray/medipen/sty/nourish
+	name = "NOURISH"
+	desc = "A nutritional suppliment; normal people eat and drink, but true champions NOURISH."
+	volume = 85
+	amount_per_transfer_from_this = 85
+	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/water = 50) // as much water as a bottle. enough honey to IF good rng rolls get 30hp. 33% chance to decay into sugar, sugar has a 33% chance to decay into nutrients. so saturation varies.
+
+///My OWN creations!!
+
+/obj/item/reagent_containers/hypospray/medipen/sty/sleep
+	name = "SLEEP"
+	desc = "A powerful sedative that puts even the hardiest saiga to sleep, for a time."
+	volume = 30
+	amount_per_transfer_from_this = 30
+	list_reagents = list(/datum/reagent/ozium = 15, /datum/reagent/sleep_powder = 15) // as much water as a bottle. enough honey to IF good rng rolls get 30hp. 33% chance to decay into sugar, sugar has a 33% chance to decay into nutrients. so saturation varies.

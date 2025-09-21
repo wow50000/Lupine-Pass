@@ -188,6 +188,27 @@
 	screen_max_columns = 3
 	max_items = 6
 
+/datum/component/storage/concrete/grid/zigbox/New(datum/P, ...)
+	. = ..()
+	can_hold = typecacheof(list(
+	/obj/item/clothing/mask/cigarette/rollie
+	))
+
+/datum/component/storage/concrete/grid/pilltin
+	max_w_class = WEIGHT_CLASS_TINY
+	screen_max_rows = 1
+	screen_max_columns = 3
+	max_items = 3
+
+/datum/component/storage/concrete/grid/pilltin/New(datum/P, ...)
+	. = ..()
+	can_hold = typecacheof(list(
+	/obj/item/reagent_containers/pill
+	))
+
+
+
+
 /datum/component/storage/concrete/roguetown/saddle
 	screen_max_rows = 4
 	screen_max_columns = 4

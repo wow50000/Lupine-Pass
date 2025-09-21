@@ -69,6 +69,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 1
 	slot_flags = null
+	component_type = /datum/component/storage/concrete/grid/pilltin
 	populate_contents = list(
 		/obj/item/reagent_containers/pill/caffpill,
 		/obj/item/reagent_containers/pill/caffpill,
@@ -97,7 +98,7 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
-		STR.max_combined_w_class = 42
+		STR.max_combined_w_class = 12
 		STR.max_w_class = WEIGHT_CLASS_NORMAL
 		STR.max_items = 3
 		STR.set_holdable(list(/obj/item/reagent_containers/pill))
