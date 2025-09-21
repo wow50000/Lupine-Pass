@@ -153,7 +153,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/sty/sleep
 	name = "SLEEP"
-	desc = "A powerful sedative that puts even the hardiest saiga to sleep, for a time."
-	volume = 30
-	amount_per_transfer_from_this = 30
-	list_reagents = list(/datum/reagent/ozium = 15, /datum/reagent/sleep_powder = 15) // as much water as a bottle. enough honey to IF good rng rolls get 30hp. 33% chance to decay into sugar, sugar has a 33% chance to decay into nutrients. so saturation varies.
+	desc = "A powerful sedative that promises sweet and sudden dreams for a short time, followed by a longer bout of sluggishness."
+	volume = 20
+	amount_per_transfer_from_this = 20
+	list_reagents = list(/datum/reagent/ozium = 5, /datum/reagent/sleep_powder = 15) 
