@@ -181,34 +181,6 @@
 		/obj/item/alch/rosa
 		))
 
-
-/datum/component/storage/concrete/grid/zigbox
-	max_w_class = WEIGHT_CLASS_TINY
-	screen_max_rows = 2
-	screen_max_columns = 3
-	max_items = 6
-
-/datum/component/storage/concrete/grid/zigbox/New(datum/P, ...)
-	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/clothing/mask/cigarette/rollie
-	))
-
-/datum/component/storage/concrete/grid/pilltin
-	max_w_class = WEIGHT_CLASS_TINY
-	screen_max_rows = 1
-	screen_max_columns = 3
-	max_items = 3
-
-/datum/component/storage/concrete/grid/pilltin/New(datum/P, ...)
-	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/reagent_containers/pill
-	))
-
-
-
-
 /datum/component/storage/concrete/roguetown/saddle
 	screen_max_rows = 4
 	screen_max_columns = 4
@@ -240,3 +212,61 @@
 /datum/component/storage/concrete/grid/headhook/bronze
 	screen_max_rows = 8
 	screen_max_columns = 6
+	
+/datum/component/storage/concrete/grid/zigbox
+	max_w_class = WEIGHT_CLASS_TINY
+	screen_max_rows = 2
+	screen_max_columns = 3
+	max_items = 6
+
+/datum/component/storage/concrete/grid/zigbox/New(datum/P, ...)
+	. = ..()
+	can_hold = typecacheof(list(
+	/obj/item/clothing/mask/cigarette/rollie
+	))
+
+/datum/component/storage/concrete/grid/pilltin
+	max_w_class = WEIGHT_CLASS_TINY
+	screen_max_rows = 1
+	screen_max_columns = 3
+	max_items = 3
+
+/datum/component/storage/concrete/grid/pilltin/New(datum/P, ...)
+	. = ..()
+	can_hold = typecacheof(list(
+	/obj/item/reagent_containers/pill
+	))
+/////////
+/datum/component/storage/concrete/roguetown/surgery_bag2
+	screen_max_rows = 4
+	screen_max_columns = 5
+	max_w_class = WEIGHT_CLASS_NORMAL
+
+/datum/component/storage/concrete/roguetown/surgery_bag2/New(datum/P, ...)
+	. = ..()
+	can_hold = typecacheof(list(
+	/obj/item/rogueweapon/surgery,
+	/obj/item/needle,
+	/obj/item/natural/worms/leech,
+	/obj/item/reagent_containers/lux,
+	/obj/item/natural/bundle/cloth,
+	/obj/item/natural/cloth))
+////////
+	
+/datum/component/storage/concrete/roguetown/ifak
+	screen_max_rows = 2
+	screen_max_columns = 5
+	max_w_class = WEIGHT_CLASS_NORMAL
+
+/datum/component/storage/concrete/roguetown/ifak/New(datum/P, ...)
+	. = ..()
+	can_hold = typecacheof(list(
+	/obj/item/rogueweapon/surgery,
+	/obj/item/needle,
+	/obj/item/natural/worms/leech,
+	/obj/item/reagent_containers/lux,
+	/obj/item/natural/bundle/cloth,
+	/obj/item/natural/cloth,
+	/obj/item/reagent_containers/hypospray/medipen,
+	/obj/item/reagent_containers/pill,
+	/obj/item/candle/yellow))

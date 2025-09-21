@@ -125,6 +125,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_HIP
 	throwforce = 1
+
+	component_type = /datum/component/storage/concrete/roguetown/surgery_bag2
 	populate_contents = list(
 		/obj/item/rogueweapon/surgery/scalpel,
 		/obj/item/rogueweapon/surgery/saw,
@@ -191,10 +193,11 @@
 
 /obj/item/storage/fancy/ifak
 	name = "personal patch kit"
-	desc = "Personal treatment pouch; has all you need to stop you or someone else from meeting Necra. It even comes with a little guide scroll for the slow minded."
+	desc = "Personal treatment pouch; has all you need to stop you or someone else from meeting Necra."
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "ifak"
 	w_class = WEIGHT_CLASS_SMALL
+	component_type = /datum/component/storage/concrete/roguetown/ifak
 	throwforce = 1
 	slot_flags = null
 	populate_contents = list(
@@ -249,7 +252,6 @@
 /obj/item/storage/fancy/ifak/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 7
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 42
 	STR.set_holdable(list(

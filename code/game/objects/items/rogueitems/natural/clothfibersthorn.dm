@@ -659,5 +659,6 @@
 	icon_state = "bandageroll2"
 	amount = 3
 	firefuel = 15 MINUTES
+	w_class = WEIGHT_CLASS_TINY
 
 
