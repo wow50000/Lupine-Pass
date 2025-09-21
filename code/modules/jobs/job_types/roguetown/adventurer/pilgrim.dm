@@ -1,10 +1,10 @@
 /datum/job/roguetown/pilgrim
-	title = "Pilgrim"
+	title = "Refugee"
 	flag = PILGRIM
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 0
-	spawn_positions = 0 //disables round-start spawn of pilgrims but allows migrant waves
+	total_positions = 40
+	spawn_positions = 40 //brings back round-start spawn of pilgrims!!!
 	allowed_races = RACES_ALL_KINDS
 	tutorial = "Fleeing misfortune you head your way towards Rotwood Vale, you're not a soldier or an explorer, but a humble migrant trying to look for a better life, if you get to survive the trip that is."
 
@@ -23,7 +23,7 @@
 	max_pq = null
 	wanderer_examine = TRUE
 	advjob_examine = TRUE
-	always_show_on_latechoices = FALSE
+	always_show_on_latechoices = TRUE
 	same_job_respawn_delay = 0
 
 /datum/job/roguetown/pilgrim/after_spawn(mob/living/L, mob/M, latejoin = TRUE)

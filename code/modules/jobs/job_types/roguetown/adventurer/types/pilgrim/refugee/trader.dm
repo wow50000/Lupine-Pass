@@ -3,8 +3,8 @@
 	tutorial = "You make your coin peddling exotic jewelry, gems, and shiny things."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
-	outfit = /datum/outfit/job/roguetown/adventurer/trader
-	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
+	outfit = /datum/outfit/job/roguetown/refugee/trader
+	category_tags = list(CTAG_PILGRIM, CTAG_COURTAGENT)
 	traits_applied = list(TRAIT_OUTLANDER, TRAIT_SEEPRICES)
 	subclass_stats = list(
 		STATKEY_INT = 3,
@@ -13,7 +13,7 @@
 		STATKEY_WIL = 1
 	)
 
-/datum/outfit/job/roguetown/adventurer/trader/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/trader/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("You make your coin peddling exotic jewelry, gems, and shiny things."))
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
@@ -48,55 +48,10 @@
 		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
 
-/datum/advclass/trader/doomsayer
-	name = "Doomsayer"
-	tutorial = "THE WORLD IS ENDING!!! At least, that's what you want your clients to believe. You'll offer them a safe place in the new world, of course - built by yours truly."
-	outfit = /datum/outfit/job/roguetown/adventurer/doomsayer
-	subclass_stats = list(
-		STATKEY_INT = 3,
-		STATKEY_PER = 1,
-		STATKEY_STR = 1,
-		STATKEY_CON = 1
-	)
-
-/datum/outfit/job/roguetown/adventurer/doomsayer/pre_equip(mob/living/carbon/human/H)
-	..()
-	to_chat(H, span_warning("THE WORLD IS ENDING!!! At least, that's what you want your clients to believe. You'll offer them a safe place in the new world, of course - built by yours truly."))
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/masonry, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-	head = /obj/item/clothing/head/roguetown/roguehood/black
-	mask = /obj/item/clothing/mask/rogue/skullmask
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	pants = /obj/item/clothing/under/roguetown/tights/black
-	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/black
-	belt = /obj/item/storage/belt/rogue/leather/black
-	cloak = /obj/item/clothing/cloak/half
-	backl = /obj/item/storage/backpack/rogue/satchel
-	backr = /obj/item/storage/backpack/rogue/satchel
-	neck = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltl = /obj/item/flashlight/flare/torch/lantern
-	beltr = /obj/item/rogueweapon/stoneaxe/woodcut
-	backpack_contents = list(
-		/obj/item/clothing/neck/roguetown/psicross/silver = 3,
-		/obj/item/clothing/neck/roguetown/psicross = 2,
-		/obj/item/clothing/neck/roguetown/psicross/wood = 1,
-		/obj/item/rogueweapon/huntingknife = 1,
-		/obj/item/recipe_book/survival = 1,
-		/obj/item/rogueweapon/scabbard/sheath = 1
-		)
-
 /datum/advclass/trader/scholar
 	name = "Scholar"
 	tutorial = "You are a scholar traveling the world in order to write a book about your ventures. You trade in stories and tales of your travels."
-	outfit = /datum/outfit/job/roguetown/adventurer/scholar
+	outfit = /datum/outfit/job/roguetown/refugee/scholar
 	subclass_stats = list(
 		STATKEY_INT = 3,
 		STATKEY_PER = 1,
@@ -104,11 +59,12 @@
 		STATKEY_WIL = 1
 	)
 
-/datum/outfit/job/roguetown/adventurer/scholar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/scholar/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("You are a scholar traveling the world in order to write a book about your ventures. You trade in stories and tales of your travels."))
 	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
@@ -142,8 +98,8 @@
 /datum/advclass/trader/harlequin
 	name = "Harlequin"
 	tutorial = "You are a travelling entertainer - a jester by trade. Where you go, chaos follows - and mischief is made."
-	outfit = /datum/outfit/job/roguetown/adventurer/harlequin
-	traits_applied = list(TRAIT_SEEPRICES, TRAIT_NUTCRACKER)
+	outfit = /datum/outfit/job/roguetown/refugee/harlequin
+	traits_applied = list(TRAIT_SEEPRICES_SHITTY, TRAIT_NUTCRACKER)
 	subclass_stats = list(
 		STATKEY_SPD = 2,
 		STATKEY_PER = 1,
@@ -151,7 +107,7 @@
 		STATKEY_INT = 1
 	)
 
-/datum/outfit/job/roguetown/adventurer/harlequin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/harlequin/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning ("You are a travelling entertainer - a jester by trade. Where you go, chaos follows - and mischief is made."))
 	shoes = /obj/item/clothing/shoes/roguetown/jester
@@ -202,14 +158,14 @@
 /datum/advclass/trader/peddler
 	name = "Peddler"
 	tutorial = "You make your coin peddling in spices and performing back-alley 'medical' procedures. Hope your patient didn't need that kidney."
-	outfit = /datum/outfit/job/roguetown/adventurer/peddler
+	outfit = /datum/outfit/job/roguetown/refugee/peddler
 	subclass_stats = list(
 		STATKEY_INT = 3,
 		STATKEY_PER = 2,
 		STATKEY_SPD = 1
 	)
 
-/datum/outfit/job/roguetown/adventurer/peddler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/peddler/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("You make your coin peddling in spices and performing back-alley 'medical' procedures. Hope your patient didn't need that kidney."))
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
@@ -246,7 +202,7 @@
 /datum/advclass/trader/brewer
 	name = "Brewer"
 	tutorial = "You make your coin peddling imported alcohols from all over the world, though you're no stranger to the craft, and have experience brewing your own ale in a pinch. You have the equipments and know how on how to make your own distiller, too."
-	outfit = /datum/outfit/job/roguetown/adventurer/brewer
+	outfit = /datum/outfit/job/roguetown/refugee/brewer
 	traits_applied = list(TRAIT_SEEPRICES, TRAIT_CICERONE)
 	subclass_stats = list(
 		STATKEY_INT = 3,
@@ -255,7 +211,7 @@
 		STATKEY_STR = 1
 	)
 
-/datum/outfit/job/roguetown/adventurer/brewer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/brewer/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("You make your coin peddling imported alcohols from all over the world, though you're no stranger to the craft, and have experience brewing your own ale in a pinch. You have the equipments and know how on how to make your own distiller, too."))
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
@@ -295,7 +251,7 @@
 	name = "Cuisiner"
 	tutorial = "Whether a disciple of a culinary school, a storied royal chef, or a mercenary cook for hire, your trade is plied at the counter, \
 	the cutting board, and the hearth."
-	outfit = /datum/outfit/job/roguetown/adventurer/cuisiner
+	outfit = /datum/outfit/job/roguetown/refugee/cuisiner
 	traits_applied = list(TRAIT_SEEPRICES, TRAIT_GOODLOVER)
 	subclass_stats = list(
 		STATKEY_INT = 3,
@@ -304,7 +260,7 @@
 		STATKEY_SPD = 1
 	)
 
-/datum/outfit/job/roguetown/adventurer/cuisiner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/cuisiner/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("Whether a disciple of a culinary school, a storied royal chef, or a mercenary cook for hire, your trade is plied at the counter, \
 	the cutting board, and the hearth."))
@@ -350,7 +306,7 @@
 /datum/advclass/trader/ponygirl
 	name = "Ponygirl"
 	tutorial = "Trained to serve as a mount and beast of burden, you are equipped with special gear and training."
-	outfit = /datum/outfit/job/roguetown/adventurer/ponygirl
+	outfit = /datum/outfit/job/roguetown/refugee/ponygirl
 	traits_applied = list(
 		TRAIT_PONYGIRL_RIDEABLE,
 		TRAIT_CRITICAL_RESISTANCE,
@@ -368,7 +324,7 @@
 		STATKEY_SPD = 10
 	)
 
-/datum/outfit/job/roguetown/adventurer/ponygirl/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/ponygirl/pre_equip(mob/living/carbon/human/H)
 	mask = /obj/item/clothing/mask/rogue/hblinders
 	head = /obj/item/clothing/head/roguetown/hbit
 	armor = /obj/item/clothing/suit/roguetown/armor/hcorset
