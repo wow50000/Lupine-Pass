@@ -30,11 +30,34 @@
 		M.adjustCloneLoss(-1.75*REM, 0)
 	..()
 
+/datum/reagent/medicine/weakhealth
+	name = "Weak Health Potion"
+	description = "Quickly regenerates all types of damage."
+	color = "#ff877ebe"
+	taste_description = "faint lifeblood"
+	metabolization_rate = REAGENTS_METABOLISM * 0.5
+
+/datum/reagent/medicine/weakhealth/on_mob_life(mob/living/carbon/M)
+	if(volume >= 60)
+		M.reagents.remove_reagent(/datum/reagent/medicine/healthpot, 2) //No overhealing.
+	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
+		M.blood_volume = min(M.blood_volume+12, BLOOD_VOLUME_NORMAL)
+	var/list/wCount = M.get_wounds()
+	if(wCount.len > 0)
+		M.heal_wounds(2)
+	if(volume > 0.99)
+		M.adjustBruteLoss(-1*REM, 0)
+		M.adjustFireLoss(-1*REM, 0)
+		M.adjustOxyLoss(-1, 0)
+		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3*REM)
+		M.adjustCloneLoss(-1*REM, 0)
+	..()
+
 /datum/reagent/medicine/stronghealth
 	name = "Strong Health Potion"
 	description = "Quickly regenerates all types of damage."
-	color = "#820000be"
-	taste_description = "rich lifeblood"
+	color = "#ff4800be"
+	taste_description = "overpowering lifeblood"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/stronghealth/on_mob_life(mob/living/carbon/M)
