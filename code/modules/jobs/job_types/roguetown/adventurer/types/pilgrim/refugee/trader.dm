@@ -51,7 +51,7 @@
 /datum/advclass/trader/doomsayer
 	name = "Doomsayer"
 	tutorial = "THE WORLD IS ENDING!!! At least, that's what you want your clients to believe. You'll offer them a safe place in the new world, of course - built by yours truly."
-	outfit = /datum/outfit/job/roguetown/adventurer/doomsayer
+	outfit = /datum/outfit/job/roguetown/refugee/doomsayer
 	subclass_stats = list(
 		STATKEY_INT = 3,
 		STATKEY_PER = 1,
@@ -59,7 +59,7 @@
 		STATKEY_CON = 1
 	)
 
-/datum/outfit/job/roguetown/adventurer/doomsayer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/doomsayer/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("THE WORLD IS ENDING!!! At least, that's what you want your clients to believe. You'll offer them a safe place in the new world, of course - built by yours truly."))
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
