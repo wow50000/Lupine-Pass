@@ -368,7 +368,6 @@
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
-/obj/item/storage/fancy/shhig,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -1119,7 +1118,6 @@
 	dir = 2;
 	icon_state = "largetable"
 	},
-/obj/item/reagent_containers/hypospray/medipen/sealbottle/reju,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "kB" = (
@@ -1283,7 +1281,7 @@
 	dir = 8;
 	icon_state = "largetable"
 	},
-/obj/item/natural/cloth/bandage,
+/obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "mv" = (
@@ -1390,7 +1388,6 @@
 	dir = 1;
 	icon_state = "largetable_mid"
 	},
-/obj/item/natural/bundle/cloth/bandage,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "nS" = (
@@ -1793,11 +1790,11 @@
 /turf/open/floor/carpet/stellar,
 /area/rogue)
 "sc" = (
+/mob/living/simple_animal/pet/cat/rogue/black,
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "largetable_mid"
 	},
-/obj/item/reagent_containers/pill/pnkpill,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "sd" = (
@@ -1823,6 +1820,7 @@
 	dir = 5;
 	icon_state = "largetable"
 	},
+/obj/item/reagent_containers/glass/cup/golden,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "sD" = (
@@ -1938,6 +1936,7 @@
 	dir = 9;
 	icon_state = "largetable"
 	},
+/obj/item/paper,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "tX" = (
@@ -2260,7 +2259,7 @@
 	dir = 10;
 	icon_state = "largetable"
 	},
-/obj/item/reagent_containers/hypospray/medipen/sealbottle/purify,
+/obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "xt" = (
@@ -3186,14 +3185,6 @@
 /obj/item/rogueweapon/mace/goden/steel,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
-"Jr" = (
-/obj/structure/table/wood{
-	dir = 8;
-	icon_state = "largetable"
-	},
-/obj/item/storage/fancy/pilltin/wake,
-/turf/open/floor/carpet/inn,
-/area/rogue/indoors)
 "Jw" = (
 /obj/structure/table/wood{
 	dir = 10;
@@ -3442,14 +3433,6 @@
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
-"Nr" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "largetable_mid"
-	},
-/obj/item/reagent_containers/hypospray/medipen/sty/nourish,
-/turf/open/floor/carpet/inn,
-/area/rogue/indoors)
 "Nt" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /obj/structure/table/wood{
@@ -3689,7 +3672,6 @@
 	dir = 4;
 	icon_state = "largetable"
 	},
-/obj/item/storage/fancy/shhig,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "Qr" = (
@@ -3774,6 +3756,7 @@
 	dir = 1;
 	icon_state = "largetable"
 	},
+/obj/item/natural/feather,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "RM" = (
@@ -3843,14 +3826,6 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
-"ST" = (
-/obj/structure/table/wood{
-	dir = 4;
-	icon_state = "largetable"
-	},
-/obj/item/natural/bundle/cloth/bandage/full,
-/turf/open/floor/carpet/inn,
-/area/rogue/indoors)
 "SV" = (
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/eventarea)
@@ -3917,14 +3892,6 @@
 "TB" = (
 /turf/open/floor/rogue/blocks/flipped,
 /area/rogue/indoors/eventarea)
-"TJ" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "largetable_mid"
-	},
-/obj/item/storage/fancy/skit,
-/turf/open/floor/carpet/inn,
-/area/rogue/indoors)
 "TS" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy/red/long{
 	dir = 1
@@ -4132,7 +4099,7 @@
 	dir = 4;
 	icon_state = "largetable"
 	},
-/obj/item/reagent_containers/pill/caffpill,
+/obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "WB" = (
@@ -4158,22 +4125,6 @@
 /obj/item/paper/scroll,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
-"WJ" = (
-/obj/structure/table/wood{
-	dir = 4;
-	icon_state = "largetable"
-	},
-/obj/item/reagent_containers/hypospray/medipen/sty/snekbt,
-/turf/open/floor/carpet/inn,
-/area/rogue/indoors)
-"WK" = (
-/obj/structure/table/wood{
-	dir = 8;
-	icon_state = "largetable"
-	},
-/obj/item/storage/fancy/ifak,
-/turf/open/floor/carpet/inn,
-/area/rogue/indoors)
 "WO" = (
 /obj/structure/fluff/walldeco/stone{
 	pixel_y = 32
@@ -4363,7 +4314,6 @@
 	dir = 8;
 	icon_state = "largetable"
 	},
-/obj/item/reagent_containers/hypospray/medipen/sty/detox,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "Ym" = (
@@ -11885,9 +11835,9 @@ bF
 bO
 tS
 mt
+mt
+mt
 Yl
-Jr
-WK
 xr
 bO
 Zl
@@ -12015,9 +11965,9 @@ bG
 bO
 RI
 nO
-Nr
+nO
 sc
-TJ
+nO
 kz
 bO
 Zl
@@ -12144,10 +12094,10 @@ WB
 bH
 bO
 sA
-ST
-WJ
-Ww
 Qp
+Qp
+Qp
+Ww
 Wu
 bO
 Zl
