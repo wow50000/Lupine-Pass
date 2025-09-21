@@ -4,8 +4,8 @@
 	flag = WRETCH
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 2//From 8.
-	spawn_positions = 2
+	total_positions = 3//From 8.
+	spawn_positions = 3
 	allowed_races = RACES_ALL_KINDS
 	tutorial = "Somewhere in your lyfe, you fell to the wrong side of civilization. Hounded by the consequences of your actions, you now threaten the peace of those who still heed the authority that condemned you."
 	outfit = null
@@ -126,9 +126,9 @@
 
     var/player_count = length(GLOB.joined_player_list)
 
-    var/slots = 2
-    if(player_count > 20)
-        var/extra = floor((player_count - 20) / 10)
+    var/slots = 3
+    if(player_count > 30)
+        var/extra = floor((player_count - 30) / 10)
         slots += extra
 
     slots = min(slots, 10)
