@@ -1,7 +1,7 @@
 /datum/advclass/scavenger/harvester
 	name = "Harvester"
-	tutorial = "Perhaps something terrible came to your last homestead, or you were driven away by something intolerable.\
-	Either way, the soil of these lands are rich and fertile, let us hope you can build something to last the winter."
+	tutorial = "Perhaps terrible fate befell your last homestead, or circumstances conspired to drive you away.\
+	Either way, the soil of these lands are rich and fertile, so you hear. Let us hope you can build something to last the winter."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/refugee/harvester
@@ -37,8 +37,8 @@
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	head = /obj/item/clothing/head/roguetown/strawhat
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
-	backr = /obj/item/storage/backpack/rogue/backpack
-	backl = /obj/item/rogueweapon/stoneaxe/woodcut/	//simple but effective
+	backl = /obj/item/storage/backpack/rogue/backpack
+	backr = /obj/item/rogueweapon/stoneaxe/woodcut/	//simple but effective
 	neck = /obj/item/clothing/neck/roguetown/coif
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor

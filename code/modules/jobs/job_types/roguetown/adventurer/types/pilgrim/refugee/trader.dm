@@ -48,6 +48,51 @@
 		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
 
+/datum/advclass/trader/doomsayer
+	name = "Doomsayer"
+	tutorial = "THE WORLD IS ENDING!!! At least, that's what you want your clients to believe. You'll offer them a safe place in the new world, of course - built by yours truly."
+	outfit = /datum/outfit/job/roguetown/adventurer/doomsayer
+	subclass_stats = list(
+		STATKEY_INT = 3,
+		STATKEY_PER = 1,
+		STATKEY_STR = 1,
+		STATKEY_CON = 1
+	)
+
+/datum/outfit/job/roguetown/adventurer/doomsayer/pre_equip(mob/living/carbon/human/H)
+	..()
+	to_chat(H, span_warning("THE WORLD IS ENDING!!! At least, that's what you want your clients to believe. You'll offer them a safe place in the new world, of course - built by yours truly."))
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/masonry, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	head = /obj/item/clothing/head/roguetown/roguehood/black
+	mask = /obj/item/clothing/mask/rogue/skullmask
+	shoes = /obj/item/clothing/shoes/roguetown/boots
+	pants = /obj/item/clothing/under/roguetown/tights/black
+	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/black
+	belt = /obj/item/storage/belt/rogue/leather/black
+	cloak = /obj/item/clothing/cloak/half
+	backl = /obj/item/storage/backpack/rogue/satchel
+	backr = /obj/item/storage/backpack/rogue/satchel
+	neck = /obj/item/storage/belt/rogue/pouch/coins/mid
+	beltl = /obj/item/flashlight/flare/torch/lantern
+	beltr = /obj/item/rogueweapon/stoneaxe/woodcut
+	backpack_contents = list(
+		/obj/item/clothing/neck/roguetown/psicross/silver = 3,
+		/obj/item/clothing/neck/roguetown/psicross = 2,
+		/obj/item/clothing/neck/roguetown/psicross/wood = 1,
+		/obj/item/rogueweapon/huntingknife = 1,
+		/obj/item/recipe_book/survival = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1
+		)
+
 /datum/advclass/trader/scholar
 	name = "Scholar"
 	tutorial = "You are a scholar traveling the world in order to write a book about your ventures. You trade in stories and tales of your travels."
@@ -99,7 +144,7 @@
 	name = "Harlequin"
 	tutorial = "You are a travelling entertainer - a jester by trade. Where you go, chaos follows - and mischief is made."
 	outfit = /datum/outfit/job/roguetown/refugee/harlequin
-	traits_applied = list(TRAIT_SEEPRICES_SHITTY, TRAIT_NUTCRACKER)
+	traits_applied = list(TRAIT_DODGEEXPERT, TRAIT_NUTCRACKER)
 	subclass_stats = list(
 		STATKEY_SPD = 2,
 		STATKEY_PER = 1,

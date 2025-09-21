@@ -26,6 +26,19 @@
 	always_show_on_latechoices = TRUE
 	same_job_respawn_delay = 0
 
+
+	job_subclasses = list(
+		/datum/advclass/scavenger/harvester,
+		/datum/advclass/scavenger/prospector,
+		/datum/advclass/noble,
+		/datum/advclass/trader,
+		/datum/advclass/trader/scholar,
+		/datum/advclass/trader/harlequin,
+		/datum/advclass/trader/peddler,
+		/datum/advclass/trader/brewer,
+		/datum/advclass/trader/cuisiner,
+	)
+
 /datum/job/roguetown/pilgrim/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
