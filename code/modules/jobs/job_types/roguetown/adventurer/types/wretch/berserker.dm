@@ -64,7 +64,7 @@
 			beltr = /obj/item/rogueweapon/knuckles
 		if ("Punch Dagger")
 			H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 5, TRUE)
-			beltr = /obj/item/rogueweapon/katar/punchdagger
+			r_hand = /obj/item/rogueweapon/katar/punchdagger
 		if ("MY BARE HANDS!!!")
 			H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 5, TRUE)
 			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)

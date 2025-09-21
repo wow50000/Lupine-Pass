@@ -104,8 +104,8 @@
 
 /datum/advclass/guildsman/artificer
 	name = "Artificer"
-	tutorial = "You are an Artificer, oft known by the longer name of Artificer-Enchanter. You have basic training in the arts of smithing, and can substitute for a blacksmith's work if needed.\
-	But your true calling is the creation and enchantment of magical items, alongside feats of engineering, creating mechanical and magical wonders whose art of creation has been passed down\
+	tutorial = "You are an Artificer, oft known by the longer name of Artificer-Tinkerer. You have basic training in the arts of smithing, and can substitute for a blacksmith's work if needed.\
+	But your true calling is the creation of arcyne machines, alongside feats of engineering, creating mechanical and magical wonders whose art of creation has been passed down\
 	from a certain elven Artificer..."
 	outfit = /datum/outfit/job/roguetown/guildsman/artificer
 

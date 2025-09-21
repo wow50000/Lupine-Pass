@@ -4,8 +4,8 @@
 	flag = WRETCH
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 8
-	spawn_positions = 8
+	total_positions = 3//From 8.
+	spawn_positions = 3
 	allowed_races = RACES_ALL_KINDS
 	tutorial = "Somewhere in your lyfe, you fell to the wrong side of civilization. Hounded by the consequences of your actions, you now threaten the peace of those who still heed the authority that condemned you."
 	outfit = null
@@ -54,13 +54,11 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
-		H.change_stat("strength", 1)
-		H.change_stat("perception", 1)
-		H.change_stat("intelligence", 1)
-		H.change_stat("constitution", 1)
-		H.change_stat("endurance", 1)
-		H.change_stat("speed", 1)
-		H.change_stat("fortune", 1)
+
+		// Assign wretch antagonist datum so wretches appear in antag list
+		if(H.mind && !H.mind.has_antag_datum(/datum/antagonist/wretch))
+			var/datum/antagonist/new_antag = new /datum/antagonist/wretch()
+			H.mind.add_antag_datum(new_antag)
 
 
 		if(GLOB.adventurer_hugbox_duration)

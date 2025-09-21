@@ -14,14 +14,14 @@
 		playsound(loc, 'sound/foley/cloth_wipe (1).ogg', 100, TRUE)
 		qdel(src)
 
-// This'll be our tutorial ritual for those who want to make more later, let's go into details in comments, mm? - Onutsio 
+// This'll be our tutorial ritual for those who want to make more later, let's go into details in comments, mm? - Onutsio
 /obj/structure/ritualcircle/astrata
 	name = "Rune of the Sun" // defines name of the circle itself
-	icon_state = "astrata_chalky" // the icon state, so, the sprite the runes use on the floor. As of making, we have 6, each needs an active/inactive state. 
+	icon_state = "astrata_chalky" // the icon state, so, the sprite the runes use on the floor. As of making, we have 6, each needs an active/inactive state.
 	desc = "A Holy Rune of Astrata. Warmth irradiates from the rune." // description on examine
 	var/solarrites = list("Guiding Light") // This is important - This is the var which stores every ritual option available to a ritualist - Ideally, we'd have like, 3 for each God. Right now, just 1.
 
-/obj/structure/ritualcircle/astrata/attack_hand(mob/living/user) 
+/obj/structure/ritualcircle/astrata/attack_hand(mob/living/user)
 	if((user.patron?.type) != /datum/patron/divine/astrata)
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
@@ -586,7 +586,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /obj/structure/crystal_spire/Initialize()
 	. = ..()
 	spawn_fiends(1, initial_fiend)
-	
+
 	next_fiend_time = world.time + spawn_timer
 	next_expansion_time = world.time + expansion_timer
 
@@ -639,7 +639,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /obj/structure/crystal_spire/proc/start_conversion()
 	converting = TRUE
 	resistance_flags |= INDESTRUCTIBLE
-	
+
 	add_filter(ABYSSAL_GLOW_FILTER, 2, list("type" = "outline", "color" = "#6A0DAD", "alpha" = 0, "size" = 2))
 	update_icon()
 
@@ -659,7 +659,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		// Skip if already converted
 		if(istype(T, /turf/open/floor/rogue/dark_ice))
 			continue
-	
+
 		// Calculate distance from center
 		// P.S I hate math :)
 		var/dx = abs(T.x - center.x)
@@ -864,7 +864,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/ritualtargets = view(7, loc)
 	for(var/mob/living/carbon/human/target in ritualtargets)
 		target.apply_status_effect(/datum/status_effect/buff/undermaidenbargain)
-	
+
 /obj/structure/ritualcircle/necra/proc/undermaidenvow(src)
 	var/ritualtargets = view(1, loc)
 	for(var/mob/living/carbon/human/target in ritualtargets)
@@ -1043,7 +1043,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			user.say("ZIZO! ZIZO! STRIP OUR BONE OF ANY FLESH!!")
 			if(!do_after(user, 5 SECONDS))
 				return
-			icon_state = "zizo_active"							
+			icon_state = "zizo_active"
 			rituosbone(target)
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			spawn(120)
@@ -1068,6 +1068,8 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		playsound(loc, 'sound/combat/hits/onmetal/grille (2).ogg', 50)
 		target.equipOutfit(/datum/outfit/job/roguetown/darksteelrite)
 		target.apply_status_effect(/datum/status_effect/debuff/devitalised)
+		if(!HAS_TRAIT(target, TRAIT_OVERTHERETIC))
+			ADD_TRAIT(target, TRAIT_OVERTHERETIC, TRAIT_MIRACLE)
 		spawn(40)
 			to_chat(target, span_purple("They are ignorant, backwards, without hope. You. You will be powerful."))
 
@@ -1125,6 +1127,8 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		if (!HAS_TRAIT(target, TRAIT_ARCYNE_T3) && !HAS_TRAIT(target, TRAIT_ARCYNE_T4) || HAS_TRAIT(target, TRAIT_ARCYNE_T2))
 			REMOVE_TRAIT(target, TRAIT_ARCYNE_T2, "[type]")
 			ADD_TRAIT(target, TRAIT_ARCYNE_T3, "[type]")
+		if(!HAS_TRAIT(target, TRAIT_OVERTHERETIC))
+			ADD_TRAIT(target, TRAIT_OVERTHERETIC, TRAIT_MIRACLE)
 		target.dna.species.species_traits |= NOBLOOD
 		target.change_stat("speed", -1)
 		target.change_stat("constitution", -2)
@@ -1210,7 +1214,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 					if(previous_level == 1)
 						target.mind?.RemoveAllMiracles()
 						C.grant_miracles(target, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_DEVOTEE, devotion_limit = CLERIC_REQ_1)
-					target.already_converted_once = TRUE 
+					target.already_converted_once = TRUE
 	if(prompt == "DEATH")
 		to_chat(target, span_warning("Images of Her Work most grandoise flood your mind yet... you choose to reject them. Only final death awaits now, you foolish thing."))
 		target.Stun(60)
@@ -1306,7 +1310,9 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	spawn(20)
 		playsound(loc, 'sound/combat/hits/onmetal/grille (2).ogg', 50)
 		target.equipOutfit(/datum/outfit/job/roguetown/gildedrite)
-		// target.apply_status_effect(/datum/status_effect/debuff/devitalised) // Removed: do not consume lux
+		target.apply_status_effect(/datum/status_effect/debuff/devitalised)
+		if(!HAS_TRAIT(target, TRAIT_OVERTHERETIC))
+			ADD_TRAIT(target, TRAIT_OVERTHERETIC, TRAIT_MIRACLE)
 		spawn(40)
 			to_chat(target, span_cult("More to the maw, this shall help feed our greed."))
 
@@ -1482,7 +1488,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			graggararmor(target)
 			spawn(120)
-				icon_state = "graggar_chalky" 
+				icon_state = "graggar_chalky"
 		if("War Ritual")
 			to_chat(user, span_userdanger("This rite will get me more tired than usual... I wonder, should I proceed?"))
 			if(!do_after(user, 5 SECONDS))
@@ -1502,7 +1508,8 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			else
 				to_chat(user, span_smallred("The ritual fails. A noble, member of the inquisition or a tennite churchling body must be in the center of the circle!"))
 			spawn(120)
-				icon_state = "graggar_chalky" 
+				icon_state = "graggar_chalky"
+
 /obj/structure/ritualcircle/graggar/proc/graggararmor(mob/living/carbon/human/target)
 	if(!HAS_TRAIT(target, TRAIT_HORDE))
 		loc.visible_message(span_cult("THE RITE REJECTS ONE WITHOUT SLAUGHTER IN THEIR HEART!!"))
@@ -1522,6 +1529,8 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		playsound(loc, 'sound/combat/hits/onmetal/grille (2).ogg', 50)
 		target.equipOutfit(/datum/outfit/job/roguetown/viciousrite)
 		target.apply_status_effect(/datum/status_effect/debuff/devitalised)
+		if(!HAS_TRAIT(target, TRAIT_OVERTHERETIC))
+			ADD_TRAIT(target, TRAIT_OVERTHERETIC, TRAIT_MIRACLE)
 		spawn(40)
 			to_chat(target, span_cult("Break them."))
 
@@ -1590,7 +1599,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	if(target.already_converted_once)
 		loc.visible_message(span_cult("BLOODY NIMROD!!"))
 		target.apply_damage(150, BRUTE, BODY_ZONE_HEAD)
-		return 
+		return
 	var/prompt = alert(target, "CULL AND HUNT!",, "KILL KILL KILL!!", "I DEFY YOU!!")
 	if(prompt == "KILL KILL KILL!!")
 		target.Stun(60)
@@ -1698,14 +1707,14 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	if(target.already_converted_once)
 		loc.visible_message(span_cult("BLOODY NIMROD!!"))
 		target.apply_damage(150, BRUTE, BODY_ZONE_HEAD)
-		return 
+		return
 	var/prompt = alert(target, "LEASH OF SUBMISSION OR LASH OF DEFIANCE?",, "LEASH", "LASH")
 	if(prompt == "LEASH")
 		to_chat(target, span_warning("Hedonistic visions of excess and indulgence echo in your brain, as a drug-addled haze settles over your mind. Your body yearns for more.")) // helloooOOOOOOOO
 		target.Stun(60)
 		target.Knockdown(60)
 		to_chat(target, span_userdanger("PLEASURE FOR PLEASURE'S SAKE!"))
-		target.sexcon.set_arousal(300) 
+		target.sexcon.set_arousal(300)
 		loc.visible_message(span_cult("[target] writhes and moans as sensations of pleasure and pain surge through their body...")) // warhammer 3 slaaneshi daemonette quotes
 		spawn(20)
 			playsound(target, 'sound/health/fastbeat.ogg', 60)
@@ -1733,7 +1742,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 						C.grant_miracles(target, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_2)
 					if(previous_level == 1)
 						target.mind?.RemoveAllMiracles()
-						C.grant_miracles(target, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_DEVOTEE, devotion_limit = CLERIC_REQ_1)	
+						C.grant_miracles(target, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_DEVOTEE, devotion_limit = CLERIC_REQ_1)
 	if(prompt == "LASH")
 		to_chat(target, span_warning("All too asutere, aloof and prudish, aren't you? Bah, I shall not waste any more of my time on you.")) // gotta change it too
 		target.Stun(60)

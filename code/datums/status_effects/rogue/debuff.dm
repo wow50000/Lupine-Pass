@@ -391,6 +391,10 @@
 	effectedstats = list(STATKEY_PER = -3, STATKEY_LCK = -1)
 	duration = 8 SECONDS
 
+/datum/status_effect/debuff/dazed/unarmed
+	effectedstats = list(STATKEY_INT = -2, STATKEY_LCK = -1)
+	duration = 10 SECONDS
+
 /atom/movable/screen/alert/status_effect/debuff/dazed
 	name = "Dazed"
 	desc = "You've been smacked on the head very hard. Which way is left, again?"
@@ -456,7 +460,7 @@
 /datum/status_effect/debuff/apostasy
 	id = "Apostasy!"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/apostasy
-	effectedstats = list(STATKEY_LCK = -5, STATKEY_INT = -3, STATKEY_PER = -2 , STATKEY_SPD = -2, STATKEY_WIL = -2, STATKEY_CON = -2)
+	effectedstats = list(STATKEY_LCK = -5, STATKEY_INT = -3, STATKEY_PER = -2, STATKEY_SPD = -2, STATKEY_WIL = -2, STATKEY_CON = -2)
 	duration = -1
 	var/resistant = FALSE
 	var/original_devotion = 0
@@ -534,6 +538,78 @@
 
 /datum/status_effect/debuff/emberwine
 	id = "emberwine"
-	effectedstats = list("strength" = -1, "endurance" = -2, "speed" = -2, "intelligence" = -3)
+	effectedstats = list("strength" = -1, "willpower" = -2, "speed" = -2, "intelligence" = -3)
 	duration = 1 MINUTES
 	alert_type = /atom/movable/screen/alert/status_effect/emberwine
+
+/* Kockout */
+/datum/status_effect/debuff/knockout
+	id = "knockout"
+	effectedstats = null
+	alert_type = null
+	duration = 12 SECONDS
+	var/time = 0
+
+/datum/status_effect/debuff/knockout/tick()
+	time += 1
+	switch(time)
+		if(3)
+			if(prob(50)) //You don't always know...
+				var/msg = pick("I feel sleepy...", "I feel relaxed.", "My eyes feel a little heavy.")
+				to_chat(owner, span_warn(msg))
+
+		if(5)
+			if(prob(50))
+				owner.Slowdown(20)
+			else
+				owner.Slowdown(10)
+		if(8)
+			if(iscarbon(owner))
+				var/mob/living/carbon/C = owner
+				var/msg = pick("yawn", "cough", "clearthroat")
+				C.emote(msg, forced = TRUE)
+		if(12)
+			// it's possible that stacking effects delay this.
+			// If we hit 12 regardless we end
+			Destroy()
+
+/datum/status_effect/debuff/knockout/on_remove()
+	if(iscarbon(owner))
+		var/mob/living/carbon/C = owner
+		if(C.IsSleeping()) //No need to add more it's already pretty long.
+			return ..()
+		C.SetSleeping(20 SECONDS)
+	..()
+
+/atom/movable/screen/alert/status_effect/debuff/knockout
+	name = "Drowsy"
+
+//Heretics in rite armour / with rite buffs being punished, for lingering on hallowed ground.
+//If they're captured, it's a moot point.
+/atom/movable/screen/alert/status_effect/overt_punishment
+	name = "Hallowed Ground"
+	desc = "The Ten have taken notice. I should not linger here!"
+	icon_state = "muscles"
+
+/datum/status_effect/debuff/overt_punishment
+	id = "overtpunish"
+	alert_type = /atom/movable/screen/alert/status_effect/overt_punishment
+//Extreme since it's just the cathedral. If you're seeing this frequently, you may be the issue.
+	effectedstats = list(STATKEY_STR = -6, STATKEY_PER = -4, STATKEY_INT = -4, STATKEY_WIL = -4, STATKEY_CON = -4, STATKEY_SPD = -4, STATKEY_LCK = -8)
+
+/datum/status_effect/debuff/overt_punishment/process()
+	.=..()
+	var/area/rogue/our_area = get_area(owner)
+	if(!(our_area.holy_area))
+		owner.remove_status_effect(/datum/status_effect/debuff/overt_punishment)
+
+/datum/status_effect/debuff/overt_punishment/on_apply()
+		. = ..()
+		var/mob/living/carbon/C = owner
+		C.add_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN, multiplicative_slowdown = 1.5)
+
+/datum/status_effect/debuff/overt_punishment/on_remove()
+	. = ..()
+	if(iscarbon(owner))
+		var/mob/living/carbon/C = owner
+		C.remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)

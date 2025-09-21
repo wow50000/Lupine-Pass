@@ -7,7 +7,7 @@
 	spawn_positions = 6
 
 	allowed_races = RACES_ALL_KINDS
-	allowed_patrons = ALL_DIVINE_PATRONS 
+	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/monk
 	tutorial = "Chores, some more chores- Even more chores.. Oh how the life of a humble acolyte is exhausting… You have faith, but even you know you gave up a life of adventure for that of the security in the Church. Assist the Bishop in their daily tasks, maybe today will be the day something interesting happens."
@@ -33,6 +33,24 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+//Title stuff. This is super sloppy.
+		var/prev_real_name = H.real_name
+		var/prev_name = H.name
+//Default fallback title.
+		var/title = "Devotee"
+//Actual titles now, based on pronouns.
+		switch(H.pronouns)
+			if(SHE_HER)
+				title = "Sister"
+			if(SHE_HER_M)
+				title = "Sister"
+			if(HE_HIM)
+				title = "Brother"
+			if(HE_HIM_F)
+				title = "Brother"
+//Now apply the actual title.
+		H.real_name = "[title] [prev_real_name]"
+		H.name = "[title] [prev_name]"
 
 /datum/advclass/acolyte
 	name = "Acolyte"
@@ -60,7 +78,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/woodstaff
 	backpack_contents = list(/obj/item/ritechalk)
-	H.cmode_music = 'sound/music/cmode/church/combat_acolyte.ogg' // has to be defined here for the selection below to work. sm1 please rewrite cmusic to apply pre-equip. 
+	H.cmode_music = 'sound/music/cmode/church/combat_acolyte.ogg' // has to be defined here for the selection below to work. sm1 please rewrite cmusic to apply pre-equip.
 	switch(H.patron?.type)
 		if(/datum/patron/divine/undivided)
 			neck = /obj/item/clothing/neck/roguetown/psicross/undivided
@@ -101,6 +119,8 @@
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/necra
 			shirt = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
+			backr = /obj/item/rogueweapon/shovel
+			backpack_contents = list(/obj/item/ritechalk, /obj/item/flashlight/flare/torch/lantern = 1, /obj/item/natural/bundle/stick = 1, /obj/item/necra_censer = 1)
 		if(/datum/patron/divine/pestra)
 			neck = /obj/item/clothing/neck/roguetown/psicross/pestra
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/phys
