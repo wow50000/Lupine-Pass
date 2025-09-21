@@ -124,11 +124,11 @@
 	amount_per_transfer_from_this = 45
 	list_reagents = list(/datum/reagent/medicine/stimu = 15, /datum/reagent/medicine/manapot = 15, /datum/reagent/ozium = 5, /datum/reagent/consumable/coffee = 10)
 
-/* /obj/item/reagent_containers/hypospray/medipen/sealbottle/purify
+ /obj/item/reagent_containers/hypospray/medipen/sealbottle/purify
 	name = "purifying elixer"
 	desc = "A powerful drug that purifies the blood of poisons. Painfully."
 	icon_state = "THEbottle"
 	volume = 30
 	amount_per_transfer_from_this = 40
 	list_reagents = list(/datum/reagent/medicine/strong_antidote = 30, /datum/reagent/ozium = 5, /datum/reagent/consumable/ethanol/hooch = 5) // lil laudanum for your troubles
- */
+
