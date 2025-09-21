@@ -1,7 +1,7 @@
 /datum/advclass/carpenter
-	name = "Carpenter"
-	tutorial = "A skilled carpenter, able to manipulate wood to suit their needs \
-	building forts and stores, carpenting floors, putting up crosses. You can do it all with enough logs"
+	name = "Builder"
+	tutorial = "A skilled carpenter and mason, able to manipulate wood and stone to suit their needs \
+	building forts and stores, carpenting floors, putting up crosses. You can do it all with enough logs or rocks"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/carpenter
@@ -28,7 +28,7 @@
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE) // They work at great heights.
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/carpentry, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/masonry, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
