@@ -83,7 +83,7 @@ Blacksteel is a blessed alloy of pure silver and steel. Its recipe was stolen by
 The Gronn Highlands are a mountainous region known for its jagged peaks and terrible blizzards. Steppes or highlands, Gronn is a terrible place to live.
 Dwarves are renowned for their artifice and craftsmanship, having been least affected by the fall of PSYDON. They are only mostly dead.
 The Zybantine Empire is a vast dry region primarily made up of endless deserts and sparse settlements. It is famous for its rich silks, splendorous gold, and expansive slave trade.
-Most Dwarves hail from all regions of the world, either from above or below. Confusing a surface-dwarf and an underground-dwarf is likely to get you kicked in the shin.
+Dwarves hail from all regions of the world, either from above or below. Confusing a surface-dwarf and an underground-dwarf is likely to get you kicked in the shin.
 The Isles of Etrusca are a sun-kissed archipelago nestled in sparkling blue waters. Known for their rich maritime culture, the Etruscans are masterful sailors and traders, navigating the seas with swift, ornate galleons adorned with colorful sails.
 ZIZO. ZIZO. ZIZO.
 To seek progress is to paint with your blood. The greater the work, the harsher the price.
