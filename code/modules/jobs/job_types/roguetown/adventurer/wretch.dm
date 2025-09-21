@@ -64,15 +64,6 @@
 		if(GLOB.adventurer_hugbox_duration)
 			addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
 
-/datum/job/roguetown/wretch/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		// Assign wretch antagonist datum so wretches appear in antag list
-		if(H.mind && !H.mind.has_antag_datum(/datum/antagonist/wretch))
-			var/datum/antagonist/new_antag = new /datum/antagonist/wretch()
-			H.mind.add_antag_datum(new_antag)
-
 // Proc for wretch to select a bounty
 /proc/wretch_select_bounty(mob/living/carbon/human/H)
 	var/bounty_face_noface = alert(H,"Is your face known?", , "Yes", "No" )
