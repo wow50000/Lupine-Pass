@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/hypospray               ////// I absolutely hate this stupid retarded shit why the fuck is TG garbage even in this stupid fucking indian built codebase. fuck you seth. fuck you.
+/obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = ""
 	icon = 'icons/roguetown/items/surgery.dmi'
@@ -113,21 +113,21 @@
 	name = "DETOX"
 	desc = "Purges the body of all that is not natural."
 	volume = 34
-	amount_per_transfer_from_this = 34
-	list_reagents = list(/datum/reagent/medicine/antihol = 10, /datum/reagent/medicine/pen_acid = 24)
+	amount_per_transfer_from_this = 64
+	list_reagents = list(/datum/reagent/medicine/antihol = 10, /datum/reagent/medicine/pen_acid = 24, /datum/reagent/medicine/strong_antidote = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/reju
 	name = "rejuv elixer"
 	desc = "Restores blood, seals wounds, helps to stabalize breathing and lightly numbs pain."
 	icon_state = "THEbottle"
 	volume = 16
-	amount_per_transfer_from_this = 16
-	list_reagents = list(/datum/reagent/medicine/stimu = 15, /datum/reagent/medicine/caffeine = 1)
+	amount_per_transfer_from_this = 45
+	list_reagents = list(/datum/reagent/medicine/stimu = 15, /datum/reagent/medicine/manapot = 15, /datum/reagent/ozium = 5, /datum/reagent/consumable/coffee = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/purify
 	name = "purifying elixer"
-	desc = "A powerful drug that purifies the blood and seals wounds on the body. Painfully."
+	desc = "A powerful drug that purifies the blood of poisons. Painfully."
 	icon_state = "THEbottle"
 	volume = 30
-	amount_per_transfer_from_this = 30
-	list_reagents = list(/datum/reagent/medicine/purify = 20, /datum/reagent/ozium = 5, /datum/reagent/consumable/ethanol/hooch = 5) // lil laudanum for your troubles
+	amount_per_transfer_from_this = 40
+	list_reagents = list(/datum/reagent/medicine/strong_antidote = 30, /datum/reagent/ozium = 5, /datum/reagent/consumable/ethanol/hooch = 5) // lil laudanum for your troubles

@@ -99,11 +99,22 @@
 	if(STR)
 		STR.max_combined_w_class = 42
 		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 12
+		STR.max_items = 3
 		STR.set_holdable(list(/obj/item/reagent_containers/pill))
+
 
 /obj/item/storage/fancy/pilltin/wake
 	name = "pill tin (wake)"
+	desc = "a tin labelled 'WAKE' It promises a pep in your step. Beware of Choking."
+
+/obj/item/storage/fancy/pilltin/pink
+	name = "pill tin (pink)"
+	desc = "a tin labelled 'PNKBWLS' It promises the soothing of wounds in a handy portable size. Beware of Choking."
+	populate_contents = list(
+		/obj/item/reagent_containers/pill/pnkpill,
+		/obj/item/reagent_containers/pill/pnkpill,
+		/obj/item/reagent_containers/pill/pnkpill,
+	)
 
 /obj/item/storage/fancy/skit
 	name = "surgery kit"
@@ -241,9 +252,11 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 42
 	STR.set_holdable(list(
-		/obj/item/natural/cloth,
-		/obj/item/natural/bundle/cloth,
-		/obj/item/reagent_containers,
-		/obj/item/candle,
+		/obj/item/reagent_containers/hypospray/medipen/sealbottle/reju,
+		/obj/item/natural/bundle/cloth/bandage/full,
+		/obj/item/reagent_containers/hypospray/medipen/sty/detox,
+		/obj/item/reagent_containers/hypospray/medipen/sty/nourish,
+		/obj/item/reagent_containers/pill/pnkpill,
+		/obj/item/candle/yellow,
 		/obj/item/needle,
 	))

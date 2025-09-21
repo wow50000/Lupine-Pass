@@ -5,7 +5,7 @@
 	list_reagents = list(/datum/reagent/medicine/stronghealth = 48)
 
 /obj/item/reagent_containers/glass/bottle/rogue/healthpotweak
-	list_reagents = list(/datum/reagent/medicine/weakhealthpot = 48)
+	list_reagents = list(/datum/reagent/medicine/weakhealth = 48)
 
 /obj/item/reagent_containers/glass/bottle/rogue/manapot
 	list_reagents = list(/datum/reagent/medicine/manapot = 48)
