@@ -23,7 +23,7 @@
 		/obj/item/rogueweapon/surgery/bonesetter,
 		/obj/item/rogueweapon/surgery/cautery,
 		/obj/item/rogueweapon/surgery/hammer,
-		/obj/item/natural/bundle/cloth,
+		/obj/item/natural/bundle/cloth/bandage,
 		/obj/item/needle
 	)
 

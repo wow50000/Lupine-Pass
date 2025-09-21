@@ -118,17 +118,17 @@
 
 /obj/item/storage/fancy/skit
 	name = "surgery kit"
-	desc = "portable and compact"
+	desc = "Portable and compact. Typically less fully stocked than other bags."
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "skit"
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_HIP
 	throwforce = 1
 	populate_contents = list(
 		/obj/item/rogueweapon/surgery/scalpel,
 		/obj/item/rogueweapon/surgery/saw,
-		/obj/item/rogueweapon/surgery/hemostat,
-		/obj/item/rogueweapon/surgery/hemostat,
+		/obj/item/rogueweapon/surgery/hemostat/first,
+		/obj/item/rogueweapon/surgery/hemostat/second,
 		/obj/item/rogueweapon/surgery/retractor,
 		/obj/item/rogueweapon/surgery/bonesetter,
 		/obj/item/rogueweapon/surgery/cautery,
