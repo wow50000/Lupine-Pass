@@ -45,6 +45,7 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
 	beltl = /obj/item/rogueweapon/hammer/steel
+	r_hand = /obj/item/grown/log/tree/small
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(
 						/obj/item/flint = 1,
@@ -55,5 +56,6 @@
 						/obj/item/dye_brush = 1,
 						/obj/item/recipe_book/builder = 1,
 						/obj/item/recipe_book/survival = 1,
-						/obj/item/rogueweapon/scabbard/sheath = 1
+						/obj/item/rogueweapon/scabbard/sheath = 1,
+						/obj/item/natural/stone = 4
 						)
