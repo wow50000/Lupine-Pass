@@ -584,7 +584,7 @@
 
 /obj/item/natural/cloth/bandage //technically goes under cloth
 	name = "bandage"
-	desc = "A simple bandage used to bind wounds. takes longer to apply but is more effective than just cloth. Slowly heals wounds and binded fractures."
+	desc = "A simple bandage used to bind wounds. More effective than just cloth. Slowly heals wounds and binded fractures."
 	icon_state = "bandageroll"
 	icon = 'icons/roguetown/items/surgery.dmi'
 	possible_item_intents = list(/datum/intent/use)
