@@ -7609,6 +7609,14 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors)
+"cJg" = (
+/obj/structure/stairs{
+	dir = 8
+	},
+/turf/open/floor/rogue/woodturned,
+/area/rogue/indoors/town/tavern{
+	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
+	})
 "cJs" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -15164,13 +15172,13 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor/rockhill)
 "fqv" = (
-/obj/structure/stairs{
-	dir = 8
+/obj/structure/roguewindow,
+/obj/structure/curtain/brown,
+/turf/open/floor/rogue/ruinedwood{
+	dir = 1;
+	icon_state = "vertw"
 	},
-/turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/tavern{
-	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
-	})
+/area/rogue/indoors)
 "fqw" = (
 /obj/structure/table/vtable/v2,
 /obj/machinery/light/rogue/wallfire/candle{
@@ -17128,8 +17136,10 @@
 /turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town/bath)
 "gbz" = (
-/obj/structure/roguewindow/stained/zizo,
-/turf/closed/wall/mineral/rogue/stone/window/moss,
+/obj/effect/landmark/quest_spawner/hard,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "horzw"
+	},
 /area/rogue/indoors/town/church/chapel)
 "gbA" = (
 /obj/structure/stairs/stone{
@@ -44125,6 +44135,14 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"qez" = (
+/obj/structure/stairs{
+	dir = 2
+	},
+/turf/open/floor/rogue/woodturned,
+/area/rogue/indoors/town/tavern{
+	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
+	})
 "qeC" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -46715,6 +46733,7 @@
 /obj/effect/wisp/prestidigitation{
 	pixel_x = -20
 	},
+/obj/effect/landmark/quest_spawner/hard,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -47361,13 +47380,13 @@
 	droning_sound_night = null
 	})
 "ruk" = (
-/obj/structure/stairs{
-	dir = 2
+/obj/structure/roguewindow/harem2,
+/obj/structure/fluff/statue/small{
+	pass_flags = 1;
+	pixel_y = -2
 	},
-/turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/tavern{
-	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
-	})
+/turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue/indoors/town/bath)
 "ruB" = (
 /obj/structure/fluff/railing/border{
 	dir = 6;
@@ -57838,13 +57857,15 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bograt/south)
 "vuV" = (
-/obj/structure/roguewindow,
-/obj/structure/curtain/brown,
-/turf/open/floor/rogue/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 6
 	},
-/area/rogue/indoors)
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/turf/open/water/cleanshallow,
+/area/rogue/under/town/sewer)
 "vvb" = (
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/cobble,
@@ -58130,13 +58151,10 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/rockhill)
 "vCh" = (
-/obj/structure/roguewindow/harem2,
-/obj/structure/fluff/statue/small{
-	pass_flags = 1;
-	pixel_y = -2
-	},
-/turf/closed/wall/mineral/rogue/decostone/cand,
-/area/rogue/indoors/town/bath)
+/obj/structure/table/wood/crafted,
+/obj/effect/landmark/quest_spawner/medium,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors)
 "vCE" = (
 /obj/structure/bars/grille{
 	dir = 4
@@ -63614,15 +63632,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "xxM" = (
-/obj/structure/flora/ausbushes/reedbush{
-	pixel_x = 6
-	},
-/obj/structure/flora/ausbushes/reedbush{
-	pixel_x = -8;
-	pixel_y = -3
-	},
-/turf/open/water/cleanshallow,
-/area/rogue/under/town/sewer)
+/obj/structure/roguewindow/stained/zizo,
+/turf/closed/wall/mineral/rogue/stone/window/moss,
+/area/rogue/indoors/town/church/chapel)
 "xxR" = (
 /obj/structure/chair/bench/couchablack{
 	pixel_y = 2
@@ -178424,7 +178436,7 @@ bWx
 bWx
 qOA
 bWx
-gxt
+aae
 gxt
 gxt
 gxt
@@ -234791,7 +234803,7 @@ cmH
 cmH
 cmH
 orb
-fqv
+cJg
 lyG
 lyG
 lyG
@@ -235657,7 +235669,7 @@ cmH
 lyG
 klX
 jib
-ruk
+qez
 abJ
 sla
 rhw
@@ -235964,7 +235976,7 @@ wLx
 wLx
 amU
 amU
-gbz
+xxM
 myX
 rvI
 gKd
@@ -238988,7 +239000,7 @@ amU
 amU
 amU
 amU
-gbz
+xxM
 vHi
 vHi
 vHi
@@ -243441,7 +243453,7 @@ wqF
 ieR
 kKd
 oTd
-vCh
+ruk
 bng
 soz
 eFJ
@@ -244302,7 +244314,7 @@ rRb
 yho
 bJl
 lct
-xxM
+vuV
 aFT
 flB
 xZo
@@ -255795,7 +255807,7 @@ smf
 smf
 wLx
 pAV
-eyV
+vCh
 xou
 xou
 xou
@@ -287306,12 +287318,12 @@ aad
 aad
 aad
 aad
-iyP
-iyP
-iyP
-iyP
-iyP
-iyP
+hbo
+hbo
+hbo
+hbo
+hbo
+hbo
 iyP
 iyP
 iyP
@@ -287738,10 +287750,10 @@ aad
 aad
 aad
 aad
-iyP
-iyP
-iyP
-iyP
+hbo
+hbo
+hbo
+hbo
 iyP
 iyP
 iyP
@@ -288585,7 +288597,7 @@ iyP
 iyP
 iyP
 iyP
-aad
+aag
 aad
 aaf
 aaf
@@ -349162,7 +349174,7 @@ gKd
 gKd
 gKd
 gKd
-gKd
+gbz
 vtw
 lGy
 lGy
@@ -372638,7 +372650,7 @@ fnA
 wbg
 cHD
 mNX
-vuV
+fqv
 wsY
 hxZ
 hHI
@@ -397467,12 +397479,12 @@ dHd
 dHd
 dHd
 aad
-iyP
-iyP
-iyP
-iyP
-iyP
-iyP
+hbo
+hbo
+hbo
+hbo
+hbo
+hbo
 iyP
 iyP
 iyP
@@ -397899,10 +397911,10 @@ aaf
 aaf
 aaf
 aad
-iyP
-iyP
-iyP
-iyP
+hbo
+hbo
+hbo
+hbo
 iyP
 iyP
 iyP
@@ -398746,7 +398758,7 @@ iyP
 iyP
 iyP
 iyP
-aad
+aag
 aad
 aad
 aad
@@ -508907,7 +508919,7 @@ uuE
 uuE
 uuE
 uuE
-fyc
+ovn
 fyc
 fyc
 fyc
