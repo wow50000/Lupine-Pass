@@ -72,8 +72,9 @@
 	allowed_turfs = list(/turf/open/water/swamp)
 	excluded_turfs = list(/turf/open/water/swamp/deep)
 	allowed_areas = list(/area/rogue/outdoors/bograt)
-	spawnableAtoms = list(/obj/structure/glowshroom = 12,
+	spawnableAtoms = list(/obj/structure/glowshroom = 10,
 							/obj/item/restraints/legcuffs/beartrap/armed = 1,
 							/obj/structure/flora/roguetree/stump/log = 12,
 							/obj/structure/flora/ausbushes/reedbush = 140,
+							/obj/structure/flora/roguegrass/water/reeds = 80,
 							/obj/structure/zizo_bane = 1)

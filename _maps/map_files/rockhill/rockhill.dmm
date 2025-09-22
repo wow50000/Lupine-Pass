@@ -17128,11 +17128,9 @@
 /turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town/bath)
 "gbz" = (
-/obj/structure/curtain/brown{
-	pixel_y = 32
-	},
-/turf/open/floor/rogue/woodturned,
-/area/rogue/indoors)
+/obj/structure/roguewindow/stained/zizo,
+/turf/closed/wall/mineral/rogue/stone/window/moss,
+/area/rogue/indoors/town/church/chapel)
 "gbA" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -47363,9 +47361,13 @@
 	droning_sound_night = null
 	})
 "ruk" = (
-/obj/structure/roguewindow/stained/zizo,
-/turf/closed/wall/mineral/rogue/stone/window/moss,
-/area/rogue/indoors/town/church/chapel)
+/obj/structure/stairs{
+	dir = 2
+	},
+/turf/open/floor/rogue/woodturned,
+/area/rogue/indoors/town/tavern{
+	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
+	})
 "ruB" = (
 /obj/structure/fluff/railing/border{
 	dir = 6;
@@ -57836,13 +57838,13 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bograt/south)
 "vuV" = (
-/obj/structure/stairs{
-	dir = 2
+/obj/structure/roguewindow,
+/obj/structure/curtain/brown,
+/turf/open/floor/rogue/ruinedwood{
+	dir = 1;
+	icon_state = "vertw"
 	},
-/turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/tavern{
-	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
-	})
+/area/rogue/indoors)
 "vvb" = (
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/cobble,
@@ -149738,7 +149740,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -150170,7 +150172,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -150602,7 +150604,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -151034,7 +151036,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -151466,7 +151468,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -153626,7 +153628,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -154057,7 +154059,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -154489,7 +154491,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -154921,7 +154923,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -155353,7 +155355,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -155785,7 +155787,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -156217,7 +156219,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -156649,7 +156651,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -157081,7 +157083,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -157513,7 +157515,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -157945,7 +157947,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -158377,7 +158379,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -160968,7 +160970,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -161400,7 +161402,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -161832,7 +161834,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -162264,7 +162266,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -162696,7 +162698,7 @@ whb
 whb
 whb
 whb
-whb
+iad
 iad
 iad
 iad
@@ -163128,7 +163130,7 @@ whb
 whb
 whb
 whb
-whb
+wPC
 wPC
 iad
 iad
@@ -163560,7 +163562,7 @@ whb
 whb
 whb
 whb
-whb
+wPC
 wPC
 iad
 iad
@@ -163993,7 +163995,7 @@ whb
 whb
 whb
 whb
-whb
+wPC
 iad
 iad
 iad
@@ -235655,7 +235657,7 @@ cmH
 lyG
 klX
 jib
-vuV
+ruk
 abJ
 sla
 rhw
@@ -235962,7 +235964,7 @@ wLx
 wLx
 amU
 amU
-ruk
+gbz
 myX
 rvI
 gKd
@@ -238986,7 +238988,7 @@ amU
 amU
 amU
 amU
-ruk
+gbz
 vHi
 vHi
 vHi
@@ -372636,8 +372638,8 @@ fnA
 wbg
 cHD
 mNX
-ebb
-gbz
+vuV
+wsY
 hxZ
 hHI
 fnA
