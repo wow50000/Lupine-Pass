@@ -45079,6 +45079,10 @@
 	dir = 1;
 	icon_state = "longtable_mid"
 	},
+/obj/structure/bell_common{
+	pixel_y = 19;
+	pixel_x = 5
+	},
 /obj/item/paper/scroll,
 /obj/item/natural/feather,
 /turf/open/floor/rogue/herringbone,
