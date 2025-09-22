@@ -14,7 +14,8 @@
 	warden_area = TRUE
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_mobs = list(
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 20,
+				/mob/living/carbon/human/species/skeleton/npc/ambush = 30,
+				/mob/living/carbon/human/species/skeleton/npc/rockhill = 15,
 				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 60,
 				/mob/living/simple_animal/hostile/retaliate/rogue/spider/rock = 40,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 50,
@@ -44,12 +45,13 @@
 /area/rogue/outdoors/bograt/north
 	name = "Northern Terrorbog"
 	ambush_mobs = list(
-			/mob/living/carbon/human/species/skeleton/npc/ambush = 20,
+			/mob/living/carbon/human/species/skeleton/npc/ambush = 30,
 			/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 60,
 			/mob/living/simple_animal/hostile/retaliate/rogue/spider/rock = 30,
 			/mob/living/carbon/human/species/goblin/npc/ambush/cave = 50,
 			/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog = 15,
-			/mob/living/carbon/human/species/skeleton/npc/bogguard = 20,
+			/mob/living/carbon/human/species/skeleton/npc/bogguard = 10,
+			/mob/living/carbon/human/species/skeleton/npc/rockhill = 15,
 			/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 20,
 			/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead = 10,)
 			
