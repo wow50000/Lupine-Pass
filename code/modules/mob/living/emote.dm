@@ -31,7 +31,7 @@
 	var/prayer = input("Whisper your prayer:", "Prayer") as text|null
 	if(!prayer)
 		return
-	
+
 	//If God can hear your prayer (long enough, no bad words, etc.)
 	if(patron.hear_prayer(follower, prayer))
 		if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
@@ -1811,13 +1811,13 @@
 	set category = "Noises"
 
 	emote("yip", intentional = TRUE)
-	
+
 /datum/emote/living/praysuicide
     key = "praysuicide"
     key_third_person = "utters their last words"
-    message = ""                   
+    message = ""
     emote_type = EMOTE_AUDIBLE
-    stat_allowed = UNCONSCIOUS      
+    stat_allowed = UNCONSCIOUS
     show_runechat = FALSE
 
 /mob/living/carbon/human/verb/emote_praysuicide()
@@ -1826,32 +1826,33 @@
     emote("praysuicide", intentional = TRUE)
 
 /datum/emote/living/praysuicide/run_emote(mob/user, params, type_override, intentional)
-    if(!user)
-        return FALSE
+	if(!user)
+		return FALSE
 
-    var/mob/living/L = user
+	var/mob/living/L = user
 
+	to_chat(L, span_danger("I pray to my patron for my death... and I am heard."))
 
-    to_chat(L, span_danger("I pray to my patron for my death... and I am heard."))
+	var/lastmsg = params
+	if(!lastmsg)
+		lastmsg = input("Whisper your final words:", "Last Words") as text|null
+	if(!lastmsg)
+		return FALSE
 
+	L.whisper(lastmsg)
+	var/msg = "[key_name(L)] has prayed for suicide! Their last words: [lastmsg]"
+	message_admins(msg)
+	log_admin(msg)
 
-    var/lastmsg = params
-    if(!lastmsg)
-        lastmsg = input("Whisper your final words:", "Last Words") as text|null
-    if(!lastmsg)
-        return FALSE
+	if(iscarbon(L))
+		var/mob/living/carbon/C = L
+		C.adjustOxyLoss(200)
+	else if(isliving(L))
+		L.death()
+	else
+		to_chat(L, span_warning("Nothing happens."))
 
-    L.whisper(lastmsg)
-
-    if(iscarbon(L))
-        var/mob/living/carbon/C = L
-        C.adjustOxyLoss(200)
-    else if(isliving(L))
-        L.death()
-    else
-        to_chat(L, span_warning("Nothing happens."))
-
-    return TRUE   
+	return TRUE
 
 
 /* Vomit emote */
@@ -1872,3 +1873,57 @@
 		var/msg = "[key_name(H)] puked!"
 		message_admins(msg)
 		log_admin(msg)
+
+
+/*New emotes*/
+/datum/emote/living/gulp
+	key = "gulp"
+	key_third_person = "gulps"
+	message = "gulps nervously."
+	emote_type = EMOTE_AUDIBLE
+	show_runechat = TRUE
+
+/mob/living/carbon/human/verb/gulp()
+	set name = "Gulp"
+	set category = "Noises"
+
+	emote("gulp", intentional = TRUE)
+
+/datum/emote/living/crack
+	key = "crack"
+	key_third_person = "cracks"
+	message = "cracks their knuckles."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	show_runechat = TRUE
+
+/mob/living/carbon/human/verb/crack()
+	set name = "Knuckles"
+	set category = "Noises"
+
+	emote("crack", intentional = TRUE)
+
+/datum/emote/living/salute
+	key = "salute"
+	key_third_person = "salutes"
+	message = "salutes!"
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	show_runechat = TRUE
+
+/mob/living/carbon/human/verb/salute()
+	set name = "Salute"
+	set category = "Noises"
+
+	emote("salute", intentional = TRUE)
+
+/datum/emote/living/sniff
+	key = "sniff"
+	key_third_person = "sniffs"
+	message = "sniffs."
+	emote_type = EMOTE_AUDIBLE
+	show_runechat = TRUE
+
+/mob/living/carbon/human/verb/sniff()
+	set name = "Sniff"
+	set category = "Noises"
+
+	emote("sniff", intentional = TRUE)
