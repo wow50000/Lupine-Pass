@@ -16,7 +16,7 @@
 	ambush_mobs = list(
 				/mob/living/carbon/human/species/skeleton/npc/ambush = 20,
 				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 60,
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 40,
+				/mob/living/simple_animal/hostile/retaliate/rogue/spider/rock = 40,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 50,
 				/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog = 20,
 				/mob/living/carbon/human/species/skeleton/npc/bogguard = 20,
@@ -46,7 +46,7 @@
 	ambush_mobs = list(
 			/mob/living/carbon/human/species/skeleton/npc/ambush = 20,
 			/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 60,
-			/mob/living/simple_animal/hostile/retaliate/rogue/spider = 30,
+			/mob/living/simple_animal/hostile/retaliate/rogue/spider/rock = 30,
 			/mob/living/carbon/human/species/goblin/npc/ambush/cave = 50,
 			/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog = 15,
 			/mob/living/carbon/human/species/skeleton/npc/bogguard = 20,
