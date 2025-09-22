@@ -1150,7 +1150,9 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/inq/basement)
 "axD" = (
-/obj/structure/pillory/reinforced/town_dungeon,
+/obj/structure/pillory/reinforced{
+	lockid = list("dungeon")
+	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/garrison)
 "axJ" = (
@@ -11148,10 +11150,6 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/beach/harbor)
-"dWo" = (
-/obj/structure/pillory/reinforced,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors/town/bath)
 "dWq" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -11496,7 +11494,9 @@
 	},
 /area/rogue/indoors)
 "ebd" = (
-/obj/structure/pillory/double,
+/obj/structure/pillory/double{
+	lockid = list("gobbo")
+	},
 /turf/open/floor/rogue/blocks{
 	icon_state = "paving"
 	},
@@ -11926,7 +11926,7 @@
 /area/rogue/indoors)
 "ehY" = (
 /obj/structure/pillory/reinforced{
-	lockid = list("Church")
+	lockid = list("church")
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church)
@@ -11973,6 +11973,9 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/light/rogue/torchholder/l{
 	pixel_y = 7
+	},
+/obj/structure/closet/crate/chest{
+	lockid = "nightman"
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/bath)
@@ -20360,7 +20363,9 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
 "hok" = (
-/obj/structure/pillory/double,
+/obj/structure/pillory/double{
+	lockid = list("gobbo")
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/sewer)
 "hot" = (
@@ -26881,7 +26886,7 @@
 /area/rogue/indoors/town)
 "jNg" = (
 /obj/structure/pillory/reinforced{
-	lockid = list("Church")
+	lockid = list("inquisition")
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/inq/basement)
@@ -26994,10 +26999,10 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach/harbor)
 "jPo" = (
-/obj/structure/closet/crate/chest{
-	lockid = "nightman"
+/obj/structure/pillory/reinforced{
+	lockid = list("nightmaiden")
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/bath)
 "jPq" = (
 /obj/structure/table/wood{
@@ -29090,7 +29095,9 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
 "kCa" = (
-/obj/structure/pillory/double,
+/obj/structure/pillory/double{
+	lockid = list("gobbo")
+	},
 /turf/open/floor/rogue/metal,
 /area/rogue/under/town/basement{
 	droning_sound = 'sound/music/area/gobcamp.ogg'
@@ -32692,7 +32699,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/physician)
 "lYf" = (
-/obj/structure/pillory/reinforced,
+/obj/structure/pillory{
+	lockid = list("warden", "walls", "garrison", "dungeon")
+	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/rtfield/rockhill)
 "lYl" = (
@@ -41726,7 +41735,9 @@
 	},
 /area/rogue/under/town/sewer)
 "ppN" = (
-/obj/structure/pillory/reinforced,
+/obj/structure/pillory{
+	lockid = list("warden", "walls", "garrison", "dungeon")
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield/rockhill)
 "ppR" = (
@@ -46209,7 +46220,9 @@
 	droning_sound_night = null
 	})
 "reC" = (
-/obj/structure/pillory/double,
+/obj/structure/pillory/double{
+	lockid = list("gobbo")
+	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/town/basement{
 	droning_sound = 'sound/music/area/gobcamp.ogg'
@@ -49193,9 +49206,11 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
 "skw" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors/town/bath)
+/obj/structure/pillory/reinforced{
+	lockid = list("church")
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church)
 "skP" = (
 /turf/closed/wall/mineral/rogue/wooddark/end{
 	dir = 1
@@ -53567,7 +53582,8 @@
 /area/rogue/outdoors/town/rockhill)
 "tPs" = (
 /obj/structure/pillory{
-	pixel_y = 2
+	pixel_y = 2;
+	lockid = list("nightmaiden")
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/bath)
@@ -60246,7 +60262,9 @@
 	droning_sound = 'sound/music/jukeboxes/gen/tavern3.ogg'
 	})
 "wvO" = (
-/obj/structure/pillory/double,
+/obj/structure/pillory/double{
+	lockid = list("gobbo")
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement{
 	droning_sound = 'sound/music/area/gobcamp.ogg'
@@ -60421,7 +60439,9 @@
 	dir = 1;
 	icon_state = "borderfall"
 	},
-/obj/structure/pillory/reinforced,
+/obj/structure/pillory/reinforced{
+	lockid = list("dungeon","garrison")
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town/rockhill)
 "wyk" = (
@@ -126766,10 +126786,10 @@ whb
 whb
 whb
 whb
-whb
-soz
-xCt
-xCt
+nvH
+nvH
+nvH
+nvH
 xCt
 xCt
 xCt
@@ -127196,15 +127216,15 @@ cip
 whb
 whb
 whb
-whb
-whb
-xCt
-xCt
+scK
+xrC
+nvH
+dpp
 fNk
 eiv
 qyt
-jPo
 xCt
+scK
 rCz
 gns
 scK
@@ -127628,15 +127648,15 @@ cip
 whb
 whb
 whb
-scK
-xrC
-xCt
-dpp
+nvH
+iAa
+jjq
+mzo
 vXL
 wPo
 wPo
-jPI
 xCt
+scK
 vOe
 fPJ
 aIl
@@ -128060,15 +128080,15 @@ whb
 whb
 whb
 whb
-nvH
-iAa
-jjq
-mzo
+sVg
+wPo
+qKU
 vXL
+tPs
 vXL
 wPo
-tPs
 xCt
+scK
 imX
 eGq
 eGq
@@ -128492,15 +128512,15 @@ whb
 whb
 whb
 whb
-sVg
+cDy
 wPo
-qKU
-vXL
+xbf
+jPI
 wPo
 pFj
 vXL
-vXL
 xCt
+scK
 gfr
 yee
 yee
@@ -128924,15 +128944,15 @@ whb
 whb
 whb
 whb
-cDy
-wPo
-xbf
+scK
+iAa
+eep
 jPI
 vXL
 bPA
 wPo
-skw
-scK
+xCt
+xCt
 scK
 hQI
 yee
@@ -129356,14 +129376,14 @@ whb
 whb
 whb
 whb
-scK
-iAa
-eep
-jPI
+xCt
+xCt
+xCt
 vXL
-dWo
+jPo
+vXL
 wPo
-wPo
+bPA
 nBT
 eFJ
 scK
@@ -130223,8 +130243,8 @@ whb
 whb
 whb
 scK
-xCt
-xCt
+nvH
+nvH
 soz
 xrC
 xrC
@@ -270660,7 +270680,7 @@ ihO
 mWE
 oFh
 ooi
-rPK
+skw
 oFh
 ihO
 fLd

@@ -1738,6 +1738,12 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/vampiremanor)
+"hg" = (
+/obj/structure/pillory{
+	lockid = list("mansionvampire")
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/vampiremanor)
 "hr" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
@@ -14814,7 +14820,7 @@ cb
 cb
 da
 lL
-kD
+hg
 sX
 NG
 jS
