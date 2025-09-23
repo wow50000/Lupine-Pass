@@ -169,21 +169,13 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/rtfield/rockhill)
 "acg" = (
-/obj/structure/closet/crate/chest{
-	pixel_y = 9;
-	pixel_x = 5;
-	lockid = "zizochurchtreasure";
-	locked = 1
+/obj/structure/fluff/statue/small{
+	pass_flags = 1
 	},
-/obj/item/roguecoin/silver/pile,
-/obj/item/roguecoin/gold,
-/obj/item/roguecoin/gold,
-/obj/item/roguecoin/gold,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "horzw"
-	},
-/area/rogue/under/cave/dungeon1)
+/turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "acq" = (
 /obj/structure/flora/roguegrass/maneater/real,
 /turf/open/floor/rogue/grass,
@@ -3880,6 +3872,12 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church/chapel)
+"bvg" = (
+/obj/structure/fermentation_keg/random/beer,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "bvh" = (
 /obj/structure/closet/crate/roguecloset,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -9701,17 +9699,6 @@
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/town/rockhill)
-"dwD" = (
-/obj/item/natural/wood/plank,
-/obj/item/natural/wood/plank{
-	pixel_y = 10;
-	pixel_x = 14
-	},
-/obj/effect/decal/cleanable/debris/woody,
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "horzw"
-	},
-/area/rogue/indoors/town/church/chapel)
 "dwG" = (
 /obj/item/natural/rock,
 /turf/open/water/swamp,
@@ -10266,13 +10253,11 @@
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor/rockhill)
 "dFE" = (
-/obj/structure/stairs{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = -3
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors/town/church/chapel)
+/obj/structure/flora/ausbushes/reedbush,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "dFJ" = (
 /obj/structure/rack/rogue/shelf/big{
 	pixel_y = 0
@@ -11282,11 +11267,21 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/beach/harbor)
 "dWo" = (
-/obj/machinery/light/rogue/torchholder{
-	dir = 1
+/obj/structure/closet/crate/chest{
+	pixel_y = 9;
+	pixel_x = 5;
+	lockid = "zizochurchtreasure";
+	locked = 1
 	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/beach/harbor)
+/obj/item/roguecoin/silver/pile,
+/obj/item/roguecoin/gold,
+/obj/item/roguecoin/gold,
+/obj/item/roguecoin/gold,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/under/cave/dungeon1)
 "dWq" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -12185,10 +12180,6 @@
 /obj/structure/roguemachine/scomm/r,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town/rockhill)
-"ekx" = (
-/obj/structure/bed/rogue/inn,
-/turf/open/floor/rogue/wood,
-/area/rogue/outdoors/beach/harbor)
 "eky" = (
 /turf/closed/wall/mineral/rogue/stone/window/moss,
 /area/rogue/outdoors/bograt/north)
@@ -15325,11 +15316,6 @@
 /area/rogue/under/cavewet/bogcaves{
 	first_time_text = "The Undersea"
 	})
-"frm" = (
-/obj/item/natural/rock,
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/water/cleanshallow,
-/area/rogue/outdoors/beach/harbor)
 "fru" = (
 /obj/item/clothing/neck/roguetown/psicross/astrata{
 	pixel_x = -5
@@ -16165,11 +16151,6 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
-"fHO" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/dungeon1)
 "fHV" = (
 /obj/structure/bars/pipe{
 	dir = 5;
@@ -17418,11 +17399,16 @@
 	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
 "gfq" = (
-/obj/structure/roguetent,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cavewet/bogcaves{
-	first_time_text = "The Undersea"
-	})
+/obj/item/natural/wood/plank,
+/obj/item/natural/wood/plank{
+	pixel_y = 10;
+	pixel_x = 14
+	},
+/obj/effect/decal/cleanable/debris/woody,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/indoors/town/church/chapel)
 "gfr" = (
 /obj/structure/table/wood,
 /obj/item/roguebin/water{
@@ -18436,11 +18422,11 @@
 /turf/open/water/swamp/deep,
 /area/rogue/indoors/town/church/chapel)
 "gyj" = (
-/obj/structure/glowshroom,
-/turf/open/water/cleanshallow{
-	layer = 1.9
-	},
-/area/rogue/outdoors/beach/harbor)
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/thresher/aalloy,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/dungeon1)
 "gym" = (
 /obj/structure/roguewindow/openclose/reinforced{
 	dir = 4
@@ -30487,12 +30473,6 @@
 	},
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/indoors/town/church)
-"kWg" = (
-/obj/structure/flora/ausbushes/reedbush,
-/turf/open/floor/rogue/dirt,
-/area/rogue/under/cavewet/bogcaves{
-	first_time_text = "The Undersea"
-	})
 "kWj" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
@@ -30672,11 +30652,11 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor/rockhill)
 "kYW" = (
-/obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cavewet/bogcaves{
-	first_time_text = "The Undersea"
-	})
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
+	},
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/town/church)
 "kYX" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/blocks,
@@ -33109,11 +33089,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
 "lWF" = (
-/obj/machinery/light/rogue/torchholder{
-	dir = 1
-	},
-/turf/open/floor/rogue/tile,
-/area/rogue/indoors/town/church)
+/obj/structure/ladder,
+/turf/open/floor/rogue/wood,
+/area/rogue/outdoors/beach/harbor)
 "lWI" = (
 /obj/machinery/tanningrack,
 /obj/item/storage/roguebag,
@@ -39592,6 +39570,16 @@
 /obj/structure/ladder,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor/rockhill)
+"opF" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_x = 9
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/beach/harbor)
 "opQ" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /obj/structure/flora/roguegrass/bush/wall/tall,
@@ -41633,9 +41621,11 @@
 	},
 /area/rogue/indoors)
 "paF" = (
-/obj/structure/ladder,
-/turf/open/floor/rogue/wood,
-/area/rogue/outdoors/beach/harbor)
+/obj/structure/flora/ausbushes/reedbush,
+/turf/open/water/swamp,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "paI" = (
 /obj/machinery/light/rogue/torchholder/l{
 	pixel_y = -11
@@ -42287,11 +42277,9 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/rockhill)
 "ppv" = (
-/obj/structure/flora/ausbushes/reedbush,
-/turf/open/water/swamp,
-/area/rogue/under/cavewet/bogcaves{
-	first_time_text = "The Undersea"
-	})
+/obj/structure/rack/rogue,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/dungeon1)
 "ppw" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -45436,6 +45424,12 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/rockhill)
+"qAu" = (
+/obj/structure/roguetent,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/bogcaves{
+	first_time_text = "The Undersea"
+	})
 "qAw" = (
 /obj/structure/glowshroom,
 /turf/open/water/swamp,
@@ -45810,11 +45804,10 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor/rockhill)
 "qHu" = (
-/obj/structure/fluff/walldeco/customflag/rockhill{
-	pixel_y = 3
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/rockhill)
+/obj/item/natural/rock,
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/water/cleanshallow,
+/area/rogue/outdoors/beach/harbor)
 "qHv" = (
 /obj/structure/closet/crate/chest,
 /turf/open/floor/rogue/cobble,
@@ -47192,13 +47185,6 @@
 /area/rogue/under/town/basement{
 	droning_sound = 'sound/music/area/gobcamp.ogg'
 	})
-"rmq" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	pixel_x = 9
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/beach/harbor)
 "rmv" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -49851,11 +49837,10 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
 "skw" = (
-/obj/structure/bars/grille{
-	dir = 1
+/obj/structure/glowshroom,
+/turf/open/water/cleanshallow{
+	layer = 1.9
 	},
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/beach/harbor)
 "skP" = (
 /turf/closed/wall/mineral/rogue/wooddark/end{
@@ -50524,21 +50509,21 @@
 	},
 /area/rogue/indoors/town/dwarfin/rockhill)
 "sxp" = (
-/obj/structure/fluff/statue/small{
-	pass_flags = 1
-	},
-/turf/closed/wall/mineral/rogue/decostone/cand,
-/area/rogue/under/cavewet/bogcaves{
-	first_time_text = "The Undersea"
-	})
+/obj/structure/bed/rogue/inn,
+/turf/open/floor/rogue/wood,
+/area/rogue/outdoors/beach/harbor)
 "sxu" = (
 /obj/structure/glowshroom,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/underdark)
 "sxv" = (
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/dungeon1)
+/obj/structure/stairs{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/church/chapel)
 "sxx" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -52496,11 +52481,12 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/rockhill)
 "tit" = (
-/obj/machinery/light/rogue/wallfire/candle/blue/r,
-/obj/structure/rack/rogue,
-/obj/item/rogueweapon/thresher/aalloy,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/dungeon1)
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_x = 9
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/beach/harbor)
 "tiw" = (
 /obj/structure/bars/passage{
 	redstone_id = "bogguardjail2"
@@ -56102,15 +56088,10 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield/rockhill)
 "uFE" = (
-/obj/structure/stairs{
-	dir = 1
-	},
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	pixel_x = 9
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/beach/harbor)
+/obj/structure/fluff/walldeco/chains,
+/obj/structure/rack/rogue,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cave/dungeon1)
 "uFO" = (
 /obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/herringbone,
@@ -56331,6 +56312,12 @@
 /turf/open/floor/rogue/rooftop/green{
 	dir = 4
 	},
+/area/rogue/outdoors/town/rockhill)
+"uLm" = (
+/obj/structure/fluff/walldeco/customflag/rockhill{
+	pixel_y = 3
+	},
+/turf/open/transparent/openspace,
 /area/rogue/outdoors/town/rockhill)
 "uLs" = (
 /obj/structure/fluff/railing/border{
@@ -123987,7 +123974,7 @@ mUI
 whb
 whb
 ptQ
-acg
+dWo
 qZX
 vpo
 bko
@@ -130917,9 +130904,9 @@ ptQ
 nWS
 nWS
 nWS
-fHO
-tit
-sxv
+uFE
+gyj
+ppv
 nWS
 ptQ
 ptQ
@@ -157406,7 +157393,7 @@ uHA
 uHA
 uHA
 uHA
-frm
+qHu
 uHA
 tGT
 uHA
@@ -158297,7 +158284,7 @@ dnY
 jjg
 idK
 jjg
-gyj
+skw
 jjg
 idK
 tGT
@@ -158312,7 +158299,7 @@ cZY
 jjg
 xun
 jjg
-sxp
+acg
 whb
 whb
 whb
@@ -165678,7 +165665,7 @@ iad
 qGF
 gBA
 aae
-ppv
+paF
 whb
 whb
 whb
@@ -167348,13 +167335,13 @@ xRS
 xRS
 xRS
 idK
-ekx
+sxp
 bfR
 bfR
 bfR
 bfR
 bfR
-paF
+lWF
 ydr
 xRS
 lLo
@@ -168691,7 +168678,7 @@ whb
 whb
 whb
 whb
-kWg
+dFE
 rqt
 aae
 rqt
@@ -169128,7 +169115,7 @@ whb
 aae
 aae
 tdR
-ppv
+paF
 tdR
 aae
 aae
@@ -190427,7 +190414,7 @@ whb
 whb
 whb
 uVn
-kYW
+bvg
 whb
 whb
 gxt
@@ -193882,7 +193869,7 @@ whb
 whb
 whb
 whb
-gfq
+qAu
 whb
 whb
 lNC
@@ -237632,7 +237619,7 @@ wLx
 wLx
 wLx
 vtw
-dwD
+gfq
 gKd
 gKd
 rvI
@@ -269767,7 +269754,7 @@ qeC
 vKd
 qeC
 qeC
-unX
+aTR
 tSK
 ava
 gMO
@@ -270199,7 +270186,7 @@ euP
 idK
 euP
 euP
-euP
+idK
 rdE
 rRb
 gMO
@@ -274512,7 +274499,7 @@ sKd
 qPA
 ehY
 eCn
-lWF
+kYW
 qPA
 osq
 aWU
@@ -274917,12 +274904,12 @@ idK
 euP
 euP
 pfF
-skw
+jMw
 trD
 trD
 qAI
-uFE
-rmq
+opF
+tit
 luB
 luB
 luB
@@ -275348,7 +275335,7 @@ euP
 euP
 euP
 euP
-dWo
+euP
 idK
 jMw
 jMw
@@ -277515,7 +277502,7 @@ bfR
 uCZ
 vlf
 bfR
-paF
+lWF
 ydr
 euP
 euP
@@ -347793,7 +347780,7 @@ lGy
 lGy
 lGy
 vtw
-dFE
+sxv
 rAn
 rvI
 gKd
@@ -375139,7 +375126,7 @@ jDN
 xAt
 xAt
 omq
-qHu
+uLm
 xAt
 xAt
 xAt
@@ -375147,7 +375134,7 @@ xAt
 xAt
 xAt
 omq
-qHu
+uLm
 xAt
 xAt
 xAt
