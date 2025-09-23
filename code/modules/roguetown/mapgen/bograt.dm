@@ -40,6 +40,7 @@
 							/obj/structure/flora/rogueshroom = 5,
 							/obj/effect/decal/remains/bear = 1,
 							/obj/effect/decal/remains/human = 1,
+							/obj/structure/zizo_bane = 3,
 							/obj/structure/flora/roguegrass/maneater/real = 3)
 	spawnableTurfs = list(/turf/open/floor/rogue/dirt/road=2,
 						/turf/open/water/swamp=1)
@@ -72,9 +73,9 @@
 	allowed_turfs = list(/turf/open/water/swamp)
 	excluded_turfs = list(/turf/open/water/swamp/deep)
 	allowed_areas = list(/area/rogue/outdoors/bograt)
-	spawnableAtoms = list(/obj/structure/glowshroom = 10,
+	spawnableAtoms = list(/obj/structure/glowshroom = 20,
 							/obj/item/restraints/legcuffs/beartrap/armed = 1,
-							/obj/structure/flora/roguetree/stump/log = 12,
-							/obj/structure/flora/ausbushes/reedbush = 140,
-							/obj/structure/flora/roguegrass/water/reeds = 80,
+							/obj/structure/flora/roguetree/stump/log = 24,
+							/obj/structure/flora/ausbushes/reedbush = 280,
+							/obj/structure/flora/roguegrass/water/reeds = 160,
 							/obj/structure/zizo_bane = 1)
