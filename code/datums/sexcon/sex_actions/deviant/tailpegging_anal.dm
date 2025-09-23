@@ -1,6 +1,7 @@
 /datum/sex_action/tailpegging_anal
 	name = "Tail fuck their ass"
 	stamina_cost = 1.0
+	target_sex_part = SEX_PART_ANUS
 
 /datum/sex_action/tailpegging_anal/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
