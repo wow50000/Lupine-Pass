@@ -5,6 +5,7 @@
 	taste_mult = 0.5
 	quality = DRINK_VERYGOOD
 	metabolization_rate = 0.02 * REAGENTS_METABOLISM
+	overdose_threshold = 18
 	addiction_threshold = 12 //Three sips, or a full goblet if properly mixed with two other reagents to hide the taste.
 	addiction_permanent = TRUE
 	color = "#721a46"
