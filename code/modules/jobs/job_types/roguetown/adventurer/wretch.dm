@@ -12,7 +12,7 @@
 	outfit_female = null
 	display_order = JDO_WRETCH
 	show_in_credits = FALSE
-	min_pq = 30
+	min_pq = 20
 	max_pq = null
 
 	obsfuscated_job = TRUE
@@ -25,7 +25,7 @@
 	wanderer_examine = TRUE
 	advjob_examine = TRUE
 	always_show_on_latechoices = TRUE
-	job_reopens_slots_on_death = TRUE
+	job_reopens_slots_on_death = FALSE //If true, it will stop the dynamic wretch code to work
 	same_job_respawn_delay = 666 MINUTES //You will only play Wretch ONES, per round
 	virtue_restrictions = list(/datum/virtue/heretic/zchurch_keyholder) //all wretch classes automatically get this
 	carebox_table = /datum/carebox_table/wretch
@@ -127,11 +127,11 @@
     var/player_count = length(GLOB.joined_player_list)
 
     var/slots = 3
-    if(player_count > 30)
-        var/extra = floor((player_count - 30) / 10)
+    if(player_count > 27)
+        var/extra = floor((player_count - 27) / 9)
         slots += extra
 
-    slots = min(slots, 10)
+    slots = min(slots, 11)
 
     wretch_job.total_positions = slots
     wretch_job.spawn_positions = slots
