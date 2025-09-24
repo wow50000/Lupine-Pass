@@ -124,7 +124,7 @@
     if(!wretch_job)
         return
 
-    var/player_count = length(GLOB.joined_player_list)
+    var/player_count = length(GLOB.player_list)
 
     var/slots = 2
     if(player_count > 18)
