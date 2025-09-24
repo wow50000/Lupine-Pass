@@ -26,7 +26,7 @@
 	advjob_examine = TRUE
 	always_show_on_latechoices = TRUE
 	job_reopens_slots_on_death = FALSE //If true, it will stop the dynamic wretch code to work
-	same_job_respawn_delay = 666 MINUTES //You will only play Wretch ONES, per round
+	same_job_respawn_delay = 1 MINUTES //You will only play Wretch ONES, per round
 	virtue_restrictions = list(/datum/virtue/heretic/zchurch_keyholder) //all wretch classes automatically get this
 	carebox_table = /datum/carebox_table/wretch
 	job_traits = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_HERESIARCH)
