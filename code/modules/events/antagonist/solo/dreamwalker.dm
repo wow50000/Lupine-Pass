@@ -16,7 +16,7 @@
 	maximum_antags = 2
 
 	weight = 18
-	max_occurrences = 2
+	max_occurrences = 0//From 2. Why was this TWO? Zero for now. Staff can inject it otherwise.
 
 	earliest_start = 0 SECONDS
 
