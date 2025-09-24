@@ -31,7 +31,7 @@
 	var/prayer = input("Whisper your prayer:", "Prayer") as text|null
 	if(!prayer)
 		return
-	
+
 	//If God can hear your prayer (long enough, no bad words, etc.)
 	if(patron.hear_prayer(follower, prayer))
 		if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
@@ -1811,7 +1811,7 @@
 	set category = "Noises"
 
 	emote("yip", intentional = TRUE)
-	
+
 /* Vomit emote */
 /mob/living/carbon/human/verb/emote_vomit()
 	set name = "Vomit"
