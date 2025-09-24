@@ -124,11 +124,11 @@
     if(!wretch_job)
         return
 
-    var/player_count = length(GLOB.player_list)
+    var/player_count = length(GLOB.joined_player_list)
 
     var/slots = 2
-    if(player_count > 18)
-        var/extra = floor((player_count - 18) / 9)
+    if(player_count > 20)
+        var/extra = floor((player_count - 20) / 10)
         slots += extra
 
     slots = min(slots, 10)
