@@ -1572,7 +1572,7 @@
 	if((fire_stacks > 0 || divine_fire_stacks > 0) && !on_fire)
 		if(HAS_TRAIT(src, TRAIT_NOFIRE) && prob(90)) // Nofire is described as nonflammable, not immune. 90% chance of avoiding ignite
 			return
-		if(HAS_TRAIT(src, TRAIT_HELLSPAWN) && prob(5))//This should really be elsewhere. But it works. Supposed to be based on mimimum firestacks, but it was broken.
+		if(HAS_TRAIT(src, TRAIT_HELLSPAWN) && prob(15))//This should really be elsewhere. But it works. Supposed to be based on mimimum firestacks, but it was broken.
 			src.visible_message(span_warning("[src]'s flesh is lapped at by flame, yet quickly snuffs out!"), \
 							span_danger("Flames lap at my flesh, before snuffing out!"))
 			return
