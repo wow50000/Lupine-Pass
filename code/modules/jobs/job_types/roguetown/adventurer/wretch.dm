@@ -4,15 +4,15 @@
 	flag = WRETCH
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 3//From 8.
-	spawn_positions = 3
+	total_positions = 2//From 8.
+	spawn_positions = 2
 	allowed_races = RACES_ALL_KINDS
 	tutorial = "Somewhere in your lyfe, you fell to the wrong side of civilization. Hounded by the consequences of your actions, you now threaten the peace of those who still heed the authority that condemned you."
 	outfit = null
 	outfit_female = null
 	display_order = JDO_WRETCH
 	show_in_credits = FALSE
-	min_pq = 20
+	min_pq = 30
 	max_pq = null
 
 	obsfuscated_job = TRUE
@@ -25,8 +25,8 @@
 	wanderer_examine = TRUE
 	advjob_examine = TRUE
 	always_show_on_latechoices = TRUE
-	job_reopens_slots_on_death = TRUE
-	same_job_respawn_delay = 1 MINUTES
+	job_reopens_slots_on_death = FALSE //If true, it will stop the dynamic wretch code to work
+	same_job_respawn_delay = 1 MINUTES //You will only play Wretch ONES, per round
 	virtue_restrictions = list(/datum/virtue/heretic/zchurch_keyholder) //all wretch classes automatically get this
 	carebox_table = /datum/carebox_table/wretch
 	job_traits = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_HERESIARCH)
@@ -117,4 +117,21 @@
 			my_crime = "crimes against the Crown"
 		add_bounty_noface(H.real_name, race, gender, descriptor_height, descriptor_body, descriptor_voice, bounty_total, FALSE, my_crime, bounty_poster)
 
-	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
+	to_chat(H, span_danger("You are a minor antagonist role. By playing Wretch, you have decided to drive an interesting story. The gods frown upon those who abuse the gifts they're given for this purpose."))
+
+/proc/update_wretch_slots()
+    var/datum/job/wretch_job = SSjob.GetJob("Wretch")
+    if(!wretch_job)
+        return
+
+    var/player_count = length(GLOB.joined_player_list)
+
+    var/slots = 2
+    if(player_count > 20)
+        var/extra = floor((player_count - 20) / 10)
+        slots += extra
+
+    slots = min(slots, 10)
+
+    wretch_job.total_positions = slots
+    wretch_job.spawn_positions = slots
