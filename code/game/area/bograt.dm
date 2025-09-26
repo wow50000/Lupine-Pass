@@ -56,10 +56,6 @@
 			/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead = 10,)
 			
 	threat_region = THREAT_REGION_ROCKHILL_BOG_NORTH
-
-/area/rogue/outdoors/bograt/east
-	name = "Eastern Terrorbog"
-	threat_region = THREAT_REGION_ROCKHILL_BOG_EAST
 	
 /area/rogue/outdoors/bograt/south
 	name = "Southern Terrorbog"
@@ -68,7 +64,12 @@
 /area/rogue/outdoors/bograt/west
 	name = "Western Terrorbog"
 	threat_region = THREAT_REGION_ROCKHILL_BOG_WEST
+	
+/area/rogue/outdoors/bograt/sunken
+	name = "Sunken Mire"
+	first_time_text = "THE SUNKEN MIRE"
+	threat_region = THREAT_REGION_ROCKHILL_BOG_WEST
 
 /area/rogue/outdoors/bograt/safe
 	name = "Terrorbog Pass"
-	ambush_times = list()
+	ambush_times = null
