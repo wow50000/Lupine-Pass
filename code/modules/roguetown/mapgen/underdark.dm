@@ -11,7 +11,7 @@
 
 /datum/mapGeneratorModule/underdarkstone
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
-	allowed_turfs = list(/turf/open/floor/rogue/naturalstone)
+	allowed_turfs = list(/turf/open/floor/rogue/naturalstone, /turf/open/floor/rogue/grasspurple)
 	allowed_areas = list(/area/rogue/under/underdark)
 	spawnableAtoms = list(/obj/structure/flora/rogueshroom/happy/random = 30,
 							/obj/structure/flora/mushroomcluster = 20,
@@ -33,3 +33,4 @@
 							/obj/structure/zizo_bane = 2,
 							/obj/structure/flora/roguegrass = 30,
 							/obj/structure/flora/roguegrass/herb/random = 5)
+	spawnableTurfs = list(/turf/open/floor/rogue/grasspurple = 2)
