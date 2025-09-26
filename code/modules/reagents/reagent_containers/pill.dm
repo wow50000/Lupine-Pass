@@ -4,6 +4,8 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "pill"
 	item_state = "pill"
+	grid_height = 32
+	grid_width = 32
 	possible_transfer_amounts = list()
 	volume = 50
 	grind_results = list()
@@ -35,6 +37,7 @@
 			if(!do_mob(user, M, self_delay))
 				return FALSE
 		to_chat(M, "<span class='notice'>I [apply_method] [src].</span>")
+		playsound(src, "sound/misc/pillpop.ogg", 100, TRUE)
 
 	else
 		M.visible_message("<span class='danger'>[user] attempts to force [M] to [apply_method] [src].</span>", \
@@ -43,6 +46,7 @@
 			return FALSE
 		M.visible_message("<span class='danger'>[user] forces [M] to [apply_method] [src].</span>", \
 							"<span class='danger'>[user] forces you to [apply_method] [src].</span>")
+		playsound(src, "sound/misc/pillpop.ogg", 100, TRUE)
 
 	if(icon_state == "pill4" && prob(5)) //you take the red pill - you stay in Wonderland, and I show you how deep the rabbit hole goes
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), M, "<span class='notice'>[pick(strings(REDPILL_FILE, "redpill_questions"))]</span>"), 50)
@@ -132,3 +136,30 @@
 	icon_state = "pill9"
 	list_reagents = list(/datum/reagent/iron = 30)
 	rename_with_volume = TRUE
+/////////////////////////
+
+/obj/item/reagent_containers/pill/caffpill
+	name = "WAKE-UP"
+	desc = "Pep-pills. A promise to make you alert."
+	icon_state = "pillg"
+	icon = 'icons/roguetown/items/surgery.dmi'
+	list_reagents = list(/datum/reagent/consumable/coffee = 80) //coffee OD is safe. causes jitters for awhile.
+	dissolvable = FALSE
+	grind_results = null
+
+/obj/item/reagent_containers/pill/caffpill/attack(mob/M, mob/user, def_zone)
+	if(istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		H.remove_status_effect(/datum/status_effect/debuff/sleepytime)
+		H.remove_stress(/datum/stressevent/sleepytime)
+	. = ..()
+
+
+/obj/item/reagent_containers/pill/pnkpill
+	name = "PNKBAWLS"
+	desc = "Little pink balls. From a cursory glance, you can be pretty certain this is watered down red and ash."
+	icon_state = "pinkb"
+	icon = 'icons/roguetown/items/surgery.dmi'
+	list_reagents = list(/datum/reagent/ash = 15, /datum/reagent/iron = 15, /datum/reagent/medicine/healthpot = 25)
+	dissolvable = FALSE
+	grind_results = null

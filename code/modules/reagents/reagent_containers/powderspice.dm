@@ -511,7 +511,7 @@
 
 /obj/item/reagent_containers/powder/sleep_powder
 	name = "powder"
-	desc = ""
+	desc = "Brings about a very sudden spell of drowsiness"
 	gender = PLURAL
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/sleep_powder = 5)

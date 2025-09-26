@@ -30,11 +30,33 @@
 		M.adjustCloneLoss(-1.75*REM, 0)
 	..()
 
+/datum/reagent/medicine/weakhealth
+	name = "Weak Health Potion"
+	description = "Gradually, gently regenerates all types of damage."
+	color = "#ff7e7ebe"
+	taste_description = "faint lifeblood"
+	metabolization_rate = REAGENTS_METABOLISM * 0.5
+
+/datum/reagent/medicine/weakhealth/on_mob_life(mob/living/carbon/M)
+	if(volume >= 60)
+		M.reagents.remove_reagent(/datum/reagent/medicine/healthpot, 2) //No overhealing.
+	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
+		M.blood_volume = min(M.blood_volume+12, BLOOD_VOLUME_NORMAL)
+	var/list/wCount = M.get_wounds()
+	if(wCount.len > 0)
+		M.heal_wounds(1)
+	if(volume > 0.99)
+		M.adjustBruteLoss(-0.8*REM, 0)
+		M.adjustFireLoss(-0.8*REM, 0)
+		M.adjustOxyLoss(-0.8, 0)
+		M.adjustCloneLoss(-0.8*REM, 0)
+	..()
+
 /datum/reagent/medicine/stronghealth
 	name = "Strong Health Potion"
 	description = "Quickly regenerates all types of damage."
-	color = "#820000be"
-	taste_description = "rich lifeblood"
+	color = "#ff4800be"
+	taste_description = "overpowering lifeblood"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/stronghealth/on_mob_life(mob/living/carbon/M)
@@ -480,3 +502,70 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	if(M.has_status_effect(/datum/status_effect/debuff/ritualdefiled))
 		M.remove_status_effect(/datum/status_effect/debuff/ritualdefiled)
 	return ..()
+///////////////////
+
+/datum/reagent/medicine/stimu
+	name = "Stimu"
+	description = "crit stabalizer and blood restorer painkiller"
+	reagent_state = LIQUID
+	color = "#D2FFFA"
+	metabolization_rate = 0.25 * REAGENTS_METABOLISM
+	overdose_threshold = null
+
+/datum/reagent/medicine/stimu/on_mob_metabolize(mob/living/carbon/M)
+	..()
+	ADD_TRAIT(M, TRAIT_NOCRITDAMAGE, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOPAIN, TRAIT_GENERIC)
+
+/datum/reagent/medicine/stimu/on_mob_end_metabolize(mob/living/carbon/M)
+	REMOVE_TRAIT(M, TRAIT_NOCRITDAMAGE, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOPAIN, TRAIT_GENERIC)
+	..()
+
+/datum/reagent/medicine/stimu/on_mob_life(mob/living/carbon/M)
+	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
+		M.heal_wounds(2) //same as health pot only heal wounds while bleeding. technically.
+		M.blood_volume = min(M.blood_volume+15, BLOOD_VOLUME_NORMAL)
+	if(M.health <= M.crit_threshold)
+		M.adjustToxLoss(-0.5*REM, 0)
+		M.adjustBruteLoss(-0.5*REM, 0)
+		M.adjustFireLoss(-0.5*REM, 0)
+		M.adjustOxyLoss(-0.5*REM, 0)
+	if(M.losebreath >= 4)
+		M.losebreath -= 2
+	if(M.losebreath < 0)
+		M.losebreath = 0
+	..()
+
+// /datum/reagent/medicine/purify
+// 	name = "PURIFY"
+// 	reagent_state = LIQUID
+// 	color = "#808080"
+// 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+// 	overdose_threshold = null
+// 	description = "A powerful drug that burns out infected wounds on the body."
+
+// /datum/reagent/medicine/purify/on_mob_life(mob/living/carbon/human/M)
+
+// 	// Iterate through all body parts
+// 	for (var/obj/item/bodypart/B in M.bodyparts)
+// 		// Iterate through wounds on each body part
+// 		for (var/datum/wound/W in B.wounds)
+// 			// Check for and remove zombie infection
+// 			if (W.zombie_infection_timer)
+// 				deltimer(W.zombie_infection_timer)
+// 				W.zombie_infection_timer = null
+// 				to_chat(M, "You feel the drugs burning intensely in [B.name].")
+// 				B.burn_dam = 20
+// 				qdel(W) // Handle destruction of the wound
+
+// 			// Check for and remove werewolf infection
+// 			if (W.werewolf_infection_timer)
+// 				deltimer(W.werewolf_infection_timer)
+// 				W.werewolf_infection_timer = null
+// 				to_chat(M, "You feel the drugs burning intensely in [B.name].")
+// 				B.burn_dam = 20
+// 				qdel(W) // Handle destruction of the wound
+
+// 	M.update_damage_overlays()
+// 	..()
