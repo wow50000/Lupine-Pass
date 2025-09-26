@@ -73,3 +73,8 @@
 /area/rogue/outdoors/bograt/safe
 	name = "Terrorbog Pass"
 	ambush_times = null
+
+/area/rogue/outdoors/bograt/above
+	name = "Terrorbog Above"
+	ambientsounds = AMB_MOUNTAIN
+	ambientnight = AMB_MOUNTAIN

@@ -130,3 +130,10 @@
 	converted_type = /area/rogue/indoors/shelter/woods
 	deathsight_message = "somewhere in the wilds"
 	threat_region = THREAT_REGION_OUTER_GROVE
+
+
+
+/area/rogue/outdoors/woods/above
+	name = "Woods above"
+	ambientsounds = AMB_MOUNTAIN
+	ambientnight = AMB_MOUNTAIN
