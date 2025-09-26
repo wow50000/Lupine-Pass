@@ -79,7 +79,6 @@
 
 /datum/crafting_recipe/roguetown/structure/zizo_shrine
 	name = "Profane Shrine (2 stone, 1 small log, 2 stakes)"
-	always_availible = FALSE	//Has unique assign for certain roles.
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
 		/obj/item/natural/stone = 2,
