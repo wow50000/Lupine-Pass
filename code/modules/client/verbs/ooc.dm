@@ -26,13 +26,16 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	if(get_playerquality(ckey) <= -5)
 		to_chat(src, span_danger("I can't use that."))
 		return
+	// LOBBY ONLY CHANGE: OOC is now restricted purely to the lobby (new_player) and admins.
+	// Regular players who have spawned (alive or ghost) cannot use or see OOC.
 	if(!holder)
+		if(!istype(mob, /mob/dead/new_player))
+			to_chat(src, span_danger("OOC is lobby-only. Use in-round channels (say/LOOC/dead chat) instead."))
+			return
 		if(!GLOB.ooc_allowed)
 			to_chat(src, span_danger("OOC is globally muted."))
 			return
-		if(!GLOB.dooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, span_danger("OOC for dead mobs has been turned off."))
-			return
+		// Allow lobby new_player usage regardless of dooc settings; preserve dead restriction for non-lobby via earlier check.
 		if(prefs.muted & MUTE_OOC)
 			to_chat(src, span_danger("I cannot use OOC (muted)."))
 			return
@@ -82,12 +85,19 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	var/msg_to_send = ""
 
 	for(var/client/C in GLOB.clients)
+		// Non-admin: must be lobby new_player.
+		if(!C.holder && !istype(C.mob, /mob/dead/new_player))
+			continue
+		// Admin: they can opt out of lobby OOC while not in lobby.
+		if(C.holder && !C.show_lobby_ooc && !istype(C.mob, /mob/dead/new_player))
+			continue
+		if(!(C.prefs.chat_toggles & CHAT_OOC))
+			continue
 		var/real_key = C.holder ? "([key])" : ""
-		if(C.prefs.chat_toggles & CHAT_OOC)
-			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
-			if(holder)
-				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='#4972bc'><span class='message linkify'>[msg]</span></font>"
-			to_chat(C, msg_to_send)
+		msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
+		if(holder)
+			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='#4972bc'><span class='message linkify'>[msg]</span></font>"
+		to_chat(C, msg_to_send)
 
 //				if(!holder.fakekey || C.holder)
 //					if(check_rights_for(src, R_ADMIN))
@@ -185,16 +195,17 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	var/msg_to_send = ""
 
 	for(var/client/C in GLOB.clients)
+		if(!(C.prefs.chat_toggles & CHAT_OOC))
+			continue
+		if(!C.holder && !istype(C.mob, /mob/dead/new_player))
+			continue
+		if(C.holder && !C.show_lobby_ooc && !istype(C.mob, /mob/dead/new_player))
+			continue
 		var/real_key = C.holder ? "([key])" : ""
-		if(C.prefs.chat_toggles & CHAT_OOC)
-			if(SSticker.current_state != GAME_STATE_FINISHED && !istype(C.mob, /mob/dead/new_player) && !C.holder)
-				continue
-
-			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
-			if(holder)
-				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='#4972bc'><span class='message linkify'>[msg]</span></font>"
-
-			to_chat(C, msg_to_send)
+		msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
+		if(holder)
+			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='#4972bc'><span class='message linkify'>[msg]</span></font>"
+		to_chat(C, msg_to_send)
 
 
 /proc/toggle_ooc(toggle = null)
@@ -271,6 +282,21 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 		prefs.ooccolor = initial(prefs.ooccolor)
 		prefs.save_preferences()
+
+/client/verb/toggle_ooc_anonymize()
+	set name = "Toggle OOC Anonymize"
+	set category = "OOC"
+	set desc = "Use a random anonymized handle or show your real ckey in Lobby OOC."
+	if(!mob)
+		return
+	// Flip preference
+	prefs.anonymize = !prefs.anonymize
+	if(prefs.anonymize)
+		GLOB.anonymize |= ckey
+	else
+		GLOB.anonymize -= ckey
+	prefs.save_preferences()
+	to_chat(src, span_notice("OOC Anonymize is now [prefs.anonymize ? "ENABLED (your handle will be randomized)" : "DISABLED (your ckey will be shown)"]."))
 
 //Checks admin notice
 /client/verb/admin_notice()
