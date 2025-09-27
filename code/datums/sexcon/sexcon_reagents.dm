@@ -5,14 +5,18 @@
 	taste_mult = 0.5
 	quality = DRINK_VERYGOOD
 	metabolization_rate = 0.02 * REAGENTS_METABOLISM
-	overdose_threshold = 18 
+	overdose_threshold = 18
 	addiction_threshold = 12 //Three sips, or a full goblet if properly mixed with two other reagents to hide the taste.
 	addiction_permanent = TRUE
 	color = "#721a46"
 
 /datum/reagent/consumable/ethanol/beer/emberwine/on_mob_metabolize(mob/living/carbon/human/C)
+	if(C?.patron && istype(C.patron, /datum/patron/inhumen/baotha))
+		overdose_threshold = 0
+	else
+		overdose_threshold = initial(overdose_threshold)
 	..()
-	if(!C.client.prefs.sexable)
+	if(!C?.client?.prefs?.sexable)
 		volume = 0
 		return
 	C.sexcon.aphrodisiac += 1
@@ -47,10 +51,12 @@
 						if(3)
 							C.Immobilize(30)
 							C.set_blurriness(5)
+							C.stamina_add(15)
 							to_chat(C, "<span class='warning'>Your armor chaffs uncomfortably against your skin and makes it difficult to breathe.</span>")
 						if(2)
 							C.Immobilize(15)
 							C.set_blurriness(2)
+							C.stamina_add(5)
 							to_chat(C, "<span class='warning'>Your armor chaffs uncomfortably against your skin.</span>")
 			S.adjust_charge(8)
 	return ..()
