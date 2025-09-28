@@ -26,8 +26,8 @@
 
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|
-| Discord          | [discord.gg/nQDetK6ktR](https://discord.gg/nQDetK6ktR) |
-| Wiki                      | [wiki.ratwood.rip](https://wiki.ratwood.rip/index.php/Main_Page) |
+| Discord          | [https://discord.gg/nukkzXgXpH](https://discord.gg/nukkzXgXpH) |
+| Wiki                      | TBA |
 
 </div>
 
