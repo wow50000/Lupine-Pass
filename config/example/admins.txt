@@ -16,3 +16,5 @@ RogueRay = Host
 EvenInDeathIStillServe = Host
 AzazelSeer = Host
 azazelseer = Host
+Metro_Dweller = Game Master 
+Greed2323 = Game Master
