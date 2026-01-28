@@ -58,8 +58,8 @@
 	subclass_stats = list(
 		STATKEY_PER = 2,//7 points weighted, same as MAA. They get temp buffs in the woods instead of in the city. +2 strconend
 		STATKEY_SPD = 2,
-		STATKEY_END = 3
-		STATKEY_STR = 2
+		STATKEY_END = 3,
+		STATKEY_STR = 2,
 		STATKEY_CON = 2
 	)
 
