@@ -1,10 +1,10 @@
 /datum/job/roguetown/goblincook
 	title = TITLE_DEEPDWELLER_STOCKMASTER
-	flag = GOBLINCOOK
+	flag = TRIBALCOOK
 	department_flag = GOBLIN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(RACES_DEEPDWELLERS)
 	allowed_patrons = list(/datum/patron/inhumen/graggar)
@@ -12,7 +12,7 @@
 
 
 	outfit = /datum/outfit/job/roguetown/goblincook
-	display_order = JDO_GOBLINCOOK
+	display_order = JDO_TRIBALCOOK
 	min_pq = 0
 	max_pq = null
 
@@ -20,6 +20,7 @@
 	..()
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide/goblin
 	belt = /obj/item/storage/belt/rogue/leather/rope
+	beltl = /obj/item/roguekey/roomi/slavecage
 	cloak = /obj/item/clothing/cloak/apron/cook
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)

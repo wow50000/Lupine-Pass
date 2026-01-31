@@ -220,7 +220,7 @@
 #define JCOLOR_PEASANT "#b09262"
 #define JCOLOR_MERCENARY "#c86e3a"
 #define JCOLOR_INQUISITION "#FF0000"
-
+#define JCOLOR_TRIBAL "#FF0000"
 // job display orders //
 
 // Nobles
@@ -306,6 +306,7 @@
 #define JDO_TRIBALCOOK 37
 #define JDO_TRIBALGUARD 38
 #define JDO_TRIBALSMITH 39
+
 #define JDO_PURITAN 40
 #define JDO_ORTHODOXIST 40.1
 #define JDO_ABSOLVER 40.2
@@ -392,6 +393,10 @@
 	/datum/job/roguetown/sheriff,\
 	/datum/job/roguetown/squire,\
 	/datum/job/roguetown/guardsman
+
+#define GOBLIN_ROLES \
+	/datum/job/roguetown/goblinking,\
+	/datum/job/roguetown/goblinguard
 
 #define INQUISITION_ROLES \
 	/datum/job/roguetown/puritan,\
