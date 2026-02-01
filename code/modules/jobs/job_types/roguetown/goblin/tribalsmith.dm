@@ -7,13 +7,15 @@
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(RACES_DEEPDWELLERS)
-	allowed_patrons = list(/datum/patron/inhumen/graggar)
+	allowed_patrons = ALL_INHUMEN_PATRONS
 	tutorial = "You’re one of the few true craftsmen of the deepdwellers, and you’ve the burn scars to prove it.\
 				You may only have low quality metal to use, but it matters little; The rank and file will die in droves, anyway.  Your gear only serves to prolong their lives into some semblance of usefulness."
 	display_order = JDO_TRIBALSMITH
 	outfit = /datum/outfit/job/roguetown/goblinsmith
 	min_pq = 0
 	max_pq = null
+	round_contrib_points = 2
+	job_traits = list(TRAIT_STEELHEARTED, TRAIT_DARKVISION)
 
 /datum/outfit/job/roguetown/goblinsmith/pre_equip(mob/living/carbon/human/H)
 	..()

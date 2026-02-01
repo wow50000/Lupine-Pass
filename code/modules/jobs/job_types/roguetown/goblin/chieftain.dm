@@ -6,13 +6,14 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(RACES_DESPISED)
+	allowed_races = list(RACES_DEEPDWELLERS)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	allowed_patrons = list(/datum/patron/inhumen/graggar)
+	allowed_patrons = ALL_INHUMEN_PATRONS
 	tutorial = "You’ve garnered power amongst your clan through deception and cutthroat ruthlessness.  Maintain power by providing for your clan; Be it food, trinkets, or slaves.\
 				All can be found in the surrounding area, for the brave or foolhardy- Especially as fresh adventurers arrive frequently."
 	whitelist_req = FALSE
 	outfit = /datum/outfit/job/roguetown/goblinking
+	job_traits = list(TRAIT_STEELHEARTED, TRAIT_MEDIUMARMOR, TRAIT_CRITICAL_RESISTANCE, TRAIT_NOPAINSTUN, TRAIT_DARKVISION) //The strongest of the horde
 
 	display_order = JDO_CHIEFTAIN
 	min_pq = 0
@@ -24,8 +25,9 @@
 	H.verbs |= /mob/living/carbon/human/proc/goblinannouncement
 	//H.verbs |= /mob/living/carbon/human/proc/goblinopenslot
 	beltl = /obj/item/roguekey/mercenary/bedrooms/chiefmanor
+	beltr = /obj/item/roguekey/roomi/slavecage
 	belt = /obj/item/storage/belt/rogue/leather/rope
-	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
+	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	head = /obj/item/clothing/head/roguetown/crown/surplus
 	cloak = /obj/item/clothing/cloak/lordcloak
 	backl = /obj/item/storage/backpack/rogue/satchel

@@ -6,13 +6,14 @@
 	total_positions = 4
 	spawn_positions = 4
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(RACES_DESPISED)
+	allowed_races = list(RACES_DEEPDWELLERS)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	allowed_patrons = list(/datum/patron/inhumen/graggar)
+	allowed_patrons = ALL_INHUMEN_PATRONS
 	tutorial = "You are horde.  You are legion.  You serve your chief, swarming in mass with your clanmates, stealing, killing, and kidnapping.\
 				Bring back wealth, food, and slaves so your clan may flourish, and perhaps one day the chief will have greater purpose- or material possessions- to bestow upon you."
 	whitelist_req = FALSE
 	outfit = /datum/outfit/job/roguetown/goblinguard
+	job_traits = list(TRAIT_STEELHEARTED, TRAIT_CRITICAL_RESISTANCE, TRAIT_NOPAINSTUN, TRAIT_DARKVISION) //traits needed, they will be naked most of the time.
 
 	display_order = JDO_TRIBALGUARD
 	min_pq = 0
