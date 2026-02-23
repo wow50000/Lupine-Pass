@@ -19,10 +19,15 @@
 	possible_rmb_intents = list()
 
 /mob/living/carbon/human/species/orc/npc
-	faction = list("orcs", "station")
+	ai_controller = /datum/ai_controller/human_npc
+	faction = list("orcs")
+	canparry = TRUE
+	flee_in_pain = FALSE
+/*
 	aggressive = 1
 	rude = TRUE
 	mode = NPC_AI_IDLE
+*/
 	wander = FALSE
 	cmode_music = FALSE
 
