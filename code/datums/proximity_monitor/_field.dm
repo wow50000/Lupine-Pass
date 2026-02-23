@@ -1,3 +1,4 @@
+/*
 #define FIELD_TURFS_KEY "field_turfs"
 #define EDGE_TURFS_KEY "edge_turfs"
 
@@ -213,3 +214,4 @@
 
 #undef FIELD_TURFS_KEY
 #undef EDGE_TURFS_KEY
+*/

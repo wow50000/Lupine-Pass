@@ -1,3 +1,4 @@
+/*
 /datum/proximity_monitor
 	///The atom we are tracking
 	var/atom/host
@@ -89,3 +90,4 @@
 	SIGNAL_HANDLER
 	if(location != host)
 		hasprox_receiver?.HasProximity(created)
+*/

@@ -35,7 +35,13 @@
 	var/setup_field_turfs = FALSE
 	var/use_host_turf = FALSE		//For fields from items carried on mobs to check turf instead of loc...
 
+	/// If TRUE, edge turfs will be included as "in the field" for effects
+	/// Can be used in certain situations where you may have effects that trigger only at the edge,
+	/// while also wanting the field effect to trigger at edge turfs as well
+	var/edge_is_a_field = FALSE
+	/// All turfs on the inside of the proximity monitor - range - 1 turfs
 	var/list/turf/field_turfs = list()
+	/// All turfs on the very last tile of the proximity monitor's radius
 	var/list/turf/edge_turfs = list()
 	var/list/turf/field_turfs_new = list()
 	var/list/turf/edge_turfs_new = list()

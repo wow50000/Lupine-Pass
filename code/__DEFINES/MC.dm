@@ -22,6 +22,7 @@
 #define START_PROCESSING(Processor, Datum) if (!(Datum.datum_flags & Processor.processing_flag)) {Datum.datum_flags |= Processor.processing_flag;Processor.processing += Datum}
 #define STOP_PROCESSING(Processor, Datum) Datum.datum_flags &= ~Processor.processing_flag;Processor.processing -= Datum
 
+
 //! SubSystem flags (Please design any new flags so that the default is off, to make adding flags to subsystems easier)
 
 /// subsystem does not initialize.
