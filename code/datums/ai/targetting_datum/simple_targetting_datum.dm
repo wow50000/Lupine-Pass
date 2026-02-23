@@ -84,10 +84,10 @@
 
 	if(living_mob.see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return FALSE
-
-	if(HAS_TRAIT(the_target, TRAIT_IMPERCEPTIBLE))
+/*
+	if(HAS_TRAIT(the_target, TRAIT_IMPERCEPTIBLE)) # WIP ADD THIS LATER
 		return FALSE
-
+*/
 	if(!isturf(the_target.loc))
 		return FALSE
 

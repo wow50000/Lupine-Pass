@@ -143,14 +143,14 @@
 
 /// Helper proc to check if an atom is allowed for aggro targeting
 /datum/ai_behavior/find_aggro_targets/proc/atom_allowed(atom/movable/checking, datum/targetting_datum/strategy, mob/pawn, datum/ai_controller/controller)
-	var/datum/horny_targetting_datum/horny_targetting_datum = controller.blackboard[BB_HORNY_TARGETTING_DATUM]
+//	var/datum/horny_targetting_datum/horny_targetting_datum = controller.blackboard[BB_HORNY_TARGETTING_DATUM]
 	if(checking == pawn)
 		return FALSE
 	if(!ismob(checking) && !is_type_in_typecache(checking, GLOB.target_interested_atoms))
 		return FALSE
-	if(horny_targetting_datum)
-		if(horny_targetting_datum.can_horny(pawn, checking))
-			return TRUE
+//	if(horny_targetting_datum)
+//		if(horny_targetting_datum.can_horny(pawn, checking))
+//			return TRUE
 	if(!strategy.can_attack(pawn, checking))
 		return FALSE
 	// Additional aggro-specific checks for living mobs
@@ -200,9 +200,7 @@
 			aggro_comp.add_threat_to_mob_capped(target, 15, 15)
 			aggro_comp.add_threat_to_mob(target, 3)
 
-	// Check if we now have a highest threat target
-	var/mob/highest_threat = controller.blackboard[BB_HIGHEST_THREAT_MOB]
-
+/*
 	var/datum/horny_targetting_datum/horny_targetting_datum = controller.blackboard[BB_HORNY_TARGETTING_DATUM]
 	if(!isnull(horny_targetting_datum))
 		if(horny_targetting_datum.can_horny(controller.pawn, highest_threat))
@@ -210,6 +208,9 @@
 			qdel(field)
 			controller.CancelActions()
 			finish_action(controller, succeeded = FALSE)
+*/
+	// Check if we now have a highest threat target
+	var/mob/highest_threat = controller.blackboard[BB_HIGHEST_THREAT_MOB]			
 	if(highest_threat)
 		controller.set_blackboard_key(target_key, highest_threat)
 
@@ -245,7 +246,7 @@
 	if(succeeded)
 		var/mob/living/pawn = controller.pawn
 		pawn.emote("rage")
-		pawn.say(pick(GLOB.species_hostile))
+//		pawn.say(pick(GLOB.species_hostile))
 
 /datum/ai_behavior/find_aggro_targets/species_hostile/failed_to_find_anyone(datum/ai_controller/controller, target_key, targeting_strategy_key, hiding_location_key)
 	. = ..()

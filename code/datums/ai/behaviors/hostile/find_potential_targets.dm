@@ -1,3 +1,9 @@
+/// Static typecache list of things we are interested in
+/// Consider this a union of the for loop and the hearers call from below
+/// Must be kept up to date with the contents of hostile_machines
+GLOBAL_LIST_INIT(target_interested_atoms, typecacheof(list(/mob)))
+
+
 /datum/ai_behavior/find_potential_targets
 	action_cooldown = 2 SECONDS
 	/// How far can we see stuff?
