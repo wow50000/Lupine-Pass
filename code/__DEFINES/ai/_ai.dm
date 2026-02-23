@@ -47,6 +47,7 @@
 
 /// Signal sent when a blackboard key is set to a new value
 #define COMSIG_AI_BLACKBOARD_KEY_SET(blackboard_key) "ai_blackboard_key_set_[blackboard_key]"
+#define COMSIG_AI_BLACKBOARD_KEY_CLEARED(blackboard_key) "ai_blackboard_key_clear_[blackboard_key]"
 
 ///Targetting keys for something to run away from, if you need to store this separately from current target
 #define BB_BASIC_MOB_FLEE_TARGET "BB_basic_flee_target"
@@ -83,7 +84,7 @@
 #define MOVEMENT_LOOP_START_FAST (1<<0)
 
 
-//PORTS FROM VANDERLIN
+///                                                          /PORTS FROM VANDERLIN
 
 ///are we ready to breed?
 #define BB_BREED_READY "BB_breed_ready"
@@ -129,3 +130,9 @@
 #define BB_HEALING_SOURCE "healing_source" // Who last healed the mob
 #define BB_SNEAKING "bb_sneaking"
 #define BB_SNEAK_COOLDOWN "bb_sneak_cooldown"
+
+
+///sent from ai controllers when they pick behaviors: (list/datum/ai_behavior/old_behaviors, list/datum/ai_behavior/new_behaviors)
+#define COMSIG_AI_CONTROLLER_PICKED_BEHAVIORS "ai_controller_picked_behaviors"
+///sent from ai controllers when a behavior is inserted into the queue: (list/new_arguments)
+#define AI_CONTROLLER_BEHAVIOR_QUEUED(type) "ai_controller_behavior_queued_[type]"

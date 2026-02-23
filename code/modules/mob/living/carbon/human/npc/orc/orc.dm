@@ -28,12 +28,15 @@
 	rude = TRUE
 	mode = NPC_AI_IDLE
 */
+	mode = NPC_AI_OFF
 	wander = FALSE
 	cmode_music = FALSE
 
 /mob/living/carbon/human/species/orc/npc/Initialize()
 	. = ..()
 	set_species(/datum/species/orc)
+	AddComponent(/datum/component/ai_aggro_system)
+//	AddComponent(/datum/component/combat_noise, list("aggro" = 2))
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
 /mob/living/carbon/human/species/orc/npc/after_creation()

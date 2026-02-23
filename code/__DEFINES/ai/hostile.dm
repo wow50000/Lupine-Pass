@@ -71,3 +71,8 @@
 #define BB_REINFORCEMENTS_SAY "BB_basic_mob_reinforcement_say"
 #define BB_REINFORCEMENTS_EMOTE "BB_basic_mob_reinforcement_emote"
 #define BB_BASIC_MOB_REINFORCEMENTS_COOLDOWN "BB_basic_mob_reinforcement_cooldown"
+
+//PORTS FROM VANDERLIN
+
+#define BB_IS_BEING_RIDDEN "bb_is_ridden"
+#define BB_BASIC_MOB_SCARED_ITEM "scared_item"
