@@ -496,6 +496,8 @@
 #include "code\datums\ai\behaviors\eat_food\eat_body.dm"
 #include "code\datums\ai\behaviors\eat_food\eat_food_from_ground.dm"
 #include "code\datums\ai\behaviors\eat_food\eat_foodstuffs.dm"
+#include "code\datums\ai\behaviors\hostile\attack.dm"
+#include "code\datums\ai\behaviors\hostile\find_highest_aggro.dm"
 #include "code\datums\ai\behaviors\hostile\find_nearest_target.dm"
 #include "code\datums\ai\behaviors\hostile\find_potential_targets.dm"
 #include "code\datums\ai\behaviors\hostile\melee_attack.dm"
