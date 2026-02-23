@@ -18,8 +18,9 @@
 	vitae_pool = 250 // Small, frail creechers with not so much vitality to gain from.
 
 /mob/living/carbon/human/species/goblin/npc
-	aggressive=1
-	mode = NPC_AI_IDLE
+	//aggressive=1
+	mode = NPC_AI_OFF
+	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 30 //they can dodge easily, but have a cooldown on it
 	flee_in_pain = TRUE
 	npc_jump_chance = 60
@@ -29,7 +30,7 @@
 
 /mob/living/carbon/human/species/goblin/npc/ambush
 	aggressive = 1
-	mode = NPC_AI_IDLE
+	mode = NPC_AI_OFF
 	wander = FALSE
 	attack_speed = 2
 
@@ -200,6 +201,7 @@
 
 /mob/living/carbon/human/species/goblin/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
 /mob/living/carbon/human/species/goblin/handle_combat()

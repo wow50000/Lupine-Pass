@@ -19,20 +19,22 @@
 
 
 /mob/living/carbon/human/species/skeleton/npc
-	aggressive = 1
-	mode = NPC_AI_IDLE
+	ai_controller = /datum/ai_controller/human_npc
+	//aggressive = 1
+	mode = NPC_AI_OFF
 	wander = FALSE
 	skel_fragile = TRUE
 	npc_jump_chance = 0 // no jumping skeletons
 	rude = TRUE
 
 /mob/living/carbon/human/species/skeleton/npc/ambush
-	aggressive = 1
-	mode = NPC_AI_IDLE
+	//aggressive = 1
+	mode = NPC_AI_OFF
 	wander = FALSE
 
 /mob/living/carbon/human/species/skeleton/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	cut_overlays()
 	spawn(10)
 		after_creation()
