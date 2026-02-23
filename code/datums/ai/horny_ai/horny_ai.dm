@@ -125,11 +125,13 @@
 						sexcon.force = SEX_FORCE_LOW //Orcs are the most gentlest fuckers
 					else
 						sexcon.force = SEX_FORCE_MID
-					if(!pulling)
+					if(src.get_highest_grab_state_on(L) != GRAB_AGGRESSIVE) //Try aggrograb the target
 						if(src.get_active_held_item())
 							dropItemToGround(src.get_active_held_item())
 						start_pulling(L)
-						start_pulling(L)
+						L.grippedby(src)
+						if(src.get_highest_grab_state_on(L) != GRAB_AGGRESSIVE) //Sissyphus joke here. Don't know a better way to make npcs repeat grabbing attempts.
+							return
 					if(loc == L.loc || Adjacent(L)) //are we at the same tile?
 						var/turf/T = get_turf(L)
 						walk_to(src,T,0,update_movespeed())
