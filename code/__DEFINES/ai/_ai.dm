@@ -80,3 +80,17 @@
 
 //Move then recheck ai
 #define MOVEMENT_LOOP_START_FAST (1<<0)
+
+
+//PORTS FROM VANDERLIN
+
+///are we ready to breed?
+#define BB_BREED_READY "BB_breed_ready"
+///maximum kids we can have
+#define BB_MAX_CHILDREN "BB_max_children"
+
+#define BB_MOB_EQUIP_TARGET "BB_equip_target"
+
+#define BB_NEST_LIST "BB_nestlist"
+#define BB_NEST_IGNORE_LIST "BB_nest_ignore"
+#define BB_NEST_MATERIAL_LIST "BB_nest_material_list"
