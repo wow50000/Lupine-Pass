@@ -3,7 +3,7 @@
 /datum/ai_behavior/find_and_set/better_weapon/search_tactic(datum/ai_controller/controller, locate_path, search_range)
 	var/mob/living/carbon/living_pawn = controller.pawn
 	var/obj/item/held_item = living_pawn.get_active_held_item()
-	if(istype(held_item, /obj/item/weapon/shield))
+	if(istype(held_item, /obj/item/rogueweapon/shield))
 		living_pawn.swap_hand()
 		held_item = living_pawn.get_active_held_item()
 
@@ -26,10 +26,10 @@
 	if(!istype(checking, controller.blackboard[BB_WEAPON_TYPE]))
 		return FALSE
 	var/obj/item/held_item = living_pawn.get_active_held_item()
-	if(istype(held_item, /obj/item/weapon/shield))
+	if(istype(held_item, /obj/item/rogueweapon/shield))
 		held_item = living_pawn.get_inactive_held_item()
 	if(held_item)
-		if(istype(held_item, /obj/item/weapon/shield))
+		if(istype(held_item, /obj/item/rogueweapon/shield))
 			return FALSE
 		var/obj/item/weapon/candidate = checking
 		if(held_item.force >= candidate.force)

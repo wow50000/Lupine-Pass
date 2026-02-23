@@ -96,3 +96,13 @@
 		var/mob/living/simple_animal/hostile/basic_mob = controller.pawn
 		if(!basic_mob.stat) // if the mimic's not dead
 			basic_mob.Aggro() // wake up the mimic and update their icon
+
+
+//Stuff from Vanderlin
+
+/datum/ai_behavior/find_and_set/proc/atom_allowed(atom/movable/checking, locate_path, atom/pawn)
+	if(checking == pawn)
+		return FALSE
+	if(!istype(checking, locate_path))
+		return FALSE
+	return TRUE

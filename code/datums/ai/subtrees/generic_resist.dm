@@ -11,7 +11,7 @@
 /datum/ai_behavior/resist/perform(seconds_per_tick, datum/ai_controller/controller)
 	var/mob/living/living_pawn = controller.pawn
 	living_pawn.ai_controller.set_blackboard_key(BB_RESISTING, TRUE)
-	living_pawn.execute_resist()
+	living_pawn.resist()
 	finish_action(controller, TRUE)
 	return TRUE
 
