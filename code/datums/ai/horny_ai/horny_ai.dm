@@ -94,22 +94,22 @@
 			foundfuckmeat += fucktarg
 		if(foundfuckmeat.len)
 			L = pick(foundfuckmeat)
-			STOP_PROCESSING(SShumannpc,src)
-			mode = AI_OFF
 			var/turf/Target = get_turf(L)
 			if(loc == Target || Adjacent(Target))
 				if(iscarbon(L))
 					chasesfuck = FALSE
-/*
+					STOP_PROCESSING(SShumannpc,src)
+					mode = NPC_AI_OFF //Modified life.dm to not sleep lewd NPCs with their AI off, this won't cause any issues. Yes, I know this is a crutch.
+/* No more stuns, no forced emote that is associated with the stun.
 					if(L.cmode)
 						L.SetImmobilized(40)
 						L.SetKnockdown(40)
 					else //sneak attacked i guess.
 						L.SetImmobilized(60)
 						L.SetKnockdown(60)
-*/
 					if(!L.lying) //i guess if already targeted but got up somehow.
 						L.emote("gasp")
+*/
 					if(L.wear_pants)
 						if(L.wear_pants.flags_inv & HIDECROTCH && !L.wear_pants.genitalaccess)
 							if(!L.cmode) //pants off if not in cmode
@@ -126,6 +126,8 @@
 					else
 						sexcon.force = SEX_FORCE_MID
 					if(!pulling)
+						if(src.get_active_held_item())
+							dropItemToGround(src.get_active_held_item())
 						start_pulling(L)
 						start_pulling(L)
 					if(loc == L.loc || Adjacent(L)) //are we at the same tile?
@@ -204,7 +206,7 @@
 	chasesfuck = FALSE
 	seekboredom = 0
 	START_PROCESSING(SShumannpc,src)
-	mode = AI_IDLE
+	mode = NPC_AI_IDLE
 	if(sexcon.just_ejaculated() || timedout) //is it satisfied or given up
 		fuckcd = rand(50,350)
 	else
