@@ -1048,12 +1048,13 @@
 
 /datum/sex_controller/proc/try_start_action(action_type)
 //Refactoring it so I can make a global bit if checker
-	if(target.client.prefs.defiant && !target.compliance && target != user)
-		var/consent_check = alert(target, "You are currently in Defiant Mode, Would you wish to allow this act to continue or not? \
-				(Notice: If you wish to turn off this prompt but not Defiant Mode, please turn on Compliance Mode during Sex)", "WARNING!!!", "Yes", "No")
-		if(consent_check == "No")
-			try_stop_current_action()
-			return
+	if(!target.erpable) //Since NPCs don't have prefs, we need a bypass to avoid a runtime
+		if(target.client.prefs.defiant && !target.compliance && target != user)
+			var/consent_check = alert(target, "You are currently in Defiant Mode, Would you wish to allow this act to continue or not? \
+					(Notice: If you wish to turn off this prompt but not Defiant Mode, please turn on Compliance Mode during Sex)", "WARNING!!!", "Yes", "No")
+			if(consent_check == "No")
+				try_stop_current_action()
+				return
 	if(action_type == current_action)
 		try_stop_current_action()
 		return
@@ -1083,18 +1084,20 @@
 	// Do action loop
 	var/performed_action_type = current_action
 	var/datum/sex_action/action = SEX_ACTION(current_action)
-	if(target.client.prefs.defiant && target.cmode)
-		to_chat(user, span_warningbig("[target] IS DEFIANT!!! YOU CANNOT RAPE THIS ONE ANY LONGER!!!"))
-		return
+	if(!target.erpable) //Since NPCs don't have prefs, we need a bypass to avoid a runtime
+		if(target.client.prefs.defiant && target.cmode)
+			to_chat(user, span_warningbig("[target] IS DEFIANT!!! YOU CANNOT RAPE THIS ONE ANY LONGER!!!"))
+			return
 	action.on_start(user, target)
 	find_occupying_bed()
 	find_occupying_grass()
 	while(TRUE)
 		if(!user.stamina_add(action.stamina_cost * get_stamina_cost_multiplier()))
 			break
-		if(target.client.prefs.defiant && target.cmode)
-			to_chat(user, span_warningbig("[target] IS DEFIANT!!! YOU CANNOT RAPE THIS ONE ANY LONGER!!!"))
-			break
+		if(!target.erpable) //Since NPCs don't have prefs, we need a bypass to avoid a runtime
+			if(target.client.prefs.defiant && target.cmode)
+				to_chat(user, span_warningbig("[target] IS DEFIANT!!! YOU CANNOT RAPE THIS ONE ANY LONGER!!!"))
+				break
 		if(!do_after(user, (action.do_time / get_speed_multiplier()), target = target))
 			break
 		if(current_action == null || performed_action_type != current_action)

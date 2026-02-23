@@ -213,9 +213,9 @@
 
 /mob/living/carbon/human/species/goblin/after_creation()
 	..()
+	gender = pick(MALE, FEMALE)
 	if(erpable)
 		give_genitals()
-	gender = MALE
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/other/goblin()
 		src.dna.species.soundpack_f = new /datum/voicepack/other/goblin()
