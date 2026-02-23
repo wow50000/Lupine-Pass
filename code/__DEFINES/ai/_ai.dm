@@ -111,3 +111,21 @@
 /// Like SPT_PROB_RATE but easier to use, simply put `if(SPT_PROB(10, 5))`
 #define SPT_PROB(prob_per_second_percent, seconds_per_tick) (prob(100*SPT_PROB_RATE((prob_per_second_percent)/100, (seconds_per_tick))))
 // )
+
+
+// Keys used by one and only one behavior
+// Used to hold state without making bigass lists
+/// For /datum/ai_behavior/find_potential_targets, what if any field are we using currently
+#define BB_FIND_TARGETS_FIELD(type) "bb_find_targets_field_[type]"
+/// For /datum/ai_behavior/find_potential_horny_targets, what if any field are we using currently
+#define BB_FIND_HORNY_TARGETS_FIELD(type) "bb_find_horny_targets_field_[type]"
+
+#define BB_MOB_AGGRO_TABLE "aggro_table" // Associative list of [mob] -> threat_level
+#define BB_AGGRO_DECAY_TIMER "aggro_decay_timer"
+#define BB_HIGHEST_THREAT_MOB "highest_threat_mob"
+#define BB_THREAT_THRESHOLD "threat_threshold" // Minimum threat to be considered hostile
+#define BB_AGGRO_RANGE "aggro_range" // Range at which mobs can detect and add threats
+#define BB_AGGRO_MAINTAIN_RANGE "aggro_maintain_range" // Range at which target is dropped if exceeded
+#define BB_HEALING_SOURCE "healing_source" // Who last healed the mob
+#define BB_SNEAKING "bb_sneaking"
+#define BB_SNEAK_COOLDOWN "bb_sneak_cooldown"
