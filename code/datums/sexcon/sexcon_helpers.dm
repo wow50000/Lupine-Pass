@@ -103,8 +103,8 @@
 			wife.apply_status_effect(/datum/status_effect/pregnancy/werewolf)
 		if(father_race == /datum/species/orc)
 			wife.apply_status_effect(/datum/status_effect/pregnancy/orc)
-		if(father_race == /datum/species/lupian)
-			wife.apply_status_effect(/datum/status_effect/pregnancy/lupian)
+//		if(father_race == /datum/species/lupian) Keeping this disabled for now because I don't want to implement job slot changes.
+//			wife.apply_status_effect(/datum/status_effect/pregnancy/lupian) If you're here to do that, players WILL knock up NPCs to open up slots. Implement a check to prevent that.
 		if(src.client) //Make sure we don't runtime if it's a NPC.
 			if(src.mind.has_antag_datum(/datum/antagonist/bandit))
 				wife.apply_status_effect(/datum/status_effect/pregnancy/bandit)
