@@ -166,6 +166,7 @@
 	else
 		owner.remove_status_effect(/datum/status_effect/debuff/preg_goblin)
 
+
 /datum/status_effect/pregnancy/werewolf
 	id = "preggo_werewolf"
 	alert_type = /atom/movable/screen/alert/status_effect/preggo_werewolf
@@ -222,7 +223,6 @@
 	effectedstats = list(STATKEY_STR = -1, STATKEY_SPD = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/
 
-
 /atom/movable/screen/alert/status_effect/debuff/preggo_orc
 	name = "Shaking Legs"
 	desc = "<font color='#f590ce'><span class='bold'>There are orcs here, my legs feel weaker.</span></font>"
@@ -243,6 +243,7 @@
 	else
 		owner.remove_status_effect(/datum/status_effect/debuff/preg_orc)
 
+
 /datum/status_effect/pregnancy/bandit
 	id = "preggo_bandit"
 	alert_type = /atom/movable/screen/alert/status_effect/preggo_bandit
@@ -256,6 +257,7 @@
 	if(!affecting)
 		owner.add_stress(/datum/stressevent/bandit_child)
 	affecting = TRUE
+
 
 /datum/status_effect/pregnancy/lupian
 	id = "preggo_lupian"
