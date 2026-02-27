@@ -567,7 +567,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 /mob/living/carbon/proc/handle_sleep()
 	if(HAS_TRAIT(src, TRAIT_NOSLEEP) && !(mobility_flags & MOBILITY_STAND))
 		energy_add(5)
-		if(mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser))
+		if(mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser) || mind?.has_antag_datum(/datum/antagonist/werewolf)) //Fuck it, WWs are a bit closer to the treefather, and his creations don't sleep on a bed.
 			energy_add(10)
 		return
 	//Healing while sleeping in a bed

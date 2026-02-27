@@ -18,6 +18,7 @@
 	min_pq = 5 //Should...probably actually be a veteran of at least a few weeks before trying to teach others
 	max_pq = null
 	round_contrib_points = 2
+	virtue_restrictions = list(/datum/virtue/combat/lycan_curse) //yeah go away, no lycan burger masters, we don't need to align them to the alpha WW (hersir)
 
 	cmode_music = 'sound/music/combat_veteran.ogg'
 	job_subclasses = list(

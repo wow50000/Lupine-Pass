@@ -93,20 +93,27 @@
 
 /datum/outfit/job/roguetown/knight/heavy/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE) //Polearms are pretty much explicitly a two-handed weapon, so I gave them a polearm option.
-	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)	//Too heavy for horses.
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // Wrestling and unarmed aren't impacted if you run lycan curse because WWs have those adjusted to level 5 by default,
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE) // and you're probably gonna switch to the warform for fights.
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()	
+	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+	else
+		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE) //Polearms are pretty much explicitly a two-handed weapon, so I gave them a polearm option.
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
+	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
 
 	H.adjust_blindness(-3)
@@ -172,19 +179,26 @@
 
 /datum/outfit/job/roguetown/knight/footknight/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE) 
-	H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)	
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE) 
+		H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	else
+		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE) 
+		H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
 
@@ -247,20 +261,29 @@
 
 /datum/outfit/job/roguetown/knight/mountedknight/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE) //Yes, I'm taking your level in riding. Werewolves travel on foot. Journeyman is still the higher than stellari baseline riding skill.
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	else
+		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
 
@@ -340,13 +363,7 @@
 
 /datum/outfit/job/roguetown/knight/irregularknight/pre_equip(mob/living/carbon/human/H)
 	..()	
-	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE) //Swords and knives class.
-	H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)	
-	H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE) //Whips can work as a light class weapon.	
-	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)	
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)	
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE) //Bows fit a light/speedy class pretty well, gave them ranged options.
-	H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)		
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
@@ -355,6 +372,20 @@
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)	
+		.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+	else
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE) //Swords and knives class.
+		H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)	
+		.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE) //Whips can work as a light class weapon.	
+		H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE) //Bows fit a light/speedy class pretty well, gave them ranged options.
+		H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.verbs |= /mob/proc/haltyell
 
@@ -388,8 +419,12 @@
 			beltr = /obj/item/quiver/bolts
 		
 		if("Greataxe + Sling")
-			H.adjust_skillrank(/datum/skill/combat/slings, 4, TRUE)
-			H.adjust_skillrank_up_to(/datum/skill/combat/axes, 4, TRUE)
+			if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE))
+				H.adjust_skillrank(/datum/skill/combat/slings, 3, TRUE)
+				H.adjust_skillrank_up_to(/datum/skill/combat/axes, 3, TRUE)
+			else
+				H.adjust_skillrank(/datum/skill/combat/slings, 4, TRUE)
+				H.adjust_skillrank_up_to(/datum/skill/combat/axes, 4, TRUE)
 			r_hand = /obj/item/rogueweapon/greataxe/steel
 			backl = /obj/item/rogueweapon/scabbard/gwstrap
 			beltr = /obj/item/quiver/sling/iron

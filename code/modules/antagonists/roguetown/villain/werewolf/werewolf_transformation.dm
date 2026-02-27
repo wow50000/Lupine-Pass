@@ -147,13 +147,17 @@
 		var/list/stat_vars = list("STASTR", "STAPER", "STAINT", "STACON", "STAEND", "STASPD", "STALUC")
 		for(var/i in 1 to length(MOBSTATS))
 			W.vars[stat_vars[i]] = src.get_stat_level(MOBSTATS[i])
+	if(src.job == /datum/job/roguetown/knight) //Lupians are adjescent to werewolves. And, since the hersir already is the WW ALPHA, it'd be understandable that the stellari are better with their curse than some random shmuck.
+		W.STASTR += 2 //That's right, 20 STR is possible. Go go gadget zapecreecher.
+		W.STAEND += 1 //Smaller bonuses here they're sturdier and harder to tire out,
+		W.STACON += 1 //but keep is already intentionally OP, more than this would be overkill.
 
-	
+	// This spot was empty so I'm using it to keep yapping. Technically this means that stellari can be stronger than the hersir with lycan curse, but I think leaving an opportunity for a fight for dominance would be hot.
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/claws)
 	W.AddSpell(new /obj/effect/proc_holder/spell/targeted/woundlick)
 
 	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
-//	ADD_TRAIT(W, TRAIT_GRABIMMUNE, TRAIT_GENERIC) // THIS IS THE CORRECT PLACE FOR WEREWOLF TRAITS. GOD. Make it more balanced
+//	ADD_TRAIT(W, TRAIT_GRABIMMUNE, TRAIT_GENERIC) // THIS IS THE CORRECT PLACE FOR WEREWOLF TRAITS. GOD. Make it more balanced. | Lol. Lmao. They get master wrestling. The only ones who can outwrestle a true WW is a brawler's apprentice golem stelari, so this balance change is kinda moot but sure w/e.
 	ADD_TRAIT(W, TRAIT_STRONGBITE, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_ZJUMP, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
