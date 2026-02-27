@@ -101,7 +101,7 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+	if(HAS_TRAIT(H, TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
@@ -187,7 +187,7 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+	if(HAS_TRAIT(H, TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
@@ -268,7 +268,7 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+	if(HAS_TRAIT(H, TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
 		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
@@ -372,17 +372,17 @@
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
+	if(HAS_TRAIT(H, TRAIT_LYCAN_CURSE)) // If you pick the lycan curse virtue, you sacrifice some of your weapon skills in exchange for +4 total stat buffs while transformed (which is obviously rly good)
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)	
-		.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	else
 		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE) //Swords and knives class.
 		H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)	
-		.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE) //Whips can work as a light class weapon.	
+		H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE) //Whips can work as a light class weapon.	
 		H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE) //Bows fit a light/speedy class pretty well, gave them ranged options.
 		H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
@@ -419,7 +419,7 @@
 			beltr = /obj/item/quiver/bolts
 		
 		if("Greataxe + Sling")
-			if(H.HAS_TRAIT(TRAIT_LYCAN_CURSE))
+			if(HAS_TRAIT(H, TRAIT_LYCAN_CURSE))
 				H.adjust_skillrank(/datum/skill/combat/slings, 3, TRUE)
 				H.adjust_skillrank_up_to(/datum/skill/combat/axes, 3, TRUE)
 			else
