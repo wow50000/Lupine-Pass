@@ -13,6 +13,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	allowed_races = list(RACES_KEEP)
 	allowed_sexes = list(MALE, FEMALE)
 	advclass_cat_rolls = list(CTAG_LORD = 20)
+	virtue_restrictions = list(/datum/virtue/combat/lycan_curse) //They are already a WW
 
 	spells = list(
 		/obj/effect/proc_holder/spell/self/grant_title,

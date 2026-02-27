@@ -23,7 +23,7 @@
 	round_contrib_points = 5
 
 	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts.
-	virtue_restrictions = list(/datum/virtue/utility/noble)
+	virtue_restrictions = list(/datum/virtue/utility/noble, /datum/virtue/combat/lycan_curse)
 	job_traits = list(TRAIT_RITUALIST, TRAIT_GRAVEROBBER)
 	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/invoked/projectile/divineblast)
 	advclass_cat_rolls = list(CTAG_ACOLYTE = 2)

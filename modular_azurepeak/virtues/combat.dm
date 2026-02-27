@@ -178,3 +178,13 @@
 /datum/virtue/combat/combat_aware/apply_to_human(mob/living/carbon/human/recipient)
 	recipient.change_stat(STATKEY_PER, 1)
 	recipient.verbs += /mob/living/carbon/human/proc/togglecombatawareness
+
+/datum/virtue/combat/lycan_curse
+	name = "Lycan Curse"
+	desc = "Whether by chance, born with it or by the will of the Treefather, you have been cursed by the Treefather. During the night, you transform into a lesser verevolf, but you cannot infect others with your bite, and your stats do not increase."
+	custom_text = span_bloody("CON IS ADJUSTED BY -1!")
+
+/datum/virtue/combat/lycan_curse/apply_to_human(mob/living/carbon/human/recipient)
+	ADD_TRAIT(recipient, TRAIT_LYCAN_CURSE, TRAIT_GENERIC)
+	recipient.mind.add_antag_datum(/datum/antagonist/werewolf/lesser)
+	recipient.change_stat(STATKEY_CON, -1)

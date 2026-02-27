@@ -134,15 +134,21 @@
 	W.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
 	W.adjust_skillrank(/datum/skill/misc/swimming, 5, TRUE)
 
-	W.STASTR = 18
-	W.STAPER = src.STAPER
-	W.STAINT = src.STAINT
-	W.STALUC = src.STALUC
-	W.STASPD = src.STASPD
-	W.STACON = 16
-	W.STAEND = 18
+	if(!HAS_TRAIT(src, TRAIT_LYCAN_CURSE)) // no big stats for lycan cursed
+		W.STASTR = 18
+		W.STAPER = src.STAPER
+		W.STAINT = src.STAINT
+		W.STALUC = src.STALUC
+		W.STASPD = src.STASPD
+		W.STACON = 16
+		W.STAEND = 18
+		W.AddSpell(new /obj/effect/proc_holder/spell/self/howl) //fakewolves don't get to howl
+	else
+		var/list/stat_vars = list("STASTR", "STAPER", "STAINT", "STACON", "STAEND", "STASPD", "STALUC")
+		for(var/i in 1 to length(MOBSTATS))
+			W.vars[stat_vars[i]] = src.get_stat_level(MOBSTATS[i])
 
-	W.AddSpell(new /obj/effect/proc_holder/spell/self/howl)
+	
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/claws)
 	W.AddSpell(new /obj/effect/proc_holder/spell/targeted/woundlick)
 
@@ -167,6 +173,8 @@
 	ADD_TRAIT(W, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
+	if(HAS_TRAIT(src, TRAIT_LYCAN_CURSE))
+		ADD_TRAIT(W, TRAIT_LYCAN_CURSE, TRAIT_GENERIC)
 
 	invisibility = oldinv
 

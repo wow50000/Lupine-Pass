@@ -207,11 +207,13 @@
 #define TRAIT_DYES "Dyemaster"
 #define TRAIT_GOODWRITER "Great Writer"
 #define TRAIT_COMBAT_AWARE	"Combat Aware"
+#define TRAIT_LYCAN_CURSE "Lycan Curse" //Player-available lesser werewolf trait (they get no stat bonuses)
 // ARMOR / CLOTHING GIVEN TRAITS (GIVEN BY WEARING CLOTHES/ARMOR PIECES)
 #define TRAIT_MONK_ROBE	"Holy Vestatures"
 #define TRAIT_RACISMISBAD "Heritage Vision"
 #define TRAIT_VENOMOUS "Venomous"
 #define TRAIT_OVERTHERETIC "Overt Heretic"//Applied on someone who has rites buffs. Armour, rituos, etc.
+
 
 // If you want description to show up you gotta have the trait name defined BEFORE this lol
 
@@ -390,7 +392,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DREAMWALKER = span_warning("I walk the dream and reality at the same time. My mind frays, but my vision shall be reality."),
 	TRAIT_BLACKLEG = span_warning("My people have an inherent connection to Xylix. This grants me the ability to rig coin flips and dice rolls in my favour."),
 	TRAIT_OVERTHERETIC = span_bloody("I've played my cards. Hallowed ground is now my bane."),
-	TRAIT_DEATHBYSNUSNU = "With strong intent, I am a violent partner in bed. Breaking pelvis and spirit alike."
+	TRAIT_DEATHBYSNUSNU = "With strong intent, I am a violent partner in bed. Breaking pelvis and spirit alike.",
+	TRAIT_LYCAN_CURSE = span_info("Cursed by the Treefather. You are a lesser werewolf, and transform into one at night. You cannot infect others with your bite. People like me are still considered lessers by the lupine pillagers, and are often despised for the ")
 ))
 
 // trait accessor defines
