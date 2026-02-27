@@ -393,7 +393,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BLACKLEG = span_warning("My people have an inherent connection to Xylix. This grants me the ability to rig coin flips and dice rolls in my favour."),
 	TRAIT_OVERTHERETIC = span_bloody("I've played my cards. Hallowed ground is now my bane."),
 	TRAIT_DEATHBYSNUSNU = "With strong intent, I am a violent partner in bed. Breaking pelvis and spirit alike.",
-	TRAIT_LYCAN_CURSE = span_info("Cursed by the Treefather. You are a lesser werewolf, and transform into one at night. You cannot infect others with your bite. People like me are still considered lessers by the lupine pillagers, and are often despised for the ")
+	TRAIT_LYCAN_CURSE = span_info("Cursed by the Treefather. You are a lesser werewolf, and transform into one at night. You cannot infect others with your bite. People like me are still considered lessers by the lupine pillagers, and are only respected if we happen to be their kin.")
 ))
 
 // trait accessor defines

@@ -94,8 +94,8 @@
 /datum/outfit/job/roguetown/knight/heavy/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)	//Too heavy for horses.
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // Wrestling and unarmed aren't impacted if you run lycan curse because WWs have those adjusted to level 5 by default,
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE) // and you're probably gonna switch to the warform for fights.
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
