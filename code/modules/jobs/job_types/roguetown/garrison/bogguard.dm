@@ -125,9 +125,9 @@
 	category_tags = list(CTAG_WARDEN)
 	traits_applied = list(TRAIT_MEDIUMARMOR)
 	subclass_stats = list(
-		STATKEY_STR = 4, //these guys will have buffs basically permanently, so...low starting stats. +2 strconend
-		STATKEY_CON = 3,
-		STATKEY_END = 3,
+		STATKEY_STR = 2, //these guys will have buffs basically permanently, so...low starting stats. +2 strconend
+		STATKEY_CON = 2,
+		STATKEY_END = 1,
 		STATKEY_PER = 1
 	)
 
