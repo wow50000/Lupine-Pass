@@ -67,8 +67,8 @@
 	if(!mind)
 		log_runtime("NO MIND ON [src.name] WHEN TRANSFORMING")
 	Paralyze(1, ignore_canstun = TRUE)
-//	for(var/obj/item/W in src)
-//		dropItemToGround(W)
+	for(var/obj/item/W in src)
+		dropItemToGround(W)
 	regenerate_icons()
 	icon = null
 	var/oldinv = invisibility
@@ -101,8 +101,10 @@
 	src.forceMove(W)
 
 	W.after_creation()
-	W.real_name = src.wolf_name
-	W.name = src.wolf_name
+	//Checks if they're a Lesser werewolf or not
+	if(!(W.mind?.has_antag_datum(/datum/antagonist/werewolf/lesser)))
+		W.real_name = src.wolf_name
+		W.name = src.wolf_name
 	W.stored_language = new
 	W.stored_language.copy_known_languages_from(src)
 	W.stored_skills = ensure_skills().known_skills.Copy()

@@ -1236,6 +1236,7 @@
 #include "code\modules\antagonists\roguetown\villain\maniac\maniac_life.dm"
 #include "code\modules\antagonists\roguetown\villain\maniac\maniac_wonders.dm"
 #include "code\modules\antagonists\roguetown\villain\werewolf\werewolf.dm"
+#include "code\modules\antagonists\roguetown\villain\werewolf\werewolf_sex_infection_status_effect.dm"
 #include "code\modules\antagonists\roguetown\villain\werewolf\werewolf_spells.dm"
 #include "code\modules\antagonists\roguetown\villain\werewolf\werewolf_transformation.dm"
 #include "code\modules\antagonists\roguetown\villain\werewolf\werewolf_wound_infection.dm"
