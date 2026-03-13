@@ -45,7 +45,7 @@
 	wolfname = "[pick(GLOB.wolf_prefixes)] [pick(GLOB.wolf_suffixes)]"
 */
 //Backup in case elder werewolves dont get the spell, but Lesser Werewolves can't transform back as mentioned before
-	if(!(owner.has_spell(/obj/effect/proc_holder/spell/self/werewolf_transform)) || !owner.mind.has_antag_datum(/datum/antagonist/werewolf/lesser))
+	if(!(owner.has_spell(/obj/effect/proc_holder/spell/self/werewolf_transform)) || !owner.has_antag_datum(/datum/antagonist/werewolf/lesser))
 		owner.AddSpell(new /obj/effect/proc_holder/spell/self/werewolf_transform)
 	return ..()
 

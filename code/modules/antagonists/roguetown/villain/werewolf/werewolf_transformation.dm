@@ -66,6 +66,11 @@
 /mob/living/carbon/human/proc/werewolf_transform()
 	if(!mind)
 		log_runtime("NO MIND ON [src.name] WHEN TRANSFORMING")
+		return
+
+	var/datum/antagonist/werewolf/Were = src.mind.has_antag_datum(/datum/antagonist/werewolf/)
+	var/datum/antagonist/werewolf/lesser/Wereless = src.mind.has_antag_datum(/datum/antagonist/werewolf/lesser/)
+
 	Paralyze(1, ignore_canstun = TRUE)
 	for(var/obj/item/W in src)
 		dropItemToGround(W)
@@ -102,18 +107,23 @@
 
 	W.after_creation()
 	//Checks if they're a Lesser werewolf or not
-	if(!(W.mind?.has_antag_datum(/datum/antagonist/werewolf/lesser)))
-		W.real_name = src.wolf_name
-		W.name = src.wolf_name
+	if(Wereless && !Were)
+		W.real_name = src.real_name
+		W.name = src.name
+/*
 	W.stored_language = new
 	W.stored_language.copy_known_languages_from(src)
+*/
 	W.stored_skills = ensure_skills().known_skills.Copy()
 	W.stored_experience = ensure_skills().skill_experience.Copy()
+
 	W.cmode_music_override = cmode_music_override
 	W.cmode_music_override_name = cmode_music_override_name
 	mind.transfer_to(W)
+/*
 	skills?.known_skills = list()
 	skills?.skill_experience = list()
+*/
 	W.grant_language(/datum/language/beast)
 
 	W.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)

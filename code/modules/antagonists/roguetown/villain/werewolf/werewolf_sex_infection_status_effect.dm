@@ -11,7 +11,7 @@
 		"My teeth feel sharper than usual, I've almost cut myself on it.",
 		"My loins constantly churn and grow in heat.",
 		"I'm starting to enjoy the taste of meat raw more and more.",
-		"I keep hearing whispers. Is she calling for me?",
+		"I keep hearing whispers from the earth. Is she calling for me?",
 		"Maybe Lupians were right all along.",
 		"My mind is fraying, who am I?",
 		"I can feel my pulse quickening. I've never felt this angry before.",
@@ -36,8 +36,10 @@
 	if(world.time > transformation_time)
 		var/mob/living/carbon/human/H = owner
 		if(!iscarbon(H))
-			owner.remove_status_effect(/datum/status_effect/werewolf_infection)
-		owner.werewolf_transform()
+			H.remove_status_effect(/datum/status_effect/werewolf_infection)
+		H.mind.add_antag_datum(/datum/antagonist/werewolf/lesser)
+		H.werewolf_transform()
+		H.remove_status_effect(/datum/status_effect/werewolf_infection)
 
 /datum/status_effect/werewolf_infection/on_apply()
 	. = ..()
@@ -64,20 +66,18 @@
 	if(source.mind?.has_antag_datum(/datum/antagonist/werewolf/lesser))
 		return
 
-	if(!(source.mind?.has_antag_datum(/datum/antagonist/werewolf)))
-		//If they don't have the datum but have the werewolf transform spell
-		if(source.mind?.has_spell(/obj/effect/proc_holder/spell/self/werewolf_transform))
-			continue
+	if(!(source.mind?.has_antag_datum(/datum/antagonist/werewolf)) && !((source.mind?.has_spell(/obj/effect/proc_holder/spell/self/werewolf_transform))))
+		//If they don't have the datum but have the werewolf transform spell it'll not trigger
 		return
 
 
-	//If has werewolf datums, can't be infected obv
+	//If has wersewolf datums, can't be infected obv
 	if(mind?.has_antag_datum(/datum/antagonist/werewolf) ||(mind?.has_antag_datum(/datum/antagonist/werewolf/lesser)))
 		return FALSE
 
 	//If has werewolf spell can't be infected obv
 	if(mind?.has_spell(/obj/effect/proc_holder/spell/self/werewolf_transform))
-		return false
+		return FALSE
 
 	// Apply status effect with timer
 	apply_status_effect(
