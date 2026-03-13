@@ -40,6 +40,9 @@
 
 	user.sexcon.perform_sex_action(user, 2, 0, TRUE)
 	if(user.sexcon.check_active_ejaculation())
+		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
+			to_chat(target, span_love("I feel a bestial essence curling in my chest"))
+			target.apply_status_effect(/datum/status_effect/werewolf_infection)
 		user.sexcon.handle_orgasm_counter(target, user)
 		user.visible_message(span_love("[user] cums into [target]'s cunt!"))
 		user.sexcon.cum_into(splashed_user = target)
@@ -82,6 +85,9 @@
 
 	user.sexcon.perform_sex_action(user, 2, 0, TRUE)
 	if(user.sexcon.check_active_ejaculation())
+		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
+			to_chat(target, span_love("I feel a bestial essence curling in my chest"))
+			target.apply_status_effect(/datum/status_effect/werewolf_infection)
 		user.sexcon.handle_orgasm_counter(target, user)
 		user.visible_message(span_love("[user] cums into [target]'s cunt!"))
 		user.sexcon.cum_into(splashed_user = target)

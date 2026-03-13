@@ -16,7 +16,7 @@
 		"My mind is fraying, who am I?",
 		"I can feel my pulse quickening. I've never felt this angry before.",
 		"There's a strange numbness spreading through my limbs, I'm bleeding but I can't tell where.",
-		"Silver makes my skin grow into hives now."
+		"Silver is an ugly metal."
 	)
 
 /datum/status_effect/werewolf_infection/on_creation(mob/living/new_owner, time_to_transform = 5 MINUTES)
