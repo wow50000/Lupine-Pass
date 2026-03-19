@@ -99,6 +99,8 @@
 
 	var/blood_volume = BLOOD_VOLUME_NORMAL //how much blood the mob has
 
+	var/max_blood_volume = BLOOD_VOLUME_NORMAL //How much blood they have at max
+
 	var/see_override = 0 //0 for no override, sets see_invisible = see_override in silicon & carbon life process via update_sight()
 
 	var/list/status_effects //a list of all status effects the mob has
@@ -140,8 +142,11 @@
 
 	var/ambushable = 0
 
+	// Tracks whether mob is in surrendering state (right-click combat button)
 	var/surrendering = 0
-	var/compliance = 0 // whether we are choosing to auto-resist grabs and stuff
+
+	// Tracks whether mob is in compliance mode (middle-click combat button)
+	var/compliance = 0
 
 	var/defprob = 50 //base chance to defend against this mob's attacks, for simple mob combat
 	var/encumbrance = 0

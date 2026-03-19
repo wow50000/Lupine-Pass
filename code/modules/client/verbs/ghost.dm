@@ -90,7 +90,6 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 		qdel(src)
 	return
 
-
 /client/proc/possess()
 	set category = "Spirit"
 	set name = "Possess Mindless Creature"

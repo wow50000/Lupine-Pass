@@ -29,7 +29,6 @@
 	mob_size = MOB_SIZE_TINY
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/stepped_sound = 'sound/blank.ogg'
-	animal = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/frog/Initialize()
 	. = ..()

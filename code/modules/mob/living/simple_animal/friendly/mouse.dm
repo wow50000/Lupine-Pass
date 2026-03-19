@@ -38,7 +38,6 @@
 	icon_living = "mouse_[body_color]"
 	icon_dead = "mouse_[body_color]_dead"
 
-
 /mob/living/simple_animal/mouse/proc/splat()
 	src.health = 0
 	src.icon_dead = "mouse_[body_color]_splat"
