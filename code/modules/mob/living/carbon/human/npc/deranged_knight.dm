@@ -10,9 +10,12 @@ GLOBAL_LIST_INIT(graggar_aggro, world.file2list("strings/rt/graggaraggrolines.tx
 GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggrolines.txt"))
 
 /mob/living/carbon/human/species/human/northern/deranged_knight
+/*
 	aggressive = TRUE
 	rude = TRUE
-	mode = NPC_AI_IDLE
+*/
+	mode = NPC_AI_OFF
+	ai_controller = /datum/ai_controller/human_npc
 	faction = list("dundead")
 	ambushable = FALSE
 	dodgetime = 30
@@ -52,6 +55,7 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 
 /mob/living/carbon/human/species/human/northern/deranged_knight/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 	is_silent = TRUE
 	var/head = get_bodypart(BODY_ZONE_HEAD)

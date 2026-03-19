@@ -1,9 +1,11 @@
 GLOBAL_LIST_INIT(highwayman_aggro, world.file2list("strings/rt/highwaymanaggrolines.txt"))
 
 /mob/living/carbon/human/species/human/northern/highwayman
+	/*
 	aggressive=1
-	rude = TRUE
-	mode = NPC_AI_IDLE
+	rude = TRUE*/
+	mode = NPC_AI_OFF
+	ai_controller = /datum/ai_controller/human_npc
 	faction = list("viking", "station")
 	ambushable = FALSE
 	dodgetime = 30
@@ -35,6 +37,7 @@ GLOBAL_LIST_INIT(highwayman_aggro, world.file2list("strings/rt/highwaymanaggroli
 
 /mob/living/carbon/human/species/human/northern/highwayman/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	set_species(/datum/species/human/northern)
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 	is_silent = TRUE

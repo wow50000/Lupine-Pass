@@ -19,16 +19,24 @@
 	possible_rmb_intents = list()
 
 /mob/living/carbon/human/species/orc/npc
-	faction = list("orcs", "station")
+	ai_controller = /datum/ai_controller/human_npc
+	faction = list("orcs")
+	canparry = TRUE
+	flee_in_pain = FALSE
+/*
 	aggressive = 1
 	rude = TRUE
 	mode = NPC_AI_IDLE
+*/
+	mode = NPC_AI_OFF
 	wander = FALSE
 	cmode_music = FALSE
 
 /mob/living/carbon/human/species/orc/npc/Initialize()
 	. = ..()
 	set_species(/datum/species/orc)
+	AddComponent(/datum/component/ai_aggro_system)
+//	AddComponent(/datum/component/combat_noise, list("aggro" = 2))
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
 /mob/living/carbon/human/species/orc/npc/after_creation()
