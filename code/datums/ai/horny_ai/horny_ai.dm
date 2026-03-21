@@ -110,6 +110,9 @@
 					if(!L.lying) //i guess if already targeted but got up somehow.
 						L.emote("gasp")
 */
+/* Waiting to see if it can work or not
+					if(L.wear_armor)
+						if(L.wear_armor.flags_inv & HIDECROTCH)*/
 					if(L.wear_pants)
 						if(L.wear_pants.flags_inv & HIDECROTCH && !L.wear_pants.genitalaccess)
 							if(!L.cmode) //pants off if not in cmode
@@ -132,6 +135,9 @@
 						L.grippedby(src)
 						if(src.get_highest_grab_state_on(L) != GRAB_AGGRESSIVE) //Sissyphus joke here. Don't know a better way to make npcs repeat grabbing attempts.
 							return
+					if(src.get_highest_grab_state_on(L) == GRAB_AGGRESSIVE) //Once the Grab is agressive, start putting them down
+
+
 					if(loc == L.loc || Adjacent(L)) //are we at the same tile?
 						var/turf/T = get_turf(L)
 						walk_to(src,T,0,update_movespeed())
@@ -174,7 +180,7 @@
 							if(3) //vaginal
 								current_action = /datum/sex_action/cunnilingus
 					//They wash you assh
-					if(current_action == /datum/sex_action/rimming)
+					if(current_action == /datum/sex_action/rimming && is_species(src, /datum/species/orc))
 						visible_message(span_love("[src] takes out a bar of spa and starts washing [L]'s ass before eating [L.p_their()] out"))
 					sexcon.do_until_finished = TRUE
 					sexcon.target = L
