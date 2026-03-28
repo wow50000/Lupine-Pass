@@ -29,6 +29,9 @@
 
 	user.sexcon.perform_sex_action(target, 2, 3, TRUE)
 	if(target.sexcon.check_active_ejaculation())
+		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
+			to_chat(target, span_love("I feel a bestial essence curling in my chest"))
+			target.apply_status_effect(/datum/status_effect/werewolf_infection)
 		user.sexcon.handle_orgasm_counter(target, user)
 		target.visible_message(span_love("[target] ejaculates into [user]'s mouth!"))
 		target.sexcon.cum_into(oral = TRUE, splashed_user = user)
