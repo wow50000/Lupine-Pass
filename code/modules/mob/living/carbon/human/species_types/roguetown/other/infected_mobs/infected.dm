@@ -1,5 +1,5 @@
 /mob/living/carbon/human/species/infected
-	race = /datum/species/werewolf
+	race = /datum/species/infected
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	var/datum/language_holder/stored_language
 	var/list/stored_skills
@@ -11,7 +11,7 @@
 /mob/living/carbon/human/species/infected/female
 	gender = FEMALE
 
-/datum/species/werewolf
+/datum/species/infected
 	name = "verewolf"
 	id = "werewolf"
 	species_traits = list(NO_UNDERWEAR, NO_ORGAN_FEATURES, NO_BODYPART_FEATURES)
@@ -19,15 +19,13 @@
 		TRAIT_STRONGBITE,
 		TRAIT_ZJUMP,
 		TRAIT_NOFALLDAMAGE1,
-//		TRAIT_INFINITE_STAMINA,
+		TRAIT_INFINITE_STAMINA,
 		TRAIT_BASHDOORS,
 		TRAIT_SHOCKIMMUNE,
 		TRAIT_STEELHEARTED,
 		TRAIT_BREADY,
-		TRAIT_TOXIMMUNE,
 		TRAIT_ORGAN_EATER,
 		TRAIT_NASTY_EATER,
-		TRAIT_NOSTINK,
 		TRAIT_CRITICAL_RESISTANCE,
 		TRAIT_IGNOREDAMAGESLOWDOWN,
 		TRAIT_HARDDISMEMBER, //Decapping Volfs causes them to bug out, badly, and need admin intervention to fix. Bandaid fix.
@@ -36,7 +34,6 @@
 		TRAIT_LONGSTRIDER,
 		TRAIT_NOPAIN,
 		TRAIT_NOPAINSTUN,
-		TRAIT_KNEESTINGER_IMMUNITY,
 	)
 	inherent_biotypes = MOB_HUMANOID
 	armor = 30
@@ -44,48 +41,39 @@
 	nojumpsuit = 1
 	sexes = 1
 	offset_features = list(OFFSET_HANDS = list(0,2), OFFSET_HANDS_F = list(0,2))
-	soundpack_m = /datum/voicepack/werewolf
-	soundpack_f = /datum/voicepack/werewolf
+	soundpack_m = /datum/voicepack/zombie/m
+	soundpack_f = /datum/voicepack/zombie/f
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
 		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
-		ORGAN_SLOT_EYES = /obj/item/organ/eyes/night_vision/werewolf,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes/night_vision/nightmare,
 		ORGAN_SLOT_EARS = /obj/item/organ/ears,
-		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue/wild_tongue,
+		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
 		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
 		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 	)
 
 	languages = list(
-		/datum/language/beast,
+		/datum/language/xenocommon
 	)
 
-/datum/species/werewolf/send_voice(mob/living/carbon/human/H)
+/datum/species/infected/send_voice(mob/living/carbon/human/H)
 	playsound(get_turf(H), pick('sound/vo/mobs/wwolf/wolftalk1.ogg','sound/vo/mobs/wwolf/wolftalk2.ogg'), 100, TRUE, -1)
 
-/datum/species/werewolf/regenerate_icons(mob/living/carbon/human/H)
-	H.icon = 'icons/roguetown/mob/monster/werewolf.dmi'
-	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB)
-	if(H.gender == MALE)
-		if(H.sexcon.arousal >= 20 && H.sexcon.manual_arousal == 1 || H.sexcon.manual_arousal == 4)
-			H.icon_state = "wwolf_m-e"
-		else if(H.sexcon.arousal >= 10 && H.sexcon.manual_arousal == 1 || H.sexcon.manual_arousal == 3)
-			H.icon_state = "wwolf_m-p"
-		else
-			H.icon_state = "wwolf_m"
-	else
-		H.icon_state = "wwolf_f"
-	H.update_damage_overlays()
+/datum/species/infected/regenerate_icons(mob/living/carbon/human/H)
+	H.icon = 'icons/roguetown/mob/monster/infected_mobs.dmi'
+	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
+	H.icon_state = "infected"
 	return TRUE
 
-/datum/species/werewolf/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+/datum/species/infected/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
 	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 
-/datum/species/werewolf/update_damage_overlays(mob/living/carbon/human/H)
+/datum/species/infected/update_damage_overlays(mob/living/carbon/human/H)
 	H.remove_overlay(DAMAGE_LAYER)
 	var/list/hands = list()
 	var/mutable_appearance/inhand_overlay = mutable_appearance("[H.icon_state]-dam", layer=-DAMAGE_LAYER)
@@ -117,5 +105,7 @@
 	H.apply_overlay(DAMAGE_LAYER)
 	return TRUE
 
-/datum/species/werewolf/random_name(gender,unique,lastname)
+/* Not sure if I should have this but commenting it for now
+/datum/species/infected/random_name(gender,unique,lastname)
 	return "VEREWOLF"
+*/

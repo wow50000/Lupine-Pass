@@ -1,5 +1,5 @@
 /datum/language/xenocommon
-	name = "Xenomorph"
+	name = "Infected speak"
 	desc = ""
 	speech_verb = "hisses"
 	ask_verb = "hisses"
