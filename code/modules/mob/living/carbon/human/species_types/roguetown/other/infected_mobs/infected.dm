@@ -1,6 +1,6 @@
 /mob/living/carbon/human/species/infected
 	race = /datum/species/infected
-	footstep_type = FOOTSTEP_MOB_HEAVY
+	footstep_type = FOOTSTEP_MOB_CLAW
 	var/datum/language_holder/stored_language
 	var/list/stored_skills
 	var/list/stored_experience
@@ -12,9 +12,9 @@
 	gender = FEMALE
 
 /datum/species/infected
-	name = "verewolf"
-	id = "werewolf"
-	species_traits = list(NO_UNDERWEAR, NO_ORGAN_FEATURES, NO_BODYPART_FEATURES)
+	name = "Infected Mobs"
+	id = "infected"
+	species_traits = list(NO_UNDERWEAR, NO_ORGAN_FEATURES, NO_BODYPART_FEATURES, NOEYESPRITES)
 	inherent_traits = list(
 		TRAIT_STRONGBITE,
 		TRAIT_ZJUMP,
@@ -28,7 +28,7 @@
 		TRAIT_NASTY_EATER,
 		TRAIT_CRITICAL_RESISTANCE,
 		TRAIT_IGNOREDAMAGESLOWDOWN,
-		TRAIT_HARDDISMEMBER, //Decapping Volfs causes them to bug out, badly, and need admin intervention to fix. Bandaid fix.
+		TRAIT_HARDDISMEMBER, //Necessary for mobs with non modular sprites. Shits fuckd otherwise
 		TRAIT_PIERCEIMMUNE, //Prevents weapon dusting and caltrop effects due to them transforming when killed/stepping on shards.
 		TRAIT_IGNORESLOWDOWN,
 		TRAIT_LONGSTRIDER,
@@ -61,7 +61,7 @@
 	)
 
 /datum/species/infected/send_voice(mob/living/carbon/human/H)
-	playsound(get_turf(H), pick('sound/vo/mobs/wwolf/wolftalk1.ogg','sound/vo/mobs/wwolf/wolftalk2.ogg'), 100, TRUE, -1)
+	playsound(get_turf(H), pick('sound/vo/mobs/spider/speak (1).ogg','sound/vo/mobs/spider/speak (2).ogg', 'sound/vo/mobs/spider/speak (3).ogg', 'sound/vo/mobs/spider/speak (4).ogg'), 100, TRUE, -1)
 
 /datum/species/infected/regenerate_icons(mob/living/carbon/human/H)
 	H.icon = 'icons/roguetown/mob/monster/infected_mobs.dmi'
@@ -73,6 +73,7 @@
 	. = ..()
 	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 
+/* When we get wounded overlays we can put these in, but for now nothing
 /datum/species/infected/update_damage_overlays(mob/living/carbon/human/H)
 	H.remove_overlay(DAMAGE_LAYER)
 	var/list/hands = list()
@@ -104,7 +105,7 @@
 	H.overlays_standing[DAMAGE_LAYER] = hands
 	H.apply_overlay(DAMAGE_LAYER)
 	return TRUE
-
+*/
 /* Not sure if I should have this but commenting it for now
 /datum/species/infected/random_name(gender,unique,lastname)
 	return "VEREWOLF"
