@@ -6,7 +6,7 @@
 	var/message_cooldown_time
 	var/message_cooldown_amount = 20 SECONDS
 	// Doesn't hurt making this a static list.
-	var/static/list/infection_messages = list(
+	var/list/infection_messages = list(
 		"I can feel fur growing underneath my skin.",
 		"My teeth feel sharper than usual, I've almost cut myself on it.",
 		"My loins constantly churn and grow in heat.",

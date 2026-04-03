@@ -12,7 +12,7 @@
 	gender = FEMALE
 
 /datum/species/infected
-	name = "Infected Mobs"
+	name = "Infected"
 	id = "infected"
 	species_traits = list(NO_UNDERWEAR, NO_ORGAN_FEATURES, NO_BODYPART_FEATURES, NOEYESPRITES)
 	inherent_traits = list(
@@ -57,7 +57,7 @@
 	)
 
 	languages = list(
-		/datum/language/xenocommon
+		/datum/language/common
 	)
 
 /datum/species/infected/send_voice(mob/living/carbon/human/H)
@@ -126,7 +126,7 @@
 	max_integrity = 150
 	item_flags = DROPDEL
 
-/*
+
 //Infection Proc, used for specifying transformation stuff.
 /mob/living/carbon/human/proc/infected_transform()
 	if(!mind)
@@ -134,8 +134,8 @@
 		return
 
 	Paralyze(1, ignore_canstun = TRUE)
-	for(var/obj/item/W in src)
-		dropItemToGround(W)
+	for(var/obj/item/i in src)
+		dropItemToGround(i)
 	regenerate_icons()
 	icon = null
 	var/oldinv = invisibility
@@ -143,104 +143,97 @@
 	cmode = FALSE
 	if(client)
 		SSdroning.play_area_sound(get_area(src), client)
-//	stop_cmusic()
 
-//	src.fully_heal(FALSE) Removing this so that you don't have transformation as an easy change
+	src.fully_heal(FALSE)
 
 	var/infected_path
 	if(gender == MALE)
-		infected_path = /mob/living/carbon/human/species/werewolf/male
+		infected_path = /mob/living/carbon/human/species/infected/male
 	else
-		infected_path = /mob/living/carbon/human/species/werewolf/female
+		infected_path = /mob/living/carbon/human/species/infected/female
 
-	var/mob/living/carbon/human/species/werewolf/W = new ww_path(loc)
+	var/mob/living/carbon/human/species/infected/inf = new infected_path(loc)
 
-	W.set_patron(src.patron)
-	W.gender = gender
-	W.regenerate_icons()
-	W.stored_mob = src
-	W.limb_destroyer = TRUE
-	W.ambushable = FALSE
-	W.cmode_music = 'sound/music/cmode/antag/combat_darkstar.ogg'
-	W.skin_armor = new /obj/item/clothing/suit/roguetown/armor/skin_armor/werewolf_skin(W)
-	playsound(W.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
-	W.spawn_gibs(FALSE)
-	src.forceMove(W)
+	inf.set_patron(src.patron)
+	inf.gender = gender
+	inf.regenerate_icons()
+	inf.stored_mob = src
+	inf.limb_destroyer = TRUE
+	inf.ambushable = FALSE
+	inf.cmode_music = 'sound/music/cmode/antag/combat_darkstar.ogg'
+	inf.skin_armor = new /obj/item/clothing/suit/roguetown/armor/skin_armor/infected_carpace(inf)
+	playsound(inf.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
+	inf.spawn_gibs(FALSE)
+	src.forceMove(inf)
 
-	W.after_creation()
-	//Checks if they're a Lesser werewolf or not
-	if(Wereless && !Were)
-		W.real_name = src.real_name
-		W.name = src.name
-/*
-	W.stored_language = new
-	W.stored_language.copy_known_languages_from(src)
-*/
-	W.stored_skills = ensure_skills().known_skills.Copy()
-	W.stored_experience = ensure_skills().skill_experience.Copy()
+	inf.after_creation()
+	inf.real_name = src.real_name
+	inf.name = src.name
 
-	W.cmode_music_override = cmode_music_override
-	W.cmode_music_override_name = cmode_music_override_name
-	mind.transfer_to(W)
+	inf.stored_language = new
+	inf.stored_language.copy_known_languages_from(src)
+
+	inf.stored_skills = ensure_skills().known_skills.Copy()
+	inf.stored_experience = ensure_skills().skill_experience.Copy()
+
+	inf.cmode_music_override = cmode_music_override
+	inf.cmode_music_override_name = cmode_music_override_name
+	mind.transfer_to(inf)
 /*
 	skills?.known_skills = list()
 	skills?.skill_experience = list()
 */
-	W.grant_language(/datum/language/beast)
 
-	W.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
-	W.update_a_intents()
+//	inf.grant_language(/datum/language/aphasia) [Need to make language]
 
-	to_chat(W, span_userdanger("I transform into a horrible beast!"))
-	W.emote("rage")
+	inf.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
+	inf.update_a_intents()
+
+	to_chat(inf, span_userdanger("I SERVE THE HIVE!"))
+	inf.emote("rage")
 
 	if(getorganslot(ORGAN_SLOT_PENIS))
-		W.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/knotted/big
+		inf.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/tentacle
 	if(getorganslot(ORGAN_SLOT_TESTICLES))
-		W.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/testicles
+		inf.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/testicles
 	if(getorganslot(ORGAN_SLOT_BREASTS))
-		W.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/breasts
+		inf.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/breasts
 	if(getorganslot(ORGAN_SLOT_VAGINA))
-		W.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/vagina
+		inf.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/vagina
 
-	W.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-	W.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-	W.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
-	W.adjust_skillrank(/datum/skill/misc/swimming, 5, TRUE)
+	inf.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	inf.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	inf.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
+	inf.adjust_skillrank(/datum/skill/misc/swimming, 5, TRUE)
 
-	W.STASTR = 18
-	W.STAPER = src.STAPER
-	W.STAINT = src.STAINT
-	W.STALUC = src.STALUC
-	W.STASPD = src.STASPD
-	W.STACON = 16
-	W.STAEND = 18
+	inf.STASTR = src.STASTR -2
+	inf.STAPER = src.STAPER +2
+	inf.STAINT = src.STAINT -4
+	inf.STALUC = src.STALUC 
+	inf.STASPD = src.STASPD +4
+	inf.STACON = src.STACON -4
+	inf.STAEND = src.STAEND +4
 
-	W.AddSpell(new /obj/effect/proc_holder/spell/self/howl)
-	W.AddSpell(new /obj/effect/proc_holder/spell/self/claws)
-	W.AddSpell(new /obj/effect/proc_holder/spell/targeted/woundlick)
+//To do, make a changeling like hivemind chat
+	inf.AddSpell(new /obj/effect/proc_holder/spell/self/claws)
+	inf.AddSpell(new /obj/effect/proc_holder/spell/targeted/woundlick)
 
 	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
-//	ADD_TRAIT(W, TRAIT_GRABIMMUNE, TRAIT_GENERIC) // THIS IS THE CORRECT PLACE FOR WEREWOLF TRAITS. GOD. Make it more balanced
-	ADD_TRAIT(W, TRAIT_STRONGBITE, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_ZJUMP, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_BASHDOORS, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_BREADY, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_ORGAN_EATER, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_NASTY_EATER, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_NOSTINK, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_IGNORESLOWDOWN, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_HARDDISMEMBER, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_PIERCEIMMUNE, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_STRONGBITE, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_ZJUMP, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_BASHDOORS, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_BREADY, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_ORGAN_EATER, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_NASTY_EATER, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_NOSTINK, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_IGNORESLOWDOWN, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_HARDDISMEMBER, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_PIERCEIMMUNE, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
+	ADD_TRAIT(inf, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
 
 	invisibility = oldinv
-*/
+

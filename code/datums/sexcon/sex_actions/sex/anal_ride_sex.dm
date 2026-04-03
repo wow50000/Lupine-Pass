@@ -42,8 +42,10 @@
 	user.sexcon.perform_sex_action(target, 2, 4, FALSE)
 	if(target.sexcon.check_active_ejaculation())
 		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
-			to_chat(target, span_love("I feel a bestial essence curling in my chest"))
-			target.apply_status_effect(/datum/status_effect/werewolf_infection)
+			target.attempt_werewolf_infection(user)
+		//checks if they're one of the infected races
+		if(istype(user.dna.species, /datum/species/infected) && target.has_quirk(/datum/quirk/infectable))
+			target.attempt_infected_infection(user)
 		user.sexcon.handle_orgasm_counter(target, user)
 		target.visible_message(span_love("[target] cums into [user]'s butt!"))
 		target.sexcon.cum_into(splashed_user = user)
