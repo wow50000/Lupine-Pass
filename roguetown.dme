@@ -1964,6 +1964,7 @@
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\other\tiefling.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\other\werewolf.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\other\infected_mobs\infected.dm"
+#include "code\modules\mob\living\carbon\human\species_types\roguetown\other\infected_mobs\infected_npcs.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\other\infected_mobs\infected_status_effect.dm"
 #include "code\modules\mob\living\carbon\human\species_types\wildshape\cat.dm"
 #include "code\modules\mob\living\carbon\human\species_types\wildshape\saiga.dm"
