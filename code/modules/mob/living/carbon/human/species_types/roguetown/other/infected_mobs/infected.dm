@@ -1,6 +1,6 @@
 /mob/living/carbon/human/species/infected
 	race = /datum/species/infected
-	footstep_type = FOOTSTEP_MOB_CLAW
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	var/datum/language_holder/stored_language
 	var/list/stored_skills
 	var/list/stored_experience
@@ -126,15 +126,12 @@
 	max_integrity = 150
 	item_flags = DROPDEL
 
-
+/*
 //Infection Proc, used for specifying transformation stuff.
 /mob/living/carbon/human/proc/infected_transform()
 	if(!mind)
 		log_runtime("NO MIND ON [src.name] WHEN TRANSFORMING")
 		return
-
-	var/datum/antagonist/werewolf/Were = src.mind.has_antag_datum(/datum/antagonist/werewolf/)
-	var/datum/antagonist/werewolf/lesser/Wereless = src.mind.has_antag_datum(/datum/antagonist/werewolf/lesser/)
 
 	Paralyze(1, ignore_canstun = TRUE)
 	for(var/obj/item/W in src)
@@ -150,11 +147,11 @@
 
 //	src.fully_heal(FALSE) Removing this so that you don't have transformation as an easy change
 
-	var/ww_path
+	var/infected_path
 	if(gender == MALE)
-		ww_path = /mob/living/carbon/human/species/werewolf/male
+		infected_path = /mob/living/carbon/human/species/werewolf/male
 	else
-		ww_path = /mob/living/carbon/human/species/werewolf/female
+		infected_path = /mob/living/carbon/human/species/werewolf/female
 
 	var/mob/living/carbon/human/species/werewolf/W = new ww_path(loc)
 
@@ -246,3 +243,4 @@
 	ADD_TRAIT(W, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
 
 	invisibility = oldinv
+*/
