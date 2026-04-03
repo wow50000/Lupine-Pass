@@ -11,3 +11,4 @@
 	seeksfuck = TRUE
 	lewd_talk = TRUE
 	attack_speed = 2
+	projectiletype = /obj/projectile/bullet/spider
