@@ -47,6 +47,8 @@
 	if(target.sexcon.check_active_ejaculation())
 		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
 			target.attempt_werewolf_infection(user)
+		if(istype(user.dna.species, /datum/species/infected) && target.has_quirk(/datum/quirk/infectable))
+			target.attempt_infected_infection(user)
 		user.sexcon.handle_orgasm_counter(target, user)
 		target.visible_message(span_love("[target] cums into [user]'s cunt!"))
 		target.sexcon.cum_into(splashed_user = user)

@@ -46,6 +46,8 @@
 		//checks if they're one of the infected races
 		if(istype(user.dna.species, /datum/species/infected) && target.has_quirk(/datum/quirk/infectable))
 			target.attempt_infected_infection(user)
+		if(istype(user.dna.species, /datum/species/infected) && target.has_quirk(/datum/quirk/infectable))
+			target.attempt_infected_infection(user)
 		user.sexcon.handle_orgasm_counter(target, user)
 		target.visible_message(span_love("[target] cums into [user]'s butt!"))
 		target.sexcon.cum_into(splashed_user = user)

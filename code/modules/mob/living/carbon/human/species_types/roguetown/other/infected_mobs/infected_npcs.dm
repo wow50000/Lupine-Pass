@@ -27,13 +27,16 @@
 	ADD_TRAIT(src, TRAIT_INFINITE_ENERGY, TRAIT_GENERIC)
 	give_genitals()
 
-	H.STASTR = RAND(8,15) -2
-	H.STASPD = RAND(10,15) +4
-	H.STACON = RAND(8,12) -4
-	H.STAEND = RAND(5,10) + 4
-	H.STAINT = RAND(1,6)
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+
+
+	STASTR = rand(8,15) -2
+	STASPD = rand(10,15) +4
+	STACON = rand(8,12) -4
+	STAEND = rand(5,10) + 4
+	STAINT = rand(1,6)
+	adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	faction = list("Infected")
 
 /mob/living/carbon/human/species/infected/jizzer/npc 
 	aggressive=1
