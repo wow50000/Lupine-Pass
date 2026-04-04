@@ -16,7 +16,8 @@
 		"My mind is fraying, who am I?",
 		"I can feel my pulse quickening. I've never felt this angry before.",
 		"There's a strange numbness spreading through my limbs, I'm bleeding but I can't tell where.",
-		"DEVOUR EAT DESTROY. JOIN US JOIN US"
+		"DEVOUR EAT DESTROY. JOIN US JOIN US",
+		"RESISTANCE IS FUTILE. \n YOU WILL BE ASSIMILATED INTO THE HIVE"
 	)
 
 /datum/status_effect/werewolf_infection/infected/on_creation(mob/living/new_owner, time_to_transform = 5 MINUTES)
