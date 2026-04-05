@@ -62,7 +62,7 @@
 /mob/living/carbon/human/proc/attempt_infected_infection(mob/living/carbon/human/source)
 	
 	//Tests if they're an infected race or not
-	if(!istype(src.dna.species, /datum/species/infected))
+	if(!istype(dna.species, /datum/species/infected))
 		return FALSE
 
 	// Apply status effect with timer
