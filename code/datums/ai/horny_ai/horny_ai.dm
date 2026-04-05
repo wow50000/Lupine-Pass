@@ -56,7 +56,7 @@
 				continue
 			if(fucktarg.client.prefs.defiant) //If defiant dont get fucked
 				continue
-			if(!fucktarg.surrendering || (src.mobility_flags & MOBILITY_STAND)) 
+			if(!fucktarg.surrendering && (fucktarg.mobility_flags & MOBILITY_STAND)) 
 				continue
 			//If you ain't surrendering or you're not down on the ground. No fucky
 			chasesfuck = TRUE
@@ -140,6 +140,7 @@
 							return
 						else
 							L.AdjustKnockdown(6 SECONDS)
+/*
 					if(src.get_highest_grab_state_on(L) == GRAB_AGGRESSIVE && !(L.mobility_flags & MOBILITY_STAND)) //Once the Grab is agressive, start putting them down
 						//Checks if you're adjacent, not already hand cuffed oh and have more than one arm
 						if(src.Adjacent(L) && L.get_num_arms(TRUE) > 1 && !L.handcuffed)
@@ -161,6 +162,7 @@
 									return
 								else
 									qdel(leg_rope)
+*/
 					if(loc == L.loc || Adjacent(L)) //are we at the same tile?
 						var/turf/T = get_turf(L)
 						walk_to(src,T,0,update_movespeed())
