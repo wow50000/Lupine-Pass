@@ -160,7 +160,7 @@
 	if(sigbitflags & SIG_CHECK_FAIL)
 		return FALSE
 
-	if(!user.Adjacent(target) && !(sigbitflags & SKIP_ADJACENCY_CHECK))
+	if(!user.Adjacent(target) && !user.erpable && !(sigbitflags & SKIP_ADJACENCY_CHECK))
 		return FALSE
 
 	if(!bodypart)
@@ -172,9 +172,6 @@
 
 		if(!same_tile && !grab_bypass)
 			return FALSE
-
-	if(user.erpable) //NPC fucks easy
-		return TRUE
 
 	if(src.require_grab && (user != target || self_target) && !(sigbitflags & SKIP_GRAB_CHECK))
 		var/grabstate = user.get_highest_grab_state_on(target)

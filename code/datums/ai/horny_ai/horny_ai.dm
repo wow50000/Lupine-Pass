@@ -25,6 +25,11 @@
 	var/chasesfuck = FALSE
 	var/seekboredom = 0
 
+	//PLAYER ONLY, This is used to determine if a mob is currently fucking them
+	var/busy_fuck_targ = FALSE
+	//THIS HOWEVER is Mob only, this is to allow seek_lewd's fuck target to be able to be referenced elsewhere
+	var/mob/living/carbon/human/fuck_target
+
 //--------------not so simple mobs ----------------
 //gonna be conversion of the simple mob stuff i made before somehow -videnoir
 //those should not tackle down but only pounce laying mobs.
@@ -62,11 +67,13 @@
 			chasesfuck = TRUE
 			if(lewd_talk)
 				if(gender == MALE)
-					visible_message(span_boldwarning("[src] has his eyes on [fucktarg], cock throbbing!"))
-					say(pick(male_lewdtalk), language = /datum/language/common)
+					if(prob(5))
+						visible_message(span_boldwarning("[src] has his eyes on [fucktarg], cock throbbing!"))
+						say(pick(male_lewdtalk), language = /datum/language/common)
 				else
-					visible_message(span_boldwarning("[src] has her eyes on [fucktarg], cunt dripping!"))
-					say(pick(female_lewdtalk), language = /datum/language/common)
+					if(prob(5))
+						visible_message(span_boldwarning("[src] has her eyes on [fucktarg], cunt dripping!"))
+						say(pick(female_lewdtalk), language = /datum/language/common)
 			break
 	if(chasesfuck) //until fuck is acquired, keep chasing.
 		seekboredom += 1
@@ -93,12 +100,13 @@
 	var/mob/living/carbon/human/L
 	var/list/foundfuckmeat = list()
 	for(var/mob/living/carbon/human/fucktarg in oview(7, src))
-		if(fucktarg.has_quirk(/datum/quirk/monsterhuntermale) || fucktarg.has_quirk(/datum/quirk/monsterhunterfemale))
+		if((fucktarg.has_quirk(/datum/quirk/monsterhuntermale) || fucktarg.has_quirk(/datum/quirk/monsterhunterfemale)))
 			foundfuckmeat += fucktarg
 		if(foundfuckmeat.len)
 			L = pick(foundfuckmeat)
+			fuck_target = L
 			var/turf/Target = get_turf(L)
-			if(loc == Target || Adjacent(Target))
+			if(loc == Target|| Adjacent(Target))
 				if(iscarbon(L))
 					chasesfuck = FALSE
 					STOP_PROCESSING(SShumannpc,src)
@@ -125,18 +133,27 @@
 								thepants.throw_at(orange(2, get_turf(L)), 2, 1, src, TRUE)
 							else if(L.cmode)
 								visible_message(span_danger("[src] manages to tug [L]'s [L.wear_pants.name] out of the way!"))
+					for(var/obj/item/item as anything in L.get_equipped_items(FALSE))
+						if(istype(item, /obj/item/clothing) || istype(item, /obj/item/storage/belt))
+							if(!do_after(src, 1 SECONDS, L))
+								item.take_damage(damage_amount = item.max_integrity * 0.4, sound_effect = FALSE)
+								src.visible_message(span_danger("[src] manages to rip [L]'s [item] off!"))
+								L.dropItemToGround(item)
+								item.throw_at(pick(orange(2, get_turf(L))), 2, 1, src, TRUE)
+								return
+
 					if(aggressive)
 						sexcon.force = SEX_FORCE_MAX
 					if(src.dna.species == /datum/species/orc)
 						sexcon.force = SEX_FORCE_LOW //Orcs are the most gentlest fuckers
 					else
 						sexcon.force = SEX_FORCE_MID
-					if(src.get_highest_grab_state_on(L) != GRAB_AGGRESSIVE) //Try aggrograb the target
+					if((src.get_highest_grab_state_on(L) != GRAB_PASSIVE) && !(L.pulledby)) //Try grab the target but also check if someone else is grabbing it
 						if(src.get_active_held_item())
 							dropItemToGround(src.get_active_held_item())
 						start_pulling(L)
 						L.grippedby(src)
-						if(src.get_highest_grab_state_on(L) != GRAB_AGGRESSIVE) //Sissyphus joke here. Don't know a better way to make npcs repeat grabbing attempts.
+						if((src.get_highest_grab_state_on(L) != GRAB_AGGRESSIVE) && !(L.pulledby)) //Sissyphus joke here. Don't know a better way to make npcs repeat grabbing attempts.
 							return
 						else
 							L.AdjustKnockdown(6 SECONDS)
@@ -163,7 +180,7 @@
 								else
 									qdel(leg_rope)
 */
-					if(loc == L.loc || Adjacent(L)) //are we at the same tile?
+					if(loc != L.loc || !(Adjacent(L))) //are we at the same tile?
 						var/turf/T = get_turf(L)
 						walk_to(src,T,0,update_movespeed())
 					visible_message(span_danger("[src] starts to breed [L]!"))
@@ -174,6 +191,8 @@
 					sexcon.speed = SEX_SPEED_MAX
 					if(gender == MALE)
 						sexcon.manual_arousal = SEX_MANUAL_AROUSAL_MAX
+					if(istype(src.dna.species, /datum/species/infected)) //Infected are quick pumps as I'm told
+						sexcon.set_arousal(90)
 					log_admin("[src] is trying to init sex on [L]")
 					var/current_action = /datum/sex_action/rimming
 					if(gender == FEMALE && L.gender == MALE)
@@ -216,6 +235,7 @@
 
 /mob/living/carbon/human/proc/stoppedfucking(mob/living/carbon/target, timedout = FALSE)
 	//try to bind after sex.
+	target = src.fuck_target
 	if(target && Adjacent(target))
 		if(aggressive && !target.handcuffed && target.lying) //aggro mob, not handcuffed, lying.
 			for(var/obj/item/rope/ropey in held_items)
@@ -234,7 +254,7 @@
 			target.adjustStaminaLoss(25, TRUE)
 			adjustStaminaLoss(25, TRUE)
 	else if(target)
-		walk_away(src, get_turf(loc), 1, 1)
+		walk_away(src, get_turf(target.loc), 1, 1)
 	sexcon.current_action = null
 	chasesfuck = FALSE
 	seekboredom = 0
@@ -248,6 +268,9 @@
 			//if its in combat and unsatisfied by prey slipping off, it will wanna try again. But with some delay so the person can actually get up
 			// and if they are taking turns with multiple seeksfuck mobs around this may help a bit.
 			fuckcd = rand(10,20)
+	//Resetting this shit
+	target.busy_fuck_targ = FALSE
+	src.fuck_target = null
 
 /mob/living/carbon/human/Life()
 	. = ..()
