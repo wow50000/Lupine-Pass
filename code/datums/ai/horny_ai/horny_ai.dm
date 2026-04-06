@@ -123,7 +123,9 @@
 */
 /* Waiting to see if it can work or not
 					if(L.wear_armor)
+
 						if(L.wear_armor.flags_inv & HIDECROTCH)*/
+					
 					if(L.wear_pants)
 						if(L.wear_pants.flags_inv & HIDECROTCH && !L.wear_pants.genitalaccess)
 							if(!L.cmode) //pants off if not in cmode
@@ -141,6 +143,10 @@
 								L.dropItemToGround(item)
 								item.throw_at(pick(orange(2, get_turf(L))), 2, 1, src, TRUE)
 								return
+
+					if(src.wear_pants)
+						var/obj/item/clothing/pants = src.wear_pants
+						src.dropItemToGround(pants)
 
 					if(aggressive)
 						sexcon.force = SEX_FORCE_MAX
