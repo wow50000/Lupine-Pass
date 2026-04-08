@@ -192,14 +192,10 @@
 	to_chat(inf, span_userdanger("I SERVE THE HIVE!"))
 	inf.emote("rage")
 
-	if(getorganslot(ORGAN_SLOT_PENIS))
-		inf.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/tentacle
-	if(getorganslot(ORGAN_SLOT_TESTICLES))
-		inf.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/testicles
-	if(getorganslot(ORGAN_SLOT_BREASTS))
-		inf.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/breasts
-	if(getorganslot(ORGAN_SLOT_VAGINA))
-		inf.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/vagina
+	inf.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/tentacle
+	inf.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/testicles
+	inf.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/breasts
+	inf.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/vagina
 
 	inf.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	inf.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
@@ -234,7 +230,7 @@
 	ADD_TRAIT(inf, TRAIT_PIERCEIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(inf, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 	ADD_TRAIT(inf, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
-	faction = list("Infected")
+	faction |= list("Infected")
 
 	invisibility = oldinv
 
