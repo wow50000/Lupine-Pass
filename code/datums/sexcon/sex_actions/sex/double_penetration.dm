@@ -40,7 +40,7 @@
 
 	user.sexcon.perform_sex_action(user, 3, 0, TRUE)
 	if(user.sexcon.check_active_ejaculation())
-		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
+		if(istype(user.dna.species, /datum/species/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
 			target.attempt_werewolf_infection(user)
 		if(istype(user.dna.species, /datum/species/infected) && target.has_quirk(/datum/quirk/infectable))
 			target.attempt_infected_infection(user)
@@ -86,7 +86,7 @@
 
 	user.sexcon.perform_sex_action(user, 3, 0, TRUE)
 	if(user.sexcon.check_active_ejaculation())
-		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
+		if(istype(user.dna.species, /datum/species/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
 			to_chat(target, span_love("I feel a bestial essence curling in my chest"))
 			target.apply_status_effect(/datum/status_effect/werewolf_infection)
 		user.sexcon.handle_orgasm_counter(target, user)

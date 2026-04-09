@@ -192,10 +192,32 @@
 	to_chat(inf, span_userdanger("I SERVE THE HIVE!"))
 	inf.emote("rage")
 
-	inf.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/tentacle
-	inf.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/testicles
-	inf.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/breasts
-	inf.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/vagina
+	//INSERT THE PART WHERE YOU GET THE GIBLETS
+
+
+	if(!inf.getorganslot(ORGAN_SLOT_TESTICLES))
+		var/obj/item/organ/testicles/testicles = inf.getorganslot(ORGAN_SLOT_TESTICLES)
+		testicles = new /obj/item/organ/testicles
+		testicles.ball_size = MAX_TESTICLES_SIZE
+		testicles.Insert(inf, TRUE)
+
+	if(!inf.getorganslot(ORGAN_SLOT_PENIS))
+		var/obj/item/organ/penis/penis = inf.getorganslot(ORGAN_SLOT_PENIS)
+		penis = new /obj/item/organ/penis/tentacle
+		penis.penis_size = MAX_PENIS_SIZE
+		penis.Insert(inf, TRUE)
+
+	if(!inf.getorganslot(ORGAN_SLOT_BREASTS))
+		var/obj/item/organ/breasts/breasts = inf.getorganslot(ORGAN_SLOT_BREASTS)
+		breasts = new /obj/item/organ/breasts
+		breasts.breast_size = MAX_BREASTS_SIZE
+		breasts.Insert(inf, TRUE)
+
+	if(!inf.getorganslot(ORGAN_SLOT_VAGINA))
+		var/obj/item/organ/vagina/vagina = inf.getorganslot(ORGAN_SLOT_VAGINA)
+		vagina = new /obj/item/organ/vagina
+		vagina.Insert(inf, TRUE)
+
 
 	inf.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	inf.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)

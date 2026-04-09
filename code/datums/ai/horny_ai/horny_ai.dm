@@ -15,9 +15,6 @@
 	var/hornychance = 0
 	///dumdumdumdum, use for not so smart mobs like goblins for dumb horny talk. "I smell a mate."
 	var/lewd_talk = FALSE
-	//Customizable speech for chasing and when starting to seek a mate.
-	var/male_lewdtalk = list("Come here, mate!", "I smell a mate..!", "I'm going to get in you!",  "You will breed with me!")
-	var/female_lewdtalk = list("Come here, mate!", "I smell a mate..!", "I'm going to get you in me!", "You will breed with me!")
 
 	//stuff related to auto sex stuff
 	///Dont touch or change those manually, those are set automatically with the process.
@@ -69,21 +66,17 @@
 				if(gender == MALE)
 					if(prob(5))
 						visible_message(span_boldwarning("[src] has his eyes on [fucktarg], cock throbbing!"))
-						say(pick(male_lewdtalk), language = /datum/language/common)
 				else
 					if(prob(5))
 						visible_message(span_boldwarning("[src] has her eyes on [fucktarg], cunt dripping!"))
-						say(pick(female_lewdtalk), language = /datum/language/common)
 			break
 	if(chasesfuck) //until fuck is acquired, keep chasing.
 		seekboredom += 1
 		if(prob(10) && lewd_talk)
 			if(gender == MALE)
 				visible_message(span_warning("[src] seeks his mate, cock throbbing!"))
-				say(pick(male_lewdtalk), language = /datum/language/common)
 			else
 				visible_message(span_warning("[src] seeks her mate, cunt dripping!"))
-				say(pick(female_lewdtalk), language = /datum/language/common)
 		seeklewd()
 	if(seekboredom > 25) //give up after a while and go dormant again, this should also help them get unstuck.
 		stoppedfucking(timedout = TRUE)

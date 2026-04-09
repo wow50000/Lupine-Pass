@@ -61,6 +61,10 @@
 // Updated proc to use status effect
 /mob/living/carbon/human/proc/attempt_werewolf_infection(mob/living/carbon/human/source)
 
+
+	if(!client)
+		return
+
 	//Source batch of effects makes sure that it's a proper werewolf and not a lesser
 
 	if(source.mind?.has_antag_datum(/datum/antagonist/werewolf/lesser))

@@ -45,7 +45,7 @@
 
 	user.sexcon.perform_sex_action(target, 2, 4, FALSE)
 	if(target.sexcon.check_active_ejaculation())
-		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
+		if(istype(user.dna.species, /datum/species/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
 			target.attempt_werewolf_infection(user)
 		if(istype(user.dna.species, /datum/species/infected) && target.has_quirk(/datum/quirk/infectable))
 			target.attempt_infected_infection(user)

@@ -38,10 +38,9 @@
 	else
 		user.sexcon.perform_sex_action(target, 2.4, 9, TRUE)
 	user.sexcon.handle_passive_ejaculation()
-
 	user.sexcon.perform_sex_action(target, 2, 4, FALSE)
 	if(target.sexcon.check_active_ejaculation())
-		if(user.mind.has_antag_datum(/datum/antagonist/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
+		if(istype(user.dna.species, /datum/species/werewolf) && target.has_quirk(/datum/quirk/kinfolk))
 			target.attempt_werewolf_infection(user)
 		//checks if they're one of the infected races
 		if(istype(user.dna.species, /datum/species/infected) && target.has_quirk(/datum/quirk/infectable))
