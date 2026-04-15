@@ -12,13 +12,19 @@
 /datum/sex_action/anal_sex/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
+	if(user.erpable) // User is a npc, bypasss shit I'm too tired for this
+		return TRUE
 	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_GROIN, TRUE))
+		to_chat(world, "[user]'s groin is not accessible")
 		return FALSE
 	if(!check_location_accessible(user, target, BODY_ZONE_PRECISE_GROIN, TRUE))
+		to_chat(world, "DEBUG: [target]'s groin isn't available")
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))
+		to_chat(world, "DEBUG [user]'s penis does not exist")
 		return FALSE
 	if(!user.sexcon.can_use_penis())
+		to_chat(world, "DEBUG: [user] can't use penis")
 		return
 	return TRUE
 

@@ -98,26 +98,18 @@
 		if(foundfuckmeat.len)
 			L = pick(foundfuckmeat)
 			fuck_target = L
+			//to_chat(world, "Fucktarget is found, It's [fuck_target] for [name]")
 			var/turf/Target = get_turf(L)
 			if(loc == Target|| Adjacent(Target))
 				if(iscarbon(L))
 					chasesfuck = FALSE
+					//to_chat(world, "Chases fuck is turned false for [src.name]")
 					STOP_PROCESSING(SShumannpc,src)
-					mode = NPC_AI_OFF //Modified life.dm to not sleep lewd NPCs with their AI off, this won't cause any issues. Yes, I know this is a crutch.
-/* No more stuns, no forced emote that is associated with the stun.
-					if(L.cmode)
-						L.SetImmobilized(40)
-						L.SetKnockdown(40)
-					else //sneak attacked i guess.
-						L.SetImmobilized(60)
-						L.SetKnockdown(60)
-					if(!L.lying) //i guess if already targeted but got up somehow.
-						L.emote("gasp")
-*/
-/* Waiting to see if it can work or not
-					if(L.wear_armor)
+					
+					if(mode != NPC_AI_OFF)
+						mode = NPC_AI_OFF
 
-						if(L.wear_armor.flags_inv & HIDECROTCH)*/
+					 //Modified life.dm to not sleep lewd NPCs with their AI off, this won't cause any issues. Yes, I know this is a crutch.
 					
 					if(L.wear_pants)
 						if(L.wear_pants.flags_inv & HIDECROTCH && !L.wear_pants.genitalaccess)
@@ -134,7 +126,6 @@
 								item.take_damage(damage_amount = item.max_integrity * 0.4, sound_effect = FALSE)
 								src.visible_message(span_danger("[src] manages to rip [L]'s [item] off!"))
 								L.dropItemToGround(item)
-								item.throw_at(pick(orange(2, get_turf(L))), 2, 1, src, TRUE)
 								return
 
 					if(src.wear_pants)
@@ -143,6 +134,7 @@
 
 					if(aggressive)
 						sexcon.force = SEX_FORCE_MAX
+						//to_chat(world, "Sex Force set to max for [name]")
 					if(src.dna.species == /datum/species/orc)
 						sexcon.force = SEX_FORCE_LOW //Orcs are the most gentlest fuckers
 					else
@@ -190,8 +182,10 @@
 					sexcon.speed = SEX_SPEED_MAX
 					if(gender == MALE)
 						sexcon.manual_arousal = SEX_MANUAL_AROUSAL_MAX
+						visible_message(span_info("[src] has their Sex Arousal set to max"))
 					if(istype(src.dna.species, /datum/species/infected)) //Infected are quick pumps as I'm told
 						sexcon.set_arousal(90)
+						visible_message(span_info("[src] is infected and has their arousal set high"))
 					log_admin("[src] is trying to init sex on [L]")
 					var/current_action = /datum/sex_action/rimming
 					if(gender == FEMALE && L.gender == MALE)
@@ -216,8 +210,8 @@
 								current_action = /datum/sex_action/vaginal_sex
 					if(gender == FEMALE && L.gender == FEMALE)
 						switch(rand(1,3))
-							if(1) //oral
-								current_action = /datum/sex_action/facesitting
+							if(1) //SCISSORING
+								current_action = /datum/sex_action/scissoring
 							if(2) //anal
 								current_action = /datum/sex_action/rimming
 							if(3) //vaginal
@@ -225,12 +219,18 @@
 					//They wash you assh
 					if(current_action == /datum/sex_action/rimming && is_species(src, /datum/species/orc))
 						visible_message(span_love("[src] takes out a bar of spa and starts washing [L]'s ass before eating [L.p_their()] out"))
+					//to_chat(world, span_info("[name]'s current action is [current_action]"))
 					sexcon.do_until_finished = TRUE
 					sexcon.target = L
-					sexcon.try_start_action(current_action)
+					if(!(sexcon.finished_check()) && (sexcon.current_action == null))
+						sexcon.try_start_action(current_action)
 			else
 				var/turf/T = get_turf(L)
 				walk_to(src,T,0,update_movespeed())
+			//I have no fucking idea how to fix this, maybe this'll work?
+			var/randytick = rand(5, 100)
+			sleep(randytick)
+			
 
 /mob/living/carbon/human/proc/stoppedfucking(mob/living/carbon/target, timedout = FALSE)
 	//try to bind after sex.

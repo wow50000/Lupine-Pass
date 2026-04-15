@@ -12,6 +12,8 @@
 	return TRUE
 
 /datum/sex_action/vaginal_sex/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(user.erpable) // User is a npc, bypasss shit I'm too tired for this
+		return TRUE
 	if(user == target)
 		return FALSE
 	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_GROIN, TRUE))
