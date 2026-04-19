@@ -2,12 +2,12 @@
 //MAKE SURE THESE DO NOT MAJORLY IMPACT GAMEPLAY. those should be positive or negative traits.
 
 /datum/quirk/monsterhuntermale
-	name = "Monster Seeker (Males) WARNING NOT YET WORKING"
+	name = "Monster Seeker (Males)"
 	desc = "Allows targeting by specific monsters (such as werewolves, goblins and minotaurs etc.) for something very lewd. May be unfair to you in combat. Male monsters lust for me..."
 	value = 0
 
 /datum/quirk/monsterhunterfemale
-	name = "Monster Seeker (Females) WARNING NOT YET WORKING"
+	name = "Monster Seeker (Females)"
 	desc = "Allows targeting by specific monsters (such as werewolves, goblins and minotaurs etc.) for something very lewd. May be unfair to you in combat. Female monsters lust for me... "
 	value = 0
 
@@ -15,6 +15,10 @@
 	name = "Kinfolk"
 	desc = "Your blood is potentially notable to have latent werewolf blood, be warned sex with a werewolf will result in you turning into a werewolf"
 	value = 0
+
+/datum/quirk/infectable
+	name = "Virulently Vulnerable"
+	desc = "You did not take the proper precautions or are incompatible with either the rituals or alchemical concoctions made to combat against the infective hives that litter these lands. You are capable of being infected and turned into one of the infected. Be warned"
 
 /*
 /datum/quirk/selfawaregeni
