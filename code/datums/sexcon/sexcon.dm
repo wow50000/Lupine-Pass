@@ -1056,22 +1056,22 @@
 				try_stop_current_action()
 				return
 	if(!target.client && !target.erpable)
-		to_chat(world, "DEBUG: [user] isn't Erpable ABORTING")
+		//to_chat(world, "DEBUG: [user] isn't Erpable ABORTING")
 		try_stop_current_action()
 		return
 	if(action_type == current_action)
-		to_chat(world, "DEBUG: [user] selected the same action as current actio , aborting")
+		//to_chat(world, "DEBUG: [user] selected the same action as current actio , aborting")
 		try_stop_current_action()
 		return
 	if(current_action != null)
-		to_chat(world, "DEBUG: [user]'s current action isn't NULL, ABORTING")
+		//to_chat(world, "DEBUG: [user]'s current action isn't NULL, ABORTING")
 		try_stop_current_action()
 		return
 	if(!action_type)
-		to_chat(world, "DEBUG: User [user] has no action type selected")
+		//to_chat(world, "DEBUG: User [user] has no action type selected")
 		return
 	if(!can_perform_action(action_type))
-		to_chat(world, "DEBUG: User [user] is unable to perform action type")
+		//to_chat(world, "DEBUG: User [user] is unable to perform action type")
 		return
 	if(knotted_status)
 		knot_remove()
@@ -1131,14 +1131,14 @@
 
 /datum/sex_controller/proc/can_perform_action(action_type)
 	if(!action_type)
-		to_chat(world, "[user] does not have an action type")
+		//to_chat(world, "[user] does not have an action type")
 		return FALSE
 	var/datum/sex_action/action = SEX_ACTION(action_type)
 	if(!inherent_perform_check(action_type))
-		to_chat(world, "[user] did not succeed in the inherent_perform_check")
+		//to_chat(world, "[user] did not succeed in the inherent_perform_check")
 		return FALSE
 	if(!action.can_perform(user, target))
-		to_chat(world, "[user] did not suceed in the can perform check")
+		//to_chat(world, "[user] did not suceed in the can perform check")
 		return FALSE
 	return TRUE
 
