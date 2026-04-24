@@ -326,10 +326,11 @@ SUBSYSTEM_DEF(ticker)
 	log_game("GAME SETUP: Divide Occupations success")
 
 	CHECK_TICK
-
-	if(!CONFIG_GET(flag/ooc_during_round))
+	var/player_num = 0
+	for(var/client/C in GLOB.clients)
+		player_num++
+	if(!CONFIG_GET(flag/ooc_during_round) &&  (player_num > 25))
 		toggle_ooc(FALSE) // Turn it off
-
 	CHECK_TICK
 	GLOB.start_landmarks_list = shuffle(GLOB.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
 	if(!isrogueworld && !isroguefight)
