@@ -46,37 +46,8 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 //		testing("set [tod]")
 	if(GLOB.todoverride)
 		GLOB.tod = GLOB.todoverride
-	if((GLOB.tod != oldtod) && !GLOB.todoverride && (GLOB.dayspassed>1)) //weather check on tod changes
-		if(!GLOB.forecast)
-			switch(GLOB.tod)
-				if("dawn")
-					if(prob(25))
-						GLOB.forecast = "rain"
-				if("day")
-					if(prob(5))
-						GLOB.forecast = "rain"
-				if("dusk")
-					if(prob(33))
-						GLOB.forecast = "rain"
-				if("night")
-					if(prob(40))
-						GLOB.forecast = "rain"
-
-			if(GLOB.forecast == "rain")
-				var/foundnd
-				if(SSParticleWeather?.runningWeather?.target_trait == PARTICLEWEATHER_RAIN)
-					foundnd = TRUE
-				if(!foundnd)
-					SSParticleWeather?.run_weather(pick(/datum/particle_weather/rain_gentle, /datum/particle_weather/rain_storm))
-		else
-			switch(GLOB.forecast) //end the weather now
-				if("rain")
-					if(GLOB.tod == "day")
-						GLOB.forecast = "rainbow"
-					else
-						GLOB.forecast = null
-				if("rainbow")
-					GLOB.forecast = null
+	if((GLOB.tod != oldtod) && !GLOB.todoverride) //&& (GLOB.dayspassed>1)) //weather check on tod changes, disabled first day weather blockAdd a comment on  line R49Add diff commentMarkdown input:  edit mode selected.WritePreviewAdd a suggestionHeadingBoldItalicQuoteCodeLinkUnordered listNumbered listTask listMentionReferenceMore Formatting tools items 0Saved repliesAdd FilesPaste, drop, or click to add filesCancelCommentStart a review
+		SSParticleWeather.check_forecast(GLOB.tod)
 
 	if(GLOB.tod != oldtod)
 		if(GLOB.tod == "dawn")
@@ -137,6 +108,8 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 		addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
 		var/time_change_tips_random = pick(GLOB.time_change_tips)
 		to_chat(client, span_notice("<b>[time_change_tips_random]</b>"))
+
+
 
 		if(mind.current.construct)//hackslop so golems can do their daily stuff without sleeping
 			if(mind.has_changed_spell)
