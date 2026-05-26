@@ -1,4 +1,5 @@
 /mob/living/carbon/human/species/infected/npc 
+	name = "Common Infected"
 	aggressive=1
 	mode = NPC_AI_IDLE
 	dodgetime = 30 //they can dodge easily, but have a cooldown on it
@@ -18,6 +19,8 @@
 
 /mob/living/carbon/human/species/infected/npc/after_creation()
 	. = ..()
+	name = "common infected"
+	real_name = "common infected"
 	erpable = TRUE
 	seeksfuck = TRUE
 	lewd_talk = TRUE	
