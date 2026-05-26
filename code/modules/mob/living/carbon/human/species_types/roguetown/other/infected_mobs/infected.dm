@@ -1,4 +1,5 @@
 /mob/living/carbon/human/species/infected
+	name = "Common Infected"
 	race = /datum/species/infected
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	var/datum/language_holder/stored_language
@@ -167,8 +168,8 @@
 	src.forceMove(inf)
 
 	inf.after_creation()
-	inf.real_name = src.real_name
-	inf.name = src.name
+	inf.real_name = "Common Infected"
+	inf.name = "Common Infected"
 
 	inf.stored_language = new
 	inf.stored_language.copy_known_languages_from(src)
