@@ -7,7 +7,8 @@
 	var/list/stored_experience
 
 /mob/living/carbon/human/species/infected/male
-	gender = MALE
+	//They're all futas
+	gender = FEMALE
 
 /mob/living/carbon/human/species/infected/female
 	gender = FEMALE
