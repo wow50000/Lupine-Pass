@@ -48,7 +48,7 @@
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/leaves
 
-	warning_message = span_greenannounce("Heavy winds blow in through the forests across the realm.")Add a comment on  line R49Add diff commentMarkdown input:  edit mode selected.WritePreviewAdd a suggestionHeadingBoldItalicQuoteCodeLinkUnordered listNumbered listTask listMentionReferenceMore Formatting tools items 0Saved repliesAdd FilesPaste, drop, or click to add filesCancelCommentStart a review
+	warning_message = span_greenannounce("Heavy winds blow in through the forests across the realm.")
 	late_warning_message = span_greenannounce("A sudden gust scatters leaves wildly through the air.")
 	scale_vol_with_severity = TRUE
 
