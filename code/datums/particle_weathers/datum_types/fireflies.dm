@@ -39,4 +39,4 @@
 		return
 	if(ishuman(L))
 		var/mob/living/carbon/human/M = L
-		M.add_stress(/datum/stressevent/fireflies)
+		M.add_stress(/datum/stressevent/fireflies)	
