@@ -159,7 +159,7 @@
 	icon_state = "atgervi_shaman_gloves"
 	item_state = "atergvi_shaman_gloves"
 
-	cold_protection = HAND_LEFT | HAND_RIGHT
+	cold_protection = HAND_LEFT | HAND_RI	GHT
 	min_cold_protection_temperature = BODYTEMP_COLD_LEVEL_ONE_MAX
 	heat_protection = null
 	max_heat_protection_temperature = BODYTEMP_NORMAL_MAX
