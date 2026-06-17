@@ -1388,6 +1388,17 @@
 	desc = "Some good loving has left me feeling very fortunate."
 	icon_state = "stressg"
 
+/atom/movable/screen/alert/status_effect/buff/healing/campfire
+	name = "Warming Respite"
+	desc = "The warmth of a fire soothes my ails."
+	icon_state = "campfire"
+
+/datum/status_effect/buff/healing/campfire
+	id = "healing_campfire"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/healing/campfire
+	examine_text = null
+	duration = 10 SECONDS
+
 /atom/movable/screen/alert/status_effect/buff/campfire_stamina
 	name = "Camp Rest"
 	desc = "A break by the fire restores some of my energy."

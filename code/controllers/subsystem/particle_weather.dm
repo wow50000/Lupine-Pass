@@ -45,15 +45,14 @@ SUBSYSTEM_DEF(ParticleWeather)
 			selected_forecast = new /datum/forecast/rockhill()
 		if("Dun World")
 			selected_forecast = new /datum/forecast/dunworld()
-
+/*
 		if("Desert Town")//placeholder, update with desertmap
-			selected_forecast = new /datum/forecast/alashur()
+			selected_forecast = new /datum/forecast/alashur()*/
 		else
 			selected_forecast = new /datum/forecast/rockhill()	//Default to rockhill if no configs match so we have some weather
 	return ..()
 
 /datum/controller/subsystem/ParticleWeather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0, color)
-	if(runningWeather)
 	if(runningWeather || queued_weather)
 		if(!force)
 			return
