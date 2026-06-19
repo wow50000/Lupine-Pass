@@ -187,7 +187,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/town/basement)
 "adV" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/purple,
@@ -687,7 +687,7 @@
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
 "auX" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/carpet/lord/left,
@@ -5008,7 +5008,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "dpq" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -5999,7 +5999,7 @@
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town/shop)
 "dYs" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/tile/masonic/inverted,
@@ -6483,7 +6483,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "ett" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/carpet,
@@ -8372,7 +8372,7 @@
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
 "fMA" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/wood,
@@ -8781,7 +8781,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "gdr" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/red,
@@ -9359,7 +9359,7 @@
 /area/rogue/indoors/shelter/woods)
 "gAL" = (
 /obj/structure/table/wood/fancy/black,
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 33
 	},
 /obj/item/clothing/cloak/martyr,
@@ -9555,7 +9555,7 @@
 "gJj" = (
 /obj/structure/closet/crate/drawer/random,
 /obj/machinery/light/rogue/candle/l,
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -10281,7 +10281,7 @@
 	},
 /area/rogue/indoors/town/church/chapel)
 "hkC" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood/chevron,
@@ -10987,7 +10987,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
 "hMV" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/wood,
@@ -11192,7 +11192,7 @@
 /turf/open/floor/rogue/snow,
 /area/rogue/outdoors/mountains)
 "hWB" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -12646,7 +12646,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/roofs/keep)
 "iZA" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
@@ -15678,7 +15678,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/shop)
 "lbj" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -16249,7 +16249,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "lsF" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -18335,7 +18335,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/exposed/town/keep)
 "mQa" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/red,
@@ -18527,7 +18527,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "mXR" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/red,
@@ -18608,7 +18608,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/bath)
 "naU" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -18787,7 +18787,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach)
 "nih" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -18894,7 +18894,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/rtfield)
 "nlw" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 33
 	},
 /turf/open/floor/rogue/wood,
@@ -24179,7 +24179,7 @@
 	},
 /area/rogue/indoors/town/physician)
 "qWl" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/wood,
@@ -25663,7 +25663,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "rWT" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
@@ -29691,7 +29691,7 @@
 	},
 /area/rogue/indoors/town)
 "uLy" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/twig,
@@ -30880,7 +30880,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield)
 "vNp" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 16;
 	pixel_y = 32
 	},
@@ -31051,7 +31051,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "vXe" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
@@ -32059,7 +32059,7 @@
 	},
 /area/rogue/outdoors/town)
 "wDI" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 16;
 	pixel_y = 32
 	},
@@ -34102,7 +34102,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/roofs)
 "xOO" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -34421,7 +34421,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/town/cell)
 "xZC" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,

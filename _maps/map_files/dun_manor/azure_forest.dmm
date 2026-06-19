@@ -941,7 +941,7 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/woods)
 "hJ" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -1752,7 +1752,7 @@
 /area/rogue/indoors/shelter/woods)
 "oc" = (
 /mob/living/carbon/human/species/skeleton/npc/easy,
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -5206,7 +5206,7 @@
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "QM" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -6046,7 +6046,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/shelter/woods)
 "Xp" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /obj/structure/table/wood{

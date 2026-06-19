@@ -1735,7 +1735,7 @@
 	pixel_x = 8;
 	pixel_y = -3
 	},
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -4313,7 +4313,7 @@
 /turf/open/water/ocean/deep,
 /area/rogue/outdoors/beach)
 "Cu" = (
-/obj/machinery/light/rogue/wallfire,
+/obj/machinery/light/rogue/campfire/fireplace,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave/mazedungeon)
 "Cx" = (

@@ -836,7 +836,7 @@
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/outdoors/mountains/decap/stepbelow)
 "lg" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/blocks,
@@ -2430,7 +2430,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/goblinfort)
 "Fq" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,

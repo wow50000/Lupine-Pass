@@ -223,7 +223,7 @@
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors)
 "bG" = (
-/obj/machinery/light/rogue/wallfire,
+/obj/machinery/light/rogue/campfire/fireplace,
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors)
 "bH" = (

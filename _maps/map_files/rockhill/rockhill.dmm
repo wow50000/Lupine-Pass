@@ -1465,7 +1465,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
 "aAV" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -4354,7 +4354,7 @@
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "dGl" = (
-/obj/machinery/light/rogue/wallfire,
+/obj/machinery/light/rogue/campfire/fireplace,
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/indoors/town/manor)
 "dGp" = (
@@ -5973,7 +5973,7 @@
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/outdoors/beach)
 "fsn" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/woodturned,
@@ -7451,7 +7451,7 @@
 	},
 /area/rogue/indoors/town/magician)
 "gZu" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 32
 	},
 /obj/effect/decal/cobbleedge{
@@ -14406,7 +14406,7 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor)
 "oPN" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/wood,
@@ -15770,7 +15770,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cavewet/bogcaves)
 "qtV" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/wood,
@@ -18019,7 +18019,7 @@
 /turf/open/floor/rogue/metal,
 /area/rogue/indoors/town/shop)
 "sVL" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
@@ -20570,7 +20570,7 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/bath)
 "vIY" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/wood,
@@ -20682,7 +20682,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
 "vPY" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/tile,
@@ -21082,7 +21082,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/rtfield)
 "wmK" = (
-/obj/machinery/light/rogue/wallfire{
+/obj/machinery/light/rogue/campfire/fireplace{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/ruinedwood{
