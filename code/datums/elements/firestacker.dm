@@ -256,7 +256,7 @@
 	if(stacks <= 0 || !on_fire)
 		return
 
-	var/mutable_appearance/created_overlay = owner.get_fire_overlay(stacks, on_fire)
+	var/mutable_appearance/created_overlay = owner.update_fire()
 	if(isnull(created_overlay))
 		return
 
