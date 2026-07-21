@@ -305,7 +305,7 @@ There are several things that need to be remembered:
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
-
+//Found some digitigrade stuff things to work on
 /mob/living/carbon/human/update_inv_w_uniform()
 	return
 /*
