@@ -42,6 +42,13 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.virginity = TRUE
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
+
+
+/datum/quirk/digi_legs
+	name = "Digitigrade Legs"
+	desc = "(TESTING) Allows for your legs to be swapped with Digitigrade ones"
+	
+
 /*
 /datum/quirk/resident
 	name = "Resident"

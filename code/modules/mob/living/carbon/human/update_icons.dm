@@ -1816,11 +1816,8 @@ generate/load female uniform sprites matching all previously decided variables
 			. += "organic"
 		else
 			. += "robotic"
-		switch(BP.use_digitigrade)
-			if(FULL_DIGITIGRADE)
-				. += "digitigrade_full"
-			if(SQUISHED_DIGITIGRADE)
-				. += "digitigrade_squashed"
+		if(BP.use_digitigrade == TRUE)
+			. += "digitigrade"
 		if(BP.rotted)
 			. += "rotted"
 		if(BP.skeletonized)
