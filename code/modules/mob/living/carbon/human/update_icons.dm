@@ -1378,10 +1378,11 @@ There are several things that need to be remembered:
 			//add sleeve overlays, then offset
 			var/list/sleeves = list()
 			var/femw = ((gender == FEMALE && !dna.species.use_m) || dna.species.use_f) ? "_f" : ""
+			var/digi = (DIGITIGRADE in dna.species.species_traits) ? "_digi" : "" //FOr digi legs
 			if(wear_pants.sleeved && legsindex > 0 && wear_pants.adjustable != CADJUSTED)
 				sleeves = get_sleeves_layer(wear_pants,legsindex,LEGSLEEVE_LAYER)
 			if(wear_pants.adjustable == CADJUSTED)
-				var/mutable_appearance/overleg = mutable_appearance(wear_pants.mob_overlay_icon, "[wear_pants.icon_state][femw][racecustom ? "_[racecustom]" : ""]", -LEGSLEEVE_LAYER)
+				var/mutable_appearance/overleg = mutable_appearance(wear_pants.mob_overlay_icon, "[wear_pants.icon_state][femw][racecustom ? "_[racecustom]" : ""][digi]", -LEGSLEEVE_LAYER)
 				sleeves += overleg
 			if(sleeves)
 				for(var/X in sleeves)
