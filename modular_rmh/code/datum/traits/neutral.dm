@@ -54,12 +54,15 @@
 	var/mob/living/carbon/human/C = quirk_holder
 	C.dna.species.species_traits += DIGITIGRADE
 	C.Digitigrade_Leg_Swap(FALSE)
+	C.update_body()
+	C.regenerate_icons()
 
 /datum/quirk/digi_legs/remove()
 	var/mob/living/carbon/human/C = quirk_holder
 	C.dna.species.species_traits -= DIGITIGRADE
 	C.Digitigrade_Leg_Swap(TRUE)
-
+	C.update_body()
+	C.regenerate_icons()
 
 /*
 /datum/quirk/resident
