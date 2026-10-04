@@ -5,8 +5,8 @@
 
 /datum/species/infected/commander/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
-	C.AddSpell() //Buffs all Infected around them.
-	C.AddSpell() //Specifically debuffs one specific person
+	C.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/buff_infected) //Buffs all Infected around them.
+	C.AddSpell(new /obj/effect/proc_holder/spell/invoked/commander_curse) //Specifically debuffs one specific person
 	C.AddSpell(new /obj/effect/proc_holder/spell/invoked/summon_infected) //Summons more infected to the field
 
 
@@ -143,6 +143,6 @@
 	ADD_TRAIT(inf, TRAIT_PIERCEIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(inf, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 	ADD_TRAIT(inf, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
-	faction = list("Infected")
+	inf.mind.current.faction += "Infected"
 
 	invisibility = oldinv
