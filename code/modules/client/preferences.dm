@@ -913,9 +913,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				var/available_in_days = job.available_in_days(user.client)
 				HTML += "[used_name]</td> <td><font color=red> \[IN [(available_in_days)] DAYS\]</font></td></tr>"
 				continue
-			if(!job.required && !isnull(job.min_pq) && (get_playerquality(user.ckey) < job.min_pq))
+			/*if(!job.required && !isnull(job.min_pq) && (get_playerquality(user.ckey) < job.min_pq)) //Temporarily disable PQ Requirements
 				HTML += "<font color=#a59461>[used_name] (Min PQ: [job.min_pq])</font></td> <td> </td></tr>"
-				continue
+				continue*/
 			if(!job.required && !isnull(job.max_pq) && (get_playerquality(user.ckey) > job.max_pq))
 				HTML += "<font color=#a59461>[used_name] (Max PQ: [job.max_pq])</font></td> <td> </td></tr>"
 				continue
@@ -1123,7 +1123,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		if(1)
 			jpval = JP_HIGH
 
-	if(job.required && !isnull(job.min_pq) && (get_playerquality(user.ckey) < job.min_pq))
+	if(/*job.required && !isnull(job.min_pq) && (get_playerquality(user.ckey) < job.min_pq)*/ FALSE) //Temporarily disable PQ requirements
 		if(job_preferences[job.title] == JP_LOW)
 			jpval = null
 		else
